@@ -23,8 +23,10 @@ struct ChecklistRow: View {
             .padding(.vertical, 2)
         }
         .buttonStyle(.plain)
+        .sensoryFeedback(.selection, trigger: isChecked)
         .accessibilityLabel(text)
         .accessibilityValue(isChecked ? "Checked" : "Not checked")
+        .accessibilityAddTraits(isChecked ? .isSelected : [])
         .accessibilityHint("Toggles this equipment item")
     }
 }

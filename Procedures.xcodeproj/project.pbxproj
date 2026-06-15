@@ -20,7 +20,6 @@
 		ECF59648B12840F78DBE7AAD /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B819C919EE4D2797D8FBA7 /* EmptyStateView.swift */; };
 		CC94070492474B6EBF6DD38E /* ProcedureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA73F6A3DD4C6599CF0094 /* ProcedureListView.swift */; };
 		489861521A8E4EE8B8A92E0F /* ProcedureDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44016AEFAE5E48D48C84BAE1 /* ProcedureDetailView.swift */; };
-		71FC4CEC31444019BEDCC57F /* ShiftModeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607C44DDE50344849BBBDAC1 /* ShiftModeHomeView.swift */; };
 		C637CD5B4F7C4AE4ADE9E581 /* EquipmentHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E9D92490F346AC94F36B69 /* EquipmentHomeView.swift */; };
 		881D5EC5F8154B77BBCE9542 /* ComplicationsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF198A70EE348B5AF64D291 /* ComplicationsHomeView.swift */; };
 		958492D1300C4EEC9CE1FAEA /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5529C4505C4F41A4A01806 /* SavedView.swift */; };
@@ -47,7 +46,6 @@
 		60B819C919EE4D2797D8FBA7 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/EmptyStateView.swift; sourceTree = "<group>"; };
 		14AA73F6A3DD4C6599CF0094 /* ProcedureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/ProcedureListView.swift; sourceTree = "<group>"; };
 		44016AEFAE5E48D48C84BAE1 /* ProcedureDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/ProcedureDetailView.swift; sourceTree = "<group>"; };
-		607C44DDE50344849BBBDAC1 /* ShiftModeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/ShiftMode/ShiftModeHomeView.swift; sourceTree = "<group>"; };
 		B7E9D92490F346AC94F36B69 /* EquipmentHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Equipment/EquipmentHomeView.swift; sourceTree = "<group>"; };
 		EFF198A70EE348B5AF64D291 /* ComplicationsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Complications/ComplicationsHomeView.swift; sourceTree = "<group>"; };
 		CA5529C4505C4F41A4A01806 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Saved/SavedView.swift; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 			A22222222222222222222222 /* GuideHomeView.swift */,
 			14AA73F6A3DD4C6599CF0094 /* ProcedureListView.swift */,
 			44016AEFAE5E48D48C84BAE1 /* ProcedureDetailView.swift */,
-			607C44DDE50344849BBBDAC1 /* ShiftModeHomeView.swift */,
 			B7E9D92490F346AC94F36B69 /* EquipmentHomeView.swift */,
 			EFF198A70EE348B5AF64D291 /* ComplicationsHomeView.swift */,
 			CA5529C4505C4F41A4A01806 /* SavedView.swift */,
@@ -157,7 +154,6 @@
 			A11111111111111111111111 /* source */,
 			CC94070492474B6EBF6DD38E /* source */,
 			489861521A8E4EE8B8A92E0F /* source */,
-			71FC4CEC31444019BEDCC57F /* source */,
 			C637CD5B4F7C4AE4ADE9E581 /* source */,
 			881D5EC5F8154B77BBCE9542 /* source */,
 			958492D1300C4EEC9CE1FAEA /* source */,

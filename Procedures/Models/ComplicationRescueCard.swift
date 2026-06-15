@@ -23,15 +23,20 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
     let references: [String]
 
     func matches(_ query: String) -> Bool {
-        let normalized = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        guard !normalized.isEmpty else { return true }
+        let tokens = ClinicalSynonyms.tokens(in: query)
+        guard !tokens.isEmpty else { return true }
 
-        let expandedTerms = Self.normalizedSearchTerms(from: normalized)
         let haystack = searchFields()
             .joined(separator: " ")
             .lowercased()
 
-        return expandedTerms.allSatisfy { haystack.contains($0) }
+        // AND across the words the clinician typed, OR within each word's
+        // synonym group. A token counts as present if the card contains the
+        // token itself or any of its synonyms — so "ETT" matches an airway
+        // card via "intubation" instead of demanding all five expansions.
+        return tokens.allSatisfy { token in
+            ClinicalSynonyms.group(for: token).contains { haystack.contains($0) }
+        }
     }
 
     private func searchFields() -> [RescueCardSearchField] {
@@ -49,36 +54,6 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
         fields.append(contentsOf: tags)
         fields.append(contentsOf: references)
         return fields
-    }
-
-    private static func normalizedSearchTerms(from query: String) -> [String] {
-        var terms = query
-            .split { $0.isWhitespace || $0 == "," || $0 == ";" || $0 == "/" }
-            .map(String.init)
-
-        let synonyms: [String: [String]] = [
-            "ett": ["endotracheal", "intubation", "airway", "tube"],
-            "rsi": ["rapid", "sequence", "intubation", "airway"],
-            "cvc": ["central", "venous", "catheter", "arterial"],
-            "ij": ["internal", "jugular", "neck", "arterial"],
-            "wire": ["guidewire", "seldinger", "lost"],
-            "pacer": ["transvenous", "pacemaker", "capture", "bradycardia"],
-            "tvp": ["transvenous", "pacemaker", "capture"],
-            "hypotension": ["shock", "pressor", "blood", "pressure"],
-            "apnea": ["sedation", "hypoxia", "ventilation", "bvm"],
-            "cric": ["failed", "airway", "front", "neck"],
-            "last": ["local", "anesthetic", "toxicity", "lipid"],
-            "chest": ["thoracic", "tube", "pneumothorax"],
-            "tube": ["endotracheal", "intubation", "thoracostomy", "chest"]
-        ]
-
-        for term in terms {
-            if let matches = synonyms[term] {
-                terms.append(contentsOf: matches)
-            }
-        }
-
-        return Array(Set(terms.filter { !$0.isEmpty }))
     }
 }
 

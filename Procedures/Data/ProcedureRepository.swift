@@ -2,6 +2,61 @@ import Foundation
 
 private typealias SearchableField = (text: String, weight: Int)
 
+/// Single source of truth for clinical shorthand expansion. Both the procedure
+/// scorer and the rescue-card matcher read from this map so the two search
+/// surfaces can never drift apart (they previously kept separate, divergent
+/// copies). Keys are lowercased shorthand; values are related terms.
+enum ClinicalSynonyms {
+    static let expansions: [String: [String]] = [
+        "ett": ["endotracheal", "intubation", "airway", "tube"],
+        "tube": ["endotracheal", "intubation", "chest", "thoracostomy"],
+        "rsi": ["rapid", "sequence", "intubation", "airway"],
+        "line": ["central", "catheter", "vascular", "access"],
+        "cvc": ["central", "venous", "catheter", "arterial"],
+        "ij": ["internal", "jugular", "central", "neck", "arterial"],
+        "cordis": ["introducer", "mac", "central"],
+        "vascath": ["dialysis", "catheter", "vas", "cath"],
+        "vas": ["dialysis", "catheter"],
+        "wire": ["guidewire", "seldinger", "lost"],
+        "pacer": ["transvenous", "pacemaker", "capture", "bradycardia"],
+        "tvp": ["transvenous", "pacemaker", "capture"],
+        "block": ["nerve", "anesthesia", "digital"],
+        "finger": ["digital", "nerve", "block"],
+        "lac": ["laceration", "suture", "repair"],
+        "cric": ["cricothyrotomy", "surgical", "airway", "front", "neck", "failed"],
+        "chesttube": ["chest", "tube", "thoracostomy", "pneumothorax"],
+        "pigtail": ["catheter", "thoracic", "pleural", "pneumothorax", "effusion"],
+        "needle": ["decompression", "tension", "pneumothorax"],
+        "ptx": ["pneumothorax", "tension", "chest", "thoracostomy"],
+        "pericardial": ["pericardiocentesis", "tamponade", "cardiac"],
+        "tamponade": ["pericardiocentesis", "pericardial", "cardiac", "effusion"],
+        "sedation": ["procedural", "ketamine", "propofol", "apnea"],
+        "lp": ["lumbar", "puncture", "csf", "meningitis"],
+        "visual": ["landmark", "probe", "danger", "confirmation"],
+        "probe": ["ultrasound", "landmark", "visual"],
+        "hypotension": ["shock", "pressor", "blood", "pressure"],
+        "apnea": ["sedation", "hypoxia", "ventilation", "bvm"],
+        "last": ["local", "anesthetic", "toxicity", "lipid"],
+        "chest": ["thoracic", "tube", "pneumothorax"]
+    ]
+
+    /// Splits a raw query into normalized, lowercased tokens.
+    static func tokens(in query: String) -> [String] {
+        query
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+            .split { $0.isWhitespace || $0 == "," || $0 == ";" || $0 == "/" }
+            .map(String.init)
+            .filter { !$0.isEmpty }
+    }
+
+    /// A token together with its synonyms — the OR-group that satisfies that
+    /// token. Matching any one member counts the token as present.
+    static func group(for token: String) -> [String] {
+        [token] + (expansions[token] ?? [])
+    }
+}
+
 @MainActor
 final class ProcedureRepository: ObservableObject {
     @Published private(set) var procedures: [Procedure] = []
@@ -79,46 +134,16 @@ final class ProcedureRepository: ObservableObject {
     }
 
     private func normalizedSearchTerms(from query: String) -> [String] {
-        let lowercased = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        guard !lowercased.isEmpty else { return [] }
+        let tokens = ClinicalSynonyms.tokens(in: query)
+        guard !tokens.isEmpty else { return [] }
 
-        var terms = lowercased
-            .split { $0.isWhitespace || $0 == "," || $0 == ";" || $0 == "/" }
-            .map(String.init)
-
-        let synonyms: [String: [String]] = [
-            "ett": ["endotracheal", "intubation", "airway", "tube"],
-            "tube": ["endotracheal", "intubation", "chest", "thoracostomy"],
-            "rsi": ["rapid", "sequence", "intubation", "airway"],
-            "line": ["central", "catheter", "vascular", "access"],
-            "cvc": ["central", "venous", "catheter"],
-            "ij": ["internal", "jugular", "central"],
-            "cordis": ["introducer", "mac", "central"],
-            "vascath": ["dialysis", "catheter", "vas", "cath"],
-            "vas": ["dialysis", "catheter"],
-            "pacer": ["transvenous", "pacemaker", "capture"],
-            "tvp": ["transvenous", "pacemaker", "capture"],
-            "block": ["nerve", "anesthesia", "digital"],
-            "finger": ["digital", "nerve", "block"],
-            "lac": ["laceration", "suture", "repair"],
-            "cric": ["cricothyrotomy", "surgical", "airway", "front", "neck"],
-            "chesttube": ["chest", "tube", "thoracostomy", "pneumothorax"],
-            "pigtail": ["catheter", "thoracic", "pleural", "pneumothorax", "effusion"],
-            "needle": ["decompression", "tension", "pneumothorax"],
-            "pericardial": ["pericardiocentesis", "tamponade", "cardiac"],
-            "sedation": ["procedural", "ketamine", "propofol", "apnea"],
-            "lp": ["lumbar", "puncture", "csf", "meningitis"],
-            "visual": ["landmark", "probe", "danger", "confirmation"],
-            "probe": ["ultrasound", "landmark", "visual"]
-        ]
-
-        for term in terms {
-            if let matches = synonyms[term] {
-                terms.append(contentsOf: matches)
-            }
+        // Scoring is OR-based: every token and its synonyms contribute, so a
+        // flat expanded set is exactly what the scorer needs.
+        var terms = tokens
+        for token in tokens {
+            terms.append(contentsOf: ClinicalSynonyms.expansions[token] ?? [])
         }
-
-        return Array(Set(terms.filter { !$0.isEmpty }))
+        return Array(Set(terms))
     }
 
     private func score(for procedure: Procedure, matching terms: [String]) -> Int {

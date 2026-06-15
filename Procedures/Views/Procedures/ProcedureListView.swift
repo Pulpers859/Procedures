@@ -24,7 +24,6 @@ struct ProcedureListView: View {
                     List {
                         if searchText.isEmpty {
                             quickAccessSection
-                            governanceSection
                         }
 
                         Section(searchText.isEmpty ? "All Procedures" : "Search Results") {
@@ -78,27 +77,6 @@ struct ProcedureListView: View {
                     }
                 }
                 .padding(.vertical, 4)
-            }
-        }
-    }
-
-    private var governanceSection: some View {
-        Section("Content Health") {
-            NavigationLink {
-                ContentHealthView()
-            } label: {
-                HStack {
-                    Label("\(repository.procedures.count) procedures loaded", systemImage: "checkmark.seal")
-                    Spacer()
-                    if repository.contentIssues.isEmpty {
-                        Text("Clean")
-                            .foregroundStyle(.secondary)
-                    } else {
-                        Text("\(repository.contentIssues.count) issues")
-                            .foregroundStyle(.orange)
-                    }
-                }
-                .font(.subheadline)
             }
         }
     }

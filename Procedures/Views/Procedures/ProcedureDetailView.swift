@@ -33,6 +33,7 @@ struct ProcedureDetailView: View {
             }
             .accessibilityLabel(userData.isFavorite(procedure) ? "Remove favorite" : "Add favorite")
         }
+        .sensoryFeedback(.impact(weight: .light), trigger: userData.isFavorite(procedure))
         .onAppear {
             userData.markRecentlyViewed(procedure)
             noteText = userData.note(for: procedure)
@@ -90,10 +91,12 @@ struct ProcedureDetailView: View {
                             .background(selectedSection == section ? Color.blue : Color(.secondarySystemGroupedBackground), in: Capsule())
                     }
                     .buttonStyle(.plain)
+                    .accessibilityAddTraits(selectedSection == section ? .isSelected : [])
                 }
             }
             .padding(.vertical, 2)
         }
+        .sensoryFeedback(.selection, trigger: selectedSection)
         .accessibilityLabel("Procedure sections")
     }
 
