@@ -1,0 +1,71 @@
+import Foundation
+
+struct Procedure: Identifiable, Codable, Hashable {
+    let id: String
+    let title: String
+    let category: ProcedureCategory
+    let difficulty: ProcedureDifficulty
+    let reviewTime: String
+    let setting: [ProcedureSetting]
+    let lastReviewed: String
+    let version: String
+    let tags: [String]
+    let sections: ProcedureSections
+}
+
+struct ProcedureSections: Codable, Hashable {
+    let shiftMode: [String]
+    let indications: [String]
+    let contraindications: [String]
+    let anatomy: [String]
+    let equipment: [String]
+    let positioning: [String]
+    let steps: [String]
+    let ultrasound: [String]
+    let confirmation: [String]
+    let troubleshooting: [String]
+    let complications: [String]
+    let aftercare: [String]
+    let documentation: [String]
+    let seniorPearls: [String]
+    let references: [String]
+}
+
+enum ProcedureCategory: String, Codable, CaseIterable, Identifiable {
+    case airway = "Airway"
+    case vascularAccess = "Vascular Access"
+    case thoracic = "Thoracic"
+    case cardiacResuscitation = "Cardiac / Resuscitation"
+    case neuro = "Neuro"
+    case regionalAnesthesia = "Regional Anesthesia"
+    case woundSoftTissue = "Wound / Soft Tissue"
+    case ultrasoundGuided = "Ultrasound-Guided"
+    case other = "Other"
+
+    var id: String { rawValue }
+}
+
+enum ProcedureDifficulty: String, Codable {
+    case basic = "Basic"
+    case intermediate = "Intermediate"
+    case advanced = "Advanced"
+    case rareCrash = "Rare-Crash"
+}
+
+enum ProcedureSetting: String, Codable, Hashable {
+    case ed = "ED"
+    case icu = "ICU"
+    case trauma = "Trauma"
+    case peds = "Peds"
+}
+
+enum ProcedureDetailSection: String, CaseIterable, Identifiable {
+    case shiftMode = "Shift Mode"
+    case equipment = "Equipment"
+    case steps = "Steps"
+    case complications = "Complications"
+    case documentation = "Documentation"
+    case deepReview = "Deep Review"
+
+    var id: String { rawValue }
+}

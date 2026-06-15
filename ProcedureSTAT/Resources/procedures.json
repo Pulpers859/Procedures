@@ -1,0 +1,1362 @@
+[
+  {
+    "id": "endotracheal_intubation",
+    "title": "Endotracheal Intubation",
+    "category": "Airway",
+    "difficulty": "Advanced",
+    "reviewTime": "60 sec",
+    "setting": [
+      "ED",
+      "ICU",
+      "Trauma",
+      "Peds"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.1.0",
+    "tags": [
+      "ETT",
+      "RSI",
+      "airway",
+      "tube",
+      "ventilator",
+      "laryngoscopy",
+      "bougie"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Call for help early; assign airway, meds, monitor, suction, backup airway, and post-intubation sedation roles.",
+        "Preoxygenate aggressively; consider NC apneic oxygenation, flush-rate NRB, NIV, or BVM with PEEP depending physiology.",
+        "Have suction in hand or immediately reachable before first attempt.",
+        "Choose first-pass plan and backup plan before pushing meds: bougie, video/direct, supraglottic, cricothyrotomy.",
+        "Physiology kills before anatomy: optimize hypotension, hypoxemia, severe acidosis, RV failure, and hyperkalemia when possible.",
+        "Confirm with continuous waveform capnography; auscultation alone is not enough.",
+        "Do not forget post-intubation analgesia/sedation and ventilator reassessment."
+      ],
+      "indications": [
+        "Failure to oxygenate or ventilate",
+        "Inability to protect airway",
+        "Expected clinical deterioration requiring airway control",
+        "Severe agitation or injury requiring controlled oxygenation/ventilation",
+        "Cardiac arrest or peri-arrest airway management when appropriate"
+      ],
+      "contraindications": [
+        "No absolute contraindication in a true airway emergency",
+        "Anticipated impossible oral intubation should trigger alternate plan early",
+        "Severe physiologic instability may require resuscitation before induction when time allows",
+        "High cervical spine concern requires manual in-line stabilization rather than paralysis avoidance alone"
+      ],
+      "anatomy": [
+        "Align oral, pharyngeal, and laryngeal axes when using direct laryngoscopy; ear-to-sternal-notch positioning helps many adults.",
+        "Identify epiglottis, arytenoids, posterior cartilages, and cords. Do not advance through unidentified tissue.",
+        "In obesity or pregnancy, ramp aggressively rather than placing the patient flat."
+      ],
+      "equipment": [
+        "Monitor: cardiac monitor, pulse ox, BP cycling, waveform capnography ready",
+        "Preoxygenation setup: NRB, nasal cannula, BVM with PEEP, NIV as needed",
+        "Suction connected and tested",
+        "Video laryngoscope and/or direct laryngoscope with working light",
+        "ET tubes: planned size plus one size smaller",
+        "Stylet and bougie",
+        "10 mL syringe for cuff inflation",
+        "ETCO2 detector / continuous waveform capnography",
+        "Tube holder or tape",
+        "Backup supraglottic airway",
+        "Cricothyrotomy kit available for high-risk airway",
+        "Induction and paralytic medications drawn up and labeled",
+        "Post-intubation analgesia/sedation ordered or ready"
+      ],
+      "positioning": [
+        "Place patient ear-to-sternal-notch when possible.",
+        "Ramped position for obesity, pregnancy, or poor neck mobility.",
+        "Head elevated when tolerated to prolong safe apnea time.",
+        "Manual in-line stabilization if cervical spine injury is a concern."
+      ],
+      "steps": [
+        "Assess airway difficulty and physiologic risk.",
+        "Preoxygenate and optimize hemodynamics before induction when possible.",
+        "Verbalize primary and backup airway plan.",
+        "Prepare equipment, suction, capnography, tube securement, and post-intubation medications.",
+        "Administer induction and paralytic medications when ready.",
+        "Perform laryngoscopy with deliberate epiglottis and glottic identification.",
+        "Pass tube under direct or video visualization; use bougie early if view is limited.",
+        "Inflate cuff and connect BVM or ventilator.",
+        "Confirm continuous waveform capnography and bilateral chest rise; check for right mainstem.",
+        "Secure tube, document depth, obtain chest x-ray when appropriate, and reassess ventilator/sedation."
+      ],
+      "ultrasound": [
+        "Ultrasound can be used as an adjunct for tube confirmation in some settings, but continuous waveform capnography remains the practical standard when available."
+      ],
+      "confirmation": [
+        "Continuous waveform capnography with persistent waveform",
+        "Bilateral chest rise and breath sounds",
+        "Absent gastric insufflation sounds",
+        "Appropriate oxygenation/ventilation response",
+        "Chest x-ray for depth and complications when clinically appropriate"
+      ],
+      "troubleshooting": [
+        "Desaturation: stop, oxygenate with BVM/PEEP, improve mask seal, use oral/nasal airway, recruit help.",
+        "Poor view: optimize position, suction, external laryngeal manipulation, change blade, use bougie early.",
+        "Cannot intubate/cannot oxygenate: supraglottic airway or surgical airway pathway immediately.",
+        "Post-intubation hypotension: check tube depth, breath stacking/auto-PEEP, tension pneumothorax, sedation effect, occult shock; start fluids/pressors as appropriate.",
+        "High peak pressures: consider bronchospasm, tube obstruction, mainstem, pneumothorax, or ventilator mismatch."
+      ],
+      "complications": [
+        "Hypoxemia",
+        "Hypotension or peri-intubation arrest",
+        "Esophageal intubation",
+        "Right mainstem intubation",
+        "Aspiration",
+        "Dental/oropharyngeal trauma",
+        "Laryngospasm or bronchospasm",
+        "Failed airway requiring supraglottic or surgical airway"
+      ],
+      "aftercare": [
+        "Start analgesia/sedation immediately unless intentionally held for neurologic assessment.",
+        "Set ventilator based on disease state; reassess plateau pressure, oxygenation, ventilation, and hemodynamics.",
+        "Obtain chest x-ray when appropriate to confirm depth and evaluate complications.",
+        "Reassess tube depth after transport or major position changes."
+      ],
+      "documentation": [
+        "Endotracheal intubation performed for airway protection/respiratory failure/anticipated clinical deterioration.",
+        "Consent obtained when feasible; emergent procedure performed when delay would risk patient harm.",
+        "Patient preoxygenated and monitored with cardiac monitor, pulse oximetry, blood pressure, and capnography.",
+        "Medications administered as documented in MAR.",
+        "Endotracheal tube placed under visualization and secured at documented depth.",
+        "Placement confirmed with continuous waveform capnography and clinical assessment.",
+        "Patient tolerated procedure; complications, if any, documented separately."
+      ],
+      "seniorPearls": [
+        "Your first attempt should be your best attempt. Do not burn an attempt while still setting up.",
+        "If the patient is crashing from physiology, a beautiful view of the cords will not save them by itself.",
+        "Have the post-intubation plan ready before induction; the tube is not the finish line."
+      ],
+      "references": [
+        "Walls RM, Murphy MF. Manual of Emergency Airway Management.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "ACEP and critical care airway education resources; verify local airway policy and medication protocols."
+      ]
+    }
+  },
+  {
+    "id": "central_venous_catheter",
+    "title": "Central Venous Catheter",
+    "category": "Vascular Access",
+    "difficulty": "Intermediate",
+    "reviewTime": "5 min",
+    "setting": [
+      "ED",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.1.0",
+    "tags": [
+      "central line",
+      "CVC",
+      "IJ",
+      "femoral",
+      "subclavian",
+      "ultrasound",
+      "guidewire",
+      "Seldinger"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm indication, site, side, anticoagulation/coagulopathy context, and whether this should be triple lumen, introducer, or dialysis catheter instead.",
+        "Use full sterile barrier: cap, mask, sterile gown/gloves, wide chlorhexidine prep, large drape.",
+        "Ultrasound before puncture: identify vein, artery, thrombus, depth, compressibility, and safest trajectory.",
+        "Needle tip visualization matters. Do not just watch tissue move.",
+        "Never dilate unless the wire passes smoothly and you are confident it is venous.",
+        "Keep control of the wire at all times.",
+        "Confirm placement and evaluate for complications per site and institutional practice."
+      ],
+      "indications": [
+        "Vasopressor or irritant medication administration",
+        "Poor peripheral access with need for reliable central access",
+        "Central venous pressure monitoring when clinically useful",
+        "Massive transfusion or high-flow resuscitation when appropriate catheter chosen",
+        "Temporary access while definitive access is arranged"
+      ],
+      "contraindications": [
+        "Patient refusal when non-emergent",
+        "Infection or burn over intended insertion site",
+        "Thrombosis or distorted anatomy at intended site",
+        "Uncorrected coagulopathy is a relative risk; balance against urgency and site choice",
+        "Do not place a standard triple lumen when the clinical need is dialysis-level flow or rapid large-volume infusion"
+      ],
+      "anatomy": [
+        "IJ: vein is commonly lateral/anterior to carotid but anatomy varies; verify with ultrasound.",
+        "Femoral: NAVEL lateral-to-medial reminder is imperfect; ultrasound beats memory.",
+        "Subclavian/axillary access has pneumothorax and noncompressible bleeding considerations.",
+        "Always distinguish compressible vein from pulsatile/noncompressible artery before puncture."
+      ],
+      "equipment": [
+        "Central line kit with catheter, wire, needle, scalpel, dilator, and caps",
+        "Sterile gown, gloves, mask, cap, and large sterile drape",
+        "Chlorhexidine prep",
+        "Ultrasound machine",
+        "Sterile probe cover and sterile gel",
+        "Local anesthetic, syringe, and small needle",
+        "Flushes for all ports",
+        "Suture or securement device",
+        "Biopatch or antimicrobial dressing per local policy",
+        "Transparent sterile dressing",
+        "Sharps container and sterile towels",
+        "Chest x-ray or confirmation workflow if IJ/subclavian/axillary"
+      ],
+      "positioning": [
+        "IJ: Trendelenburg if tolerated, head slightly turned away, avoid excessive rotation.",
+        "Femoral: supine, leg slightly abducted and externally rotated if tolerated.",
+        "Optimize monitor visibility and ultrasound position before sterile prep.",
+        "Place the ultrasound screen in your line of sight, not behind your shoulder."
+      ],
+      "steps": [
+        "Confirm indication and choose site based on urgency, anatomy, infection risk, bleeding risk, and clinical need.",
+        "Perform ultrasound survey before opening the kit.",
+        "Prep and drape using full sterile barrier technique.",
+        "Anesthetize skin and deeper tissue along planned tract.",
+        "Cannulate vein under ultrasound guidance, maintaining needle tip awareness.",
+        "Confirm venous blood return and pass guidewire smoothly without force.",
+        "Use ultrasound or other method to confirm wire in vessel when possible.",
+        "Make small skin nick while controlling wire.",
+        "Dilate over wire without force; stop if resistance or uncertainty.",
+        "Advance catheter over wire, remove wire while maintaining catheter control, and confirm wire is out intact.",
+        "Aspirate and flush all ports.",
+        "Secure catheter and apply sterile dressing.",
+        "Confirm position and assess for complications per site and local policy."
+      ],
+      "ultrasound": [
+        "Use short-axis for vessel identification; consider long-axis for needle tip tracking if skilled.",
+        "Compress vein before sterile prep to evaluate patency and thrombus.",
+        "Confirm guidewire in the vein before dilation when feasible.",
+        "For IJ, check lung sliding afterward as a rapid pneumothorax screen when skilled, but follow local confirmation standards."
+      ],
+      "confirmation": [
+        "All ports aspirate and flush easily",
+        "Guidewire removed intact",
+        "Catheter secured with sterile dressing",
+        "Appropriate imaging/confirmation obtained based on site",
+        "No immediate evidence of arterial placement, pneumothorax, hematoma, or malposition"
+      ],
+      "troubleshooting": [
+        "Wire will not pass: stop, do not force; check needle position and angle, aspirate, use ultrasound, or repuncture.",
+        "Bright pulsatile blood or arterial waveform: stop and manage as arterial puncture/cannulation based on catheter size and site.",
+        "Resistance with dilator: stop; confirm wire path and vessel location before proceeding.",
+        "No blood return from one port: check clamp/cap, flush gently, reposition; do not force against resistance.",
+        "Unstable after line: consider pneumothorax, bleeding, arrhythmia, air embolism, or unrelated shock progression."
+      ],
+      "complications": [
+        "Arterial puncture or arterial catheterization",
+        "Pneumothorax or hemothorax, especially with IJ/subclavian/axillary approaches",
+        "Hematoma or bleeding",
+        "Guidewire loss or retained wire",
+        "Arrhythmia from wire irritation",
+        "Malposition",
+        "Infection",
+        "Thrombosis",
+        "Air embolism"
+      ],
+      "aftercare": [
+        "Label line and date dressing per local policy.",
+        "Review imaging/confirmation before using for high-risk infusions if required by site/policy.",
+        "Remove unnecessary lines as soon as clinically appropriate.",
+        "Reassess insertion site for bleeding or hematoma after placement."
+      ],
+      "documentation": [
+        "Central venous catheter placed for documented clinical indication.",
+        "Consent obtained when feasible; emergent need documented if consent not possible.",
+        "Site and side confirmed; sterile technique with full barrier precautions used.",
+        "Ultrasound guidance used to identify vessel and guide cannulation.",
+        "Guidewire passed without resistance and removed intact.",
+        "All ports aspirated and flushed; catheter secured with sterile dressing.",
+        "Placement confirmation and immediate complication assessment documented."
+      ],
+      "seniorPearls": [
+        "Most catastrophic central line errors happen after venous puncture, not before it: wire control, dilation, and confirmation are where discipline matters.",
+        "If the wire does not pass smoothly, the answer is almost never more force.",
+        "Open the exact catheter you need. A triple lumen is not a Cordis and not a dialysis catheter."
+      ],
+      "references": [
+        "Miller's Anesthesia and major critical care procedural texts for central venous access principles.",
+        "CDC guidance for prevention of intravascular catheter-related infections.",
+        "Society and institutional ultrasound-guided vascular access policies; verify local central line bundle requirements."
+      ]
+    }
+  },
+  {
+    "id": "digital_nerve_block",
+    "title": "Digital Nerve Block",
+    "category": "Regional Anesthesia",
+    "difficulty": "Basic",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.1.0",
+    "tags": [
+      "finger block",
+      "toe block",
+      "laceration",
+      "nailbed",
+      "ring block",
+      "local anesthesia"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Document pre-block neurovascular status before anesthetizing the digit.",
+        "Use small-volume local anesthetic and inject slowly.",
+        "Avoid injecting directly through infected tissue when possible.",
+        "Aspirate before injection.",
+        "Give the block time to work before starting repair.",
+        "Reassess anesthesia and distal perfusion before procedure."
+      ],
+      "indications": [
+        "Laceration repair",
+        "Nailbed injury",
+        "Foreign body removal",
+        "Paronychia or minor drainage procedure when appropriate",
+        "Fracture or dislocation analgesia adjunct"
+      ],
+      "contraindications": [
+        "Patient refusal",
+        "Allergy to planned anesthetic",
+        "Infection over injection path when alternate approach is available",
+        "Major vascular compromise requiring urgent surgical evaluation should not be delayed"
+      ],
+      "anatomy": [
+        "Digital nerves run along the medial and lateral aspects of the digit with accompanying vessels.",
+        "Injection at the base of the digit can anesthetize both dorsal and volar branches depending technique.",
+        "Avoid circumferential high-volume injection that creates unnecessary tissue pressure."
+      ],
+      "equipment": [
+        "Local anesthetic",
+        "3\u20135 mL syringe",
+        "25\u201330G needle",
+        "Alcohol or chlorhexidine prep",
+        "Gloves",
+        "Gauze",
+        "Dressing supplies",
+        "Procedure tray for definitive repair or drainage"
+      ],
+      "positioning": [
+        "Position hand or foot comfortably on a stable surface.",
+        "Expose the entire digit and remove rings before swelling worsens.",
+        "Keep the patient from watching if that increases anxiety."
+      ],
+      "steps": [
+        "Confirm digit, injury, and pre-procedure neurovascular status.",
+        "Clean injection site.",
+        "Insert needle at base of digit along dorsal-lateral aspect depending chosen technique.",
+        "Aspirate before injection.",
+        "Inject slowly while withdrawing or redirecting based on technique.",
+        "Repeat on opposite side if needed.",
+        "Wait several minutes and test anesthesia before starting procedure.",
+        "Proceed with repair, drainage, reduction, or nail procedure once anesthesia is adequate."
+      ],
+      "ultrasound": [],
+      "confirmation": [
+        "Patient reports improved pain or numbness in target distribution",
+        "Pinch or light touch testing confirms anesthesia before procedure",
+        "Distal perfusion remains intact"
+      ],
+      "troubleshooting": [
+        "Incomplete anesthesia: wait longer, identify missed distribution, supplement carefully with small volume.",
+        "Severe pain with injection: slow down, reposition, buffer/warm anesthetic if available.",
+        "Poor perfusion after injection: remove constrictive dressing/rings, reassess volume/epinephrine use, escalate if persistent."
+      ],
+      "complications": [
+        "Incomplete anesthesia",
+        "Pain with injection",
+        "Bleeding or hematoma",
+        "Infection",
+        "Nerve irritation or injury",
+        "Intravascular injection",
+        "Local anesthetic systemic toxicity, rare with typical digital block volumes"
+      ],
+      "aftercare": [
+        "Warn patient that numbness will persist after discharge depending anesthetic used.",
+        "Protect anesthetized digit from heat, trauma, and biting injury.",
+        "Provide wound-specific aftercare and return precautions."
+      ],
+      "documentation": [
+        "Digital nerve block performed for analgesia/anesthesia of the affected digit.",
+        "Verbal consent obtained and site confirmed.",
+        "Pre-procedure neurovascular status documented.",
+        "Skin prepped and local anesthetic injected using clean/sterile technique after aspiration.",
+        "Adequate anesthesia achieved prior to procedure.",
+        "Patient tolerated block without immediate complication."
+      ],
+      "seniorPearls": [
+        "Slow injection is the difference between a tolerable block and a patient who never trusts you again.",
+        "Do the neurovascular exam before the block. Afterward, you created numbness on purpose.",
+        "Remove rings early. Waiting until the finger looks like a sausage is amateur hour."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify local anesthetic maximum dosing and institutional policy."
+      ]
+    }
+  },
+  {
+    "id": "cricothyrotomy",
+    "title": "Cricothyrotomy",
+    "category": "Airway",
+    "difficulty": "Rare-Crash",
+    "reviewTime": "60 sec",
+    "setting": [
+      "ED",
+      "ICU",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.2.0",
+    "tags": [
+      "cric",
+      "surgical airway",
+      "failed airway",
+      "front of neck",
+      "FONA",
+      "scalpel finger bougie"
+    ],
+    "sections": {
+      "shiftMode": [
+        "This is an oxygenation rescue, not a perfect cosmetic airway.",
+        "Call failed airway out loud and assign someone to continue oxygenation attempts while you prep the neck.",
+        "Landmark before the airway is lost if the airway looks high risk.",
+        "Prep wide if time allows; do not let sterile perfection delay oxygenation in a true cannot-oxygenate crisis.",
+        "Use a simple scalpel-finger-bougie/tube workflow unless your institution has a specific kit/process.",
+        "Confirm with ETCO2 and chest rise; secure aggressively."
+      ],
+      "indications": [
+        "Cannot intubate/cannot oxygenate scenario",
+        "Failed airway with rapidly worsening hypoxemia",
+        "Upper airway obstruction where oral/nasal approach is not feasible",
+        "Massive facial trauma or airway contamination when standard approaches fail"
+      ],
+      "contraindications": [
+        "Young children require special consideration; needle/surgical approach varies by age and institutional policy",
+        "Laryngeal fracture or distorted neck anatomy may make landmarks unreliable",
+        "Coagulopathy is a caution but not a reason to allow death from hypoxemia"
+      ],
+      "anatomy": [
+        "Cricothyroid membrane lies between thyroid cartilage and cricoid cartilage.",
+        "Stabilize the larynx with the non-dominant hand.",
+        "In obesity or edema, make a generous vertical skin incision first to find the membrane."
+      ],
+      "equipment": [
+        "Scalpel",
+        "Bougie",
+        "Cuffed tube, often 6.0 adult ETT or trach/cric tube per kit",
+        "Hook or tracheal dilator if available",
+        "Suction",
+        "BVM with oxygen",
+        "Capnography",
+        "Securing device/tape",
+        "Backup commercial cric kit if available"
+      ],
+      "positioning": [
+        "Supine when possible",
+        "Neck extended unless contraindicated; neutral if cervical spine concern",
+        "Stand at head or side based on training and access",
+        "Expose neck widely"
+      ],
+      "steps": [
+        "Identify and stabilize larynx.",
+        "Make vertical skin incision if landmarks are difficult or time allows.",
+        "Make horizontal incision through cricothyroid membrane.",
+        "Open tract with finger, scalpel handle, or dilator depending technique.",
+        "Pass bougie toward feet/trachea.",
+        "Railroad cuffed tube over bougie.",
+        "Inflate cuff, ventilate, confirm ETCO2 and chest rise.",
+        "Secure tube and reassess oxygenation/ventilation."
+      ],
+      "ultrasound": [],
+      "confirmation": [
+        "Continuous waveform ETCO2",
+        "Bilateral chest rise",
+        "Improving oxygen saturation if circulation intact",
+        "Ability to ventilate without massive leak",
+        "Chest x-ray after stabilization"
+      ],
+      "troubleshooting": [
+        "Cannot find membrane: vertical incision, bluntly dissect with finger, re-landmark.",
+        "Tube will not pass: rotate, use smaller tube, confirm bougie is intratracheal.",
+        "No ETCO2: reassess placement, obstruction, circuit, and circulation.",
+        "Bleeding: suction aggressively; oxygenation remains priority."
+      ],
+      "complications": [
+        "False passage",
+        "Bleeding",
+        "Posterior tracheal injury",
+        "Subcutaneous emphysema",
+        "Tube dislodgement",
+        "Failure to oxygenate"
+      ],
+      "aftercare": [
+        "Secure extremely well; accidental dislodgement can be catastrophic.",
+        "Arrange definitive airway/ENT/trauma/ICU follow-up.",
+        "Obtain imaging after stabilization.",
+        "Document failed airway context and rescue rationale."
+      ],
+      "documentation": [
+        "Emergent cricothyrotomy performed for failed airway/cannot intubate-cannot oxygenate scenario.",
+        "Procedure performed due to immediate threat to life when delay would risk patient harm.",
+        "Neck exposed/prepped as clinical situation allowed.",
+        "Cricothyroid membrane identified; surgical airway established using documented technique.",
+        "Placement confirmed with waveform capnography and clinical assessment.",
+        "Complications and post-procedure plan documented."
+      ],
+      "seniorPearls": [
+        "The decision is usually harder than the cut; say it out loud early.",
+        "A small timid incision is a common failure mode. Make enough room to work.",
+        "Once oxygenation is failing, this is not the moment for committee discussion."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+      ]
+    }
+  },
+  {
+    "id": "thoracostomy_chest_tube",
+    "title": "Thoracostomy / Chest Tube",
+    "category": "Thoracic",
+    "difficulty": "Advanced",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED",
+      "ICU",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.2.0",
+    "tags": [
+      "chest tube",
+      "thoracostomy",
+      "pneumothorax",
+      "hemothorax",
+      "tube thoracostomy"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm side and indication before incision.",
+        "Have suction/water seal system set up before the tube goes in.",
+        "Use safe triangle when possible; go over the rib, not under.",
+        "Finger sweep before tube advancement; do not blindly shove a tube through soft tissue.",
+        "Direct tube apically for pneumothorax and posterior/basilar for fluid when feasible.",
+        "Secure with strong suture and occlusive dressing; reassess breath sounds and imaging."
+      ],
+      "indications": [
+        "Pneumothorax requiring drainage",
+        "Hemothorax",
+        "Empyema or complicated effusion when appropriate",
+        "Traumatic arrest/trauma decompression pathway per local protocol"
+      ],
+      "contraindications": [
+        "Uncorrected coagulopathy is a caution when non-emergent",
+        "Adhesions/prior surgery may increase risk",
+        "Diaphragm/liver/spleen injury risk with low placement",
+        "Small stable pneumothorax may not require tube"
+      ],
+      "anatomy": [
+        "Classic safe triangle: lateral border pectoralis major, anterior border latissimus dorsi, line above nipple/5th intercostal space, apex axilla.",
+        "Neurovascular bundle runs under rib; enter over the superior aspect of the rib.",
+        "Avoid low lateral placement that can enter abdomen."
+      ],
+      "equipment": [
+        "Chest tube tray",
+        "Appropriate tube size or pigtail if selected",
+        "Sterile prep/drape/gown/gloves",
+        "Local anesthetic",
+        "Scalpel",
+        "Kelly clamp",
+        "Suture",
+        "Occlusive dressing",
+        "Suction/water seal device",
+        "Suction tubing connected",
+        "Analgesia/sedation plan",
+        "Ultrasound if fluid or anatomy uncertain"
+      ],
+      "positioning": [
+        "Arm abducted or hand behind head if tolerated",
+        "Patient supine or slight lateral depending indication",
+        "Expose entire hemithorax and confirm side"
+      ],
+      "steps": [
+        "Confirm side, indication, consent/emergency rationale.",
+        "Mark site and prep/drape widely.",
+        "Anesthetize skin, periosteum, and pleura generously.",
+        "Incise parallel to rib.",
+        "Bluntly dissect with Kelly over rib into pleural space.",
+        "Perform finger sweep to confirm intrapleural entry and adhesions.",
+        "Advance tube with clamp/finger guidance.",
+        "Connect to drainage system and suction/water seal as indicated.",
+        "Suture, dress, obtain imaging, and reassess patient."
+      ],
+      "ultrasound": [
+        "Use ultrasound for pleural fluid localization and to avoid solid organs when placing for effusion.",
+        "For pneumothorax, ultrasound can support diagnosis with absent lung sliding, but clinical context matters."
+      ],
+      "confirmation": [
+        "Air/fluid return when appropriate",
+        "Improved respiratory/hemodynamic status",
+        "Tidaling/air leak assessment",
+        "Chest x-ray or CT confirmation",
+        "Document tube depth and output"
+      ],
+      "troubleshooting": [
+        "No rush of air/fluid: confirm pleural entry, tube holes in chest, and system connection.",
+        "Persistent pneumothorax: check for dislodgement, kink, insufficient depth, bronchopleural fistula, or need second tube.",
+        "Bleeding: quantify output, notify surgery/trauma if high-volume or ongoing.",
+        "Pain: reassess analgesia; chest tubes hurt."
+      ],
+      "complications": [
+        "Bleeding/intercostal vessel injury",
+        "Lung laceration",
+        "Diaphragm or intra-abdominal injury",
+        "Malposition",
+        "Infection",
+        "Re-expansion pulmonary edema",
+        "Persistent air leak"
+      ],
+      "aftercare": [
+        "Post-procedure imaging.",
+        "Trend output and air leak.",
+        "Analgesia plan.",
+        "Suction/water seal management per indication and local policy.",
+        "Escalate early for massive hemothorax or persistent instability."
+      ],
+      "documentation": [
+        "Tube thoracostomy performed for documented indication and side.",
+        "Consent obtained when feasible; emergent rationale documented if applicable.",
+        "Site prepped and draped; local anesthesia used.",
+        "Blunt dissection performed over rib with finger confirmation of pleural entry.",
+        "Tube placed and connected to drainage system; secured and dressed.",
+        "Placement confirmed clinically and with imaging as appropriate; immediate complications documented."
+      ],
+      "seniorPearls": [
+        "The most preventable disaster is being too low.",
+        "Finger sweep is the safety check; skipping it is how tubes end up in soft tissue.",
+        "Have the drainage system ready before pleura is entered."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+      ]
+    }
+  },
+  {
+    "id": "pigtail_catheter",
+    "title": "Pigtail Pleural Catheter",
+    "category": "Thoracic",
+    "difficulty": "Intermediate",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.2.0",
+    "tags": [
+      "pigtail",
+      "pleural catheter",
+      "small bore",
+      "pneumothorax",
+      "effusion"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Best for selected pneumothorax/effusion scenarios, not every bloody trauma chest.",
+        "Use ultrasound for fluid; confirm anatomy before puncture.",
+        "Seldinger discipline matters: never lose wire control and do not force dilation.",
+        "Confirm all side holes are intrathoracic before connecting drainage.",
+        "Secure well; small catheters dislodge easily.",
+        "If the patient is unstable or draining blood, escalate early rather than treating the pigtail as definitive."
+      ],
+      "indications": [
+        "Selected pneumothorax",
+        "Pleural effusion requiring drainage",
+        "Empyema/complicated fluid when appropriate and within local practice"
+      ],
+      "contraindications": [
+        "Massive hemothorax or unstable trauma may need large-bore tube/surgical approach",
+        "Unclear anatomy or unsafe window",
+        "Coagulopathy is a caution for non-emergent drainage",
+        "Loculated fluid may require image guidance or specialty input"
+      ],
+      "anatomy": [
+        "Enter over rib to avoid neurovascular bundle.",
+        "For fluid, choose ultrasound-confirmed pocket away from diaphragm and solid organs.",
+        "For pneumothorax, anterior/superior location may be selected depending patient position and local practice."
+      ],
+      "equipment": [
+        "Pigtail kit",
+        "Ultrasound with sterile cover/gel if fluid or anatomy uncertain",
+        "Sterile prep/drape/gloves",
+        "Local anesthetic",
+        "Needle, guidewire, dilator",
+        "Drainage tubing/device",
+        "Suture/securement device",
+        "Occlusive dressing",
+        "Flush supplies"
+      ],
+      "positioning": [
+        "Position based on target: upright/lateral for fluid, supine/semi-upright for pneumothorax",
+        "Expose and prep widely",
+        "Keep patient still during wire/dilator steps"
+      ],
+      "steps": [
+        "Confirm target and mark site.",
+        "Prep/drape and anesthetize tract to pleura.",
+        "Enter pleural space with needle; confirm air/fluid return.",
+        "Advance guidewire while maintaining control.",
+        "Nick skin and dilate gently over wire.",
+        "Advance catheter over wire; remove wire while maintaining catheter position.",
+        "Confirm pigtail formed and side holes intrathoracic.",
+        "Connect to drainage system and secure/dress.",
+        "Obtain imaging and reassess."
+      ],
+      "ultrasound": [
+        "Ultrasound is strongly preferred for pleural fluid localization.",
+        "Identify diaphragm, liver/spleen, lung, and depth to pleural space before puncture."
+      ],
+      "confirmation": [
+        "Air/fluid drainage",
+        "Improved symptoms/oxygenation if clinically relevant",
+        "Chest imaging for position and residual pneumothorax/fluid",
+        "No expanding subcutaneous emphysema or bleeding"
+      ],
+      "troubleshooting": [
+        "Wire will not pass: stop; do not force; reassess needle position.",
+        "Poor drainage: check kink, stopcock, clot/debris, catheter depth, and whether side holes are outside chest.",
+        "Worsening dyspnea: reassess pneumothorax, malposition, bleeding, and re-expansion risk."
+      ],
+      "complications": [
+        "Malposition",
+        "Bleeding",
+        "Lung injury",
+        "Infection",
+        "Catheter obstruction",
+        "Dislodgement",
+        "Re-expansion pulmonary edema"
+      ],
+      "aftercare": [
+        "Secure and label drain.",
+        "Track output and air leak.",
+        "Flush only per local protocol.",
+        "Repeat imaging based on indication and clinical course."
+      ],
+      "documentation": [
+        "Pigtail pleural catheter placed for documented indication and side.",
+        "Consent/emergent rationale documented.",
+        "Site selected with imaging/ultrasound as appropriate.",
+        "Seldinger technique used with guidewire control maintained.",
+        "Catheter connected to drainage system, secured, and dressed.",
+        "Placement and complications assessed clinically and by imaging as appropriate."
+      ],
+      "seniorPearls": [
+        "Pigtails are less dramatic than chest tubes but not less capable of causing harm.",
+        "If the wire does not behave, believe the wire and reassess.",
+        "Small catheter plus bad securement equals accidental removal."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+      ]
+    }
+  },
+  {
+    "id": "needle_decompression",
+    "title": "Needle Decompression",
+    "category": "Thoracic",
+    "difficulty": "Rare-Crash",
+    "reviewTime": "60 sec",
+    "setting": [
+      "ED",
+      "Trauma",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.2.0",
+    "tags": [
+      "tension pneumothorax",
+      "needle decompression",
+      "crashing chest",
+      "trauma"
+    ],
+    "sections": {
+      "shiftMode": [
+        "This is a temporizing maneuver for suspected tension physiology.",
+        "Do not wait for imaging in a crashing patient with compatible findings.",
+        "Use appropriate site and catheter length; short catheters fail.",
+        "Preferred sites vary; know your local protocol: 4th/5th anterior or mid-axillary, or 2nd ICS midclavicular.",
+        "Definitive tube thoracostomy usually follows if tension pneumothorax is likely.",
+        "If one decompression attempt fails and tension remains plausible, move quickly to finger/tube thoracostomy or alternate decompression site per protocol."
+      ],
+      "indications": [
+        "Suspected tension pneumothorax with hemodynamic or respiratory compromise",
+        "Traumatic arrest with decompression pathway",
+        "Peri-intubation or ventilated patient crashing with unilateral concern"
+      ],
+      "contraindications": [
+        "No true contraindication in life-threatening suspected tension physiology",
+        "Stable patient with uncertain diagnosis should get better diagnostic confirmation when possible"
+      ],
+      "anatomy": [
+        "Enter over the rib to avoid the neurovascular bundle.",
+        "Lateral sites need attention to breast tissue, body habitus, and tube length.",
+        "2nd ICS MCL can fail in thick chest walls and risks malposition if too medial."
+      ],
+      "equipment": [
+        "Long large-bore angiocath or decompression device per local protocol",
+        "Chlorhexidine/alcohol if time allows",
+        "Gloves",
+        "Tape/securement",
+        "Chest tube setup ready"
+      ],
+      "positioning": [
+        "Expose chest rapidly",
+        "Arm up if using lateral site and feasible",
+        "Do not delay for perfect positioning if peri-arrest"
+      ],
+      "steps": [
+        "Identify correct side based on clinical scenario.",
+        "Choose site per local protocol and anatomy.",
+        "Prep quickly if time allows.",
+        "Insert catheter over rib perpendicular to chest wall until pleural entry/air release.",
+        "Advance catheter, remove needle, secure.",
+        "Immediately reassess and prepare definitive thoracostomy if indicated."
+      ],
+      "ultrasound": [
+        "POCUS can rapidly support diagnosis if it does not delay decompression in a crashing patient."
+      ],
+      "confirmation": [
+        "Immediate clinical improvement may occur but is not required for diagnosis to have been reasonable.",
+        "Reassess BP, oxygenation, breath sounds, ventilator pressures, and chest rise.",
+        "Follow with chest tube when indicated."
+      ],
+      "troubleshooting": [
+        "No improvement: wrong side/site, catheter too short, kinked catheter, hemothorax, tamponade, tube problem, or non-thoracic shock.",
+        "Catheter occludes: proceed to definitive thoracostomy.",
+        "Persistent instability: reassess whole resuscitation, not just the chest."
+      ],
+      "complications": [
+        "Failure to decompress",
+        "Bleeding",
+        "Lung injury",
+        "Infection",
+        "Misplacement into soft tissue or abdomen",
+        "Delayed definitive management"
+      ],
+      "aftercare": [
+        "Definitive chest tube if tension pneumothorax remains likely.",
+        "Imaging once stabilized.",
+        "Document rationale for emergent decompression."
+      ],
+      "documentation": [
+        "Needle decompression performed emergently for suspected tension pneumothorax with documented clinical findings.",
+        "Site and side documented.",
+        "Catheter placed using anatomic landmarks/local protocol.",
+        "Patient response reassessed immediately.",
+        "Definitive thoracostomy/imaging plan documented."
+      ],
+      "seniorPearls": [
+        "A needle is a bridge, not the destination.",
+        "If the patient is dying and the story fits, decompression is a clinical decision.",
+        "Failure is common enough that you must reassess immediately."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+      ]
+    }
+  },
+  {
+    "id": "pericardiocentesis",
+    "title": "Pericardiocentesis",
+    "category": "Cardiac / Resuscitation",
+    "difficulty": "Rare-Crash",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED",
+      "ICU",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.2.0",
+    "tags": [
+      "tamponade",
+      "pericardial effusion",
+      "pericardiocentesis",
+      "cardiac arrest",
+      "ultrasound"
+    ],
+    "sections": {
+      "shiftMode": [
+        "This is for tamponade physiology, not just an effusion on ultrasound.",
+        "Use ultrasound to identify the safest fluid pocket and needle path whenever possible.",
+        "Have resuscitation, pressors, blood, and surgical backup moving in parallel when indicated.",
+        "Advance under visualization if possible; aspirate continuously or frequently.",
+        "Even small drainage volumes can dramatically improve tamponade physiology.",
+        "Keep the whole obstructive shock differential active; tamponade can coexist with bleeding, tension pneumothorax, or profound hypovolemia."
+      ],
+      "indications": [
+        "Cardiac tamponade with hemodynamic compromise",
+        "Peri-arrest/arrest with ultrasound evidence of tamponade in appropriate context",
+        "Diagnostic/therapeutic drainage when benefits outweigh risks"
+      ],
+      "contraindications": [
+        "No absolute contraindication in life-threatening tamponade",
+        "Aortic dissection/contained rupture requires extreme caution and specialist involvement when feasible",
+        "Coagulopathy is a caution but may be outweighed by shock"
+      ],
+      "anatomy": [
+        "Potential approaches include subxiphoid, parasternal, or apical based on best ultrasound window.",
+        "Avoid internal mammary vessels with parasternal approach.",
+        "Needle trajectory should target fluid, not myocardium."
+      ],
+      "equipment": [
+        "Ultrasound machine with sterile cover/gel",
+        "Long spinal needle or pericardiocentesis kit",
+        "Syringe and tubing/stopcock",
+        "Local anesthetic if time allows",
+        "ECG/monitoring",
+        "Sterile prep/drape/gloves",
+        "Drainage catheter kit if placing catheter",
+        "Resuscitation medications and airway backup"
+      ],
+      "positioning": [
+        "Supine or head elevated if tolerated",
+        "Expose chest/subxiphoid area widely",
+        "Position ultrasound for continuous view"
+      ],
+      "steps": [
+        "Confirm effusion with tamponade physiology/clinical instability.",
+        "Identify safest window with ultrasound.",
+        "Prep/drape and anesthetize if time allows.",
+        "Advance needle toward fluid pocket while aspirating and visualizing tip when possible.",
+        "Aspirate pericardial fluid until hemodynamics improve or flow stops.",
+        "If catheter placed, advance wire/catheter with Seldinger control.",
+        "Secure catheter and reassess with ultrasound/hemodynamics."
+      ],
+      "ultrasound": [
+        "Ultrasound guidance is central: choose the largest accessible pocket with safest path.",
+        "Use in-plane visualization when operator skill and window allow.",
+        "Re-scan after drainage to assess residual fluid and cardiac filling."
+      ],
+      "confirmation": [
+        "Improved blood pressure/perfusion",
+        "Improved tachycardia or arrest physiology",
+        "Ultrasound decrease in effusion/tamponade findings",
+        "Drainage of pericardial fluid rather than blood from chamber"
+      ],
+      "troubleshooting": [
+        "No aspirate: reassess window, needle depth, clot, or wrong diagnosis.",
+        "Bright pulsatile blood: stop and reassess possible chamber puncture.",
+        "Recurrent instability: re-scan for reaccumulation, clot, tension pneumothorax, hemorrhage, or obstructive shock alternative."
+      ],
+      "complications": [
+        "Myocardial or coronary injury",
+        "Dysrhythmia",
+        "Hemothorax/pneumothorax",
+        "Liver injury with subxiphoid approach",
+        "Failed drainage",
+        "Reaccumulation"
+      ],
+      "aftercare": [
+        "Continuous monitoring and repeat ultrasound.",
+        "Leave catheter/drain per local/specialty plan when placed.",
+        "Cardiology/cardiothoracic/trauma involvement depending etiology.",
+        "Definitive management of cause."
+      ],
+      "documentation": [
+        "Pericardiocentesis performed for suspected/confirmed tamponade with hemodynamic compromise.",
+        "Consent/emergent rationale documented.",
+        "Ultrasound used to identify effusion and procedural window when feasible.",
+        "Needle/catheter advanced with aspiration; volume/character of fluid documented.",
+        "Hemodynamic response and complications documented.",
+        "Consultation and ongoing drainage plan documented."
+      ],
+      "seniorPearls": [
+        "The ultrasound diagnosis is not just 'effusion'; it is effusion plus physiology plus patient context.",
+        "Pick the safest window, not the most traditional one.",
+        "Small amount out with sudden BP improvement is a real win."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+      ]
+    }
+  },
+  {
+    "id": "transvenous_pacemaker",
+    "title": "Transvenous Pacemaker",
+    "category": "Cardiac / Resuscitation",
+    "difficulty": "Rare-Crash",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.2.0",
+    "tags": [
+      "TVP",
+      "transvenous pacing",
+      "pacer",
+      "bradycardia",
+      "capture",
+      "Cordis"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Use when unstable bradycardia is not responding or needs bridge therapy.",
+        "Keep transcutaneous pacing/pressors running while placing if unstable.",
+        "Know the generator: rate, output, sensitivity, battery, connections.",
+        "Electrical capture is not enough; confirm mechanical capture with pulse/BP/arterial waveform.",
+        "Secure catheter and generator carefully; dislodgement is common.",
+        "Do not remove backup pads/pressors until capture is reliable and the catheter is secured."
+      ],
+      "indications": [
+        "Unstable bradycardia refractory to medications/transcutaneous pacing",
+        "High-grade AV block with instability",
+        "Bridge to permanent pacing or definitive management"
+      ],
+      "contraindications": [
+        "No absolute contraindication in life-threatening bradycardia",
+        "Severe agitation may require sedation/airway planning",
+        "Infection or thrombus at access site affects site selection"
+      ],
+      "anatomy": [
+        "Usually placed through central venous access into RV.",
+        "Balloon-tipped catheter floats with blood flow toward RV when advanced correctly.",
+        "ECG changes and capture help guide placement."
+      ],
+      "equipment": [
+        "Central venous sheath/introducer",
+        "Balloon-tipped pacing catheter",
+        "Pacing generator with battery checked",
+        "Sterile setup",
+        "Monitor/defib pads",
+        "Ultrasound for venous access",
+        "Flushes",
+        "Suture/securement",
+        "Pressors and transcutaneous pacing available"
+      ],
+      "positioning": [
+        "Supine",
+        "Sterile central line position based on chosen access site",
+        "Defib pads on patient"
+      ],
+      "steps": [
+        "Obtain central venous access/sheath.",
+        "Connect pacing catheter to generator correctly and test function.",
+        "Inflate balloon per catheter instructions.",
+        "Advance catheter while watching ECG for ectopy/capture clues.",
+        "Set rate/output and advance until capture achieved.",
+        "Lower output to find threshold, then set safety margin above threshold.",
+        "Confirm mechanical capture with pulse/BP/arterial waveform.",
+        "Deflate balloon if appropriate, secure catheter/generator, obtain imaging."
+      ],
+      "ultrasound": [
+        "Ultrasound helps obtain venous access and may help assess catheter course/complications.",
+        "Fluoroscopy is ideal when available but often not available in ED crash context."
+      ],
+      "confirmation": [
+        "Electrical capture on ECG",
+        "Mechanical capture with palpable pulse/BP/arterial waveform",
+        "Improved perfusion/mental status",
+        "Chest x-ray for catheter position and complications"
+      ],
+      "troubleshooting": [
+        "No capture: increase mA, check connections/generator, reposition catheter, continue transcutaneous pacing/pressors.",
+        "Intermittent capture: secure, reposition, increase output margin.",
+        "Ventricular ectopy: withdraw/reposition if irritating myocardium.",
+        "Hypotension despite capture: reassess rate, shock, medications, and mechanical complications."
+      ],
+      "complications": [
+        "Failure to capture",
+        "Dysrhythmia",
+        "Ventricular perforation/tamponade",
+        "Pneumothorax from access",
+        "Infection",
+        "Catheter dislodgement"
+      ],
+      "aftercare": [
+        "Continuous monitoring.",
+        "Cardiology/ICU admission and permanent pacer planning if indicated.",
+        "Repeat capture checks after movement/transport.",
+        "Secure generator and catheter to prevent accidental migration."
+      ],
+      "documentation": [
+        "Transvenous pacemaker placed for unstable bradycardia/conduction disease.",
+        "Consent/emergent rationale documented.",
+        "Venous access obtained using documented site/technique.",
+        "Pacing catheter advanced and capture achieved at documented settings.",
+        "Mechanical capture confirmed clinically/hemodynamically.",
+        "Catheter secured; imaging/consultation plan documented."
+      ],
+      "seniorPearls": [
+        "The most common fake success is seeing spikes and forgetting to check a pulse.",
+        "Keep pads on until the whole setup is stable and secured.",
+        "Every movement can lose capture; check after transport."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+      ]
+    }
+  },
+  {
+    "id": "procedural_sedation",
+    "title": "Procedural Sedation",
+    "category": "Cardiac / Resuscitation",
+    "difficulty": "Advanced",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED",
+      "ICU",
+      "Peds"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.2.0",
+    "tags": [
+      "sedation",
+      "ketamine",
+      "propofol",
+      "etomidate",
+      "apnea",
+      "reduction",
+      "cardioversion"
+    ],
+    "sections": {
+      "shiftMode": [
+        "This is an airway procedure wearing a comfort-procedure costume.",
+        "Separate proceduralist from sedation/monitoring clinician when possible.",
+        "Pre-brief airway risk, hemodynamics, meds, dose plan, and rescue plan.",
+        "Use continuous pulse ox, cardiac monitor, frequent BP, and ideally ETCO2.",
+        "Have suction, BVM, airway adjuncts, and reversal/rescue meds physically in the room.",
+        "Do not give more medication because the room is impatient; dose to patient response."
+      ],
+      "indications": [
+        "Painful or anxiety-provoking procedure requiring controlled sedation",
+        "Reduction, cardioversion, abscess drainage, chest tube, complex wound care",
+        "Facilitation of urgent imaging/procedure when benefits outweigh risk"
+      ],
+      "contraindications": [
+        "High aspiration risk, difficult airway, severe physiologic instability, or inadequate staffing/equipment are major cautions",
+        "Agent-specific contraindications depend on medication and patient physiology",
+        "Recent oral intake is contextual, not an automatic absolute contraindication in emergencies"
+      ],
+      "anatomy": [
+        "Airway patency, respiratory drive, and hemodynamic reserve are the real anatomy here.",
+        "Know whether the patient will be supine, lateral, or immobilized during the procedure."
+      ],
+      "equipment": [
+        "Cardiac monitor, pulse oximeter, BP cycling",
+        "ETCO2 if available",
+        "Oxygen source and nasal cannula/NRB",
+        "BVM with mask and PEEP valve if available",
+        "Suction connected",
+        "Oral/nasal airways",
+        "Advanced airway equipment immediately available",
+        "Sedative/analgesic medications labeled",
+        "Reversal/rescue meds as appropriate",
+        "IV access",
+        "Procedure equipment ready before sedation"
+      ],
+      "positioning": [
+        "Position for airway access and procedure success",
+        "Preoxygenate when risk is meaningful",
+        "Remove loose dentures/foreign bodies if appropriate"
+      ],
+      "steps": [
+        "Assess indication, airway risk, fasting/context, comorbidities, allergies, and ASA-style risk.",
+        "Obtain consent and perform time-out.",
+        "Assign sedation monitor and proceduralist roles.",
+        "Prepare airway/rescue equipment before medications.",
+        "Administer medication incrementally according to agent and patient physiology.",
+        "Continuously monitor ventilation, oxygenation, perfusion, and procedural conditions.",
+        "Treat airway obstruction/apnea immediately.",
+        "Observe until patient returns to appropriate baseline and discharge/admission criteria met."
+      ],
+      "ultrasound": [],
+      "confirmation": [
+        "Adequate procedure conditions",
+        "Ventilation maintained by ETCO2/chest rise",
+        "Oxygenation maintained",
+        "Hemodynamics acceptable",
+        "Return to baseline mental status/airway function before discharge"
+      ],
+      "troubleshooting": [
+        "Apnea: stop dosing, jaw thrust, suction, airway adjunct, BVM/PEEP, prepare intubation.",
+        "Hypotension: stop sedative, fluids/pressors, reassess bleeding/sepsis/agent effect.",
+        "Emergence/agitation: reduce stimulation, protect patient, consider agent-specific management.",
+        "Inadequate sedation: pause procedure, reassess analgesia vs sedation, redose deliberately."
+      ],
+      "complications": [
+        "Airway obstruction",
+        "Apnea/hypoventilation",
+        "Hypoxia",
+        "Aspiration",
+        "Hypotension",
+        "Vomiting",
+        "Laryngospasm",
+        "Emergence reaction or agitation"
+      ],
+      "aftercare": [
+        "Observe until stable and appropriately awake.",
+        "Document pre/post assessment, meds/doses/times, monitoring, complications, and recovery status.",
+        "Give discharge precautions if outpatient."
+      ],
+      "documentation": [
+        "Procedural sedation performed to facilitate documented procedure.",
+        "Consent obtained; risks/benefits discussed when feasible.",
+        "Patient monitored with cardiac monitor, pulse oximetry, blood pressure, and capnography when available.",
+        "Sedation medications/doses/times documented in MAR/procedure record.",
+        "Patient tolerated sedation; airway/hemodynamic events and interventions documented.",
+        "Recovered to appropriate baseline prior to disposition."
+      ],
+      "seniorPearls": [
+        "Sedation fails when the procedure starts before the room is ready.",
+        "ETCO2 buys time; pulse ox tells you late.",
+        "The safest sedative is the one you know how to rescue from."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+      ]
+    }
+  },
+  {
+    "id": "lumbar_puncture",
+    "title": "Lumbar Puncture",
+    "category": "Neuro",
+    "difficulty": "Intermediate",
+    "reviewTime": "5 min",
+    "setting": [
+      "ED",
+      "ICU",
+      "Peds"
+    ],
+    "lastReviewed": "2026-06-14",
+    "version": "0.2.0",
+    "tags": [
+      "LP",
+      "lumbar puncture",
+      "CSF",
+      "meningitis",
+      "SAH",
+      "spinal tap"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm indication and whether imaging/platelets/anticoagulation review is needed before starting.",
+        "Position is the procedure: poor flexion and rotation kill success.",
+        "Use L3-L4 or L4-L5; avoid going too high.",
+        "Have tubes labeled and opening pressure setup ready before puncture if needed.",
+        "If traumatic or no flow, pause and reposition rather than digging.",
+        "Document neuro exam and consent before local anesthetic when feasible."
+      ],
+      "indications": [
+        "Concern for meningitis/encephalitis when LP indicated",
+        "Subarachnoid hemorrhage evaluation after appropriate imaging pathway",
+        "Measurement of opening pressure",
+        "Diagnostic CSF studies for inflammatory, malignant, or infectious etiologies"
+      ],
+      "contraindications": [
+        "Signs of elevated ICP/mass lesion requiring imaging first",
+        "Coagulopathy/thrombocytopenia or anticoagulation depending context",
+        "Overlying infection at puncture site",
+        "Unstable patient who cannot tolerate positioning"
+      ],
+      "anatomy": [
+        "Use line between iliac crests approximating L4 spinous process.",
+        "Needle enters midline between spinous processes toward umbilicus.",
+        "Conus usually ends above adult L3; use lower lumbar spaces."
+      ],
+      "equipment": [
+        "LP tray",
+        "Sterile gloves/mask/prep/drape",
+        "Spinal needle with stylet",
+        "Manometer tubing if opening pressure needed",
+        "Collection tubes labeled 1\u20134",
+        "Local anesthetic and small needle",
+        "Bandage",
+        "Assistant for positioning",
+        "Extra needles if obese or difficult anatomy"
+      ],
+      "positioning": [
+        "Lateral decubitus for opening pressure; hips/neck flexed but airway comfortable",
+        "Sitting position can improve success but opening pressure is less reliable",
+        "Shoulders and hips perpendicular to bed"
+      ],
+      "steps": [
+        "Review contraindications, consent, and required studies.",
+        "Position patient carefully and identify interspace.",
+        "Prep/drape sterile field.",
+        "Anesthetize skin and deeper tissue.",
+        "Insert spinal needle with stylet bevel oriented appropriately.",
+        "Advance slowly until pop/loss of resistance; remove stylet to check flow.",
+        "Measure opening pressure if indicated in lateral decubitus.",
+        "Collect CSF in ordered tubes.",
+        "Replace stylet before removing needle; dress site and reassess."
+      ],
+      "ultrasound": [
+        "Ultrasound can help identify midline and depth in obese or difficult anatomy but does not replace sterile technique."
+      ],
+      "confirmation": [
+        "CSF obtained and sent for ordered studies",
+        "Opening pressure documented if measured",
+        "Patient neurologic status reassessed",
+        "Tube numbers and appearance documented"
+      ],
+      "troubleshooting": [
+        "No CSF: recheck positioning, level, angle, depth; consider longer needle or ultrasound marking.",
+        "Bone repeatedly: withdraw to subcutaneous tissue and redirect cephalad slightly.",
+        "Traumatic tap: minimize needle movement; consider another level if needed.",
+        "Post-LP headache: counsel, fluids/analgesia, blood patch pathway if persistent/severe."
+      ],
+      "complications": [
+        "Post-dural puncture headache",
+        "Bleeding/epidural hematoma",
+        "Infection",
+        "Nerve root irritation",
+        "Brain herniation in high-risk patients",
+        "Traumatic tap or failed procedure"
+      ],
+      "aftercare": [
+        "Supine rest per local practice if symptomatic.",
+        "Send CSF promptly with correct labels/orders.",
+        "Reassess neuro status and puncture site.",
+        "Give return precautions for severe headache, fever, weakness, urinary retention, or site issues."
+      ],
+      "documentation": [
+        "Lumbar puncture performed for documented indication.",
+        "Consent obtained; contraindications reviewed as appropriate.",
+        "Patient positioned and sterile technique used.",
+        "Needle inserted at documented level; CSF obtained/unsuccessful attempts documented.",
+        "Opening pressure documented if measured.",
+        "CSF appearance/tubes/studies documented; patient tolerated procedure with complications noted."
+      ],
+      "seniorPearls": [
+        "Most failed LPs are positioning failures, not needle failures.",
+        "Do not chase bone deeper and deeper; reset your angle.",
+        "Label tubes before you are holding CSF and everyone is suddenly excited."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+      ]
+    }
+  }
+]

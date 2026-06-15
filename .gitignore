@@ -1,0 +1,38 @@
+# Xcode / Apple build products
+DerivedData/
+build/
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.xcscmblueprint
+
+# Xcode user data
+xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# macOS / Windows noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python validation artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+*.local
+*.local.*
+Secrets.xcconfig
+
+# Editor settings
+.idea/
+.vscode/
