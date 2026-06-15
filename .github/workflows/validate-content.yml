@@ -1,0 +1,23 @@
+name: Validate content
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Clinical content validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      # Fails the build on any content blocker (missing sections, duplicate IDs,
+      # unresolved rescue-card references, etc). Treats clinical JSON like code.
+      - name: Run content validator
+        run: python3 scripts/validate_procedures.py
