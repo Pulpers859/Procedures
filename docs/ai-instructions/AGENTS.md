@@ -52,6 +52,11 @@ The app is designed for trained clinicians who need rapid, structured, practical
    - Use the playbook as a neutral decision framework, not as a preset recommendation.
    - Inspect this app's actual platform, workflows, implementation stack, design maturity, and constraints before deciding what fits.
 
+9. Keep Claude Code context lean on broad tasks.
+   - Use `docs/CLAUDE_CODE_TOKEN_EFFICIENCY.md` when the task is research-heavy, cross-cutting, or likely to burn context.
+   - Prefer targeted file reads, source-of-truth paths, bounded work waves, and short recaps over broad repo sweeps.
+   - Do not browse external design resources unless the task actually needs outside design evidence.
+
 ## Current MVP
 
 The current MVP uses:

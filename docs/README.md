@@ -3,6 +3,7 @@
 ## Live Project Docs
 - `../PROJECT_HANDOFF.md` - repo identity, source-of-truth rules, Git/GitHub workflow, and next-agent operating instructions
 - `AI_UI_UX_RESOURCE_EVALUATION_PLAYBOOK.md` - neutral framework for evaluating external UI/UX repos, libraries, reference sites, and agent skills for this app
+- `CLAUDE_CODE_TOKEN_EFFICIENCY.md` - repo-specific guidance for improving Claude Code token efficiency without adding heavy permanent tooling
 - `EXTERNAL_AGENT_RECONCILIATION.md` - standalone reconciliation note for multi-agent / multi-machine repo work
 - `ai-instructions/AGENTS.md` - product-specific guidance for future coding agents
 - `ai-instructions/PRODUCT_BRIEF.md` - app purpose, users, and non-goals
