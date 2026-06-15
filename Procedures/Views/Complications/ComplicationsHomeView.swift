@@ -36,24 +36,26 @@ struct ComplicationsHomeView: View {
                     }
                 }
 
-                Section("Procedure-Specific Reviews") {
-                    ForEach(procedures) { procedure in
-                        NavigationLink {
-                            ScrollView {
-                                ComplicationContent(procedure: procedure)
-                                    .padding()
-                            }
-                            .background(Color(.systemGroupedBackground))
-                            .navigationTitle(procedure.title)
-                            .navigationBarTitleDisplayMode(.inline)
-                        } label: {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(procedure.title)
-                                    .font(.headline)
-                                Text(procedure.sections.complications.prefix(2).joined(separator: " • "))
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                                    .lineLimit(2)
+                if !procedures.isEmpty {
+                    Section("Procedure-Specific Reviews") {
+                        ForEach(procedures) { procedure in
+                            NavigationLink {
+                                ScrollView {
+                                    ComplicationContent(procedure: procedure)
+                                        .padding()
+                                }
+                                .background(Color(.systemGroupedBackground))
+                                .navigationTitle(procedure.title)
+                                .navigationBarTitleDisplayMode(.inline)
+                            } label: {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(procedure.title)
+                                        .font(.headline)
+                                    Text(procedure.sections.complications.prefix(2).joined(separator: " • "))
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(2)
+                                }
                             }
                         }
                     }
@@ -71,6 +73,14 @@ struct ComplicationsHomeView: View {
 struct RescueCardRow: View {
     let card: ComplicationRescueCard
 
+    private var acuityColor: Color {
+        switch card.acuity {
+        case .crash: return .red
+        case .urgent: return .orange
+        case .watch: return .yellow
+        }
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top) {
@@ -87,8 +97,8 @@ struct RescueCardRow: View {
                     .font(.caption2.weight(.heavy))
                     .padding(.horizontal, 8)
                     .padding(.vertical, 5)
-                    .foregroundStyle(card.acuity == .crash ? .red : .orange)
-                    .background((card.acuity == .crash ? Color.red : Color.orange).opacity(0.14), in: Capsule())
+                    .foregroundStyle(acuityColor)
+                    .background(acuityColor.opacity(0.14), in: Capsule())
             }
 
             FlowTagView(tags: card.tags.prefix(3).map { String($0) })
@@ -144,6 +154,30 @@ struct RescueCardDetailView: View {
                                 }
                                 .buttonStyle(.plain)
                             }
+                        }
+                    }
+                }
+
+                SectionCard(title: "Governance", systemImage: "checkmark.shield") {
+                    VStack(spacing: 8) {
+                        MetadataRow(icon: "calendar", title: "Last reviewed", value: card.lastReviewed)
+                        MetadataRow(icon: "number", title: "Version", value: card.version)
+                    }
+                }
+
+                if !card.references.isEmpty {
+                    SectionCard(title: "References", systemImage: "books.vertical") {
+                        VStack(alignment: .leading, spacing: 6) {
+                            ForEach(Array(card.references.enumerated()), id: \.offset) { _, reference in
+                                Text(reference)
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                                    .textSelection(.enabled)
+                            }
+                            Divider().padding(.vertical, 4)
+                            Text("Educational review for trained clinicians. Does not replace formal training, supervision, credentialing, clinical judgment, or local institutional policy.")
+                                .font(.footnote.weight(.semibold))
+                                .foregroundStyle(.secondary)
                         }
                     }
                 }

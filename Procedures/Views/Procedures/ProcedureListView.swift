@@ -43,6 +43,9 @@ struct ProcedureListView: View {
             .navigationDestination(for: Procedure.self) { procedure in
                 ProcedureDetailView(procedure: procedure)
             }
+            .navigationDestination(for: ComplicationRescueCard.self) { card in
+                RescueCardDetailView(card: card)
+            }
         }
     }
 

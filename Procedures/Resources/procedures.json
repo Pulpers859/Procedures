@@ -867,7 +867,7 @@
         "Use appropriate site and catheter length; short catheters fail.",
         "Preferred sites vary; know your local protocol: 4th/5th anterior or mid-axillary, or 2nd ICS midclavicular.",
         "Definitive tube thoracostomy usually follows if tension pneumothorax is likely.",
-        "If one decompression attempt fails and tension remains plausible, move quickly to finger/tube thoracostomy or alternate decompression site per protocol."
+        "If one decompression attempt fails and tension remains plausible, execute the backup plan immediately: finger/tube thoracostomy or alternate decompression site per protocol."
       ],
       "indications": [
         "Suspected tension pneumothorax with hemodynamic or respiratory compromise",
@@ -914,7 +914,8 @@
       "troubleshooting": [
         "No improvement: wrong side/site, catheter too short, kinked catheter, hemothorax, tamponade, tube problem, or non-thoracic shock.",
         "Catheter occludes: proceed to definitive thoracostomy.",
-        "Persistent instability: reassess whole resuscitation, not just the chest."
+        "Persistent instability: reassess whole resuscitation, not just the chest.",
+        "Rescue: if initial decompression fails and clinical picture still supports tension, proceed directly to finger or tube thoracostomy rather than repeating needle attempts."
       ],
       "complications": [
         "Failure to decompress",
@@ -1225,7 +1226,7 @@
   {
     "id": "procedural_sedation",
     "title": "Procedural Sedation",
-    "category": "Cardiac / Resuscitation",
+    "category": "Other",
     "difficulty": "Advanced",
     "reviewTime": "2 min",
     "setting": [

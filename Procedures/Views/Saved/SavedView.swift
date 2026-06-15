@@ -66,14 +66,31 @@ struct SavedView: View {
                 }
 
                 Section("Content Health") {
-                    if repository.contentWarnings.isEmpty {
-                        Label("No local content warnings detected", systemImage: "checkmark.seal")
-                            .foregroundStyle(.secondary)
-                    } else {
-                        ForEach(repository.contentWarnings, id: \.self) { warning in
-                            Label(warning, systemImage: "exclamationmark.triangle")
-                                .foregroundStyle(.orange)
+                    NavigationLink {
+                        ContentHealthView()
+                    } label: {
+                        HStack {
+                            let blockers = repository.contentIssues.filter { $0.severity == .blocker }.count
+                            let warnings = repository.contentIssues.filter { $0.severity == .warning }.count
+                            let polish = repository.contentIssues.filter { $0.severity == .polish }.count
+
+                            if blockers == 0 && warnings == 0 && polish == 0 {
+                                Label("No content issues", systemImage: "checkmark.seal.fill")
+                                    .foregroundStyle(.green)
+                            } else if blockers > 0 {
+                                Label("\(blockers) blockers, \(warnings) warnings", systemImage: "exclamationmark.octagon")
+                                    .foregroundStyle(.red)
+                            } else if warnings > 0 {
+                                Label("\(warnings) warnings, \(polish) polish", systemImage: "exclamationmark.triangle")
+                                    .foregroundStyle(.orange)
+                            } else {
+                                Label("\(polish) polish items", systemImage: "sparkles")
+                                    .foregroundStyle(.secondary)
+                            }
+
+                            Spacer()
                         }
+                        .font(.subheadline)
                     }
                 }
 

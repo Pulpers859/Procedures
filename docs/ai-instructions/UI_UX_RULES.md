@@ -6,11 +6,11 @@ This app should feel like a fast clinical tool, not a course module.
 
 ## Main tabs
 
-1. Procedures
-2. Shift Mode
-3. Equipment
-4. Complications
-5. Saved
+1. Guide — command center, pathway routing, search, rescue preview
+2. Procedures — A-Z library with category quick access and content health
+3. Rescue — problem-first rescue cards and procedure-specific complication reviews
+4. Kits — physical room setup and equipment checklists
+5. Saved — favorites, recents, local notes, and content health summary
 
 ## Procedure screen
 

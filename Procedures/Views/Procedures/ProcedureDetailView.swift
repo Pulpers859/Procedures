@@ -31,6 +31,9 @@ struct ProcedureDetailView: View {
             userData.markRecentlyViewed(procedure)
             noteText = userData.note(for: procedure)
         }
+        .navigationDestination(for: ComplicationRescueCard.self) { card in
+            RescueCardDetailView(card: card)
+        }
     }
 
     private var header: some View {
@@ -137,6 +140,7 @@ struct ShiftModeProcedureContent: View {
 struct EquipmentChecklistContent: View {
     @EnvironmentObject private var userData: UserDataStore
     let procedure: Procedure
+    @State private var showingResetConfirmation = false
 
     var body: some View {
         SectionCard(title: "Room + Equipment Checklist", systemImage: "checklist") {
@@ -147,9 +151,14 @@ struct EquipmentChecklistContent: View {
                         .foregroundStyle(.secondary)
                     Spacer()
                     Button("Reset") {
-                        userData.resetEquipment(for: procedure)
+                        showingResetConfirmation = true
                     }
                     .font(.footnote.weight(.semibold))
+                    .confirmationDialog("Reset all equipment items?", isPresented: $showingResetConfirmation, titleVisibility: .visible) {
+                        Button("Reset Checklist", role: .destructive) {
+                            userData.resetEquipment(for: procedure)
+                        }
+                    }
                 }
 
                 ForEach(procedure.sections.equipment, id: \.self) { item in
@@ -191,11 +200,48 @@ struct StepByStepContent: View {
 }
 
 struct ComplicationContent: View {
+    @EnvironmentObject private var repository: ProcedureRepository
     let procedure: Procedure
+
+    private var relatedRescueCards: [ComplicationRescueCard] {
+        repository.rescueCards.filter { $0.relatedProcedureIDs.contains(procedure.id) }
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             CriticalWarningCard(title: "Complications to anticipate", items: procedure.sections.complications)
+
+            if !relatedRescueCards.isEmpty {
+                SectionCard(title: "Rescue Cards", systemImage: "lifepreserver.fill") {
+                    VStack(alignment: .leading, spacing: 10) {
+                        ForEach(relatedRescueCards) { card in
+                            NavigationLink(value: card) {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(card.title)
+                                            .font(.subheadline.weight(.semibold))
+                                        Text(card.trigger.first ?? "")
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                            .lineLimit(1)
+                                    }
+                                    Spacer()
+                                    Text(card.acuity.rawValue.uppercased())
+                                        .font(.caption2.weight(.heavy))
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 4)
+                                        .foregroundStyle(card.acuity == .crash ? .red : .orange)
+                                        .background((card.acuity == .crash ? Color.red : Color.orange).opacity(0.14), in: Capsule())
+                                    Image(systemName: "chevron.right")
+                                        .font(.caption.weight(.semibold))
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+            }
 
             if !procedure.sections.troubleshooting.isEmpty {
                 SectionCard(title: "Immediate Rescue Moves", systemImage: "lifepreserver") {
@@ -216,11 +262,23 @@ struct DocumentationContent: View {
     let procedure: Procedure
     @Binding var noteText: String
     @EnvironmentObject private var userData: UserDataStore
+    @State private var showCopied = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             SectionCard(title: "Documentation Language", systemImage: "doc.text") {
                 VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Spacer()
+                        Button {
+                            UIPasteboard.general.string = procedure.sections.documentation.joined(separator: "\n\n")
+                            showCopied = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { showCopied = false }
+                        } label: {
+                            Label(showCopied ? "Copied" : "Copy All", systemImage: showCopied ? "checkmark" : "doc.on.doc")
+                                .font(.footnote.weight(.semibold))
+                        }
+                    }
                     ForEach(Array(procedure.sections.documentation.enumerated()), id: \.offset) { _, line in
                         Text(line)
                             .font(.body)

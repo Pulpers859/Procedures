@@ -248,6 +248,9 @@ struct PathwayProcedureListView: View {
             }
         }
         .navigationTitle(pathway.title)
+        .navigationDestination(for: Procedure.self) { procedure in
+            ProcedureDetailView(procedure: procedure)
+        }
     }
 }
 
@@ -272,5 +275,8 @@ struct AllRescueCardsListView: View {
             }
         }
         .navigationTitle("Rescue Cards")
+        .navigationDestination(for: ComplicationRescueCard.self) { card in
+            RescueCardDetailView(card: card)
+        }
     }
 }
