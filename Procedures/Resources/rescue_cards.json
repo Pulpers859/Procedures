@@ -90,7 +90,9 @@
     "title": "Arterial puncture during central line",
     "acuity": "Urgent",
     "relatedProcedureIDs": [
-      "central_venous_catheter"
+      "central_venous_catheter",
+      "introducer_sheath_cordis",
+      "dialysis_catheter_vascath"
     ],
     "trigger": [
       "Bright pulsatile blood, arterial waveform, high-pressure tubing, or ultrasound concern during access."
@@ -133,7 +135,9 @@
     "title": "Lost guidewire / wire control problem",
     "acuity": "Crash",
     "relatedProcedureIDs": [
-      "central_venous_catheter"
+      "central_venous_catheter",
+      "introducer_sheath_cordis",
+      "dialysis_catheter_vascath"
     ],
     "trigger": [
       "Wire no longer visible or control of the proximal wire is lost."
@@ -310,7 +314,9 @@
     "relatedProcedureIDs": [
       "central_venous_catheter",
       "needle_decompression",
-      "thoracostomy_chest_tube"
+      "thoracostomy_chest_tube",
+      "introducer_sheath_cordis",
+      "dialysis_catheter_vascath"
     ],
     "trigger": [
       "Respiratory distress, hypoxia, or decreased breath sounds following IJ, subclavian, or axillary central venous catheter placement."

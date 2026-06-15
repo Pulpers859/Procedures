@@ -2109,5 +2109,596 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
+  },
+  {
+    "id": "introducer_sheath_cordis",
+    "title": "Introducer Sheath (Cordis)",
+    "category": "Vascular Access",
+    "difficulty": "Advanced",
+    "reviewTime": "5 min",
+    "setting": [
+      "ED",
+      "ICU",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "reviewerStatus": "Needs Clinical Review",
+    "tags": [
+      "cordis",
+      "introducer",
+      "sheath",
+      "MAC",
+      "large-bore",
+      "central line",
+      "resuscitation",
+      "transvenous",
+      "rapid infusion",
+      "Seldinger"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm you actually need large-bore central access (massive transfusion, rapid volume, or a conduit for a transvenous pacer/PA catheter) \u2014 a triple lumen is not interchangeable with an introducer.",
+        "Full sterile barrier and ultrasound, exactly as for any central line. The larger dilator is less forgiving, not more.",
+        "Confirm the wire is venous before dilating \u2014 arterial dilation with an 8.5 Fr sheath is a surgical emergency.",
+        "Dilator and sheath advance together as a unit over the wire; keep the wire moving freely and never lose the back end.",
+        "Advance with gentle rotation, not force. The skin nick must be adequate or the sheath tip will peel back.",
+        "Remove dilator and wire together, then immediately cap or connect the side port and aspirate/flush.",
+        "Confirm position and screen for pneumothorax/arterial placement per site and local policy."
+      ],
+      "indications": [
+        "Anticipated massive transfusion or rapid large-volume resuscitation",
+        "Need for a conduit to float a transvenous pacemaker or pulmonary artery catheter",
+        "High-flow access when peripheral large-bore IVs are inadequate or impossible",
+        "Hemodynamic instability requiring reliable, high-flow central access"
+      ],
+      "contraindications": [
+        "Patient refusal when non-emergent",
+        "Infection, burn, or significant injury overlying the intended site",
+        "Thrombosis or distorted anatomy at the intended vein",
+        "Uncorrected severe coagulopathy is a relative risk; weigh against urgency and choose a compressible site",
+        "Do not place a large introducer when the clinical need is met by a smaller multi-lumen catheter"
+      ],
+      "anatomy": [
+        "IJ and femoral are the usual sites; subclavian/axillary carry higher pneumothorax and noncompressible-bleeding risk with a large sheath.",
+        "The vein must comfortably accommodate an 8.5 Fr (or larger) sheath \u2014 confirm caliber and compressibility on ultrasound.",
+        "Distinguish compressible vein from pulsatile, noncompressible artery before puncture; the consequence of error scales with sheath size.",
+        "For IJ, note proximity of the carotid and the pleural dome at the base of the neck."
+      ],
+      "equipment": [
+        "Introducer/Cordis kit with sheath, integrated dilator, guidewire, needle, and scalpel",
+        "Sterile gown, gloves, mask, cap, and large sterile drape",
+        "Chlorhexidine prep",
+        "Ultrasound machine with sterile probe cover and sterile gel",
+        "Local anesthetic, syringe, and small needle",
+        "Sterile saline flush for the side port",
+        "Suture or securement device and sterile dressing",
+        "Sharps container and sterile towels",
+        "Confirmation workflow (chest x-ray) for IJ/subclavian/axillary placement"
+      ],
+      "positioning": [
+        "IJ: Trendelenburg if tolerated, head slightly turned away, neck not over-rotated.",
+        "Femoral: supine, leg slightly abducted and externally rotated if tolerated.",
+        "Set the ultrasound screen in your direct line of sight before sterile prep.",
+        "Optimize lighting and table height before opening the kit."
+      ],
+      "steps": [
+        "Confirm indication for large-bore access and select the site by urgency, anatomy, and bleeding risk.",
+        "Ultrasound survey before opening the kit: confirm vein caliber, patency, and trajectory.",
+        "Prep and drape with full sterile barrier technique.",
+        "Anesthetize skin and deeper tissue along the planned tract.",
+        "Cannulate the vein under ultrasound guidance, maintaining needle-tip awareness; confirm venous blood return.",
+        "Pass the guidewire smoothly without force; confirm wire is venous with ultrasound when feasible.",
+        "Make an adequate skin nick at the wire with the scalpel, controlling the wire at all times.",
+        "Advance the assembled dilator-and-sheath over the wire as a unit, using gentle rotation; do not force.",
+        "Remove the dilator and wire together while holding the sheath in place; confirm the wire is out intact.",
+        "Aspirate and flush the side port; cap or connect infusion.",
+        "Secure the sheath and apply a sterile dressing.",
+        "Confirm position and assess for complications per site and local policy."
+      ],
+      "ultrasound": [
+        "Confirm the vein is large enough for the sheath and compresses fully before puncture.",
+        "Use short-axis for vessel ID; long-axis helps track needle and wire if skilled.",
+        "Confirm guidewire within the vein before dilating \u2014 this is the highest-stakes confirmation given the dilator size.",
+        "For IJ, check lung sliding afterward as a rapid pneumothorax screen, but follow local confirmation standards."
+      ],
+      "confirmation": [
+        "Side port aspirates and flushes easily",
+        "Guidewire and dilator removed intact",
+        "Sheath secured with sterile dressing",
+        "Appropriate imaging/confirmation obtained for the site",
+        "No evidence of arterial placement, pneumothorax, hematoma, or malposition"
+      ],
+      "troubleshooting": [
+        "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
+        "Sheath tip peels back or kinks on advancement: the skin/tract nick is too small \u2014 withdraw, enlarge the nick, and re-advance over a controlled wire.",
+        "Bright pulsatile blood or arterial waveform before dilation: stop; do not dilate; manage as arterial puncture.",
+        "Brisk bleeding around the sheath: apply pressure, assess coagulopathy, and confirm intraluminal placement.",
+        "Unstable after placement: consider pneumothorax, bleeding, arrhythmia, air embolism, or progression of underlying shock."
+      ],
+      "complications": [
+        "Arterial cannulation with a large-bore sheath (surgical emergency)",
+        "Pneumothorax or hemothorax, especially with IJ/subclavian/axillary approaches",
+        "Hematoma or significant bleeding given the large tract",
+        "Air embolism through an uncapped large-bore sheath",
+        "Guidewire loss or retained wire",
+        "Arrhythmia from wire or catheter irritation",
+        "Malposition, infection, or thrombosis"
+      ],
+      "aftercare": [
+        "Keep the side port capped or connected at all times to prevent air embolism.",
+        "Label the sheath and date the dressing per local policy.",
+        "Review confirmation imaging before high-risk use if required by site/policy.",
+        "Remove the introducer as soon as large-bore access is no longer required.",
+        "Reassess the site for bleeding or hematoma after placement."
+      ],
+      "documentation": [
+        "Introducer sheath (Cordis) placed for documented large-bore access indication.",
+        "Consent obtained when feasible; emergent need documented if not possible.",
+        "Site and side confirmed; full sterile barrier precautions used.",
+        "Ultrasound guidance used to identify the vein and guide cannulation.",
+        "Guidewire passed without resistance and removed intact with the dilator.",
+        "Side port aspirated and flushed; sheath secured with sterile dressing.",
+        "Placement confirmation and immediate complication assessment documented."
+      ],
+      "seniorPearls": [
+        "The skin nick is the step most people underdo; an 8.5 Fr sheath needs a real nick or the tip accordions on the way in.",
+        "Dilation is irreversible \u2014 if you are not certain the wire is venous, you are not ready to dilate.",
+        "An uncapped large-bore sheath is an open conduit for air; cap or connect it the moment the dilator and wire come out."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, central venous access and introducer sheath technique.",
+        "Major critical care and trauma resuscitation texts on large-bore venous access.",
+        "Institutional central line bundle and ultrasound-guided vascular access policies; verify local requirements."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "cordis_dilator_unit",
+        "kind": "Setup",
+        "title": "Dilator-sheath assembly",
+        "subtitle": "Assembled dilator and sheath advancing over the wire, skin nick, and side-port orientation.",
+        "assetName": null,
+        "systemImage": "arrow.down.to.line",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual must make wire control and adequate skin nick obvious \u2014 the two failure points for large sheaths."
+      }
+    ]
+  },
+  {
+    "id": "dialysis_catheter_vascath",
+    "title": "Dialysis Catheter (Vas-Cath)",
+    "category": "Vascular Access",
+    "difficulty": "Advanced",
+    "reviewTime": "5 min",
+    "setting": [
+      "ED",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "reviewerStatus": "Needs Clinical Review",
+    "tags": [
+      "vascath",
+      "vas cath",
+      "dialysis catheter",
+      "Quinton",
+      "Shiley",
+      "CRRT",
+      "hemodialysis",
+      "large-bore",
+      "Seldinger",
+      "central line"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis) \u2014 a triple lumen will not deliver it.",
+        "Site choice matters: right IJ is preferred for function and lower complication; avoid subclavian to preserve future fistula options.",
+        "Full sterile barrier and ultrasound, identical discipline to any central line.",
+        "Confirm the wire is venous before dilating; dialysis catheters use serial dilators and a large stiff catheter.",
+        "Dilate sequentially without force; the tract must be developed enough to pass the catheter but not over-dilated.",
+        "Both lumens (arterial and venous ports) must aspirate and flush; lock with the prescribed catheter lock volume.",
+        "Confirm tip position and screen for complications before the line is used for dialysis."
+      ],
+      "indications": [
+        "Urgent or emergent hemodialysis (hyperkalemia, severe acidosis, fluid overload, uremia, certain toxic ingestions)",
+        "Continuous renal replacement therapy in the critically ill",
+        "Plasmapheresis or therapeutic apheresis requiring high blood flow",
+        "Bridge access while definitive dialysis access is established"
+      ],
+      "contraindications": [
+        "Patient refusal when non-emergent",
+        "Infection or burn over the intended site",
+        "Thrombosis or distorted anatomy at the intended vein",
+        "Subclavian approach is relatively contraindicated in candidates for future AV fistula (stenosis risk)",
+        "Uncorrected severe coagulopathy is a relative risk; weigh urgency and choose a compressible site"
+      ],
+      "anatomy": [
+        "Right IJ offers the straightest path to the SVC/RA junction and is the preferred site for catheter function.",
+        "Femoral is acceptable for short-term or emergent access, with higher infection risk and flow limitations.",
+        "Avoid subclavian when possible to preserve the vasculature for future arteriovenous access.",
+        "The vein must accommodate a large, stiff dual-lumen catheter \u2014 confirm caliber and compressibility on ultrasound."
+      ],
+      "equipment": [
+        "Dialysis catheter kit (dual-lumen catheter, guidewire, needle, scalpel, serial dilators)",
+        "Sterile gown, gloves, mask, cap, and large sterile drape",
+        "Chlorhexidine prep",
+        "Ultrasound machine with sterile probe cover and sterile gel",
+        "Local anesthetic, syringe, and small needle",
+        "Heparin or citrate catheter lock solution per local protocol",
+        "Sterile saline flushes for both lumens",
+        "Suture/securement device and sterile dressing",
+        "Confirmation workflow (chest x-ray) for IJ/subclavian placement"
+      ],
+      "positioning": [
+        "IJ: Trendelenburg if tolerated, head slightly turned away, neck not over-rotated.",
+        "Femoral: supine, leg slightly abducted and externally rotated if tolerated.",
+        "Place the ultrasound screen in your line of sight before sterile prep.",
+        "Optimize lighting and table height before opening the kit."
+      ],
+      "steps": [
+        "Confirm dialysis-level indication and select the site, preferring right IJ when feasible.",
+        "Ultrasound survey before opening the kit: confirm vein caliber, patency, and trajectory.",
+        "Prep and drape with full sterile barrier technique.",
+        "Anesthetize skin and deeper tissue along the planned tract.",
+        "Cannulate the vein under ultrasound guidance with needle-tip awareness; confirm venous blood return.",
+        "Pass the guidewire smoothly without force; confirm venous position with ultrasound when feasible.",
+        "Make an adequate skin nick at the wire, controlling the wire at all times.",
+        "Pass serial dilators over the wire to develop the tract; advance gently with rotation, never forcing.",
+        "Advance the dual-lumen catheter over the wire to the planned depth for the site.",
+        "Remove the wire while holding the catheter; confirm the wire is out intact.",
+        "Aspirate and flush both lumens; lock each with the prescribed lock solution and volume.",
+        "Secure the catheter, apply a sterile dressing, and confirm tip position before dialysis use."
+      ],
+      "ultrasound": [
+        "Confirm the vein is large enough and compresses fully before puncture.",
+        "Use short-axis for vessel ID; long-axis to track the needle and wire if skilled.",
+        "Confirm guidewire within the vein before serial dilation.",
+        "For IJ, check lung sliding afterward as a rapid pneumothorax screen, but follow local confirmation standards."
+      ],
+      "confirmation": [
+        "Both arterial and venous lumens aspirate and flush easily",
+        "Guidewire and dilators removed intact",
+        "Catheter locked with the prescribed solution and volume",
+        "Tip position confirmed by imaging before dialysis use (IJ/subclavian)",
+        "No evidence of arterial placement, pneumothorax, hematoma, or malposition"
+      ],
+      "troubleshooting": [
+        "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
+        "Catheter will not advance despite dilation: the tract is under-developed or the wire has kinked; re-dilate over a controlled wire and recheck.",
+        "Bright pulsatile blood or arterial waveform before dilation: stop; do not dilate; manage as arterial puncture.",
+        "Poor flow from one lumen after placement: reposition the patient, confirm depth and tip position, and avoid forcing against resistance.",
+        "Unstable after placement: consider pneumothorax, bleeding, arrhythmia, air embolism, or progression of underlying illness."
+      ],
+      "complications": [
+        "Arterial cannulation with a large-bore catheter (surgical emergency)",
+        "Pneumothorax or hemothorax, especially with IJ/subclavian approaches",
+        "Hematoma or significant bleeding from the large tract",
+        "Catheter dysfunction or inadequate dialysis flow",
+        "Central vein stenosis (notably with subclavian placement)",
+        "Air embolism, guidewire loss, arrhythmia, infection, or thrombosis"
+      ],
+      "aftercare": [
+        "Lock both lumens with the prescribed solution; label volumes so they are withdrawn before next use.",
+        "Reserve the catheter for dialysis use per local policy to reduce infection and dysfunction.",
+        "Confirm tip position on imaging before first dialysis run for IJ/subclavian lines.",
+        "Remove the catheter as soon as dialysis access is no longer required.",
+        "Reassess the site for bleeding, hematoma, or signs of infection."
+      ],
+      "documentation": [
+        "Dialysis catheter (dual-lumen) placed for documented renal-replacement indication.",
+        "Consent obtained when feasible; emergent need documented if not possible.",
+        "Site and side confirmed; full sterile barrier precautions used.",
+        "Ultrasound guidance used to identify the vein and guide cannulation.",
+        "Guidewire passed without resistance; serial dilation performed; wire removed intact.",
+        "Both lumens aspirated, flushed, and locked with the prescribed solution and volume.",
+        "Tip position confirmation and immediate complication assessment documented."
+      ],
+      "seniorPearls": [
+        "Right IJ to the cavoatrial junction is the functional sweet spot; femoral works in a pinch but flows and infection rates are worse.",
+        "Avoid the subclavian in anyone who may ever need a fistula \u2014 central stenosis can cost them future access.",
+        "If a lumen will not aspirate, do not flush it under pressure; reposition and reconfirm tip position first."
+      ],
+      "references": [
+        "KDOQI clinical practice guidelines for vascular access.",
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, central venous and dialysis catheter access.",
+        "Institutional dialysis catheter and central line bundle policies; verify local lock-solution protocol."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "vascath_tip_position",
+        "kind": "Confirmation",
+        "title": "Catheter tip position",
+        "subtitle": "Right IJ trajectory to the cavoatrial junction and dual-lumen orientation.",
+        "assetName": null,
+        "systemImage": "scope",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual must make safe tip position and site preference clear to avoid malposition and stenosis."
+      }
+    ]
+  },
+  {
+    "id": "ultrasound_guided_piv",
+    "title": "Ultrasound-Guided Peripheral IV",
+    "category": "Ultrasound-Guided",
+    "difficulty": "Intermediate",
+    "reviewTime": "3 min",
+    "setting": [
+      "ED",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "reviewerStatus": "Needs Clinical Review",
+    "tags": [
+      "ultrasound IV",
+      "USGIV",
+      "PIV",
+      "difficult access",
+      "DIVA",
+      "peripheral",
+      "deep vein",
+      "long catheter",
+      "basilic",
+      "brachial"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Reserve for difficult access; do not default to it when a visible/palpable vein is available.",
+        "Pick a target 0.3-1.5 cm deep with a straight segment; deeper than the catheter is too short to stay in.",
+        "Use an adequately long catheter (4.8 cm or longer) \u2014 at least one third of the catheter should sit inside the vein, or it will infiltrate.",
+        "Avoid the brachial artery and median nerve in the medial upper arm; confirm the structure is a compressible vein.",
+        "Track the needle tip, not just tissue movement, in short or long axis as you advance.",
+        "Confirm flash, then lower the angle and advance several more millimeters before threading the catheter.",
+        "Confirm intraluminal position by flushing while imaging; watch for tissue bulging that signals infiltration."
+      ],
+      "indications": [
+        "Difficult intravenous access where surface veins are unavailable or repeatedly fail",
+        "Need for reliable peripheral access before escalating to central access",
+        "Patients requiring contrast, medications, or resuscitation without an existing line"
+      ],
+      "contraindications": [
+        "An easily visible or palpable suitable vein (use standard technique first)",
+        "Cellulitis, burn, or wound over the intended site",
+        "Need for high-flow large-bore central access or vesicant/irritant infusions that warrant central access",
+        "Extremity that should be avoided (e.g., AV fistula side, mastectomy/lymphedema side per policy)"
+      ],
+      "anatomy": [
+        "Common forearm and upper-arm targets include the basilic, brachial, and cephalic veins.",
+        "In the medial upper arm, the brachial veins flank the brachial artery and lie near the median nerve \u2014 identify all three before puncture.",
+        "Veins are compressible and lack a pulsatile, thick wall; arteries are pulsatile and noncompressible.",
+        "Deeper veins need a longer catheter so that enough length remains seated within the lumen."
+      ],
+      "equipment": [
+        "Ultrasound machine with high-frequency linear probe",
+        "Long peripheral IV catheter (4.8 cm / 1.88 in or longer)",
+        "Sterile or single-use probe cover and gel per local policy",
+        "Skin antiseptic (chlorhexidine)",
+        "Tourniquet",
+        "Saline flush and extension set",
+        "Securement dressing and tape",
+        "Sharps container"
+      ],
+      "positioning": [
+        "Position the arm on a flat, supported surface with the site facing up.",
+        "Apply a tourniquet proximally to distend the target vein.",
+        "Place the ultrasound screen directly in your line of sight beyond the puncture site.",
+        "Sit or stand so your hand, the probe, and the screen form a comfortable straight line."
+      ],
+      "steps": [
+        "Survey the extremity with ultrasound; select a compressible vein 0.3-1.5 cm deep with a straight segment.",
+        "Distinguish the vein from adjacent artery (pulsatile, noncompressible) and nerve.",
+        "Clean the skin and prepare a long catheter and flush.",
+        "Center the vein on the screen in short axis (or align it in long axis if skilled).",
+        "Insert the catheter at roughly 30-45 degrees, advancing while keeping the needle tip in view.",
+        "On flash, lower the angle and advance 2-4 mm further so the catheter tip \u2014 not just the needle \u2014 is intraluminal.",
+        "Thread the catheter off the needle into the vein while stabilizing the hub.",
+        "Release the tourniquet, withdraw the needle into the safety device, and attach the extension set.",
+        "Aspirate and flush while imaging; confirm intraluminal flow without tissue bulging.",
+        "Secure with a clear dressing and label per policy."
+      ],
+      "ultrasound": [
+        "Short-axis is easiest for centering; long-axis confirms the catheter lies within the lumen.",
+        "Compress to confirm the target is a vein, not an artery, before puncture.",
+        "Keep the needle tip in view at all times; advance the probe ahead to relocate a lost tip.",
+        "After threading, image the catheter within the vein and watch the flush for intraluminal turbulence rather than tissue expansion."
+      ],
+      "confirmation": [
+        "Blood flash and smooth catheter threading",
+        "Catheter visualized within the vein lumen on ultrasound",
+        "Flushes easily without resistance or tissue bulging",
+        "No pulsatile bleeding (would suggest arterial puncture)",
+        "Secured with a clear dressing and dated"
+      ],
+      "troubleshooting": [
+        "Flash but catheter will not thread: the tip is against a wall or only the needle entered \u2014 lower the angle, advance slightly, and re-confirm tip position.",
+        "Lost needle tip: stop advancing; slide the probe forward to find the tip before moving the needle.",
+        "Vein rolls or collapses: reduce probe pressure, reposition, or choose a better-supported segment.",
+        "Swelling or resistance on flush: infiltration \u2014 stop, remove, hold pressure, and select a new site.",
+        "Bright pulsatile blood: arterial puncture \u2014 remove, hold firm pressure, and reassess."
+      ],
+      "complications": [
+        "Infiltration or extravasation, especially with short catheters in deep veins",
+        "Arterial puncture",
+        "Nerve irritation or injury near the brachial bundle",
+        "Hematoma",
+        "Catheter dislodgement or early failure",
+        "Infection (lower than central access but not zero)"
+      ],
+      "aftercare": [
+        "Reassess the site for infiltration before and during infusions, particularly with deeper placements.",
+        "Document catheter length and depth so the next clinician understands the access.",
+        "Replace per local dwell-time policy and remove when no longer needed.",
+        "Educate the patient to report swelling, pain, or leakage at the site."
+      ],
+      "documentation": [
+        "Ultrasound-guided peripheral IV placed for difficult access.",
+        "Vein identified as compressible and non-pulsatile; adjacent artery/nerve noted and avoided.",
+        "Long catheter used; intraluminal position confirmed by ultrasound and flush.",
+        "Site secured with a clear dressing and labeled.",
+        "No immediate evidence of arterial puncture, infiltration, or nerve injury."
+      ],
+      "seniorPearls": [
+        "Catheter length is the difference between a line that lasts and one that infiltrates in an hour \u2014 match length to depth, not habit.",
+        "If you cannot keep the needle tip on screen, you are advancing blind; fan or slide the probe and find it before moving.",
+        "The medial upper arm is rich in arteries and nerves; one extra moment confirming the structure is a vein prevents the worst complications."
+      ],
+      "references": [
+        "ACEP policy and emergency ultrasound guidelines on ultrasound-guided vascular access.",
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, peripheral venous access.",
+        "Society and institutional ultrasound-guided peripheral access protocols; verify local catheter and dwell-time policy."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "usgiv_short_axis",
+        "kind": "Probe Position",
+        "title": "Short-axis needle tracking",
+        "subtitle": "Probe over the target vein, needle-tip view, and vein/artery/nerve relationship in the upper arm.",
+        "assetName": null,
+        "systemImage": "dot.viewfinder",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual must make needle-tip tracking and artery/nerve avoidance obvious."
+      }
+    ]
+  },
+  {
+    "id": "lateral_canthotomy",
+    "title": "Lateral Canthotomy & Cantholysis",
+    "category": "Other",
+    "difficulty": "Rare-Crash",
+    "reviewTime": "3 min",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "reviewerStatus": "Needs Clinical Review",
+    "tags": [
+      "canthotomy",
+      "cantholysis",
+      "orbital compartment syndrome",
+      "retrobulbar hematoma",
+      "vision",
+      "eye emergency",
+      "IOP",
+      "ophthalmology",
+      "proptosis"
+    ],
+    "sections": {
+      "shiftMode": [
+        "This is a vision-saving, time-critical procedure \u2014 minutes matter; do not wait for ophthalmology or imaging if the diagnosis is clear.",
+        "Diagnose clinically: acute orbital compartment syndrome with a tense, proptotic eye, decreased vision/APD, raised intraocular pressure, and pain after trauma or retrobulbar hemorrhage.",
+        "The goal is to release the inferior crus of the lateral canthal tendon (cantholysis) \u2014 the canthotomy incision alone is not enough.",
+        "Anesthetize and clamp the lateral canthus to reduce bleeding, then cut horizontally to the orbital rim.",
+        "Strum for the inferior crus and cut it; the lower lid should swing free and the globe should soften.",
+        "Reassess intraocular pressure and proptosis; if still tense, release the superior crus as well.",
+        "Do not let lack of an ophthalmologist delay the release in a clear orbital compartment syndrome."
+      ],
+      "indications": [
+        "Acute orbital compartment syndrome (commonly from retrobulbar hemorrhage) with vision threat",
+        "Markedly raised intraocular pressure with a tense, proptotic globe and an afferent pupillary defect",
+        "Progressive vision loss with orbital tension after facial/orbital trauma or surgery"
+      ],
+      "contraindications": [
+        "Suspected globe rupture \u2014 manipulating the orbit can extrude intraocular contents; avoid and get emergent ophthalmology",
+        "No evidence of orbital compartment syndrome (the procedure treats a pressure problem, not all eye injuries)",
+        "An alternative, immediately treatable cause of the findings that does not involve orbital pressure"
+      ],
+      "anatomy": [
+        "The lateral canthal tendon anchors the eyelids to the orbital rim and has a superior and an inferior crus.",
+        "Cantholysis of the inferior crus releases the lower lid and decompresses the orbit; both crura may need release.",
+        "The orbital septum and retrobulbar space hold the hemorrhage that raises pressure on the optic nerve and its blood supply.",
+        "The lacrimal apparatus sits medially; the lateral approach avoids it. Aim toward the lateral orbital rim, away from the globe."
+      ],
+      "equipment": [
+        "Local anesthetic with epinephrine, syringe, and small needle",
+        "Straight hemostat",
+        "Iris or sharp straight scissors",
+        "Toothed forceps",
+        "Gauze and saline for hemostasis and visualization",
+        "Tonometer to measure intraocular pressure if available",
+        "Eye protection/sterile gloves",
+        "Good lighting or headlamp"
+      ],
+      "positioning": [
+        "Patient supine with the head stabilized and the affected eye fully accessible.",
+        "Optimize lighting directly on the lateral canthus.",
+        "Have an assistant help retract the lids and manage bleeding if available.",
+        "Position yourself at the side of the affected eye for a horizontal lateral approach."
+      ],
+      "steps": [
+        "Confirm orbital compartment syndrome clinically and exclude obvious globe rupture.",
+        "Infiltrate local anesthetic with epinephrine into the lateral canthus toward the lateral orbital rim.",
+        "Clamp the lateral canthus horizontally with a hemostat for 1-2 minutes to crush tissue and reduce bleeding.",
+        "Remove the hemostat and make a horizontal canthotomy incision through the crushed tissue to the lateral orbital rim (about 1-2 cm).",
+        "Pull the lower lid outward and downward with forceps to put the inferior crus of the lateral canthal tendon on tension.",
+        "Strum and identify the taut inferior crus, then cut it (inferior cantholysis); the lower lid should release and the globe soften.",
+        "Reassess intraocular pressure, proptosis, and tension.",
+        "If the orbit remains tense, release the superior crus (superior cantholysis) and reassess.",
+        "Control bleeding with gentle pressure and arrange emergent ophthalmology evaluation."
+      ],
+      "ultrasound": [],
+      "confirmation": [
+        "Lower lid swings free after inferior cantholysis",
+        "Globe is visibly softer and proptosis reduced",
+        "Measured intraocular pressure has fallen toward normal if a tonometer is available",
+        "Improvement (or halted deterioration) in vision and pupillary findings",
+        "Hemostasis achieved at the canthotomy site"
+      ],
+      "troubleshooting": [
+        "No softening after the incision: the tendon was not released \u2014 the canthotomy cut alone is insufficient; perform the cantholysis.",
+        "Still tense after inferior cantholysis: release the superior crus as well.",
+        "Cannot identify the crus: pull the lid on tension and strum for the taut band toward the orbital rim before cutting.",
+        "Brisk bleeding obscuring the field: apply gentle pressure and use the pre-incision hemostat clamp to limit it.",
+        "Suspect globe rupture mid-procedure: stop manipulating the globe and get emergent ophthalmology."
+      ],
+      "complications": [
+        "Iatrogenic globe injury if the cut strays toward the globe",
+        "Bleeding from the incision",
+        "Incomplete decompression from canthotomy without cantholysis",
+        "Lacrimal or eyelid structural injury",
+        "Scarring or lid malposition after repair",
+        "Failure to restore vision if decompression is delayed"
+      ],
+      "aftercare": [
+        "Arrange emergent ophthalmology evaluation and definitive management.",
+        "Continue measures to lower intraocular pressure per ophthalmology guidance.",
+        "Serially reassess vision, pupil, and orbital tension until specialist care assumes the patient.",
+        "Document the time of decompression relative to symptom onset."
+      ],
+      "documentation": [
+        "Lateral canthotomy and inferior (\u00b1 superior) cantholysis performed for acute orbital compartment syndrome.",
+        "Clinical findings documented: proptosis, raised intraocular pressure, vision change, and afferent pupillary defect.",
+        "Globe rupture not suspected prior to the procedure.",
+        "Inferior crus released with resultant lid release and globe softening; superior crus released if needed.",
+        "Post-procedure intraocular pressure, vision, and pupillary findings recorded.",
+        "Emergent ophthalmology consultation arranged; time from onset to decompression documented."
+      ],
+      "seniorPearls": [
+        "The canthotomy is just the approach \u2014 the cantholysis is the treatment; cutting skin without releasing the crus does nothing for the pressure.",
+        "This is one of the few true 'cut now, consult after' ophthalmic emergencies; sight is lost in tens of minutes of optic nerve ischemia.",
+        "If the globe might be ruptured, stop \u2014 decompression can turn a salvageable eye into an extruded one."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, lateral canthotomy and cantholysis.",
+        "Ophthalmology and emergency medicine references on orbital compartment syndrome and retrobulbar hemorrhage.",
+        "Institutional ophthalmic emergency protocols; verify local consultation pathway."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "canthotomy_inferior_crus",
+        "kind": "Landmark",
+        "title": "Inferior crus release",
+        "subtitle": "Lateral canthal tendon crura, canthotomy incision line, and cantholysis target at the orbital rim.",
+        "assetName": null,
+        "systemImage": "eye.trianglebadge.exclamationmark",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual must make the inferior crus target and a globe-safe cut direction unambiguous."
+      }
+    ]
   }
 ]
