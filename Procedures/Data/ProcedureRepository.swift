@@ -50,7 +50,20 @@ enum ClinicalSynonyms {
         "hypotension": ["shock", "pressor", "blood", "pressure"],
         "apnea": ["sedation", "hypoxia", "ventilation", "bvm"],
         "last": ["local", "anesthetic", "toxicity", "lipid"],
-        "chest": ["thoracic", "tube", "pneumothorax"]
+        "chest": ["thoracic", "tube", "pneumothorax"],
+        "aline": ["arterial", "line", "radial", "hemodynamic", "monitoring", "abg"],
+        "radial": ["arterial", "line", "wrist", "access"],
+        "abg": ["arterial", "blood", "gas", "radial", "line"],
+        "tap": ["thoracentesis", "paracentesis", "pleural", "ascites", "fluid"],
+        "thoracentesis": ["pleural", "effusion", "thoracic", "tap", "drainage"],
+        "pleural": ["thoracentesis", "effusion", "thoracic", "fluid"],
+        "para": ["paracentesis", "ascites", "cirrhosis", "tap", "fluid"],
+        "paracentesis": ["ascites", "cirrhosis", "sbp", "tap", "fluid"],
+        "ascites": ["paracentesis", "cirrhosis", "sbp", "tap", "abdominal"],
+        "sbp": ["spontaneous", "bacterial", "peritonitis", "paracentesis", "cirrhosis"],
+        "abscess": ["incision", "drainage", "pus", "soft", "tissue", "mrsa"],
+        "i&d": ["abscess", "incision", "drainage", "pus"],
+        "laryngospasm": ["airway", "sedation", "stridor", "succinylcholine", "crash"]
     ]
 
     /// Splits a raw query into normalized, lowercased tokens.

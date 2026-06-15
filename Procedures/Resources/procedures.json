@@ -354,8 +354,8 @@
       ],
       "equipment": [
         "Local anesthetic",
-        "3–5 mL syringe",
-        "25–30G needle",
+        "3\u20135 mL syringe",
+        "25\u201330G needle",
         "Alcohol or chlorhexidine prep",
         "Gloves",
         "Gauze",
@@ -1409,7 +1409,7 @@
         "Sterile gloves/mask/prep/drape",
         "Spinal needle with stylet",
         "Manometer tubing if opening pressure needed",
-        "Collection tubes labeled 1–4",
+        "Collection tubes labeled 1\u20134",
         "Local anesthetic and small needle",
         "Bandage",
         "Assistant for positioning",
@@ -1489,6 +1489,609 @@
         "systemImage": "figure.seated.side",
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "This visual should prevent poor positioning and wrong-level confidence."
+      }
+    ]
+  },
+  {
+    "id": "arterial_line",
+    "title": "Arterial Line",
+    "category": "Vascular Access",
+    "difficulty": "Intermediate",
+    "reviewTime": "3 min",
+    "setting": [
+      "ED",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "tags": [
+      "arterial line",
+      "a-line",
+      "radial",
+      "ABG",
+      "hemodynamic monitoring",
+      "Seldinger",
+      "ultrasound"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm indication, site preference (radial first), and assess collateral flow with ultrasound before committing.",
+        "Position wrist in 20-30\u00b0 extension over a firm roll; tape securely without restricting distal circulation.",
+        "Ultrasound preferred: identify radial artery, confirm pulsatility and depth, plan entry point.",
+        "Anesthetize even in awake patients \u2014 arterial puncture without local anesthetic causes involuntary movement and failed placement.",
+        "Advance catheter-over-needle with bevel up at 30-45\u00b0; on flashback, flatten and advance catheter. Use Seldinger for deep or small vessels.",
+        "Arterial waveform on the transducer is definitive confirmation \u2014 a flat or venous tracing means reposition or replace.",
+        "Label, zero, and document waveform quality before relying on readings."
+      ],
+      "indications": [
+        "Continuous beat-to-beat blood pressure monitoring in hemodynamic instability or vasopressor titration",
+        "Frequent arterial blood gas sampling (>4-6 ABGs anticipated)",
+        "Non-invasive BP unreliable due to arrhythmia, severe hypotension, obesity, or peripheral vascular disease",
+        "High-risk procedures, RSI, or sedation requiring real-time hemodynamic monitoring"
+      ],
+      "contraindications": [
+        "No identifiable arterial signal at planned site \u2014 do not attempt blind",
+        "Raynaud phenomenon, limb ischemia, or insufficient collateral flow (relative; assess with ultrasound)",
+        "Active infection, burn, or wound overlying the insertion site",
+        "Suspected arterial disease, thrombosis, or prior catheterization damage at site",
+        "Severe coagulopathy \u2014 weigh urgency; compressible sites preferred"
+      ],
+      "anatomy": [
+        "Radial artery runs along the lateral volar forearm, superficial to the flexor carpi radialis tendon; typically 2-4 mm diameter at 3-8 mm depth.",
+        "Dual radial-ulnar supply provides collateral protection; assess with ultrasound if perfusion uncertain.",
+        "Femoral offers larger target but higher infection and noncompressible-bleeding risk.",
+        "Dorsalis pedis and posterior tibial are alternatives when upper extremities are inaccessible.",
+        "Artery is pulsatile and non-compressible; distinguish clearly from the adjacent cephalic vein."
+      ],
+      "equipment": [
+        "Arterial catheter kit or 20-gauge catheter-over-needle with Seldinger wire",
+        "Chlorhexidine prep",
+        "Sterile drape and sterile gloves",
+        "Local anesthetic (1% lidocaine), syringe, and small-gauge needle",
+        "Arm board or rolled towel for wrist positioning",
+        "Tape for securement",
+        "Arterial pressure transducer and tubing with NS flush bag pressurized to 300 mmHg",
+        "Ultrasound machine with sterile probe cover and sterile gel",
+        "Clear occlusive dressing",
+        "Suture or adhesive securement device per preference",
+        "Monitor with arterial waveform capability"
+      ],
+      "positioning": [
+        "Extend wrist 20-30\u00b0 over a firm roll (rolled towel or IV bag) with the volar surface facing up.",
+        "Tape hand and forearm securely to arm board; prevent movement without restricting distal perfusion.",
+        "Abduct arm and position ultrasound screen in direct line of sight before prep."
+      ],
+      "steps": [
+        "Confirm indication, check for contraindications, and obtain consent if non-emergent.",
+        "Set up pressure transducer and tubing; connect to monitor and zero at the phlebostatic axis.",
+        "Position wrist over roll in 20-30\u00b0 extension; secure with tape.",
+        "Perform ultrasound survey: identify artery, confirm pulsatility, estimate depth, and plan entry point.",
+        "Prep skin widely with chlorhexidine; apply sterile drape.",
+        "Infiltrate skin and subcutaneous tissue with local anesthetic along the planned tract.",
+        "With ultrasound guidance, advance needle at 30-45\u00b0 bevel-up; watch for pulsatile flash.",
+        "On flash: for catheter-over-needle, flatten slightly, advance catheter off needle, remove needle; for Seldinger, flatten, pass wire without force, remove needle, thread catheter over wire, remove wire.",
+        "Connect arterial tubing; confirm arterial waveform on monitor.",
+        "Secure catheter, apply clear dressing, and label with site and date.",
+        "Zero transducer at appropriate reference point; document waveform quality."
+      ],
+      "ultrasound": [
+        "Short-axis approach: confirm artery is pulsatile and non-compressible; distinguish from adjacent vein.",
+        "Long-axis approach: useful for visualizing needle trajectory and catheter advancement.",
+        "Confirm wire position in vessel lumen before advancing catheter with Seldinger technique.",
+        "Post-placement: assess distal perfusion if any concern about thrombosis or vasospasm."
+      ],
+      "confirmation": [
+        "Pulsatile arterial waveform visible on bedside monitor",
+        "Bright red flash at time of needle entry",
+        "All ports flush smoothly; no resistance",
+        "Catheter secured and labeled; transducer zeroed",
+        "Flush system continuously pressurized at ~300 mmHg"
+      ],
+      "troubleshooting": [
+        "Flash without waveform: check transducer connections, tubing, and zero; re-advance catheter slightly or retry Seldinger.",
+        "Catheter will not advance over needle: do not force; switch to Seldinger technique or resite.",
+        "Dampened waveform: check for clot at catheter tip, kink in tubing, or transducer below heart level.",
+        "Loss of signal with movement: improve limb securement and confirm catheter is not kinked.",
+        "Hematoma: remove catheter, hold firm pressure \u22655 min (longer if anticoagulated), and check distal perfusion."
+      ],
+      "complications": [
+        "Thrombosis with distal ischemia \u2014 remove catheter immediately if suspected",
+        "Hematoma",
+        "Infection, especially after 72-96 hours",
+        "Pseudoaneurysm",
+        "Air embolism with line flushing",
+        "Transient vasospasm",
+        "Nerve injury adjacent to vessel (rare)"
+      ],
+      "aftercare": [
+        "Remove catheter as soon as hemodynamic monitoring is no longer required.",
+        "Hold firm pressure 5-10 minutes after removal (longer if anticoagulated).",
+        "Assess distal perfusion and capillary refill after removal.",
+        "Change site or remove per institutional infection-prevention policy."
+      ],
+      "documentation": [
+        "Arterial line placed at [radial/femoral/dorsalis pedis] for [indication].",
+        "Consent obtained when feasible; emergent need documented when not possible.",
+        "Ultrasound guidance used; vessel confirmed as artery by pulsatility and non-compressibility.",
+        "Catheter advanced via [catheter-over-needle / Seldinger] technique.",
+        "Arterial waveform confirmed on monitor; transducer zeroed.",
+        "Catheter secured with clear dressing and labeled with date and site.",
+        "Distal perfusion intact after placement."
+      ],
+      "seniorPearls": [
+        "The wrist roll is often underdone \u2014 a firm, secure 20-30\u00b0 extension dramatically improves first-pass success.",
+        "Seldinger technique outperforms catheter-over-needle in patients with deep, small, or difficult vessels.",
+        "A persistently dampened waveform is a reason to replace the line, not to accept inaccurate readings."
+      ],
+      "references": [
+        "Roberts JR, Custalow CB. Roberts and Hedges' Clinical Procedures in Emergency Medicine. Arterial Catheterization chapter.",
+        "Society of Critical Care Medicine and ACEP guidelines on arterial line placement, hemodynamic monitoring, and infection prevention."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "radial_approach",
+        "kind": "Landmark",
+        "title": "Radial artery approach",
+        "subtitle": "Wrist extension position, probe orientation, artery depth, and needle entry angle.",
+        "assetName": null,
+        "systemImage": "waveform.path.ecg",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual should make artery identification and catheter advancement trajectory unambiguous."
+      }
+    ]
+  },
+  {
+    "id": "thoracentesis",
+    "title": "Thoracentesis",
+    "category": "Thoracic",
+    "difficulty": "Intermediate",
+    "reviewTime": "4 min",
+    "setting": [
+      "ED",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "tags": [
+      "thoracentesis",
+      "pleural effusion",
+      "thoracic",
+      "ultrasound",
+      "empyema",
+      "transudative",
+      "exudative"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm indication (diagnostic vs. therapeutic) and laterality; verify effusion is free-flowing on ultrasound \u2014 not loculated.",
+        "Mark the site with the patient in the procedure position; fluid pockets shift significantly when patients change position.",
+        "Puncture over the superior margin of the lower rib to avoid the intercostal neurovascular bundle (nerve-artery-vein runs inferior to each rib).",
+        "Anesthetize all the way to the pleural surface \u2014 the parietal pleura is where the pain is.",
+        "For therapeutic: connect drainage before advancing catheter; preventing air entry is critical.",
+        "Stop at 1\u20131.5 L per session unless monitoring closely; cough and chest tightness are early warnings of re-expansion risk.",
+        "Post-procedure ultrasound or CXR to confirm adequate drainage and screen for pneumothorax."
+      ],
+      "indications": [
+        "Diagnostic evaluation of a new, undiagnosed pleural effusion",
+        "Therapeutic relief of respiratory compromise from a large pleural effusion",
+        "Evaluation of parapneumonic effusion for empyema, complicated effusion, or effusion requiring drainage"
+      ],
+      "contraindications": [
+        "Uncooperative patient unable to remain still during procedure (relative; consider procedural sedation)",
+        "Uncorrected coagulopathy with significant bleeding risk \u2014 weigh urgency and available reversal",
+        "Effusion too small or clearly loculated with no safe accessible pocket on ultrasound",
+        "Active ipsilateral pneumothorax \u2014 decompress first",
+        "Known lung adherence to chest wall at the planned site"
+      ],
+      "anatomy": [
+        "Pleural space lies between parietal and visceral pleura; fluid accumulates in dependent regions (posterior on upright imaging).",
+        "Intercostal neurovascular bundle runs in the inferior groove of each rib: nerve, artery, vein (NAV superior-to-inferior); puncture over the superior margin of the lower rib.",
+        "Diaphragm rises during expiration and varies with body habitus; ultrasound confirms safe distance before puncture.",
+        "Right-sided approach: liver is at risk below the 9th rib posteriorly.",
+        "Left-sided approach: spleen is at risk; confirm upper boundary of effusion before each approach."
+      ],
+      "equipment": [
+        "Thoracentesis kit (needle, catheter, three-way stopcock, 60 mL syringe)",
+        "Ultrasound machine",
+        "Chlorhexidine prep",
+        "Sterile drape, sterile gloves, mask",
+        "Local anesthetic (1% lidocaine), syringe, and 22-25 gauge anesthesia needle",
+        "Large-bore drainage tubing and vacuum drainage bottles for therapeutic drainage",
+        "Specimen collection tubes (LDH, protein, glucose, pH, cell count with differential, culture, cytology as appropriate)",
+        "Blood culture bottles for inoculation at bedside (highest yield for SBP/empyema detection)",
+        "Occlusive dressing",
+        "Drainage measurement container"
+      ],
+      "positioning": [
+        "Seated and leaning forward over a padded bedside table with arms resting on a pillow \u2014 drops the scapula and opens interspaces for posterior access.",
+        "Supine with ipsilateral arm raised overhead is acceptable for ventilated or unable-to-sit patients; locate fluid in this position.",
+        "Perform ultrasound with the patient in the exact position you will use for the procedure."
+      ],
+      "steps": [
+        "Confirm the effusion side, size, and indication; determine diagnostic vs. therapeutic approach.",
+        "Obtain consent when feasible; document emergent need if not possible.",
+        "Perform real-time ultrasound with patient in procedure position; identify the optimal fluid pocket and mark the entry site.",
+        "Prep and drape the posterior-lateral chest at the marked site.",
+        "Anesthetize skin, subcutaneous tissue, rib periosteum, and pleural surface with local anesthetic, aspirating to confirm proximity to fluid as you advance.",
+        "Insert the procedure needle along the superior margin of the lower rib with continuous aspiration.",
+        "On pleural fluid return, lock needle position; for diagnostic aspiration, collect 30-60 mL directly.",
+        "For therapeutic: advance catheter over needle or via Seldinger technique, then connect drainage tubing to prevent air entry.",
+        "Drain fluid via syringe aspiration or gravity to vacuum bottle; monitor symptoms continuously.",
+        "For therapeutic drainage: stop at 1-1.5 L per session; stop earlier if patient develops cough, chest pain, or dyspnea.",
+        "Withdraw catheter/needle at end of expiration or with patient performing Valsalva; apply occlusive dressing immediately.",
+        "Obtain confirmatory imaging (CXR or lung ultrasound) within 1-2 hours."
+      ],
+      "ultrasound": [
+        "Use a low-frequency curvilinear or phased-array probe in the posterior-lateral chest to identify the effusion in coronal plane.",
+        "Confirm fluid is anechoic or hypoechoic and free-flowing with respiration \u2014 loculations appear as hyperechoic strands.",
+        "Measure the largest pocket depth and distance from skin to fluid before marking.",
+        "Mark the entry site with the patient in the procedure position; fluid pockets shift with position changes.",
+        "Post-procedure: scan for pneumothorax (absent lung sliding ipsilateral) before imaging is complete."
+      ],
+      "confirmation": [
+        "Pleural fluid aspirated freely and consistent with expected character (serous, serosanguineous, or purulent)",
+        "No sudden air return (would indicate lung puncture or pneumothorax development)",
+        "Respiratory symptoms improved for therapeutic indication",
+        "Post-procedure lung ultrasound or CXR: lung expanded, no pneumothorax",
+        "Specimens labeled and sent promptly"
+      ],
+      "troubleshooting": [
+        "No fluid on aspiration: confirm with real-time ultrasound \u2014 pocket may have shifted; use live guidance for next attempt.",
+        "Air return: withdraw immediately; the needle may be in lung parenchyma; assess urgently for pneumothorax.",
+        "Bloody return: distinguish hemorrhagic effusion from hemothorax vs. vessel injury \u2014 non-clotting blood suggests pleural; rapidly clotting suggests vascular.",
+        "Cough or chest tightness after 1 L: stop drainage; may indicate re-expansion risk or pleural irritation; observe and reassess.",
+        "Loculated pocket: scan multiple windows; if truly inaccessible, consult interventional radiology or thoracics."
+      ],
+      "complications": [
+        "Pneumothorax (5-10% without ultrasound; <1-3% with ultrasound guidance)",
+        "Hemothorax",
+        "Intercostal vessel injury or hematoma",
+        "Diaphragm or subdiaphragmatic organ puncture",
+        "Re-expansion pulmonary edema (large rapid drainage)",
+        "Subcutaneous emphysema",
+        "Air embolism"
+      ],
+      "aftercare": [
+        "Monitor O2 saturation, respiratory rate, and breath sounds for \u22651 hour after procedure.",
+        "Obtain CXR or lung ultrasound to evaluate for pneumothorax and residual effusion.",
+        "Send pleural fluid samples promptly; pH degrades quickly if not capped.",
+        "Record total volume drained and fluid character; document in procedure note."
+      ],
+      "documentation": [
+        "Thoracentesis performed at [right/left], [interspace], for [indication].",
+        "Consent obtained / emergent need documented.",
+        "Ultrasound guidance used for site selection and real-time guidance.",
+        "[Volume] mL of [serous/serosanguineous/purulent] fluid drained; no air return.",
+        "Specimens sent for [LDH, protein, cell count, culture, cytology as ordered].",
+        "Post-procedure imaging: [result, e.g., no pneumothorax, residual small effusion].",
+        "Patient tolerated procedure without oxygen desaturation, respiratory distress, or significant bleeding."
+      ],
+      "seniorPearls": [
+        "Mark the site with the patient in the procedure position \u2014 the fluid pocket moves when they lie down and you will miss it.",
+        "Most missed pneumothoraces occur in ventilated or obtunded patients who cannot report symptoms; get post-procedure ultrasound routinely.",
+        "Stop before 1.5 L unless you have a compelling reason and are monitoring closely; re-expansion pulmonary edema is rare but underappreciated."
+      ],
+      "references": [
+        "Light RW. Pleural Diseases, 6th ed. Lippincott Williams & Wilkins.",
+        "Havelock T et al. Pleural procedures and thoracic ultrasound: British Thoracic Society guideline 2010. Thorax.",
+        "ACEP and SCCM clinical guidelines on ultrasound-guided thoracentesis."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "thoracentesis_site",
+        "kind": "Landmark",
+        "title": "Thoracentesis entry site",
+        "subtitle": "Posterior-lateral approach, rib superior margin, neurovascular bundle location, and safe zone.",
+        "assetName": null,
+        "systemImage": "lungs.fill",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual must make neurovascular bundle avoidance and diaphragm boundary unambiguous."
+      }
+    ]
+  },
+  {
+    "id": "paracentesis",
+    "title": "Paracentesis",
+    "category": "Other",
+    "difficulty": "Intermediate",
+    "reviewTime": "4 min",
+    "setting": [
+      "ED",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "tags": [
+      "paracentesis",
+      "ascites",
+      "SBP",
+      "spontaneous bacterial peritonitis",
+      "cirrhosis",
+      "large-volume",
+      "albumin",
+      "ultrasound"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm indication (diagnostic vs. therapeutic); verify ascites is present and accessible by ultrasound.",
+        "Ultrasound marks the largest, safest pocket in the LLQ \u2014 avoids bowel, bladder, and inferior epigastric vessels.",
+        "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum \u2014 reduces post-procedure fluid leak.",
+        "For large-volume (>5 L): administer albumin 6-8 g per liter removed to prevent paracentesis-induced circulatory dysfunction.",
+        "Do not give albumin for diagnostic or small-volume (<5 L) taps \u2014 no evidence of benefit.",
+        "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap \u2014 you cannot rule out SBP clinically.",
+        "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn \u2014 highest diagnostic yield for SBP."
+      ],
+      "indications": [
+        "New-onset ascites requiring diagnostic evaluation",
+        "Suspected spontaneous bacterial peritonitis (SBP) in any hospitalized patient with cirrhosis and ascites",
+        "Therapeutic large-volume paracentesis for tense or symptomatic ascites causing respiratory compromise or discomfort",
+        "Evaluation of ascites in acute decompensated liver disease, malignancy, or unknown etiology"
+      ],
+      "contraindications": [
+        "Disseminated intravascular coagulation (DIC) \u2014 significant bleeding risk",
+        "Surgical abdomen where bowel perforation is possible at all accessible sites",
+        "Active infection, wound, or burn overlying all potential insertion sites",
+        "Known adhesions or bowel loops adherent to the anterior abdominal wall at the planned site",
+        "INR >2.0 or platelets <50,000 are relative contraindications; routine FFP correction is not required but individual bleeding risk applies"
+      ],
+      "anatomy": [
+        "Standard entry: LLQ 4-6 cm lateral to the midline, midway between umbilicus and anterior superior iliac spine (ASIS).",
+        "RLQ is acceptable alternative if LLQ is unsafe due to prior surgery, ostomy, or other anatomy.",
+        "Avoid the midline: risk of diastasis, recanalized umbilical vein, and thin soft tissue.",
+        "Inferior epigastric vessels run cephalocaudally approximately 3-5 cm medial to the ASIS \u2014 confirm with Doppler ultrasound.",
+        "The bladder must be empty; the bowel shifts unpredictably. Ultrasound-guided entry is standard of care."
+      ],
+      "equipment": [
+        "Paracentesis kit or 18-gauge needle/catheter with three-way stopcock and 60 mL syringe (diagnostic)",
+        "Long catheter or pigtail drain for therapeutic drainage >1 L",
+        "Ultrasound machine",
+        "Chlorhexidine prep",
+        "Sterile drape, sterile gloves",
+        "Local anesthetic (1% lidocaine), syringe, and small-gauge needle",
+        "Large-bore drainage tubing and vacuum collection bottles for therapeutic tap",
+        "Specimen collection tubes: cell count with differential, albumin, protein, LDH, glucose, culture",
+        "Blood culture bottles for bedside inoculation (best yield for SBP detection)",
+        "Occlusive dressing or small bandage"
+      ],
+      "positioning": [
+        "Supine with slight left lateral decubitus (left side down) to pool ascites in the LLQ.",
+        "Head of bed elevated 30\u00b0 if patient cannot lie flat due to respiratory compromise.",
+        "Empty the bladder before starting \u2014 foley or void \u2014 to clear the pelvic space.",
+        "Scan with the patient in the exact position you will use for the procedure."
+      ],
+      "steps": [
+        "Confirm indication and approach (diagnostic vs. therapeutic); verify ascites on ultrasound.",
+        "Empty bladder; position patient in slight left lateral decubitus.",
+        "Obtain consent when feasible; document emergent need when not possible.",
+        "Perform real-time ultrasound; identify optimal pocket in the LLQ or RLQ; mark the entry site.",
+        "Prep and drape the marked area.",
+        "Anesthetize skin, subcutaneous tissue, and peritoneum with local anesthetic, aspirating as you advance to confirm proximity to fluid.",
+        "Using Z-track technique (displace skin 1-2 cm laterally before advancing; release after entering peritoneum), insert needle perpendicular to skin with continuous aspiration.",
+        "On peritoneal fluid return, lock needle or advance catheter; note character of fluid.",
+        "For diagnostic: collect 30-60 mL; inoculate blood culture bottles at bedside; send labeled specimens.",
+        "For therapeutic: connect drainage tubing to catheter; allow gravity or low-pressure vacuum drainage.",
+        "For >5 L therapeutic: administer albumin 6-8 g per liter removed concurrent with or immediately after drainage.",
+        "Withdraw needle/catheter when drainage complete; apply firm pressure briefly; dress the site with an occlusive bandage.",
+        "Monitor BP, HR, and symptoms for 30-60 minutes post-procedure."
+      ],
+      "ultrasound": [
+        "Use a curvilinear or low-frequency probe to identify the largest free-flowing fluid pocket in the LLQ.",
+        "Confirm depth from skin to fluid and the absence of bowel loops in the intended needle path.",
+        "Color Doppler at the planned site identifies the inferior epigastric vessels before puncture.",
+        "Mark the entry site with the patient in the procedure position \u2014 fluid redistributes when position changes.",
+        "Post-procedure: brief scan to assess for residual ascites and any hematoma at the entry site."
+      ],
+      "confirmation": [
+        "Peritoneal fluid returns freely on aspiration \u2014 straw-colored, turbid, milky, or bloody depending on etiology",
+        "Fluid flows freely during therapeutic drainage",
+        "No bowel contents (feculent material or food particles) in return",
+        "Abdominal distension and discomfort reduce during therapeutic drainage",
+        "Albumin replacement administered if >5 L removed"
+      ],
+      "troubleshooting": [
+        "No fluid return: confirm position with ultrasound; needle may have bypassed the pocket; withdraw and reassess live.",
+        "Bowel contents in return: withdraw immediately; monitor for peritonitis signs; most isolated needle punctures of bowel are self-limiting.",
+        "Catheter clogs during large-volume tap: reposition patient slightly; flush gently; replace if blocked.",
+        "Persistent fluid leak from site post-procedure: hold pressure; Z-track technique reduces this; purse-string suture rarely required.",
+        "Neutrophils >250/mm\u00b3 with SBP suspicion: treat empirically while awaiting confirmatory culture results."
+      ],
+      "complications": [
+        "Intra-abdominal hematoma or bleeding",
+        "Bowel perforation",
+        "Post-procedure ascites leak",
+        "Peritonitis (including catheter-related)",
+        "Paracentesis-induced circulatory dysfunction (large volume without albumin replacement)",
+        "Hypotension",
+        "Persistent ascites leak requiring surgical repair (rare)"
+      ],
+      "aftercare": [
+        "For >5 L: confirm albumin replacement administered; reassess BP and HR at 1 hour.",
+        "Send specimens promptly; neutrophil count >250 cells/mm\u00b3 meets criteria for empiric SBP treatment.",
+        "Monitor for abdominal pain, fever, or hematoma for 4-6 hours after the procedure.",
+        "Record total volume drained and fluid character in the procedure note.",
+        "Educate patient on return precautions: worsening pain, fever, spreading redness, or fluid leak from the site."
+      ],
+      "documentation": [
+        "Paracentesis performed at [LLQ/RLQ] for [indication].",
+        "Consent obtained / emergent need documented.",
+        "Ultrasound guidance used; largest pocket identified at [site].",
+        "[Volume] mL of [character] peritoneal fluid removed without complication.",
+        "Specimens sent for [cell count, albumin, protein, LDH, culture, cytology as ordered]; blood culture bottles inoculated at bedside.",
+        "Albumin [administered at X g per liter / not indicated \u2014 volume <5 L].",
+        "Patient hemodynamically stable post-procedure; no abdominal rigidity or signs of peritonitis."
+      ],
+      "seniorPearls": [
+        "Every hospitalized cirrhotic who decompensates gets a diagnostic tap first \u2014 you cannot exclude SBP on exam.",
+        "The Z-track technique reduces post-tap ascites leak; teach it and use it consistently.",
+        "Albumin replacement for large-volume taps is non-negotiable; paracentesis-induced circulatory dysfunction is underdiagnosed and preventable."
+      ],
+      "references": [
+        "EASL Clinical Practice Guidelines on decompensated cirrhosis and management of ascites. J Hepatol. 2018.",
+        "Runyon BA. Management of adult patients with ascites due to cirrhosis: Update 2012. Hepatology.",
+        "AASLD guidelines on the management of ascites and spontaneous bacterial peritonitis."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "paracentesis_liq_site",
+        "kind": "Landmark",
+        "title": "LLQ entry site",
+        "subtitle": "ASIS relationship, inferior epigastric vessel location, umbilicus-to-ASIS midpoint, and danger zones.",
+        "assetName": null,
+        "systemImage": "circle.dotted",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual must make inferior epigastric vessel and bowel avoidance unambiguous."
+      }
+    ]
+  },
+  {
+    "id": "abscess_incision_drainage",
+    "title": "Abscess Incision & Drainage",
+    "category": "Wound / Soft Tissue",
+    "difficulty": "Basic",
+    "reviewTime": "3 min",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "tags": [
+      "abscess",
+      "I&D",
+      "incision and drainage",
+      "soft tissue",
+      "MRSA",
+      "pus",
+      "loop drain",
+      "packing"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node \u2014 ultrasound identifies occult pockets and depth, avoids dry incisions.",
+        "Anesthetize generously before incising \u2014 acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
+        "The incision must be adequate: span the entire fluctuant cavity and allow complete drainage and loculation breakdown.",
+        "Irrigate vigorously with normal saline until return is clear \u2014 this step is often rushed.",
+        "Loop drain or loose packing prevents premature closure without the pain of tight gauze packing.",
+        "Primary closure is contraindicated \u2014 leave it open.",
+        "Most simple abscesses in immunocompetent patients do not need antibiotics; treat the cavity."
+      ],
+      "indications": [
+        "Fluctuant, loculated skin or soft tissue abscess confirmed clinically or by ultrasound",
+        "Infected sebaceous cyst, pilonidal abscess, or other skin abscess requiring drainage",
+        "Paronychia with subungual extension unresponsive to soaking"
+      ],
+      "contraindications": [
+        "Tissue not clearly fluctuant and abscess not confirmed \u2014 do not incise cellulitis blindly",
+        "Hand deep-space infection (flexor tenosynovitis risk) \u2014 surgical consultation required",
+        "Facial abscess near the dangerous triangle or other high-risk vascular territory \u2014 surgical consultation preferred",
+        "Signs of necrotizing infection (pain out of proportion, crepitus, skin necrosis, rapid spread) \u2014 this is a surgical emergency, not a bedside I&D",
+        "Abscess adjacent to neurovascular structures or deep fascia without adequate training and imaging"
+      ],
+      "anatomy": [
+        "Identify abscess boundaries by palpation and ultrasound; plan incision at point of maximal fluctuance.",
+        "Avoid crossing joint lines, tendon sheaths, or neurovascular structures with the incision when possible.",
+        "Satellite collections are common \u2014 explore for and break down connecting loculations with blunt dissection.",
+        "Perirectal and ischiorectal abscesses require colorectal or surgical expertise; do not attempt without proper training.",
+        "Avoid end-arterial zones (fingertip, toe, pinna, nasal tip, penis) with epinephrine-containing anesthetic."
+      ],
+      "equipment": [
+        "Scalpel with #11 or #15 blade",
+        "Iris scissors and curved hemostat for blunt dissection",
+        "Irrigation syringe (60 mL) and 500-1000 mL normal saline for irrigation",
+        "Splash guard or angiocatheter tip for directed irrigation",
+        "Loop drain (Penrose or vessel loop) or plain strip gauze packing",
+        "Sterile gloves and sterile drape",
+        "Chlorhexidine or betadine prep",
+        "Local anesthetic: 1% lidocaine with epinephrine (avoid end-arterial zones) or regional block",
+        "Non-adherent wound dressing and tape",
+        "Wound cultures if immunocompromise, recurrence, or systemic infection suspected"
+      ],
+      "positioning": [
+        "Position the abscess for optimal visualization and operator ergonomics \u2014 often lateral decubitus for buttock or perianal.",
+        "Adequate lighting is critical; use a headlamp or task light for depth visualization.",
+        "Pediatric patients may require restraint assistance or procedural sedation for larger abscesses."
+      ],
+      "steps": [
+        "Confirm diagnosis with exam and ultrasound; identify all pockets, satellite collections, and the point of maximal fluctuance.",
+        "Infiltrate local anesthetic widely around and beneath the abscess margin \u2014 not into the cavity. Allow adequate time for onset (2-3 minutes minimum).",
+        "Optionally consider regional nerve block for large or anatomically favorable abscesses.",
+        "Prep the area; apply sterile drape.",
+        "Make a single, adequate linear incision through the abscess dome at maximal fluctuance \u2014 it must be long enough to allow complete drainage and instrument access.",
+        "Gently express contents; do not squeeze forcefully.",
+        "Insert closed hemostat, open along cavity axis, and sweep to break down all loculations \u2014 confirm cavity extent.",
+        "Irrigate vigorously with normal saline under moderate pressure using a syringe; repeat until return is clear or nearly clear.",
+        "Place a loop drain loosely through the cavity (preferred) or insert plain strip gauze loosely \u2014 do not pack tightly.",
+        "Apply non-adherent dressing over the drain or packing.",
+        "Plan follow-up at 48-72 hours for packing change, drain assessment, or wound check."
+      ],
+      "ultrasound": [
+        "High-frequency linear probe (10+ MHz) for soft tissue abscess identification.",
+        "Confirms hypoechoic or anechoic fluid cavity with posterior acoustic enhancement and internal debris \u2014 differentiates from solid mass.",
+        "Color Doppler identifies adjacent vessels before incision.",
+        "Reveals hidden loculations and satellite pockets that palpation alone misses.",
+        "Use ultrasound to guide needle aspiration for depth confirmation before incision in deep or uncertain abscesses."
+      ],
+      "confirmation": [
+        "Frank pus drains freely on incision",
+        "All loculations broken down and cavity fully explored with instrument",
+        "Vigorous irrigation return is clear or near-clear before packing",
+        "Loop drain or loose packing placed \u2014 not tight, not obliterating the cavity",
+        "No evidence of deeper structure involvement (tendon, joint, fascia)"
+      ],
+      "troubleshooting": [
+        "No pus on incision: reassess with ultrasound \u2014 may have incised into cellulitis or missed the pocket; do not extend blindly.",
+        "Bleeding during incision: direct pressure; abscess-bed bleeding is usually minor and self-limited.",
+        "Inadequate anesthesia despite infiltration: add more anesthetic outside the margin, wait longer; acidic purulent environment inactivates local anesthetic near the core.",
+        "Deep pocket inaccessible: ultrasound-guided aspiration to confirm location; surgical consultation if complex anatomy or uncertain.",
+        "Recurrence at same site: consider incomplete drainage, retained foreign body, hidradenitis suppurativa, Crohn's disease, or resistant organism."
+      ],
+      "complications": [
+        "Abscess recurrence from inadequate drainage or premature closure",
+        "Minor wound bleeding",
+        "Bacteremia (rare with simple abscess; consider antibiotics if systemic signs develop)",
+        "Wound healing by secondary intention (expected)",
+        "Injury to adjacent neurovascular structures if anatomy is not respected",
+        "Scar formation at incision site"
+      ],
+      "aftercare": [
+        "Instruct patient on wound care: warm soaks or showering; keep the site clean and moist.",
+        "Return visit in 48-72 hours for packing removal or loop drain assessment and wound inspection.",
+        "Antibiotics not routinely required for simple abscess in immunocompetent adults; indicated for surrounding cellulitis, systemic infection, immunocompromise, facial location, or MRSA risk factors.",
+        "MRSA coverage (TMP-SMX or doxycycline) based on local resistance patterns and risk factors.",
+        "Provide clear return precautions: worsening pain, fever, spreading redness, or red streaking."
+      ],
+      "documentation": [
+        "Abscess incision and drainage performed at [site and description] for [indication].",
+        "Ultrasound performed: [confirmed abscess / depth / satellite collections noted].",
+        "Local anesthetic with [agent/concentration] administered; patient reported adequate analgesia.",
+        "[Character and estimated volume of pus] evacuated; cavity irrigated with normal saline until clear.",
+        "Loculations broken down; [loop drain / loose packing] placed.",
+        "Cultures [sent / not sent]; antibiotics [prescribed / not prescribed] with rationale documented.",
+        "Patient discharged with wound care instructions and 48-72 hour follow-up arranged."
+      ],
+      "seniorPearls": [
+        "Acidic pus inactivates local anesthetic inside the cavity \u2014 infiltrate around the margin and wait; never rush into an under-anesthetized abscess.",
+        "The incision length is the most common technical mistake: if you cannot freely break down all loculations and irrigate completely, it is not big enough.",
+        "Packing is not the therapy \u2014 irrigation and complete drainage are. Packing is just a spacer."
+      ],
+      "references": [
+        "Roberts JR, Custalow CB. Roberts and Hedges' Clinical Procedures in Emergency Medicine. Abscess Incision and Drainage chapter.",
+        "Talan DA et al. Trimethoprim-Sulfamethoxazole versus Placebo for Uncomplicated Skin Abscess. N Engl J Med. 2016;374:823-832.",
+        "Singer AJ et al. Loop drainage vs. primary closure after abscess I&D. Acad Emerg Med. 2014."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "abscess_technique",
+        "kind": "Setup",
+        "title": "I&D technique overview",
+        "subtitle": "Incision placement, blunt dissection direction, irrigation setup, and loop drain placement.",
+        "assetName": null,
+        "systemImage": "scissors",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual should clarify incision length adequacy and loculation breakdown \u2014 the two most common technical failures."
       }
     ]
   }

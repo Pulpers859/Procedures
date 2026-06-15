@@ -20,7 +20,7 @@
       "ETCO2 waveform",
       "Lung sliding/bilateral breath sounds",
       "Vent pressures",
-      "Repeat BP every 1–2 minutes until stable"
+      "Repeat BP every 1\u20132 minutes until stable"
     ],
     "avoid": [
       "Do not assume the tube is the only problem.",
@@ -245,6 +245,199 @@
     "version": "0.2.0",
     "references": [
       "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+    ]
+  },
+  {
+    "id": "local_anesthetic_systemic_toxicity",
+    "title": "Local anesthetic systemic toxicity (LAST)",
+    "acuity": "Crash",
+    "relatedProcedureIDs": [
+      "digital_nerve_block",
+      "procedural_sedation"
+    ],
+    "trigger": [
+      "Neurological or cardiac symptoms during or after local anesthetic injection \u2014 including seizure, altered mental status, dysrhythmia, or cardiac arrest. May occur immediately or up to 60 minutes after injection."
+    ],
+    "immediateMoves": [
+      "Stop local anesthetic injection immediately.",
+      "Call for 20% lipid emulsion (Intralipid) now \u2014 this is the antidote and must not be delayed.",
+      "Secure airway early if seizure or loss of consciousness: high-flow O2, prepare to intubate.",
+      "If cardiac arrest: start ACLS; avoid vasopressin; use standard epinephrine doses sparingly (\u22641 mcg/kg); begin lipid emulsion simultaneously.",
+      "Lipid emulsion 20%: bolus 1.5 mL/kg IV over 1 minute, then infusion 0.25 mL/kg/min; may repeat bolus in refractory arrest (max cumulative dose ~12 mL/kg).",
+      "Treat seizure with benzodiazepine; avoid propofol (myocardial depressant and dilute lipid \u2014 not a substitute for Intralipid)."
+    ],
+    "reassess": [
+      "Rhythm and BP every 1-2 minutes until stable",
+      "Mental status and seizure recurrence",
+      "Response to lipid emulsion \u2014 cardiac recovery is the therapeutic endpoint",
+      "SpO2 and ETCO2 continuously if intubated"
+    ],
+    "avoid": [
+      "Do not give vasopressin in LAST cardiac arrest (ASRA guideline).",
+      "Do not use propofol as a substitute for lipid emulsion \u2014 it causes myocardial depression.",
+      "Do not give high-dose epinephrine \u2014 small doses only (\u22641 mcg/kg) if needed.",
+      "Do not assume resolution is complete \u2014 CNS toxicity may outlast cardiac toxicity; observe \u22654-6 hours."
+    ],
+    "tags": [
+      "LAST",
+      "local anesthetic",
+      "intralipid",
+      "lipid emulsion",
+      "bupivacaine",
+      "seizure",
+      "cardiac arrest",
+      "regional block",
+      "toxicity"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "references": [
+      "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+      "Di Gregorio G et al. Clinical presentation of local anesthetic systemic toxicity. Reg Anesth Pain Med. 2010."
+    ]
+  },
+  {
+    "id": "ptx_after_central_line",
+    "title": "Pneumothorax after central venous catheter",
+    "acuity": "Urgent",
+    "relatedProcedureIDs": [
+      "central_venous_catheter",
+      "needle_decompression",
+      "thoracostomy_chest_tube"
+    ],
+    "trigger": [
+      "Respiratory distress, hypoxia, or decreased breath sounds following IJ, subclavian, or axillary central venous catheter placement."
+    ],
+    "immediateMoves": [
+      "Assess immediately: vital signs, O2 saturation, breath sounds bilaterally, JVD, tracheal position.",
+      "Bedside ultrasound: absent lung sliding ipsilateral to line site confirms pneumothorax.",
+      "For tension physiology (hypotension + absent breath sounds + JVD or tracheal deviation): needle decompression immediately \u2014 do not wait for imaging.",
+      "For large or symptomatic pneumothorax without tension: chest tube or pigtail catheter.",
+      "For small, asymptomatic pneumothorax: supplemental O2, serial imaging, close monitoring in a monitored setting."
+    ],
+    "reassess": [
+      "Vital signs and SpO2 every 15 minutes",
+      "Lung sliding on repeat ultrasound",
+      "Repeat CXR at 4-6 hours for observed small pneumothorax",
+      "Response to chest tube drainage (air leak on water seal, lung re-expansion)"
+    ],
+    "avoid": [
+      "Do not dismiss absent lung sliding ipsilateral to a subclavian or IJ line as artifact.",
+      "Do not delay needle decompression for tension pneumothorax to obtain imaging.",
+      "Do not attempt a contralateral central line without first securing the ipsilateral pneumothorax.",
+      "Do not clamp a chest tube in a suspected ongoing air leak without expert guidance."
+    ],
+    "tags": [
+      "pneumothorax",
+      "PTX",
+      "tension pneumothorax",
+      "central line",
+      "CVC",
+      "IJ",
+      "subclavian",
+      "axillary",
+      "chest tube"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "references": [
+      "Hind D et al. Ultrasonic locating devices for central venous cannulation. BMJ. 2003.",
+      "ACEP Clinical Policies on emergency management of pneumothorax."
+    ]
+  },
+  {
+    "id": "chest_tube_malposition",
+    "title": "Chest tube malposition",
+    "acuity": "Urgent",
+    "relatedProcedureIDs": [
+      "thoracostomy_chest_tube",
+      "pigtail_catheter"
+    ],
+    "trigger": [
+      "Poor drainage, persistent air leak, respiratory deterioration, pain out of proportion, or imaging showing tube in fissure, subcutaneous tissue, or abdomen after chest tube or pigtail catheter placement."
+    ],
+    "immediateMoves": [
+      "Obtain CXR immediately: confirm tube position, presence of residual pneumothorax or effusion, and diaphragm relationship.",
+      "Confirm the drainage circuit is not kinked, clamped, or obstructed before declaring malposition.",
+      "Subcutaneous tube (no drainage, crepitus tracking along tube): remove and replace \u2014 provides no pleural drainage.",
+      "Intrafissural tube (tube in the major or minor fissure): may drain slowly; replace or add a second tube if drainage is inadequate.",
+      "Tube traversing the diaphragm into the abdomen: stop drainage immediately; do not pull without surgical consultation \u2014 intra-abdominal hemorrhage risk."
+    ],
+    "reassess": [
+      "Drainage output and character every 1-2 hours after repositioning",
+      "Air leak assessment: fluctuation in water seal chamber with respiration",
+      "Repeat CXR after repositioning or replacement",
+      "Hemodynamics and oxygenation"
+    ],
+    "avoid": [
+      "Do not advance a chest tube after initial placement \u2014 introduces a non-sterile segment into the pleural space.",
+      "Do not clamp the tube for a suspected large bronchopleural fistula without expert guidance \u2014 tension pneumothorax risk.",
+      "Do not remove a tube that has crossed the diaphragm without surgical presence and a vascular injury plan.",
+      "Do not assume inadequate drainage is tube failure before ruling out circuit obstruction."
+    ],
+    "tags": [
+      "chest tube",
+      "malposition",
+      "pigtail",
+      "intrafissural",
+      "subcutaneous",
+      "pneumothorax",
+      "hemothorax",
+      "drainage"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "references": [
+      "ATLS Advanced Trauma Life Support guidelines on chest tube management.",
+      "Bosman A et al. Complications and malposition of thoracic drains. Eur J Cardiothorac Surg. 2010."
+    ]
+  },
+  {
+    "id": "laryngospasm",
+    "title": "Laryngospasm",
+    "acuity": "Crash",
+    "relatedProcedureIDs": [
+      "procedural_sedation",
+      "endotracheal_intubation"
+    ],
+    "trigger": [
+      "Sudden partial or complete glottic closure during or after sedation, airway manipulation, or extubation. Presents as stridor (partial) or silent obstruction with paradoxical chest movement and desaturation (complete)."
+    ],
+    "immediateMoves": [
+      "Remove all airway stimuli immediately: stop suctioning, airway manipulation, and the precipitating procedure.",
+      "100% O2 via tight-fitting BVM mask; jaw thrust and chin lift to optimize airway alignment.",
+      "Apply CPAP-level pressure with the BVM (10-20 cmH2O) \u2014 sustained positive pressure may break partial laryngospasm.",
+      "If not breaking within 30-60 seconds: succinylcholine 0.1-0.2 mg/kg IV (subparalyzing dose) to break spasm; prepare for possible intubation.",
+      "If complete obstruction and impending arrest: succinylcholine 1-2 mg/kg IV and immediate intubation. Have surgical airway ready."
+    ],
+    "reassess": [
+      "SpO2 and ETCO2 continuously",
+      "Chest rise with each positive-pressure breath \u2014 absence indicates complete closure",
+      "Resolution of stridor (partial \u2192 resolved)",
+      "HR: bradycardia during severe laryngospasm signals impending cardiac arrest"
+    ],
+    "avoid": [
+      "Do not force a laryngoscope or airway device through a closed glottis \u2014 worsens spasm and laryngeal trauma.",
+      "Do not use jaw thrust without BVM mask seal \u2014 Larson's point maneuver (bilateral firm pressure at the condylar notch posterior to the jaw ramus) may help break spasm without an airway device.",
+      "Do not delay succinylcholine if BVM ventilation is failing \u2014 early use prevents full cardiorespiratory arrest.",
+      "Do not use ketamine for sedation without suction immediately available \u2014 increased secretions can precipitate laryngospasm."
+    ],
+    "tags": [
+      "laryngospasm",
+      "sedation",
+      "airway",
+      "succinylcholine",
+      "Larson point",
+      "stridor",
+      "extubation",
+      "CPAP",
+      "BVM"
+    ],
+    "lastReviewed": "2026-06-15",
+    "version": "0.1.0",
+    "references": [
+      "Gavel G, Walker RWM. Laryngospasm in anaesthesia. Continuing Education in Anaesthesia, Critical Care & Pain. 2014.",
+      "Larson CP. Laryngospasm \u2014 the best treatment. Anesthesiology. 1998;89:1293-1294."
     ]
   }
 ]

@@ -94,7 +94,7 @@ struct GuideHomeView: View {
 
         Section("Procedure Results") {
             if filteredProcedures.isEmpty {
-                Text("No procedures found. Try clinical shorthand like ETT, CVC, IJ, pigtail, pacer, LP, or finger block.")
+                Text("No procedures found. Try clinical shorthand like ETT, CVC, a-line, tap, abscess, pigtail, pacer, LP, or finger block.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             } else {
@@ -260,7 +260,8 @@ struct ClinicalPathway: Identifiable, Hashable {
         ClinicalPathway(id: "resus", title: "Resus", subtitle: "Pacer, pericardiocentesis, crash", systemImage: "heart.fill", tint: .red, categories: [.cardiacResuscitation]),
         ClinicalPathway(id: "blocks", title: "Blocks", subtitle: "Digital and regional anesthesia", systemImage: "syringe", tint: .purple, categories: [.regionalAnesthesia]),
         ClinicalPathway(id: "neuro", title: "Neuro", subtitle: "LP, CSF, meningitis workup", systemImage: "brain.head.profile", tint: .orange, categories: [.neuro]),
-        ClinicalPathway(id: "sedation", title: "Sedation", subtitle: "Procedural sedation and analgesia", systemImage: "moon.zzz.fill", tint: .teal, categories: [.sedationAnalgesia])
+        ClinicalPathway(id: "sedation", title: "Sedation", subtitle: "Procedural sedation and analgesia", systemImage: "moon.zzz.fill", tint: .teal, categories: [.sedationAnalgesia]),
+        ClinicalPathway(id: "wound", title: "Wound & Soft Tissue", subtitle: "Abscess I&D, lacerations, wound care", systemImage: "bandage.fill", tint: .brown, categories: [.woundSoftTissue])
     ]
 }
 
