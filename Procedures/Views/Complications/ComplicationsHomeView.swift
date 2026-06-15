@@ -91,7 +91,7 @@ struct RescueCardRow: View {
                     .background((card.acuity == .crash ? Color.red : Color.orange).opacity(0.14), in: Capsule())
             }
 
-            FlowTagView(tags: card.tags.prefix(3).map(String.init))
+            FlowTagView(tags: card.tags.prefix(3).map { String($0) })
         }
         .padding(.vertical, 6)
     }
@@ -162,7 +162,7 @@ struct RescueCardDetailView: View {
                 .foregroundStyle(.secondary)
             Text(card.title)
                 .font(.title2.weight(.bold))
-            FlowTagView(tags: [card.acuity.rawValue] + card.tags.prefix(4).map(String.init))
+            FlowTagView(tags: [card.acuity.rawValue] + card.tags.prefix(4).map { String($0) })
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()

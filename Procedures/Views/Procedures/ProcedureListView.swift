@@ -66,7 +66,8 @@ struct ProcedureListView: View {
                                     .foregroundStyle(.secondary)
                             }
                             .padding()
-                            .frame(width: 172, minHeight: 110, alignment: .leading)
+                            .frame(width: 172, alignment: .leading)
+                            .frame(minHeight: 110)
                             .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                             .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
                         }
