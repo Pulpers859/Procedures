@@ -2,7 +2,7 @@
 
 ## Concept
 
-ProcedureSTAT is a rapid emergency medicine and ICU procedure-review app built in SwiftUI.
+Procedures is a rapid emergency medicine and ICU procedure-review app built in SwiftUI.
 
 It helps clinicians refresh setup, anatomy, steps, troubleshooting, complications, and documentation before performing procedures.
 

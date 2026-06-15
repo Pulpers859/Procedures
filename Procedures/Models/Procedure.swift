@@ -10,7 +10,29 @@ struct Procedure: Identifiable, Codable, Hashable {
     let lastReviewed: String
     let version: String
     let tags: [String]
+    let visualAssets: [ProcedureVisualAsset]?
     let sections: ProcedureSections
+
+    var primaryVisualAsset: ProcedureVisualAsset? { visualAssets?.first }
+}
+
+struct ProcedureVisualAsset: Identifiable, Codable, Hashable {
+    enum Kind: String, Codable, Hashable, CaseIterable {
+        case landmark = "Landmark"
+        case probePosition = "Probe Position"
+        case dangerZone = "Danger Zone"
+        case confirmation = "Confirmation"
+        case setup = "Setup"
+    }
+
+    let id: String
+    let kind: Kind
+    let title: String
+    let subtitle: String
+    let assetName: String?
+    let systemImage: String?
+    let caption: String
+    let clinicalWarning: String?
 }
 
 struct ProcedureSections: Codable, Hashable {

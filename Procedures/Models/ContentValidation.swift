@@ -22,7 +22,7 @@ struct ContentValidationIssue: Identifiable, Hashable {
 }
 
 enum ContentValidator {
-    static func validate(_ procedures: [Procedure]) -> [ContentValidationIssue] {
+    static func validate(_ procedures: [Procedure], rescueCards: [ComplicationRescueCard] = []) -> [ContentValidationIssue] {
         var issues: [ContentValidationIssue] = []
 
         let ids = procedures.map(\.id)
@@ -34,6 +34,8 @@ enum ContentValidator {
         for procedure in procedures {
             issues.append(contentsOf: validate(procedure))
         }
+
+        issues.append(contentsOf: validateRescueCards(rescueCards, procedureIDs: Set(ids)))
 
         return issues.sorted { lhs, rhs in
             if lhs.severity.sortOrder != rhs.severity.sortOrder {
@@ -74,6 +76,20 @@ enum ContentValidator {
             }
         }
 
+        let visualAssets = procedure.visualAssets ?? []
+        if visualAssets.isEmpty {
+            add(.polish, "missing visual landmark metadata. Premium direction expects at least one landmark/probe/danger-zone visual slot.")
+        } else {
+            for asset in visualAssets {
+                if asset.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    add(.warning, "visual asset \(asset.id) is missing a title.")
+                }
+                if asset.assetName == nil || asset.assetName?.isEmpty == true {
+                    add(.polish, "visual asset \(asset.title) has metadata but no bundled image yet.")
+                }
+            }
+        }
+
         let allContent = [
             procedure.sections.shiftMode,
             procedure.sections.equipment,
@@ -94,6 +110,44 @@ enum ContentValidator {
                 procedure.sections.troubleshooting.count >= 4
             if !hasRescueLanguage {
                 add(.warning, "high-risk procedure needs an explicit rescue/failure plan.")
+            }
+        }
+
+        return issues
+    }
+
+    private static func validateRescueCards(_ cards: [ComplicationRescueCard], procedureIDs: Set<String>) -> [ContentValidationIssue] {
+        var issues: [ContentValidationIssue] = []
+
+        func add(_ severity: ContentValidationIssue.Severity, _ title: String?, _ message: String) {
+            issues.append(.init(severity: severity, procedureID: nil, procedureTitle: title, message: message))
+        }
+
+        if cards.isEmpty {
+            add(.warning, nil, "No rescue cards loaded. Rescue should be a first-class content object, not hardcoded Swift.")
+            return issues
+        }
+
+        let ids = cards.map(\.id)
+        let duplicateIDs = Dictionary(grouping: ids, by: { $0 }).filter { $0.value.count > 1 }.keys.sorted()
+        if !duplicateIDs.isEmpty {
+            add(.blocker, nil, "Duplicate rescue card IDs: \(duplicateIDs.joined(separator: ", ")).")
+        }
+
+        for card in cards {
+            if card.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.blocker, card.title, "missing rescue card title.") }
+            if card.trigger.isEmpty { add(.blocker, card.title, "missing trigger content.") }
+            if card.immediateMoves.count < 3 { add(.blocker, card.title, "needs at least 3 immediate moves.") }
+            if card.reassess.count < 2 { add(.warning, card.title, "needs concrete reassessment targets.") }
+            if card.avoid.isEmpty { add(.warning, card.title, "missing 'avoid' content.") }
+            if card.tags.isEmpty { add(.warning, card.title, "missing search tags.") }
+            if card.lastReviewed.isEmpty { add(.blocker, card.title, "missing last-reviewed metadata.") }
+            if card.version.isEmpty { add(.blocker, card.title, "missing version metadata.") }
+            if card.references.isEmpty { add(.blocker, card.title, "missing references.") }
+
+            let missingRelations = card.relatedProcedureIDs.filter { !procedureIDs.contains($0) }
+            if !missingRelations.isEmpty {
+                add(.warning, card.title, "related procedure IDs not found in procedures.json: \(missingRelations.joined(separator: ", ")).")
             }
         }
 

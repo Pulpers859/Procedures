@@ -3,17 +3,26 @@ import Foundation
 @MainActor
 final class ProcedureRepository: ObservableObject {
     @Published private(set) var procedures: [Procedure] = []
+    @Published private(set) var rescueCards: [ComplicationRescueCard] = []
     @Published private(set) var loadError: String?
+    @Published private(set) var rescueLoadError: String?
     @Published private(set) var contentIssues: [ContentValidationIssue] = []
     var contentWarnings: [String] { contentIssues.map(\.displayMessage) }
 
     init() {
+        loadContent()
+    }
+
+    func loadContent() {
         loadProcedures()
+        loadRescueCards()
+        contentIssues = ContentValidator.validate(procedures, rescueCards: rescueCards)
     }
 
     func loadProcedures() {
         guard let url = Bundle.main.url(forResource: "procedures", withExtension: "json") else {
             loadError = "Could not find procedures.json in the app bundle. Confirm it is included in the target Resources build phase."
+            procedures = []
             return
         }
 
@@ -22,12 +31,20 @@ final class ProcedureRepository: ObservableObject {
             let decoder = JSONDecoder()
             let decodedProcedures = try decoder.decode([Procedure].self, from: data)
             procedures = decodedProcedures.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
-            contentIssues = ContentValidator.validate(decodedProcedures)
             loadError = nil
         } catch {
             loadError = "Failed to load procedures.json: \(error.localizedDescription)"
             procedures = []
-            contentIssues = []
+        }
+    }
+
+    func loadRescueCards() {
+        do {
+            rescueCards = try ComplicationRescueCardStore.loadFromBundle()
+            rescueLoadError = nil
+        } catch {
+            rescueLoadError = "Failed to load rescue_cards.json: \(error.localizedDescription)"
+            rescueCards = []
         }
     }
 
@@ -55,6 +72,10 @@ final class ProcedureRepository: ObservableObject {
             .map(\.0)
     }
 
+    func searchRescueCards(_ query: String) -> [ComplicationRescueCard] {
+        rescueCards.filter { $0.matches(query) }
+    }
+
     private func normalizedSearchTerms(from query: String) -> [String] {
         let lowercased = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         guard !lowercased.isEmpty else { return [] }
@@ -74,6 +95,7 @@ final class ProcedureRepository: ObservableObject {
             "vascath": ["dialysis", "catheter", "vas", "cath"],
             "vas": ["dialysis", "catheter"],
             "pacer": ["transvenous", "pacemaker", "capture"],
+            "tvp": ["transvenous", "pacemaker", "capture"],
             "block": ["nerve", "anesthesia", "digital"],
             "finger": ["digital", "nerve", "block"],
             "lac": ["laceration", "suture", "repair"],
@@ -83,7 +105,9 @@ final class ProcedureRepository: ObservableObject {
             "needle": ["decompression", "tension", "pneumothorax"],
             "pericardial": ["pericardiocentesis", "tamponade", "cardiac"],
             "sedation": ["procedural", "ketamine", "propofol", "apnea"],
-            "lp": ["lumbar", "puncture", "csf", "meningitis"]
+            "lp": ["lumbar", "puncture", "csf", "meningitis"],
+            "visual": ["landmark", "probe", "danger", "confirmation"],
+            "probe": ["ultrasound", "landmark", "visual"]
         ]
 
         for term in terms {
@@ -96,12 +120,17 @@ final class ProcedureRepository: ObservableObject {
     }
 
     private func score(for procedure: Procedure, matching terms: [String]) -> Int {
+        let visualText = (procedure.visualAssets ?? []).map { asset in
+            [asset.title, asset.subtitle, asset.kind.rawValue, asset.caption, asset.clinicalWarning ?? ""].joined(separator: " ")
+        }.joined(separator: " ")
+
         let searchableFields: [(text: String, weight: Int)] = [
             (procedure.title, 12),
             (procedure.category.rawValue, 7),
             (procedure.difficulty.rawValue, 4),
             (procedure.reviewTime, 2),
             (procedure.tags.joined(separator: " "), 10),
+            (visualText, 7),
             (procedure.sections.shiftMode.joined(separator: " "), 8),
             (procedure.sections.equipment.joined(separator: " "), 6),
             (procedure.sections.steps.joined(separator: " "), 5),

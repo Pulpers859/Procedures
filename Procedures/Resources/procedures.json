@@ -135,7 +135,19 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "ACEP and critical care airway education resources; verify local airway policy and medication protocols."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "airway_landmark",
+        "kind": "Landmark",
+        "title": "Airway alignment + tube confirmation",
+        "subtitle": "Visual slot for sniffing/ramped position, blade path, and confirmation priorities.",
+        "assetName": null,
+        "systemImage": "scope",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Do not let the visual layer become a pretty airway cartoon; it needs to show the setup that prevents a failed first pass."
+      }
+    ]
   },
   {
     "id": "central_venous_catheter",
@@ -280,7 +292,19 @@
         "CDC guidance for prevention of intravascular catheter-related infections.",
         "Society and institutional ultrasound-guided vascular access policies; verify local central line bundle requirements."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "ij_probe_orientation",
+        "kind": "Probe Position",
+        "title": "IJ probe orientation",
+        "subtitle": "Visual slot for vein/artery relationship, probe marker, needle path, and wire confirmation.",
+        "assetName": null,
+        "systemImage": "dot.viewfinder",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "The visual must make artery avoidance and wire confirmation obvious."
+      }
+    ]
   },
   {
     "id": "digital_nerve_block",
@@ -330,8 +354,8 @@
       ],
       "equipment": [
         "Local anesthetic",
-        "3\u20135 mL syringe",
-        "25\u201330G needle",
+        "3–5 mL syringe",
+        "25–30G needle",
         "Alcohol or chlorhexidine prep",
         "Gloves",
         "Gauze",
@@ -396,7 +420,19 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "Verify local anesthetic maximum dosing and institutional policy."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "digital_block_landmark",
+        "kind": "Landmark",
+        "title": "Digital block injection sites",
+        "subtitle": "Visual slot for dorsal/lateral injection sites, volume caution, and neurovascular anatomy.",
+        "assetName": null,
+        "systemImage": "hand.raised",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Keep this clean and simple; this is exactly where Fadial-style clarity helps."
+      }
+    ]
   },
   {
     "id": "cricothyrotomy",
@@ -517,7 +553,19 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "cric_membrane",
+        "kind": "Landmark",
+        "title": "Cricothyroid membrane landmark",
+        "subtitle": "Visual slot for membrane palpation, incision orientation, and front-of-neck access sequence.",
+        "assetName": null,
+        "systemImage": "scalpel",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "This should eventually be one of the cleanest images in the app."
+      }
+    ]
   },
   {
     "id": "thoracostomy_chest_tube",
@@ -646,7 +694,19 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "chest_tube_safe_triangle",
+        "kind": "Danger Zone",
+        "title": "Chest tube safe triangle",
+        "subtitle": "Visual slot for safe triangle, over-the-rib entry, and areas to avoid.",
+        "assetName": null,
+        "systemImage": "rectangle.and.hand.point.up.left",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "This is a high-value visual because it prevents wrong-site/too-low placement errors."
+      }
+    ]
   },
   {
     "id": "pigtail_catheter",
@@ -767,7 +827,19 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "pigtail_probe_landmark",
+        "kind": "Probe Position",
+        "title": "Pleural pigtail ultrasound target",
+        "subtitle": "Visual slot for effusion/pneumothorax target, rib shadow, pleura, and needle trajectory.",
+        "assetName": null,
+        "systemImage": "waveform.path.ecg.rectangle",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "The eventual image should distinguish fluid target from lung/spleen/liver risk."
+      }
+    ]
   },
   {
     "id": "needle_decompression",
@@ -874,7 +946,19 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "needle_decompression_landmarks",
+        "kind": "Landmark",
+        "title": "Needle decompression landmarks",
+        "subtitle": "Visual slot for anterior vs lateral landmarks and over-the-rib trajectory.",
+        "assetName": null,
+        "systemImage": "target",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "This visual should reduce landmark confusion under stress."
+      }
+    ]
   },
   {
     "id": "pericardiocentesis",
@@ -992,7 +1076,19 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "pericardiocentesis_approach",
+        "kind": "Probe Position",
+        "title": "Pericardial approach + ultrasound target",
+        "subtitle": "Visual slot for safest ultrasound-guided approach, effusion target, and needle path.",
+        "assetName": null,
+        "systemImage": "heart.text.square",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "This should emphasize ultrasound-guided target selection, not a memorized blind angle."
+      }
+    ]
   },
   {
     "id": "transvenous_pacemaker",
@@ -1112,7 +1208,19 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "tvp_capture_confirmation",
+        "kind": "Confirmation",
+        "title": "TVP capture confirmation",
+        "subtitle": "Visual slot for electrical vs mechanical capture and catheter depth cues.",
+        "assetName": null,
+        "systemImage": "waveform.path.ecg",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "The image must teach not to accept spikes without capture."
+      }
+    ]
   },
   {
     "id": "procedural_sedation",
@@ -1234,7 +1342,19 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "sedation_room_setup",
+        "kind": "Setup",
+        "title": "Sedation room setup",
+        "subtitle": "Visual slot for airway/resuscitation setup before medication delivery.",
+        "assetName": null,
+        "systemImage": "bed.double",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Premium version should show the room before drugs go in."
+      }
+    ]
   },
   {
     "id": "lumbar_puncture",
@@ -1288,7 +1408,7 @@
         "Sterile gloves/mask/prep/drape",
         "Spinal needle with stylet",
         "Manometer tubing if opening pressure needed",
-        "Collection tubes labeled 1\u20134",
+        "Collection tubes labeled 1–4",
         "Local anesthetic and small needle",
         "Bandage",
         "Assistant for positioning",
@@ -1357,6 +1477,18 @@
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
-    }
+    },
+    "visualAssets": [
+      {
+        "id": "lp_position_landmark",
+        "kind": "Landmark",
+        "title": "LP positioning + interspace landmark",
+        "subtitle": "Visual slot for positioning, iliac crest line, and needle trajectory.",
+        "assetName": null,
+        "systemImage": "figure.seated.side",
+        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "This visual should prevent poor positioning and wrong-level confidence."
+      }
+    ]
   }
 ]

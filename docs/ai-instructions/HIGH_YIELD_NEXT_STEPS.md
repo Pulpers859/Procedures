@@ -124,7 +124,7 @@ The right next milestone is not “more features.” It is:
 
 The desired product direction is inspired by simple, clean, bedside-first iOS medical apps such as focused fracture and nerve block references: fast routing, minimal friction, readable cards, and no textbook bloat.
 
-ProcedureSTAT should move in that direction, but with a more premium EM/ICU identity:
+Procedures should move in that direction, but with a more premium EM/ICU identity:
 
 - Open to a Guide-first command center, not a generic library.
 - Let clinicians enter through the problem, procedure, body region, kit, or complication.
@@ -170,3 +170,63 @@ Rules:
 - Visuals must be clinically reviewed like text.
 - Diagrams should be local/offline assets.
 - Do not use unreviewed AI-generated medical anatomy in release builds.
+
+## 2026-06-14 High-Yield Build Direction Update: Rescue JSON + Visual Assets
+
+The next major architecture direction has been implemented at the starter level:
+
+1. Rescue Cards are now first-class JSON content.
+   - Source: `Procedures/Resources/rescue_cards.json`
+   - Model: `ComplicationRescueCard`
+   - Loader: `ProcedureRepository.loadRescueCards()`
+   - Validation: `ContentValidator.validateRescueCards(...)` and `scripts/validate_procedures.py`
+
+This is important because rescue content should be editable, versioned, reviewed, and validated like procedures. Do not return to hardcoded rescue cards in Swift.
+
+2. Procedure visual asset metadata is now part of the procedure schema.
+   - Field: `visualAssets`
+   - Model: `ProcedureVisualAsset`
+   - UI: `VisualLandmarkPlaceholder` / `ProcedureVisualThumbnail`
+
+Every high-yield procedure should eventually have one reviewed visual that prevents a clinically meaningful miss. The visual layer should not become a bloated gallery. Prefer exactly one primary image at first:
+
+- landmark
+- probe position
+- danger zone
+- confirmation
+- setup
+
+The premium direction is not decorative illustration. The visual must make the procedure safer or faster.
+
+### Next highest-yield moves after this patch
+
+1. Add final reviewed visual assets for the 11 current procedures.
+   - Use consistent aspect ratio.
+   - Keep labels large enough for phone use.
+   - Avoid clutter.
+   - Add bundled image names to `visualAssets.assetName`.
+
+2. Add Cordis / introducer sheath, Vas Cath, arterial line, US-guided PIV, thoracentesis, paracentesis, lateral canthotomy, abscess I&D, and suture repair.
+
+3. Convert Kits into structured JSON rather than plain procedure equipment arrays.
+   - What comes in the kit
+   - What is outside the kit
+   - What is commonly forgotten
+   - Patient/room setup
+   - Sterile setup
+   - Backup equipment
+
+4. Add a real XCTest target and content decoding tests.
+   - Decode `procedures.json`
+   - Decode `rescue_cards.json`
+   - Assert non-empty Shift Mode, equipment, rescue moves, and references
+   - Assert all related procedure IDs resolve
+
+5. Build a lightweight editorial review status system.
+   - draft
+   - needs clinical review
+   - reviewed
+   - stale
+   - deprecated
+
+Do not add accounts, subscriptions, cloud sync, AI chat, videos, or onboarding bloat until the clinical content, rescue cards, visual assets, and tests are much stronger.

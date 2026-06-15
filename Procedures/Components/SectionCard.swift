@@ -3,6 +3,7 @@ import SwiftUI
 struct SectionCard<Content: View>: View {
     let title: String
     var systemImage: String? = nil
+    var miniHeight: CGFloat? = nil
     @ViewBuilder let content: Content
 
     var body: some View {
@@ -20,6 +21,7 @@ struct SectionCard<Content: View>: View {
             content
         }
         .padding()
+        .frame(maxWidth: .infinity, minHeight: miniHeight, alignment: .topLeading)
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 18, style: .continuous)

@@ -78,7 +78,7 @@ struct SavedView: View {
                 }
 
                 Section("About") {
-                    Text("ProcedureSTAT is an educational procedure review tool for trained clinicians. It does not replace formal training, supervision, credentialing, clinical judgment, or local policy.")
+                    Text("Procedures is an educational procedure review tool for trained clinicians. It does not replace formal training, supervision, credentialing, clinical judgment, or local policy.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }

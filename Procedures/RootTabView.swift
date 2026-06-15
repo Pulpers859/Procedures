@@ -1,7 +1,23 @@
 import SwiftUI
 
+private enum RootTabStorageKey {
+    static let disclaimerAccepted = "Procedures.hasAcceptedClinicalDisclaimer"
+    static let legacyDisclaimerAccepted = "ProcedureSTAT.hasAcceptedClinicalDisclaimer"
+}
+
 struct RootTabView: View {
-    @AppStorage("ProcedureSTAT.hasAcceptedClinicalDisclaimer") private var hasAcceptedClinicalDisclaimer = false
+    @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
+
+    init() {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: RootTabStorageKey.disclaimerAccepted) == nil,
+           defaults.object(forKey: RootTabStorageKey.legacyDisclaimerAccepted) != nil {
+            defaults.set(
+                defaults.bool(forKey: RootTabStorageKey.legacyDisclaimerAccepted),
+                forKey: RootTabStorageKey.disclaimerAccepted
+            )
+        }
+    }
 
     var body: some View {
         TabView {
@@ -31,7 +47,7 @@ struct RootTabView: View {
                 hasAcceptedClinicalDisclaimer = true
             }
         } message: {
-            Text("ProcedureSTAT is for rapid educational review by trained clinicians. It does not replace formal training, supervision, credentialing, clinical judgment, or local institutional policy.")
+            Text("Procedures is for rapid educational review by trained clinicians. It does not replace formal training, supervision, credentialing, clinical judgment, or local institutional policy.")
         }
     }
 }

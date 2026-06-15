@@ -1,8 +1,8 @@
-# ProcedureSTAT MVP 0.2
+# Procedures MVP 0.2
 
-ProcedureSTAT is a SwiftUI educational procedure-review app for emergency medicine and ICU clinicians.
+Procedures is a SwiftUI educational procedure-review app for emergency medicine and ICU clinicians.
 
-This repo contains the `ProcedureSTAT` iOS app plus supporting docs and validation scripts.
+This repo contains the `Procedures` iOS app plus supporting docs and validation scripts.
 
 This phase includes:
 
@@ -37,14 +37,14 @@ This phase includes:
 
 ## How to run in Xcode
 
-1. Open `ProcedureSTAT.xcodeproj` in Xcode.
-2. Select the `ProcedureSTAT` scheme.
+1. Open `Procedures.xcodeproj` in Xcode.
+2. Select the `Procedures` scheme.
 3. Select an iPhone simulator.
 4. Press Run.
 
 If Xcode asks for signing, select your personal development team under:
 
-`ProcedureSTAT target > Signing & Capabilities > Team`
+`Procedures target > Signing & Capabilities > Team`
 
 ## Validate procedure content
 
@@ -56,6 +56,13 @@ python scripts/validate_procedures.py
 
 The script validates duplicate IDs, required metadata, required section keys, and thin critical content. It should be run before adding or editing procedure content.
 
+It now also validates:
+
+- `Procedures/Resources/rescue_cards.json`
+- rescue-card metadata and related procedure IDs
+- `visualAssets` metadata on procedures
+- missing bundled image files when `visualAssets.assetName` is set
+
 ## Important clinical disclaimer
 
 The included clinical content is starter educational content for app development. It should be reviewed and edited before any real clinical use. The app does not replace clinical judgment, supervision, credentialing, or institutional policy.
@@ -64,7 +71,11 @@ The included clinical content is starter educational content for app development
 
 Add new procedures in:
 
-`ProcedureSTAT/Resources/procedures.json`
+`Procedures/Resources/procedures.json`
+
+Add or edit rescue cards in:
+
+`Procedures/Resources/rescue_cards.json`
 
 Every procedure follows the schema described in:
 
@@ -104,3 +115,20 @@ MVP 0.3 should add:
 - One-tap copy documentation templates
 - Reviewer metadata and content approval status
 - More Rescue Cards, especially LAST, pneumothorax after CVC, laryngospasm, chest tube malposition, and post-LP neurologic symptoms
+
+## MVP 0.4 partial patch direction
+
+This repo now includes the starter architecture for the next content phase:
+
+- Rescue Cards moved from hardcoded Swift into `Procedures/Resources/rescue_cards.json`
+- `ProcedureRepository` now loads procedures and rescue cards separately
+- Content validation now checks rescue-card structure and related procedure IDs
+- Procedures now support `visualAssets` metadata
+- Procedure detail can render a bundled visual when `visualAssets.assetName` is present, or a polished placeholder when artwork is not bundled yet
+
+Current expected validation state:
+
+- `0` blockers
+- possible `POLISH` / `WARNING` output if final reviewed visual files are still missing
+
+That is intentional. The app now has real infrastructure for rescue content and reviewed visuals, even before the final artwork set exists.

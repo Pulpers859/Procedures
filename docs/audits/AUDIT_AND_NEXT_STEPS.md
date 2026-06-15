@@ -1,4 +1,4 @@
-# ProcedureSTAT MVP 0.1 — Brutal Technical + Product Audit
+# Procedures MVP 0.1 — Brutal Technical + Product Audit
 
 ## Executive Verdict
 

@@ -10,7 +10,7 @@ struct GuideHomeView: View {
     }
 
     private var filteredRescueCards: [ComplicationRescueCard] {
-        ComplicationRescueCardStore.cards.filter { $0.matches(searchText) }
+        repository.searchRescueCards(searchText)
     }
 
     private var recentProcedures: [Procedure] {
@@ -103,7 +103,7 @@ struct GuideHomeView: View {
 
                 HStack(spacing: 10) {
                     QuickStatPill(value: "\(repository.procedures.count)", label: "procedures")
-                    QuickStatPill(value: "\(ComplicationRescueCardStore.cards.count)", label: "rescue")
+                    QuickStatPill(value: "\(repository.rescueCards.count)", label: "rescue")
                     QuickStatPill(value: "offline", label: "ready")
                 }
             }
@@ -144,7 +144,7 @@ struct GuideHomeView: View {
 
     private var rescuePreviewSection: some View {
         Section("Immediate Rescue") {
-            ForEach(ComplicationRescueCardStore.cards.prefix(3)) { card in
+            ForEach(repository.rescueCards.prefix(3)) { card in
                 NavigationLink(value: card) {
                     RescueCardRow(card: card)
                 }
@@ -253,6 +253,8 @@ struct PathwayProcedureListView: View {
 
 
 struct AllRescueCardsListView: View {
+    @EnvironmentObject private var repository: ProcedureRepository
+
     var body: some View {
         List {
             Section {
@@ -262,7 +264,7 @@ struct AllRescueCardsListView: View {
             }
 
             Section("Immediate Rescue") {
-                ForEach(ComplicationRescueCardStore.cards) { card in
+                ForEach(repository.rescueCards) { card in
                     NavigationLink(value: card) {
                         RescueCardRow(card: card)
                     }

@@ -5,6 +5,8 @@
 - `ai-instructions/AGENTS.md` - product-specific guidance for future coding agents
 - `ai-instructions/PRODUCT_BRIEF.md` - app purpose, users, and non-goals
 - `ai-instructions/PROCEDURE_SCHEMA.md` - source-of-truth JSON schema for bundled procedures
+- `../Procedures/Resources/procedures.json` - bundled procedure content
+- `../Procedures/Resources/rescue_cards.json` - bundled rescue-card content
 - `ai-instructions/SWIFT_ARCHITECTURE.md` - current runtime structure and data flow
 - `ai-instructions/TESTING_CHECKLIST.md` - manual verification checklist
 - `ai-instructions/UI_UX_RULES.md` - bedside UX direction and navigation rules
@@ -13,3 +15,4 @@
 
 ## Historical Notes
 - `audits/AUDIT_AND_NEXT_STEPS.md` - earlier audit log and roadmap snapshots kept for reference, not as the primary handoff file
+- `audits/PATCH_NOTES_0_4_RESCUE_JSON_VISUALS.md` - imported patch notes for the rescue JSON / visual-asset architecture update

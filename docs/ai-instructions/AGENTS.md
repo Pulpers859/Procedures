@@ -1,6 +1,6 @@
 # AI Agent Instructions
 
-You are helping build ProcedureSTAT, a SwiftUI educational procedure-review app for emergency medicine and ICU clinicians.
+You are helping build Procedures, a SwiftUI educational procedure-review app for emergency medicine and ICU clinicians.
 
 The app is designed for trained clinicians who need rapid, structured, practical review before performing procedures on shift.
 
@@ -31,6 +31,11 @@ The app is designed for trained clinicians who need rapid, structured, practical
    - Use strongly typed Codable models.
    - Keep user data separate from read-only procedure content.
 
+6. Keep GitHub current.
+   - If you make tracked repo changes, commit and push them to `origin/main` in the same work cycle by default.
+   - Do not leave local-only repo changes waiting for a separate push request.
+   - Only skip the push when the user explicitly says not to push or push is blocked by auth, network, or repo protection.
+
 ## Current MVP
 
 The current MVP uses:
@@ -39,7 +44,7 @@ The current MVP uses:
 - Local bundled JSON
 - ObservableObject stores
 - UserDefaults for favorites, recents, and notes
-- 5 main tabs: Procedures, Shift Mode, Equipment, Complications, Saved
+- 5 main tabs: Guide, Procedures, Rescue, Kits, Saved
 
 ## High-Yield Future Suggestions
 
@@ -76,3 +81,30 @@ Design rules:
 - Treat every visual as clinical content requiring review.
 
 When adding new features, ask: will this help an on-shift clinician get safer, faster, or more prepared within 10 seconds? If not, it belongs later.
+
+## Current Architecture Direction: Do Not Regress
+
+As of the latest patch, Rescue Cards and Visual Asset metadata are part of the app's core content architecture.
+
+### Rescue Cards
+
+- Do not hardcode rescue cards in Swift.
+- Add/edit rescue cards in `Procedures/Resources/rescue_cards.json`.
+- Treat rescue cards as reviewed clinical content with `lastReviewed`, `version`, and `references`.
+- Validate rescue cards with `./scripts/validate_procedures.py`.
+
+### Visual Assets
+
+- Do not add random image galleries.
+- Each procedure should start with one primary visual asset that prevents a meaningful clinical miss.
+- Add visual metadata to the procedure's `visualAssets` array.
+- Add bundled artwork later and set `assetName`.
+- If no artwork exists yet, keep the metadata placeholder rather than removing the visual section.
+
+The design target remains: Fadial-style simplicity, premium clinical hierarchy, offline-first speed, and stronger EM/ICU rescue depth.
+
+## Git Discipline: Non-Optional Default
+
+- This repo uses a push-by-default workflow.
+- Any agent with GitHub access should treat commit + push as part of finishing the task, not as a separate optional follow-up.
+- Goal: the GitHub repo stays current so the user can fetch/pull on another machine, including the Mac/Xcode environment, without having to ask for a manual push afterward.

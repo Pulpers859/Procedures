@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct ProcedureSTATApp: App {
+struct ProceduresApp: App {
     @StateObject private var repository = ProcedureRepository()
     @StateObject private var userData = UserDataStore()
 

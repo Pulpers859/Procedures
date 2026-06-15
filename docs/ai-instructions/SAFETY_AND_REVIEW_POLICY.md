@@ -1,6 +1,6 @@
 # Safety and Review Policy
 
-ProcedureSTAT is an educational review tool for trained clinicians.
+Procedures is an educational review tool for trained clinicians.
 
 It does not replace:
 

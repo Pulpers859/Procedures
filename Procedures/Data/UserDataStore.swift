@@ -1,16 +1,23 @@
 import Foundation
 
+private enum UserDataStoreKey {
+    static let favorites = "Procedures.favoriteIDs"
+    static let recents = "Procedures.recentIDs"
+    static let notes = "Procedures.notes"
+    static let checkedEquipment = "Procedures.checkedEquipment"
+
+    static let legacyFavorites = "ProcedureSTAT.favoriteIDs"
+    static let legacyRecents = "ProcedureSTAT.recentIDs"
+    static let legacyNotes = "ProcedureSTAT.notes"
+    static let legacyCheckedEquipment = "ProcedureSTAT.checkedEquipment"
+}
+
 @MainActor
 final class UserDataStore: ObservableObject {
     @Published private(set) var favoriteIDs: Set<String> = []
     @Published private(set) var recentIDs: [String] = []
     @Published private(set) var notes: [String: String] = [:]
     @Published private(set) var checkedEquipment: [String: Set<String>] = [:]
-
-    private let favoritesKey = "ProcedureSTAT.favoriteIDs"
-    private let recentsKey = "ProcedureSTAT.recentIDs"
-    private let notesKey = "ProcedureSTAT.notes"
-    private let checkedEquipmentKey = "ProcedureSTAT.checkedEquipment"
 
     init() {
         load()
@@ -73,40 +80,59 @@ final class UserDataStore: ObservableObject {
     }
 
     private func load() {
-        if let favoriteArray = UserDefaults.standard.array(forKey: favoritesKey) as? [String] {
+        let defaults = UserDefaults.standard
+
+        if let favoriteArray = defaults.array(forKey: UserDataStoreKey.favorites) as? [String] {
             favoriteIDs = Set(favoriteArray)
+        } else if let favoriteArray = defaults.array(forKey: UserDataStoreKey.legacyFavorites) as? [String] {
+            favoriteIDs = Set(favoriteArray)
+            saveFavorites()
         }
-        if let recentArray = UserDefaults.standard.array(forKey: recentsKey) as? [String] {
+
+        if let recentArray = defaults.array(forKey: UserDataStoreKey.recents) as? [String] {
             recentIDs = Array(recentArray.prefix(12))
+        } else if let recentArray = defaults.array(forKey: UserDataStoreKey.legacyRecents) as? [String] {
+            recentIDs = Array(recentArray.prefix(12))
+            saveRecents()
         }
-        if let data = UserDefaults.standard.data(forKey: notesKey),
+
+        if let data = defaults.data(forKey: UserDataStoreKey.notes),
            let decoded = try? JSONDecoder().decode([String: String].self, from: data) {
             notes = decoded
+        } else if let data = defaults.data(forKey: UserDataStoreKey.legacyNotes),
+                  let decoded = try? JSONDecoder().decode([String: String].self, from: data) {
+            notes = decoded
+            saveNotes()
         }
-        if let data = UserDefaults.standard.data(forKey: checkedEquipmentKey),
+
+        if let data = defaults.data(forKey: UserDataStoreKey.checkedEquipment),
            let decoded = try? JSONDecoder().decode([String: [String]].self, from: data) {
             checkedEquipment = decoded.mapValues { Set($0) }
+        } else if let data = defaults.data(forKey: UserDataStoreKey.legacyCheckedEquipment),
+                  let decoded = try? JSONDecoder().decode([String: [String]].self, from: data) {
+            checkedEquipment = decoded.mapValues { Set($0) }
+            saveCheckedEquipment()
         }
     }
 
     private func saveFavorites() {
-        UserDefaults.standard.set(Array(favoriteIDs).sorted(), forKey: favoritesKey)
+        UserDefaults.standard.set(Array(favoriteIDs).sorted(), forKey: UserDataStoreKey.favorites)
     }
 
     private func saveRecents() {
-        UserDefaults.standard.set(recentIDs, forKey: recentsKey)
+        UserDefaults.standard.set(recentIDs, forKey: UserDataStoreKey.recents)
     }
 
     private func saveNotes() {
         if let data = try? JSONEncoder().encode(notes) {
-            UserDefaults.standard.set(data, forKey: notesKey)
+            UserDefaults.standard.set(data, forKey: UserDataStoreKey.notes)
         }
     }
 
     private func saveCheckedEquipment() {
         let encoded = checkedEquipment.mapValues { Array($0).sorted() }
         if let data = try? JSONEncoder().encode(encoded) {
-            UserDefaults.standard.set(data, forKey: checkedEquipmentKey)
+            UserDefaults.standard.set(data, forKey: UserDataStoreKey.checkedEquipment)
         }
     }
 }

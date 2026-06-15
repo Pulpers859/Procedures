@@ -5,7 +5,7 @@ struct ComplicationsHomeView: View {
     @State private var searchText = ""
 
     private var rescueCards: [ComplicationRescueCard] {
-        ComplicationRescueCardStore.cards.filter { $0.matches(searchText) }
+        repository.searchRescueCards(searchText)
     }
 
     private var procedures: [Procedure] {

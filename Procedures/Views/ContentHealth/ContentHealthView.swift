@@ -24,9 +24,26 @@ struct ContentHealthView: View {
 
             Section("Summary") {
                 MetadataRow(icon: "list.bullet.rectangle", title: "Procedures", value: "\(repository.procedures.count)")
+                MetadataRow(icon: "lifepreserver", title: "Rescue Cards", value: "\(repository.rescueCards.count)")
                 MetadataRow(icon: "exclamationmark.octagon", title: "Blockers", value: "\(count(.blocker))")
                 MetadataRow(icon: "exclamationmark.triangle", title: "Warnings", value: "\(count(.warning))")
                 MetadataRow(icon: "sparkles", title: "Polish", value: "\(count(.polish))")
+            }
+
+            if let loadError = repository.loadError {
+                Section("Procedure Load Error") {
+                    Text(loadError)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.red)
+                }
+            }
+
+            if let rescueLoadError = repository.rescueLoadError {
+                Section("Rescue Load Error") {
+                    Text(rescueLoadError)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.red)
+                }
             }
 
             if groupedIssues.isEmpty {
