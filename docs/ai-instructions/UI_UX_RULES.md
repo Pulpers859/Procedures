@@ -56,3 +56,9 @@ Procedure pages should feel like focused cards, not articles. The top of every d
 - Rescue moves
 
 Visuals should be restrained and clinically purposeful. A single landmark/probe/danger-zone diagram is preferred over broad image galleries.
+
+## External UI/UX Resource Decisions
+
+When the task is about evaluating outside UI/UX repos, component libraries, design systems, reference sites, or design-oriented agent skills, use `docs/AI_UI_UX_RESOURCE_EVALUATION_PLAYBOOK.md` as the decision framework.
+
+Do not trigger that process for ordinary small UI fixes. Use it for design-system decisions, redesign planning, tooling comparison, and external-inspiration evaluation.

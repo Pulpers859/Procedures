@@ -45,6 +45,13 @@ The app is designed for trained clinicians who need rapid, structured, practical
    - Only after that comparison should you decide whether to pull, rebase, merge, patch missing work, or leave newer work intact.
    - Do not say the repo is fully assessed or in sync until that reconciliation step is complete whenever outside-agent work is part of the context.
 
+8. Use the UI/UX resource playbook for external design-tooling decisions.
+   - When evaluating external UI/UX resources, component libraries, design systems, visual reference sites, or design-oriented agent skills for this app, read `docs/AI_UI_UX_RESOURCE_EVALUATION_PLAYBOOK.md` first and follow its `Adopt / Adapt / Reference / Skip` process.
+   - Do not use this playbook for every UI task by default.
+   - Use it when the work involves design-system decisions, component library selection, UI inspiration sources, redesign planning, or deciding whether an external UI/UX repo or website should influence the app.
+   - Use the playbook as a neutral decision framework, not as a preset recommendation.
+   - Inspect this app's actual platform, workflows, implementation stack, design maturity, and constraints before deciding what fits.
+
 ## Current MVP
 
 The current MVP uses:
