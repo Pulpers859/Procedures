@@ -4,7 +4,19 @@ struct SectionCard<Content: View>: View {
     let title: String
     var systemImage: String? = nil
     var miniHeight: CGFloat? = nil
-    @ViewBuilder let content: Content
+    let content: Content
+
+    init(
+        title: String,
+        systemImage: String? = nil,
+        miniHeight: CGFloat? = nil,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.title = title
+        self.systemImage = systemImage
+        self.miniHeight = miniHeight
+        self.content = content()
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
