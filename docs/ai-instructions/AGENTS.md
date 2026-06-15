@@ -36,6 +36,15 @@ The app is designed for trained clinicians who need rapid, structured, practical
    - Do not leave local-only repo changes waiting for a separate push request.
    - Only skip the push when the user explicitly says not to push or push is blocked by auth, network, or repo protection.
 
+7. Reconcile outside agent work before sync claims.
+   - If the user mentions prior work by another AI agent, another machine, another terminal, or another conversation, do not assume the current diff or latest visible commit tells the full story.
+   - Before making new edits, rebases, resets, merges, or sync claims, perform an external-agent reconciliation pass.
+   - Inspect any outside artifact the user provides, such as a transcript, chat export, screenshot, commit list, or claimed fix summary.
+   - Compare what the other agent claimed to change against the current local files, the local Git history, and the current `main` branch on GitHub.
+   - Tell the user plainly whether each claimed change is present, missing, partially landed, or overwritten.
+   - Only after that comparison should you decide whether to pull, rebase, merge, patch missing work, or leave newer work intact.
+   - Do not say the repo is fully assessed or in sync until that reconciliation step is complete whenever outside-agent work is part of the context.
+
 ## Current MVP
 
 The current MVP uses:
@@ -108,3 +117,13 @@ The design target remains: Fadial-style simplicity, premium clinical hierarchy, 
 - This repo uses a push-by-default workflow.
 - Any agent with GitHub access should treat commit + push as part of finishing the task, not as a separate optional follow-up.
 - Goal: the GitHub repo stays current so the user can fetch/pull on another machine, including the Mac/Xcode environment, without having to ask for a manual push afterward.
+
+## External-Agent Reconciliation: Non-Optional Default
+
+- When outside-agent work is part of the context, reconciliation comes before sync claims.
+- Do not treat `git diff`, the current working tree, or the latest visible local commit as a full accounting by themselves.
+- Compare claimed outside work against:
+  - current local files
+  - local Git history
+  - current GitHub `main`
+- Report whether each claimed change is present, missing, partially landed, or overwritten before choosing the next Git action.

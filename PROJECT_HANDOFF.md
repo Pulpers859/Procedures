@@ -36,6 +36,13 @@
 - Fix root causes, not surface symptoms.
 - Run the validation script after content changes: `python scripts/validate_procedures.py`.
 - Before editing on an existing repo, fetch and check ahead/behind state; if clean, pull with `--ff-only`.
+- If the user mentions prior work by another AI agent, another machine, another terminal, or another conversation, do not assume the current diff or latest visible commit tells the full story.
+- Before making new edits, rebases, resets, merges, or sync claims in that situation, perform an external-agent reconciliation pass:
+  - inspect any outside artifact the user provides, such as a transcript, chat export, screenshot, commit list, or claimed fix summary
+  - compare what that agent claimed to change against the current local files, the local Git history, and the current `main` branch on GitHub
+  - tell the user plainly whether each claimed change is present, missing, partially landed, or overwritten
+  - only after that comparison decide whether to pull, rebase, merge, patch missing work, or leave newer work intact
+- Do not claim the repo is fully assessed or in sync until that reconciliation step is complete whenever outside-agent work is part of the context.
 - Audit adjacent risks after making fixes.
 - After making tracked repo changes, commit them and push `origin/main` in the same session by default so the GitHub repo stays current for pull/fetch on other machines and agents.
 - Clearly distinguish what was proven locally from what could not be verified on Windows.
@@ -91,6 +98,7 @@ Important:
 - No stale copy was found during the initial workspace/Desktop scan on 2026-06-14.
 - If a later duplicate copy appears, verify it before working there.
 - Before starting normal work, fetch from origin and sync main first when the working tree is clean.
+- If prior outside-agent work is mentioned, perform the external-agent reconciliation pass before claiming sync status or choosing pull/rebase/merge/edit actions.
 - Run python scripts/validate_procedures.py after content edits.
 - Keep work on main unless the user explicitly requests another branch model.
 - If you make tracked changes, you must commit them and push origin/main in the same work cycle by default. Do not leave local-only changes waiting for the user to ask for a push.
