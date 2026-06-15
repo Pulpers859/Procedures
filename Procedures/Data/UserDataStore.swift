@@ -79,6 +79,28 @@ final class UserDataStore: ObservableObject {
         saveCheckedEquipment()
     }
 
+    // MARK: - Bulk clearing (Settings)
+
+    func clearRecents() {
+        recentIDs = []
+        saveRecents()
+    }
+
+    func clearFavorites() {
+        favoriteIDs = []
+        saveFavorites()
+    }
+
+    func clearAllNotes() {
+        notes = [:]
+        saveNotes()
+    }
+
+    func clearAllEquipment() {
+        checkedEquipment = [:]
+        saveCheckedEquipment()
+    }
+
     private func load() {
         let defaults = UserDefaults.standard
 

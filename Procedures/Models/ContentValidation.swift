@@ -76,17 +76,12 @@ enum ContentValidator {
             }
         }
 
-        let visualAssets = procedure.visualAssets ?? []
-        if visualAssets.isEmpty {
-            add(.polish, "missing visual landmark metadata. Premium direction expects at least one landmark/probe/danger-zone visual slot.")
-        } else {
-            for asset in visualAssets {
-                if asset.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    add(.warning, "visual asset \(asset.id) is missing a title.")
-                }
-                if asset.assetName == nil || asset.assetName?.isEmpty == true {
-                    add(.polish, "visual asset \(asset.title) has metadata but no bundled image yet.")
-                }
+        // Visual assets are an optional enhancement, shown only when a real
+        // image is bundled. Validate their structure when present, but do not
+        // flag their absence or pending artwork as content issues.
+        for asset in procedure.visualAssets ?? [] {
+            if asset.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                add(.warning, "visual asset \(asset.id) is missing a title.")
             }
         }
 

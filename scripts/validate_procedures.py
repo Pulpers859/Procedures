@@ -61,10 +61,10 @@ def validate_procedures(data):
             if not item.get(field):
                 issues.append(("BLOCKER", title, f"missing metadata: {field}"))
 
-        visuals = item.get("visualAssets", [])
-        if not visuals:
-            issues.append(("POLISH", title, "missing visualAssets metadata"))
-        for visual in visuals:
+        # Visual assets are an optional enhancement, shown only when a real
+        # image is bundled. Validate structure when present, but do not flag
+        # their absence or pending artwork as content issues.
+        for visual in item.get("visualAssets", []):
             for field in ["id", "kind", "title", "subtitle", "caption"]:
                 if not visual.get(field):
                     issues.append(("WARNING", title, f"visual asset missing {field}"))
@@ -78,8 +78,6 @@ def validate_procedures(data):
                 ]
                 if not any(path.exists() for path in candidates):
                     issues.append(("WARNING", title, f"visual asset file not found: {asset_name}"))
-            else:
-                issues.append(("POLISH", title, f"visual asset '{visual.get('title', '<untitled>')}' has no bundled image yet"))
 
     return issues
 

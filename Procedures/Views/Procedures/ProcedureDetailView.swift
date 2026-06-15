@@ -4,8 +4,14 @@ import UIKit
 struct ProcedureDetailView: View {
     @EnvironmentObject private var userData: UserDataStore
     let procedure: Procedure
-    @State private var selectedSection: ProcedureDetailSection = .shiftMode
+    @State private var selectedSection: ProcedureDetailSection
     @State private var noteText = ""
+
+    init(procedure: Procedure) {
+        self.procedure = procedure
+        let stored = UserDefaults.standard.string(forKey: SettingsStorageKey.defaultSection)
+        _selectedSection = State(initialValue: ProcedureDetailSection(rawValue: stored ?? "") ?? .shiftMode)
+    }
 
     var body: some View {
         ScrollView {
@@ -53,13 +59,8 @@ struct ProcedureDetailView: View {
 
             FlowTagView(tags: [procedure.difficulty.rawValue, procedure.reviewTime] + procedure.setting.map(\.rawValue))
 
-            VisualLandmarkPlaceholder(procedure: procedure)
-
-            SectionCard(title: "Clinical Governance", systemImage: "checkmark.shield") {
-                VStack(spacing: 8) {
-                    MetadataRow(icon: "calendar", title: "Last reviewed", value: procedure.lastReviewed)
-                    MetadataRow(icon: "number", title: "Content version", value: procedure.version)
-                }
+            if let visual = procedure.bundledVisual {
+                ProcedureVisualCard(asset: visual.asset, image: visual.image)
             }
         }
     }
@@ -343,74 +344,53 @@ struct DeepReviewContent: View {
                         .foregroundStyle(.secondary)
                 }
             }
+
+            SectionCard(title: "Clinical Governance", systemImage: "checkmark.shield") {
+                VStack(spacing: 8) {
+                    MetadataRow(icon: "calendar", title: "Last reviewed", value: procedure.lastReviewed)
+                    MetadataRow(icon: "number", title: "Content version", value: procedure.version)
+                }
+            }
         }
     }
 }
 
 
-struct VisualLandmarkPlaceholder: View {
-    let procedure: Procedure
-
-    private var asset: ProcedureVisualAsset? { procedure.primaryVisualAsset }
-
-    private var fallbackTitle: String {
-        if !procedure.sections.ultrasound.isEmpty {
-            return "Probe / landmark visual"
-        }
-        switch procedure.category {
-        case .airway:
-            return "Airway landmark visual"
-        case .thoracic:
-            return "Safe-zone / insertion landmark visual"
-        case .vascularAccess, .ultrasoundGuided:
-            return "Vessel / probe orientation visual"
-        case .cardiacResuscitation:
-            return "Approach / confirmation visual"
-        case .neuro:
-            return "Positioning / landmark visual"
-        case .regionalAnesthesia:
-            return "Nerve territory / injection site visual"
-        case .woundSoftTissue:
-            return "Technique / repair visual"
-        case .other:
-            return "Procedure visual"
-        }
-    }
+/// Shows a real bundled landmark/probe/danger-zone image. Renders nothing when
+/// no image is bundled, so the procedure page never carries a dead placeholder.
+struct ProcedureVisualCard: View {
+    let asset: ProcedureVisualAsset
+    let image: UIImage
 
     var body: some View {
         SectionCard(title: "Visual Landmark", systemImage: "photo.on.rectangle.angled") {
-            VStack(alignment: .leading, spacing: 12) {
-                HStack(alignment: .top, spacing: 14) {
-                    ProcedureVisualThumbnail(asset: asset, category: procedure.category)
+            VStack(alignment: .leading, spacing: 10) {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
+                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    .accessibilityLabel(asset.title)
 
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(asset?.title ?? fallbackTitle)
-                            .font(.subheadline.weight(.semibold))
-                        Text(asset?.subtitle ?? "Premium direction: every high-yield procedure should have one fast landmark/probe/danger-zone visual here. Not a gallery — the one image that prevents the bad miss.")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
+                Text(asset.title)
+                    .font(.subheadline.weight(.semibold))
 
-                        if let kind = asset?.kind.rawValue {
-                            Text(kind.uppercased())
-                                .font(.caption2.weight(.heavy))
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .foregroundStyle(.blue)
-                                .background(Color.blue.opacity(0.12), in: Capsule())
-                        }
-                    }
+                if !asset.subtitle.isEmpty {
+                    Text(asset.subtitle)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
 
-                if let warning = asset?.clinicalWarning, !warning.isEmpty {
+                if let warning = asset.clinicalWarning, !warning.isEmpty {
                     Label(warning, systemImage: "exclamationmark.triangle.fill")
                         .font(.caption)
                         .foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)
                 }
 
-                if let caption = asset?.caption, !caption.isEmpty {
-                    Text(caption)
+                if !asset.caption.isEmpty {
+                    Text(asset.caption)
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
@@ -420,39 +400,21 @@ struct VisualLandmarkPlaceholder: View {
     }
 }
 
-struct ProcedureVisualThumbnail: View {
-    let asset: ProcedureVisualAsset?
-    let category: ProcedureCategory
-
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(Color.blue.opacity(0.10))
-                .frame(width: 96, height: 96)
-
-            if let image = bundledImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 96, height: 96)
-                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            } else {
-                VStack(spacing: 6) {
-                    Image(systemName: asset?.systemImage ?? fallbackSystemImage)
-                        .font(.title2.weight(.semibold))
-                    Text("VISUAL")
-                        .font(.caption2.weight(.heavy))
-                }
-                .foregroundStyle(.blue)
-            }
+extension Procedure {
+    /// The primary visual asset paired with its bundled image, if one actually
+    /// ships in the app bundle. Returns nil when there is no real image to show.
+    var bundledVisual: (asset: ProcedureVisualAsset, image: UIImage)? {
+        guard let asset = primaryVisualAsset,
+              let assetName = asset.assetName, !assetName.isEmpty,
+              let image = ProcedureVisualLoader.image(named: assetName) else {
+            return nil
         }
-        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(Color.blue.opacity(0.18), lineWidth: 1))
-        .accessibilityLabel(asset?.title ?? "Procedure visual placeholder")
+        return (asset, image)
     }
+}
 
-    private var bundledImage: UIImage? {
-        guard let assetName = asset?.assetName, !assetName.isEmpty else { return nil }
-
+enum ProcedureVisualLoader {
+    static func image(named assetName: String) -> UIImage? {
         if let image = UIImage(named: assetName) {
             return image
         }
@@ -464,18 +426,5 @@ struct ProcedureVisualThumbnail: View {
 
         guard let url else { return nil }
         return UIImage(contentsOfFile: url.path)
-    }
-
-    private var fallbackSystemImage: String {
-        switch category {
-        case .airway: return "scope"
-        case .vascularAccess, .ultrasoundGuided: return "dot.viewfinder"
-        case .thoracic: return "stethoscope"
-        case .cardiacResuscitation: return "waveform.path.ecg"
-        case .neuro: return "figure.seated.side"
-        case .regionalAnesthesia: return "syringe"
-        case .woundSoftTissue: return "bandage"
-        case .other: return "photo"
-        }
     }
 }

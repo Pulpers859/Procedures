@@ -29,6 +29,7 @@
 		338F8C8BBF1343EB69A78AD0 /* ContentValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8DC468D85E10471B68033F /* ContentValidation.swift */; };
 		88F9C923C93A43E6A2E14BFF /* ComplicationRescueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38FED1DEFEFB62F3922F4C /* ComplicationRescueCard.swift */; };
 		92AACC753D3533D81A9532F1 /* ContentHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EEE6E0342FFE24C67FCF75 /* ContentHealthView.swift */; };
+		AABBCCDD0000000000005E71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABBCCDD0000000000005E72 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		CA8DC468D85E10471B68033F /* ContentValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ContentValidation.swift; sourceTree = "<group>"; };
 		AD38FED1DEFEFB62F3922F4C /* ComplicationRescueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ComplicationRescueCard.swift; sourceTree = "<group>"; };
 		13EEE6E0342FFE24C67FCF75 /* ContentHealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/ContentHealth/ContentHealthView.swift; sourceTree = "<group>"; };
+		AABBCCDD0000000000005E72 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			CA8DC468D85E10471B68033F /* ContentValidation.swift */,
 			AD38FED1DEFEFB62F3922F4C /* ComplicationRescueCard.swift */,
 			13EEE6E0342FFE24C67FCF75 /* ContentHealthView.swift */,
+			AABBCCDD0000000000005E72 /* SettingsView.swift */,
 
 		); path = Procedures; sourceTree = "<group>"; };
 		8937EBE7AE1F4E2A9E52D0F9 /* Products */ = {isa = PBXGroup; children = ( C6E0BB9EE5B04E889679E603 /* Procedures.app */, ); name = Products; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 			338F8C8BBF1343EB69A78AD0 /* source */,
 			88F9C923C93A43E6A2E14BFF /* source */,
 			92AACC753D3533D81A9532F1 /* source */,
+			AABBCCDD0000000000005E71 /* source */,
 
 		); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */

@@ -4,6 +4,7 @@ struct GuideHomeView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     @State private var searchText = ""
+    @State private var showingSettings = false
 
     private var filteredProcedures: [Procedure] {
         repository.search(searchText)
@@ -22,7 +23,9 @@ struct GuideHomeView: View {
     }
 
     private var crashProcedures: [Procedure] {
-        repository.procedures.filter { $0.difficulty == .rareCrash || $0.difficulty == .advanced }
+        repository.procedures
+            .filter { $0.difficulty == .rareCrash || $0.difficulty == .advanced }
+            .sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
     }
 
     var body: some View {
@@ -43,35 +46,24 @@ struct GuideHomeView: View {
                     rescuePreviewSection
 
                     if !favoriteProcedures.isEmpty {
-                        procedureSection(title: "Favorites", procedures: favoriteProcedures)
+                        procedureSection(title: "Saved", procedures: favoriteProcedures)
                     }
                 } else {
-                    if !filteredRescueCards.isEmpty {
-                        Section("Rescue Cards") {
-                            ForEach(filteredRescueCards) { card in
-                                NavigationLink(value: card) {
-                                    RescueCardRow(card: card)
-                                }
-                            }
-                        }
-                    }
-
-                    Section("Procedure Results") {
-                        if filteredProcedures.isEmpty {
-                            Text("No procedures found. Try clinical shorthand like ETT, CVC, IJ, pigtail, pacer, LP, or finger block.")
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                        } else {
-                            ForEach(filteredProcedures) { procedure in
-                                NavigationLink(value: procedure) {
-                                    ProcedureCard(procedure: procedure, isFavorite: userData.isFavorite(procedure))
-                                }
-                            }
-                        }
-                    }
+                    searchResults
                 }
             }
+            .listStyle(.insetGrouped)
             .navigationTitle("Guide")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showingSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                    }
+                    .accessibilityLabel("Settings")
+                }
+            }
             .searchable(text: $searchText, prompt: "Search problem or procedure…")
             .navigationDestination(for: Procedure.self) { procedure in
                 ProcedureDetailView(procedure: procedure)
@@ -79,21 +71,55 @@ struct GuideHomeView: View {
             .navigationDestination(for: ComplicationRescueCard.self) { card in
                 RescueCardDetailView(card: card)
             }
+            .navigationDestination(for: ClinicalPathway.self) { pathway in
+                PathwayProcedureListView(pathway: pathway)
+            }
+            .sheet(isPresented: $showingSettings) {
+                SettingsView()
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var searchResults: some View {
+        if !filteredRescueCards.isEmpty {
+            Section("Rescue Cards") {
+                ForEach(filteredRescueCards) { card in
+                    NavigationLink(value: card) {
+                        RescueCardRow(card: card)
+                    }
+                }
+            }
+        }
+
+        Section("Procedure Results") {
+            if filteredProcedures.isEmpty {
+                Text("No procedures found. Try clinical shorthand like ETT, CVC, IJ, pigtail, pacer, LP, or finger block.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            } else {
+                ForEach(filteredProcedures) { procedure in
+                    NavigationLink(value: procedure) {
+                        ProcedureCard(procedure: procedure, isFavorite: userData.isFavorite(procedure))
+                    }
+                }
+            }
         }
     }
 
     private var heroSection: some View {
         Section {
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 14) {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Bedside Command Center")
-                            .font(.title2.weight(.bold))
-                        Text("Start with the clinical problem, the procedure, or the complication. Built to get you to the right card fast.")
+                            .font(.title3.weight(.bold))
+                        Text("Start with the problem, the procedure, or the complication. Built to get you to the right card fast.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
-                    Spacer()
+                    Spacer(minLength: 12)
                     Image(systemName: "cross.case.fill")
                         .font(.title2)
                         .foregroundStyle(.blue)
@@ -104,7 +130,7 @@ struct GuideHomeView: View {
                 HStack(spacing: 10) {
                     QuickStatPill(value: "\(repository.procedures.count)", label: "procedures")
                     QuickStatPill(value: "\(repository.rescueCards.count)", label: "rescue")
-                    QuickStatPill(value: "offline", label: "ready")
+                    QuickStatPill(value: "Offline", label: "ready")
                 }
             }
             .padding(.vertical, 6)
@@ -113,32 +139,16 @@ struct GuideHomeView: View {
 
     private var clinicalPathwaysSection: some View {
         Section("Clinical Pathways") {
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+            LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
                 ForEach(ClinicalPathway.defaultPathways) { pathway in
-                    NavigationLink {
-                        PathwayProcedureListView(pathway: pathway)
-                    } label: {
-                        VStack(alignment: .leading, spacing: 10) {
-                            Image(systemName: pathway.systemImage)
-                                .font(.title3.weight(.semibold))
-                                .foregroundStyle(pathway.tint)
-                            Text(pathway.title)
-                                .font(.headline)
-                                .foregroundStyle(.primary)
-                            Text(pathway.subtitle)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .lineLimit(2)
-                        }
-                        .frame(maxWidth: .infinity, minHeight: 112, alignment: .topLeading)
-                        .padding()
-                        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-                        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
+                    NavigationLink(value: pathway) {
+                        PathwayTile(pathway: pathway, count: pathwayCount(pathway))
                     }
                     .buttonStyle(.plain)
                 }
             }
             .padding(.vertical, 4)
+            .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
         }
     }
 
@@ -167,6 +177,10 @@ struct GuideHomeView: View {
             }
         }
     }
+
+    private func pathwayCount(_ pathway: ClinicalPathway) -> Int {
+        repository.procedures.filter { pathway.categories.contains($0.category) }.count
+    }
 }
 
 struct QuickStatPill: View {
@@ -189,22 +203,63 @@ struct QuickStatPill: View {
     }
 }
 
-struct ClinicalPathway: Identifiable {
+struct PathwayTile: View {
+    let pathway: ClinicalPathway
+    let count: Int
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                Image(systemName: pathway.systemImage)
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(pathway.tint)
+                    .frame(width: 34, height: 34)
+                    .background(pathway.tint.opacity(0.14), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                Spacer()
+                Text("\(count)")
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 3)
+                    .background(Color(.tertiarySystemFill), in: Capsule())
+            }
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text(pathway.title)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
+                Text(pathway.subtitle)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .frame(maxWidth: .infinity, minHeight: 120, alignment: .topLeading)
+        .padding(14)
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
+    }
+}
+
+struct ClinicalPathway: Identifiable, Hashable {
     let id: String
     let title: String
     let subtitle: String
     let systemImage: String
     let tint: Color
     let categories: [ProcedureCategory]
-    let searchTerms: [String]
+
+    static func == (lhs: ClinicalPathway, rhs: ClinicalPathway) -> Bool { lhs.id == rhs.id }
+    func hash(into hasher: inout Hasher) { hasher.combine(id) }
 
     static let defaultPathways: [ClinicalPathway] = [
-        ClinicalPathway(id: "airway", title: "Airway", subtitle: "ETT, RSI, cric, failed airway", systemImage: "lungs.fill", tint: .cyan, categories: [.airway], searchTerms: ["airway", "intubation", "cric", "rsi"]),
-        ClinicalPathway(id: "lines", title: "Lines", subtitle: "CVC, IJ, access, dialysis", systemImage: "drop.fill", tint: .blue, categories: [.vascularAccess, .ultrasoundGuided], searchTerms: ["line", "cvc", "access", "catheter"]),
-        ClinicalPathway(id: "thoracic", title: "Thoracic", subtitle: "Chest tube, pigtail, needle", systemImage: "stethoscope", tint: .indigo, categories: [.thoracic], searchTerms: ["thoracic", "chest", "pigtail", "needle"]),
-        ClinicalPathway(id: "resus", title: "Resus", subtitle: "Pacer, pericardiocentesis, crash", systemImage: "heart.fill", tint: .red, categories: [.cardiacResuscitation], searchTerms: ["resuscitation", "pacer", "pericardial", "tamponade"]),
-        ClinicalPathway(id: "blocks", title: "Blocks", subtitle: "Digital and regional anesthesia", systemImage: "syringe", tint: .purple, categories: [.regionalAnesthesia], searchTerms: ["block", "nerve", "anesthesia"]),
-        ClinicalPathway(id: "neuro", title: "Neuro", subtitle: "LP, CSF, meningitis workup", systemImage: "brain.head.profile", tint: .orange, categories: [.neuro], searchTerms: ["lp", "lumbar", "csf", "neuro"])
+        ClinicalPathway(id: "airway", title: "Airway", subtitle: "ETT, RSI, cric, failed airway", systemImage: "lungs.fill", tint: .cyan, categories: [.airway]),
+        ClinicalPathway(id: "lines", title: "Lines", subtitle: "CVC, IJ, access, dialysis", systemImage: "drop.fill", tint: .blue, categories: [.vascularAccess, .ultrasoundGuided]),
+        ClinicalPathway(id: "thoracic", title: "Thoracic", subtitle: "Chest tube, pigtail, needle", systemImage: "stethoscope", tint: .indigo, categories: [.thoracic]),
+        ClinicalPathway(id: "resus", title: "Resus", subtitle: "Pacer, pericardiocentesis, crash", systemImage: "heart.fill", tint: .red, categories: [.cardiacResuscitation]),
+        ClinicalPathway(id: "blocks", title: "Blocks", subtitle: "Digital and regional anesthesia", systemImage: "syringe", tint: .purple, categories: [.regionalAnesthesia]),
+        ClinicalPathway(id: "neuro", title: "Neuro", subtitle: "LP, CSF, meningitis workup", systemImage: "brain.head.profile", tint: .orange, categories: [.neuro])
     ]
 }
 
@@ -214,28 +269,34 @@ struct PathwayProcedureListView: View {
     let pathway: ClinicalPathway
 
     private var procedures: [Procedure] {
-        let byCategory = repository.procedures.filter { pathway.categories.contains($0.category) }
-        let bySearch = pathway.searchTerms.flatMap { repository.search($0) }
-        return Array(Set(byCategory + bySearch)).sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
+        repository.procedures
+            .filter { pathway.categories.contains($0.category) }
+            .sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
     }
 
     var body: some View {
         List {
             Section {
-                VStack(alignment: .leading, spacing: 8) {
-                    Label(pathway.title, systemImage: pathway.systemImage)
-                        .font(.title3.weight(.bold))
+                HStack(spacing: 12) {
+                    Image(systemName: pathway.systemImage)
+                        .font(.title2.weight(.semibold))
                         .foregroundStyle(pathway.tint)
-                    Text(pathway.subtitle)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                        .frame(width: 44, height: 44)
+                        .background(pathway.tint.opacity(0.14), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(pathway.title)
+                            .font(.title3.weight(.bold))
+                        Text(pathway.subtitle)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
                 }
                 .padding(.vertical, 4)
             }
 
             Section("Procedures") {
                 if procedures.isEmpty {
-                    Text("No procedures in this pathway yet. Add content before release rather than showing empty categories.")
+                    Text("No procedures in this pathway yet. Content is added before release rather than showing empty categories.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 } else {
@@ -248,12 +309,12 @@ struct PathwayProcedureListView: View {
             }
         }
         .navigationTitle(pathway.title)
+        .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(for: Procedure.self) { procedure in
             ProcedureDetailView(procedure: procedure)
         }
     }
 }
-
 
 struct AllRescueCardsListView: View {
     @EnvironmentObject private var repository: ProcedureRepository

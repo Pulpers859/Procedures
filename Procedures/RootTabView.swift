@@ -7,6 +7,11 @@ private enum RootTabStorageKey {
 
 struct RootTabView: View {
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
+    @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
+
+    private var appearance: AppAppearance {
+        AppAppearance(rawValue: appearanceRaw) ?? .system
+    }
 
     init() {
         let defaults = UserDefaults.standard
@@ -37,6 +42,7 @@ struct RootTabView: View {
                 .tabItem { Label("Saved", systemImage: "bookmark.fill") }
         }
         .tint(.blue)
+        .preferredColorScheme(appearance.colorScheme)
         .alert("Clinical Review Tool", isPresented: Binding(
             get: { !hasAcceptedClinicalDisclaimer },
             set: { newValue in
