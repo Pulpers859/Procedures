@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procedures Handoff"
+  short_description: "Orient agents to the Procedures app and workflow"
+  default_prompt: "Orient to the Procedures repo, confirm source-of-truth paths and git state, load only the task-relevant product and safety context, then proceed with the requested work."

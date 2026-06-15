@@ -5,6 +5,8 @@
 - `AI_UI_UX_RESOURCE_EVALUATION_PLAYBOOK.md` - neutral framework for evaluating external UI/UX repos, libraries, reference sites, and agent skills for this app
 - `CLAUDE_CODE_TOKEN_EFFICIENCY.md` - repo-specific guidance for improving Claude Code token efficiency without adding heavy permanent tooling
 - `EXTERNAL_AGENT_RECONCILIATION.md` - standalone reconciliation note for multi-agent / multi-machine repo work
+- `../AGENTS.md` - root Codex and general agent startup instructions
+- `../CLAUDE.md` - root Claude Code memory loaded by the dedicated launcher
 - `ai-instructions/AGENTS.md` - product-specific guidance for future coding agents
 - `ai-instructions/PRODUCT_BRIEF.md` - app purpose, users, and non-goals
 - `ai-instructions/PROCEDURE_SCHEMA.md` - source-of-truth JSON schema for bundled procedures
@@ -18,6 +20,8 @@
 - `templates/UI_UX_PLAYBOOK_AGENTS_SNIPPET.txt` - reusable AGENTS insert for other repos
 - `templates/UI_UX_PLAYBOOK_AGENT_REQUEST.txt` - reusable prompt for UI/UX resource evaluation tasks
 - `templates/ui-ux-resource-eval/SKILL.md` - portable local-skill template for other repos
+- `../.claude/skills/procedures-handoff/SKILL.md` - fast repo orientation and task routing
+- `../.claude/skills/procedures-content-audit/SKILL.md` - clinical content, schema, reference, and validator audit workflow
 
 ## Historical Notes
 - `audits/AUDIT_AND_NEXT_STEPS.md` - earlier audit log and roadmap snapshots kept for reference, not as the primary handoff file

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Procedures Content Audit"
+  short_description: "Audit clinical procedure and rescue-card content safely"
+  default_prompt: "Audit the relevant Procedures clinical content against its schema, safety policy, runtime models, and validator, then report evidence-backed blockers, warnings, and recommended fixes."

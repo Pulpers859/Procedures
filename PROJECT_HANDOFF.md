@@ -23,9 +23,10 @@
 
 ## PowerShell / Terminal Standard
 - Do not globally pin every PowerShell session to this project.
-- Preferred dedicated shortcut name: `Procedures PowerShell`
+- Preferred Claude shortcut name: `Procedures Claude Code`
 - Shortcut should open directly in: `C:\Dev\Procedures`
-- Avoid fragile startup command strings; the path is simple and does not need extra quoting tricks.
+- Repo launcher script: `tools/Launch-Procedures-Claude.ps1`
+- The launcher checks root Claude memory and repo-local skills before starting Claude Code.
 
 ## How The Agent Should Operate
 - Inspect before assuming.

@@ -57,6 +57,13 @@ The app is designed for trained clinicians who need rapid, structured, practical
    - Prefer targeted file reads, source-of-truth paths, bounded work waves, and short recaps over broad repo sweeps.
    - Do not browse external design resources unless the task actually needs outside design evidence.
 
+10. Use repo-local skills automatically when the task matches.
+   - Use `procedures-handoff` at the start of a fresh repo session unless the task is already narrowly scoped.
+   - Use `procedures-content-audit` for clinical JSON, rescue cards, schema, references, validation, reviewer status, or safety-critical copy.
+   - Use `claude-code-efficiency` for broad, research-heavy, or cross-cutting work.
+   - Use `ui-ux-resource-eval` only for external UI/UX tooling and reference decisions.
+   - Prefer the smallest matching skill set instead of loading everything.
+
 ## Current MVP
 
 The current MVP uses:
