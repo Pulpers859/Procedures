@@ -160,6 +160,7 @@ struct RescueCardDetailView: View {
 
                 SectionCard(title: "Governance", systemImage: "checkmark.shield") {
                     VStack(spacing: 8) {
+                        ReviewerStatusBadge(status: card.reviewer)
                         MetadataRow(icon: "calendar", title: "Last reviewed", value: card.lastReviewed)
                         MetadataRow(icon: "number", title: "Version", value: card.version)
                     }

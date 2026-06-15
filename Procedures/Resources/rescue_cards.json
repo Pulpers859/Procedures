@@ -38,7 +38,8 @@
     "version": "0.2.0",
     "references": [
       "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "failed_airway",
@@ -81,7 +82,8 @@
     "version": "0.2.0",
     "references": [
       "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "arterial_puncture_cvc",
@@ -123,7 +125,8 @@
     "version": "0.2.0",
     "references": [
       "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "lost_wire",
@@ -164,7 +167,8 @@
     "version": "0.2.0",
     "references": [
       "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "failed_transvenous_capture",
@@ -204,7 +208,8 @@
     "version": "0.2.0",
     "references": [
       "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "sedation_apnea",
@@ -245,7 +250,8 @@
     "version": "0.2.0",
     "references": [
       "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "local_anesthetic_systemic_toxicity",
@@ -294,7 +300,8 @@
     "references": [
       "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
       "Di Gregorio G et al. Clinical presentation of local anesthetic systemic toxicity. Reg Anesth Pain Med. 2010."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "ptx_after_central_line",
@@ -343,7 +350,8 @@
     "references": [
       "Hind D et al. Ultrasonic locating devices for central venous cannulation. BMJ. 2003.",
       "ACEP Clinical Policies on emergency management of pneumothorax."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "chest_tube_malposition",
@@ -390,7 +398,8 @@
     "references": [
       "ATLS Advanced Trauma Life Support guidelines on chest tube management.",
       "Bosman A et al. Complications and malposition of thoracic drains. Eur J Cardiothorac Surg. 2010."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "laryngospasm",
@@ -438,6 +447,7 @@
     "references": [
       "Gavel G, Walker RWM. Laryngospasm in anaesthesia. Continuing Education in Anaesthesia, Critical Care & Pain. 2014.",
       "Larson CP. Laryngospasm \u2014 the best treatment. Anesthesiology. 1998;89:1293-1294."
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   }
 ]

@@ -103,3 +103,47 @@ struct MetadataRow: View {
         }
     }
 }
+
+/// Shows a content item's editorial review state. For anything not yet
+/// clinically reviewed it adds an explicit caveat so the app never implies that
+/// draft material has been approved. SwiftUI color mapping lives here, keeping
+/// the model layer Foundation-only.
+struct ReviewerStatusBadge: View {
+    let status: ReviewerStatus
+
+    private var tint: Color {
+        switch status {
+        case .draft: return .secondary
+        case .needsClinicalReview: return .orange
+        case .internallyReviewed: return .blue
+        case .externallyReviewed: return .green
+        case .institutionSpecific: return .purple
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 10) {
+                Image(systemName: status.systemImage)
+                    .foregroundStyle(tint)
+                    .frame(width: 22)
+                Text("Review status")
+                    .font(.subheadline.weight(.semibold))
+                Spacer()
+                Text(status.rawValue)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(tint)
+            }
+
+            if !status.isClinicallyReviewed {
+                Text(status.explanation)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Review status: \(status.rawValue). \(status.isClinicallyReviewed ? "" : status.explanation)")
+    }
+}

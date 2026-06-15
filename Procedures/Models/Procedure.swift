@@ -11,7 +11,18 @@ struct Procedure: Identifiable, Codable, Hashable {
     let version: String
     let tags: [String]
     let visualAssets: [ProcedureVisualAsset]?
+
+    /// Editorial review state. Optional in the wire format for decode
+    /// resilience; absent content is treated as the conservative default.
+    /// Declared before `sections` so the memberwise initializer reads with the
+    /// rest of the metadata.
+    let reviewerStatus: ReviewerStatus?
+
     let sections: ProcedureSections
+
+    /// Never-nil review state for UI and validation: an undeclared status is
+    /// reported as needing clinical review rather than silently trusted.
+    var reviewer: ReviewerStatus { reviewerStatus ?? .unreviewedDefault }
 
     var primaryVisualAsset: ProcedureVisualAsset? { visualAssets?.first }
 }

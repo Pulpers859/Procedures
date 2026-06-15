@@ -5,9 +5,31 @@ Run from the project root:
 """
 import json
 import sys
+from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+# Mirror of ReviewerStatus.swift and ContentFreshness.swift. Keep these in sync
+# so the Python validator and the in-app validator agree on governance rules.
+REVIEWER_STATUSES = {
+    "Draft",
+    "Needs Clinical Review",
+    "Internally Reviewed",
+    "Externally Reviewed",
+    "Institution-Specific",
+}
+REVIEWED_STATUSES = {"Internally Reviewed", "Externally Reviewed", "Institution-Specific"}
+STALENESS_THRESHOLD_DAYS = 365
+
+
+def review_age_days(last_reviewed):
+    """Days since an ISO yyyy-MM-dd date, or None if it cannot be parsed."""
+    try:
+        reviewed = datetime.strptime(last_reviewed.strip(), "%Y-%m-%d").date()
+    except (ValueError, AttributeError):
+        return None
+    return (date.today() - reviewed).days
 RESOURCES = ROOT / "Procedures" / "Resources"
 PROCEDURES = RESOURCES / "procedures.json"
 RESCUE_CARDS = RESOURCES / "rescue_cards.json"
@@ -25,6 +47,27 @@ MINIMUMS = {
     "documentation": 4,
     "references": 1,
 }
+
+
+def governance_issues(title, item):
+    """Reviewer-status validity and last-reviewed aging, shared by both content
+    types. An unparseable date is a blocker; staleness is a warning; an invalid
+    or missing reviewer status is a warning."""
+    issues = []
+    last_reviewed = item.get("lastReviewed")
+    if last_reviewed:
+        age = review_age_days(last_reviewed)
+        if age is None:
+            issues.append(("BLOCKER", title, f"lastReviewed '{last_reviewed}' is not a valid yyyy-MM-dd date"))
+        elif age > STALENESS_THRESHOLD_DAYS:
+            issues.append(("WARNING", title, f"stale content: last reviewed {age} days ago (threshold {STALENESS_THRESHOLD_DAYS})"))
+
+    status = item.get("reviewerStatus")
+    if status is None:
+        issues.append(("WARNING", title, "missing reviewerStatus; treated as 'Needs Clinical Review'"))
+    elif status not in REVIEWER_STATUSES:
+        issues.append(("WARNING", title, f"unknown reviewerStatus '{status}'"))
+    return issues
 
 
 def load_json(path: Path):
@@ -60,6 +103,8 @@ def validate_procedures(data):
         for field in ["lastReviewed", "version", "category", "difficulty"]:
             if not item.get(field):
                 issues.append(("BLOCKER", title, f"missing metadata: {field}"))
+
+        issues.extend(governance_issues(title, item))
 
         # Visual assets are an optional enhancement, shown only when a real
         # image is bundled. Validate structure when present, but do not flag
@@ -103,6 +148,7 @@ def validate_rescue_cards(cards, procedure_ids):
         missing = [pid for pid in item.get("relatedProcedureIDs", []) if pid not in procedure_ids]
         if missing:
             issues.append(("WARNING", title, f"related procedure IDs not found: {', '.join(missing)}"))
+        issues.extend(governance_issues(title, item))
     return issues
 
 
@@ -123,7 +169,17 @@ def main() -> int:
     blockers = [issue for issue in issues if issue[0] == "BLOCKER"]
     for level, title, message in issues:
         print(f"{level}: {title}: {message}")
-    print(f"\nValidated {len(procedures)} procedures and {len(rescue_cards)} rescue cards. Blockers: {len(blockers)}. Total issues: {len(issues)}.")
+
+    total_items = len(procedures) + len(rescue_cards)
+    reviewed = sum(
+        1 for item in (procedures + rescue_cards)
+        if item.get("reviewerStatus") in REVIEWED_STATUSES
+    )
+    print(
+        f"\nValidated {len(procedures)} procedures and {len(rescue_cards)} rescue cards. "
+        f"Blockers: {len(blockers)}. Total issues: {len(issues)}. "
+        f"Clinically reviewed: {reviewed}/{total_items}."
+    )
     return 1 if blockers else 0
 
 

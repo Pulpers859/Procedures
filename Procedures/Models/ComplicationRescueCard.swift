@@ -22,6 +22,13 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
     let version: String
     let references: [String]
 
+    /// Editorial review state; optional in the wire format for decode
+    /// resilience. See `reviewer` for the never-nil value used by the app.
+    let reviewerStatus: ReviewerStatus?
+
+    /// Never-nil review state: undeclared content is treated as needing review.
+    var reviewer: ReviewerStatus { reviewerStatus ?? .unreviewedDefault }
+
     func matches(_ query: String) -> Bool {
         let tokens = ClinicalSynonyms.tokens(in: query)
         guard !tokens.isEmpty else { return true }

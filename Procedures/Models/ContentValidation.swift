@@ -37,6 +37,20 @@ enum ContentValidator {
 
         issues.append(contentsOf: validateRescueCards(rescueCards, procedureIDs: Set(ids)))
 
+        // Aggregate, honest read on clinical sign-off so the editor sees one
+        // actionable line instead of a flag on every unreviewed item.
+        let totalItems = procedures.count + rescueCards.count
+        let unreviewed = procedures.filter { !$0.reviewer.isClinicallyReviewed }.count
+            + rescueCards.filter { !$0.reviewer.isClinicallyReviewed }.count
+        if unreviewed > 0 {
+            issues.append(.init(
+                severity: .polish,
+                procedureID: nil,
+                procedureTitle: nil,
+                message: "\(unreviewed) of \(totalItems) content items await clinical review; not for unsupervised clinical reliance until reviewed."
+            ))
+        }
+
         return issues.sorted { lhs, rhs in
             if lhs.severity.sortOrder != rhs.severity.sortOrder {
                 return lhs.severity.sortOrder < rhs.severity.sortOrder
@@ -53,7 +67,13 @@ enum ContentValidator {
         }
 
         if procedure.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.blocker, "missing title.") }
-        if procedure.lastReviewed.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.blocker, "missing last-reviewed metadata.") }
+        if procedure.lastReviewed.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            add(.blocker, "missing last-reviewed metadata.")
+        } else if ContentFreshness.isUnparseableDate(procedure.lastReviewed) {
+            add(.blocker, "last-reviewed date '\(procedure.lastReviewed)' is not a valid yyyy-MM-dd date.")
+        } else if let days = ContentFreshness.daysSinceReview(procedure.lastReviewed), days > ContentFreshness.stalenessThresholdDays {
+            add(.warning, "content is stale: last reviewed \(days) days ago; schedule re-review.")
+        }
         if procedure.version.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.blocker, "missing version metadata.") }
         if procedure.tags.isEmpty { add(.warning, "missing search tags/synonyms.") }
 
@@ -136,7 +156,13 @@ enum ContentValidator {
             if card.reassess.count < 2 { add(.warning, card.title, "needs concrete reassessment targets.") }
             if card.avoid.isEmpty { add(.warning, card.title, "missing 'avoid' content.") }
             if card.tags.isEmpty { add(.warning, card.title, "missing search tags.") }
-            if card.lastReviewed.isEmpty { add(.blocker, card.title, "missing last-reviewed metadata.") }
+            if card.lastReviewed.isEmpty {
+                add(.blocker, card.title, "missing last-reviewed metadata.")
+            } else if ContentFreshness.isUnparseableDate(card.lastReviewed) {
+                add(.blocker, card.title, "last-reviewed date '\(card.lastReviewed)' is not a valid yyyy-MM-dd date.")
+            } else if let days = ContentFreshness.daysSinceReview(card.lastReviewed), days > ContentFreshness.stalenessThresholdDays {
+                add(.warning, card.title, "rescue card is stale: last reviewed \(days) days ago; schedule re-review.")
+            }
             if card.version.isEmpty { add(.blocker, card.title, "missing version metadata.") }
             if card.references.isEmpty { add(.blocker, card.title, "missing references.") }
 

@@ -29,6 +29,7 @@
 		88F9C923C93A43E6A2E14BFF /* ComplicationRescueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38FED1DEFEFB62F3922F4C /* ComplicationRescueCard.swift */; };
 		92AACC753D3533D81A9532F1 /* ContentHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EEE6E0342FFE24C67FCF75 /* ContentHealthView.swift */; };
 		AABBCCDD0000000000005E71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABBCCDD0000000000005E72 /* SettingsView.swift */; };
+		7E570000000000000000001A /* ReviewerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000001B /* ReviewerStatus.swift */; };
 		7E570000000000000000000D /* ContentDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000000A /* ContentDecodingTests.swift */; };
 		7E570000000000000000000E /* RescueSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000000B /* RescueSearchTests.swift */; };
 		7E570000000000000000000F /* ValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000000C /* ValidationTests.swift */; };
@@ -56,6 +57,7 @@
 		C1D2E3F4A5B60718293A4B5C /* rescue_cards.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/rescue_cards.json; sourceTree = "<group>"; };
 		CA8DC468D85E10471B68033F /* ContentValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ContentValidation.swift; sourceTree = "<group>"; };
 		AD38FED1DEFEFB62F3922F4C /* ComplicationRescueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ComplicationRescueCard.swift; sourceTree = "<group>"; };
+		7E570000000000000000001B /* ReviewerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ReviewerStatus.swift; sourceTree = "<group>"; };
 		13EEE6E0342FFE24C67FCF75 /* ContentHealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/ContentHealth/ContentHealthView.swift; sourceTree = "<group>"; };
 		AABBCCDD0000000000005E72 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
 		7E5700000000000000000008 /* ProceduresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProceduresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 			C1D2E3F4A5B60718293A4B5C /* rescue_cards.json */,
 			CA8DC468D85E10471B68033F /* ContentValidation.swift */,
 			AD38FED1DEFEFB62F3922F4C /* ComplicationRescueCard.swift */,
+			7E570000000000000000001B /* ReviewerStatus.swift */,
 			13EEE6E0342FFE24C67FCF75 /* ContentHealthView.swift */,
 			AABBCCDD0000000000005E72 /* SettingsView.swift */,
 
@@ -207,6 +210,7 @@
 			88F9C923C93A43E6A2E14BFF /* source */,
 			92AACC753D3533D81A9532F1 /* source */,
 			AABBCCDD0000000000005E71 /* source */,
+			7E570000000000000000001A /* source */,
 
 		); runOnlyForDeploymentPostprocessing = 0; };
 		7E5700000000000000000005 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (

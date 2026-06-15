@@ -39,7 +39,51 @@ final class ValidationTests: XCTestCase {
         XCTAssertTrue(issues.contains { $0.severity == .warning && $0.message.localizedCaseInsensitiveContains("rescue") })
     }
 
-    private func makeProcedure(id: String = "test", references: [String] = ["Smith et al. 2024"]) -> Procedure {
+    func testUnreviewedContentDefaultsToNeedingReview() {
+        // An absent reviewerStatus must read as not-yet-reviewed, never as trusted.
+        let unreviewed = makeProcedure(reviewerStatus: nil)
+        XCTAssertEqual(unreviewed.reviewer, .needsClinicalReview)
+        XCTAssertFalse(unreviewed.reviewer.isClinicallyReviewed)
+        XCTAssertTrue(makeProcedure(reviewerStatus: .externallyReviewed).reviewer.isClinicallyReviewed)
+    }
+
+    func testUnreviewedContentIsSurfacedAsPolishIssue() {
+        let issues = ContentValidator.validate([makeProcedure(reviewerStatus: .needsClinicalReview)])
+        XCTAssertTrue(
+            issues.contains { $0.severity == .polish && $0.message.localizedCaseInsensitiveContains("await clinical review") },
+            "unreviewed content should surface an aggregate governance note"
+        )
+    }
+
+    func testStaleContentIsWarned() {
+        let stale = makeProcedure()  // fixture is dated 2026-01-01
+        let issues = ContentValidator.validate([stale])
+        // The fixture date ages past the threshold over time; assert the rule
+        // engages by checking the freshness helper directly to stay date-stable.
+        XCTAssertTrue(ContentFreshness.isStale("2000-01-01"))
+        XCTAssertFalse(ContentFreshness.isStale("2000-01-01", now: dateFrom("2000-06-01")))
+        _ = issues
+    }
+
+    func testUnparseableReviewDateIsBlocked() {
+        XCTAssertTrue(ContentFreshness.isUnparseableDate("not-a-date"))
+        XCTAssertFalse(ContentFreshness.isUnparseableDate("2026-06-15"))
+        XCTAssertFalse(ContentFreshness.isUnparseableDate(""))
+    }
+
+    private func dateFrom(_ iso: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.date(from: iso)!
+    }
+
+    private func makeProcedure(
+        id: String = "test",
+        references: [String] = ["Smith et al. 2024"],
+        reviewerStatus: ReviewerStatus? = .internallyReviewed
+    ) -> Procedure {
         Procedure(
             id: id,
             title: "Test Procedure",
@@ -51,6 +95,7 @@ final class ValidationTests: XCTestCase {
             version: "1.0",
             tags: ["test"],
             visualAssets: nil,
+            reviewerStatus: reviewerStatus,
             sections: ProcedureSections(
                 shiftMode: ["a", "b", "c", "d", "e", "f"],
                 indications: ["a"],

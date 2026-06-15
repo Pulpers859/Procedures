@@ -147,7 +147,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Do not let the visual layer become a pretty airway cartoon; it needs to show the setup that prevents a failed first pass."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "central_venous_catheter",
@@ -304,7 +305,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "The visual must make artery avoidance and wire confirmation obvious."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "digital_nerve_block",
@@ -432,7 +434,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Keep this clean and simple; this is exactly where Fadial-style clarity helps."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "cricothyrotomy",
@@ -565,7 +568,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "This should eventually be one of the cleanest images in the app."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "thoracostomy_chest_tube",
@@ -706,7 +710,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "This is a high-value visual because it prevents wrong-site/too-low placement errors."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "pigtail_catheter",
@@ -839,7 +844,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "The eventual image should distinguish fluid target from lung/spleen/liver risk."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "needle_decompression",
@@ -959,7 +965,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "This visual should reduce landmark confusion under stress."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "pericardiocentesis",
@@ -1089,7 +1096,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "This should emphasize ultrasound-guided target selection, not a memorized blind angle."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "transvenous_pacemaker",
@@ -1221,7 +1229,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "The image must teach not to accept spikes without capture."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "procedural_sedation",
@@ -1355,7 +1364,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Premium version should show the room before drugs go in."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "lumbar_puncture",
@@ -1490,7 +1500,8 @@
         "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "This visual should prevent poor positioning and wrong-level confidence."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "arterial_line",
@@ -1639,7 +1650,8 @@
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Visual should make artery identification and catheter advancement trajectory unambiguous."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "thoracentesis",
@@ -1789,7 +1801,8 @@
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Visual must make neurovascular bundle avoidance and diaphragm boundary unambiguous."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "paracentesis",
@@ -1944,7 +1957,8 @@
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Visual must make inferior epigastric vessel and bowel avoidance unambiguous."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   },
   {
     "id": "abscess_incision_drainage",
@@ -2093,6 +2107,7 @@
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Visual should clarify incision length adequacy and loculation breakdown \u2014 the two most common technical failures."
       }
-    ]
+    ],
+    "reviewerStatus": "Needs Clinical Review"
   }
 ]

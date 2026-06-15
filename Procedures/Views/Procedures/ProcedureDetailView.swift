@@ -350,6 +350,7 @@ struct DeepReviewContent: View {
 
             SectionCard(title: "Clinical Governance", systemImage: "checkmark.shield") {
                 VStack(spacing: 8) {
+                    ReviewerStatusBadge(status: procedure.reviewer)
                     MetadataRow(icon: "calendar", title: "Last reviewed", value: procedure.lastReviewed)
                     MetadataRow(icon: "number", title: "Content version", value: procedure.version)
                 }
