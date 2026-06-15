@@ -58,20 +58,29 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
 }
 
 enum ComplicationRescueCardStore {
-    static func loadFromBundle() throws -> [ComplicationRescueCard] {
+    /// Result of a tolerant load: the cards that decoded plus how many records
+    /// were present in the file, so callers can surface skipped entries.
+    struct Load {
+        let cards: [ComplicationRescueCard]
+        let total: Int
+        var dropped: Int { total - cards.count }
+    }
+
+    static func loadFromBundle() throws -> Load {
         guard let url = Bundle.main.url(forResource: "rescue_cards", withExtension: "json") else {
             throw RescueCardLoadingError.missingBundleResource
         }
 
         let data = try Data(contentsOf: url)
-        let decoder = JSONDecoder()
-        return try decoder.decode([ComplicationRescueCard].self, from: data)
+        let wrapped = try JSONDecoder().decode([FailableDecodable<ComplicationRescueCard>].self, from: data)
+        let cards = wrapped.compactMap(\.value)
             .sorted { lhs, rhs in
                 if lhs.acuity.sortOrder != rhs.acuity.sortOrder {
                     return lhs.acuity.sortOrder < rhs.acuity.sortOrder
                 }
                 return lhs.title.localizedCaseInsensitiveCompare(rhs.title) == .orderedAscending
             }
+        return Load(cards: cards, total: wrapped.count)
     }
 }
 

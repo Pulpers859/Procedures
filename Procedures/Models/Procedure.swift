@@ -62,6 +62,7 @@ enum ProcedureCategory: String, Codable, CaseIterable, Identifiable {
     case regionalAnesthesia = "Regional Anesthesia"
     case woundSoftTissue = "Wound / Soft Tissue"
     case ultrasoundGuided = "Ultrasound-Guided"
+    case sedationAnalgesia = "Sedation & Analgesia"
     case other = "Other"
 
     var id: String { rawValue }

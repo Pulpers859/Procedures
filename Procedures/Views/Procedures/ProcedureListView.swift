@@ -23,6 +23,13 @@ struct ProcedureListView: View {
                 } else {
                     List {
                         if searchText.isEmpty {
+                            if let loadWarning = repository.loadWarning {
+                                Section {
+                                    Label(loadWarning, systemImage: "exclamationmark.triangle.fill")
+                                        .font(.footnote.weight(.semibold))
+                                        .foregroundStyle(.orange)
+                                }
+                            }
                             quickAccessSection
                         }
 
@@ -91,6 +98,7 @@ struct ProcedureListView: View {
         case .regionalAnesthesia: return "syringe"
         case .woundSoftTissue: return "bandage.fill"
         case .ultrasoundGuided: return "waveform.path.ecg.rectangle"
+        case .sedationAnalgesia: return "moon.zzz.fill"
         case .other: return "square.grid.2x2"
         }
     }

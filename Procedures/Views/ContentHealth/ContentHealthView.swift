@@ -46,6 +46,22 @@ struct ContentHealthView: View {
                 }
             }
 
+            if let loadWarning = repository.loadWarning {
+                Section("Partial Procedure Load") {
+                    Label(loadWarning, systemImage: "exclamationmark.triangle.fill")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.orange)
+                }
+            }
+
+            if let rescueLoadWarning = repository.rescueLoadWarning {
+                Section("Partial Rescue Load") {
+                    Label(rescueLoadWarning, systemImage: "exclamationmark.triangle.fill")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.orange)
+                }
+            }
+
             if groupedIssues.isEmpty {
                 Section {
                     Label("No content validation issues detected", systemImage: "checkmark.seal.fill")

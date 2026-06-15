@@ -2,6 +2,19 @@ import Foundation
 
 private typealias SearchableField = (text: String, weight: Int)
 
+/// Decodes one element of a JSON array without throwing: a malformed record
+/// becomes `nil` instead of aborting the decode of the entire file. This keeps
+/// a single bad procedure or rescue card from emptying the whole library while
+/// still letting callers count and surface what was skipped.
+struct FailableDecodable<Wrapped: Decodable>: Decodable {
+    let value: Wrapped?
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        value = try? container.decode(Wrapped.self)
+    }
+}
+
 /// Single source of truth for clinical shorthand expansion. Both the procedure
 /// scorer and the rescue-card matcher read from this map so the two search
 /// surfaces can never drift apart (they previously kept separate, divergent
@@ -63,6 +76,8 @@ final class ProcedureRepository: ObservableObject {
     @Published private(set) var rescueCards: [ComplicationRescueCard] = []
     @Published private(set) var loadError: String?
     @Published private(set) var rescueLoadError: String?
+    @Published private(set) var loadWarning: String?
+    @Published private(set) var rescueLoadWarning: String?
     @Published private(set) var contentIssues: [ContentValidationIssue] = []
     var contentWarnings: [String] { contentIssues.map(\.displayMessage) }
 
@@ -85,23 +100,43 @@ final class ProcedureRepository: ObservableObject {
 
         do {
             let data = try Data(contentsOf: url)
-            let decoder = JSONDecoder()
-            let decodedProcedures = try decoder.decode([Procedure].self, from: data)
-            procedures = decodedProcedures.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
-            loadError = nil
+            let wrapped = try JSONDecoder().decode([FailableDecodable<Procedure>].self, from: data)
+            let decoded = wrapped.compactMap(\.value)
+            procedures = decoded.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
+            let dropped = wrapped.count - decoded.count
+            if decoded.isEmpty {
+                loadError = "procedures.json was read but no procedures could be decoded. Confirm the structure matches the current schema."
+                loadWarning = nil
+            } else {
+                loadError = nil
+                loadWarning = dropped > 0
+                    ? "\(dropped) of \(wrapped.count) procedures could not be read and were skipped. The others are available; fix procedures.json to restore them."
+                    : nil
+            }
         } catch {
             loadError = "Failed to load procedures.json: \(error.localizedDescription)"
             procedures = []
+            loadWarning = nil
         }
     }
 
     func loadRescueCards() {
         do {
-            rescueCards = try ComplicationRescueCardStore.loadFromBundle()
-            rescueLoadError = nil
+            let load = try ComplicationRescueCardStore.loadFromBundle()
+            rescueCards = load.cards
+            if load.cards.isEmpty {
+                rescueLoadError = "rescue_cards.json was read but no rescue cards could be decoded. Confirm the structure matches the current schema."
+                rescueLoadWarning = nil
+            } else {
+                rescueLoadError = nil
+                rescueLoadWarning = load.dropped > 0
+                    ? "\(load.dropped) of \(load.total) rescue cards could not be read and were skipped. The others are available; fix rescue_cards.json to restore them."
+                    : nil
+            }
         } catch {
             rescueLoadError = "Failed to load rescue_cards.json: \(error.localizedDescription)"
             rescueCards = []
+            rescueLoadWarning = nil
         }
     }
 
