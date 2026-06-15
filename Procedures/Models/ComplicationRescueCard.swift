@@ -1,5 +1,7 @@
 import Foundation
 
+private typealias RescueCardSearchField = String
+
 struct ComplicationRescueCard: Identifiable, Codable, Hashable {
     enum Acuity: String, Codable, Hashable, CaseIterable {
         case crash = "Crash"
@@ -25,11 +27,28 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
         guard !normalized.isEmpty else { return true }
 
         let expandedTerms = Self.normalizedSearchTerms(from: normalized)
-        let haystack = ([title, acuity.rawValue, lastReviewed, version] + relatedProcedureIDs + trigger + immediateMoves + reassess + avoid + tags + references)
+        let haystack = searchFields()
             .joined(separator: " ")
             .lowercased()
 
         return expandedTerms.allSatisfy { haystack.contains($0) }
+    }
+
+    private func searchFields() -> [RescueCardSearchField] {
+        var fields: [RescueCardSearchField] = []
+        fields.reserveCapacity(4 + relatedProcedureIDs.count + trigger.count + immediateMoves.count + reassess.count + avoid.count + tags.count + references.count)
+        fields.append(title)
+        fields.append(acuity.rawValue)
+        fields.append(lastReviewed)
+        fields.append(version)
+        fields.append(contentsOf: relatedProcedureIDs)
+        fields.append(contentsOf: trigger)
+        fields.append(contentsOf: immediateMoves)
+        fields.append(contentsOf: reassess)
+        fields.append(contentsOf: avoid)
+        fields.append(contentsOf: tags)
+        fields.append(contentsOf: references)
+        return fields
     }
 
     private static func normalizedSearchTerms(from query: String) -> [String] {
