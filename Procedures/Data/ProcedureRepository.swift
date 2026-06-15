@@ -1,5 +1,7 @@
 import Foundation
 
+private typealias SearchableField = (text: String, weight: Int)
+
 @MainActor
 final class ProcedureRepository: ObservableObject {
     @Published private(set) var procedures: [Procedure] = []
@@ -120,25 +122,24 @@ final class ProcedureRepository: ObservableObject {
     }
 
     private func score(for procedure: Procedure, matching terms: [String]) -> Int {
-        let visualText = (procedure.visualAssets ?? []).map { asset in
-            [asset.title, asset.subtitle, asset.kind.rawValue, asset.caption, asset.clinicalWarning ?? ""].joined(separator: " ")
-        }.joined(separator: " ")
+        let visualText = procedure.visualAssetsText
+        let sections = procedure.sections
 
-        let searchableFields: [(text: String, weight: Int)] = [
-            (procedure.title, 12),
-            (procedure.category.rawValue, 7),
-            (procedure.difficulty.rawValue, 4),
-            (procedure.reviewTime, 2),
-            (procedure.tags.joined(separator: " "), 10),
-            (visualText, 7),
-            (procedure.sections.shiftMode.joined(separator: " "), 8),
-            (procedure.sections.equipment.joined(separator: " "), 6),
-            (procedure.sections.steps.joined(separator: " "), 5),
-            (procedure.sections.complications.joined(separator: " "), 5),
-            (procedure.sections.troubleshooting.joined(separator: " "), 5),
-            (procedure.sections.documentation.joined(separator: " "), 3),
-            (procedure.sections.seniorPearls.joined(separator: " "), 4)
-        ].map { ($0.text.lowercased(), $0.weight) }
+        var searchableFields: [SearchableField] = []
+        searchableFields.reserveCapacity(13)
+        searchableFields.append((procedure.title.lowercased(), 12))
+        searchableFields.append((procedure.category.rawValue.lowercased(), 7))
+        searchableFields.append((procedure.difficulty.rawValue.lowercased(), 4))
+        searchableFields.append((procedure.reviewTime.lowercased(), 2))
+        searchableFields.append((procedure.tags.joined(separator: " ").lowercased(), 10))
+        searchableFields.append((visualText.lowercased(), 7))
+        searchableFields.append((sections.shiftMode.joined(separator: " ").lowercased(), 8))
+        searchableFields.append((sections.equipment.joined(separator: " ").lowercased(), 6))
+        searchableFields.append((sections.steps.joined(separator: " ").lowercased(), 5))
+        searchableFields.append((sections.complications.joined(separator: " ").lowercased(), 5))
+        searchableFields.append((sections.troubleshooting.joined(separator: " ").lowercased(), 5))
+        searchableFields.append((sections.documentation.joined(separator: " ").lowercased(), 3))
+        searchableFields.append((sections.seniorPearls.joined(separator: " ").lowercased(), 4))
 
         var total = 0
         for term in terms {
@@ -149,4 +150,19 @@ final class ProcedureRepository: ObservableObject {
         return total
     }
 
+}
+
+private extension Procedure {
+    var visualAssetsText: String {
+        (visualAssets ?? []).map { asset in
+            [
+                asset.title,
+                asset.subtitle,
+                asset.kind.rawValue,
+                asset.caption,
+                asset.clinicalWarning ?? ""
+            ].joined(separator: " ")
+        }
+        .joined(separator: " ")
+    }
 }
