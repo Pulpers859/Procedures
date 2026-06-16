@@ -138,14 +138,24 @@
     },
     "visualAssets": [
       {
-        "id": "airway_landmark",
+        "id": "airway_alignment",
         "kind": "Landmark",
-        "title": "Airway alignment + tube confirmation",
-        "subtitle": "Visual slot for sniffing/ramped position, blade path, and confirmation priorities.",
+        "title": "Airway alignment axes",
+        "subtitle": "Oral, pharyngeal, and tracheal axes aligned via sniffing/ramped position. Ear-to-sternal-notch alignment optimizes the view.",
         "assetName": null,
         "systemImage": "scope",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Do not let the visual layer become a pretty airway cartoon; it needs to show the setup that prevents a failed first pass."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Obese patients require ramping, not just a pillow under the head."
+      },
+      {
+        "id": "laryngoscope_view",
+        "kind": "Confirmation",
+        "title": "Laryngoscopic view grades",
+        "subtitle": "Cormack-Lehane grades I–IV. Grade I: full cords visible. Grade IV: no glottic structures seen. Bougie or video laryngoscopy for grade III–IV.",
+        "assetName": null,
+        "systemImage": "eye",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Grade III–IV views require immediate backup plan. Do not persist with direct laryngoscopy."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -298,12 +308,32 @@
       {
         "id": "ij_probe_orientation",
         "kind": "Probe Position",
-        "title": "IJ probe orientation",
-        "subtitle": "Visual slot for vein/artery relationship, probe marker, needle path, and wire confirmation.",
+        "title": "IJ ultrasound probe orientation",
+        "subtitle": "Short-axis view of IJ vein and carotid artery. Probe marker toward patient's right. Vein is compressible, lateral and superficial to the artery.",
         "assetName": null,
         "systemImage": "dot.viewfinder",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "The visual must make artery avoidance and wire confirmation obvious."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Confirm vein vs. artery with compression before needle entry."
+      },
+      {
+        "id": "ij_landmark_triangle",
+        "kind": "Landmark",
+        "title": "Sternocleidomastoid triangle",
+        "subtitle": "The IJ vein runs between the two heads of the SCM. The apex of the triangle at the clavicle is the traditional landmark insertion point.",
+        "assetName": null,
+        "systemImage": "triangle",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Always use ultrasound guidance. Landmark-only technique increases complication risk."
+      },
+      {
+        "id": "cvc_wire_confirmation",
+        "kind": "Confirmation",
+        "title": "Wire position confirmation",
+        "subtitle": "After wire insertion, confirm intravascular position with ultrasound visualization in the IJ and cardiac view for right atrial wire tip.",
+        "assetName": null,
+        "systemImage": "waveform.path.ecg",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Never dilate or place the catheter without confirmed wire position."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -561,12 +591,22 @@
       {
         "id": "cric_membrane",
         "kind": "Landmark",
-        "title": "Cricothyroid membrane landmark",
-        "subtitle": "Visual slot for membrane palpation, incision orientation, and front-of-neck access sequence.",
+        "title": "Cricothyroid membrane palpation",
+        "subtitle": "Palpate the thyroid cartilage notch, slide inferiorly to the soft depression before the cricoid ring. This is the cricothyroid membrane — the incision target.",
         "assetName": null,
         "systemImage": "scalpel",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This should eventually be one of the cleanest images in the app."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Vertical skin incision reduces risk of vessel injury. Horizontal membrane incision."
+      },
+      {
+        "id": "cric_danger_zone",
+        "kind": "Danger Zone",
+        "title": "Anterior neck danger zones",
+        "subtitle": "Anterior jugular veins run laterally. Thyroid isthmus sits inferior to the cricothyroid membrane. Superior and inferior laryngeal arteries course near the membrane edges.",
+        "assetName": null,
+        "systemImage": "exclamationmark.triangle",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Stay midline. Lateral deviation risks vascular injury."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -703,12 +743,22 @@
       {
         "id": "chest_tube_safe_triangle",
         "kind": "Danger Zone",
-        "title": "Chest tube safe triangle",
-        "subtitle": "Visual slot for safe triangle, over-the-rib entry, and areas to avoid.",
+        "title": "Safe triangle of insertion",
+        "subtitle": "Bordered by the anterior border of latissimus dorsi, lateral border of pectoralis major, a line superior to the horizontal level of the nipple, and the apex of the axilla. 4th–5th intercostal space, mid-axillary line.",
         "assetName": null,
-        "systemImage": "rectangle.and.hand.point.up.left",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This is a high-value visual because it prevents wrong-site/too-low placement errors."
+        "systemImage": "triangle",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Insert above the rib to avoid the neurovascular bundle running along the inferior rib margin."
+      },
+      {
+        "id": "chest_tube_rib_anatomy",
+        "kind": "Landmark",
+        "title": "Over-the-rib insertion",
+        "subtitle": "The intercostal neurovascular bundle (vein, artery, nerve) runs along the inferior margin of each rib. Always pass the tube over the superior border of the lower rib.",
+        "assetName": null,
+        "systemImage": "arrow.up.to.line",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Inferior rib entry risks intercostal artery laceration and hemorrhage."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -835,14 +885,24 @@
     },
     "visualAssets": [
       {
-        "id": "pigtail_probe_landmark",
+        "id": "pigtail_us_effusion",
         "kind": "Probe Position",
-        "title": "Pleural pigtail ultrasound target",
-        "subtitle": "Visual slot for effusion/pneumothorax target, rib shadow, pleura, and needle trajectory.",
+        "title": "Pleural ultrasound targeting",
+        "subtitle": "Curvilinear probe at the posterior axillary line. Identify the diaphragm, lung, and effusion/pneumothorax. Mark the insertion site at the point of maximal fluid above the diaphragm.",
         "assetName": null,
         "systemImage": "waveform.path.ecg.rectangle",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "The eventual image should distinguish fluid target from lung/spleen/liver risk."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Always confirm diaphragm position. Do not insert below the diaphragm."
+      },
+      {
+        "id": "pigtail_seldinger",
+        "kind": "Setup",
+        "title": "Seldinger technique setup",
+        "subtitle": "Needle → wire → dilator → pigtail catheter over wire. Confirm wire position with ultrasound before dilation. The pigtail curl should deploy in the pleural space.",
+        "assetName": null,
+        "systemImage": "arrow.down.to.line",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Never advance the dilator without confirmed wire position."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -960,12 +1020,22 @@
       {
         "id": "needle_decompression_landmarks",
         "kind": "Landmark",
-        "title": "Needle decompression landmarks",
-        "subtitle": "Visual slot for anterior vs lateral landmarks and over-the-rib trajectory.",
+        "title": "Decompression landmarks",
+        "subtitle": "2nd intercostal space, midclavicular line (anterior) or 4th–5th intercostal space, anterior axillary line (lateral). Lateral approach preferred in muscular or obese patients.",
         "assetName": null,
         "systemImage": "target",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This visual should reduce landmark confusion under stress."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Standard 5 cm catheter may be insufficient in obese patients. Consider longer catheter or finger thoracostomy."
+      },
+      {
+        "id": "needle_decompression_danger",
+        "kind": "Danger Zone",
+        "title": "Medial danger zone",
+        "subtitle": "Internal mammary artery runs 1–2 cm lateral to the sternum. Stay in the midclavicular line to avoid it. The intercostal bundle runs along the inferior rib margin.",
+        "assetName": null,
+        "systemImage": "exclamationmark.triangle",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Too medial risks internal mammary artery. Too low risks abdominal contents."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -1091,12 +1161,22 @@
       {
         "id": "pericardiocentesis_approach",
         "kind": "Probe Position",
-        "title": "Pericardial approach + ultrasound target",
-        "subtitle": "Visual slot for safest ultrasound-guided approach, effusion target, and needle path.",
+        "title": "Subxiphoid ultrasound approach",
+        "subtitle": "Phased array probe in the subxiphoid window angled toward the left shoulder. Pericardial effusion appears as an anechoic stripe surrounding the heart.",
         "assetName": null,
         "systemImage": "heart.text.square",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This should emphasize ultrasound-guided target selection, not a memorized blind angle."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Always use ultrasound guidance. Blind pericardiocentesis carries significant risk."
+      },
+      {
+        "id": "pericardiocentesis_needle_path",
+        "kind": "Landmark",
+        "title": "Needle entry point",
+        "subtitle": "1–2 cm inferior and left of the xiphoid process, needle directed toward the left shoulder at 15–30 degrees from the skin. Aspirate continuously during advance.",
+        "assetName": null,
+        "systemImage": "scope",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Steeper angles risk myocardial puncture. Shallow approach under the costal margin."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -1495,12 +1575,22 @@
       {
         "id": "lp_position_landmark",
         "kind": "Landmark",
-        "title": "LP positioning + interspace landmark",
-        "subtitle": "Visual slot for positioning, iliac crest line, and needle trajectory.",
+        "title": "LP interspace landmarks",
+        "subtitle": "Tuffier's line (a line connecting the iliac crests) crosses at approximately the L4 spinous process. L3–L4 or L4–L5 interspaces are the target, below the conus medullaris.",
         "assetName": null,
         "systemImage": "figure.seated.side",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This visual should prevent poor positioning and wrong-level confidence."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "The conus medullaris typically ends at L1–L2. Do not insert above L3."
+      },
+      {
+        "id": "lp_needle_trajectory",
+        "kind": "Setup",
+        "title": "Needle trajectory",
+        "subtitle": "Midline approach: needle angled slightly cephalad, passing through skin, subcutaneous tissue, supraspinous ligament, interspinous ligament, ligamentum flavum, then dura. Pop felt at dura entry.",
+        "assetName": null,
+        "systemImage": "arrow.up.forward",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "If bone is hit, withdraw and redirect — do not force through."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -1646,11 +1736,21 @@
         "id": "radial_approach",
         "kind": "Landmark",
         "title": "Radial artery approach",
-        "subtitle": "Wrist extension position, probe orientation, artery depth, and needle entry angle.",
+        "subtitle": "Wrist extended 30–45 degrees over a towel roll. Radial artery palpated 1–2 cm proximal to the wrist crease, lateral to the flexor carpi radialis tendon.",
         "assetName": null,
-        "systemImage": "waveform.path.ecg",
-        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual should make artery identification and catheter advancement trajectory unambiguous."
+        "systemImage": "hand.raised",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Avoid hyperextension — it can occlude the artery."
+      },
+      {
+        "id": "aline_us_short_axis",
+        "kind": "Probe Position",
+        "title": "Ultrasound short-axis view",
+        "subtitle": "Linear probe perpendicular to the radial artery. Small pulsatile structure visible at 2–5 mm depth. Radial nerve and vein are adjacent.",
+        "assetName": null,
+        "systemImage": "dot.viewfinder",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Use minimal probe pressure to avoid compressing the artery flat."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -2556,12 +2656,22 @@
       {
         "id": "usgiv_short_axis",
         "kind": "Probe Position",
-        "title": "Short-axis needle tracking",
-        "subtitle": "Probe over the target vein, needle-tip view, and vein/artery/nerve relationship in the upper arm.",
+        "title": "Short-axis probe positioning",
+        "subtitle": "High-frequency linear probe perpendicular to the target vein. Vein appears as a round anechoic compressible structure. Artery is pulsatile and non-compressible.",
         "assetName": null,
         "systemImage": "dot.viewfinder",
-        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual must make needle-tip tracking and artery/nerve avoidance obvious."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Compress to distinguish vein from artery before needle entry."
+      },
+      {
+        "id": "usgiv_needle_tracking",
+        "kind": "Confirmation",
+        "title": "Needle tip visualization",
+        "subtitle": "Track the needle tip as a hyperechoic dot entering the vein lumen. Tenting of the anterior wall confirms contact. Flash in the catheter hub confirms intraluminal position.",
+        "assetName": null,
+        "systemImage": "scope",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Always visualize the needle tip, not just the shaft. Shaft visualization can be deceptive about true tip location."
       }
     ]
   },
@@ -3123,12 +3233,22 @@
       {
         "id": "ficb_subfascial_spread",
         "kind": "Probe Position",
-        "title": "Subfascial local spread",
-        "subtitle": "Femoral artery/nerve relationship, fascia iliaca plane, in-plane needle path, and subfascial spread.",
+        "title": "Fascia iliaca plane on ultrasound",
+        "subtitle": "Linear probe placed at the inguinal crease. Identify the femoral artery, fascia lata (superficial), and fascia iliaca (deep). Target the plane deep to fascia iliaca, lateral to the femoral nerve.",
         "assetName": null,
-        "systemImage": "syringe",
-        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual must make the subfascial target and artery/nerve avoidance unambiguous."
+        "systemImage": "dot.viewfinder",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Inject lateral to the nerve. Watch for fascial pop and subfascial spread."
+      },
+      {
+        "id": "ficb_anatomy_layers",
+        "kind": "Landmark",
+        "title": "Inguinal fascial layers",
+        "subtitle": "From superficial to deep: skin, subcutaneous fat, fascia lata, sartorius/iliopsoas, fascia iliaca, then the femoral nerve and iliacus muscle. The block targets the plane between fascia iliaca and iliacus.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Intravascular injection risk near femoral vessels. Aspirate before injecting."
       }
     ]
   },
@@ -3418,12 +3538,22 @@
       {
         "id": "io_proximal_tibia_landmark",
         "kind": "Landmark",
-        "title": "Proximal tibia IO insertion site",
-        "subtitle": "Visual slot for tibial tuberosity, flat anteromedial surface, and needle angle.",
+        "title": "Proximal tibia insertion site",
+        "subtitle": "Palpate the tibial tuberosity. Move 1–2 cm distal and medial to the flat anteromedial tibial surface. This is the insertion point. Needle at 90 degrees to the bone.",
         "assetName": null,
         "systemImage": "figure.walk",
-        "caption": "Placeholder metadata; replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "Do not place hand behind the limb during drilling."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Do not place your hand behind the limb during drilling."
+      },
+      {
+        "id": "io_humeral_site",
+        "kind": "Landmark",
+        "title": "Proximal humerus insertion site",
+        "subtitle": "Arm adducted, hand on abdomen (internal rotation). Palpate the greater tubercle — the most prominent lateral bony point of the shoulder. Needle at 90 degrees to the bone surface.",
+        "assetName": null,
+        "systemImage": "figure.arms.open",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Humeral IO flows faster than tibial in adults. Secure well — humeral IOs dislodge more easily."
       }
     ]
   },
@@ -3561,12 +3691,22 @@
       {
         "id": "knee_arthrocentesis_superolateral",
         "kind": "Landmark",
-        "title": "Superolateral knee approach",
-        "subtitle": "Visual slot for patella landmarks, needle entry point, and direction.",
+        "title": "Superolateral approach",
+        "subtitle": "1 cm superior and 1 cm lateral to the superolateral pole of the patella. Direct the needle toward the intercondylar notch, posterior and slightly inferior.",
         "assetName": null,
         "systemImage": "figure.walk",
-        "caption": "Placeholder metadata; replace assetName with reviewed artwork when available.",
+        "caption": "Replace assetName with reviewed artwork when available.",
         "clinicalWarning": "Avoid posterior approach (popliteal neurovascular bundle)."
+      },
+      {
+        "id": "knee_us_effusion",
+        "kind": "Probe Position",
+        "title": "Suprapatellar recess ultrasound",
+        "subtitle": "High-frequency linear probe placed longitudinally over the suprapatellar recess. Anechoic fluid between the quadriceps tendon and femur confirms effusion.",
+        "assetName": null,
+        "systemImage": "dot.viewfinder",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Complex or echogenic fluid may indicate infection or hemarthrosis."
       }
     ]
   },
@@ -4121,6 +4261,17 @@
         "Verify institutional wound management and antibiotic prophylaxis guidelines."
       ]
     },
-    "visualAssets": []
+    "visualAssets": [
+      {
+        "id": "fb_us_appearance",
+        "kind": "Probe Position",
+        "title": "Foreign body on ultrasound",
+        "subtitle": "High-frequency linear probe. Foreign bodies appear as hyperechoic structures with posterior shadowing (glass, metal) or reverberation artifact. Wood shows dirty shadowing. Scan in two planes.",
+        "assetName": null,
+        "systemImage": "dot.viewfinder",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "X-ray misses wood, plastic, and thorns. Ultrasound is the bedside tool for radiolucent foreign bodies."
+      }
+    ]
   }
 ]

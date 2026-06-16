@@ -76,10 +76,17 @@ struct ProcedureDetailView: View {
             .background((isHighRisk ? Color.orange : Color.blue).opacity(0.13), in: Capsule())
     }
 
+    private var availableSections: [ProcedureDetailSection] {
+        ProcedureDetailSection.allCases.filter { section in
+            if section == .visuals { return procedure.hasVisualAssets }
+            return true
+        }
+    }
+
     private var sectionSelector: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                ForEach(ProcedureDetailSection.allCases) { section in
+                ForEach(availableSections) { section in
                     Button {
                         withAnimation(.snappy) { selectedSection = section }
                     } label: {
@@ -106,6 +113,8 @@ struct ProcedureDetailView: View {
             switch selectedSection {
             case .shiftMode:
                 ShiftModeProcedureContent(procedure: procedure)
+            case .visuals:
+                VisualGuideContent(procedure: procedure)
             case .equipment:
                 EquipmentChecklistContent(procedure: procedure)
             case .steps:
@@ -389,74 +398,217 @@ struct DeepReviewContent: View {
 }
 
 
-/// Shows a real bundled landmark/probe/danger-zone image. Renders nothing when
-/// no image is bundled, so the procedure page never carries a dead placeholder.
-struct ProcedureVisualCard: View {
-    let asset: ProcedureVisualAsset
-    let image: UIImage
+// MARK: - Visual Guide Content
+
+struct VisualGuideContent: View {
+    let procedure: Procedure
+
+    private var assets: [ProcedureVisualAsset] {
+        procedure.visualAssets ?? []
+    }
 
     var body: some View {
-        SectionCard(title: "Visual Landmark", systemImage: "photo.on.rectangle.angled") {
-            VStack(alignment: .leading, spacing: 10) {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity)
-                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                    .accessibilityLabel(asset.title)
-
-                Text(asset.title)
-                    .font(.subheadline.weight(.semibold))
-
-                if !asset.subtitle.isEmpty {
-                    Text(asset.subtitle)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-
-                if let warning = asset.clinicalWarning, !warning.isEmpty {
-                    Label(warning, systemImage: "exclamationmark.triangle.fill")
-                        .font(.caption)
-                        .foregroundStyle(.orange)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-
-                if !asset.caption.isEmpty {
-                    Text(asset.caption)
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                        .fixedSize(horizontal: false, vertical: true)
+        if assets.isEmpty {
+            SectionCard(title: "Visual Guide", systemImage: "photo.on.rectangle.angled") {
+                Text("No visual guides for this procedure yet.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+        } else {
+            VStack(alignment: .leading, spacing: 16) {
+                ForEach(assets) { asset in
+                    VisualAssetCard(asset: asset)
                 }
             }
         }
     }
 }
 
+struct VisualAssetCard: View {
+    let asset: ProcedureVisualAsset
+
+    private var kindTint: Color {
+        switch asset.kind {
+        case .landmark: return .blue
+        case .probePosition: return .cyan
+        case .dangerZone: return .red
+        case .confirmation: return .green
+        case .setup: return .purple
+        }
+    }
+
+    private var kindIcon: String {
+        switch asset.kind {
+        case .landmark: return "mappin.and.ellipse"
+        case .probePosition: return "dot.viewfinder"
+        case .dangerZone: return "exclamationmark.triangle.fill"
+        case .confirmation: return "checkmark.seal.fill"
+        case .setup: return "tray.2.fill"
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            // Kind badge header
+            HStack(spacing: 8) {
+                Image(systemName: kindIcon)
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(kindTint)
+                Text(asset.kind.rawValue.uppercased())
+                    .font(.caption2.weight(.heavy))
+                    .foregroundStyle(kindTint)
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 14)
+            .padding(.bottom, 10)
+
+            // Image or schematic placeholder
+            if let image = ProcedureVisualLoader.image(for: asset) {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 12)
+                    .accessibilityLabel(asset.title)
+            } else {
+                SchematicPlaceholder(asset: asset, tint: kindTint)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 12)
+            }
+
+            // Title + subtitle
+            VStack(alignment: .leading, spacing: 4) {
+                Text(asset.title)
+                    .font(.subheadline.weight(.semibold))
+                Text(asset.subtitle)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(.horizontal, 16)
+
+            // Clinical warning
+            if let warning = asset.clinicalWarning, !warning.isEmpty {
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .font(.caption)
+                        .foregroundStyle(.orange)
+                    Text(warning)
+                        .font(.caption)
+                        .foregroundStyle(.orange)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
+            }
+
+            // Caption
+            if !asset.caption.isEmpty {
+                Text(asset.caption)
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 6)
+            }
+
+            Spacer().frame(height: 14)
+        }
+        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .stroke(kindTint.opacity(0.25), lineWidth: 1)
+        )
+    }
+}
+
+struct SchematicPlaceholder: View {
+    let asset: ProcedureVisualAsset
+    let tint: Color
+
+    var body: some View {
+        VStack(spacing: 12) {
+            Image(systemName: asset.systemImage ?? "photo")
+                .font(.system(size: 44, weight: .medium))
+                .foregroundStyle(tint.opacity(0.7))
+                .frame(width: 80, height: 80)
+                .background(tint.opacity(0.08), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+
+            Text("Illustration Pending")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.secondary)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 4)
+                .background(Color(.tertiarySystemFill), in: Capsule())
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 20)
+        .background(tint.opacity(0.04), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .accessibilityLabel("\(asset.kind.rawValue) diagram: \(asset.title). Illustration pending.")
+    }
+}
+
+// MARK: - Header visual (only shows when a real image is bundled)
+
 extension Procedure {
-    /// The primary visual asset paired with its bundled image, if one actually
-    /// ships in the app bundle. Returns nil when there is no real image to show.
     var bundledVisual: (asset: ProcedureVisualAsset, image: UIImage)? {
         guard let asset = primaryVisualAsset,
-              let assetName = asset.assetName, !assetName.isEmpty,
-              let image = ProcedureVisualLoader.image(named: assetName) else {
+              let image = ProcedureVisualLoader.image(for: asset) else {
             return nil
         }
         return (asset, image)
     }
+
+    var hasVisualAssets: Bool {
+        guard let assets = visualAssets else { return false }
+        return !assets.isEmpty
+    }
+}
+
+struct ProcedureVisualCard: View {
+    let asset: ProcedureVisualAsset
+    let image: UIImage
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity)
+                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .accessibilityLabel(asset.title)
+
+            Text(asset.title)
+                .font(.subheadline.weight(.semibold))
+
+            if let warning = asset.clinicalWarning, !warning.isEmpty {
+                Label(warning, systemImage: "exclamationmark.triangle.fill")
+                    .font(.caption)
+                    .foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding()
+        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .stroke(.secondary.opacity(0.12), lineWidth: 1)
+        )
+    }
 }
 
 enum ProcedureVisualLoader {
-    static func image(named assetName: String) -> UIImage? {
+    static func image(for asset: ProcedureVisualAsset) -> UIImage? {
+        guard let assetName = asset.assetName, !assetName.isEmpty else { return nil }
         if let image = UIImage(named: assetName) {
             return image
         }
-
         let url = Bundle.main.url(forResource: assetName, withExtension: nil)
             ?? Bundle.main.url(forResource: assetName, withExtension: "png")
             ?? Bundle.main.url(forResource: assetName, withExtension: "jpg")
             ?? Bundle.main.url(forResource: assetName, withExtension: "jpeg")
-
         guard let url else { return nil }
         return UIImage(contentsOfFile: url.path)
     }
