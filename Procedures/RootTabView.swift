@@ -6,6 +6,8 @@ private enum RootTabStorageKey {
 }
 
 struct RootTabView: View {
+    @EnvironmentObject private var repository: ProcedureRepository
+    @EnvironmentObject private var userData: UserDataStore
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
 
@@ -43,17 +45,59 @@ struct RootTabView: View {
         }
         .tint(.blue)
         .preferredColorScheme(appearance.colorScheme)
-        .alert("Clinical Review Tool", isPresented: Binding(
+        .fullScreenCover(isPresented: Binding(
             get: { !hasAcceptedClinicalDisclaimer },
             set: { newValue in
                 if newValue == false { hasAcceptedClinicalDisclaimer = true }
             }
         )) {
-            Button("I Understand", role: .cancel) {
+            DisclaimerView {
                 hasAcceptedClinicalDisclaimer = true
             }
-        } message: {
-            Text("Procedures is for rapid educational review by trained clinicians. It does not replace formal training, supervision, credentialing, clinical judgment, or local institutional policy.")
         }
+        .onAppear {
+            guard !repository.procedures.isEmpty else { return }
+            userData.pruneMissingProcedureData(validProcedureIDs: Set(repository.procedures.map(\.id)))
+        }
+    }
+}
+
+private struct DisclaimerView: View {
+    let onAccept: () -> Void
+
+    var body: some View {
+        VStack(spacing: 0) {
+            Spacer()
+
+            VStack(spacing: 24) {
+                Image(systemName: "cross.case.fill")
+                    .font(.system(size: 48))
+                    .foregroundStyle(.blue)
+
+                Text("Clinical Review Tool")
+                    .font(.title2.weight(.bold))
+
+                Text(AppConstants.clinicalDisclaimer)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(.horizontal, 32)
+
+            Spacer()
+
+            Button(action: onAccept) {
+                Text("I Understand")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+            }
+            .buttonStyle(.borderedProminent)
+            .padding(.horizontal, 32)
+            .padding(.bottom, 48)
+        }
+        .background(Color(.systemBackground))
+        .interactiveDismissDisabled()
     }
 }

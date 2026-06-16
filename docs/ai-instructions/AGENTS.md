@@ -64,6 +64,15 @@ The app is designed for trained clinicians who need rapid, structured, practical
    - Use `ui-ux-resource-eval` only for external UI/UX tooling and reference decisions.
    - Prefer the smallest matching skill set instead of loading everything.
 
+11. Protect local Git integrity during Claude Code and multi-machine work.
+   - Treat GitHub commits and pushes as the handoff boundary between machines and agents.
+   - Do not assume multiple agents can safely mutate the same local clone at the same time.
+   - Before normal work: run `git status -sb`, then `git fetch --prune`, then `git pull --ff-only` if the tree is clean.
+   - If the tree is not clean, reconcile before pulling.
+   - Do not interrupt active `git fetch`, `git pull`, `git reset`, `git rebase`, or checkout operations.
+   - If Git reports broken refs, `bad object`, or unresolved `HEAD`, stop and inspect `.git` before continuing.
+   - Do not rely on cloud-sync tools or manual repo-copying as a substitute for normal GitHub push/pull handoff.
+
 ## Current MVP
 
 The current MVP uses:

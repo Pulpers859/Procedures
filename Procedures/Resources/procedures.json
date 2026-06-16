@@ -138,14 +138,24 @@
     },
     "visualAssets": [
       {
-        "id": "airway_landmark",
+        "id": "airway_alignment",
         "kind": "Landmark",
-        "title": "Airway alignment + tube confirmation",
-        "subtitle": "Visual slot for sniffing/ramped position, blade path, and confirmation priorities.",
+        "title": "Airway alignment axes",
+        "subtitle": "Oral, pharyngeal, and tracheal axes aligned via sniffing/ramped position. Ear-to-sternal-notch alignment optimizes the view.",
         "assetName": null,
         "systemImage": "scope",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Do not let the visual layer become a pretty airway cartoon; it needs to show the setup that prevents a failed first pass."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Obese patients require ramping, not just a pillow under the head."
+      },
+      {
+        "id": "laryngoscope_view",
+        "kind": "Confirmation",
+        "title": "Laryngoscopic view grades",
+        "subtitle": "Cormack-Lehane grades I–IV. Grade I: full cords visible. Grade IV: no glottic structures seen. Bougie or video laryngoscopy for grade III–IV.",
+        "assetName": null,
+        "systemImage": "eye",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Grade III–IV views require immediate backup plan. Do not persist with direct laryngoscopy."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -298,12 +308,32 @@
       {
         "id": "ij_probe_orientation",
         "kind": "Probe Position",
-        "title": "IJ probe orientation",
-        "subtitle": "Visual slot for vein/artery relationship, probe marker, needle path, and wire confirmation.",
+        "title": "IJ ultrasound probe orientation",
+        "subtitle": "Short-axis view of IJ vein and carotid artery. Probe marker toward patient's right. Vein is compressible, lateral and superficial to the artery.",
         "assetName": null,
         "systemImage": "dot.viewfinder",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "The visual must make artery avoidance and wire confirmation obvious."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Confirm vein vs. artery with compression before needle entry."
+      },
+      {
+        "id": "ij_landmark_triangle",
+        "kind": "Landmark",
+        "title": "Sternocleidomastoid triangle",
+        "subtitle": "The IJ vein runs between the two heads of the SCM. The apex of the triangle at the clavicle is the traditional landmark insertion point.",
+        "assetName": null,
+        "systemImage": "triangle",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Always use ultrasound guidance. Landmark-only technique increases complication risk."
+      },
+      {
+        "id": "cvc_wire_confirmation",
+        "kind": "Confirmation",
+        "title": "Wire position confirmation",
+        "subtitle": "After wire insertion, confirm intravascular position with ultrasound visualization in the IJ and cardiac view for right atrial wire tip.",
+        "assetName": null,
+        "systemImage": "waveform.path.ecg",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Never dilate or place the catheter without confirmed wire position."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -356,8 +386,8 @@
       ],
       "equipment": [
         "Local anesthetic",
-        "3\u20135 mL syringe",
-        "25\u201330G needle",
+        "3–5 mL syringe",
+        "25–30G needle",
         "Alcohol or chlorhexidine prep",
         "Gloves",
         "Gauze",
@@ -561,12 +591,22 @@
       {
         "id": "cric_membrane",
         "kind": "Landmark",
-        "title": "Cricothyroid membrane landmark",
-        "subtitle": "Visual slot for membrane palpation, incision orientation, and front-of-neck access sequence.",
+        "title": "Cricothyroid membrane palpation",
+        "subtitle": "Palpate the thyroid cartilage notch, slide inferiorly to the soft depression before the cricoid ring. This is the cricothyroid membrane — the incision target.",
         "assetName": null,
         "systemImage": "scalpel",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This should eventually be one of the cleanest images in the app."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Vertical skin incision reduces risk of vessel injury. Horizontal membrane incision."
+      },
+      {
+        "id": "cric_danger_zone",
+        "kind": "Danger Zone",
+        "title": "Anterior neck danger zones",
+        "subtitle": "Anterior jugular veins run laterally. Thyroid isthmus sits inferior to the cricothyroid membrane. Superior and inferior laryngeal arteries course near the membrane edges.",
+        "assetName": null,
+        "systemImage": "exclamationmark.triangle",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Stay midline. Lateral deviation risks vascular injury."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -703,12 +743,22 @@
       {
         "id": "chest_tube_safe_triangle",
         "kind": "Danger Zone",
-        "title": "Chest tube safe triangle",
-        "subtitle": "Visual slot for safe triangle, over-the-rib entry, and areas to avoid.",
+        "title": "Safe triangle of insertion",
+        "subtitle": "Bordered by the anterior border of latissimus dorsi, lateral border of pectoralis major, a line superior to the horizontal level of the nipple, and the apex of the axilla. 4th–5th intercostal space, mid-axillary line.",
         "assetName": null,
-        "systemImage": "rectangle.and.hand.point.up.left",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This is a high-value visual because it prevents wrong-site/too-low placement errors."
+        "systemImage": "triangle",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Insert above the rib to avoid the neurovascular bundle running along the inferior rib margin."
+      },
+      {
+        "id": "chest_tube_rib_anatomy",
+        "kind": "Landmark",
+        "title": "Over-the-rib insertion",
+        "subtitle": "The intercostal neurovascular bundle (vein, artery, nerve) runs along the inferior margin of each rib. Always pass the tube over the superior border of the lower rib.",
+        "assetName": null,
+        "systemImage": "arrow.up.to.line",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Inferior rib entry risks intercostal artery laceration and hemorrhage."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -835,14 +885,24 @@
     },
     "visualAssets": [
       {
-        "id": "pigtail_probe_landmark",
+        "id": "pigtail_us_effusion",
         "kind": "Probe Position",
-        "title": "Pleural pigtail ultrasound target",
-        "subtitle": "Visual slot for effusion/pneumothorax target, rib shadow, pleura, and needle trajectory.",
+        "title": "Pleural ultrasound targeting",
+        "subtitle": "Curvilinear probe at the posterior axillary line. Identify the diaphragm, lung, and effusion/pneumothorax. Mark the insertion site at the point of maximal fluid above the diaphragm.",
         "assetName": null,
         "systemImage": "waveform.path.ecg.rectangle",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "The eventual image should distinguish fluid target from lung/spleen/liver risk."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Always confirm diaphragm position. Do not insert below the diaphragm."
+      },
+      {
+        "id": "pigtail_seldinger",
+        "kind": "Setup",
+        "title": "Seldinger technique setup",
+        "subtitle": "Needle → wire → dilator → pigtail catheter over wire. Confirm wire position with ultrasound before dilation. The pigtail curl should deploy in the pleural space.",
+        "assetName": null,
+        "systemImage": "arrow.down.to.line",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Never advance the dilator without confirmed wire position."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -864,7 +924,9 @@
       "tension pneumothorax",
       "needle decompression",
       "crashing chest",
-      "trauma"
+      "trauma",
+      "tension ptx",
+      "emergency decompression"
     ],
     "sections": {
       "shiftMode": [
@@ -958,12 +1020,22 @@
       {
         "id": "needle_decompression_landmarks",
         "kind": "Landmark",
-        "title": "Needle decompression landmarks",
-        "subtitle": "Visual slot for anterior vs lateral landmarks and over-the-rib trajectory.",
+        "title": "Decompression landmarks",
+        "subtitle": "2nd intercostal space, midclavicular line (anterior) or 4th–5th intercostal space, anterior axillary line (lateral). Lateral approach preferred in muscular or obese patients.",
         "assetName": null,
         "systemImage": "target",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This visual should reduce landmark confusion under stress."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Standard 5 cm catheter may be insufficient in obese patients. Consider longer catheter or finger thoracostomy."
+      },
+      {
+        "id": "needle_decompression_danger",
+        "kind": "Danger Zone",
+        "title": "Medial danger zone",
+        "subtitle": "Internal mammary artery runs 1–2 cm lateral to the sternum. Stay in the midclavicular line to avoid it. The intercostal bundle runs along the inferior rib margin.",
+        "assetName": null,
+        "systemImage": "exclamationmark.triangle",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Too medial risks internal mammary artery. Too low risks abdominal contents."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -1089,12 +1161,22 @@
       {
         "id": "pericardiocentesis_approach",
         "kind": "Probe Position",
-        "title": "Pericardial approach + ultrasound target",
-        "subtitle": "Visual slot for safest ultrasound-guided approach, effusion target, and needle path.",
+        "title": "Subxiphoid ultrasound approach",
+        "subtitle": "Phased array probe in the subxiphoid window angled toward the left shoulder. Pericardial effusion appears as an anechoic stripe surrounding the heart.",
         "assetName": null,
         "systemImage": "heart.text.square",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This should emphasize ultrasound-guided target selection, not a memorized blind angle."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Always use ultrasound guidance. Blind pericardiocentesis carries significant risk."
+      },
+      {
+        "id": "pericardiocentesis_needle_path",
+        "kind": "Landmark",
+        "title": "Needle entry point",
+        "subtitle": "1–2 cm inferior and left of the xiphoid process, needle directed toward the left shoulder at 15–30 degrees from the skin. Aspirate continuously during advance.",
+        "assetName": null,
+        "systemImage": "scope",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Steeper angles risk myocardial puncture. Shallow approach under the costal margin."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -1419,7 +1501,7 @@
         "Sterile gloves/mask/prep/drape",
         "Spinal needle with stylet",
         "Manometer tubing if opening pressure needed",
-        "Collection tubes labeled 1\u20134",
+        "Collection tubes labeled 1–4",
         "Local anesthetic and small needle",
         "Bandage",
         "Assistant for positioning",
@@ -1493,12 +1575,22 @@
       {
         "id": "lp_position_landmark",
         "kind": "Landmark",
-        "title": "LP positioning + interspace landmark",
-        "subtitle": "Visual slot for positioning, iliac crest line, and needle trajectory.",
+        "title": "LP interspace landmarks",
+        "subtitle": "Tuffier's line (a line connecting the iliac crests) crosses at approximately the L4 spinous process. L3–L4 or L4–L5 interspaces are the target, below the conus medullaris.",
         "assetName": null,
         "systemImage": "figure.seated.side",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "This visual should prevent poor positioning and wrong-level confidence."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "The conus medullaris typically ends at L1–L2. Do not insert above L3."
+      },
+      {
+        "id": "lp_needle_trajectory",
+        "kind": "Setup",
+        "title": "Needle trajectory",
+        "subtitle": "Midline approach: needle angled slightly cephalad, passing through skin, subcutaneous tissue, supraspinous ligament, interspinous ligament, ligamentum flavum, then dura. Pop felt at dura entry.",
+        "assetName": null,
+        "systemImage": "arrow.up.forward",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "If bone is hit, withdraw and redirect — do not force through."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -1527,11 +1619,11 @@
     "sections": {
       "shiftMode": [
         "Confirm indication, site preference (radial first), and assess collateral flow with ultrasound before committing.",
-        "Position wrist in 20-30\u00b0 extension over a firm roll; tape securely without restricting distal circulation.",
+        "Position wrist in 20-30° extension over a firm roll; tape securely without restricting distal circulation.",
         "Ultrasound preferred: identify radial artery, confirm pulsatility and depth, plan entry point.",
-        "Anesthetize even in awake patients \u2014 arterial puncture without local anesthetic causes involuntary movement and failed placement.",
-        "Advance catheter-over-needle with bevel up at 30-45\u00b0; on flashback, flatten and advance catheter. Use Seldinger for deep or small vessels.",
-        "Arterial waveform on the transducer is definitive confirmation \u2014 a flat or venous tracing means reposition or replace.",
+        "Anesthetize even in awake patients — arterial puncture without local anesthetic causes involuntary movement and failed placement.",
+        "Advance catheter-over-needle with bevel up at 30-45°; on flashback, flatten and advance catheter. Use Seldinger for deep or small vessels.",
+        "Arterial waveform on the transducer is definitive confirmation — a flat or venous tracing means reposition or replace.",
         "Label, zero, and document waveform quality before relying on readings."
       ],
       "indications": [
@@ -1541,11 +1633,11 @@
         "High-risk procedures, RSI, or sedation requiring real-time hemodynamic monitoring"
       ],
       "contraindications": [
-        "No identifiable arterial signal at planned site \u2014 do not attempt blind",
+        "No identifiable arterial signal at planned site — do not attempt blind",
         "Raynaud phenomenon, limb ischemia, or insufficient collateral flow (relative; assess with ultrasound)",
         "Active infection, burn, or wound overlying the insertion site",
         "Suspected arterial disease, thrombosis, or prior catheterization damage at site",
-        "Severe coagulopathy \u2014 weigh urgency; compressible sites preferred"
+        "Severe coagulopathy — weigh urgency; compressible sites preferred"
       ],
       "anatomy": [
         "Radial artery runs along the lateral volar forearm, superficial to the flexor carpi radialis tendon; typically 2-4 mm diameter at 3-8 mm depth.",
@@ -1568,18 +1660,18 @@
         "Monitor with arterial waveform capability"
       ],
       "positioning": [
-        "Extend wrist 20-30\u00b0 over a firm roll (rolled towel or IV bag) with the volar surface facing up.",
+        "Extend wrist 20-30° over a firm roll (rolled towel or IV bag) with the volar surface facing up.",
         "Tape hand and forearm securely to arm board; prevent movement without restricting distal perfusion.",
         "Abduct arm and position ultrasound screen in direct line of sight before prep."
       ],
       "steps": [
         "Confirm indication, check for contraindications, and obtain consent if non-emergent.",
         "Set up pressure transducer and tubing; connect to monitor and zero at the phlebostatic axis.",
-        "Position wrist over roll in 20-30\u00b0 extension; secure with tape.",
+        "Position wrist over roll in 20-30° extension; secure with tape.",
         "Perform ultrasound survey: identify artery, confirm pulsatility, estimate depth, and plan entry point.",
         "Prep skin widely with chlorhexidine; apply sterile drape.",
         "Infiltrate skin and subcutaneous tissue with local anesthetic along the planned tract.",
-        "With ultrasound guidance, advance needle at 30-45\u00b0 bevel-up; watch for pulsatile flash.",
+        "With ultrasound guidance, advance needle at 30-45° bevel-up; watch for pulsatile flash.",
         "On flash: for catheter-over-needle, flatten slightly, advance catheter off needle, remove needle; for Seldinger, flatten, pass wire without force, remove needle, thread catheter over wire, remove wire.",
         "Connect arterial tubing; confirm arterial waveform on monitor.",
         "Secure catheter, apply clear dressing, and label with site and date.",
@@ -1603,10 +1695,10 @@
         "Catheter will not advance over needle: do not force; switch to Seldinger technique or resite.",
         "Dampened waveform: check for clot at catheter tip, kink in tubing, or transducer below heart level.",
         "Loss of signal with movement: improve limb securement and confirm catheter is not kinked.",
-        "Hematoma: remove catheter, hold firm pressure \u22655 min (longer if anticoagulated), and check distal perfusion."
+        "Hematoma: remove catheter, hold firm pressure ≥5 min (longer if anticoagulated), and check distal perfusion."
       ],
       "complications": [
-        "Thrombosis with distal ischemia \u2014 remove catheter immediately if suspected",
+        "Thrombosis with distal ischemia — remove catheter immediately if suspected",
         "Hematoma",
         "Infection, especially after 72-96 hours",
         "Pseudoaneurysm",
@@ -1630,7 +1722,7 @@
         "Distal perfusion intact after placement."
       ],
       "seniorPearls": [
-        "The wrist roll is often underdone \u2014 a firm, secure 20-30\u00b0 extension dramatically improves first-pass success.",
+        "The wrist roll is often underdone — a firm, secure 20-30° extension dramatically improves first-pass success.",
         "Seldinger technique outperforms catheter-over-needle in patients with deep, small, or difficult vessels.",
         "A persistently dampened waveform is a reason to replace the line, not to accept inaccurate readings."
       ],
@@ -1644,11 +1736,21 @@
         "id": "radial_approach",
         "kind": "Landmark",
         "title": "Radial artery approach",
-        "subtitle": "Wrist extension position, probe orientation, artery depth, and needle entry angle.",
+        "subtitle": "Wrist extended 30–45 degrees over a towel roll. Radial artery palpated 1–2 cm proximal to the wrist crease, lateral to the flexor carpi radialis tendon.",
         "assetName": null,
-        "systemImage": "waveform.path.ecg",
-        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual should make artery identification and catheter advancement trajectory unambiguous."
+        "systemImage": "hand.raised",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Avoid hyperextension — it can occlude the artery."
+      },
+      {
+        "id": "aline_us_short_axis",
+        "kind": "Probe Position",
+        "title": "Ultrasound short-axis view",
+        "subtitle": "Linear probe perpendicular to the radial artery. Small pulsatile structure visible at 2–5 mm depth. Radial nerve and vein are adjacent.",
+        "assetName": null,
+        "systemImage": "dot.viewfinder",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Use minimal probe pressure to avoid compressing the artery flat."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -1676,12 +1778,12 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm indication (diagnostic vs. therapeutic) and laterality; verify effusion is free-flowing on ultrasound \u2014 not loculated.",
+        "Confirm indication (diagnostic vs. therapeutic) and laterality; verify effusion is free-flowing on ultrasound — not loculated.",
         "Mark the site with the patient in the procedure position; fluid pockets shift significantly when patients change position.",
         "Puncture over the superior margin of the lower rib to avoid the intercostal neurovascular bundle (nerve-artery-vein runs inferior to each rib).",
-        "Anesthetize all the way to the pleural surface \u2014 the parietal pleura is where the pain is.",
+        "Anesthetize all the way to the pleural surface — the parietal pleura is where the pain is.",
         "For therapeutic: connect drainage before advancing catheter; preventing air entry is critical.",
-        "Stop at 1\u20131.5 L per session unless monitoring closely; cough and chest tightness are early warnings of re-expansion risk.",
+        "Stop at 1–1.5 L per session unless monitoring closely; cough and chest tightness are early warnings of re-expansion risk.",
         "Post-procedure ultrasound or CXR to confirm adequate drainage and screen for pneumothorax."
       ],
       "indications": [
@@ -1691,9 +1793,9 @@
       ],
       "contraindications": [
         "Uncooperative patient unable to remain still during procedure (relative; consider procedural sedation)",
-        "Uncorrected coagulopathy with significant bleeding risk \u2014 weigh urgency and available reversal",
+        "Uncorrected coagulopathy with significant bleeding risk — weigh urgency and available reversal",
         "Effusion too small or clearly loculated with no safe accessible pocket on ultrasound",
-        "Active ipsilateral pneumothorax \u2014 decompress first",
+        "Active ipsilateral pneumothorax — decompress first",
         "Known lung adherence to chest wall at the planned site"
       ],
       "anatomy": [
@@ -1716,7 +1818,7 @@
         "Drainage measurement container"
       ],
       "positioning": [
-        "Seated and leaning forward over a padded bedside table with arms resting on a pillow \u2014 drops the scapula and opens interspaces for posterior access.",
+        "Seated and leaning forward over a padded bedside table with arms resting on a pillow — drops the scapula and opens interspaces for posterior access.",
         "Supine with ipsilateral arm raised overhead is acceptable for ventilated or unable-to-sit patients; locate fluid in this position.",
         "Perform ultrasound with the patient in the exact position you will use for the procedure."
       ],
@@ -1736,7 +1838,7 @@
       ],
       "ultrasound": [
         "Use a low-frequency curvilinear or phased-array probe in the posterior-lateral chest to identify the effusion in coronal plane.",
-        "Confirm fluid is anechoic or hypoechoic and free-flowing with respiration \u2014 loculations appear as hyperechoic strands.",
+        "Confirm fluid is anechoic or hypoechoic and free-flowing with respiration — loculations appear as hyperechoic strands.",
         "Measure the largest pocket depth and distance from skin to fluid before marking.",
         "Mark the entry site with the patient in the procedure position; fluid pockets shift with position changes.",
         "Post-procedure: scan for pneumothorax (absent lung sliding ipsilateral) before imaging is complete."
@@ -1749,9 +1851,9 @@
         "Specimens labeled and sent promptly"
       ],
       "troubleshooting": [
-        "No fluid on aspiration: confirm with real-time ultrasound \u2014 pocket may have shifted; use live guidance for next attempt.",
+        "No fluid on aspiration: confirm with real-time ultrasound — pocket may have shifted; use live guidance for next attempt.",
         "Air return: withdraw immediately; the needle may be in lung parenchyma; assess urgently for pneumothorax.",
-        "Bloody return: distinguish hemorrhagic effusion from hemothorax vs. vessel injury \u2014 non-clotting blood suggests pleural; rapidly clotting suggests vascular.",
+        "Bloody return: distinguish hemorrhagic effusion from hemothorax vs. vessel injury — non-clotting blood suggests pleural; rapidly clotting suggests vascular.",
         "Cough or chest tightness after 1 L: stop drainage; may indicate re-expansion risk or pleural irritation; observe and reassess.",
         "Loculated pocket: scan multiple windows; if truly inaccessible, consult interventional radiology or thoracics."
       ],
@@ -1765,7 +1867,7 @@
         "Air embolism"
       ],
       "aftercare": [
-        "Monitor O2 saturation, respiratory rate, and breath sounds for \u22651 hour after procedure.",
+        "Monitor O2 saturation, respiratory rate, and breath sounds for ≥1 hour after procedure.",
         "Obtain CXR or lung ultrasound to evaluate for pneumothorax and residual effusion.",
         "Send pleural fluid samples promptly; pH degrades quickly if not capped.",
         "Record total volume drained and fluid character; document in procedure note."
@@ -1780,7 +1882,7 @@
         "Patient tolerated procedure without oxygen desaturation, respiratory distress, or significant bleeding."
       ],
       "seniorPearls": [
-        "Mark the site with the patient in the procedure position \u2014 the fluid pocket moves when they lie down and you will miss it.",
+        "Mark the site with the patient in the procedure position — the fluid pocket moves when they lie down and you will miss it.",
         "Most missed pneumothoraces occur in ventilated or obtunded patients who cannot report symptoms; get post-procedure ultrasound routinely.",
         "Stop before 1.5 L unless you have a compelling reason and are monitoring closely; re-expansion pulmonary edema is rare but underappreciated."
       ],
@@ -1829,12 +1931,12 @@
     "sections": {
       "shiftMode": [
         "Confirm indication (diagnostic vs. therapeutic); verify ascites is present and accessible by ultrasound.",
-        "Ultrasound marks the largest, safest pocket in the LLQ \u2014 avoids bowel, bladder, and inferior epigastric vessels.",
-        "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum \u2014 reduces post-procedure fluid leak.",
+        "Ultrasound marks the largest, safest pocket in the LLQ — avoids bowel, bladder, and inferior epigastric vessels.",
+        "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum — reduces post-procedure fluid leak.",
         "For large-volume (>5 L): administer albumin 6-8 g per liter removed to prevent paracentesis-induced circulatory dysfunction.",
-        "Do not give albumin for diagnostic or small-volume (<5 L) taps \u2014 no evidence of benefit.",
-        "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap \u2014 you cannot rule out SBP clinically.",
-        "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn \u2014 highest diagnostic yield for SBP."
+        "Do not give albumin for diagnostic or small-volume (<5 L) taps — no evidence of benefit.",
+        "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap — you cannot rule out SBP clinically.",
+        "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn — highest diagnostic yield for SBP."
       ],
       "indications": [
         "New-onset ascites requiring diagnostic evaluation",
@@ -1843,7 +1945,7 @@
         "Evaluation of ascites in acute decompensated liver disease, malignancy, or unknown etiology"
       ],
       "contraindications": [
-        "Disseminated intravascular coagulation (DIC) \u2014 significant bleeding risk",
+        "Disseminated intravascular coagulation (DIC) — significant bleeding risk",
         "Surgical abdomen where bowel perforation is possible at all accessible sites",
         "Active infection, wound, or burn overlying all potential insertion sites",
         "Known adhesions or bowel loops adherent to the anterior abdominal wall at the planned site",
@@ -1853,7 +1955,7 @@
         "Standard entry: LLQ 4-6 cm lateral to the midline, midway between umbilicus and anterior superior iliac spine (ASIS).",
         "RLQ is acceptable alternative if LLQ is unsafe due to prior surgery, ostomy, or other anatomy.",
         "Avoid the midline: risk of diastasis, recanalized umbilical vein, and thin soft tissue.",
-        "Inferior epigastric vessels run cephalocaudally approximately 3-5 cm medial to the ASIS \u2014 confirm with Doppler ultrasound.",
+        "Inferior epigastric vessels run cephalocaudally approximately 3-5 cm medial to the ASIS — confirm with Doppler ultrasound.",
         "The bladder must be empty; the bowel shifts unpredictably. Ultrasound-guided entry is standard of care."
       ],
       "equipment": [
@@ -1870,8 +1972,8 @@
       ],
       "positioning": [
         "Supine with slight left lateral decubitus (left side down) to pool ascites in the LLQ.",
-        "Head of bed elevated 30\u00b0 if patient cannot lie flat due to respiratory compromise.",
-        "Empty the bladder before starting \u2014 foley or void \u2014 to clear the pelvic space.",
+        "Head of bed elevated 30° if patient cannot lie flat due to respiratory compromise.",
+        "Empty the bladder before starting — foley or void — to clear the pelvic space.",
         "Scan with the patient in the exact position you will use for the procedure."
       ],
       "steps": [
@@ -1893,11 +1995,11 @@
         "Use a curvilinear or low-frequency probe to identify the largest free-flowing fluid pocket in the LLQ.",
         "Confirm depth from skin to fluid and the absence of bowel loops in the intended needle path.",
         "Color Doppler at the planned site identifies the inferior epigastric vessels before puncture.",
-        "Mark the entry site with the patient in the procedure position \u2014 fluid redistributes when position changes.",
+        "Mark the entry site with the patient in the procedure position — fluid redistributes when position changes.",
         "Post-procedure: brief scan to assess for residual ascites and any hematoma at the entry site."
       ],
       "confirmation": [
-        "Peritoneal fluid returns freely on aspiration \u2014 straw-colored, turbid, milky, or bloody depending on etiology",
+        "Peritoneal fluid returns freely on aspiration — straw-colored, turbid, milky, or bloody depending on etiology",
         "Fluid flows freely during therapeutic drainage",
         "No bowel contents (feculent material or food particles) in return",
         "Abdominal distension and discomfort reduce during therapeutic drainage",
@@ -1908,7 +2010,7 @@
         "Bowel contents in return: withdraw immediately; monitor for peritonitis signs; most isolated needle punctures of bowel are self-limiting.",
         "Catheter clogs during large-volume tap: reposition patient slightly; flush gently; replace if blocked.",
         "Persistent fluid leak from site post-procedure: hold pressure; Z-track technique reduces this; purse-string suture rarely required.",
-        "Neutrophils >250/mm\u00b3 with SBP suspicion: treat empirically while awaiting confirmatory culture results."
+        "Neutrophils >250/mm³ with SBP suspicion: treat empirically while awaiting confirmatory culture results."
       ],
       "complications": [
         "Intra-abdominal hematoma or bleeding",
@@ -1921,7 +2023,7 @@
       ],
       "aftercare": [
         "For >5 L: confirm albumin replacement administered; reassess BP and HR at 1 hour.",
-        "Send specimens promptly; neutrophil count >250 cells/mm\u00b3 meets criteria for empiric SBP treatment.",
+        "Send specimens promptly; neutrophil count >250 cells/mm³ meets criteria for empiric SBP treatment.",
         "Monitor for abdominal pain, fever, or hematoma for 4-6 hours after the procedure.",
         "Record total volume drained and fluid character in the procedure note.",
         "Educate patient on return precautions: worsening pain, fever, spreading redness, or fluid leak from the site."
@@ -1932,11 +2034,11 @@
         "Ultrasound guidance used; largest pocket identified at [site].",
         "[Volume] mL of [character] peritoneal fluid removed without complication.",
         "Specimens sent for [cell count, albumin, protein, LDH, culture, cytology as ordered]; blood culture bottles inoculated at bedside.",
-        "Albumin [administered at X g per liter / not indicated \u2014 volume <5 L].",
+        "Albumin [administered at X g per liter / not indicated — volume <5 L].",
         "Patient hemodynamically stable post-procedure; no abdominal rigidity or signs of peritonitis."
       ],
       "seniorPearls": [
-        "Every hospitalized cirrhotic who decompensates gets a diagnostic tap first \u2014 you cannot exclude SBP on exam.",
+        "Every hospitalized cirrhotic who decompensates gets a diagnostic tap first — you cannot exclude SBP on exam.",
         "The Z-track technique reduces post-tap ascites leak; teach it and use it consistently.",
         "Albumin replacement for large-volume taps is non-negotiable; paracentesis-induced circulatory dysfunction is underdiagnosed and preventable."
       ],
@@ -1983,12 +2085,12 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node \u2014 ultrasound identifies occult pockets and depth, avoids dry incisions.",
-        "Anesthetize generously before incising \u2014 acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
+        "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node — ultrasound identifies occult pockets and depth, avoids dry incisions.",
+        "Anesthetize generously before incising — acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
         "The incision must be adequate: span the entire fluctuant cavity and allow complete drainage and loculation breakdown.",
-        "Irrigate vigorously with normal saline until return is clear \u2014 this step is often rushed.",
+        "Irrigate vigorously with normal saline until return is clear — this step is often rushed.",
         "Loop drain or loose packing prevents premature closure without the pain of tight gauze packing.",
-        "Primary closure is contraindicated \u2014 leave it open.",
+        "Primary closure is contraindicated — leave it open.",
         "Most simple abscesses in immunocompetent patients do not need antibiotics; treat the cavity."
       ],
       "indications": [
@@ -1997,16 +2099,16 @@
         "Paronychia with subungual extension unresponsive to soaking"
       ],
       "contraindications": [
-        "Tissue not clearly fluctuant and abscess not confirmed \u2014 do not incise cellulitis blindly",
-        "Hand deep-space infection (flexor tenosynovitis risk) \u2014 surgical consultation required",
-        "Facial abscess near the dangerous triangle or other high-risk vascular territory \u2014 surgical consultation preferred",
-        "Signs of necrotizing infection (pain out of proportion, crepitus, skin necrosis, rapid spread) \u2014 this is a surgical emergency, not a bedside I&D",
+        "Tissue not clearly fluctuant and abscess not confirmed — do not incise cellulitis blindly",
+        "Hand deep-space infection (flexor tenosynovitis risk) — surgical consultation required",
+        "Facial abscess near the dangerous triangle or other high-risk vascular territory — surgical consultation preferred",
+        "Signs of necrotizing infection (pain out of proportion, crepitus, skin necrosis, rapid spread) — this is a surgical emergency, not a bedside I&D",
         "Abscess adjacent to neurovascular structures or deep fascia without adequate training and imaging"
       ],
       "anatomy": [
         "Identify abscess boundaries by palpation and ultrasound; plan incision at point of maximal fluctuance.",
         "Avoid crossing joint lines, tendon sheaths, or neurovascular structures with the incision when possible.",
-        "Satellite collections are common \u2014 explore for and break down connecting loculations with blunt dissection.",
+        "Satellite collections are common — explore for and break down connecting loculations with blunt dissection.",
         "Perirectal and ischiorectal abscesses require colorectal or surgical expertise; do not attempt without proper training.",
         "Avoid end-arterial zones (fingertip, toe, pinna, nasal tip, penis) with epinephrine-containing anesthetic."
       ],
@@ -2023,26 +2125,26 @@
         "Wound cultures if immunocompromise, recurrence, or systemic infection suspected"
       ],
       "positioning": [
-        "Position the abscess for optimal visualization and operator ergonomics \u2014 often lateral decubitus for buttock or perianal.",
+        "Position the abscess for optimal visualization and operator ergonomics — often lateral decubitus for buttock or perianal.",
         "Adequate lighting is critical; use a headlamp or task light for depth visualization.",
         "Pediatric patients may require restraint assistance or procedural sedation for larger abscesses."
       ],
       "steps": [
         "Confirm diagnosis with exam and ultrasound; identify all pockets, satellite collections, and the point of maximal fluctuance.",
-        "Infiltrate local anesthetic widely around and beneath the abscess margin \u2014 not into the cavity. Allow adequate time for onset (2-3 minutes minimum).",
+        "Infiltrate local anesthetic widely around and beneath the abscess margin — not into the cavity. Allow adequate time for onset (2-3 minutes minimum).",
         "Optionally consider regional nerve block for large or anatomically favorable abscesses.",
         "Prep the area; apply sterile drape.",
-        "Make a single, adequate linear incision through the abscess dome at maximal fluctuance \u2014 it must be long enough to allow complete drainage and instrument access.",
+        "Make a single, adequate linear incision through the abscess dome at maximal fluctuance — it must be long enough to allow complete drainage and instrument access.",
         "Gently express contents; do not squeeze forcefully.",
-        "Insert closed hemostat, open along cavity axis, and sweep to break down all loculations \u2014 confirm cavity extent.",
+        "Insert closed hemostat, open along cavity axis, and sweep to break down all loculations — confirm cavity extent.",
         "Irrigate vigorously with normal saline under moderate pressure using a syringe; repeat until return is clear or nearly clear.",
-        "Place a loop drain loosely through the cavity (preferred) or insert plain strip gauze loosely \u2014 do not pack tightly.",
+        "Place a loop drain loosely through the cavity (preferred) or insert plain strip gauze loosely — do not pack tightly.",
         "Apply non-adherent dressing over the drain or packing.",
         "Plan follow-up at 48-72 hours for packing change, drain assessment, or wound check."
       ],
       "ultrasound": [
         "High-frequency linear probe (10+ MHz) for soft tissue abscess identification.",
-        "Confirms hypoechoic or anechoic fluid cavity with posterior acoustic enhancement and internal debris \u2014 differentiates from solid mass.",
+        "Confirms hypoechoic or anechoic fluid cavity with posterior acoustic enhancement and internal debris — differentiates from solid mass.",
         "Color Doppler identifies adjacent vessels before incision.",
         "Reveals hidden loculations and satellite pockets that palpation alone misses.",
         "Use ultrasound to guide needle aspiration for depth confirmation before incision in deep or uncertain abscesses."
@@ -2051,11 +2153,11 @@
         "Frank pus drains freely on incision",
         "All loculations broken down and cavity fully explored with instrument",
         "Vigorous irrigation return is clear or near-clear before packing",
-        "Loop drain or loose packing placed \u2014 not tight, not obliterating the cavity",
+        "Loop drain or loose packing placed — not tight, not obliterating the cavity",
         "No evidence of deeper structure involvement (tendon, joint, fascia)"
       ],
       "troubleshooting": [
-        "No pus on incision: reassess with ultrasound \u2014 may have incised into cellulitis or missed the pocket; do not extend blindly.",
+        "No pus on incision: reassess with ultrasound — may have incised into cellulitis or missed the pocket; do not extend blindly.",
         "Bleeding during incision: direct pressure; abscess-bed bleeding is usually minor and self-limited.",
         "Inadequate anesthesia despite infiltration: add more anesthetic outside the margin, wait longer; acidic purulent environment inactivates local anesthetic near the core.",
         "Deep pocket inaccessible: ultrasound-guided aspiration to confirm location; surgical consultation if complex anatomy or uncertain.",
@@ -2086,9 +2188,9 @@
         "Patient discharged with wound care instructions and 48-72 hour follow-up arranged."
       ],
       "seniorPearls": [
-        "Acidic pus inactivates local anesthetic inside the cavity \u2014 infiltrate around the margin and wait; never rush into an under-anesthetized abscess.",
+        "Acidic pus inactivates local anesthetic inside the cavity — infiltrate around the margin and wait; never rush into an under-anesthetized abscess.",
         "The incision length is the most common technical mistake: if you cannot freely break down all loculations and irrigate completely, it is not big enough.",
-        "Packing is not the therapy \u2014 irrigation and complete drainage are. Packing is just a spacer."
+        "Packing is not the therapy — irrigation and complete drainage are. Packing is just a spacer."
       ],
       "references": [
         "Roberts JR, Custalow CB. Roberts and Hedges' Clinical Procedures in Emergency Medicine. Abscess Incision and Drainage chapter.",
@@ -2105,7 +2207,7 @@
         "assetName": null,
         "systemImage": "scissors",
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual should clarify incision length adequacy and loculation breakdown \u2014 the two most common technical failures."
+        "clinicalWarning": "Visual should clarify incision length adequacy and loculation breakdown — the two most common technical failures."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -2138,9 +2240,9 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm you actually need large-bore central access (massive transfusion, rapid volume, or a conduit for a transvenous pacer/PA catheter) \u2014 a triple lumen is not interchangeable with an introducer.",
+        "Confirm you actually need large-bore central access (massive transfusion, rapid volume, or a conduit for a transvenous pacer/PA catheter) — a triple lumen is not interchangeable with an introducer.",
         "Full sterile barrier and ultrasound, exactly as for any central line. The larger dilator is less forgiving, not more.",
-        "Confirm the wire is venous before dilating \u2014 arterial dilation with an 8.5 Fr sheath is a surgical emergency.",
+        "Confirm the wire is venous before dilating — arterial dilation with an 8.5 Fr sheath is a surgical emergency.",
         "Dilator and sheath advance together as a unit over the wire; keep the wire moving freely and never lose the back end.",
         "Advance with gentle rotation, not force. The skin nick must be adequate or the sheath tip will peel back.",
         "Remove dilator and wire together, then immediately cap or connect the side port and aspirate/flush.",
@@ -2161,7 +2263,7 @@
       ],
       "anatomy": [
         "IJ and femoral are the usual sites; subclavian/axillary carry higher pneumothorax and noncompressible-bleeding risk with a large sheath.",
-        "The vein must comfortably accommodate an 8.5 Fr (or larger) sheath \u2014 confirm caliber and compressibility on ultrasound.",
+        "The vein must comfortably accommodate an 8.5 Fr (or larger) sheath — confirm caliber and compressibility on ultrasound.",
         "Distinguish compressible vein from pulsatile, noncompressible artery before puncture; the consequence of error scales with sheath size.",
         "For IJ, note proximity of the carotid and the pleural dome at the base of the neck."
       ],
@@ -2199,7 +2301,7 @@
       "ultrasound": [
         "Confirm the vein is large enough for the sheath and compresses fully before puncture.",
         "Use short-axis for vessel ID; long-axis helps track needle and wire if skilled.",
-        "Confirm guidewire within the vein before dilating \u2014 this is the highest-stakes confirmation given the dilator size.",
+        "Confirm guidewire within the vein before dilating — this is the highest-stakes confirmation given the dilator size.",
         "For IJ, check lung sliding afterward as a rapid pneumothorax screen, but follow local confirmation standards."
       ],
       "confirmation": [
@@ -2211,7 +2313,7 @@
       ],
       "troubleshooting": [
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
-        "Sheath tip peels back or kinks on advancement: the skin/tract nick is too small \u2014 withdraw, enlarge the nick, and re-advance over a controlled wire.",
+        "Sheath tip peels back or kinks on advancement: the skin/tract nick is too small — withdraw, enlarge the nick, and re-advance over a controlled wire.",
         "Bright pulsatile blood or arterial waveform before dilation: stop; do not dilate; manage as arterial puncture.",
         "Brisk bleeding around the sheath: apply pressure, assess coagulopathy, and confirm intraluminal placement.",
         "Unstable after placement: consider pneumothorax, bleeding, arrhythmia, air embolism, or progression of underlying shock."
@@ -2243,7 +2345,7 @@
       ],
       "seniorPearls": [
         "The skin nick is the step most people underdo; an 8.5 Fr sheath needs a real nick or the tip accordions on the way in.",
-        "Dilation is irreversible \u2014 if you are not certain the wire is venous, you are not ready to dilate.",
+        "Dilation is irreversible — if you are not certain the wire is venous, you are not ready to dilate.",
         "An uncapped large-bore sheath is an open conduit for air; cap or connect it the moment the dilator and wire come out."
       ],
       "references": [
@@ -2261,7 +2363,7 @@
         "assetName": null,
         "systemImage": "arrow.down.to.line",
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual must make wire control and adequate skin nick obvious \u2014 the two failure points for large sheaths."
+        "clinicalWarning": "Visual must make wire control and adequate skin nick obvious — the two failure points for large sheaths."
       }
     ]
   },
@@ -2292,7 +2394,7 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis) \u2014 a triple lumen will not deliver it.",
+        "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis) — a triple lumen will not deliver it.",
         "Site choice matters: right IJ is preferred for function and lower complication; avoid subclavian to preserve future fistula options.",
         "Full sterile barrier and ultrasound, identical discipline to any central line.",
         "Confirm the wire is venous before dilating; dialysis catheters use serial dilators and a large stiff catheter.",
@@ -2317,7 +2419,7 @@
         "Right IJ offers the straightest path to the SVC/RA junction and is the preferred site for catheter function.",
         "Femoral is acceptable for short-term or emergent access, with higher infection risk and flow limitations.",
         "Avoid subclavian when possible to preserve the vasculature for future arteriovenous access.",
-        "The vein must accommodate a large, stiff dual-lumen catheter \u2014 confirm caliber and compressibility on ultrasound."
+        "The vein must accommodate a large, stiff dual-lumen catheter — confirm caliber and compressibility on ultrasound."
       ],
       "equipment": [
         "Dialysis catheter kit (dual-lumen catheter, guidewire, needle, scalpel, serial dilators)",
@@ -2396,7 +2498,7 @@
       ],
       "seniorPearls": [
         "Right IJ to the cavoatrial junction is the functional sweet spot; femoral works in a pinch but flows and infection rates are worse.",
-        "Avoid the subclavian in anyone who may ever need a fistula \u2014 central stenosis can cost them future access.",
+        "Avoid the subclavian in anyone who may ever need a fistula — central stenosis can cost them future access.",
         "If a lumen will not aspirate, do not flush it under pressure; reposition and reconfirm tip position first."
       ],
       "references": [
@@ -2447,7 +2549,7 @@
       "shiftMode": [
         "Reserve for difficult access; do not default to it when a visible/palpable vein is available.",
         "Pick a target 0.3-1.5 cm deep with a straight segment; deeper than the catheter is too short to stay in.",
-        "Use an adequately long catheter (4.8 cm or longer) \u2014 at least one third of the catheter should sit inside the vein, or it will infiltrate.",
+        "Use an adequately long catheter (4.8 cm or longer) — at least one third of the catheter should sit inside the vein, or it will infiltrate.",
         "Avoid the brachial artery and median nerve in the medial upper arm; confirm the structure is a compressible vein.",
         "Track the needle tip, not just tissue movement, in short or long axis as you advance.",
         "Confirm flash, then lower the angle and advance several more millimeters before threading the catheter.",
@@ -2466,7 +2568,7 @@
       ],
       "anatomy": [
         "Common forearm and upper-arm targets include the basilic, brachial, and cephalic veins.",
-        "In the medial upper arm, the brachial veins flank the brachial artery and lie near the median nerve \u2014 identify all three before puncture.",
+        "In the medial upper arm, the brachial veins flank the brachial artery and lie near the median nerve — identify all three before puncture.",
         "Veins are compressible and lack a pulsatile, thick wall; arteries are pulsatile and noncompressible.",
         "Deeper veins need a longer catheter so that enough length remains seated within the lumen."
       ],
@@ -2492,7 +2594,7 @@
         "Clean the skin and prepare a long catheter and flush.",
         "Center the vein on the screen in short axis (or align it in long axis if skilled).",
         "Insert the catheter at roughly 30-45 degrees, advancing while keeping the needle tip in view.",
-        "On flash, lower the angle and advance 2-4 mm further so the catheter tip \u2014 not just the needle \u2014 is intraluminal.",
+        "On flash, lower the angle and advance 2-4 mm further so the catheter tip — not just the needle — is intraluminal.",
         "Thread the catheter off the needle into the vein while stabilizing the hub.",
         "Release the tourniquet, withdraw the needle into the safety device, and attach the extension set.",
         "Aspirate and flush while imaging; confirm intraluminal flow without tissue bulging.",
@@ -2512,11 +2614,11 @@
         "Secured with a clear dressing and dated"
       ],
       "troubleshooting": [
-        "Flash but catheter will not thread: the tip is against a wall or only the needle entered \u2014 lower the angle, advance slightly, and re-confirm tip position.",
+        "Flash but catheter will not thread: the tip is against a wall or only the needle entered — lower the angle, advance slightly, and re-confirm tip position.",
         "Lost needle tip: stop advancing; slide the probe forward to find the tip before moving the needle.",
         "Vein rolls or collapses: reduce probe pressure, reposition, or choose a better-supported segment.",
-        "Swelling or resistance on flush: infiltration \u2014 stop, remove, hold pressure, and select a new site.",
-        "Bright pulsatile blood: arterial puncture \u2014 remove, hold firm pressure, and reassess."
+        "Swelling or resistance on flush: infiltration — stop, remove, hold pressure, and select a new site.",
+        "Bright pulsatile blood: arterial puncture — remove, hold firm pressure, and reassess."
       ],
       "complications": [
         "Infiltration or extravasation, especially with short catheters in deep veins",
@@ -2540,7 +2642,7 @@
         "No immediate evidence of arterial puncture, infiltration, or nerve injury."
       ],
       "seniorPearls": [
-        "Catheter length is the difference between a line that lasts and one that infiltrates in an hour \u2014 match length to depth, not habit.",
+        "Catheter length is the difference between a line that lasts and one that infiltrates in an hour — match length to depth, not habit.",
         "If you cannot keep the needle tip on screen, you are advancing blind; fan or slide the probe and find it before moving.",
         "The medial upper arm is rich in arteries and nerves; one extra moment confirming the structure is a vein prevents the worst complications."
       ],
@@ -2554,12 +2656,22 @@
       {
         "id": "usgiv_short_axis",
         "kind": "Probe Position",
-        "title": "Short-axis needle tracking",
-        "subtitle": "Probe over the target vein, needle-tip view, and vein/artery/nerve relationship in the upper arm.",
+        "title": "Short-axis probe positioning",
+        "subtitle": "High-frequency linear probe perpendicular to the target vein. Vein appears as a round anechoic compressible structure. Artery is pulsatile and non-compressible.",
         "assetName": null,
         "systemImage": "dot.viewfinder",
-        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual must make needle-tip tracking and artery/nerve avoidance obvious."
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Compress to distinguish vein from artery before needle entry."
+      },
+      {
+        "id": "usgiv_needle_tracking",
+        "kind": "Confirmation",
+        "title": "Needle tip visualization",
+        "subtitle": "Track the needle tip as a hyperechoic dot entering the vein lumen. Tenting of the anterior wall confirms contact. Flash in the catheter hub confirms intraluminal position.",
+        "assetName": null,
+        "systemImage": "scope",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Always visualize the needle tip, not just the shaft. Shaft visualization can be deceptive about true tip location."
       }
     ]
   },
@@ -2589,9 +2701,9 @@
     ],
     "sections": {
       "shiftMode": [
-        "This is a vision-saving, time-critical procedure \u2014 minutes matter; do not wait for ophthalmology or imaging if the diagnosis is clear.",
+        "This is a vision-saving, time-critical procedure — minutes matter; do not wait for ophthalmology or imaging if the diagnosis is clear.",
         "Diagnose clinically: acute orbital compartment syndrome with a tense, proptotic eye, decreased vision/APD, raised intraocular pressure, and pain after trauma or retrobulbar hemorrhage.",
-        "The goal is to release the inferior crus of the lateral canthal tendon (cantholysis) \u2014 the canthotomy incision alone is not enough.",
+        "The goal is to release the inferior crus of the lateral canthal tendon (cantholysis) — the canthotomy incision alone is not enough.",
         "Anesthetize and clamp the lateral canthus to reduce bleeding, then cut horizontally to the orbital rim.",
         "Strum for the inferior crus and cut it; the lower lid should swing free and the globe should soften.",
         "Reassess intraocular pressure and proptosis; if still tense, release the superior crus as well.",
@@ -2603,7 +2715,7 @@
         "Progressive vision loss with orbital tension after facial/orbital trauma or surgery"
       ],
       "contraindications": [
-        "Suspected globe rupture \u2014 manipulating the orbit can extrude intraocular contents; avoid and get emergent ophthalmology",
+        "Suspected globe rupture — manipulating the orbit can extrude intraocular contents; avoid and get emergent ophthalmology",
         "No evidence of orbital compartment syndrome (the procedure treats a pressure problem, not all eye injuries)",
         "An alternative, immediately treatable cause of the findings that does not involve orbital pressure"
       ],
@@ -2649,7 +2761,7 @@
         "Hemostasis achieved at the canthotomy site"
       ],
       "troubleshooting": [
-        "No softening after the incision: the tendon was not released \u2014 the canthotomy cut alone is insufficient; perform the cantholysis.",
+        "No softening after the incision: the tendon was not released — the canthotomy cut alone is insufficient; perform the cantholysis.",
         "Still tense after inferior cantholysis: release the superior crus as well.",
         "Cannot identify the crus: pull the lid on tension and strum for the taut band toward the orbital rim before cutting.",
         "Brisk bleeding obscuring the field: apply gentle pressure and use the pre-incision hemostat clamp to limit it.",
@@ -2670,7 +2782,7 @@
         "Document the time of decompression relative to symptom onset."
       ],
       "documentation": [
-        "Lateral canthotomy and inferior (\u00b1 superior) cantholysis performed for acute orbital compartment syndrome.",
+        "Lateral canthotomy and inferior (± superior) cantholysis performed for acute orbital compartment syndrome.",
         "Clinical findings documented: proptosis, raised intraocular pressure, vision change, and afferent pupillary defect.",
         "Globe rupture not suspected prior to the procedure.",
         "Inferior crus released with resultant lid release and globe softening; superior crus released if needed.",
@@ -2678,9 +2790,9 @@
         "Emergent ophthalmology consultation arranged; time from onset to decompression documented."
       ],
       "seniorPearls": [
-        "The canthotomy is just the approach \u2014 the cantholysis is the treatment; cutting skin without releasing the crus does nothing for the pressure.",
+        "The canthotomy is just the approach — the cantholysis is the treatment; cutting skin without releasing the crus does nothing for the pressure.",
         "This is one of the few true 'cut now, consult after' ophthalmic emergencies; sight is lost in tens of minutes of optic nerve ischemia.",
-        "If the globe might be ruptured, stop \u2014 decompression can turn a salvageable eye into an extruded one."
+        "If the globe might be ruptured, stop — decompression can turn a salvageable eye into an extruded one."
       ],
       "references": [
         "Roberts and Hedges' Clinical Procedures in Emergency Medicine, lateral canthotomy and cantholysis.",
@@ -2727,7 +2839,7 @@
       "shiftMode": [
         "Assess the wound for foreign body, tendon/nerve/vessel injury, joint involvement, and contamination before closing anything.",
         "Check distal neurovascular and motor function and document it before infiltrating anesthetic.",
-        "Anesthetize, then explore through the full depth and range of motion \u2014 injuries hide off the resting position.",
+        "Anesthetize, then explore through the full depth and range of motion — injuries hide off the resting position.",
         "Irrigate copiously with normal saline or potable tap water; pressure and volume matter more than additives.",
         "Choose closure: primary now, delayed primary for high-contamination/older wounds, or referral for complex/specialty areas.",
         "Approximate without tension; evert edges; match suture size to location and remove on schedule.",
@@ -2821,7 +2933,7 @@
         "Aftercare and suture-removal instructions provided."
       ],
       "seniorPearls": [
-        "The repair is only as good as the exploration \u2014 most missed tendon and foreign-body injuries are closed over, not unfindable.",
+        "The repair is only as good as the exploration — most missed tendon and foreign-body injuries are closed over, not unfindable.",
         "Examine the wound in the position of injury, not the position of rest, or you will miss tendon lacerations that retracted.",
         "Eversion and tension control determine the scar far more than how fancy the stitch is."
       ],
@@ -2868,7 +2980,7 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm anterior dislocation and document neurovascular status \u2014 especially axillary nerve sensation over the deltoid \u2014 before and after.",
+        "Confirm anterior dislocation and document neurovascular status — especially axillary nerve sensation over the deltoid — before and after.",
         "Get pre-reduction imaging unless the presentation is clearly recurrent and atraumatic per local practice.",
         "Optimize analgesia/relaxation: intra-articular block, procedural sedation, or a gentle technique the patient can tolerate.",
         "Choose a low-force technique first (scapular manipulation, Cunningham, external rotation) before high-traction methods.",
@@ -2890,7 +3002,7 @@
       ],
       "anatomy": [
         "The glenohumeral joint trades stability for mobility; the humeral head sits anterior/inferior in the common dislocation.",
-        "The axillary nerve wraps the surgical neck of the humerus and is the most commonly injured nerve \u2014 test deltoid sensation and function.",
+        "The axillary nerve wraps the surgical neck of the humerus and is the most commonly injured nerve — test deltoid sensation and function.",
         "The brachial plexus and axillary vessels lie medially; assess distal pulses and perfusion.",
         "Associated injuries include Hill-Sachs and Bankart lesions and greater tuberosity fractures."
       ],
@@ -2933,7 +3045,7 @@
         "Shoulder immobilized and follow-up arranged"
       ],
       "troubleshooting": [
-        "Reduction failing: ensure adequate analgesia/relaxation; muscle spasm is the usual obstacle \u2014 add an intra-articular block or sedation and switch technique.",
+        "Reduction failing: ensure adequate analgesia/relaxation; muscle spasm is the usual obstacle — add an intra-articular block or sedation and switch technique.",
         "Persistent inability after multiple attempts: reassess for fracture or alternate dislocation type and involve orthopedics.",
         "New neurologic deficit after reduction: document and arrange urgent orthopedic/neuro evaluation.",
         "Suspected associated fracture on pre-reduction film: weigh technique choice and consult orthopedics.",
@@ -2962,7 +3074,7 @@
         "Immobilization applied and orthopedic follow-up arranged."
       ],
       "seniorPearls": [
-        "Most failed reductions are really failed analgesia \u2014 relax the patient and the shoulder usually follows.",
+        "Most failed reductions are really failed analgesia — relax the patient and the shoulder usually follows.",
         "Always test and document the axillary nerve before and after; an unrecorded pre-reduction deficit becomes 'your' deficit.",
         "Lead with low-force techniques; high-traction methods add fracture and soft-tissue risk for little benefit in cooperative patients."
       ],
@@ -3013,7 +3125,7 @@
         "Most useful for hip and proximal femur fractures: opioid-sparing analgesia that helps frail and elderly patients.",
         "Confirm no allergy, no infection over the site, and document distal neurovascular function before the block.",
         "Use ultrasound; deposit local anesthetic beneath the fascia iliaca, lateral to the femoral artery and nerve, not into them.",
-        "Calculate a weight-based maximum local anesthetic dose and stay under it \u2014 these are large-volume blocks.",
+        "Calculate a weight-based maximum local anesthetic dose and stay under it — these are large-volume blocks.",
         "Aspirate before and during injection to avoid intravascular delivery; watch for LAST.",
         "Confirm spread under the fascia (a lens of fluid lifting the fascia) rather than within muscle.",
         "Have LAST rescue (lipid emulsion) and resuscitation equipment available before you start."
@@ -3079,7 +3191,7 @@
       ],
       "troubleshooting": [
         "Fluid spreading in muscle, not under the fascia: reposition the tip to the correct plane before continuing.",
-        "Resistance or the patient reports lancinating pain on injection: stop \u2014 possible intraneural position; withdraw and reassess.",
+        "Resistance or the patient reports lancinating pain on injection: stop — possible intraneural position; withdraw and reassess.",
         "Blood on aspiration: withdraw and reposition; never inject against a positive aspirate.",
         "Early LAST signs (perioral numbness, tinnitus, agitation, dysrhythmia): stop injection and begin lipid-emulsion rescue.",
         "Inadequate block despite good spread: confirm dose and onset time; supplement analgesia as needed within safe limits."
@@ -3108,7 +3220,7 @@
       ],
       "seniorPearls": [
         "This block shines in elderly hip fractures precisely because it spares the opioids that cause their delirium and respiratory trouble.",
-        "Subfascial spread is the whole game \u2014 fluid in muscle means no block and a wasted dose near your maximum.",
+        "Subfascial spread is the whole game — fluid in muscle means no block and a wasted dose near your maximum.",
         "Calculate the maximum dose every time and keep lipid emulsion in the room; large-volume blocks are where LAST happens."
       ],
       "references": [
@@ -3121,12 +3233,22 @@
       {
         "id": "ficb_subfascial_spread",
         "kind": "Probe Position",
-        "title": "Subfascial local spread",
-        "subtitle": "Femoral artery/nerve relationship, fascia iliaca plane, in-plane needle path, and subfascial spread.",
+        "title": "Fascia iliaca plane on ultrasound",
+        "subtitle": "Linear probe placed at the inguinal crease. Identify the femoral artery, fascia lata (superficial), and fascia iliaca (deep). Target the plane deep to fascia iliaca, lateral to the femoral nerve.",
         "assetName": null,
-        "systemImage": "syringe",
-        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual must make the subfascial target and artery/nerve avoidance unambiguous."
+        "systemImage": "dot.viewfinder",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Inject lateral to the nerve. Watch for fascial pop and subfascial spread."
+      },
+      {
+        "id": "ficb_anatomy_layers",
+        "kind": "Landmark",
+        "title": "Inguinal fascial layers",
+        "subtitle": "From superficial to deep: skin, subcutaneous fat, fascia lata, sartorius/iliopsoas, fascia iliaca, then the femoral nerve and iliacus muscle. The block targets the plane between fascia iliaca and iliacus.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Intravascular injection risk near femoral vessels. Aspirate before injecting."
       }
     ]
   },
@@ -3156,7 +3278,7 @@
     ],
     "sections": {
       "shiftMode": [
-        "This is a last-resort, time-critical trauma procedure with narrow indications \u2014 apply the criteria, do not improvise them.",
+        "This is a last-resort, time-critical trauma procedure with narrow indications — apply the criteria, do not improvise them.",
         "Best evidence supports penetrating chest trauma with signs of life within a short window before arrest; blunt arrest outcomes are dismal.",
         "Goals: release tamponade, control intrathoracic hemorrhage, cross-clamp the aorta, and allow internal cardiac massage.",
         "Left anterolateral thoracotomy at the 4th/5th intercostal space; extend across the sternum (clamshell) for right-sided or wider access.",
@@ -3247,13 +3369,13 @@
       "documentation": [
         "Resuscitative thoracotomy performed for [penetrating/blunt] trauma arrest meeting local criteria.",
         "Mechanism, arrest interval, and signs of life documented.",
-        "Procedure performed: thoracotomy \u00b1 clamshell, pericardiotomy, hemorrhage control, aortic cross-clamp as applicable.",
+        "Procedure performed: thoracotomy ± clamshell, pericardiotomy, hemorrhage control, aortic cross-clamp as applicable.",
         "Intraoperative findings and interventions recorded.",
         "Resuscitation endpoint and disposition (OR vs. termination) documented.",
         "Team exposures and debrief noted."
       ],
       "seniorPearls": [
-        "The decision to open is the procedure \u2014 applying the indication criteria correctly matters more than blade speed.",
+        "The decision to open is the procedure — applying the indication criteria correctly matters more than blade speed.",
         "Open the pericardium anterior to the phrenic nerve and longitudinally; tamponade release is often the single highest-yield action.",
         "This is a bridge, not a destination: it buys minutes to reach the OR, and only certain patients can cross that bridge."
       ],
@@ -3273,6 +3395,882 @@
         "systemImage": "heart.fill",
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Visual must make the phrenic-nerve-sparing pericardiotomy and incision level unambiguous."
+      }
+    ]
+  },
+  {
+    "id": "intraosseous_access",
+    "title": "Intraosseous (IO) Access",
+    "category": "Vascular Access",
+    "difficulty": "Intermediate",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED",
+      "Trauma",
+      "Peds"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "tags": [
+      "IO",
+      "intraosseous",
+      "EZ-IO",
+      "bone",
+      "resuscitation",
+      "access",
+      "drill",
+      "tibial",
+      "humeral",
+      "cardiac arrest",
+      "peds",
+      "pediatric"
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "sections": {
+      "shiftMode": [
+        "IO is a bridge, not a destination. Transition to definitive IV access when stable.",
+        "Proximal tibia is the default site in adults. Proximal humerus is an alternative.",
+        "Flush with 10 mL saline after insertion to clear marrow and confirm flow.",
+        "Lidocaine 2% (preservative-free) through the IO before infusion reduces pain in conscious patients.",
+        "Nearly all IV medications and fluids can be given IO. Pressure bag or push-pull syringe for rapid infusion.",
+        "Remove within 24 hours. Document site, time in, and reason for IO."
+      ],
+      "indications": [
+        "Failed or impossible peripheral IV access in emergent setting",
+        "Cardiac arrest",
+        "Critically ill or injured patient requiring immediate vascular access",
+        "Pediatric resuscitation when IV access not rapidly obtained",
+        "Severe dehydration with vascular collapse"
+      ],
+      "contraindications": [
+        "Fracture in the target bone",
+        "Prior IO attempt in the same bone within 24–48 hours",
+        "Overlying infection or burn at insertion site",
+        "Prosthetic joint or hardware at target site",
+        "Conditions with fragile bone (relative: osteogenesis imperfecta, severe osteoporosis)"
+      ],
+      "anatomy": [
+        "Proximal tibia: flat anteromedial surface, 1–2 cm distal and medial to the tibial tuberosity.",
+        "Proximal humerus: greater tubercle, with arm adducted and internally rotated (hand resting on abdomen).",
+        "Distal tibia: medial malleolus, 1–2 cm proximal to the most prominent point.",
+        "In pediatrics the proximal tibia is preferred; the flat medial tibial surface is more accessible."
+      ],
+      "equipment": [
+        "IO drill device (EZ-IO or equivalent) with appropriate needle size",
+        "Antiseptic prep (chlorhexidine or povidone-iodine)",
+        "Gloves, eye protection",
+        "10 mL normal saline flush syringes (at least two)",
+        "Lidocaine 2% preservative-free (for conscious patients)",
+        "Extension tubing and IV setup",
+        "Pressure bag for fluid infusion",
+        "Stabilizer/dressing to secure IO needle",
+        "Sharps container"
+      ],
+      "positioning": [
+        "Proximal tibia: leg slightly externally rotated, small towel roll behind the knee.",
+        "Proximal humerus: arm adducted, hand on abdomen to internally rotate.",
+        "Stabilize the limb. Do not place your hand behind the insertion point."
+      ],
+      "steps": [
+        "Identify the insertion site and confirm no contraindications at that limb.",
+        "Clean the site with antiseptic.",
+        "Stabilize the limb without placing your hand behind the target bone.",
+        "Attach the appropriate needle to the drill driver.",
+        "Insert at 90 degrees to the bone surface. Drill until loss of resistance (a subtle give or pop).",
+        "Remove the trocar, attach a syringe, and aspirate (marrow aspirate confirms placement but is not always obtained).",
+        "Flush with 10 mL normal saline. Observe for swelling or extravasation.",
+        "In conscious patients, slowly inject 20–40 mg lidocaine 2% (preservative-free) IO and allow 60 seconds before flushing.",
+        "Connect IV tubing with extension set. Use pressure bag for rapid infusion.",
+        "Secure the needle and apply stabilizer dressing.",
+        "Document time of insertion, site, confirmation method, and complications."
+      ],
+      "ultrasound": [],
+      "confirmation": [
+        "Needle stands upright without support after insertion",
+        "Loss of resistance felt during drilling",
+        "Marrow aspirate on syringe (not always present; absence does not rule out placement)",
+        "Saline flush flows freely without subcutaneous swelling",
+        "Medications and fluids infuse without extravasation"
+      ],
+      "troubleshooting": [
+        "No flow after insertion: ensure trocar removed, recheck position, attempt gentle flush. If extravasation seen, remove and attempt different bone.",
+        "Needle loose or wobbly: likely through-and-through cortex penetration. Remove and use a different site.",
+        "Significant pain in conscious patient: slow lidocaine injection through IO before infusion, allow dwell time.",
+        "Swelling at site: extravasation indicates malposition. Remove needle, compress, reassess compartment."
+      ],
+      "complications": [
+        "Extravasation and soft tissue swelling",
+        "Compartment syndrome (rare, from unrecognized extravasation)",
+        "Osteomyelitis (rare, risk increases if left in >24 hours)",
+        "Fat embolism (rare)",
+        "Fracture (rare, more common with manual devices in pediatrics)",
+        "Skin necrosis at insertion site",
+        "Pain during infusion in conscious patients"
+      ],
+      "aftercare": [
+        "Transition to peripheral or central IV access as soon as feasible.",
+        "Remove IO within 24 hours.",
+        "Document insertion time, site, removal time, and any complications.",
+        "Monitor insertion site for signs of infection, swelling, or compartment syndrome."
+      ],
+      "documentation": [
+        "IO access placed at [site] using [device] for [indication].",
+        "Verbal/implied consent in emergent setting.",
+        "Site prepped, needle inserted with loss of resistance confirmed.",
+        "Flushed with [volume] normal saline without extravasation.",
+        "IO lidocaine given prior to infusion (if conscious).",
+        "Patient tolerated procedure. IO to be removed within 24 hours and transitioned to definitive access."
+      ],
+      "seniorPearls": [
+        "IO is not a last resort. If you cannot get a peripheral line in a crashing patient in 90 seconds, drill.",
+        "The proximal humerus flows faster than the tibia in adults. Know both sites.",
+        "Lidocaine through the IO before infusion is a kindness that takes 60 seconds. Do it for conscious patients.",
+        "Through-and-through is a real risk in peds. Use the correct needle length and stop at loss of resistance."
+      ],
+      "references": [
+        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
+        "ACLS/PALS guidelines on vascular access.",
+        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify device-specific instructions and institutional IO protocols."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "io_proximal_tibia_landmark",
+        "kind": "Landmark",
+        "title": "Proximal tibia insertion site",
+        "subtitle": "Palpate the tibial tuberosity. Move 1–2 cm distal and medial to the flat anteromedial tibial surface. This is the insertion point. Needle at 90 degrees to the bone.",
+        "assetName": null,
+        "systemImage": "figure.walk",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Do not place your hand behind the limb during drilling."
+      },
+      {
+        "id": "io_humeral_site",
+        "kind": "Landmark",
+        "title": "Proximal humerus insertion site",
+        "subtitle": "Arm adducted, hand on abdomen (internal rotation). Palpate the greater tubercle — the most prominent lateral bony point of the shoulder. Needle at 90 degrees to the bone surface.",
+        "assetName": null,
+        "systemImage": "figure.arms.open",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Humeral IO flows faster than tibial in adults. Secure well — humeral IOs dislodge more easily."
+      }
+    ]
+  },
+  {
+    "id": "knee_arthrocentesis",
+    "title": "Knee Arthrocentesis",
+    "category": "Other",
+    "difficulty": "Intermediate",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "tags": [
+      "joint aspiration",
+      "knee tap",
+      "effusion",
+      "septic joint",
+      "arthrocentesis",
+      "synovial fluid",
+      "crystal",
+      "gout",
+      "pseudogout",
+      "monoarticular"
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "sections": {
+      "shiftMode": [
+        "Superolateral approach is the most common. Medial approach is an alternative.",
+        "Always send fluid for cell count, Gram stain, culture, and crystal analysis.",
+        "Use sterile technique. A septic joint from your tap is a career-defining complication.",
+        "If you suspect septic arthritis, tap before antibiotics when feasible.",
+        "Ultrasound guidance increases success, especially in obese patients or small effusions.",
+        "Document appearance of fluid: clear, turbid, bloody, purulent."
+      ],
+      "indications": [
+        "Acute monoarticular arthritis to evaluate for septic joint",
+        "Crystal arthropathy workup (gout, pseudogout)",
+        "Hemarthrosis evaluation",
+        "Symptomatic relief of tense effusion",
+        "Traumatic effusion with concern for intra-articular fracture or lipohemarthrosis"
+      ],
+      "contraindications": [
+        "Overlying cellulitis or skin infection at planned insertion site",
+        "Significant coagulopathy (relative; weigh risk vs. benefit if septic joint is suspected)",
+        "Prosthetic joint (consult orthopedics before tapping)",
+        "Patient refusal"
+      ],
+      "anatomy": [
+        "Superolateral approach: needle enters 1 cm superior and 1 cm lateral to the superolateral pole of the patella, directed toward the intercondylar notch.",
+        "Medial approach: needle enters at the midpoint of the patella on the medial side, directed posterolaterally.",
+        "The suprapatellar bursa communicates with the knee joint and is an alternative US-guided target.",
+        "Avoid the popliteal fossa (posterior neurovascular structures)."
+      ],
+      "equipment": [
+        "Sterile gloves and drape",
+        "Antiseptic prep (chlorhexidine or povidone-iodine)",
+        "Local anesthetic (1% lidocaine), 5 mL syringe, 25G needle for skin wheal",
+        "18G needle and 20–60 mL syringe for aspiration",
+        "Specimen tubes: purple top (cell count), blood culture bottle or sterile tube (culture), green top or plain tube (crystals)",
+        "Sterile dressing",
+        "Ultrasound with high-frequency linear probe (if available)",
+        "Hemostat (optional, for syringe exchange)"
+      ],
+      "positioning": [
+        "Patient supine with knee in slight flexion (15–20 degrees). A rolled towel behind the knee helps.",
+        "Relaxed quadriceps. The patella should be mobile.",
+        "Identify landmarks or use ultrasound to confirm effusion location."
+      ],
+      "steps": [
+        "Confirm indication and obtain consent.",
+        "Position the knee in slight flexion. Identify landmarks or use ultrasound.",
+        "Prep the insertion site with antiseptic using sterile technique.",
+        "Anesthetize the skin and subcutaneous tissue with lidocaine down to the capsule.",
+        "Insert the 18G needle at the chosen approach, advancing toward the joint space while applying gentle negative pressure on the syringe.",
+        "Aspirate fluid. If using a large syringe, a hemostat can stabilize the needle during syringe exchange.",
+        "Remove as much fluid as clinically appropriate for diagnostic and therapeutic purposes.",
+        "Remove the needle and apply sterile dressing.",
+        "Send fluid for cell count with differential, Gram stain, culture, and crystal analysis.",
+        "Document volume, appearance, and studies sent."
+      ],
+      "ultrasound": [
+        "High-frequency linear probe placed over the suprapatellar recess (longitudinal) to confirm effusion.",
+        "Anechoic fluid collection confirms effusion. Complex or echogenic fluid may suggest infection or hemorrhage.",
+        "Use in-plane needle guidance for real-time visualization.",
+        "Particularly useful in obese patients or when clinical exam is equivocal."
+      ],
+      "confirmation": [
+        "Synovial fluid aspirated into syringe",
+        "Knee effusion clinically reduced after aspiration",
+        "Fluid sent for appropriate laboratory studies"
+      ],
+      "troubleshooting": [
+        "Dry tap: reposition needle, use ultrasound guidance, consider smaller effusion or loculated collection.",
+        "Bloody aspirate: may be hemarthrosis or traumatic tap. Send for analysis. Lipohemarthrosis on gross inspection suggests intra-articular fracture.",
+        "Difficulty advancing needle: may be hitting bone. Redirect slightly.",
+        "Patient unable to relax quadriceps: coach relaxation, ensure adequate local anesthesia."
+      ],
+      "complications": [
+        "Iatrogenic septic arthritis (rare with proper sterile technique)",
+        "Bleeding or hemarthrosis",
+        "Post-procedure pain or swelling",
+        "Vasovagal reaction",
+        "Cartilage injury from needle"
+      ],
+      "aftercare": [
+        "Instruct patient on signs of infection: increasing pain, redness, warmth, fever.",
+        "Keep dressing clean and dry for 24 hours.",
+        "Follow up on culture and crystal results.",
+        "If septic arthritis suspected, coordinate disposition and antibiotics appropriately."
+      ],
+      "documentation": [
+        "Knee arthrocentesis performed on [side] knee for [indication].",
+        "Informed consent obtained.",
+        "Site prepped with sterile technique. Local anesthesia administered.",
+        "Aspirated [volume] mL of [appearance] fluid using [approach].",
+        "Fluid sent for cell count, Gram stain, culture, and crystal analysis.",
+        "Patient tolerated procedure without immediate complication.",
+        "Sterile dressing applied."
+      ],
+      "seniorPearls": [
+        "If you are debating whether to tap a hot swollen joint, tap it. Missing a septic joint is worse than a dry tap.",
+        "Ultrasound turns a frustrating blind procedure into a reliable one. Use it.",
+        "Clear straw-colored fluid at the bedside does not rule out infection. Send the labs.",
+        "A white count over 50,000 with >90% PMNs is septic until proven otherwise, regardless of crystals."
+      ],
+      "references": [
+        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify institutional policy on anticoagulation and prosthetic joint aspiration."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "knee_arthrocentesis_superolateral",
+        "kind": "Landmark",
+        "title": "Superolateral approach",
+        "subtitle": "1 cm superior and 1 cm lateral to the superolateral pole of the patella. Direct the needle toward the intercondylar notch, posterior and slightly inferior.",
+        "assetName": null,
+        "systemImage": "figure.walk",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Avoid posterior approach (popliteal neurovascular bundle)."
+      },
+      {
+        "id": "knee_us_effusion",
+        "kind": "Probe Position",
+        "title": "Suprapatellar recess ultrasound",
+        "subtitle": "High-frequency linear probe placed longitudinally over the suprapatellar recess. Anechoic fluid between the quadriceps tendon and femur confirms effusion.",
+        "assetName": null,
+        "systemImage": "dot.viewfinder",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "Complex or echogenic fluid may indicate infection or hemarthrosis."
+      }
+    ]
+  },
+  {
+    "id": "anterior_nasal_packing",
+    "title": "Anterior Nasal Packing",
+    "category": "Other",
+    "difficulty": "Basic",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "tags": [
+      "epistaxis",
+      "nosebleed",
+      "nasal packing",
+      "Rapid Rhino",
+      "Merocel",
+      "anterior bleed",
+      "Kiesselbach",
+      "cautery",
+      "silver nitrate"
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "sections": {
+      "shiftMode": [
+        "Most anterior epistaxis is from Kiesselbach plexus (Little area) on the septum.",
+        "Start with direct pressure: pinch the soft part of the nose for 15 minutes continuously.",
+        "If a single bleeding point is visible, silver nitrate cautery may stop the bleed without packing.",
+        "If packing is needed, Rapid Rhino or Merocel sponge are first-line devices.",
+        "Always check vitals and hemodynamic stability. Posterior bleeds and anticoagulated patients can hemorrhage.",
+        "Patients discharged with packing need ENT follow-up for removal in 48–72 hours."
+      ],
+      "indications": [
+        "Anterior epistaxis uncontrolled by direct pressure",
+        "Visible anterior bleeding source amenable to packing",
+        "Recurrent epistaxis requiring temporizing control",
+        "Post-cautery reinforcement when bleeding recurs"
+      ],
+      "contraindications": [
+        "Suspected posterior epistaxis (pack both if unavoidable, but involve ENT early)",
+        "Suspected nasal fracture with CSF leak (relative; manage with specialist)",
+        "Severe midface trauma requiring operative management"
+      ],
+      "anatomy": [
+        "Kiesselbach plexus (Little area): anterior septum, the most common source of anterior epistaxis.",
+        "Supplied by branches of anterior ethmoidal, sphenopalatine, superior labial, and greater palatine arteries.",
+        "The nasal cavity narrows posteriorly. Packing must fill the anterior space to tamponade the vessel.",
+        "Direct packing along the nasal floor, not upward toward the cribriform plate."
+      ],
+      "equipment": [
+        "Personal protective equipment (gown, gloves, face shield)",
+        "Headlamp or bright light source",
+        "Nasal speculum",
+        "Suction with Frazier tip",
+        "Topical vasoconstrictor (oxymetazoline spray or phenylephrine-soaked pledgets)",
+        "Topical anesthetic (4% lidocaine or lidocaine/epinephrine mix on cotton pledgets)",
+        "Silver nitrate sticks (for cautery if appropriate)",
+        "Nasal packing device: Rapid Rhino, Merocel sponge, or ribbon gauze with petroleum jelly",
+        "Syringe with water or saline for inflating balloon devices",
+        "Antibiotic ointment (for gauze packing)",
+        "Kidney basin and gauze for blood management"
+      ],
+      "positioning": [
+        "Patient seated upright leaning slightly forward to prevent blood swallowing.",
+        "Have the patient blow out clots gently before examination.",
+        "Apply topical vasoconstrictor and anesthetic pledgets for 10–15 minutes before instrumentation."
+      ],
+      "steps": [
+        "Ensure hemodynamic stability. Obtain IV access if significant bleeding or anticoagulation.",
+        "Apply personal protective equipment.",
+        "Have the patient blow out clots. Suction the nasal cavity.",
+        "Apply topical vasoconstrictor and anesthetic pledgets. Wait 10–15 minutes.",
+        "Remove pledgets and inspect with nasal speculum and headlamp to identify bleeding source.",
+        "If a single anterior point is identified and bleeding is controlled: apply silver nitrate to the site for 5–10 seconds. Do not cauterize both sides of the septum simultaneously (perforation risk).",
+        "If cautery fails or bleeding is diffuse: proceed to nasal packing.",
+        "Rapid Rhino: coat with water to activate lubricant, insert along nasal floor, inflate balloon with air or saline per device instructions.",
+        "Merocel sponge: insert dry sponge along the nasal floor, then hydrate with saline to expand.",
+        "Ribbon gauze: layer gauze accordion-style from floor to ceiling of nasal cavity using bayonet forceps, coat with antibiotic ointment or petroleum jelly.",
+        "Confirm hemostasis. Check for posterior drainage in the oropharynx.",
+        "If bilateral packing is placed, monitor for hypoxia in high-risk patients."
+      ],
+      "ultrasound": [],
+      "confirmation": [
+        "Active bleeding has stopped",
+        "No posterior drainage seen in the oropharynx on inspection",
+        "Packing is seated properly and not extruding",
+        "Patient hemodynamically stable"
+      ],
+      "troubleshooting": [
+        "Continued bleeding after packing: ensure packing fills the anterior cavity adequately. May need additional packing or posterior epistaxis management.",
+        "Posterior bleed suspected: blood draining in posterior pharynx despite adequate anterior packing. Place posterior balloon or consult ENT urgently.",
+        "Patient on anticoagulation: correct coagulopathy as able while packing. Check INR/platelet count.",
+        "Vasovagal during packing: recline patient, maintain airway, resume when stable."
+      ],
+      "complications": [
+        "Continued or recurrent bleeding",
+        "Posterior epistaxis missed",
+        "Nasal septal necrosis or pressure injury (if packing too tight or left too long)",
+        "Sinusitis or toxic shock syndrome (rare, from prolonged packing)",
+        "Aspiration of blood",
+        "Vasovagal syncope",
+        "Septal perforation from bilateral cautery"
+      ],
+      "aftercare": [
+        "Discharge with packing in place. Arrange ENT follow-up for removal in 48–72 hours.",
+        "Prescribe antibiotics covering for toxic shock syndrome prevention per institutional protocol (controversial; follow local practice).",
+        "Instruct patient to keep head elevated, avoid straining, nose blowing, and blood thinners if safe to hold.",
+        "Return precautions: recurrent heavy bleeding, difficulty breathing, fever, significant swelling."
+      ],
+      "documentation": [
+        "Anterior epistaxis managed with [method: cautery / packing device].",
+        "Bleeding source identified on [side] anterior septum.",
+        "Topical vasoconstrictor and anesthetic applied.",
+        "[Cautery performed / Packing placed] with hemostasis achieved.",
+        "No posterior drainage observed.",
+        "Patient hemodynamically stable. Discharged with ENT follow-up arranged.",
+        "Return precautions given."
+      ],
+      "seniorPearls": [
+        "Fifteen minutes of real continuous pressure stops most anterior bleeds. Patients never actually do this before they arrive.",
+        "If you cannot see the bleeding source, you cannot fix it. Suction, vasoconstrict, and light the field before touching anything.",
+        "Do not cauterize both sides of the septum. One side today, the other side never.",
+        "A posterior bleed masquerading as anterior packing failure will waste your time until you check the oropharynx."
+      ],
+      "references": [
+        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify institutional policy on antibiotic prophylaxis with nasal packing and cautery technique."
+      ]
+    },
+    "visualAssets": []
+  },
+  {
+    "id": "synchronized_cardioversion",
+    "title": "Synchronized Cardioversion",
+    "category": "Cardiac / Resuscitation",
+    "difficulty": "Intermediate",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED",
+      "ICU"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "tags": [
+      "cardioversion",
+      "SVT",
+      "atrial fibrillation",
+      "afib",
+      "atrial flutter",
+      "aflutter",
+      "ventricular tachycardia",
+      "VT",
+      "vtach",
+      "synchronized shock",
+      "electrical cardioversion",
+      "defibrillator"
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "sections": {
+      "shiftMode": [
+        "Synchronized cardioversion delivers a shock timed to the R wave. Always confirm SYNC mode is on before shocking.",
+        "Unstable = cardiovert now. Stable = consider rate control, rhythm control, or elective cardioversion.",
+        "Signs of instability: hypotension, altered mental status, ischemic chest pain, acute heart failure.",
+        "Sedate the patient before cardioversion unless peri-arrest.",
+        "If the patient deteriorates into pulseless VT or VF, switch to defibrillation (SYNC off, max energy).",
+        "Starting energy: atrial fibrillation 120–200 J biphasic; atrial flutter/SVT 50–100 J; VT with pulse 100 J."
+      ],
+      "indications": [
+        "Unstable tachyarrhythmia with a pulse (SVT, atrial fibrillation, atrial flutter, monomorphic VT with a pulse)",
+        "Elective cardioversion of persistent atrial fibrillation or flutter after appropriate anticoagulation",
+        "Wide complex tachycardia with hemodynamic compromise"
+      ],
+      "contraindications": [
+        "Pulseless VT or VF (requires unsynchronized defibrillation, not cardioversion)",
+        "Digitalis toxicity–related arrhythmia (relative; cardioversion may precipitate refractory VF)",
+        "Multifocal atrial tachycardia (will not respond; treat underlying cause)",
+        "Sinus tachycardia (not an indication for cardioversion; treat the cause)"
+      ],
+      "anatomy": [
+        "Anterolateral pad placement: right parasternal and left lateral chest wall (V5–V6 position at the mid-axillary line).",
+        "Anteroposterior placement: sternum and left infrascapular area. May be superior for atrial fibrillation.",
+        "Ensure pads do not overlap implanted devices (pacemaker, ICD). Place pads at least 8 cm from the generator."
+      ],
+      "equipment": [
+        "Defibrillator/cardioverter with SYNC capability",
+        "Adhesive defibrillation pads (preferred over paddles)",
+        "Continuous cardiac monitor with 12-lead ECG capability",
+        "Sedation medications (etomidate, propofol, midazolam, or ketamine per institutional protocol)",
+        "Airway equipment including bag-valve mask, oral airway, suction, and intubation supplies at bedside",
+        "Pulse oximetry and capnography",
+        "IV access (ideally two sites)",
+        "Resuscitation medications (epinephrine, amiodarone, atropine) at bedside",
+        "Crash cart"
+      ],
+      "positioning": [
+        "Patient supine. Pads placed with good skin contact (shave excess chest hair if needed, wipe moisture).",
+        "Clear the area around the patient before shock delivery.",
+        "Ensure monitor leads are connected and rhythm is visible."
+      ],
+      "steps": [
+        "Confirm the indication: identify the rhythm, confirm hemodynamic instability or elective plan.",
+        "Obtain 12-lead ECG if time permits.",
+        "Establish IV access. Place monitoring (pulse ox, capnography, cardiac monitor).",
+        "Prepare airway equipment at bedside.",
+        "Apply defibrillation pads in anterolateral or anteroposterior position.",
+        "Administer procedural sedation (if patient is conscious and not peri-arrest). Confirm adequate sedation depth.",
+        "Select energy level based on rhythm. Activate SYNC mode on the defibrillator.",
+        "Verify SYNC markers are tracking R waves on the monitor.",
+        "Announce \"Charging\" and charge the defibrillator.",
+        "Perform a visual and verbal safety check: \"I am clear, you are clear, everyone is clear.\"",
+        "Deliver the shock. Hold the shock button until the device fires (SYNC mode may have a brief delay).",
+        "Assess the rhythm immediately. If unsuccessful, increase energy and repeat. Re-select SYNC mode (many devices default back to defibrillation after each shock).",
+        "If the patient becomes pulseless, immediately switch to defibrillation protocol."
+      ],
+      "ultrasound": [],
+      "confirmation": [
+        "Post-shock rhythm is converted to sinus or target rhythm",
+        "Hemodynamic improvement (blood pressure, mentation, perfusion)",
+        "Repeat 12-lead ECG shows new rhythm"
+      ],
+      "troubleshooting": [
+        "Shock does not fire: SYNC mode waits for an R wave. If the rhythm is too irregular or amplitude is too low, the device may not fire. Try a different lead, increase ECG gain, or switch to unsynchronized defibrillation if the patient is deteriorating.",
+        "Rhythm unchanged after shock: increase energy, ensure good pad contact, try anteroposterior pad position.",
+        "Patient deteriorates to VF or pulseless VT: immediately switch to unsynchronized defibrillation at max energy.",
+        "Post-cardioversion bradycardia: observe, atropine if symptomatic, transcutaneous pacing at bedside.",
+        "Recurrence of arrhythmia: consider antiarrhythmic medication before repeating cardioversion."
+      ],
+      "complications": [
+        "Skin burns at pad sites",
+        "Post-cardioversion arrhythmia (bradycardia, VF, asystole)",
+        "Thromboembolism (stroke) if atrial fibrillation cardioverted without adequate anticoagulation",
+        "Aspiration during sedation",
+        "Myocardial injury (rare with standard energy)",
+        "Failure to cardiovert"
+      ],
+      "aftercare": [
+        "Monitor on telemetry for at least 1–3 hours post-cardioversion.",
+        "Repeat 12-lead ECG.",
+        "Assess for chest wall discomfort, skin burns at pad sites.",
+        "Resume or initiate anticoagulation and antiarrhythmic therapy as indicated.",
+        "If elective cardioversion for atrial fibrillation: ensure appropriate anticoagulation plan before discharge."
+      ],
+      "documentation": [
+        "Synchronized cardioversion performed for [rhythm] with [indication].",
+        "Pre-procedure rhythm documented on 12-lead ECG.",
+        "Sedation: [agent, dose, route]. Adequate sedation achieved.",
+        "SYNC mode confirmed. [Energy] J delivered via biphasic defibrillator.",
+        "Post-shock rhythm: [rhythm]. Hemodynamics [stable/improved].",
+        "Patient tolerated procedure without immediate complication.",
+        "Post-procedure 12-lead ECG obtained. Monitoring plan documented."
+      ],
+      "seniorPearls": [
+        "SYNC mode resets after every shock on most devices. Re-select it every single time or you will defibrillate a patient with a pulse.",
+        "The shock button delay in SYNC mode confuses people. Hold the button until it fires.",
+        "Anteroposterior pad placement is better for atrial fibrillation. If anterolateral fails, switch before escalating energy.",
+        "Do not cardiovert sinus tachycardia. Find and fix the cause.",
+        "If the rhythm is polymorphic VT, treat it as VF: unsynchronized defibrillation, not synchronized cardioversion."
+      ],
+      "references": [
+        "ACLS guidelines on tachycardia management.",
+        "AHA/ACC guidelines on atrial fibrillation management.",
+        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify institutional cardioversion and sedation protocols."
+      ]
+    },
+    "visualAssets": []
+  },
+  {
+    "id": "peritonsillar_abscess_drainage",
+    "title": "Peritonsillar Abscess Drainage",
+    "category": "Other",
+    "difficulty": "Intermediate",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "tags": [
+      "PTA",
+      "peritonsillar",
+      "quinsy",
+      "abscess",
+      "throat",
+      "trismus",
+      "ENT",
+      "needle aspiration",
+      "tonsil",
+      "pharyngitis"
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "sections": {
+      "shiftMode": [
+        "Needle aspiration is the first-line ED drainage technique. Most PTAs can be aspirated at bedside.",
+        "The danger: the internal carotid artery lies posterolateral to the tonsil, typically 2–2.5 cm from the mucosal surface.",
+        "Limit needle depth to 1 cm with a guard (cut syringe sheath or tape) to prevent deep penetration.",
+        "Aspirate at the point of maximal fluctuance or bulging, usually the superior pole of the tonsil.",
+        "Always have suction ready. These patients aspirate pus.",
+        "If you cannot aspirate pus but clinical suspicion is high, consider CT with contrast or ENT consultation."
+      ],
+      "indications": [
+        "Clinically suspected peritonsillar abscess (unilateral tonsillar swelling, uvular deviation, trismus, muffled voice)",
+        "Confirmed peritonsillar abscess on imaging or clinical exam",
+        "Failed outpatient antibiotic therapy for peritonsillar cellulitis progressing to abscess"
+      ],
+      "contraindications": [
+        "Concern for deep space neck infection extending beyond the peritonsillar space (consult ENT/surgery)",
+        "Pulsatile mass or bruit suggesting vascular anomaly (get imaging first)",
+        "Severe trismus preventing adequate visualization (may need sedation or operative drainage)",
+        "Patient unable to cooperate (relative; consider procedural sedation)"
+      ],
+      "anatomy": [
+        "The peritonsillar space lies between the tonsillar capsule and the superior pharyngeal constrictor muscle.",
+        "The internal carotid artery runs posterolateral, typically 2–2.5 cm from the pharyngeal mucosal surface.",
+        "Most PTAs collect at the superior pole of the tonsil, between the anterior tonsillar pillar and the soft palate.",
+        "Uvular deviation is typically away from the affected side.",
+        "The palatine tonsil, anterior and posterior pillars, and soft palate are key landmarks."
+      ],
+      "equipment": [
+        "Headlamp or good overhead light",
+        "Tongue depressor",
+        "Topical anesthetic spray (benzocaine or cetacaine)",
+        "Local anesthetic: lidocaine 1% with epinephrine, 3 mL syringe, 25G needle",
+        "Aspiration: 18G needle on a 10 mL syringe",
+        "Needle guard: tape or cut syringe cap placed 1 cm from needle tip",
+        "Suction with Yankauer tip",
+        "Kidney basin",
+        "Specimen cup for culture"
+      ],
+      "positioning": [
+        "Patient seated upright, leaning slightly forward.",
+        "Good light source directed at the oropharynx.",
+        "Tongue depressor in the non-dominant hand.",
+        "Suction immediately available.",
+        "Have the patient open mouth maximally. If trismus limits opening, topical anesthetic and gentle approach or sedation may be needed."
+      ],
+      "steps": [
+        "Confirm the diagnosis clinically: unilateral tonsillar swelling, uvular deviation, muffled voice, trismus.",
+        "Apply topical anesthetic spray to the area of planned aspiration.",
+        "Inject local anesthetic (1% lidocaine with epinephrine) into the mucosa overlying the abscess. Aspirate first to exclude vascular puncture.",
+        "Attach an 18G needle to a 10 mL syringe. Place a needle guard at 1 cm from the tip.",
+        "Insert the needle at the point of maximal fluctuance (usually the superior pole, at the junction of the anterior pillar and soft palate).",
+        "Aspirate while advancing slowly up to 1 cm only.",
+        "If pus is obtained: aspirate as much as possible. Send sample for culture.",
+        "If no pus is obtained: redirect the needle slightly inferior or medial. A second attempt at the middle pole may be tried.",
+        "If no pus after 2–3 attempts: consider CT to confirm abscess vs. cellulitis, or consult ENT.",
+        "After drainage, have the patient gargle and spit. Reassess the oropharynx."
+      ],
+      "ultrasound": [
+        "Intraoral ultrasound (endocavitary probe with a cover) can identify the abscess collection and confirm depth.",
+        "Transcutaneous submandibular approach may help identify large collections.",
+        "Particularly useful when clinical exam is equivocal or prior aspiration was dry."
+      ],
+      "confirmation": [
+        "Purulent material aspirated",
+        "Improvement in uvular deviation and tonsillar swelling",
+        "Patient reports subjective improvement in swallowing and pain",
+        "Reduced trismus"
+      ],
+      "troubleshooting": [
+        "Dry tap: reposition needle to a different quadrant. Consider imaging if repeated attempts fail.",
+        "Trismus limiting access: topical anesthetic, consider procedural sedation, or refer to ENT for operative drainage.",
+        "Significant bleeding: apply pressure with gauze, maintain suction, most minor mucosal bleeding is self-limited.",
+        "Large abscess with rapid re-accumulation: ENT consultation for incision and drainage or tonsillectomy."
+      ],
+      "complications": [
+        "Aspiration of pus into the airway",
+        "Bleeding",
+        "Incomplete drainage with re-accumulation",
+        "Injury to the internal carotid artery (prevented by needle depth guard)",
+        "Infection spread to deep neck spaces",
+        "Vasovagal reaction"
+      ],
+      "aftercare": [
+        "Oral antibiotics: amoxicillin-clavulanate or clindamycin. Follow institutional guidelines.",
+        "Pain management: NSAIDs, acetaminophen, consider medrol dose pack per institutional protocol.",
+        "Encourage oral hydration. Soft diet.",
+        "ENT follow-up within 2–3 days for reassessment.",
+        "Return precautions: worsening pain, inability to swallow, difficulty breathing, fever, neck swelling."
+      ],
+      "documentation": [
+        "Peritonsillar abscess drainage via needle aspiration performed.",
+        "Informed consent obtained.",
+        "Topical and local anesthesia applied to [side] peritonsillar area.",
+        "Needle inserted at superior pole with depth guard at 1 cm.",
+        "Aspirated [volume] mL of purulent material. Sent for culture.",
+        "Patient tolerated procedure without complication.",
+        "Antibiotics prescribed. ENT follow-up arranged. Return precautions discussed."
+      ],
+      "seniorPearls": [
+        "The needle guard is not optional. The carotid is 2 cm away. You only need 1 cm of depth.",
+        "If the patient cannot open their mouth, do not force it. Sedate or consult ENT.",
+        "Most PTAs are at the superior pole. If your first aspiration is dry, try there before giving up.",
+        "These patients look terrible but get dramatically better within minutes of drainage. That immediate relief is diagnostic and therapeutic."
+      ],
+      "references": [
+        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Verify institutional antibiotic guidelines and ENT referral pathways."
+      ]
+    },
+    "visualAssets": []
+  },
+  {
+    "id": "foreign_body_removal_soft_tissue",
+    "title": "Foreign Body Removal (Soft Tissue)",
+    "category": "Wound / Soft Tissue",
+    "difficulty": "Intermediate",
+    "reviewTime": "2 min",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "tags": [
+      "foreign body",
+      "FB",
+      "splinter",
+      "glass",
+      "metal",
+      "needle",
+      "wood",
+      "embedded",
+      "wound exploration",
+      "soft tissue",
+      "removal",
+      "extraction"
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "sections": {
+      "shiftMode": [
+        "X-ray detects glass, metal, gravel, and bone. It does not reliably detect wood, plastic, or thorns.",
+        "Ultrasound is the best bedside tool for radiolucent foreign bodies (wood, plastic, thorns).",
+        "Adequate anesthesia and a bloodless field make the difference between a controlled extraction and a dig.",
+        "If you cannot find it in a reasonable time or it is near critical structures, stop and refer.",
+        "Document what you found, what you removed, and what imaging showed. If retained FB is possible, tell the patient.",
+        "Tetanus status and wound infection risk should be addressed at every visit."
+      ],
+      "indications": [
+        "Known or suspected retained foreign body in soft tissue",
+        "Wound with mechanism suggesting foreign body (glass, wood, metal)",
+        "Non-healing wound or recurrent infection suggesting retained material",
+        "Patient-reported foreign body sensation"
+      ],
+      "contraindications": [
+        "Foreign body near major neurovascular structures requiring operative exploration",
+        "Deep foreign body not accessible with bedside techniques",
+        "Foreign body that is asymptomatic, deeply embedded, and not causing infection (may be observed in select cases)",
+        "Inadequate anesthesia or equipment for safe removal"
+      ],
+      "anatomy": [
+        "Knowledge of local neurovascular anatomy is essential for safe exploration.",
+        "Hand and foot foreign bodies are near tendons, nerves, and vessels in tight compartments.",
+        "Plantar foot: flexor tendons, digital nerves, and plantar fascia are at risk during deep exploration.",
+        "The depth and tissue plane of the foreign body dictate the approach. Imaging helps plan."
+      ],
+      "equipment": [
+        "Local anesthetic (1% or 2% lidocaine with or without epinephrine)",
+        "Syringe and needle for anesthesia (25–27G)",
+        "Antiseptic prep",
+        "Sterile gloves and drape",
+        "Scalpel (#11 or #15 blade)",
+        "Hemostats (mosquito and Kelly)",
+        "Fine-tipped forceps (splinter forceps or Adson)",
+        "Iris scissors",
+        "Needle driver",
+        "Wound irrigation supplies (saline, 18G angiocath on 30–60 mL syringe)",
+        "Tourniquet or Penrose drain (for digit bloodless field)",
+        "Ultrasound with high-frequency linear probe",
+        "Suture material for closure if needed"
+      ],
+      "positioning": [
+        "Position the affected area for optimal access, lighting, and comfort.",
+        "Use a tourniquet for digit procedures to create a bloodless field.",
+        "Ensure the patient is comfortable and the field is well-lit."
+      ],
+      "steps": [
+        "Obtain history: mechanism, timing, material type, symptoms since injury.",
+        "Examine the wound. Assess for signs of infection, neurovascular status distally.",
+        "Image the area: X-ray for radiopaque materials, ultrasound for radiolucent objects.",
+        "Mark the foreign body location on the skin using imaging guidance if needed.",
+        "Anesthetize the area with local or regional block as appropriate.",
+        "Prep and drape the wound.",
+        "If the foreign body is visible or superficial: extract with forceps.",
+        "If deeper: make a small incision over the marked location. Blunt dissect along tissue planes using hemostats.",
+        "Use ultrasound in real-time to guide your approach to deeper or radiolucent foreign bodies.",
+        "Grasp and remove the foreign body. Inspect it for fragmentation.",
+        "Irrigate the wound copiously with normal saline.",
+        "Reassess the wound. Obtain post-removal imaging if fragmentation is suspected.",
+        "Close the wound if appropriate (clean, non-infected, within time window). Leave contaminated or infected wounds open.",
+        "Apply appropriate dressing."
+      ],
+      "ultrasound": [
+        "High-frequency linear probe (10–15 MHz) provides best resolution for superficial foreign bodies.",
+        "Foreign bodies appear as hyperechoic structures, often with posterior shadowing (glass, metal) or reverberation artifact.",
+        "Wood may appear as a hyperechoic linear structure with dirty shadowing.",
+        "Scan in two orthogonal planes to localize in 3D.",
+        "Real-time ultrasound guidance during extraction improves success for deep or small foreign bodies."
+      ],
+      "confirmation": [
+        "Foreign body visualized and removed intact",
+        "Post-removal imaging shows no retained fragments (if indicated)",
+        "Wound irrigated and inspected",
+        "Neurovascular status intact after removal"
+      ],
+      "troubleshooting": [
+        "Cannot locate foreign body: reimage with ultrasound, try different scanning plane, consider CT for deep or small objects.",
+        "Fragmented foreign body: remove what is accessible, image to assess residual, discuss with patient and consider specialist referral.",
+        "Significant bleeding during exploration: apply direct pressure, tourniquet for digits, consider specialist referral for deep structures.",
+        "Foreign body near nerve or tendon: stop if safe extraction is not possible. Refer to hand surgery or appropriate specialist."
+      ],
+      "complications": [
+        "Retained foreign body fragments",
+        "Wound infection",
+        "Neurovascular injury during exploration",
+        "Tendon injury",
+        "Excessive tissue damage from prolonged exploration",
+        "Bleeding or hematoma"
+      ],
+      "aftercare": [
+        "Update tetanus immunization if indicated.",
+        "Antibiotics for contaminated wounds, bite wounds, or immunocompromised patients per guidelines.",
+        "Wound care instructions: keep clean, dressing changes, elevation.",
+        "Return precautions: increasing pain, redness, swelling, drainage, fever.",
+        "If retained FB is possible: disclose to patient, arrange follow-up, document discussion."
+      ],
+      "documentation": [
+        "Foreign body removal performed from [location].",
+        "Informed consent obtained.",
+        "Pre-procedure imaging: [modality] showing [finding].",
+        "Local anesthesia administered. Sterile technique used.",
+        "Foreign body identified and removed: [description of object].",
+        "Wound irrigated with [volume] normal saline.",
+        "Post-procedure neurovascular status intact.",
+        "[Wound closed with X / wound left open for healing by secondary intention].",
+        "Tetanus status addressed. Return precautions and follow-up discussed."
+      ],
+      "seniorPearls": [
+        "If you are digging for more than 15 minutes, you are not removing a foreign body. You are creating a bigger wound.",
+        "Ultrasound finds what X-ray misses. Wood and plastic are invisible on plain film but light up on ultrasound.",
+        "The tourniquet on a finger transforms a bloody mess into a clean field. Use it.",
+        "Telling a patient there might be a retained fragment is better than a malpractice deposition about one you missed."
+      ],
+      "references": [
+        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Emergency Ultrasound Guidelines from ACEP.",
+        "Verify institutional wound management and antibiotic prophylaxis guidelines."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "fb_us_appearance",
+        "kind": "Probe Position",
+        "title": "Foreign body on ultrasound",
+        "subtitle": "High-frequency linear probe. Foreign bodies appear as hyperechoic structures with posterior shadowing (glass, metal) or reverberation artifact. Wood shows dirty shadowing. Scan in two planes.",
+        "assetName": null,
+        "systemImage": "dot.viewfinder",
+        "caption": "Replace assetName with reviewed artwork when available.",
+        "clinicalWarning": "X-ray misses wood, plastic, and thorns. Ultrasound is the bedside tool for radiolucent foreign bodies."
       }
     ]
   }

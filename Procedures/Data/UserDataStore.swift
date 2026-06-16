@@ -41,8 +41,8 @@ final class UserDataStore: ObservableObject {
     func markRecentlyViewed(_ procedure: Procedure) {
         recentIDs.removeAll { $0 == procedure.id }
         recentIDs.insert(procedure.id, at: 0)
-        if recentIDs.count > 12 {
-            recentIDs = Array(recentIDs.prefix(12))
+        if recentIDs.count > AppConstants.maxRecents {
+            recentIDs = Array(recentIDs.prefix(AppConstants.maxRecents))
         }
         saveRecents()
     }
@@ -103,6 +103,32 @@ final class UserDataStore: ObservableObject {
         saveKitCheckedItems()
     }
 
+    func pruneMissingProcedureData(validProcedureIDs: Set<String>) {
+        let originalFavorites = favoriteIDs
+        favoriteIDs = favoriteIDs.intersection(validProcedureIDs)
+        if favoriteIDs != originalFavorites {
+            saveFavorites()
+        }
+
+        let originalRecents = recentIDs
+        recentIDs = recentIDs.filter { validProcedureIDs.contains($0) }
+        if recentIDs != originalRecents {
+            saveRecents()
+        }
+
+        let originalNoteKeys = Set(notes.keys)
+        notes = notes.filter { validProcedureIDs.contains($0.key) }
+        if Set(notes.keys) != originalNoteKeys {
+            saveNotes()
+        }
+
+        let originalChecklistKeys = Set(checkedEquipment.keys)
+        checkedEquipment = checkedEquipment.filter { validProcedureIDs.contains($0.key) }
+        if Set(checkedEquipment.keys) != originalChecklistKeys {
+            saveCheckedEquipment()
+        }
+    }
+
     // MARK: - Bulk clearing (Settings)
 
     func clearRecents() {
@@ -141,9 +167,9 @@ final class UserDataStore: ObservableObject {
         }
 
         if let recentArray = defaults.array(forKey: UserDataStoreKey.recents) as? [String] {
-            recentIDs = Array(recentArray.prefix(12))
+            recentIDs = Array(recentArray.prefix(AppConstants.maxRecents))
         } else if let recentArray = defaults.array(forKey: UserDataStoreKey.legacyRecents) as? [String] {
-            recentIDs = Array(recentArray.prefix(12))
+            recentIDs = Array(recentArray.prefix(AppConstants.maxRecents))
             saveRecents()
         }
 

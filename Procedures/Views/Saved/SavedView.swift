@@ -95,7 +95,7 @@ struct SavedView: View {
                 }
 
                 Section("About") {
-                    Text("Procedures is an educational procedure review tool for trained clinicians. It does not replace formal training, supervision, credentialing, clinical judgment, or local policy.")
+                    Text(AppConstants.clinicalDisclaimer)
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }

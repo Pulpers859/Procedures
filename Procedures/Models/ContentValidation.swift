@@ -40,6 +40,7 @@ enum ContentValidator {
         }
 
         issues.append(contentsOf: validateRescueCards(rescueCards, procedureIDs: Set(ids)))
+        issues.append(contentsOf: validateRescueCoverage(procedures, rescueCards: rescueCards))
         issues.append(contentsOf: validateKits(kits, procedureIDs: Set(ids)))
 
         // Aggregate, honest read on clinical sign-off so the editor sees one
@@ -135,6 +136,22 @@ enum ContentValidator {
         }
 
         return issues
+    }
+
+    private static func validateRescueCoverage(_ procedures: [Procedure], rescueCards: [ComplicationRescueCard]) -> [ContentValidationIssue] {
+        let coveredIDs = Set(rescueCards.flatMap(\.relatedProcedureIDs))
+        return procedures.compactMap { procedure in
+            guard !coveredIDs.contains(procedure.id) else { return nil }
+            let isHighRisk = procedure.difficulty == .advanced || procedure.difficulty == .rareCrash
+            return ContentValidationIssue(
+                severity: isHighRisk ? .warning : .polish,
+                procedureID: procedure.id,
+                procedureTitle: procedure.title,
+                message: isHighRisk
+                    ? "high-risk procedure has no rescue card coverage."
+                    : "no rescue card coverage."
+            )
+        }
     }
 
     private static func validateRescueCards(_ cards: [ComplicationRescueCard], procedureIDs: Set<String>) -> [ContentValidationIssue] {

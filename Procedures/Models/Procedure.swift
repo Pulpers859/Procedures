@@ -95,6 +95,7 @@ enum ProcedureSetting: String, Codable, Hashable {
 
 enum ProcedureDetailSection: String, CaseIterable, Identifiable {
     case shiftMode = "Shift Mode"
+    case visuals = "Visuals"
     case equipment = "Equipment"
     case steps = "Steps"
     case complications = "Complications"
