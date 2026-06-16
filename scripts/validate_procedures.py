@@ -33,6 +33,7 @@ def review_age_days(last_reviewed):
 RESOURCES = ROOT / "Procedures" / "Resources"
 PROCEDURES = RESOURCES / "procedures.json"
 RESCUE_CARDS = RESOURCES / "rescue_cards.json"
+KITS = RESOURCES / "kits.json"
 REQUIRED_SECTIONS = [
     "shiftMode", "indications", "contraindications", "anatomy", "equipment",
     "positioning", "steps", "ultrasound", "confirmation", "troubleshooting",
@@ -152,16 +153,55 @@ def validate_rescue_cards(cards, procedure_ids):
     return issues
 
 
+KIT_REQUIRED_FIELDS = ["id", "title", "subtitle", "category", "lastReviewed", "version"]
+KIT_REQUIRED_LISTS = ["inKit", "patientSetup", "references", "tags"]
+
+
+def validate_kits(kits, procedure_ids):
+    issues = []
+
+    if not kits:
+        return issues
+
+    ids = [item.get("id") for item in kits]
+    duplicate_ids = sorted({item for item in ids if ids.count(item) > 1})
+    for duplicate_id in duplicate_ids:
+        issues.append(("BLOCKER", duplicate_id, "duplicate kit id"))
+
+    for item in kits:
+        kid = item.get("id", "<missing id>")
+        title = item.get("title", kid)
+
+        for field in KIT_REQUIRED_FIELDS:
+            if not item.get(field):
+                issues.append(("BLOCKER", title, f"missing metadata: {field}"))
+
+        for field in KIT_REQUIRED_LISTS:
+            val = item.get(field)
+            if not isinstance(val, list) or not val:
+                issues.append(("BLOCKER" if field in {"inKit", "references"} else "WARNING", title, f"missing or empty list: {field}"))
+
+        missing = [pid for pid in item.get("relatedProcedureIDs", []) if pid not in procedure_ids]
+        if missing:
+            issues.append(("WARNING", title, f"related procedure IDs not found: {', '.join(missing)}"))
+
+        issues.extend(governance_issues(title, item))
+
+    return issues
+
+
 def main() -> int:
     procedures = load_json(PROCEDURES)
     rescue_cards = load_json(RESCUE_CARDS)
-    if procedures is None or rescue_cards is None:
+    kits_data = load_json(KITS)
+    if procedures is None or rescue_cards is None or kits_data is None:
         return 1
 
     issues = []
     issues.extend(validate_procedures(procedures))
     procedure_ids = {item.get("id") for item in procedures}
     issues.extend(validate_rescue_cards(rescue_cards, procedure_ids))
+    issues.extend(validate_kits(kits_data, procedure_ids))
 
     severity_order = {"BLOCKER": 0, "WARNING": 1, "POLISH": 2}
     issues.sort(key=lambda issue: (severity_order.get(issue[0], 99), issue[1], issue[2]))
@@ -170,13 +210,14 @@ def main() -> int:
     for level, title, message in issues:
         print(f"{level}: {title}: {message}")
 
-    total_items = len(procedures) + len(rescue_cards)
+    total_items = len(procedures) + len(rescue_cards) + len(kits_data)
     reviewed = sum(
-        1 for item in (procedures + rescue_cards)
+        1 for item in (procedures + rescue_cards + kits_data)
         if item.get("reviewerStatus") in REVIEWED_STATUSES
     )
     print(
-        f"\nValidated {len(procedures)} procedures and {len(rescue_cards)} rescue cards. "
+        f"\nValidated {len(procedures)} procedures, {len(rescue_cards)} rescue cards, "
+        f"and {len(kits_data)} kits. "
         f"Blockers: {len(blockers)}. Total issues: {len(issues)}. "
         f"Clinically reviewed: {reviewed}/{total_items}."
     )

@@ -22,7 +22,11 @@ struct ContentValidationIssue: Identifiable, Hashable {
 }
 
 enum ContentValidator {
-    static func validate(_ procedures: [Procedure], rescueCards: [ComplicationRescueCard] = []) -> [ContentValidationIssue] {
+    static func validate(
+        _ procedures: [Procedure],
+        rescueCards: [ComplicationRescueCard] = [],
+        kits: [Kit] = []
+    ) -> [ContentValidationIssue] {
         var issues: [ContentValidationIssue] = []
 
         let ids = procedures.map(\.id)
@@ -36,12 +40,14 @@ enum ContentValidator {
         }
 
         issues.append(contentsOf: validateRescueCards(rescueCards, procedureIDs: Set(ids)))
+        issues.append(contentsOf: validateKits(kits, procedureIDs: Set(ids)))
 
         // Aggregate, honest read on clinical sign-off so the editor sees one
         // actionable line instead of a flag on every unreviewed item.
-        let totalItems = procedures.count + rescueCards.count
+        let totalItems = procedures.count + rescueCards.count + kits.count
         let unreviewed = procedures.filter { !$0.reviewer.isClinicallyReviewed }.count
             + rescueCards.filter { !$0.reviewer.isClinicallyReviewed }.count
+            + kits.filter { !$0.reviewer.isClinicallyReviewed }.count
         if unreviewed > 0 {
             issues.append(.init(
                 severity: .polish,
@@ -169,6 +175,47 @@ enum ContentValidator {
             let missingRelations = card.relatedProcedureIDs.filter { !procedureIDs.contains($0) }
             if !missingRelations.isEmpty {
                 add(.warning, card.title, "related procedure IDs not found in procedures.json: \(missingRelations.joined(separator: ", ")).")
+            }
+        }
+
+        return issues
+    }
+
+    private static func validateKits(_ kits: [Kit], procedureIDs: Set<String>) -> [ContentValidationIssue] {
+        var issues: [ContentValidationIssue] = []
+
+        func add(_ severity: ContentValidationIssue.Severity, _ title: String?, _ message: String) {
+            issues.append(.init(severity: severity, procedureID: nil, procedureTitle: title, message: message))
+        }
+
+        if kits.isEmpty { return issues }
+
+        let ids = kits.map(\.id)
+        let duplicateIDs = Dictionary(grouping: ids, by: { $0 }).filter { $0.value.count > 1 }.keys.sorted()
+        if !duplicateIDs.isEmpty {
+            add(.blocker, nil, "Duplicate kit IDs: \(duplicateIDs.joined(separator: ", ")).")
+        }
+
+        for kit in kits {
+            if kit.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.blocker, kit.title, "missing kit title.") }
+            if kit.subtitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.warning, kit.title, "missing kit subtitle.") }
+            if kit.inKit.isEmpty { add(.blocker, kit.title, "inKit content is empty.") }
+            if kit.patientSetup.isEmpty { add(.warning, kit.title, "missing patient setup instructions.") }
+            if kit.references.isEmpty { add(.blocker, kit.title, "missing references.") }
+            if kit.tags.isEmpty { add(.warning, kit.title, "missing search tags.") }
+
+            if kit.lastReviewed.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                add(.blocker, kit.title, "missing last-reviewed metadata.")
+            } else if ContentFreshness.isUnparseableDate(kit.lastReviewed) {
+                add(.blocker, kit.title, "last-reviewed date '\(kit.lastReviewed)' is not a valid yyyy-MM-dd date.")
+            } else if let days = ContentFreshness.daysSinceReview(kit.lastReviewed), days > ContentFreshness.stalenessThresholdDays {
+                add(.warning, kit.title, "kit content is stale: last reviewed \(days) days ago; schedule re-review.")
+            }
+            if kit.version.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.blocker, kit.title, "missing version metadata.") }
+
+            let missingRelations = kit.relatedProcedureIDs.filter { !procedureIDs.contains($0) }
+            if !missingRelations.isEmpty {
+                add(.warning, kit.title, "related procedure IDs not found in procedures.json: \(missingRelations.joined(separator: ", ")).")
             }
         }
 

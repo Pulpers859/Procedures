@@ -5,6 +5,7 @@ private enum UserDataStoreKey {
     static let recents = "Procedures.recentIDs"
     static let notes = "Procedures.notes"
     static let checkedEquipment = "Procedures.checkedEquipment"
+    static let kitCheckedItems = "Procedures.kitCheckedItems"
 
     static let legacyFavorites = "ProcedureSTAT.favoriteIDs"
     static let legacyRecents = "ProcedureSTAT.recentIDs"
@@ -18,6 +19,7 @@ final class UserDataStore: ObservableObject {
     @Published private(set) var recentIDs: [String] = []
     @Published private(set) var notes: [String: String] = [:]
     @Published private(set) var checkedEquipment: [String: Set<String>] = [:]
+    @Published private(set) var kitCheckedItems: [String: Set<String>] = [:]
 
     init() {
         load()
@@ -79,6 +81,28 @@ final class UserDataStore: ObservableObject {
         saveCheckedEquipment()
     }
 
+    // MARK: - Kit checklist
+
+    func isKitItemChecked(_ item: String, forKitID kitID: String) -> Bool {
+        kitCheckedItems[kitID, default: []].contains(item)
+    }
+
+    func toggleKitItem(_ item: String, forKitID kitID: String) {
+        var kitSet = kitCheckedItems[kitID, default: []]
+        if kitSet.contains(item) {
+            kitSet.remove(item)
+        } else {
+            kitSet.insert(item)
+        }
+        kitCheckedItems[kitID] = kitSet
+        saveKitCheckedItems()
+    }
+
+    func resetKit(withID kitID: String) {
+        kitCheckedItems[kitID] = []
+        saveKitCheckedItems()
+    }
+
     // MARK: - Bulk clearing (Settings)
 
     func clearRecents() {
@@ -99,6 +123,11 @@ final class UserDataStore: ObservableObject {
     func clearAllEquipment() {
         checkedEquipment = [:]
         saveCheckedEquipment()
+    }
+
+    func clearAllKitChecklists() {
+        kitCheckedItems = [:]
+        saveKitCheckedItems()
     }
 
     private func load() {
@@ -135,6 +164,11 @@ final class UserDataStore: ObservableObject {
             checkedEquipment = decoded.mapValues { Set($0) }
             saveCheckedEquipment()
         }
+
+        if let data = defaults.data(forKey: UserDataStoreKey.kitCheckedItems),
+           let decoded = try? JSONDecoder().decode([String: [String]].self, from: data) {
+            kitCheckedItems = decoded.mapValues { Set($0) }
+        }
     }
 
     private func saveFavorites() {
@@ -155,6 +189,13 @@ final class UserDataStore: ObservableObject {
         let encoded = checkedEquipment.mapValues { Array($0).sorted() }
         if let data = try? JSONEncoder().encode(encoded) {
             UserDefaults.standard.set(data, forKey: UserDataStoreKey.checkedEquipment)
+        }
+    }
+
+    private func saveKitCheckedItems() {
+        let encoded = kitCheckedItems.mapValues { Array($0).sorted() }
+        if let data = try? JSONEncoder().encode(encoded) {
+            UserDefaults.standard.set(data, forKey: UserDataStoreKey.kitCheckedItems)
         }
     }
 }

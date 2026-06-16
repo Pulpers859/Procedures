@@ -35,7 +35,7 @@ struct RootTabView: View {
             ComplicationsHomeView()
                 .tabItem { Label("Rescue", systemImage: "lifepreserver.fill") }
 
-            EquipmentHomeView()
+            KitsHomeView()
                 .tabItem { Label("Kits", systemImage: "checklist.checked") }
 
             SavedView()

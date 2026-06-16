@@ -102,10 +102,13 @@ enum ClinicalSynonyms {
 final class ProcedureRepository: ObservableObject {
     @Published private(set) var procedures: [Procedure] = []
     @Published private(set) var rescueCards: [ComplicationRescueCard] = []
+    @Published private(set) var kits: [Kit] = []
     @Published private(set) var loadError: String?
     @Published private(set) var rescueLoadError: String?
+    @Published private(set) var kitLoadError: String?
     @Published private(set) var loadWarning: String?
     @Published private(set) var rescueLoadWarning: String?
+    @Published private(set) var kitLoadWarning: String?
     @Published private(set) var contentIssues: [ContentValidationIssue] = []
     var contentWarnings: [String] { contentIssues.map(\.displayMessage) }
 
@@ -116,7 +119,8 @@ final class ProcedureRepository: ObservableObject {
     func loadContent() {
         loadProcedures()
         loadRescueCards()
-        contentIssues = ContentValidator.validate(procedures, rescueCards: rescueCards)
+        loadKits()
+        contentIssues = ContentValidator.validate(procedures, rescueCards: rescueCards, kits: kits)
     }
 
     func loadProcedures() {
@@ -168,12 +172,45 @@ final class ProcedureRepository: ObservableObject {
         }
     }
 
+    func loadKits() {
+        do {
+            let load = try KitStore.loadFromBundle()
+            kits = load.kits
+            if load.kits.isEmpty {
+                kitLoadError = "kits.json was read but no kits could be decoded. Confirm the structure matches the current schema."
+                kitLoadWarning = nil
+            } else {
+                kitLoadError = nil
+                kitLoadWarning = load.dropped > 0
+                    ? "\(load.dropped) of \(load.total) kits could not be read and were skipped. Fix kits.json to restore them."
+                    : nil
+            }
+        } catch {
+            kitLoadError = "Failed to load kits.json: \(error.localizedDescription)"
+            kits = []
+            kitLoadWarning = nil
+        }
+    }
+
     func procedure(withID id: String) -> Procedure? {
         procedures.first { $0.id == id }
     }
 
     func procedures(in category: ProcedureCategory) -> [Procedure] {
         procedures.filter { $0.category == category }
+    }
+
+    func kit(withID id: String) -> Kit? {
+        kits.first { $0.id == id }
+    }
+
+    func kits(in category: Kit.KitCategory) -> [Kit] {
+        kits.filter { $0.category == category }
+    }
+
+    func searchKits(_ query: String) -> [Kit] {
+        guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return kits }
+        return kits.filter { $0.matches(query) }
     }
 
     func search(_ query: String) -> [Procedure] {
