@@ -94,7 +94,7 @@ struct GuideHomeView: View {
 
         Section("Procedure Results") {
             if filteredProcedures.isEmpty {
-                Text("No procedures found. Try clinical shorthand like ETT, CVC, cordis, vascath, US IV, a-line, tap, abscess, pacer, LP, or canthotomy.")
+                Text("No procedures found. Try clinical shorthand like ETT, CVC, cordis, US IV, a-line, tap, abscess, suture, shoulder, fascia iliaca, pacer, LP, or thoracotomy.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             } else {

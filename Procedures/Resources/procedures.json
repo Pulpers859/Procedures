@@ -2700,5 +2700,580 @@
         "clinicalWarning": "Visual must make the inferior crus target and a globe-safe cut direction unambiguous."
       }
     ]
+  },
+  {
+    "id": "laceration_repair",
+    "title": "Laceration Repair (Suturing)",
+    "category": "Wound / Soft Tissue",
+    "difficulty": "Basic",
+    "reviewTime": "3 min",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "reviewerStatus": "Needs Clinical Review",
+    "tags": [
+      "laceration",
+      "suture",
+      "wound repair",
+      "wound closure",
+      "simple interrupted",
+      "anesthesia",
+      "irrigation",
+      "tetanus"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Assess the wound for foreign body, tendon/nerve/vessel injury, joint involvement, and contamination before closing anything.",
+        "Check distal neurovascular and motor function and document it before infiltrating anesthetic.",
+        "Anesthetize, then explore through the full depth and range of motion \u2014 injuries hide off the resting position.",
+        "Irrigate copiously with normal saline or potable tap water; pressure and volume matter more than additives.",
+        "Choose closure: primary now, delayed primary for high-contamination/older wounds, or referral for complex/specialty areas.",
+        "Approximate without tension; evert edges; match suture size to location and remove on schedule.",
+        "Update tetanus and document wound, exploration, repair, and aftercare."
+      ],
+      "indications": [
+        "Acute traumatic laceration amenable to primary closure",
+        "Wound where closure improves hemostasis, function, or cosmesis",
+        "Clean or cleanable wound within an appropriate time window for the location"
+      ],
+      "contraindications": [
+        "Signs of established infection (close only after treatment, or use delayed primary closure)",
+        "Heavily contaminated or bite wounds in high-risk locations (consider delayed closure or specialty input)",
+        "Wounds with retained foreign material not yet removed",
+        "Injuries needing operative or specialist repair (tendon, nerve, artery, open fracture, complex facial/eyelid)",
+        "Wounds beyond a safe time window for the body region and contamination level"
+      ],
+      "anatomy": [
+        "Know the underlying structures at the site: tendons, nerves, vessels, ducts, and joints near the wound.",
+        "Facial landmarks (vermilion border, eyelid margins, eyebrow) require precise alignment and often specialty care.",
+        "Skin tension lines guide orientation and influence scarring.",
+        "Depth determines whether deep dermal sutures are needed to close dead space and reduce tension."
+      ],
+      "equipment": [
+        "Local anesthetic (lidocaine with or without epinephrine, avoiding epinephrine in end-arterial fields per policy)",
+        "Syringe and small-gauge needle for infiltration",
+        "Irrigation: normal saline or potable water, large syringe with splash guard",
+        "Skin antiseptic and sterile drape",
+        "Suture material appropriate to location (e.g., 6-0 face, 4-0/5-0 extremities, deeper absorbable for dermis)",
+        "Needle driver, toothed forceps, suture scissors, and a sterile suture tray",
+        "Sterile gloves and good lighting",
+        "Wound dressing and supplies for tetanus prophylaxis"
+      ],
+      "positioning": [
+        "Position the patient and the wound for direct visualization and ergonomic access.",
+        "Optimize lighting; use a headlamp or task light for deep or angled wounds.",
+        "Support the limb or area so the patient can hold still during repair.",
+        "Examine the wound through its full range of motion to detect deep injuries."
+      ],
+      "steps": [
+        "Obtain history including mechanism, timing, contamination, and tetanus status.",
+        "Document distal neurovascular and motor function before anesthesia.",
+        "Infiltrate local anesthetic and confirm adequate analgesia.",
+        "Explore the full wound depth and range of motion for foreign body or deep-structure injury.",
+        "Irrigate copiously with saline or potable water under moderate pressure.",
+        "Achieve hemostasis and debride devitalized tissue conservatively.",
+        "Place deep dermal absorbable sutures if needed to reduce tension and close dead space.",
+        "Approximate the skin edges with everting interrupted sutures, matching size and spacing to the location.",
+        "Confirm edge apposition and eversion without tension or gaping.",
+        "Apply dressing, update tetanus prophylaxis, and give wound-care and suture-removal instructions."
+      ],
+      "ultrasound": [
+        "Ultrasound can help localize radiolucent foreign bodies (wood, plastic) not seen on x-ray.",
+        "Useful to confirm or exclude retained material before closure when suspicion is high.",
+        "Can assess depth and proximity to vessels or tendons in selected wounds."
+      ],
+      "confirmation": [
+        "Wound explored and free of foreign body and unrepaired deep injury",
+        "Adequate irrigation performed",
+        "Edges approximated and everted without tension",
+        "Hemostasis achieved",
+        "Tetanus status addressed and aftercare instructions given"
+      ],
+      "troubleshooting": [
+        "Persistent bleeding: direct pressure, identify and control the source; avoid blind deep ties near nerves.",
+        "Edges will not approximate without tension: place deep dermal sutures or consider undermining; reassess closure choice.",
+        "Inadequate anesthesia: supplement infiltration or use a regional/field block; buffer lidocaine to reduce sting.",
+        "Wound edge necrosis or contamination concern: consider delayed primary closure instead of forcing primary repair.",
+        "Suspected tendon/nerve injury found on exploration: do not close over it blindly; involve the appropriate specialist."
+      ],
+      "complications": [
+        "Wound infection",
+        "Dehiscence",
+        "Retained foreign body",
+        "Missed deep-structure injury (tendon, nerve, vessel)",
+        "Hypertrophic scar or keloid",
+        "Cosmetic mismatch at landmark borders"
+      ],
+      "aftercare": [
+        "Keep the wound clean and dry per local guidance; instruct on signs of infection.",
+        "Provide a suture-removal timeline appropriate to the body region.",
+        "Update tetanus prophylaxis based on wound and immunization status.",
+        "Arrange follow-up or wound check for higher-risk wounds and consider antibiotics only when indicated."
+      ],
+      "documentation": [
+        "Laceration repaired at [site]; mechanism and timing recorded.",
+        "Pre-repair distal neurovascular and motor exam documented as intact.",
+        "Wound explored; no retained foreign body or deep-structure injury identified (or findings noted).",
+        "Irrigation performed; closure type and suture material/size documented.",
+        "Tetanus prophylaxis addressed.",
+        "Aftercare and suture-removal instructions provided."
+      ],
+      "seniorPearls": [
+        "The repair is only as good as the exploration \u2014 most missed tendon and foreign-body injuries are closed over, not unfindable.",
+        "Examine the wound in the position of injury, not the position of rest, or you will miss tendon lacerations that retracted.",
+        "Eversion and tension control determine the scar far more than how fancy the stitch is."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, methods of wound closure.",
+        "Emergency medicine references on wound irrigation, closure timing, and tetanus prophylaxis.",
+        "Institutional wound-care and antibiotic-prophylaxis policies; verify local guidance."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "suture_eversion",
+        "kind": "Setup",
+        "title": "Everting interrupted suture",
+        "subtitle": "Needle entry angle, bite depth, and edge eversion for a tension-free closure.",
+        "assetName": null,
+        "systemImage": "bandage.fill",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual should make edge eversion and tension-free apposition clear."
+      }
+    ]
+  },
+  {
+    "id": "shoulder_reduction",
+    "title": "Shoulder Reduction (Anterior)",
+    "category": "Other",
+    "difficulty": "Intermediate",
+    "reviewTime": "3 min",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "reviewerStatus": "Needs Clinical Review",
+    "tags": [
+      "shoulder dislocation",
+      "reduction",
+      "anterior dislocation",
+      "scapular manipulation",
+      "axillary nerve",
+      "Cunningham",
+      "analgesia",
+      "orthopedics"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Confirm anterior dislocation and document neurovascular status \u2014 especially axillary nerve sensation over the deltoid \u2014 before and after.",
+        "Get pre-reduction imaging unless the presentation is clearly recurrent and atraumatic per local practice.",
+        "Optimize analgesia/relaxation: intra-articular block, procedural sedation, or a gentle technique the patient can tolerate.",
+        "Choose a low-force technique first (scapular manipulation, Cunningham, external rotation) before high-traction methods.",
+        "Reduce slowly and steadily; pain and muscle spasm fight speed, not patience.",
+        "Confirm reduction clinically and with post-reduction imaging; recheck neurovascular status.",
+        "Immobilize and arrange orthopedic follow-up."
+      ],
+      "indications": [
+        "Acute anterior glenohumeral dislocation",
+        "Confirmed dislocation requiring reduction to restore joint position and relieve neurovascular compromise",
+        "Recurrent dislocation appropriate for ED reduction"
+      ],
+      "contraindications": [
+        "Associated displaced fracture that warrants orthopedic reduction (e.g., certain surgical-neck fractures)",
+        "Neurovascular compromise needing urgent surgical evaluation",
+        "Posterior or inferior dislocation requiring a different, specific approach",
+        "Open dislocation or signs of significant associated injury",
+        "Inability to safely provide analgesia/sedation when required"
+      ],
+      "anatomy": [
+        "The glenohumeral joint trades stability for mobility; the humeral head sits anterior/inferior in the common dislocation.",
+        "The axillary nerve wraps the surgical neck of the humerus and is the most commonly injured nerve \u2014 test deltoid sensation and function.",
+        "The brachial plexus and axillary vessels lie medially; assess distal pulses and perfusion.",
+        "Associated injuries include Hill-Sachs and Bankart lesions and greater tuberosity fractures."
+      ],
+      "equipment": [
+        "Stretcher or bed allowing the chosen technique and patient positioning",
+        "Monitoring and supplies for procedural sedation if used (pulse oximetry, capnography, oxygen, airway kit)",
+        "Intra-articular block supplies (local anesthetic, needle) if used",
+        "A sheet for counter-traction if a traction technique is chosen",
+        "Sling or shoulder immobilizer for post-reduction",
+        "Imaging access for pre- and post-reduction films"
+      ],
+      "positioning": [
+        "Scapular manipulation: patient prone or seated, affected arm hanging with gentle traction.",
+        "Cunningham/external rotation: patient seated upright, elbow adducted to the side.",
+        "Traction-counter-traction: patient supine with a sheet around the torso for counter-traction.",
+        "Choose the position that matches your technique and the patient's tolerance and comfort."
+      ],
+      "steps": [
+        "Confirm the diagnosis and document a detailed neurovascular exam including axillary nerve function.",
+        "Obtain pre-reduction imaging unless clearly indicated otherwise by local protocol.",
+        "Provide analgesia/relaxation: intra-articular block, procedural sedation, or a sedation-sparing gentle technique.",
+        "Select a first-line low-force technique (scapular manipulation, Cunningham, or external rotation).",
+        "Apply slow, steady force appropriate to the technique, allowing muscle relaxation over time.",
+        "Feel or observe for the humeral head relocating into the glenoid.",
+        "If unsuccessful, optimize analgesia and try an alternative technique rather than escalating force abruptly.",
+        "Confirm reduction clinically (restored contour and motion) and recheck neurovascular status.",
+        "Obtain post-reduction imaging to confirm position and assess for fracture.",
+        "Immobilize in a sling/immobilizer and arrange orthopedic follow-up."
+      ],
+      "ultrasound": [
+        "Bedside ultrasound (posterior approach) can confirm dislocation and successful reduction in real time.",
+        "Useful to reduce repeat radiographs and to guide intra-articular block placement.",
+        "Can assist confirming relocation before formal post-reduction films."
+      ],
+      "confirmation": [
+        "Palpable/visible relocation of the humeral head with restored shoulder contour",
+        "Improved range of motion and reduced pain after reduction",
+        "Intact post-reduction neurovascular exam (including axillary nerve)",
+        "Post-reduction imaging confirms congruent joint and no new fracture",
+        "Shoulder immobilized and follow-up arranged"
+      ],
+      "troubleshooting": [
+        "Reduction failing: ensure adequate analgesia/relaxation; muscle spasm is the usual obstacle \u2014 add an intra-articular block or sedation and switch technique.",
+        "Persistent inability after multiple attempts: reassess for fracture or alternate dislocation type and involve orthopedics.",
+        "New neurologic deficit after reduction: document and arrange urgent orthopedic/neuro evaluation.",
+        "Suspected associated fracture on pre-reduction film: weigh technique choice and consult orthopedics.",
+        "Severe pain limiting any technique: optimize analgesia before continuing rather than forcing traction."
+      ],
+      "complications": [
+        "Axillary nerve injury",
+        "Iatrogenic or associated humeral fracture",
+        "Brachial plexus or vascular injury",
+        "Recurrent instability/dislocation",
+        "Rotator cuff injury, especially in older patients",
+        "Sedation-related complications when procedural sedation is used"
+      ],
+      "aftercare": [
+        "Immobilize in a sling or shoulder immobilizer per orthopedic guidance.",
+        "Provide analgesia and instructions to avoid provocative positions.",
+        "Arrange orthopedic follow-up; first-time dislocations often need outpatient assessment.",
+        "Counsel on return precautions: numbness, weakness, worsening pain, or recurrent dislocation."
+      ],
+      "documentation": [
+        "Anterior shoulder dislocation confirmed; pre-reduction neurovascular exam (including axillary nerve) documented.",
+        "Analgesia/sedation method recorded.",
+        "Reduction technique(s) used and number of attempts documented.",
+        "Reduction confirmed clinically and on post-reduction imaging.",
+        "Post-reduction neurovascular exam documented as intact (or deficits noted).",
+        "Immobilization applied and orthopedic follow-up arranged."
+      ],
+      "seniorPearls": [
+        "Most failed reductions are really failed analgesia \u2014 relax the patient and the shoulder usually follows.",
+        "Always test and document the axillary nerve before and after; an unrecorded pre-reduction deficit becomes 'your' deficit.",
+        "Lead with low-force techniques; high-traction methods add fracture and soft-tissue risk for little benefit in cooperative patients."
+      ],
+      "references": [
+        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, management of shoulder dislocations.",
+        "Emergency medicine and orthopedic references on anterior glenohumeral reduction techniques.",
+        "Institutional protocols on procedural sedation and intra-articular blocks; verify local practice."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "shoulder_scapular_manip",
+        "kind": "Setup",
+        "title": "Scapular manipulation",
+        "subtitle": "Patient position, scapular tip rotation, and gentle traction vector for low-force reduction.",
+        "assetName": null,
+        "systemImage": "figure.arms.open",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual should make the low-force technique and traction direction clear."
+      }
+    ]
+  },
+  {
+    "id": "fascia_iliaca_block",
+    "title": "Fascia Iliaca Compartment Block",
+    "category": "Regional Anesthesia",
+    "difficulty": "Intermediate",
+    "reviewTime": "3 min",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "reviewerStatus": "Needs Clinical Review",
+    "tags": [
+      "fascia iliaca",
+      "FICB",
+      "hip fracture",
+      "femoral nerve",
+      "regional anesthesia",
+      "ultrasound",
+      "opioid sparing",
+      "LAST",
+      "nerve block"
+    ],
+    "sections": {
+      "shiftMode": [
+        "Most useful for hip and proximal femur fractures: opioid-sparing analgesia that helps frail and elderly patients.",
+        "Confirm no allergy, no infection over the site, and document distal neurovascular function before the block.",
+        "Use ultrasound; deposit local anesthetic beneath the fascia iliaca, lateral to the femoral artery and nerve, not into them.",
+        "Calculate a weight-based maximum local anesthetic dose and stay under it \u2014 these are large-volume blocks.",
+        "Aspirate before and during injection to avoid intravascular delivery; watch for LAST.",
+        "Confirm spread under the fascia (a lens of fluid lifting the fascia) rather than within muscle.",
+        "Have LAST rescue (lipid emulsion) and resuscitation equipment available before you start."
+      ],
+      "indications": [
+        "Analgesia for hip fracture (femoral neck, intertrochanteric) and proximal femur fractures",
+        "Femoral shaft fracture pain control",
+        "Opioid-sparing analgesia in elderly or frail patients where systemic opioids carry higher risk"
+      ],
+      "contraindications": [
+        "Patient refusal",
+        "Allergy to local anesthetic",
+        "Infection or wound over the injection site",
+        "Anticoagulation/coagulopathy as a relative risk per local policy",
+        "Pre-existing femoral nerve deficit that must be documented (and may warrant caution)"
+      ],
+      "anatomy": [
+        "The fascia iliaca overlies the iliacus and psoas; the femoral nerve runs deep to it.",
+        "Target is the compartment beneath the fascia iliaca, lateral to the femoral artery and nerve.",
+        "Landmarks: the femoral artery medially and the anterior superior iliac spine laterally; the injection point is lateral to the artery.",
+        "Local anesthetic spreads under the fascia to reach the femoral and lateral femoral cutaneous nerves."
+      ],
+      "equipment": [
+        "Ultrasound machine with linear (or curvilinear for larger patients) probe and sterile cover",
+        "Block needle (e.g., short-bevel or echogenic) and extension tubing",
+        "Local anesthetic in the calculated weight-based volume and concentration",
+        "Saline for hydrodissection/confirmation",
+        "Skin antiseptic, sterile gloves, and drape",
+        "Aspirating syringe",
+        "Lipid emulsion (Intralipid) and full resuscitation equipment for LAST",
+        "Monitoring (pulse oximetry, blood pressure, ECG)"
+      ],
+      "positioning": [
+        "Patient supine with the leg slightly externally rotated and the groin exposed.",
+        "Place the ultrasound screen in your direct line of sight across the patient.",
+        "Clean and drape the area lateral to the femoral pulse.",
+        "Identify the femoral artery, nerve, and the fascia iliaca before needling."
+      ],
+      "steps": [
+        "Confirm indication, exclude contraindications, and document distal neurovascular function.",
+        "Attach monitoring and ensure LAST rescue equipment is immediately available.",
+        "Calculate and draw up a weight-based safe dose of local anesthetic.",
+        "Prep and drape; scan to identify the femoral artery, femoral nerve, iliacus, and the overlying fascia iliaca.",
+        "Choose an entry point lateral to the femoral nerve and artery.",
+        "Advance the needle in-plane under ultrasound toward the plane beneath the fascia iliaca.",
+        "Confirm tip position with a small test injection that lifts the fascia (hydrodissection), not muscle.",
+        "Aspirate, then inject incrementally with repeated aspiration, watching spread under the fascia.",
+        "Observe spread tracking medially and laterally beneath the fascia.",
+        "Monitor for LAST and reassess analgesia and distal neurovascular status after the block."
+      ],
+      "ultrasound": [
+        "Identify the femoral artery and nerve; the fascia iliaca is the hyperechoic layer over iliacus.",
+        "Use in-plane needling lateral to the nerve to keep the needle tip in view throughout.",
+        "A correct injection lifts the fascia off the muscle as an expanding hypoechoic lens.",
+        "If fluid pools within muscle or around the nerve without subfascial spread, reposition before injecting more."
+      ],
+      "confirmation": [
+        "Local anesthetic seen spreading beneath the fascia iliaca on ultrasound",
+        "No intravascular or intraneural injection (negative aspiration, no spread within the nerve)",
+        "Total dose remained below the weight-based maximum",
+        "Progressive analgesia in the femoral distribution over the expected onset time",
+        "No signs of local anesthetic systemic toxicity"
+      ],
+      "troubleshooting": [
+        "Fluid spreading in muscle, not under the fascia: reposition the tip to the correct plane before continuing.",
+        "Resistance or the patient reports lancinating pain on injection: stop \u2014 possible intraneural position; withdraw and reassess.",
+        "Blood on aspiration: withdraw and reposition; never inject against a positive aspirate.",
+        "Early LAST signs (perioral numbness, tinnitus, agitation, dysrhythmia): stop injection and begin lipid-emulsion rescue.",
+        "Inadequate block despite good spread: confirm dose and onset time; supplement analgesia as needed within safe limits."
+      ],
+      "complications": [
+        "Local anesthetic systemic toxicity (LAST)",
+        "Intravascular or intraneural injection",
+        "Nerve injury",
+        "Hematoma",
+        "Infection at the injection site",
+        "Block failure or incomplete analgesia"
+      ],
+      "aftercare": [
+        "Monitor for delayed LAST and reassess analgesia after the expected onset.",
+        "Document the block, dose, and post-block neurovascular exam.",
+        "Communicate the block to the orthopedic and inpatient teams so a femoral deficit is not misattributed.",
+        "Continue multimodal analgesia and reassess pain regularly."
+      ],
+      "documentation": [
+        "Fascia iliaca compartment block performed for [hip/femur] fracture analgesia.",
+        "Contraindications excluded; pre-block distal neurovascular exam documented.",
+        "Local anesthetic agent, concentration, and total weight-based dose recorded (below maximum).",
+        "Ultrasound-guided subfascial spread confirmed; aspiration negative for blood.",
+        "No signs of LAST during or after the procedure.",
+        "Post-block analgesia and neurovascular status documented; block communicated to admitting team."
+      ],
+      "seniorPearls": [
+        "This block shines in elderly hip fractures precisely because it spares the opioids that cause their delirium and respiratory trouble.",
+        "Subfascial spread is the whole game \u2014 fluid in muscle means no block and a wasted dose near your maximum.",
+        "Calculate the maximum dose every time and keep lipid emulsion in the room; large-volume blocks are where LAST happens."
+      ],
+      "references": [
+        "ASRA guidance on regional anesthesia and management of local anesthetic systemic toxicity.",
+        "Emergency medicine regional anesthesia references on the fascia iliaca compartment block.",
+        "Institutional protocols on ED nerve blocks, dosing limits, and LAST rescue; verify local policy."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "ficb_subfascial_spread",
+        "kind": "Probe Position",
+        "title": "Subfascial local spread",
+        "subtitle": "Femoral artery/nerve relationship, fascia iliaca plane, in-plane needle path, and subfascial spread.",
+        "assetName": null,
+        "systemImage": "syringe",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual must make the subfascial target and artery/nerve avoidance unambiguous."
+      }
+    ]
+  },
+  {
+    "id": "resuscitative_thoracotomy",
+    "title": "Resuscitative Thoracotomy",
+    "category": "Cardiac / Resuscitation",
+    "difficulty": "Rare-Crash",
+    "reviewTime": "4 min",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-06-16",
+    "version": "0.1.0",
+    "reviewerStatus": "Needs Clinical Review",
+    "tags": [
+      "thoracotomy",
+      "EDT",
+      "clamshell",
+      "trauma arrest",
+      "pericardiotomy",
+      "aortic cross-clamp",
+      "penetrating",
+      "resuscitation",
+      "cardiac arrest"
+    ],
+    "sections": {
+      "shiftMode": [
+        "This is a last-resort, time-critical trauma procedure with narrow indications \u2014 apply the criteria, do not improvise them.",
+        "Best evidence supports penetrating chest trauma with signs of life within a short window before arrest; blunt arrest outcomes are dismal.",
+        "Goals: release tamponade, control intrathoracic hemorrhage, cross-clamp the aorta, and allow internal cardiac massage.",
+        "Left anterolateral thoracotomy at the 4th/5th intercostal space; extend across the sternum (clamshell) for right-sided or wider access.",
+        "Open the pericardium longitudinally and anterior to the phrenic nerve to relieve tamponade.",
+        "Control obvious cardiac or great-vessel bleeding and cross-clamp the descending aorta if needed.",
+        "Have massive transfusion, surgical backup, and a clear destination (OR) activated before and during the procedure."
+      ],
+      "indications": [
+        "Penetrating thoracic trauma with witnessed loss of vital signs and a short arrest interval",
+        "Traumatic arrest with suspected pericardial tamponade amenable to release",
+        "Selected penetrating trauma arrest with signs of life en route, per local trauma protocol",
+        "Exsanguinating intrathoracic hemorrhage where aortic cross-clamp may be life-saving as a bridge to the OR"
+      ],
+      "contraindications": [
+        "Blunt trauma arrest without signs of life (very poor outcomes; per protocol generally not indicated)",
+        "Prolonged pulselessness beyond the evidence-supported window",
+        "No realistic surgical/definitive care pathway available",
+        "Injuries clearly incompatible with survival",
+        "Penetrating trauma with prolonged arrest and no signs of life per local criteria"
+      ],
+      "anatomy": [
+        "Left anterolateral approach at the 4th-5th intercostal space follows the rib's superior margin to avoid the neurovascular bundle.",
+        "The pericardium is opened longitudinally and anterior to the phrenic nerve, which runs along its lateral surface.",
+        "The descending thoracic aorta lies posteriorly against the spine, anterior to it the esophagus and lung must be retracted.",
+        "Clamshell extension across the sternum exposes both pleural cavities and the heart for wider access."
+      ],
+      "equipment": [
+        "Thoracotomy/clamshell tray (scalpel, Mayo scissors, rib spreader/Finochietto retractor)",
+        "Vascular clamps (aortic and DeBakey-type) for cross-clamping and vessel control",
+        "Toothed forceps and large hemostats",
+        "Internal defibrillator paddles if available",
+        "Suction and large volumes of gauze/laparotomy pads",
+        "Massive transfusion products and rapid infuser",
+        "Sterile gloves, gowns, and eye protection for the team",
+        "Foley catheter or sutures for temporary cardiac wound control"
+      ],
+      "positioning": [
+        "Patient supine with the left arm raised or abducted to expose the lateral chest.",
+        "Operate from the patient's left side for a left anterolateral thoracotomy.",
+        "Ensure continued airway management and ongoing resuscitation by the team.",
+        "Prep quickly; this is a time-critical procedure where speed and exposure dominate."
+      ],
+      "steps": [
+        "Confirm the indication meets local resuscitative thoracotomy criteria and activate trauma surgery and massive transfusion.",
+        "Make a left anterolateral incision at the 4th-5th intercostal space along the superior rib margin, from sternum to the table.",
+        "Divide intercostal muscles and enter the pleura; place and open the rib spreader.",
+        "Extend across the sternum (clamshell) if right-sided injury or wider exposure is needed.",
+        "Open the pericardium longitudinally, anterior to the phrenic nerve, and evacuate clot to relieve tamponade.",
+        "Identify and control cardiac wounds with finger pressure, then a Foley balloon or sutures as appropriate.",
+        "Perform internal cardiac massage and internal defibrillation if indicated.",
+        "Cross-clamp the descending thoracic aorta to support coronary/cerebral perfusion and limit subdiaphragmatic hemorrhage.",
+        "Control intrathoracic bleeding and continue resuscitation with blood products.",
+        "Transport immediately to the operating room for definitive repair if circulation is restored."
+      ],
+      "ultrasound": [
+        "Pre-arrest or peri-arrest ultrasound (e-FAST) can identify tamponade and guide the decision to proceed.",
+        "Cardiac standstill on ultrasound informs prognosis within the resuscitation algorithm.",
+        "Do not let imaging delay a clearly indicated thoracotomy in a peri-arrest penetrating chest trauma."
+      ],
+      "confirmation": [
+        "Pericardium opened and tamponade relieved if present",
+        "Cardiac or great-vessel bleeding controlled",
+        "Aorta cross-clamped when indicated, with improved central perfusion",
+        "Return of organized cardiac activity or perfusing rhythm as the resuscitation endpoint",
+        "Patient moving to definitive operative care without delay"
+      ],
+      "troubleshooting": [
+        "Cannot find a cardiac wound after opening the pericardium: inspect the posterior surface and great vessels; lift the heart carefully.",
+        "Ongoing massive hemorrhage from the chest: pack, control the source, and cross-clamp the aorta while transfusing.",
+        "Phrenic nerve in the way of pericardiotomy: open anterior to it to avoid injury.",
+        "No response after pericardial release and aortic clamp: reassess for non-survivable injury and the resuscitation endpoint.",
+        "Right-sided injury inaccessible from the left: extend to a clamshell for bilateral exposure."
+      ],
+      "complications": [
+        "Iatrogenic injury to the heart, lung, phrenic nerve, or great vessels",
+        "Coronary or aortic injury during clamping",
+        "Massive ongoing hemorrhage",
+        "Inadequate exposure leading to missed injury",
+        "Team blood-borne exposure during a rapid open procedure",
+        "Very high mortality given the underlying physiology"
+      ],
+      "aftercare": [
+        "Move immediately to the operating room for definitive repair if circulation returns.",
+        "Maintain the aortic cross-clamp time awareness and communicate it to the surgical team.",
+        "Continue massive transfusion and correct coagulopathy, acidosis, and hypothermia.",
+        "Debrief the team and address occupational exposures after the resuscitation."
+      ],
+      "documentation": [
+        "Resuscitative thoracotomy performed for [penetrating/blunt] trauma arrest meeting local criteria.",
+        "Mechanism, arrest interval, and signs of life documented.",
+        "Procedure performed: thoracotomy \u00b1 clamshell, pericardiotomy, hemorrhage control, aortic cross-clamp as applicable.",
+        "Intraoperative findings and interventions recorded.",
+        "Resuscitation endpoint and disposition (OR vs. termination) documented.",
+        "Team exposures and debrief noted."
+      ],
+      "seniorPearls": [
+        "The decision to open is the procedure \u2014 applying the indication criteria correctly matters more than blade speed.",
+        "Open the pericardium anterior to the phrenic nerve and longitudinally; tamponade release is often the single highest-yield action.",
+        "This is a bridge, not a destination: it buys minutes to reach the OR, and only certain patients can cross that bridge."
+      ],
+      "references": [
+        "Western Trauma Association and EAST guidelines on emergency department/resuscitative thoracotomy indications.",
+        "ATLS and major trauma surgery references on resuscitative thoracotomy technique.",
+        "Institutional trauma protocols defining local indication criteria; verify local pathway."
+      ]
+    },
+    "visualAssets": [
+      {
+        "id": "edt_pericardiotomy",
+        "kind": "Landmark",
+        "title": "Pericardiotomy & phrenic nerve",
+        "subtitle": "Anterolateral incision level, rib-margin entry, and longitudinal pericardial opening anterior to the phrenic nerve.",
+        "assetName": null,
+        "systemImage": "heart.fill",
+        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "clinicalWarning": "Visual must make the phrenic-nerve-sparing pericardiotomy and incision level unambiguous."
+      }
+    ]
   }
 ]

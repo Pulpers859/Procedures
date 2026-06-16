@@ -19,7 +19,7 @@ struct ProcedureListView: View {
                 if let error = repository.loadError {
                     EmptyStateView(title: "Content failed to load", message: error, systemImage: "exclamationmark.triangle")
                 } else if filteredProcedures.isEmpty {
-                    EmptyStateView(title: "No procedures found", message: "Try a synonym, abbreviation, or category. Search understands terms like ETT, CVC, cordis, vascath, US IV, a-line, tap, abscess, pacer, LP, and canthotomy.", systemImage: "magnifyingglass")
+                    EmptyStateView(title: "No procedures found", message: "Try a synonym, abbreviation, or category. Search understands terms like ETT, CVC, cordis, US IV, a-line, tap, abscess, suture, shoulder, fascia iliaca, pacer, LP, and thoracotomy.", systemImage: "magnifyingglass")
                 } else {
                     List {
                         if searchText.isEmpty {

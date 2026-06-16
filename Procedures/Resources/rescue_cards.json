@@ -263,7 +263,8 @@
     "acuity": "Crash",
     "relatedProcedureIDs": [
       "digital_nerve_block",
-      "procedural_sedation"
+      "procedural_sedation",
+      "fascia_iliaca_block"
     ],
     "trigger": [
       "Neurological or cardiac symptoms during or after local anesthetic injection \u2014 including seizure, altered mental status, dysrhythmia, or cardiac arrest. May occur immediately or up to 60 minutes after injection."
