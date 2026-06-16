@@ -864,7 +864,9 @@
       "tension pneumothorax",
       "needle decompression",
       "crashing chest",
-      "trauma"
+      "trauma",
+      "tension ptx",
+      "emergency decompression"
     ],
     "sections": {
       "shiftMode": [

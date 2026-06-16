@@ -102,20 +102,24 @@ struct ProcedureDetailView: View {
 
     @ViewBuilder
     private var selectedContent: some View {
-        switch selectedSection {
-        case .shiftMode:
-            ShiftModeProcedureContent(procedure: procedure)
-        case .equipment:
-            EquipmentChecklistContent(procedure: procedure)
-        case .steps:
-            StepByStepContent(procedure: procedure)
-        case .complications:
-            ComplicationContent(procedure: procedure)
-        case .documentation:
-            DocumentationContent(procedure: procedure, noteText: $noteText)
-        case .deepReview:
-            DeepReviewContent(procedure: procedure)
+        Group {
+            switch selectedSection {
+            case .shiftMode:
+                ShiftModeProcedureContent(procedure: procedure)
+            case .equipment:
+                EquipmentChecklistContent(procedure: procedure)
+            case .steps:
+                StepByStepContent(procedure: procedure)
+            case .complications:
+                ComplicationContent(procedure: procedure)
+            case .documentation:
+                DocumentationContent(procedure: procedure, noteText: $noteText)
+            case .deepReview:
+                DeepReviewContent(procedure: procedure)
+            }
         }
+        .id(selectedSection)
+        .transition(.opacity.combined(with: .move(edge: .bottom)))
     }
 }
 
@@ -266,8 +270,10 @@ struct DocumentationContent: View {
     let procedure: Procedure
     @Binding var noteText: String
     @EnvironmentObject private var userData: UserDataStore
+    @FocusState private var notesFocused: Bool
     @State private var showCopied = false
     @State private var copyTask: Task<Void, Never>?
+    @State private var saveTask: Task<Void, Never>?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -303,18 +309,32 @@ struct DocumentationContent: View {
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                     TextEditor(text: $noteText)
+                        .focused($notesFocused)
                         .frame(minHeight: 140)
                         .padding(8)
                         .scrollContentBackground(.hidden)
                         .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Spacer()
+                                Button("Done") { notesFocused = false }
+                            }
+                        }
                         .onChange(of: noteText) { _, newValue in
-                            userData.setNote(newValue, for: procedure)
+                            saveTask?.cancel()
+                            saveTask = Task { @MainActor in
+                                try? await Task.sleep(for: .milliseconds(500))
+                                guard !Task.isCancelled else { return }
+                                userData.setNote(newValue, for: procedure)
+                            }
                         }
                 }
             }
         }
         .onDisappear {
             copyTask?.cancel()
+            saveTask?.cancel()
+            userData.setNote(noteText, for: procedure)
         }
     }
 }
