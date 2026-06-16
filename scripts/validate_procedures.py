@@ -47,6 +47,13 @@ MINIMUMS = {
     "documentation": 4,
     "references": 1,
 }
+VALID_CATEGORIES = {
+    "Airway", "Vascular Access", "Thoracic", "Cardiac / Resuscitation",
+    "Neuro", "Regional Anesthesia", "Wound / Soft Tissue",
+    "Ultrasound-Guided", "Sedation & Analgesia", "Other",
+}
+VALID_DIFFICULTIES = {"Basic", "Intermediate", "Advanced", "Rare-Crash"}
+MINIMUM_TAGS = 5
 
 
 def governance_issues(title, item):
@@ -104,6 +111,18 @@ def validate_procedures(data):
             if not item.get(field):
                 issues.append(("BLOCKER", title, f"missing metadata: {field}"))
 
+        category = item.get("category")
+        if category and category not in VALID_CATEGORIES:
+            issues.append(("BLOCKER", title, f"invalid category '{category}'; expected one of: {', '.join(sorted(VALID_CATEGORIES))}"))
+
+        difficulty = item.get("difficulty")
+        if difficulty and difficulty not in VALID_DIFFICULTIES:
+            issues.append(("BLOCKER", title, f"invalid difficulty '{difficulty}'; expected one of: {', '.join(sorted(VALID_DIFFICULTIES))}"))
+
+        tags = item.get("tags", [])
+        if len(tags) < MINIMUM_TAGS:
+            issues.append(("WARNING", title, f"only {len(tags)} search tags; target at least {MINIMUM_TAGS} for clinical shorthand discoverability"))
+
         issues.extend(governance_issues(title, item))
 
         # Visual assets are an optional enhancement, shown only when a real
@@ -152,6 +171,26 @@ def validate_rescue_cards(cards, procedure_ids):
     return issues
 
 
+def validate_rescue_coverage(procedures, rescue_cards):
+    """Flag procedures that have no rescue card coverage, especially high-risk ones."""
+    issues = []
+    covered_ids = set()
+    for card in rescue_cards:
+        covered_ids.update(card.get("relatedProcedureIDs", []))
+
+    high_risk = {"Advanced", "Rare-Crash"}
+    for proc in procedures:
+        pid = proc.get("id", "<missing>")
+        title = proc.get("title", pid)
+        difficulty = proc.get("difficulty", "")
+        if pid not in covered_ids:
+            if difficulty in high_risk:
+                issues.append(("WARNING", title, f"high-risk procedure ({difficulty}) has no rescue card coverage"))
+            else:
+                issues.append(("POLISH", title, "no rescue card coverage"))
+    return issues
+
+
 def main() -> int:
     procedures = load_json(PROCEDURES)
     rescue_cards = load_json(RESCUE_CARDS)
@@ -162,6 +201,7 @@ def main() -> int:
     issues.extend(validate_procedures(procedures))
     procedure_ids = {item.get("id") for item in procedures}
     issues.extend(validate_rescue_cards(rescue_cards, procedure_ids))
+    issues.extend(validate_rescue_coverage(procedures, rescue_cards))
 
     severity_order = {"BLOCKER": 0, "WARNING": 1, "POLISH": 2}
     issues.sort(key=lambda issue: (severity_order.get(issue[0], 99), issue[1], issue[2]))

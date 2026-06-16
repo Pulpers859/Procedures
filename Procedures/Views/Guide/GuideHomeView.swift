@@ -5,6 +5,7 @@ struct GuideHomeView: View {
     @EnvironmentObject private var userData: UserDataStore
     @State private var searchText = ""
     @State private var showingSettings = false
+    @State private var selectedPathway: ClinicalPathway?
 
     private var filteredProcedures: [Procedure] {
         repository.search(searchText)
@@ -71,7 +72,7 @@ struct GuideHomeView: View {
             .navigationDestination(for: ComplicationRescueCard.self) { card in
                 RescueCardDetailView(card: card)
             }
-            .navigationDestination(for: ClinicalPathway.self) { pathway in
+            .navigationDestination(item: $selectedPathway) { pathway in
                 PathwayProcedureListView(pathway: pathway)
             }
             .sheet(isPresented: $showingSettings) {
@@ -141,7 +142,9 @@ struct GuideHomeView: View {
         Section("Clinical Pathways") {
             LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
                 ForEach(ClinicalPathway.defaultPathways) { pathway in
-                    NavigationLink(value: pathway) {
+                    Button {
+                        selectedPathway = pathway
+                    } label: {
                         PathwayTile(pathway: pathway, count: pathwayCount(pathway))
                     }
                     .buttonStyle(.plain)
