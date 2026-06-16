@@ -98,6 +98,9 @@ struct SettingsView: View {
                     Button(role: .destructive) { confirmation = .clearChecklists } label: {
                         Label("Reset Equipment Checklists", systemImage: "checklist.unchecked")
                     }
+                    Button(role: .destructive) { confirmation = .clearKitChecklists } label: {
+                        Label("Reset Kit Room-Setup Checklists", systemImage: "shippingbox")
+                    }
                     Button(role: .destructive) { confirmation = .clearNotes } label: {
                         Label("Delete Local Notes", systemImage: "trash")
                     }
@@ -153,6 +156,7 @@ struct SettingsView: View {
         case .clearRecents: userData.clearRecents()
         case .clearFavorites: userData.clearFavorites()
         case .clearChecklists: userData.clearAllEquipment()
+        case .clearKitChecklists: userData.clearAllKitChecklists()
         case .clearNotes: userData.clearAllNotes()
         }
         confirmation = nil
@@ -163,6 +167,7 @@ private enum DataAction: Identifiable {
     case clearRecents
     case clearFavorites
     case clearChecklists
+    case clearKitChecklists
     case clearNotes
 
     var id: String { title }
@@ -172,6 +177,7 @@ private enum DataAction: Identifiable {
         case .clearRecents: return "Clear all recently viewed procedures?"
         case .clearFavorites: return "Remove all saved procedures?"
         case .clearChecklists: return "Reset every equipment checklist?"
+        case .clearKitChecklists: return "Reset every kit room-setup checklist?"
         case .clearNotes: return "Delete all local notes?"
         }
     }
@@ -181,6 +187,7 @@ private enum DataAction: Identifiable {
         case .clearRecents: return "Clear Recents"
         case .clearFavorites: return "Clear Saved"
         case .clearChecklists: return "Reset Checklists"
+        case .clearKitChecklists: return "Reset Kit Checklists"
         case .clearNotes: return "Delete Notes"
         }
     }

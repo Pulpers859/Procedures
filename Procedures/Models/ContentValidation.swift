@@ -84,6 +84,13 @@ enum ContentValidator {
         if procedure.version.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.blocker, "missing version metadata.") }
         if procedure.tags.isEmpty { add(.warning, "missing search tags/synonyms.") }
 
+        // The equipment checklist persists checked-state on the item string, so
+        // duplicate strings collide (toggling one toggles the other).
+        let equipmentDuplicates = duplicates(in: procedure.sections.equipment)
+        if !equipmentDuplicates.isEmpty {
+            add(.warning, "duplicate equipment items collide in the checklist: \(equipmentDuplicates.joined(separator: ", ")).")
+        }
+
         let required: [(String, [String], Int, ContentValidationIssue.Severity)] = [
             ("Shift Mode", procedure.sections.shiftMode, 6, .blocker),
             ("Equipment", procedure.sections.equipment, 5, .blocker),
@@ -234,9 +241,25 @@ enum ContentValidator {
             if !missingRelations.isEmpty {
                 add(.warning, kit.title, "related procedure IDs not found in procedures.json: \(missingRelations.joined(separator: ", ")).")
             }
+
+            // Room-setup checked-state is keyed on the item string across
+            // inKit + outsideKit combined, so a duplicate toggles in two places.
+            let checklistDuplicates = duplicates(in: kit.inKit + kit.outsideKit)
+            if !checklistDuplicates.isEmpty {
+                add(.warning, kit.title, "duplicate checklist items collide between inKit/outsideKit: \(checklistDuplicates.joined(separator: ", ")).")
+            }
         }
 
         return issues
+    }
+
+    /// Case-sensitive duplicate detection, sorted for stable messages. Matches
+    /// the UI's checked-state keying, which compares exact item strings.
+    private static func duplicates(in items: [String]) -> [String] {
+        Dictionary(grouping: items, by: { $0 })
+            .filter { $0.value.count > 1 }
+            .keys
+            .sorted()
     }
 }
 

@@ -288,26 +288,32 @@ struct DocumentationContent: View {
         VStack(alignment: .leading, spacing: 16) {
             SectionCard(title: "Documentation Language", systemImage: "doc.text") {
                 VStack(alignment: .leading, spacing: 10) {
-                    HStack {
-                        Spacer()
-                        Button {
-                            UIPasteboard.general.string = procedure.sections.documentation.joined(separator: "\n\n")
-                            showCopied = true
-                            copyTask?.cancel()
-                            copyTask = Task { @MainActor in
-                                try? await Task.sleep(for: .seconds(1.5))
-                                guard !Task.isCancelled else { return }
-                                showCopied = false
+                    if procedure.sections.documentation.isEmpty {
+                        Text("No documentation language entered yet.")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    } else {
+                        HStack {
+                            Spacer()
+                            Button {
+                                UIPasteboard.general.string = procedure.sections.documentation.joined(separator: "\n\n")
+                                showCopied = true
+                                copyTask?.cancel()
+                                copyTask = Task { @MainActor in
+                                    try? await Task.sleep(for: .seconds(1.5))
+                                    guard !Task.isCancelled else { return }
+                                    showCopied = false
+                                }
+                            } label: {
+                                Label(showCopied ? "Copied" : "Copy All", systemImage: showCopied ? "checkmark" : "doc.on.doc")
+                                    .font(.footnote.weight(.semibold))
                             }
-                        } label: {
-                            Label(showCopied ? "Copied" : "Copy All", systemImage: showCopied ? "checkmark" : "doc.on.doc")
-                                .font(.footnote.weight(.semibold))
                         }
-                    }
-                    ForEach(Array(procedure.sections.documentation.enumerated()), id: \.offset) { _, line in
-                        Text(line)
-                            .font(.body)
-                            .textSelection(.enabled)
+                        ForEach(Array(procedure.sections.documentation.enumerated()), id: \.offset) { _, line in
+                            Text(line)
+                                .font(.body)
+                                .textSelection(.enabled)
+                        }
                     }
                 }
             }

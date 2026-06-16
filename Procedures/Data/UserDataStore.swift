@@ -129,6 +129,18 @@ final class UserDataStore: ObservableObject {
         }
     }
 
+    /// Drops saved room-setup progress for kits that no longer exist. Keyed by
+    /// kit ID (not procedure ID), so it must be pruned separately from the
+    /// procedure-scoped data above, and only when kits actually loaded — never
+    /// wipe a clinician's progress because a load transiently failed.
+    func pruneMissingKitData(validKitIDs: Set<String>) {
+        let originalKeys = Set(kitCheckedItems.keys)
+        kitCheckedItems = kitCheckedItems.filter { validKitIDs.contains($0.key) }
+        if Set(kitCheckedItems.keys) != originalKeys {
+            saveKitCheckedItems()
+        }
+    }
+
     // MARK: - Bulk clearing (Settings)
 
     func clearRecents() {

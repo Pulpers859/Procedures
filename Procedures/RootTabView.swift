@@ -56,8 +56,12 @@ struct RootTabView: View {
             }
         }
         .onAppear {
-            guard !repository.procedures.isEmpty else { return }
-            userData.pruneMissingProcedureData(validProcedureIDs: Set(repository.procedures.map(\.id)))
+            if !repository.procedures.isEmpty {
+                userData.pruneMissingProcedureData(validProcedureIDs: Set(repository.procedures.map(\.id)))
+            }
+            if !repository.kits.isEmpty {
+                userData.pruneMissingKitData(validKitIDs: Set(repository.kits.map(\.id)))
+            }
         }
     }
 }

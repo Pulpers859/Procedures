@@ -27,6 +27,6 @@ struct ChecklistRow: View {
         .accessibilityLabel(text)
         .accessibilityValue(isChecked ? "Checked" : "Not checked")
         .accessibilityAddTraits(isChecked ? .isSelected : [])
-        .accessibilityHint("Toggles this equipment item")
+        .accessibilityHint("Toggles this checklist item")
     }
 }

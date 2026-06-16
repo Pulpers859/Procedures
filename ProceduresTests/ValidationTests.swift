@@ -79,10 +79,19 @@ final class ValidationTests: XCTestCase {
         return formatter.date(from: iso)!
     }
 
+    func testDuplicateEquipmentItemsAreWarned() {
+        let issues = ContentValidator.validate([makeProcedure(equipment: ["scalpel", "scalpel", "gauze", "gauze", "drape"])])
+        XCTAssertTrue(
+            issues.contains { $0.severity == .warning && $0.message.localizedCaseInsensitiveContains("duplicate equipment") },
+            "duplicate checklist strings collide in the UI and must be flagged"
+        )
+    }
+
     private func makeProcedure(
         id: String = "test",
         references: [String] = ["Smith et al. 2024"],
-        reviewerStatus: ReviewerStatus? = .internallyReviewed
+        reviewerStatus: ReviewerStatus? = .internallyReviewed,
+        equipment: [String] = ["a", "b", "c", "d", "e"]
     ) -> Procedure {
         Procedure(
             id: id,
@@ -101,7 +110,7 @@ final class ValidationTests: XCTestCase {
                 indications: ["a"],
                 contraindications: ["a"],
                 anatomy: ["a"],
-                equipment: ["a", "b", "c", "d", "e"],
+                equipment: equipment,
                 positioning: ["a"],
                 steps: ["a", "b", "c", "d", "e"],
                 ultrasound: [],

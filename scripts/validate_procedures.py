@@ -124,6 +124,14 @@ def validate_procedures(data):
         if len(tags) < MINIMUM_TAGS:
             issues.append(("WARNING", title, f"only {len(tags)} search tags; target at least {MINIMUM_TAGS} for clinical shorthand discoverability"))
 
+        # The equipment checklist keys persisted checked-state on the item string,
+        # so duplicate strings would toggle together and collide in the UI list.
+        equipment = sections.get("equipment", [])
+        if isinstance(equipment, list):
+            dupes = sorted({x for x in equipment if equipment.count(x) > 1})
+            if dupes:
+                issues.append(("WARNING", title, f"duplicate equipment items collide in the checklist: {', '.join(dupes)}"))
+
         issues.extend(governance_issues(title, item))
 
         # Visual assets are an optional enhancement, shown only when a real
@@ -223,6 +231,13 @@ def validate_kits(kits, procedure_ids):
         missing = [pid for pid in item.get("relatedProcedureIDs", []) if pid not in procedure_ids]
         if missing:
             issues.append(("WARNING", title, f"related procedure IDs not found: {', '.join(missing)}"))
+
+        # The room-setup checklist keys checked-state on the item string across
+        # inKit + outsideKit combined; a duplicate would toggle in two places.
+        checklist = (item.get("inKit") or []) + (item.get("outsideKit") or [])
+        dupes = sorted({x for x in checklist if checklist.count(x) > 1})
+        if dupes:
+            issues.append(("WARNING", title, f"duplicate checklist items collide between inKit/outsideKit: {', '.join(dupes)}"))
 
         issues.extend(governance_issues(title, item))
 
