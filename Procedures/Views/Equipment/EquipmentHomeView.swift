@@ -16,22 +16,32 @@ struct EquipmentHomeView: View {
                 }
 
                 Section("Procedure Kits") {
-                    ForEach(procedures) { procedure in
-                        NavigationLink {
-                            ScrollView {
-                                EquipmentChecklistContent(procedure: procedure)
-                                    .padding()
-                            }
-                            .background(Color(.systemGroupedBackground))
-                            .navigationTitle(procedure.title)
-                            .navigationBarTitleDisplayMode(.inline)
-                        } label: {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(procedure.title)
-                                    .font(.headline)
-                                Text("\(procedure.sections.equipment.count) equipment items")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
+                    if procedures.isEmpty {
+                        EmptyStateView(
+                            title: "No kits found",
+                            message: searchText.isEmpty
+                                ? "Procedure kit checklists appear here once procedure content is available."
+                                : "Try a different kit, catheter, suction, or procedure search.",
+                            systemImage: "checklist"
+                        )
+                    } else {
+                        ForEach(procedures) { procedure in
+                            NavigationLink {
+                                ScrollView {
+                                    EquipmentChecklistContent(procedure: procedure)
+                                        .padding()
+                                }
+                                .background(Color(.systemGroupedBackground))
+                                .navigationTitle(procedure.title)
+                                .navigationBarTitleDisplayMode(.inline)
+                            } label: {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(procedure.title)
+                                        .font(.headline)
+                                    Text("\(procedure.sections.equipment.count) equipment items")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
                             }
                         }
                     }

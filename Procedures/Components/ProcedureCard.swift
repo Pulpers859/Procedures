@@ -78,7 +78,9 @@ struct FlowTagView: View {
 
     var body: some View {
         FlowLayout(spacing: spacing, lineSpacing: lineSpacing) {
-            ForEach(tags, id: \.self) { TagView(text: $0) }
+            ForEach(Array(tags.enumerated()), id: \.offset) { _, tag in
+                TagView(text: tag)
+            }
         }
     }
 }

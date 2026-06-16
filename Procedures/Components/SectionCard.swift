@@ -147,3 +147,13 @@ struct ReviewerStatusBadge: View {
         .accessibilityLabel("Review status: \(status.rawValue). \(status.isClinicallyReviewed ? "" : status.explanation)")
     }
 }
+
+extension ComplicationRescueCard.Acuity {
+    var tintColor: Color {
+        switch self {
+        case .crash: return .red
+        case .urgent: return .orange
+        case .watch: return .yellow
+        }
+    }
+}

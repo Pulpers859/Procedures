@@ -73,14 +73,6 @@ struct ComplicationsHomeView: View {
 struct RescueCardRow: View {
     let card: ComplicationRescueCard
 
-    private var acuityColor: Color {
-        switch card.acuity {
-        case .crash: return .red
-        case .urgent: return .orange
-        case .watch: return .yellow
-        }
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top) {
@@ -97,8 +89,8 @@ struct RescueCardRow: View {
                     .font(.caption2.weight(.heavy))
                     .padding(.horizontal, 8)
                     .padding(.vertical, 5)
-                    .foregroundStyle(acuityColor)
-                    .background(acuityColor.opacity(0.14), in: Capsule())
+                    .foregroundStyle(card.acuity.tintColor)
+                    .background(card.acuity.tintColor.opacity(0.14), in: Capsule())
             }
 
             FlowTagView(tags: card.tags.prefix(3).map { String($0) })
@@ -176,7 +168,7 @@ struct RescueCardDetailView: View {
                                     .textSelection(.enabled)
                             }
                             Divider().padding(.vertical, 4)
-                            Text("Educational review for trained clinicians. Does not replace formal training, supervision, credentialing, clinical judgment, or local institutional policy.")
+                            Text(AppConstants.shortDisclaimer)
                                 .font(.footnote.weight(.semibold))
                                 .foregroundStyle(.secondary)
                         }
