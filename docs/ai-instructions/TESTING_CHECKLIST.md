@@ -1,5 +1,25 @@
 # Testing Checklist
 
+## Automated tests
+
+- The repo has a real XCTest target: `ProceduresTests`.
+- The shared Xcode scheme is `Procedures`.
+- Current XCTest files:
+  - `ProceduresTests/ContentDecodingTests.swift`
+  - `ProceduresTests/RescueSearchTests.swift`
+  - `ProceduresTests/ValidationTests.swift`
+- Run these tests in Xcode with `Product > Test` or `Command-U`.
+- Beginner guide: `docs/ai-instructions/XCTEST_GUIDE.md`.
+- Command-line test command on macOS:
+
+```bash
+xcodebuild test -project Procedures.xcodeproj -scheme Procedures -destination 'platform=iOS Simulator,name=iPhone 16'
+```
+
+Use a simulator name installed on the machine if `iPhone 16` is unavailable.
+
+These tests are most valuable for bundled JSON decoding, search regressions, and validation rules. They do not replace manual simulator checks for layout, navigation feel, or visual polish.
+
 ## Manual tests
 
 - App launches on iPhone simulator

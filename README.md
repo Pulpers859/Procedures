@@ -46,6 +46,27 @@ If Xcode asks for signing, select your personal development team under:
 
 `Procedures target > Signing & Capabilities > Team`
 
+## How to run tests
+
+The repo includes a real XCTest target named `ProceduresTests`.
+
+In Xcode:
+
+1. Open `Procedures.xcodeproj`.
+2. Select the `Procedures` scheme.
+3. Select an iPhone simulator.
+4. Press `Command-U`, or choose `Product > Test`.
+
+From Terminal on macOS:
+
+```bash
+xcodebuild test -project Procedures.xcodeproj -scheme Procedures -destination 'platform=iOS Simulator,name=iPhone 16'
+```
+
+If your Mac does not have an `iPhone 16` simulator, pick any installed iPhone simulator from Xcode's device menu and use that name in the command.
+
+The current tests cover JSON decoding, rescue/procedure search behavior, and content validation rules. Keep using the manual checklist for visual layout, navigation, and bedside UX checks.
+
 ## Validate procedure content
 
 From the project root:
@@ -107,9 +128,9 @@ This patch moves the app toward a simple, clean bedside-reference model with a m
 
 ## Suggested next build phase
 
-MVP 0.3 should add:
+MVP 0.3 should continue:
 
-- Formal XCTest target for JSON decoding/search/content validation
+- Expand XCTest coverage for JSON decoding/search/content validation
 - More core procedures: Cordis, Vas Cath, arterial line, US-guided PIV, paracentesis, thoracentesis, lateral canthotomy, abscess I&D, suture repair
 - Structured equipment groups instead of one flat checklist
 - One-tap copy documentation templates

@@ -58,11 +58,13 @@
   - `Procedures/Resources/procedures.json` - bundled procedure content source of truth
   - `Procedures/Resources/rescue_cards.json` - bundled rescue-card content source of truth
   - `scripts/validate_procedures.py` - local content validator
+  - `ProceduresTests/` - XCTest coverage for bundled JSON decoding, search behavior, and validation rules
   - `docs/` - project docs, product notes, and audits
 - Known fragile areas:
-  - `No XCTest target yet`
+  - `XCTest target exists and is intended for JSON decoding, search, and validation regression coverage`
   - `Clinical content still needs expert review before real use`
   - `Build/run cannot be fully verified from this Windows workspace alone`
+  - `Xcode XCTest execution must be verified on macOS/Xcode or an available macOS CI runner`
 - Important evidence/product constraints:
   - `Educational tool only; not a substitute for supervision, credentialing, local policy, or clinical judgment`
   - `Offline-first behavior is intentional`

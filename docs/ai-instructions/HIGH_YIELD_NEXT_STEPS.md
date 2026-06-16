@@ -59,7 +59,7 @@ Each rescue card should include:
 Medical content is the product. Treat missing metadata and thin sections like build failures.
 
 Add:
-- XCTest target for JSON decoding and validation
+- Expand the existing XCTest target for JSON decoding, search, and validation
 - CI script or local script that fails if content has blockers
 - Last-reviewed aging warnings
 - Reviewer status: Draft / Internally Reviewed / Externally Reviewed / Institution-Specific
@@ -216,7 +216,7 @@ The premium direction is not decorative illustration. The visual must make the p
    - Sterile setup
    - Backup equipment
 
-4. Add a real XCTest target and content decoding tests.
+4. Expand the existing XCTest target with additional content decoding, search, and validation regressions.
    - Decode `procedures.json`
    - Decode `rescue_cards.json`
    - Assert non-empty Shift Mode, equipment, rescue moves, and references
