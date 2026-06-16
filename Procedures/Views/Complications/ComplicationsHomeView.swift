@@ -28,7 +28,7 @@ struct ComplicationsHomeView: View {
 
                 if rescueCards.isEmpty && !searchText.isEmpty {
                     Section("Immediate Rescue") {
-                        Text("No rescue cards match "\(searchText)". Try clinical shorthand like hypotension, apnea, LAST, wire, or laryngospasm.")
+                        Text("No rescue cards match \"\(searchText)\". Try clinical shorthand like hypotension, apnea, LAST, wire, or laryngospasm.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
