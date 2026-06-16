@@ -73,7 +73,7 @@ struct NumberedListView: View {
                         .font(.body.weight(.bold))
                         .foregroundStyle(.blue)
                         .monospacedDigit()
-                        .frame(width: 30, alignment: .leading)
+                        .frame(minWidth: 30, alignment: .leading)
                     Text(item)
                         .font(.body)
                         .fixedSize(horizontal: false, vertical: true)

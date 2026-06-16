@@ -19,10 +19,6 @@ struct GuideHomeView: View {
         userData.recentIDs.compactMap { repository.procedure(withID: $0) }
     }
 
-    private var favoriteProcedures: [Procedure] {
-        repository.procedures.filter { userData.favoriteIDs.contains($0.id) }
-    }
-
     private var crashProcedures: [Procedure] {
         repository.procedures
             .filter { $0.difficulty == .rareCrash || $0.difficulty == .advanced }
@@ -45,10 +41,6 @@ struct GuideHomeView: View {
                     }
 
                     rescuePreviewSection
-
-                    if !favoriteProcedures.isEmpty {
-                        procedureSection(title: "Saved", procedures: favoriteProcedures)
-                    }
                 } else {
                     searchResults
                 }

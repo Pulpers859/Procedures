@@ -35,7 +35,7 @@ enum ClinicalSynonyms {
         "usgiv": ["ultrasound", "peripheral", "iv", "difficult", "access"],
         "canthotomy": ["cantholysis", "orbital", "retrobulbar", "eye", "compartment"],
         "orbital": ["canthotomy", "cantholysis", "retrobulbar", "eye", "compartment"],
-        "wire": ["guidewire", "seldinger", "lost"],
+        "wire": ["guidewire", "seldinger"],
         "pacer": ["transvenous", "pacemaker", "capture", "bradycardia"],
         "tvp": ["transvenous", "pacemaker", "capture"],
         "block": ["nerve", "anesthesia", "digital", "fascia", "iliaca"],
@@ -43,7 +43,7 @@ enum ClinicalSynonyms {
         "lac": ["laceration", "suture", "repair"],
         "suture": ["laceration", "repair", "wound", "closure"],
         "wound": ["laceration", "suture", "repair", "abscess"],
-        "shoulder": ["dislocation", "reduction", "glenohumeral", "anterior"],
+        "shoulder": ["dislocation", "reduction", "glenohumeral"],
         "dislocation": ["shoulder", "reduction", "glenohumeral"],
         "fascia": ["iliaca", "ficb", "femoral", "hip", "block"],
         "iliaca": ["fascia", "ficb", "femoral", "hip", "block"],
@@ -60,7 +60,7 @@ enum ClinicalSynonyms {
         "tamponade": ["pericardiocentesis", "pericardial", "cardiac", "effusion"],
         "sedation": ["procedural", "ketamine", "propofol", "apnea"],
         "lp": ["lumbar", "puncture", "csf", "meningitis"],
-        "visual": ["landmark", "probe", "danger", "confirmation"],
+        "visual": ["landmark", "probe"],
         "probe": ["ultrasound", "landmark", "visual"],
         "hypotension": ["shock", "pressor", "blood", "pressure"],
         "apnea": ["sedation", "hypoxia", "ventilation", "bvm"],
@@ -69,11 +69,11 @@ enum ClinicalSynonyms {
         "aline": ["arterial", "line", "radial", "hemodynamic", "monitoring", "abg"],
         "radial": ["arterial", "line", "wrist", "access"],
         "abg": ["arterial", "blood", "gas", "radial", "line"],
-        "tap": ["thoracentesis", "paracentesis", "pleural", "ascites", "fluid"],
-        "thoracentesis": ["pleural", "effusion", "thoracic", "tap", "drainage"],
-        "pleural": ["thoracentesis", "effusion", "thoracic", "fluid"],
-        "para": ["paracentesis", "ascites", "cirrhosis", "tap", "fluid"],
-        "paracentesis": ["ascites", "cirrhosis", "sbp", "tap", "fluid"],
+        "tap": ["thoracentesis", "paracentesis", "pleural", "ascites"],
+        "thoracentesis": ["pleural", "effusion", "thoracic", "drainage"],
+        "pleural": ["thoracentesis", "effusion", "thoracic"],
+        "para": ["paracentesis", "ascites", "cirrhosis"],
+        "paracentesis": ["ascites", "cirrhosis", "sbp"],
         "ascites": ["paracentesis", "cirrhosis", "sbp", "tap", "abdominal"],
         "sbp": ["spontaneous", "bacterial", "peritonitis", "paracentesis", "cirrhosis"],
         "abscess": ["incision", "drainage", "pus", "soft", "tissue", "mrsa"],
@@ -100,7 +100,14 @@ enum ClinicalSynonyms {
 
 @MainActor
 final class ProcedureRepository: ObservableObject {
-    @Published private(set) var procedures: [Procedure] = []
+    @Published private(set) var procedures: [Procedure] = [] {
+        didSet { rebuildSearchIndex() }
+    }
+
+    /// Per-procedure lowercased, weighted search fields, computed once when
+    /// `procedures` changes instead of on every keystroke and re-render. Keyed by
+    /// procedure ID.
+    private var searchIndex: [String: [SearchableField]] = [:]
     @Published private(set) var rescueCards: [ComplicationRescueCard] = []
     @Published private(set) var kits: [Kit] = []
     @Published private(set) var loadError: String?
@@ -247,32 +254,48 @@ final class ProcedureRepository: ObservableObject {
     }
 
     private func score(for procedure: Procedure, matching terms: [String]) -> Int {
-        let visualText = procedure.visualAssetsText
-        let sections = procedure.sections
-
-        var searchableFields: [SearchableField] = []
-        searchableFields.reserveCapacity(13)
-        searchableFields.append((procedure.title.lowercased(), 12))
-        searchableFields.append((procedure.category.rawValue.lowercased(), 7))
-        searchableFields.append((procedure.difficulty.rawValue.lowercased(), 4))
-        searchableFields.append((procedure.reviewTime.lowercased(), 2))
-        searchableFields.append((procedure.tags.joined(separator: " ").lowercased(), 10))
-        searchableFields.append((visualText.lowercased(), 7))
-        searchableFields.append((sections.shiftMode.joined(separator: " ").lowercased(), 8))
-        searchableFields.append((sections.equipment.joined(separator: " ").lowercased(), 6))
-        searchableFields.append((sections.steps.joined(separator: " ").lowercased(), 5))
-        searchableFields.append((sections.complications.joined(separator: " ").lowercased(), 5))
-        searchableFields.append((sections.troubleshooting.joined(separator: " ").lowercased(), 5))
-        searchableFields.append((sections.documentation.joined(separator: " ").lowercased(), 3))
-        searchableFields.append((sections.seniorPearls.joined(separator: " ").lowercased(), 4))
+        let fields = searchIndex[procedure.id] ?? Self.searchableFields(for: procedure)
 
         var total = 0
         for term in terms {
-            for field in searchableFields where field.text.contains(term) {
+            for field in fields where field.text.contains(term) {
                 total += field.weight
             }
         }
         return total
+    }
+
+    private func rebuildSearchIndex() {
+        // `uniquingKeysWith` (not `uniqueKeysWithValues`) so duplicate IDs in the
+        // shipped JSON degrade gracefully instead of trapping. Duplicates are a
+        // validator blocker, but the runtime must never crash on bad content.
+        searchIndex = Dictionary(
+            procedures.map { ($0.id, Self.searchableFields(for: $0)) },
+            uniquingKeysWith: { first, _ in first }
+        )
+    }
+
+    /// Builds the lowercased, weighted fields a query is scored against. Field
+    /// set and weights must match the scorer's expectations exactly; changing
+    /// them changes ranking.
+    private static func searchableFields(for procedure: Procedure) -> [SearchableField] {
+        let sections = procedure.sections
+        var fields: [SearchableField] = []
+        fields.reserveCapacity(13)
+        fields.append((procedure.title.lowercased(), 12))
+        fields.append((procedure.category.rawValue.lowercased(), 7))
+        fields.append((procedure.difficulty.rawValue.lowercased(), 4))
+        fields.append((procedure.reviewTime.lowercased(), 2))
+        fields.append((procedure.tags.joined(separator: " ").lowercased(), 10))
+        fields.append((procedure.visualAssetsText.lowercased(), 7))
+        fields.append((sections.shiftMode.joined(separator: " ").lowercased(), 8))
+        fields.append((sections.equipment.joined(separator: " ").lowercased(), 6))
+        fields.append((sections.steps.joined(separator: " ").lowercased(), 5))
+        fields.append((sections.complications.joined(separator: " ").lowercased(), 5))
+        fields.append((sections.troubleshooting.joined(separator: " ").lowercased(), 5))
+        fields.append((sections.documentation.joined(separator: " ").lowercased(), 3))
+        fields.append((sections.seniorPearls.joined(separator: " ").lowercased(), 4))
+        return fields
     }
 
 }

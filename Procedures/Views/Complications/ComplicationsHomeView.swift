@@ -8,8 +8,12 @@ struct ComplicationsHomeView: View {
         repository.searchRescueCards(searchText)
     }
 
+    // Procedure-specific complication reviews surface only when the clinician is
+    // actively searching. The default Rescue screen stays focused on the
+    // problem-first rescue cards rather than dumping every procedure.
     private var procedures: [Procedure] {
-        repository.search(searchText).filter { !$0.sections.complications.isEmpty }
+        guard !searchText.isEmpty else { return [] }
+        return repository.search(searchText).filter { !$0.sections.complications.isEmpty }
     }
 
     var body: some View {

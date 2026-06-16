@@ -515,7 +515,7 @@ struct VisualAssetCard: View {
             if !asset.caption.isEmpty {
                 Text(asset.caption)
                     .font(.caption2)
-                    .foregroundStyle(.tertiary)
+                    .foregroundStyle(.secondary)
                     .padding(.horizontal, 16)
                     .padding(.top, 6)
             }
