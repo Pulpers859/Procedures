@@ -102,7 +102,7 @@ enum RescueCardLoadingError: LocalizedError {
     }
 }
 
-private extension ComplicationRescueCard.Acuity {
+extension ComplicationRescueCard.Acuity {
     var sortOrder: Int {
         switch self {
         case .crash: return 0

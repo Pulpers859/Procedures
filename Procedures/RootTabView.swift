@@ -6,6 +6,8 @@ private enum RootTabStorageKey {
 }
 
 struct RootTabView: View {
+    @EnvironmentObject private var repository: ProcedureRepository
+    @EnvironmentObject private var userData: UserDataStore
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
 
@@ -53,7 +55,11 @@ struct RootTabView: View {
                 hasAcceptedClinicalDisclaimer = true
             }
         } message: {
-            Text("Procedures is for rapid educational review by trained clinicians. It does not replace formal training, supervision, credentialing, clinical judgment, or local institutional policy.")
+            Text(AppConstants.clinicalDisclaimer)
+        }
+        .onAppear {
+            guard !repository.procedures.isEmpty else { return }
+            userData.pruneMissingProcedureData(validProcedureIDs: Set(repository.procedures.map(\.id)))
         }
     }
 }

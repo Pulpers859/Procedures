@@ -117,7 +117,11 @@ struct SettingsView: View {
                 } header: {
                     Text("About")
                 } footer: {
-                    Text("Procedures is an educational review tool for trained clinicians. It does not replace formal training, supervision, credentialing, clinical judgment, or local institutional policy.")
+                    Text(AppConstants.clinicalDisclaimer)
+                }
+
+                Section("App") {
+                    LabeledContent("Version", value: AppConstants.appVersionDescription)
                 }
             }
             .navigationTitle("Settings")

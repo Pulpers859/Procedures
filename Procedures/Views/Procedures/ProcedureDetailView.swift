@@ -234,8 +234,8 @@ struct ComplicationContent: View {
                                         .font(.caption2.weight(.heavy))
                                         .padding(.horizontal, 8)
                                         .padding(.vertical, 4)
-                                        .foregroundStyle(card.acuity == .crash ? .red : .orange)
-                                        .background((card.acuity == .crash ? Color.red : Color.orange).opacity(0.14), in: Capsule())
+                                        .foregroundStyle(card.acuity.tintColor)
+                                        .background(card.acuity.tintColor.opacity(0.14), in: Capsule())
                                     Image(systemName: "chevron.right")
                                         .font(.caption.weight(.semibold))
                                         .foregroundStyle(.secondary)
@@ -267,6 +267,7 @@ struct DocumentationContent: View {
     @Binding var noteText: String
     @EnvironmentObject private var userData: UserDataStore
     @State private var showCopied = false
+    @State private var copyTask: Task<Void, Never>?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -277,7 +278,12 @@ struct DocumentationContent: View {
                         Button {
                             UIPasteboard.general.string = procedure.sections.documentation.joined(separator: "\n\n")
                             showCopied = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { showCopied = false }
+                            copyTask?.cancel()
+                            copyTask = Task { @MainActor in
+                                try? await Task.sleep(for: .seconds(1.5))
+                                guard !Task.isCancelled else { return }
+                                showCopied = false
+                            }
                         } label: {
                             Label(showCopied ? "Copied" : "Copy All", systemImage: showCopied ? "checkmark" : "doc.on.doc")
                                 .font(.footnote.weight(.semibold))
@@ -306,6 +312,9 @@ struct DocumentationContent: View {
                         }
                 }
             }
+        }
+        .onDisappear {
+            copyTask?.cancel()
         }
     }
 }
@@ -342,7 +351,7 @@ struct DeepReviewContent: View {
                         }
                     }
                     Divider().padding(.vertical, 4)
-                    Text("Educational review for trained clinicians. Does not replace formal training, supervision, credentialing, clinical judgment, or local institutional policy.")
+                    Text(AppConstants.shortDisclaimer)
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(.secondary)
                 }
