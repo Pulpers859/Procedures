@@ -104,6 +104,11 @@ struct SavedView: View {
             .navigationDestination(for: Procedure.self) { procedure in
                 ProcedureDetailView(procedure: procedure)
             }
+            // ProcedureDetailView surfaces rescue-card links, so this stack must
+            // resolve them at the root.
+            .navigationDestination(for: ComplicationRescueCard.self) { card in
+                RescueCardDetailView(card: card)
+            }
         }
     }
 }

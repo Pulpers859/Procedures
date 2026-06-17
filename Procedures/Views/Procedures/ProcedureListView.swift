@@ -120,8 +120,7 @@ struct CategoryProcedureListView: View {
             }
         }
         .navigationTitle(category.rawValue)
-        .navigationDestination(for: Procedure.self) { procedure in
-            ProcedureDetailView(procedure: procedure)
-        }
+        // Procedure destination is registered at the Procedures stack root; re-declaring
+        // it here would duplicate the destination and misroute procedure taps.
     }
 }

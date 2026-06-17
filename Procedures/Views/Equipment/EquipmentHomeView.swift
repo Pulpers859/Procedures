@@ -63,6 +63,11 @@ struct KitsHomeView: View {
             .navigationDestination(for: Kit.self) { kit in
                 KitDetailView(kit: kit)
             }
+            // KitDetailView opens ProcedureDetailView, which surfaces rescue-card
+            // links, so this stack must resolve them at the root.
+            .navigationDestination(for: ComplicationRescueCard.self) { card in
+                RescueCardDetailView(card: card)
+            }
         }
     }
 

@@ -38,9 +38,11 @@ struct ProcedureDetailView: View {
             userData.markRecentlyViewed(procedure)
             noteText = userData.note(for: procedure)
         }
-        .navigationDestination(for: ComplicationRescueCard.self) { card in
-            RescueCardDetailView(card: card)
-        }
+        // Navigation destinations are registered once at each tab's NavigationStack
+        // root (see GuideHomeView, ProcedureListView, KitsHomeView, SavedView,
+        // ComplicationsHomeView). Declaring them here too would create duplicate
+        // destinations for the same type in one stack, which makes SwiftUI route
+        // links to the wrong screen.
     }
 
     private var header: some View {

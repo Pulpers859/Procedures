@@ -307,9 +307,8 @@ struct PathwayProcedureListView: View {
         }
         .navigationTitle(pathway.title)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(for: Procedure.self) { procedure in
-            ProcedureDetailView(procedure: procedure)
-        }
+        // Procedure destination is registered at the Guide stack root; re-declaring
+        // it here would duplicate the destination and misroute procedure taps.
     }
 }
 
@@ -333,8 +332,7 @@ struct AllRescueCardsListView: View {
             }
         }
         .navigationTitle("Rescue Cards")
-        .navigationDestination(for: ComplicationRescueCard.self) { card in
-            RescueCardDetailView(card: card)
-        }
+        // Rescue-card destination is registered at the Guide stack root; re-declaring
+        // it here would duplicate the destination and misroute card taps.
     }
 }
