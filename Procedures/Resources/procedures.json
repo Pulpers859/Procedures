@@ -310,9 +310,9 @@
         "kind": "Probe Position",
         "title": "IJ ultrasound probe orientation",
         "subtitle": "Short-axis view of IJ vein and carotid artery. Probe marker toward patient's right. Vein is compressible, lateral and superficial to the artery.",
-        "assetName": null,
+        "assetName": "ij_probe_orientation.png",
         "systemImage": "dot.viewfinder",
-        "caption": "Replace assetName with reviewed artwork when available.",
+        "caption": "Draft schematic bundled for internal review. Shows the short-axis IJ/carotid relationship, compression check, and needle target. Clinician review required before release use.",
         "clinicalWarning": "Confirm vein vs. artery with compression before needle entry."
       },
       {
@@ -593,9 +593,9 @@
         "kind": "Landmark",
         "title": "Cricothyroid membrane palpation",
         "subtitle": "Palpate the thyroid cartilage notch, slide inferiorly to the soft depression before the cricoid ring. This is the cricothyroid membrane — the incision target.",
-        "assetName": null,
+        "assetName": "cric_membrane.png",
         "systemImage": "scalpel",
-        "caption": "Replace assetName with reviewed artwork when available.",
+        "caption": "Draft schematic bundled for internal review. Highlights the membrane target and the vertical-then-horizontal incision concept. Clinician review required before release use.",
         "clinicalWarning": "Vertical skin incision reduces risk of vessel injury. Horizontal membrane incision."
       },
       {
@@ -745,9 +745,9 @@
         "kind": "Danger Zone",
         "title": "Safe triangle of insertion",
         "subtitle": "Bordered by the anterior border of latissimus dorsi, lateral border of pectoralis major, a line superior to the horizontal level of the nipple, and the apex of the axilla. 4th–5th intercostal space, mid-axillary line.",
-        "assetName": null,
+        "assetName": "chest_tube_safe_triangle.png",
         "systemImage": "triangle",
-        "caption": "Replace assetName with reviewed artwork when available.",
+        "caption": "Draft schematic bundled for internal review. Defines the safe triangle and reinforces the over-the-rib rule. Clinician review required before release use.",
         "clinicalWarning": "Insert above the rib to avoid the neurovascular bundle running along the inferior rib margin."
       },
       {
@@ -1022,9 +1022,9 @@
         "kind": "Landmark",
         "title": "Decompression landmarks",
         "subtitle": "2nd intercostal space, midclavicular line (anterior) or 4th–5th intercostal space, anterior axillary line (lateral). Lateral approach preferred in muscular or obese patients.",
-        "assetName": null,
+        "assetName": "needle_decompression_landmarks.png",
         "systemImage": "target",
-        "caption": "Replace assetName with reviewed artwork when available.",
+        "caption": "Draft schematic bundled for internal review. Marks both accepted decompression sites and the medial danger zone. Clinician review required before release use.",
         "clinicalWarning": "Standard 5 cm catheter may be insufficient in obese patients. Consider longer catheter or finger thoracostomy."
       },
       {
@@ -1577,9 +1577,9 @@
         "kind": "Landmark",
         "title": "LP interspace landmarks",
         "subtitle": "Tuffier's line (a line connecting the iliac crests) crosses at approximately the L4 spinous process. L3–L4 or L4–L5 interspaces are the target, below the conus medullaris.",
-        "assetName": null,
+        "assetName": "lp_position_landmark.png",
         "systemImage": "figure.seated.side",
-        "caption": "Replace assetName with reviewed artwork when available.",
+        "caption": "Draft schematic bundled for internal review. Uses Tuffier's line to identify the safe LP target interspaces. Clinician review required before release use.",
         "clinicalWarning": "The conus medullaris typically ends at L1–L2. Do not insert above L3."
       },
       {

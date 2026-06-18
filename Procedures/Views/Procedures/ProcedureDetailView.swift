@@ -615,14 +615,27 @@ struct ProcedureVisualCard: View {
 enum ProcedureVisualLoader {
     static func image(for asset: ProcedureVisualAsset) -> UIImage? {
         guard let assetName = asset.assetName, !assetName.isEmpty else { return nil }
-        if let image = UIImage(named: assetName) {
-            return image
+
+        for name in [assetName, "Visuals/\(assetName)"] {
+            if let image = UIImage(named: name) {
+                return image
+            }
         }
-        let url = Bundle.main.url(forResource: assetName, withExtension: nil)
-            ?? Bundle.main.url(forResource: assetName, withExtension: "png")
-            ?? Bundle.main.url(forResource: assetName, withExtension: "jpg")
-            ?? Bundle.main.url(forResource: assetName, withExtension: "jpeg")
-        guard let url else { return nil }
-        return UIImage(contentsOfFile: url.path)
+
+        let name = (assetName as NSString).deletingPathExtension
+        let ext = (assetName as NSString).pathExtension
+        let extensions = ext.isEmpty ? [nil, "png", "jpg", "jpeg"] : [ext]
+        let subdirectories: [String?] = [nil, "Visuals"]
+
+        for subdirectory in subdirectories {
+            for itemExtension in extensions {
+                if let url = Bundle.main.url(forResource: ext.isEmpty ? assetName : name, withExtension: itemExtension, subdirectory: subdirectory),
+                   let image = UIImage(contentsOfFile: url.path) {
+                    return image
+                }
+            }
+        }
+
+        return nil
     }
 }

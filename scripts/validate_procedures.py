@@ -143,12 +143,17 @@ def validate_procedures(data):
                     issues.append(("WARNING", title, f"visual asset missing {field}"))
             asset_name = visual.get("assetName")
             if asset_name:
-                candidates = [
-                    RESOURCES / asset_name,
-                    RESOURCES / f"{asset_name}.png",
-                    RESOURCES / f"{asset_name}.jpg",
-                    RESOURCES / f"{asset_name}.jpeg",
-                ]
+                candidate_roots = [RESOURCES, RESOURCES / "Visuals"]
+                candidates = []
+                for root in candidate_roots:
+                    candidates.extend(
+                        [
+                            root / asset_name,
+                            root / f"{asset_name}.png",
+                            root / f"{asset_name}.jpg",
+                            root / f"{asset_name}.jpeg",
+                        ]
+                    )
                 if not any(path.exists() for path in candidates):
                     issues.append(("WARNING", title, f"visual asset file not found: {asset_name}"))
 
