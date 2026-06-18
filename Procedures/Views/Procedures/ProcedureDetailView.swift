@@ -233,8 +233,13 @@ struct ComplicationContent: View {
             if !relatedRescueCards.isEmpty {
                 SectionCard(title: "Rescue Cards", systemImage: "lifepreserver.fill") {
                     VStack(alignment: .leading, spacing: 10) {
+                        // Procedure detail can be opened from multiple tab stacks.
+                        // Use an explicit destination so rescue links work the same
+                        // regardless of which stack presented this screen.
                         ForEach(relatedRescueCards) { card in
-                            NavigationLink(value: card) {
+                            NavigationLink {
+                                RescueCardDetailView(card: card)
+                            } label: {
                                 HStack {
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text(card.title)

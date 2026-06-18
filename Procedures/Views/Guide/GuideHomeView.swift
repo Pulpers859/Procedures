@@ -297,8 +297,13 @@ struct PathwayProcedureListView: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 } else {
+                    // This list already lives inside a pushed destination. Keep the
+                    // next drill-down explicit so taps cannot be misrouted back to
+                    // the pathway screen by stack-level route resolution.
                     ForEach(procedures) { procedure in
-                        NavigationLink(value: procedure) {
+                        NavigationLink {
+                            ProcedureDetailView(procedure: procedure)
+                        } label: {
                             ProcedureCard(procedure: procedure, isFavorite: userData.isFavorite(procedure))
                         }
                     }
@@ -307,8 +312,6 @@ struct PathwayProcedureListView: View {
         }
         .navigationTitle(pathway.title)
         .navigationBarTitleDisplayMode(.inline)
-        // Procedure destination is registered at the Guide stack root; re-declaring
-        // it here would duplicate the destination and misroute procedure taps.
     }
 }
 
@@ -324,15 +327,17 @@ struct AllRescueCardsListView: View {
             }
 
             Section("Immediate Rescue") {
+                // Same rule as the pathway list above: this view is already one
+                // level deep, so the next hop stays explicit.
                 ForEach(repository.rescueCards) { card in
-                    NavigationLink(value: card) {
+                    NavigationLink {
+                        RescueCardDetailView(card: card)
+                    } label: {
                         RescueCardRow(card: card)
                     }
                 }
             }
         }
         .navigationTitle("Rescue Cards")
-        // Rescue-card destination is registered at the Guide stack root; re-declaring
-        // it here would duplicate the destination and misroute card taps.
     }
 }

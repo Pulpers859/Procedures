@@ -115,12 +115,14 @@ struct CategoryProcedureListView: View {
 
     var body: some View {
         List(procedures) { procedure in
-            NavigationLink(value: procedure) {
+            // Category drill-down is already pushed from the Procedures root, so
+            // keep the procedure destination explicit here.
+            NavigationLink {
+                ProcedureDetailView(procedure: procedure)
+            } label: {
                 ProcedureCard(procedure: procedure, isFavorite: userData.isFavorite(procedure))
             }
         }
         .navigationTitle(category.rawValue)
-        // Procedure destination is registered at the Procedures stack root; re-declaring
-        // it here would duplicate the destination and misroute procedure taps.
     }
 }
