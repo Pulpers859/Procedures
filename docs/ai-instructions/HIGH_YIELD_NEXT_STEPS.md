@@ -171,6 +171,12 @@ Rules:
 - Diagrams should be local/offline assets.
 - Do not use unreviewed AI-generated medical anatomy in release builds.
 
+Production workflow:
+
+- Use `docs/ai-instructions/VISUAL_ASSET_PRODUCTION_GUIDE.md` before commissioning, generating, reviewing, or bundling procedure illustrations.
+- Start with the first high-risk illustration batch listed there before adding secondary diagrams.
+- Keep `visualAssets.assetName` null until final reviewed artwork is bundled.
+
 ## 2026-06-14 High-Yield Build Direction Update: Rescue JSON + Visual Assets
 
 The next major architecture direction has been implemented at the starter level:

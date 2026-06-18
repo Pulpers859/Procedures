@@ -10,6 +10,7 @@
 - `ai-instructions/AGENTS.md` - product-specific guidance for future coding agents
 - `ai-instructions/PRODUCT_BRIEF.md` - app purpose, users, and non-goals
 - `ai-instructions/PROCEDURE_SCHEMA.md` - source-of-truth JSON schema for bundled procedures
+- `ai-instructions/VISUAL_ASSET_PRODUCTION_GUIDE.md` - workflow for creating, reviewing, bundling, and validating clinical procedure illustrations
 - `../Procedures/Resources/procedures.json` - bundled procedure content
 - `../Procedures/Resources/rescue_cards.json` - bundled rescue-card content
 - `ai-instructions/SWIFT_ARCHITECTURE.md` - current runtime structure and data flow
