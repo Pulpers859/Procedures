@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "defaultAspectRatio": "4:3",
+  "defaultResolution": "2K",
+  "assets": [
+    {
+      "assetId": "cric_membrane",
+      "procedure": "Cricothyrotomy",
+      "kind": "Landmark",
+      "purpose": "Find the cricothyroid membrane and keep incision planning midline.",
+      "requiredLabels": [
+        "Thyroid cartilage",
+        "Cricothyroid membrane",
+        "Cricoid cartilage",
+        "Midline",
+        "Vertical skin incision",
+        "Horizontal membrane incision"
+      ],
+      "prompt": "Create a premium, clinically restrained medical illustration for emergency cricothyrotomy membrane identification. Show an adult anterior neck from the front, simplified but anatomically plausible, with thyroid cartilage, cricothyroid membrane, and cricoid cartilage. Highlight the cricothyroid membrane as the target. Show a vertical midline skin incision path and a short horizontal membrane incision path. Use a clean 4:3 educational medical diagram style for an iPhone app, with large readable labels, subtle anatomy colors, high contrast, and no gore.",
+      "avoid": "No photorealism, no blood, no scalpel entering tissue, no patient face, no extra anatomy, no dense textbook layout, no tiny labels, no decorative background, no watermark."
+    },
+    {
+      "assetId": "chest_tube_safe_triangle",
+      "procedure": "Thoracostomy / Chest Tube",
+      "kind": "Danger Zone",
+      "purpose": "Show safe triangle boundaries and reinforce over-the-rib entry.",
+      "requiredLabels": [
+        "Safe triangle",
+        "Pectoralis major",
+        "Latissimus dorsi",
+        "4th-5th intercostal space",
+        "Mid-axillary line",
+        "Enter above rib",
+        "Neurovascular bundle"
+      ],
+      "prompt": "Create a premium, clinically restrained medical illustration for chest tube insertion site selection. Show a simplified lateral chest wall with the safe triangle clearly shaded. Include anterior pectoralis major boundary, posterior latissimus dorsi boundary, 4th-5th intercostal space, and mid-axillary line. Include a small inset showing rib cross-section with the neurovascular bundle along the inferior rib margin and the correct entry above the rib. Use a clean 4:3 medical app diagram style, large labels, high contrast, and no gore.",
+      "avoid": "No photorealism, no blood, no chest tube inserted into a real patient, no dense textbook plate, no small labels, no decorative background, no watermark."
+    },
+    {
+      "assetId": "ij_probe_orientation",
+      "procedure": "Central Venous Catheter",
+      "kind": "Probe Position",
+      "purpose": "Show short-axis IJ/carotid relationship, compression check, and needle target.",
+      "requiredLabels": [
+        "Probe marker to patient's right",
+        "Internal jugular vein",
+        "Carotid artery",
+        "Compressible vein",
+        "Needle target"
+      ],
+      "prompt": "Create a premium medical ultrasound teaching illustration for internal jugular central venous catheter placement. Show a short-axis ultrasound view with the internal jugular vein lateral and superficial to the carotid artery, and a simple top label showing probe marker orientation toward patient's right. Depict the vein as compressible and the artery as round and deeper. Show the needle target into the IJ lumen. Use a clean iPhone app educational style, 4:3 aspect ratio, dark ultrasound window, large readable labels, and restrained colors.",
+      "avoid": "No photorealistic neck, no needle in a real patient, no cluttered ultrasound artifacts, no tiny labels, no unrelated anatomy, no decorative background, no watermark."
+    },
+    {
+      "assetId": "needle_decompression_landmarks",
+      "procedure": "Needle Decompression",
+      "kind": "Landmark",
+      "purpose": "Show accepted decompression landmarks and the medial danger zone.",
+      "requiredLabels": [
+        "2nd intercostal space",
+        "Midclavicular line",
+        "4th-5th intercostal space",
+        "Anterior axillary line",
+        "Internal mammary artery danger zone",
+        "Enter above rib"
+      ],
+      "prompt": "Create a premium, clinically restrained medical illustration for needle decompression landmarks. Show a simplified anterior-lateral chest with two accepted decompression sites: 2nd intercostal space at the midclavicular line and 4th-5th intercostal space at the anterior axillary line. Highlight the lateral site as preferred in larger body habitus. Show an internal mammary artery danger zone close to the sternum and reinforce entering above the rib. Use a 4:3 iPhone medical reference diagram style with large labels and clear color coding.",
+      "avoid": "No photorealism, no blood, no real patient, no needle visibly puncturing tissue, no dense anatomy plate, no small labels, no decorative background, no watermark."
+    },
+    {
+      "assetId": "lp_position_landmark",
+      "procedure": "Lumbar Puncture",
+      "kind": "Landmark",
+      "purpose": "Use Tuffier's line to identify safe LP target interspaces below the conus.",
+      "requiredLabels": [
+        "Tuffier's line",
+        "Iliac crests",
+        "L3-L4",
+        "L4-L5",
+        "Below conus",
+        "Needle trajectory"
+      ],
+      "prompt": "Create a premium, clinically restrained medical illustration for lumbar puncture landmarking. Show a simplified posterior lower back and pelvis with iliac crests, Tuffier's line crossing near L4, and target interspaces L3-L4 and L4-L5. Indicate that targets are below the conus and show a simple midline needle trajectory angled slightly cephalad. Use a clean 4:3 iPhone medical reference style, large readable labels, subtle anatomy colors, and no gore.",
+      "avoid": "No photorealistic patient, no exposed spinal cord, no blood, no complex textbook anatomy, no tiny labels, no decorative background, no watermark."
+    },
+    {
+      "assetId": "pericardiocentesis_approach",
+      "procedure": "Pericardiocentesis",
+      "kind": "Probe Position",
+      "purpose": "Show ultrasound-guided subxiphoid approach and unsafe steep trajectory risk.",
+      "requiredLabels": [
+        "Subxiphoid probe",
+        "Pericardial effusion",
+        "Needle path",
+        "Toward left shoulder",
+        "Avoid steep angle"
+      ],
+      "prompt": "Create a premium medical diagram for ultrasound-guided pericardiocentesis using the subxiphoid approach. Show a simplified torso with a phased-array probe below the xiphoid, ultrasound window showing heart with pericardial effusion, and a shallow needle path toward the left shoulder. Include a clear warning mark for overly steep trajectory risk. Use a 4:3 iPhone app educational style with large labels, no gore, and restrained clinical colors.",
+      "avoid": "No photorealism, no graphic needle penetration, no blood, no cluttered ECG or monitor content, no small labels, no watermark."
+    },
+    {
+      "assetId": "canthotomy_inferior_crus",
+      "procedure": "Lateral Canthotomy & Cantholysis",
+      "kind": "Landmark",
+      "purpose": "Show inferior crus target and globe-safe cut direction.",
+      "requiredLabels": [
+        "Lateral canthus",
+        "Canthotomy incision",
+        "Inferior crus",
+        "Globe",
+        "Cut away from globe"
+      ],
+      "prompt": "Create a premium, clinically restrained medical illustration for lateral canthotomy and inferior cantholysis. Show a simplified lateral eye anatomy diagram with the globe, lateral canthus, canthotomy incision line, and inferior crus target. Emphasize cut direction away from the globe and the inferior crus as the key release point. Use a clean 4:3 iPhone medical reference style, large readable labels, no gore, and minimal color coding.",
+      "avoid": "No photorealistic injured eye, no blood, no graphic scissors entering tissue, no frightening image, no dense anatomy plate, no tiny labels, no watermark."
+    },
+    {
+      "assetId": "paracentesis_liq_site",
+      "procedure": "Paracentesis",
+      "kind": "Landmark",
+      "purpose": "Show LLQ entry site and inferior epigastric vessel avoidance.",
+      "requiredLabels": [
+        "LLQ entry site",
+        "ASIS",
+        "Umbilicus",
+        "Inferior epigastric vessels",
+        "Avoid bowel"
+      ],
+      "prompt": "Create a premium medical landmark diagram for paracentesis. Show a simplified abdomen with umbilicus, ASIS, LLQ entry site, inferior epigastric vessel course, and bowel avoidance zone. Make the safe LLQ target visually clear. Use a clean 4:3 iPhone medical reference style with large readable labels and restrained colors.",
+      "avoid": "No photorealistic abdomen, no needle in real skin, no blood, no crowded anatomy, no tiny labels, no decorative background, no watermark."
+    },
+    {
+      "assetId": "thoracentesis_site",
+      "procedure": "Thoracentesis",
+      "kind": "Landmark",
+      "purpose": "Show diaphragm boundary, posterior-lateral entry site, and over-the-rib rule.",
+      "requiredLabels": [
+        "Pleural fluid",
+        "Diaphragm",
+        "Entry above rib",
+        "Neurovascular bundle",
+        "Posterior-lateral site"
+      ],
+      "prompt": "Create a premium medical landmark diagram for thoracentesis site selection. Show a simplified posterior-lateral chest wall with pleural fluid above the diaphragm, a safe entry site above the rib, and the neurovascular bundle at the inferior rib margin. Include a clear diaphragm boundary to prevent too-low entry. Use a clean 4:3 iPhone medical reference style with large labels and restrained colors.",
+      "avoid": "No photorealism, no real patient puncture, no blood, no dense ultrasound artifacts, no tiny labels, no decorative background, no watermark."
+    },
+    {
+      "assetId": "usgiv_needle_tracking",
+      "procedure": "Ultrasound-Guided Peripheral IV",
+      "kind": "Confirmation",
+      "purpose": "Show needle tip visualization rather than shaft-only false reassurance.",
+      "requiredLabels": [
+        "Needle tip",
+        "Needle shaft",
+        "Vein lumen",
+        "Anterior wall tenting",
+        "Do not lose the tip"
+      ],
+      "prompt": "Create a premium ultrasound teaching diagram for ultrasound-guided peripheral IV placement. Show a short-axis ultrasound view with a compressible vein, needle shaft, and needle tip as a bright dot entering the vein lumen. Emphasize anterior wall tenting and the warning not to mistake shaft visualization for true tip location. Use a clean 4:3 iPhone medical reference style with large readable labels and dark ultrasound panel.",
+      "avoid": "No photorealistic arm, no real puncture, no blood, no cluttered ultrasound artifacts, no tiny labels, no decorative background, no watermark."
+    }
+  ]
+}

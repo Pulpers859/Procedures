@@ -20,11 +20,6 @@
 		7E570000000000000000001A /* Models/ReviewerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000001B /* Models/ReviewerStatus.swift */; };
 		7E580000000000000000001A /* Models/Kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E580000000000000000001B /* Models/Kit.swift */; };
 		7E580000000000000000002A /* Resources/kits.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E580000000000000000002B /* Resources/kits.json */; };
-		7E5900000000000000000001 /* Resources/Visuals/chest_tube_safe_triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5900000000000000000011 /* Resources/Visuals/chest_tube_safe_triangle.png */; };
-		7E5900000000000000000002 /* Resources/Visuals/cric_membrane.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5900000000000000000012 /* Resources/Visuals/cric_membrane.png */; };
-		7E5900000000000000000003 /* Resources/Visuals/ij_probe_orientation.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5900000000000000000013 /* Resources/Visuals/ij_probe_orientation.png */; };
-		7E5900000000000000000004 /* Resources/Visuals/lp_position_landmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5900000000000000000014 /* Resources/Visuals/lp_position_landmark.png */; };
-		7E5900000000000000000005 /* Resources/Visuals/needle_decompression_landmarks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5900000000000000000015 /* Resources/Visuals/needle_decompression_landmarks.png */; };
 		881D5EC5F8154B77BBCE9542 /* Views/Complications/ComplicationsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF198A70EE348B5AF64D291 /* Views/Complications/ComplicationsHomeView.swift */; };
 		88F9C923C93A43E6A2E14BFF /* Models/ComplicationRescueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38FED1DEFEFB62F3922F4C /* Models/ComplicationRescueCard.swift */; };
 		8FE086BA856F4B1293051E57 /* Components/CriticalWarningCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4301701BC4A744288E325DE7 /* Components/CriticalWarningCard.swift */; };
@@ -73,11 +68,6 @@
 		7E570000000000000000000C /* ValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTests.swift; sourceTree = "<group>"; };
 		7E570000000000000000001B /* Models/ReviewerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ReviewerStatus.swift; sourceTree = "<group>"; };
 		915119767C5F42828C5B518A /* Resources/procedures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/procedures.json; sourceTree = "<group>"; };
-		7E5900000000000000000011 /* Resources/Visuals/chest_tube_safe_triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Resources/Visuals/chest_tube_safe_triangle.png; sourceTree = "<group>"; };
-		7E5900000000000000000012 /* Resources/Visuals/cric_membrane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Resources/Visuals/cric_membrane.png; sourceTree = "<group>"; };
-		7E5900000000000000000013 /* Resources/Visuals/ij_probe_orientation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Resources/Visuals/ij_probe_orientation.png; sourceTree = "<group>"; };
-		7E5900000000000000000014 /* Resources/Visuals/lp_position_landmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Resources/Visuals/lp_position_landmark.png; sourceTree = "<group>"; };
-		7E5900000000000000000015 /* Resources/Visuals/needle_decompression_landmarks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Resources/Visuals/needle_decompression_landmarks.png; sourceTree = "<group>"; };
 		A22222222222222222222222 /* Views/Guide/GuideHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Guide/GuideHomeView.swift; sourceTree = "<group>"; };
 		AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
 		AD38FED1DEFEFB62F3922F4C /* Models/ComplicationRescueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ComplicationRescueCard.swift; sourceTree = "<group>"; };
@@ -142,11 +132,6 @@
 				01BE97BA2FE0E226000F52A9 /* Assets.xcassets */,
 				7E580000000000000000001B /* Models/Kit.swift */,
 				7E580000000000000000002B /* Resources/kits.json */,
-				7E5900000000000000000011 /* Resources/Visuals/chest_tube_safe_triangle.png */,
-				7E5900000000000000000012 /* Resources/Visuals/cric_membrane.png */,
-				7E5900000000000000000013 /* Resources/Visuals/ij_probe_orientation.png */,
-				7E5900000000000000000014 /* Resources/Visuals/lp_position_landmark.png */,
-				7E5900000000000000000015 /* Resources/Visuals/needle_decompression_landmarks.png */,
 			);
 			path = Procedures;
 			sourceTree = "<group>";
@@ -253,11 +238,6 @@
 				01BE97BB2FE0E226000F52A9 /* Assets.xcassets in Resources */,
 				B1C2D3E4F5A60718293A4B5C /* Resources/rescue_cards.json in Resources */,
 				7E580000000000000000002A /* Resources/kits.json in Resources */,
-				7E5900000000000000000001 /* Resources/Visuals/chest_tube_safe_triangle.png in Resources */,
-				7E5900000000000000000002 /* Resources/Visuals/cric_membrane.png in Resources */,
-				7E5900000000000000000003 /* Resources/Visuals/ij_probe_orientation.png in Resources */,
-				7E5900000000000000000004 /* Resources/Visuals/lp_position_landmark.png in Resources */,
-				7E5900000000000000000005 /* Resources/Visuals/needle_decompression_landmarks.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
