@@ -152,48 +152,86 @@ struct LocalReviewPanel: View {
     let sourceStatus: ReviewerStatus
     let sourceLastReviewed: String
     let sourceVersion: String
-    let localReviewDate: String?
+    let localReviewRecord: LocalReviewRecord?
     let markReviewed: () -> Void
+    let markNeedsEdits: () -> Void
+    let deferReview: () -> Void
     let clearReview: () -> Void
 
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
+    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            if let localReviewDate {
+            if let localReviewRecord {
                 HStack(spacing: 10) {
-                    Image(systemName: "checkmark.seal.fill")
-                        .foregroundStyle(.green)
+                    Image(systemName: localReviewRecord.disposition.systemImage)
+                        .foregroundStyle(tint(for: localReviewRecord.disposition))
                         .frame(width: 22)
-                    Text("Reviewed by me")
+                    Text(localReviewRecord.disposition.rawValue)
                         .font(.subheadline.weight(.semibold))
                     Spacer()
-                    Text(localReviewDate)
+                    Text(localReviewRecord.date)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                Button("Remove My Review") {
+                reviewActions
+                Button("Clear Review State") {
                     clearReview()
                 }
                 .font(.footnote.weight(.semibold))
             } else {
-                Text("Not reviewed by me on this device.")
+                Text("Not reviewed in this local workspace.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                Button {
-                    markReviewed()
-                } label: {
-                    Label("Mark Reviewed by Me", systemImage: "checkmark.seal")
-                }
-                .buttonStyle(.borderedProminent)
+                reviewActions
             }
 
-            if !hideGovernanceCopy {
+            if showSourceGovernance {
                 Divider().padding(.vertical, 2)
                 ReviewerStatusBadge(status: sourceStatus)
                 MetadataRow(icon: "calendar", title: "Source last reviewed", value: sourceLastReviewed)
                 MetadataRow(icon: "number", title: "Source version", value: sourceVersion)
             }
+        }
+    }
+
+    private var showSourceGovernance: Bool {
+        reviewModeEnabled || !hideGovernanceCopy
+    }
+
+    private var reviewActions: some View {
+        HStack {
+            Button {
+                markReviewed()
+            } label: {
+                Label("Reviewed", systemImage: "checkmark.seal")
+            }
+            .buttonStyle(.borderedProminent)
+
+            Menu {
+                Button {
+                    markNeedsEdits()
+                } label: {
+                    Label("Needs Edits", systemImage: "square.and.pencil")
+                }
+                Button {
+                    deferReview()
+                } label: {
+                    Label("Defer", systemImage: "clock")
+                }
+            } label: {
+                Label("More", systemImage: "ellipsis.circle")
+            }
+        }
+        .font(.footnote.weight(.semibold))
+    }
+
+    private func tint(for disposition: LocalReviewDisposition) -> Color {
+        switch disposition {
+        case .reviewed: return .green
+        case .needsEdits: return .orange
+        case .deferred: return .secondary
         }
     }
 }

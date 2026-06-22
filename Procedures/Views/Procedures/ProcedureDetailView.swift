@@ -366,7 +366,8 @@ struct DeepReviewContent: View {
     @EnvironmentObject private var userData: UserDataStore
     let procedure: Procedure
     @Binding var noteText: String
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
+    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
     @FocusState private var notesFocused: Bool
     @State private var saveTask: Task<Void, Never>?
 
@@ -384,7 +385,7 @@ struct DeepReviewContent: View {
             if !procedure.sections.ultrasound.isEmpty {
                 SectionCard(title: "Ultrasound Guidance", systemImage: "waveform.path.ecg.rectangle") { BulletListView(items: procedure.sections.ultrasound) }
             }
-            SectionCard(title: hideGovernanceCopy ? "References" : "References + Disclaimer", systemImage: "books.vertical") {
+            SectionCard(title: showGovernanceCopy ? "References + Disclaimer" : "References", systemImage: "books.vertical") {
                 VStack(alignment: .leading, spacing: 8) {
                     if procedure.sections.references.isEmpty {
                         Text("No references entered yet. This should block release-quality content approval.")
@@ -398,7 +399,7 @@ struct DeepReviewContent: View {
                                 .textSelection(.enabled)
                         }
                     }
-                    if !hideGovernanceCopy {
+                    if showGovernanceCopy {
                         Divider().padding(.vertical, 4)
                         Text(AppConstants.shortDisclaimer)
                             .font(.footnote.weight(.semibold))
@@ -407,42 +408,46 @@ struct DeepReviewContent: View {
                 }
             }
 
-            SectionCard(title: "My Review", systemImage: "checkmark.shield") {
-                LocalReviewPanel(
-                    sourceStatus: procedure.reviewer,
-                    sourceLastReviewed: procedure.lastReviewed,
-                    sourceVersion: procedure.version,
-                    localReviewDate: userData.localReviewDate(for: procedure),
-                    markReviewed: { userData.markReviewed(procedure) },
-                    clearReview: { userData.clearReview(for: procedure) }
-                )
-            }
+            if reviewModeEnabled {
+                SectionCard(title: "My Review", systemImage: "checkmark.shield") {
+                    LocalReviewPanel(
+                        sourceStatus: procedure.reviewer,
+                        sourceLastReviewed: procedure.lastReviewed,
+                        sourceVersion: procedure.version,
+                        localReviewRecord: userData.localReviewRecord(for: procedure),
+                        markReviewed: { userData.markReviewed(procedure) },
+                        markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: procedure) },
+                        deferReview: { userData.setReviewDisposition(.deferred, for: procedure) },
+                        clearReview: { userData.clearReview(for: procedure) }
+                    )
+                }
 
-            SectionCard(title: "My Edit Notes", systemImage: "square.and.pencil") {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Capture corrections, source links, local practice changes, or anything you want folded into the bundled content later. Stored only on this device.")
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                    TextEditor(text: $noteText)
-                        .focused($notesFocused)
-                        .frame(minHeight: 120)
-                        .padding(8)
-                        .scrollContentBackground(.hidden)
-                        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
-                        .toolbar {
-                            ToolbarItemGroup(placement: .keyboard) {
-                                Spacer()
-                                Button("Done") { notesFocused = false }
+                SectionCard(title: "My Edit Notes", systemImage: "square.and.pencil") {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Capture corrections, source links, local practice changes, or anything you want folded into the bundled content later. Stored only on this device.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                        TextEditor(text: $noteText)
+                            .focused($notesFocused)
+                            .frame(minHeight: 120)
+                            .padding(8)
+                            .scrollContentBackground(.hidden)
+                            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                            .toolbar {
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    Spacer()
+                                    Button("Done") { notesFocused = false }
+                                }
                             }
-                        }
-                        .onChange(of: noteText) { _, newValue in
-                            saveTask?.cancel()
-                            saveTask = Task { @MainActor in
-                                try? await Task.sleep(for: .milliseconds(500))
-                                guard !Task.isCancelled else { return }
-                                userData.setNote(newValue, for: procedure)
+                            .onChange(of: noteText) { _, newValue in
+                                saveTask?.cancel()
+                                saveTask = Task { @MainActor in
+                                    try? await Task.sleep(for: .milliseconds(500))
+                                    guard !Task.isCancelled else { return }
+                                    userData.setNote(newValue, for: procedure)
+                                }
                             }
-                        }
+                    }
                 }
             }
         }
@@ -450,6 +455,10 @@ struct DeepReviewContent: View {
             saveTask?.cancel()
             userData.setNote(noteText, for: procedure)
         }
+    }
+
+    private var showGovernanceCopy: Bool {
+        reviewModeEnabled || !hideGovernanceCopy
     }
 }
 
@@ -482,7 +491,8 @@ struct VisualGuideContent: View {
 
 struct VisualAssetCard: View {
     let asset: ProcedureVisualAsset
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
+    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     private var kindTint: Color {
         switch asset.kind {
@@ -548,7 +558,7 @@ struct VisualAssetCard: View {
             .padding(.horizontal, 16)
 
             // Clinical warning
-            if !hideGovernanceCopy, let warning = asset.clinicalWarning, !warning.isEmpty {
+            if showGovernanceCopy, let warning = asset.clinicalWarning, !warning.isEmpty {
                 HStack(alignment: .top, spacing: 8) {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .font(.caption)
@@ -578,6 +588,10 @@ struct VisualAssetCard: View {
             RoundedRectangle(cornerRadius: 18, style: .continuous)
                 .stroke(kindTint.opacity(0.25), lineWidth: 1)
         )
+    }
+
+    private var showGovernanceCopy: Bool {
+        reviewModeEnabled || !hideGovernanceCopy
     }
 }
 
@@ -627,7 +641,8 @@ extension Procedure {
 struct ProcedureVisualCard: View {
     let asset: ProcedureVisualAsset
     let image: UIImage
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
+    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -641,7 +656,7 @@ struct ProcedureVisualCard: View {
             Text(asset.title)
                 .font(.subheadline.weight(.semibold))
 
-            if !hideGovernanceCopy, let warning = asset.clinicalWarning, !warning.isEmpty {
+            if showGovernanceCopy, let warning = asset.clinicalWarning, !warning.isEmpty {
                 Label(warning, systemImage: "exclamationmark.triangle.fill")
                     .font(.caption)
                     .foregroundStyle(.orange)
@@ -654,6 +669,10 @@ struct ProcedureVisualCard: View {
             RoundedRectangle(cornerRadius: 18, style: .continuous)
                 .stroke(.secondary.opacity(0.12), lineWidth: 1)
         )
+    }
+
+    private var showGovernanceCopy: Bool {
+        reviewModeEnabled || !hideGovernanceCopy
     }
 }
 

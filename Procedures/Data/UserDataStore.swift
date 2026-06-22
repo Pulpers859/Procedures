@@ -14,6 +14,27 @@ private enum UserDataStoreKey {
     static let legacyCheckedEquipment = "ProcedureSTAT.checkedEquipment"
 }
 
+enum LocalReviewDisposition: String, Codable, CaseIterable, Identifiable {
+    case reviewed = "Reviewed"
+    case needsEdits = "Needs Edits"
+    case deferred = "Deferred"
+
+    var id: String { rawValue }
+
+    var systemImage: String {
+        switch self {
+        case .reviewed: return "checkmark.seal.fill"
+        case .needsEdits: return "square.and.pencil"
+        case .deferred: return "clock"
+        }
+    }
+}
+
+struct LocalReviewRecord: Codable, Hashable {
+    let disposition: LocalReviewDisposition
+    let date: String
+}
+
 @MainActor
 final class UserDataStore: ObservableObject {
     @Published private(set) var favoriteIDs: Set<String> = []
@@ -21,7 +42,7 @@ final class UserDataStore: ObservableObject {
     @Published private(set) var notes: [String: String] = [:]
     @Published private(set) var checkedEquipment: [String: Set<String>] = [:]
     @Published private(set) var kitCheckedItems: [String: Set<String>] = [:]
-    @Published private(set) var locallyReviewedContent: [String: String] = [:]
+    @Published private(set) var locallyReviewedContent: [String: LocalReviewRecord] = [:]
 
     init() {
         load()
@@ -107,28 +128,52 @@ final class UserDataStore: ObservableObject {
 
     // MARK: - Local review status
 
-    func localReviewDate(for procedure: Procedure) -> String? {
+    func localReviewRecord(for procedure: Procedure) -> LocalReviewRecord? {
         locallyReviewedContent[reviewKey(kind: "procedure", id: procedure.id)]
     }
 
-    func localReviewDate(for card: ComplicationRescueCard) -> String? {
+    func localReviewRecord(for card: ComplicationRescueCard) -> LocalReviewRecord? {
         locallyReviewedContent[reviewKey(kind: "rescue", id: card.id)]
     }
 
-    func localReviewDate(for kit: Kit) -> String? {
+    func localReviewRecord(for kit: Kit) -> LocalReviewRecord? {
         locallyReviewedContent[reviewKey(kind: "kit", id: kit.id)]
     }
 
+    func localReviewDate(for procedure: Procedure) -> String? {
+        localReviewRecord(for: procedure)?.date
+    }
+
+    func localReviewDate(for card: ComplicationRescueCard) -> String? {
+        localReviewRecord(for: card)?.date
+    }
+
+    func localReviewDate(for kit: Kit) -> String? {
+        localReviewRecord(for: kit)?.date
+    }
+
     func markReviewed(_ procedure: Procedure) {
-        setLocalReviewDate(forKey: reviewKey(kind: "procedure", id: procedure.id))
+        setLocalReviewRecord(forKey: reviewKey(kind: "procedure", id: procedure.id), disposition: .reviewed)
     }
 
     func markReviewed(_ card: ComplicationRescueCard) {
-        setLocalReviewDate(forKey: reviewKey(kind: "rescue", id: card.id))
+        setLocalReviewRecord(forKey: reviewKey(kind: "rescue", id: card.id), disposition: .reviewed)
     }
 
     func markReviewed(_ kit: Kit) {
-        setLocalReviewDate(forKey: reviewKey(kind: "kit", id: kit.id))
+        setLocalReviewRecord(forKey: reviewKey(kind: "kit", id: kit.id), disposition: .reviewed)
+    }
+
+    func setReviewDisposition(_ disposition: LocalReviewDisposition, for procedure: Procedure) {
+        setLocalReviewRecord(forKey: reviewKey(kind: "procedure", id: procedure.id), disposition: disposition)
+    }
+
+    func setReviewDisposition(_ disposition: LocalReviewDisposition, for card: ComplicationRescueCard) {
+        setLocalReviewRecord(forKey: reviewKey(kind: "rescue", id: card.id), disposition: disposition)
+    }
+
+    func setReviewDisposition(_ disposition: LocalReviewDisposition, for kit: Kit) {
+        setLocalReviewRecord(forKey: reviewKey(kind: "kit", id: kit.id), disposition: disposition)
     }
 
     func clearReview(for procedure: Procedure) {
@@ -149,9 +194,15 @@ final class UserDataStore: ObservableObject {
     }
 
     func localReviewCount(procedures: [Procedure], rescueCards: [ComplicationRescueCard], kits: [Kit]) -> Int {
-        procedures.filter { localReviewDate(for: $0) != nil }.count
-            + rescueCards.filter { localReviewDate(for: $0) != nil }.count
-            + kits.filter { localReviewDate(for: $0) != nil }.count
+        procedures.filter { localReviewRecord(for: $0)?.disposition == .reviewed }.count
+            + rescueCards.filter { localReviewRecord(for: $0)?.disposition == .reviewed }.count
+            + kits.filter { localReviewRecord(for: $0)?.disposition == .reviewed }.count
+    }
+
+    func localReviewCount(disposition: LocalReviewDisposition, procedures: [Procedure], rescueCards: [ComplicationRescueCard], kits: [Kit]) -> Int {
+        procedures.filter { localReviewRecord(for: $0)?.disposition == disposition }.count
+            + rescueCards.filter { localReviewRecord(for: $0)?.disposition == disposition }.count
+            + kits.filter { localReviewRecord(for: $0)?.disposition == disposition }.count
     }
 
     func pruneMissingProcedureData(validProcedureIDs: Set<String>) {
@@ -278,8 +329,14 @@ final class UserDataStore: ObservableObject {
         }
 
         if let data = defaults.data(forKey: UserDataStoreKey.locallyReviewedContent),
-           let decoded = try? JSONDecoder().decode([String: String].self, from: data) {
+           let decoded = try? JSONDecoder().decode([String: LocalReviewRecord].self, from: data) {
             locallyReviewedContent = decoded
+        } else if let data = defaults.data(forKey: UserDataStoreKey.locallyReviewedContent),
+                  let legacy = try? JSONDecoder().decode([String: String].self, from: data) {
+            locallyReviewedContent = legacy.mapValues {
+                LocalReviewRecord(disposition: .reviewed, date: $0)
+            }
+            saveLocallyReviewedContent()
         }
     }
 
@@ -317,8 +374,8 @@ final class UserDataStore: ObservableObject {
         }
     }
 
-    private func setLocalReviewDate(forKey key: String) {
-        locallyReviewedContent[key] = Self.todayString()
+    private func setLocalReviewRecord(forKey key: String, disposition: LocalReviewDisposition) {
+        locallyReviewedContent[key] = LocalReviewRecord(disposition: disposition, date: Self.todayString())
         saveLocallyReviewedContent()
     }
 

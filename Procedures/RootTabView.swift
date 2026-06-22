@@ -10,7 +10,8 @@ struct RootTabView: View {
     @EnvironmentObject private var userData: UserDataStore
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
+    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     private var appearance: AppAppearance {
         AppAppearance(rawValue: appearanceRaw) ?? .system
@@ -43,6 +44,11 @@ struct RootTabView: View {
 
             SavedView()
                 .tabItem { Label("Saved", systemImage: "bookmark.fill") }
+
+            if reviewModeEnabled {
+                ReviewCenterView()
+                    .tabItem { Label("Review", systemImage: "checkmark.seal") }
+            }
         }
         .tint(.blue)
         .preferredColorScheme(appearance.colorScheme)

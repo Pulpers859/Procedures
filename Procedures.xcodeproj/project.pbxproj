@@ -23,7 +23,7 @@
 		881D5EC5F8154B77BBCE9542 /* Views/Complications/ComplicationsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF198A70EE348B5AF64D291 /* Views/Complications/ComplicationsHomeView.swift */; };
 		88F9C923C93A43E6A2E14BFF /* Models/ComplicationRescueCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38FED1DEFEFB62F3922F4C /* Models/ComplicationRescueCard.swift */; };
 		8FE086BA856F4B1293051E57 /* Components/CriticalWarningCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4301701BC4A744288E325DE7 /* Components/CriticalWarningCard.swift */; };
-		92AACC753D3533D81A9532F1 /* Views/ContentHealth/ContentHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EEE6E0342FFE24C67FCF75 /* Views/ContentHealth/ContentHealthView.swift */; };
+		92AACC753D3533D81A9532F1 /* Views/Review/ReviewCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EEE6E0342FFE24C67FCF75 /* Views/Review/ReviewCenterView.swift */; };
 		958492D1300C4EEC9CE1FAEA /* Views/Saved/SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5529C4505C4F41A4A01806 /* Views/Saved/SavedView.swift */; };
 		A11111111111111111111111 /* Views/Guide/GuideHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222222222222222222222 /* Views/Guide/GuideHomeView.swift */; };
 		AABBCCDD0000000000005E71 /* Views/Settings/SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */; };
@@ -52,7 +52,7 @@
 /* Begin PBXFileReference section */
 		01BE97BA2FE0E226000F52A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B9118E397A43DFBAA25820 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
-		13EEE6E0342FFE24C67FCF75 /* Views/ContentHealth/ContentHealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/ContentHealth/ContentHealthView.swift; sourceTree = "<group>"; };
+		13EEE6E0342FFE24C67FCF75 /* Views/Review/ReviewCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Review/ReviewCenterView.swift; sourceTree = "<group>"; };
 		14AA73F6A3DD4C6599CF0094 /* Views/Procedures/ProcedureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/ProcedureListView.swift; sourceTree = "<group>"; };
 		160FBDD0DD9E41C9906384DF /* ProceduresApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceduresApp.swift; sourceTree = "<group>"; };
 		292B31E7F747418789D2A966 /* Components/SectionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/SectionCard.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				CA8DC468D85E10471B68033F /* Models/ContentValidation.swift */,
 				AD38FED1DEFEFB62F3922F4C /* Models/ComplicationRescueCard.swift */,
 				7E570000000000000000001B /* Models/ReviewerStatus.swift */,
-				13EEE6E0342FFE24C67FCF75 /* Views/ContentHealth/ContentHealthView.swift */,
+				13EEE6E0342FFE24C67FCF75 /* Views/Review/ReviewCenterView.swift */,
 				AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */,
 				01BE97BA2FE0E226000F52A9 /* Assets.xcassets */,
 				7E580000000000000000001B /* Models/Kit.swift */,
@@ -276,7 +276,7 @@
 				958492D1300C4EEC9CE1FAEA /* Views/Saved/SavedView.swift in Sources */,
 				338F8C8BBF1343EB69A78AD0 /* Models/ContentValidation.swift in Sources */,
 				88F9C923C93A43E6A2E14BFF /* Models/ComplicationRescueCard.swift in Sources */,
-				92AACC753D3533D81A9532F1 /* Views/ContentHealth/ContentHealthView.swift in Sources */,
+				92AACC753D3533D81A9532F1 /* Views/Review/ReviewCenterView.swift in Sources */,
 				AABBCCDD0000000000005E71 /* Views/Settings/SettingsView.swift in Sources */,
 				7E570000000000000000001A /* Models/ReviewerStatus.swift in Sources */,
 				7E580000000000000000001A /* Models/Kit.swift in Sources */,

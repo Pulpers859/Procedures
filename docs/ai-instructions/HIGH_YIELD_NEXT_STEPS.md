@@ -146,7 +146,8 @@ Build toward this tab structure:
 2. Procedures — A-Z reference library
 3. Rescue — problem-first complication response cards
 4. Kits — physical setup and equipment checklists
-5. Saved — favorites, notes, local preferences, content health
+5. Saved — favorites, notes, local preferences
+6. Review Center — optional editor/reviewer workspace, hidden from default bedside use
 
 Do not reintroduce a separate Shift Mode tab unless analytics show clinicians need it. Shift Mode should live at the top of every procedure page and inside Guide routing.
 

@@ -190,7 +190,8 @@ struct KitDetailView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     let kit: Kit
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
+    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     private var relatedProcedures: [Procedure] {
         kit.relatedProcedureIDs.compactMap { repository.procedure(withID: $0) }
@@ -284,15 +285,19 @@ struct KitDetailView: View {
                     }
                 }
 
-                SectionCard(title: "My Review", systemImage: "checkmark.shield") {
-                    LocalReviewPanel(
-                        sourceStatus: kit.reviewer,
-                        sourceLastReviewed: kit.lastReviewed,
-                        sourceVersion: kit.version,
-                        localReviewDate: userData.localReviewDate(for: kit),
-                        markReviewed: { userData.markReviewed(kit) },
-                        clearReview: { userData.clearReview(for: kit) }
-                    )
+                if reviewModeEnabled {
+                    SectionCard(title: "My Review", systemImage: "checkmark.shield") {
+                        LocalReviewPanel(
+                            sourceStatus: kit.reviewer,
+                            sourceLastReviewed: kit.lastReviewed,
+                            sourceVersion: kit.version,
+                            localReviewRecord: userData.localReviewRecord(for: kit),
+                            markReviewed: { userData.markReviewed(kit) },
+                            markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: kit) },
+                            deferReview: { userData.setReviewDisposition(.deferred, for: kit) },
+                            clearReview: { userData.clearReview(for: kit) }
+                        )
+                    }
                 }
 
                 if !kit.references.isEmpty {
@@ -304,7 +309,7 @@ struct KitDetailView: View {
                                     .foregroundStyle(.secondary)
                                     .textSelection(.enabled)
                             }
-                            if !hideGovernanceCopy {
+                            if showGovernanceCopy {
                                 Divider().padding(.vertical, 4)
                                 Text(AppConstants.shortDisclaimer)
                                     .font(.footnote.weight(.semibold))
@@ -329,6 +334,10 @@ struct KitDetailView: View {
                 }
             }
         }
+    }
+
+    private var showGovernanceCopy: Bool {
+        reviewModeEnabled || !hideGovernanceCopy
     }
 
     private var header: some View {

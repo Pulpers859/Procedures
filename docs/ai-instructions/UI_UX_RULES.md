@@ -7,10 +7,12 @@ This app should feel like a fast clinical tool, not a course module.
 ## Main tabs
 
 1. Guide — command center, pathway routing, search, rescue preview
-2. Procedures — A-Z library with category quick access and content health
+2. Procedures — A-Z library with category quick access
 3. Rescue — problem-first rescue cards and procedure-specific complication reviews
 4. Kits — physical room setup and equipment checklists
-5. Saved — favorites, recents, local notes, and content health summary
+5. Saved — favorites, recents, and local notes
+
+Review Center is an optional editor workspace, not part of the default bedside flow.
 
 ## Procedure screen
 
@@ -43,7 +45,8 @@ Updated navigation model:
 - Procedures: A-Z library
 - Rescue: complication response cards
 - Kits: physical room setup
-- Saved: favorites, recents, notes, content health
+- Saved: favorites, recents, notes
+- Review Center: optional editor workspace for review queue, validator issues, and local reviewer notes
 
 Procedure pages should feel like focused cards, not articles. The top of every detail page should quickly show:
 

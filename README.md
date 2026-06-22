@@ -16,7 +16,7 @@ This phase includes:
 - Favorites
 - Recently viewed procedures
 - Local procedure notes
-- Built-in content health screen
+- Optional Review Center for content review, validation issues, and local reviewer notes
 - Local bundled JSON procedure content
 - Lightweight content validation script
 - AI-agent instruction files

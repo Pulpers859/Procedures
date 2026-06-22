@@ -113,7 +113,8 @@ struct RescueCardDetailView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     let card: ComplicationRescueCard
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
+    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     private var relatedProcedures: [Procedure] {
         card.relatedProcedureIDs.compactMap { repository.procedure(withID: $0) }
@@ -162,15 +163,19 @@ struct RescueCardDetailView: View {
                     }
                 }
 
-                SectionCard(title: "My Review", systemImage: "checkmark.shield") {
-                    LocalReviewPanel(
-                        sourceStatus: card.reviewer,
-                        sourceLastReviewed: card.lastReviewed,
-                        sourceVersion: card.version,
-                        localReviewDate: userData.localReviewDate(for: card),
-                        markReviewed: { userData.markReviewed(card) },
-                        clearReview: { userData.clearReview(for: card) }
-                    )
+                if reviewModeEnabled {
+                    SectionCard(title: "My Review", systemImage: "checkmark.shield") {
+                        LocalReviewPanel(
+                            sourceStatus: card.reviewer,
+                            sourceLastReviewed: card.lastReviewed,
+                            sourceVersion: card.version,
+                            localReviewRecord: userData.localReviewRecord(for: card),
+                            markReviewed: { userData.markReviewed(card) },
+                            markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: card) },
+                            deferReview: { userData.setReviewDisposition(.deferred, for: card) },
+                            clearReview: { userData.clearReview(for: card) }
+                        )
+                    }
                 }
 
                 if !card.references.isEmpty {
@@ -182,7 +187,7 @@ struct RescueCardDetailView: View {
                                     .foregroundStyle(.secondary)
                                     .textSelection(.enabled)
                             }
-                            if !hideGovernanceCopy {
+                            if showGovernanceCopy {
                                 Divider().padding(.vertical, 4)
                                 Text(AppConstants.shortDisclaimer)
                                     .font(.footnote.weight(.semibold))
@@ -197,6 +202,10 @@ struct RescueCardDetailView: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle(card.title)
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private var showGovernanceCopy: Bool {
+        reviewModeEnabled || !hideGovernanceCopy
     }
 
     private var header: some View {

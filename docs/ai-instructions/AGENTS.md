@@ -106,7 +106,8 @@ Implement this hierarchy:
 - Procedures second: full A-Z library.
 - Rescue third: problem-first rescue cards.
 - Kits fourth: physical setup checklists.
-- Saved fifth: favorites, recent items, notes, local preferences, and content health.
+- Saved fifth: favorites, recent items, notes, and local preferences.
+- Review Center is optional editor/reviewer workspace. Keep it separate from the default bedside flow.
 
 Design rules:
 

@@ -31,6 +31,7 @@ enum SettingsStorageKey {
     static let defaultSection = "Procedures.defaultSection"
     static let disclaimerAccepted = "Procedures.hasAcceptedClinicalDisclaimer"
     static let hideGovernanceCopy = "Procedures.hideGovernanceCopy"
+    static let reviewModeEnabled = "Procedures.reviewModeEnabled"
 }
 
 struct SettingsView: View {
@@ -41,7 +42,8 @@ struct SettingsView: View {
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
     @AppStorage(SettingsStorageKey.defaultSection) private var defaultSectionRaw = ProcedureDetailSection.shiftMode.rawValue
     @AppStorage(SettingsStorageKey.disclaimerAccepted) private var hasAcceptedDisclaimer = false
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
+    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     @State private var confirmation: DataAction?
 
@@ -76,19 +78,24 @@ struct SettingsView: View {
                             Text(section.rawValue).tag(section)
                         }
                     }
-                    Toggle("Hide governance copy", isOn: $hideGovernanceCopy)
+                    Toggle("Clinical Mode", isOn: $hideGovernanceCopy)
                 } header: {
                     Text("Procedure Pages")
                 } footer: {
-                    Text("Hide governance copy removes disclaimers, review-status badges, and visual warning callouts from app screens. Procedure clinical content remains visible.")
+                    Text("Clinical Mode keeps bedside screens quiet by hiding governance copy, disclaimers, source review badges, and visual warning callouts. Procedure clinical content remains visible.")
                 }
 
-                Section("Content") {
+                Section {
+                    Toggle("Show Review Center Tab", isOn: $reviewModeEnabled)
                     NavigationLink {
-                        ContentHealthView()
+                        ReviewCenterView()
                     } label: {
-                        Label("Content Health", systemImage: "checkmark.seal")
+                        Label("Open Review Center", systemImage: "checkmark.seal")
                     }
+                } header: {
+                    Text("Review Mode")
+                } footer: {
+                    Text("Review Center is the editor workspace for content review, issue fixing, and local reviewer notes. Keep it off for the clean bedside app.")
                 }
 
                 Section {
