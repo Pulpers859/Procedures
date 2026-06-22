@@ -27,7 +27,7 @@ Important bundled content files:
 ## Data flow
 
 - `ProcedureRepository` loads read-only procedures and rescue cards from bundled JSON.
-- `UserDataStore` manages favorites, recents, and notes.
+- `UserDataStore` manages favorites, recents, notes, checklist progress, and local "reviewed by me" marks.
 - Views receive both through environment objects.
 - `ContentValidator` validates procedures, rescue cards, and visual metadata.
 
@@ -36,6 +36,7 @@ Important bundled content files:
 - Do not hardcode procedure text inside SwiftUI views.
 - Do not hardcode rescue cards in Swift.
 - Do not mutate bundled procedure content.
+- Do not treat local "reviewed by me" marks as bundled clinical approval; they are personal device state.
 - Keep rescue cards editable through `rescue_cards.json`.
 - Keep visual metadata in procedure content via `visualAssets`; do not add decorative galleries without reviewed assets and a real product reason.
 - Add user-specific content to `UserDataStore` or a future SwiftData layer.

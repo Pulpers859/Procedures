@@ -10,6 +10,7 @@ struct RootTabView: View {
     @EnvironmentObject private var userData: UserDataStore
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
 
     private var appearance: AppAppearance {
         AppAppearance(rawValue: appearanceRaw) ?? .system
@@ -46,7 +47,7 @@ struct RootTabView: View {
         .tint(.blue)
         .preferredColorScheme(appearance.colorScheme)
         .fullScreenCover(isPresented: Binding(
-            get: { !hasAcceptedClinicalDisclaimer },
+            get: { !hasAcceptedClinicalDisclaimer && !hideGovernanceCopy },
             set: { newValue in
                 if newValue == false { hasAcceptedClinicalDisclaimer = true }
             }
@@ -62,6 +63,11 @@ struct RootTabView: View {
             if !repository.kits.isEmpty {
                 userData.pruneMissingKitData(validKitIDs: Set(repository.kits.map(\.id)))
             }
+            userData.pruneMissingReviewData(
+                validProcedureIDs: Set(repository.procedures.map(\.id)),
+                validRescueCardIDs: Set(repository.rescueCards.map(\.id)),
+                validKitIDs: Set(repository.kits.map(\.id))
+            )
         }
     }
 }

@@ -6,6 +6,7 @@ private enum UserDataStoreKey {
     static let notes = "Procedures.notes"
     static let checkedEquipment = "Procedures.checkedEquipment"
     static let kitCheckedItems = "Procedures.kitCheckedItems"
+    static let locallyReviewedContent = "Procedures.locallyReviewedContent"
 
     static let legacyFavorites = "ProcedureSTAT.favoriteIDs"
     static let legacyRecents = "ProcedureSTAT.recentIDs"
@@ -20,6 +21,7 @@ final class UserDataStore: ObservableObject {
     @Published private(set) var notes: [String: String] = [:]
     @Published private(set) var checkedEquipment: [String: Set<String>] = [:]
     @Published private(set) var kitCheckedItems: [String: Set<String>] = [:]
+    @Published private(set) var locallyReviewedContent: [String: String] = [:]
 
     init() {
         load()
@@ -103,6 +105,55 @@ final class UserDataStore: ObservableObject {
         saveKitCheckedItems()
     }
 
+    // MARK: - Local review status
+
+    func localReviewDate(for procedure: Procedure) -> String? {
+        locallyReviewedContent[reviewKey(kind: "procedure", id: procedure.id)]
+    }
+
+    func localReviewDate(for card: ComplicationRescueCard) -> String? {
+        locallyReviewedContent[reviewKey(kind: "rescue", id: card.id)]
+    }
+
+    func localReviewDate(for kit: Kit) -> String? {
+        locallyReviewedContent[reviewKey(kind: "kit", id: kit.id)]
+    }
+
+    func markReviewed(_ procedure: Procedure) {
+        setLocalReviewDate(forKey: reviewKey(kind: "procedure", id: procedure.id))
+    }
+
+    func markReviewed(_ card: ComplicationRescueCard) {
+        setLocalReviewDate(forKey: reviewKey(kind: "rescue", id: card.id))
+    }
+
+    func markReviewed(_ kit: Kit) {
+        setLocalReviewDate(forKey: reviewKey(kind: "kit", id: kit.id))
+    }
+
+    func clearReview(for procedure: Procedure) {
+        clearLocalReviewDate(forKey: reviewKey(kind: "procedure", id: procedure.id))
+    }
+
+    func clearReview(for card: ComplicationRescueCard) {
+        clearLocalReviewDate(forKey: reviewKey(kind: "rescue", id: card.id))
+    }
+
+    func clearReview(for kit: Kit) {
+        clearLocalReviewDate(forKey: reviewKey(kind: "kit", id: kit.id))
+    }
+
+    func clearAllLocalReviews() {
+        locallyReviewedContent = [:]
+        saveLocallyReviewedContent()
+    }
+
+    func localReviewCount(procedures: [Procedure], rescueCards: [ComplicationRescueCard], kits: [Kit]) -> Int {
+        procedures.filter { localReviewDate(for: $0) != nil }.count
+            + rescueCards.filter { localReviewDate(for: $0) != nil }.count
+            + kits.filter { localReviewDate(for: $0) != nil }.count
+    }
+
     func pruneMissingProcedureData(validProcedureIDs: Set<String>) {
         let originalFavorites = favoriteIDs
         favoriteIDs = favoriteIDs.intersection(validProcedureIDs)
@@ -138,6 +189,24 @@ final class UserDataStore: ObservableObject {
         kitCheckedItems = kitCheckedItems.filter { validKitIDs.contains($0.key) }
         if Set(kitCheckedItems.keys) != originalKeys {
             saveKitCheckedItems()
+        }
+    }
+
+    func pruneMissingReviewData(validProcedureIDs: Set<String>, validRescueCardIDs: Set<String>, validKitIDs: Set<String>) {
+        let originalKeys = Set(locallyReviewedContent.keys)
+        locallyReviewedContent = locallyReviewedContent.filter { key, _ in
+            let parts = key.split(separator: ":", maxSplits: 1).map(String.init)
+            guard parts.count == 2 else { return false }
+
+            switch parts[0] {
+            case "procedure": return validProcedureIDs.contains(parts[1])
+            case "rescue": return validRescueCardIDs.contains(parts[1])
+            case "kit": return validKitIDs.contains(parts[1])
+            default: return false
+            }
+        }
+        if Set(locallyReviewedContent.keys) != originalKeys {
+            saveLocallyReviewedContent()
         }
     }
 
@@ -207,6 +276,11 @@ final class UserDataStore: ObservableObject {
            let decoded = try? JSONDecoder().decode([String: [String]].self, from: data) {
             kitCheckedItems = decoded.mapValues { Set($0) }
         }
+
+        if let data = defaults.data(forKey: UserDataStoreKey.locallyReviewedContent),
+           let decoded = try? JSONDecoder().decode([String: String].self, from: data) {
+            locallyReviewedContent = decoded
+        }
     }
 
     private func saveFavorites() {
@@ -235,5 +309,34 @@ final class UserDataStore: ObservableObject {
         if let data = try? JSONEncoder().encode(encoded) {
             UserDefaults.standard.set(data, forKey: UserDataStoreKey.kitCheckedItems)
         }
+    }
+
+    private func saveLocallyReviewedContent() {
+        if let data = try? JSONEncoder().encode(locallyReviewedContent) {
+            UserDefaults.standard.set(data, forKey: UserDataStoreKey.locallyReviewedContent)
+        }
+    }
+
+    private func setLocalReviewDate(forKey key: String) {
+        locallyReviewedContent[key] = Self.todayString()
+        saveLocallyReviewedContent()
+    }
+
+    private func clearLocalReviewDate(forKey key: String) {
+        locallyReviewedContent.removeValue(forKey: key)
+        saveLocallyReviewedContent()
+    }
+
+    private func reviewKey(kind: String, id: String) -> String {
+        "\(kind):\(id)"
+    }
+
+    private static func todayString(now: Date = Date()) -> String {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: now)
     }
 }

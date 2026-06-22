@@ -190,6 +190,7 @@ struct KitDetailView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     let kit: Kit
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
 
     private var relatedProcedures: [Procedure] {
         kit.relatedProcedureIDs.compactMap { repository.procedure(withID: $0) }
@@ -283,12 +284,15 @@ struct KitDetailView: View {
                     }
                 }
 
-                SectionCard(title: "Governance", systemImage: "checkmark.shield") {
-                    VStack(spacing: 8) {
-                        ReviewerStatusBadge(status: kit.reviewer)
-                        MetadataRow(icon: "calendar", title: "Last reviewed", value: kit.lastReviewed)
-                        MetadataRow(icon: "number", title: "Version", value: kit.version)
-                    }
+                SectionCard(title: "My Review", systemImage: "checkmark.shield") {
+                    LocalReviewPanel(
+                        sourceStatus: kit.reviewer,
+                        sourceLastReviewed: kit.lastReviewed,
+                        sourceVersion: kit.version,
+                        localReviewDate: userData.localReviewDate(for: kit),
+                        markReviewed: { userData.markReviewed(kit) },
+                        clearReview: { userData.clearReview(for: kit) }
+                    )
                 }
 
                 if !kit.references.isEmpty {
@@ -300,10 +304,12 @@ struct KitDetailView: View {
                                     .foregroundStyle(.secondary)
                                     .textSelection(.enabled)
                             }
-                            Divider().padding(.vertical, 4)
-                            Text("Educational review for trained clinicians. Does not replace formal training, supervision, credentialing, clinical judgment, or local institutional policy.")
-                                .font(.footnote.weight(.semibold))
-                                .foregroundStyle(.secondary)
+                            if !hideGovernanceCopy {
+                                Divider().padding(.vertical, 4)
+                                Text(AppConstants.shortDisclaimer)
+                                    .font(.footnote.weight(.semibold))
+                                    .foregroundStyle(.secondary)
+                            }
                         }
                     }
                 }

@@ -7,10 +7,11 @@ struct ProcedureDetailView: View {
     @State private var selectedSection: ProcedureDetailSection
     @State private var noteText = ""
 
-    init(procedure: Procedure) {
+    init(procedure: Procedure, initialSection: ProcedureDetailSection? = nil) {
         self.procedure = procedure
         let stored = UserDefaults.standard.string(forKey: SettingsStorageKey.defaultSection)
-        _selectedSection = State(initialValue: ProcedureDetailSection(rawValue: stored ?? "") ?? .shiftMode)
+        let defaultSection = ProcedureDetailSection(rawValue: stored ?? "") ?? .shiftMode
+        _selectedSection = State(initialValue: initialSection ?? defaultSection)
     }
 
     var body: some View {
@@ -126,7 +127,7 @@ struct ProcedureDetailView: View {
             case .documentation:
                 DocumentationContent(procedure: procedure, noteText: $noteText)
             case .deepReview:
-                DeepReviewContent(procedure: procedure)
+                DeepReviewContent(procedure: procedure, noteText: $noteText)
             }
         }
         .id(selectedSection)
@@ -362,7 +363,12 @@ struct DocumentationContent: View {
 }
 
 struct DeepReviewContent: View {
+    @EnvironmentObject private var userData: UserDataStore
     let procedure: Procedure
+    @Binding var noteText: String
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+    @FocusState private var notesFocused: Bool
+    @State private var saveTask: Task<Void, Never>?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -378,7 +384,7 @@ struct DeepReviewContent: View {
             if !procedure.sections.ultrasound.isEmpty {
                 SectionCard(title: "Ultrasound Guidance", systemImage: "waveform.path.ecg.rectangle") { BulletListView(items: procedure.sections.ultrasound) }
             }
-            SectionCard(title: "References + Disclaimer", systemImage: "books.vertical") {
+            SectionCard(title: hideGovernanceCopy ? "References" : "References + Disclaimer", systemImage: "books.vertical") {
                 VStack(alignment: .leading, spacing: 8) {
                     if procedure.sections.references.isEmpty {
                         Text("No references entered yet. This should block release-quality content approval.")
@@ -392,20 +398,57 @@ struct DeepReviewContent: View {
                                 .textSelection(.enabled)
                         }
                     }
-                    Divider().padding(.vertical, 4)
-                    Text(AppConstants.shortDisclaimer)
-                        .font(.footnote.weight(.semibold))
-                        .foregroundStyle(.secondary)
+                    if !hideGovernanceCopy {
+                        Divider().padding(.vertical, 4)
+                        Text(AppConstants.shortDisclaimer)
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
 
-            SectionCard(title: "Clinical Governance", systemImage: "checkmark.shield") {
-                VStack(spacing: 8) {
-                    ReviewerStatusBadge(status: procedure.reviewer)
-                    MetadataRow(icon: "calendar", title: "Last reviewed", value: procedure.lastReviewed)
-                    MetadataRow(icon: "number", title: "Content version", value: procedure.version)
+            SectionCard(title: "My Review", systemImage: "checkmark.shield") {
+                LocalReviewPanel(
+                    sourceStatus: procedure.reviewer,
+                    sourceLastReviewed: procedure.lastReviewed,
+                    sourceVersion: procedure.version,
+                    localReviewDate: userData.localReviewDate(for: procedure),
+                    markReviewed: { userData.markReviewed(procedure) },
+                    clearReview: { userData.clearReview(for: procedure) }
+                )
+            }
+
+            SectionCard(title: "My Edit Notes", systemImage: "square.and.pencil") {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Capture corrections, source links, local practice changes, or anything you want folded into the bundled content later. Stored only on this device.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                    TextEditor(text: $noteText)
+                        .focused($notesFocused)
+                        .frame(minHeight: 120)
+                        .padding(8)
+                        .scrollContentBackground(.hidden)
+                        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Spacer()
+                                Button("Done") { notesFocused = false }
+                            }
+                        }
+                        .onChange(of: noteText) { _, newValue in
+                            saveTask?.cancel()
+                            saveTask = Task { @MainActor in
+                                try? await Task.sleep(for: .milliseconds(500))
+                                guard !Task.isCancelled else { return }
+                                userData.setNote(newValue, for: procedure)
+                            }
+                        }
                 }
             }
+        }
+        .onDisappear {
+            saveTask?.cancel()
+            userData.setNote(noteText, for: procedure)
         }
     }
 }
@@ -439,6 +482,7 @@ struct VisualGuideContent: View {
 
 struct VisualAssetCard: View {
     let asset: ProcedureVisualAsset
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
 
     private var kindTint: Color {
         switch asset.kind {
@@ -504,7 +548,7 @@ struct VisualAssetCard: View {
             .padding(.horizontal, 16)
 
             // Clinical warning
-            if let warning = asset.clinicalWarning, !warning.isEmpty {
+            if !hideGovernanceCopy, let warning = asset.clinicalWarning, !warning.isEmpty {
                 HStack(alignment: .top, spacing: 8) {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .font(.caption)
@@ -583,6 +627,7 @@ extension Procedure {
 struct ProcedureVisualCard: View {
     let asset: ProcedureVisualAsset
     let image: UIImage
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -596,7 +641,7 @@ struct ProcedureVisualCard: View {
             Text(asset.title)
                 .font(.subheadline.weight(.semibold))
 
-            if let warning = asset.clinicalWarning, !warning.isEmpty {
+            if !hideGovernanceCopy, let warning = asset.clinicalWarning, !warning.isEmpty {
                 Label(warning, systemImage: "exclamationmark.triangle.fill")
                     .font(.caption)
                     .foregroundStyle(.orange)

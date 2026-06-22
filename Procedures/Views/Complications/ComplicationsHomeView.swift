@@ -111,7 +111,9 @@ struct RescueCardRow: View {
 
 struct RescueCardDetailView: View {
     @EnvironmentObject private var repository: ProcedureRepository
+    @EnvironmentObject private var userData: UserDataStore
     let card: ComplicationRescueCard
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
 
     private var relatedProcedures: [Procedure] {
         card.relatedProcedureIDs.compactMap { repository.procedure(withID: $0) }
@@ -160,12 +162,15 @@ struct RescueCardDetailView: View {
                     }
                 }
 
-                SectionCard(title: "Governance", systemImage: "checkmark.shield") {
-                    VStack(spacing: 8) {
-                        ReviewerStatusBadge(status: card.reviewer)
-                        MetadataRow(icon: "calendar", title: "Last reviewed", value: card.lastReviewed)
-                        MetadataRow(icon: "number", title: "Version", value: card.version)
-                    }
+                SectionCard(title: "My Review", systemImage: "checkmark.shield") {
+                    LocalReviewPanel(
+                        sourceStatus: card.reviewer,
+                        sourceLastReviewed: card.lastReviewed,
+                        sourceVersion: card.version,
+                        localReviewDate: userData.localReviewDate(for: card),
+                        markReviewed: { userData.markReviewed(card) },
+                        clearReview: { userData.clearReview(for: card) }
+                    )
                 }
 
                 if !card.references.isEmpty {
@@ -177,10 +182,12 @@ struct RescueCardDetailView: View {
                                     .foregroundStyle(.secondary)
                                     .textSelection(.enabled)
                             }
-                            Divider().padding(.vertical, 4)
-                            Text(AppConstants.shortDisclaimer)
-                                .font(.footnote.weight(.semibold))
-                                .foregroundStyle(.secondary)
+                            if !hideGovernanceCopy {
+                                Divider().padding(.vertical, 4)
+                                Text(AppConstants.shortDisclaimer)
+                                    .font(.footnote.weight(.semibold))
+                                    .foregroundStyle(.secondary)
+                            }
                         }
                     }
                 }

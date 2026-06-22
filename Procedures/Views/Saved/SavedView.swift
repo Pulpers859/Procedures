@@ -3,6 +3,7 @@ import SwiftUI
 struct SavedView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
 
     private var favorites: [Procedure] {
         repository.procedures.filter { userData.favoriteIDs.contains($0.id) }
@@ -94,10 +95,12 @@ struct SavedView: View {
                     }
                 }
 
-                Section("About") {
-                    Text(AppConstants.clinicalDisclaimer)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
+                if !hideGovernanceCopy {
+                    Section("About") {
+                        Text(AppConstants.clinicalDisclaimer)
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
             .navigationTitle("Saved")
@@ -108,6 +111,9 @@ struct SavedView: View {
             // resolve them at the root.
             .navigationDestination(for: ComplicationRescueCard.self) { card in
                 RescueCardDetailView(card: card)
+            }
+            .navigationDestination(for: Kit.self) { kit in
+                KitDetailView(kit: kit)
             }
         }
     }

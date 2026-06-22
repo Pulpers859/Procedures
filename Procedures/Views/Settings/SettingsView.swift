@@ -30,6 +30,7 @@ enum SettingsStorageKey {
     static let appearance = "Procedures.appearance"
     static let defaultSection = "Procedures.defaultSection"
     static let disclaimerAccepted = "Procedures.hasAcceptedClinicalDisclaimer"
+    static let hideGovernanceCopy = "Procedures.hideGovernanceCopy"
 }
 
 struct SettingsView: View {
@@ -40,6 +41,7 @@ struct SettingsView: View {
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
     @AppStorage(SettingsStorageKey.defaultSection) private var defaultSectionRaw = ProcedureDetailSection.shiftMode.rawValue
     @AppStorage(SettingsStorageKey.disclaimerAccepted) private var hasAcceptedDisclaimer = false
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
 
     @State private var confirmation: DataAction?
 
@@ -74,10 +76,11 @@ struct SettingsView: View {
                             Text(section.rawValue).tag(section)
                         }
                     }
+                    Toggle("Hide governance copy", isOn: $hideGovernanceCopy)
                 } header: {
                     Text("Procedure Pages")
                 } footer: {
-                    Text("Choose which tab a procedure opens to by default. Shift Mode is the fast bedside view.")
+                    Text("Hide governance copy removes disclaimers, review-status badges, and visual warning callouts from app screens. Procedure clinical content remains visible.")
                 }
 
                 Section("Content") {
@@ -104,23 +107,32 @@ struct SettingsView: View {
                     Button(role: .destructive) { confirmation = .clearNotes } label: {
                         Label("Delete Local Notes", systemImage: "trash")
                     }
+                    Button(role: .destructive) { confirmation = .clearReviews } label: {
+                        Label("Clear My Review Marks", systemImage: "checkmark.seal")
+                    }
                 } header: {
                     Text("My Data")
                 } footer: {
-                    Text("Favorites, recents, checklists, and notes are stored only on this device.")
+                    Text("Favorites, recents, checklists, notes, and review marks are stored only on this device.")
                 }
 
                 Section {
-                    Button {
-                        hasAcceptedDisclaimer = false
-                        dismiss()
-                    } label: {
-                        Label("Show Disclaimer Again", systemImage: "exclamationmark.shield")
+                    if hideGovernanceCopy {
+                        Label("Governance copy is hidden", systemImage: "eye.slash")
+                    } else {
+                        Button {
+                            hasAcceptedDisclaimer = false
+                            dismiss()
+                        } label: {
+                            Label("Show Disclaimer Again", systemImage: "exclamationmark.shield")
+                        }
                     }
                 } header: {
                     Text("About")
                 } footer: {
-                    Text(AppConstants.clinicalDisclaimer)
+                    if !hideGovernanceCopy {
+                        Text(AppConstants.clinicalDisclaimer)
+                    }
                 }
 
                 Section("App") {
@@ -133,6 +145,15 @@ struct SettingsView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
                 }
+            }
+            .navigationDestination(for: Procedure.self) { procedure in
+                ProcedureDetailView(procedure: procedure)
+            }
+            .navigationDestination(for: ComplicationRescueCard.self) { card in
+                RescueCardDetailView(card: card)
+            }
+            .navigationDestination(for: Kit.self) { kit in
+                KitDetailView(kit: kit)
             }
             .confirmationDialog(
                 confirmation?.title ?? "",
@@ -158,6 +179,7 @@ struct SettingsView: View {
         case .clearChecklists: userData.clearAllEquipment()
         case .clearKitChecklists: userData.clearAllKitChecklists()
         case .clearNotes: userData.clearAllNotes()
+        case .clearReviews: userData.clearAllLocalReviews()
         }
         confirmation = nil
     }
@@ -169,6 +191,7 @@ private enum DataAction: Identifiable {
     case clearChecklists
     case clearKitChecklists
     case clearNotes
+    case clearReviews
 
     var id: String { title }
 
@@ -179,6 +202,7 @@ private enum DataAction: Identifiable {
         case .clearChecklists: return "Reset every equipment checklist?"
         case .clearKitChecklists: return "Reset every kit room-setup checklist?"
         case .clearNotes: return "Delete all local notes?"
+        case .clearReviews: return "Clear every local review mark?"
         }
     }
 
@@ -189,6 +213,7 @@ private enum DataAction: Identifiable {
         case .clearChecklists: return "Reset Checklists"
         case .clearKitChecklists: return "Reset Kit Checklists"
         case .clearNotes: return "Delete Notes"
+        case .clearReviews: return "Clear Reviews"
         }
     }
 }

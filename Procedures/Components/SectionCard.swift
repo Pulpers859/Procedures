@@ -148,6 +148,56 @@ struct ReviewerStatusBadge: View {
     }
 }
 
+struct LocalReviewPanel: View {
+    let sourceStatus: ReviewerStatus
+    let sourceLastReviewed: String
+    let sourceVersion: String
+    let localReviewDate: String?
+    let markReviewed: () -> Void
+    let clearReview: () -> Void
+
+    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            if let localReviewDate {
+                HStack(spacing: 10) {
+                    Image(systemName: "checkmark.seal.fill")
+                        .foregroundStyle(.green)
+                        .frame(width: 22)
+                    Text("Reviewed by me")
+                        .font(.subheadline.weight(.semibold))
+                    Spacer()
+                    Text(localReviewDate)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                Button("Remove My Review") {
+                    clearReview()
+                }
+                .font(.footnote.weight(.semibold))
+            } else {
+                Text("Not reviewed by me on this device.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                Button {
+                    markReviewed()
+                } label: {
+                    Label("Mark Reviewed by Me", systemImage: "checkmark.seal")
+                }
+                .buttonStyle(.borderedProminent)
+            }
+
+            if !hideGovernanceCopy {
+                Divider().padding(.vertical, 2)
+                ReviewerStatusBadge(status: sourceStatus)
+                MetadataRow(icon: "calendar", title: "Source last reviewed", value: sourceLastReviewed)
+                MetadataRow(icon: "number", title: "Source version", value: sourceVersion)
+            }
+        }
+    }
+}
+
 extension ComplicationRescueCard.Acuity {
     var tintColor: Color {
         switch self {
