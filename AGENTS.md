@@ -6,6 +6,7 @@
 - Xcode project: `C:\Dev\Procedures\Procedures.xcodeproj`
 - Working branch: `main`
 - Work directly on `main`; do not create side branches or pull requests unless the user explicitly requests them.
+- For risky, creative, or parallel agent work, use a detached sandbox worktree via `tools/New-AgentSandbox.ps1`; do not create side branches or commit/push from the sandbox.
 - Commit and push completed tracked changes to `origin/main` in the same work cycle unless the user explicitly says not to.
 
 ## Product Priorities
@@ -45,6 +46,7 @@
 - `docs/ai-instructions/UI_UX_RULES.md`
 - `docs/ai-instructions/TESTING_CHECKLIST.md`
 - `docs/ai-instructions/HIGH_YIELD_NEXT_STEPS.md`
+- `docs/agent-sandbox-workflow.md`
 
 ## Validation Reality
 - Windows can validate Git state, JSON content, scripts, and framework-light Swift logic.

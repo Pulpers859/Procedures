@@ -102,6 +102,7 @@
   - confirm `git status -sb` is clean unless the user explicitly wants local-only WIP
 - Do not force-close the terminal, Claude session, or machine during `fetch`, `pull`, `reset`, `rebase`, `checkout`, or large file updates.
 - If work is long-running, risky, or performed by another remote agent, prefer a separate clone or worktree rather than sharing one mutable checkout.
+- For local AI-agent experiments, prefer a detached sandbox worktree via `tools/New-AgentSandbox.ps1`; do not create side branches or commit/push from the sandbox. See `docs/agent-sandbox-workflow.md`.
 - If Git starts reporting `bad object`, `failed to resolve HEAD`, or broken refs, stop normal sync work and inspect `.git` before attempting more pulls or resets.
 
 ## Project-Specific Instructions For The Next Agent
