@@ -15,7 +15,7 @@ For risky experiments, create a detached worktree:
 Review the sandbox diff, then integrate only selected changes back into the main checkout:
 
 ```powershell
-git -C C:\Dev\Procedures-agent-sandboxes\clinical-search-audit diff
+git -C C:\Dev\.agent-sandboxes\Procedures\clinical-search-audit diff
 ```
 
 Remove the sandbox when finished:
