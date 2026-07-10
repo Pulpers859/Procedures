@@ -83,15 +83,6 @@ Do not use the raw RPC / `StartCascade` coding-agent lane for image runs — it 
 
 ## Audit rubric
 
-The controlling agent applies this after every render. DECISION is PASS only if every critical check passes; otherwise FAIL with a specific repair instruction.
+Grade every render against **`docs/visual-assets/CLINICAL_IMAGE_RUBRIC.md`** — the authoritative clinical-correctness rubric with a per-image answer key. That rubric is the gate: an image is PASS only with zero critical clinical errors and a weighted correctness score ≥ 99, and clinical correctness outranks labels, color, and layout. Do not use a lighter check than that.
 
-Critical checks:
-
-1. Every required label from the prompt spec is present, verbatim, correctly spelled. Any garbled, extra, or invented text is an automatic FAIL.
-2. Anatomy is schematic, plausible, and consistent with the claims in `Procedures/Resources/procedures.json` for that procedure. No invented structures or relationships.
-3. One clear teaching point — the miss this visual prevents is unmistakable at a glance.
-4. Color semantics: red/orange only for danger, incision, or warning; blue/cyan for ultrasound/landmark guidance; green only for confirmation.
-5. Labels readable at iPhone width; critical labels inside a safe margin; roughly 4:3 composition.
-6. No gore, no photorealistic patient, no faces, no watermark, no decorative clutter.
-
-A PASS makes the image a **reviewable draft**, nothing more. It then enters the normal pipeline: clinical review, then the promotion steps in `GEMINI_WORKFLOW.md` (move to `Procedures/Resources/Visuals`, add to the Xcode target, set `visualAssets.assetName`, run `python scripts/validate_procedures.py`). Structural validation and rubric passes never substitute for clinician approval.
+A rubric PASS makes the image *eligible* for clinician review, nothing more. It then enters the normal pipeline: clinical review, then the promotion steps in `GEMINI_WORKFLOW.md` (bundle the artwork — as an `Assets.xcassets` imageset or a `Resources/Visuals` file — set `visualAssets.assetName`, run `python scripts/validate_procedures.py`). A rubric PASS never substitutes for clinician approval.

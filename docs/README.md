@@ -12,7 +12,8 @@
 - `ai-instructions/PROCEDURE_SCHEMA.md` - source-of-truth JSON schema for bundled procedures
 - `ai-instructions/VISUAL_ASSET_PRODUCTION_GUIDE.md` - workflow for creating, reviewing, bundling, and validating clinical procedure illustrations
 - `visual-assets/GEMINI_WORKFLOW.md` - Gemini image-generation workflow for draft procedure illustrations
-- `visual-assets/ANTIGRAVITY_WORKFLOW.md` - local Google Antigravity render lane for draft illustrations (discovery, CLI verbs, audit rubric)
+- `visual-assets/ANTIGRAVITY_WORKFLOW.md` - local Google Antigravity render lane for draft illustrations (discovery, CLI verbs, operating loop)
+- `visual-assets/CLINICAL_IMAGE_RUBRIC.md` - authoritative clinical-correctness rubric and per-image answer key for grading generated visuals (99% gate)
 - `visual-assets/gemini_prompts.json` - shared prompt specs for AI-generated visual drafts (both render lanes)
 - `../Procedures/Resources/procedures.json` - bundled procedure content
 - `../Procedures/Resources/rescue_cards.json` - bundled rescue-card content
