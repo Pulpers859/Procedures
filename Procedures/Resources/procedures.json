@@ -593,9 +593,9 @@
         "kind": "Landmark",
         "title": "Cricothyroid membrane palpation",
         "subtitle": "Palpate the thyroid cartilage notch, slide inferiorly to the soft depression before the cricoid ring. This is the cricothyroid membrane — the incision target.",
-        "assetName": null,
+        "assetName": "cric_membrane",
         "systemImage": "scalpel",
-        "caption": "Illustration pending clinical review. Use the visual asset workflow before bundling final artwork.",
+        "caption": "Target: cricothyroid membrane between the thyroid and cricoid cartilage.",
         "clinicalWarning": "Vertical skin incision reduces risk of vessel injury. Horizontal membrane incision."
       },
       {
@@ -603,9 +603,9 @@
         "kind": "Danger Zone",
         "title": "Anterior neck danger zones",
         "subtitle": "Anterior jugular veins run laterally. Thyroid isthmus sits inferior to the cricothyroid membrane. Superior and inferior laryngeal arteries course near the membrane edges.",
-        "assetName": null,
+        "assetName": "cric_danger_zone",
         "systemImage": "exclamationmark.triangle",
-        "caption": "Replace assetName with reviewed artwork when available.",
+        "caption": "Stay midline: vessels and thyroid isthmus lie lateral and inferior to the membrane.",
         "clinicalWarning": "Stay midline. Lateral deviation risks vascular injury."
       }
     ],

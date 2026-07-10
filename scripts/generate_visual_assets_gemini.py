@@ -46,7 +46,13 @@ text, caption, or watermark anywhere in the image.
 Style requirements:
 - Premium medical illustration, not stock art.
 - Clean 4:3 composition for an iPhone procedure card.
-- Large readable labels with generous margins.
+- Large readable labels in a soft, rounded, humanist sans-serif, with
+  generous letter, word, and line spacing so words never appear to touch.
+- Place the labels in two balanced vertical columns, one on each side, with
+  roughly the same number of labels per side. Align each column to a common
+  inner edge and connect each label to its target with a thin leader line.
+- Tighten the crop so the key anatomy fills most of the frame. Keep only
+  enough margin for the labels; avoid large empty low-information areas.
 - Sparse visual hierarchy: one main teaching point, no gallery layout.
 - High contrast, light background, calm clinical palette.
 - Red or orange only for danger, incision, or warning.
