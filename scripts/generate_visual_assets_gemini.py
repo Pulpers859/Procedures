@@ -40,6 +40,9 @@ Primary request:
 Required text labels, verbatim:
 {labels}
 
+Render every required label with exactly that spelling. Do not add any other
+text, caption, or watermark anywhere in the image.
+
 Style requirements:
 - Premium medical illustration, not stock art.
 - Clean 4:3 composition for an iPhone procedure card.

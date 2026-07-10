@@ -11,6 +11,8 @@ Use the Gemini API image models:
 
 Do not build new workflow around Imagen. Google marks Imagen 4 as deprecated with shutdown on August 17, 2026.
 
+A second, local render lane exists through the Google Antigravity desktop app; it uses the same prompt spec and promotion rule. See `ANTIGRAVITY_WORKFLOW.md`.
+
 ## Setup
 
 Install the Google GenAI SDK in the Python environment you use for repo tooling:

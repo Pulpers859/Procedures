@@ -20,6 +20,9 @@ Package.resolved
 Thumbs.db
 Desktop.ini
 
+# Local draft artifacts (AI visual drafts, prompt exports)
+tmp/
+
 # Python validation artifacts
 __pycache__/
 *.pyc

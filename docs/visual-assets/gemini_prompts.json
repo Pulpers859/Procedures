@@ -16,8 +16,24 @@
         "Vertical skin incision",
         "Horizontal membrane incision"
       ],
-      "prompt": "Create a premium, clinically restrained medical illustration for emergency cricothyrotomy membrane identification. Show an adult anterior neck from the front, simplified but anatomically plausible, with thyroid cartilage, cricothyroid membrane, and cricoid cartilage. Highlight the cricothyroid membrane as the target. Show a vertical midline skin incision path and a short horizontal membrane incision path. Use a clean 4:3 educational medical diagram style for an iPhone app, with large readable labels, subtle anatomy colors, high contrast, and no gore.",
-      "avoid": "No photorealism, no blood, no scalpel entering tissue, no patient face, no extra anatomy, no dense textbook layout, no tiny labels, no decorative background, no watermark."
+      "prompt": "Create a premium, clinically restrained medical illustration for emergency cricothyrotomy membrane identification. Show an adult anterior neck, cropped from jawline to sternal notch with no face, as a simplified but anatomically plausible schematic. From top to bottom on an exactly midline airway column: thyroid cartilage with its laryngeal prominence, the cricothyroid membrane as a clearly highlighted soft depression immediately below it, the cricoid cartilage ring, then two or three tracheal rings fading out. The highlighted membrane is the single teaching focus. Overlay two visually distinct incision paths in warning red-orange: a vertical midline skin incision line spanning the membrane region, and a short horizontal incision line through the membrane itself. Use a clean 4:3 educational medical diagram style for an iPhone app: flat vector-like shapes, a light neutral background, subtle anatomy colors with high contrast, and large readable labels placed outside the anatomy with thin leader lines.",
+      "avoid": "No photorealism, no blood, no scalpel or hands, no patient face, no extra anatomy, no dense textbook layout, no tiny labels, no misspelled or extra text, no decorative background, no watermark."
+    },
+    {
+      "assetId": "cric_danger_zone",
+      "procedure": "Cricothyrotomy",
+      "kind": "Danger Zone",
+      "purpose": "Reinforce midline incision discipline by showing the vascular and glandular structures lateral and inferior to the cricothyroid membrane.",
+      "requiredLabels": [
+        "Midline safe zone",
+        "Cricothyroid membrane",
+        "Anterior jugular veins",
+        "Thyroid isthmus",
+        "Laryngeal artery branches",
+        "Stay midline"
+      ],
+      "prompt": "Create a premium, clinically restrained medical illustration of anterior neck danger zones for emergency cricothyrotomy. Show the same simplified anterior neck schematic as a membrane-identification view: thyroid cartilage, cricothyroid membrane, cricoid cartilage, and upper tracheal rings on an exactly midline airway column, cropped from jawline to sternal notch with no face. Shade a narrow vertical midline safe zone over the airway column in a calm blue-green tone. In warning red-orange, show the structures to avoid: paired anterior jugular veins running vertically lateral to the midline on each side, the thyroid isthmus crossing the airway inferior to the cricothyroid membrane, and small laryngeal artery branches coursing near the lateral edges of the membrane. Include one short instruction label reading exactly 'Stay midline'. Use a clean 4:3 educational medical diagram style for an iPhone app: flat vector-like shapes, light neutral background, high contrast, and large readable labels placed outside the anatomy with thin leader lines.",
+      "avoid": "No photorealism, no blood, no scalpel or hands, no patient face, no dense vascular atlas detail, no tiny labels, no misspelled or extra text, no decorative background, no watermark."
     },
     {
       "assetId": "chest_tube_safe_triangle",

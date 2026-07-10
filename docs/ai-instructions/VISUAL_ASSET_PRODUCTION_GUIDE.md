@@ -78,7 +78,12 @@ AI image tools may be used for internal drafts only:
 
 Before release, the final asset should be redrawn, corrected, or explicitly approved by a clinician. Never ship an AI-generated anatomy/procedure diagram solely because it looks plausible.
 
-For Gemini-based drafts, use `docs/visual-assets/GEMINI_WORKFLOW.md` and `scripts/generate_visual_assets_gemini.py`. Draft outputs should stay outside the app bundle until reviewed.
+Two draft render lanes exist, sharing one prompt spec (`docs/visual-assets/gemini_prompts.json`):
+
+- Gemini API: `docs/visual-assets/GEMINI_WORKFLOW.md` and `scripts/generate_visual_assets_gemini.py`.
+- Google Antigravity (local desktop app): `docs/visual-assets/ANTIGRAVITY_WORKFLOW.md`, `scripts/export_antigravity_prompts.py`, and `tools/Invoke-AntigravityAgentApi.ps1`.
+
+Draft outputs stay in `tmp/visual-drafts/` (gitignored) and outside the app bundle until reviewed.
 
 ## Source Options
 
