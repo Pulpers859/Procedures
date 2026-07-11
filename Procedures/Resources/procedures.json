@@ -2806,9 +2806,9 @@
         "kind": "Landmark",
         "title": "Inferior crus release",
         "subtitle": "Lateral canthal tendon crura, canthotomy incision line, and cantholysis target at the orbital rim.",
-        "assetName": null,
+        "assetName": "canthotomy_inferior_crus",
         "systemImage": "eye.trianglebadge.exclamationmark",
-        "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
+        "caption": "Cut the inferior crus at the lateral canthus, angling away from the globe toward the orbital rim.",
         "clinicalWarning": "Visual must make the inferior crus target and a globe-safe cut direction unambiguous."
       }
     ]

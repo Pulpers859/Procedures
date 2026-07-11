@@ -1,6 +1,6 @@
 # Clinical Image Correctness Rubric
 
-This is the authoritative rubric for grading generated procedure visuals. It supersedes the lightweight rubric that previously lived in `ANTIGRAVITY_WORKFLOW.md`. The controlling agent — not the render tool — grades every image against this before any image is bundled or promoted.
+This is the authoritative rubric for grading generated procedure visuals. It supersedes the lightweight rubric that previously lived in `ANTIGRAVITY_WORKFLOW.md`. The controlling agent — not the render tool — grades every image against this before any image is bundled or promoted. It is the grading counterpart to `IMAGE_GENERATION_CONSTITUTION.md`, which governs how images are generated.
 
 The earlier grading pass failed because it scored spelling, labels, and layout while treating anatomy as a "reviewer note." For a bedside clinical tool that is backwards. **Clinical correctness is the gate. Everything else is secondary.**
 

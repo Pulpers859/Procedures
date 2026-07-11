@@ -1,3 +1,11 @@
+"""Generate draft procedure visuals with Gemini image models.
+
+The prompt rules enforced in build_prompt() are governed by
+docs/visual-assets/IMAGE_GENERATION_CONSTITUTION.md. When you change the
+labeling or style rules here, update the constitution and CLINICAL_IMAGE_RUBRIC.md
+so generation and grading stay in sync.
+"""
+
 from __future__ import annotations
 
 import argparse

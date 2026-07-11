@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "canthotomy_inferior_crus.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
