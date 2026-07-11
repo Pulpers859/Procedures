@@ -43,14 +43,24 @@ Required text labels, verbatim:
 Render every required label with exactly that spelling. Do not add any other
 text, caption, or watermark anywhere in the image.
 
+Labeling rules:
+- Every label names an anatomical structure or the single target the leader
+  line touches. Labels are nouns, never instructions. Do not write directive,
+  imperative, or warning text (for example, no "cut away from", "avoid",
+  "do not", "danger"). Convey direction or motion with an arrow, not words.
+- Each label must sit on the side of the image nearest the structure it
+  points to, and its leader line must land exactly on that structure. Correct,
+  unambiguous placement always wins over visual symmetry.
+
 Style requirements:
 - Premium medical illustration, not stock art.
 - Clean 4:3 composition for an iPhone procedure card.
 - Large readable labels in a soft, rounded, humanist sans-serif, with
   generous letter, word, and line spacing so words never appear to touch.
-- Place the labels in two balanced vertical columns, one on each side, with
-  roughly the same number of labels per side. Align each column to a common
-  inner edge and connect each label to its target with a thin leader line.
+- Position each label freely wherever its leader line can reach the correct
+  structure by the shortest clear path. Do NOT force the labels into two even
+  columns and do NOT balance the count per side; an uneven layout with correct
+  placement is required over a symmetric layout that mislabels anything.
 - Tighten the crop so the key anatomy fills most of the frame. Keep only
   enough margin for the labels; avoid large empty low-information areas.
 - Sparse visual hierarchy: one main teaching point, no gallery layout.

@@ -41,6 +41,11 @@ Grade only after the critical-error check. If any critical error exists, stop �
 
 Deductions are per defect, judged against the per-image answer key. Because the pass bar is 99, essentially any real error in a weighted dimension fails the image. That is intended: these are safety-critical references.
 
+### Labeling standard (applies to every image)
+
+1. **Labels are nouns, never instructions.** Each label names the anatomical structure or single target its leader line touches. No imperative or warning text ("cut away from globe", "avoid", "do not", "danger"). Direction and motion are shown with arrows, not words. A directive label is a defect: delete it, don't reword it.
+2. **Correct placement beats symmetry.** A label sits on the side nearest its structure and its leader line lands exactly on that structure. Never force labels into evenly balanced two-column layouts — that forced balance previously dragged the "Lateral canthus" label onto the wrong (medial) corner. An asymmetric layout with correct leaders passes; a symmetric layout with one misplaced leader fails.
+
 ## Per-image answer key
 
 Each key lists the ground truth the image must satisfy and the most likely failure modes. Facts are grounded in the procedure's own `anatomy` content in `Procedures/Resources/procedures.json` and standard EM references already cited there (Roberts & Hedges, Tintinalli). Keys are themselves subject to Patrick's ratification.
@@ -71,7 +76,8 @@ Auto-fail: any added title banner; steep near-vertical needle path shown as corr
 
 ### canthotomy_inferior_crus — Lateral Canthotomy, landmark
 Ground truth: "lateral canthal tendon … superior and inferior crus; **cantholysis of the inferior crus**; aim toward the **lateral orbital rim, away from the globe**; lacrimal apparatus medial." **Frontal (anterior) view of the eye and lateral canthus** — not a sagittal globe cross-section. Show the lateral canthus, the horizontal canthotomy incision, the **inferior crus** of the lateral canthal tendon as the release target, and scissors/cut direction **inferolaterally toward the orbital rim, away from the globe.**
-Auto-fail: sagittal globe cutaway or any non-frontal view (current draft error); cut direction toward the globe; superior crus shown as the target; duplicated/garbled labels.
+Labels: exactly `Lateral canthus`, `Canthotomy incision`, `Inferior crus`, `Globe` — four nouns, no directive/warning text. The `Lateral canthus` leader must land on the **outer (lateral) corner** where the incision begins, never the inner/medial corner. Cut direction is shown by arrow only.
+Auto-fail: sagittal globe cutaway or any non-frontal view (current draft error); cut direction toward the globe; superior crus shown as the target; duplicated/garbled labels; `Lateral canthus` label pointing to the medial corner; any imperative/warning label text.
 
 ### lp_position_landmark — Lumbar Puncture, landmark
 Ground truth: "line between iliac crests ≈ L4 spinous process; needle midline … ; conus ends above adult L3; use lower lumbar spaces." Posterior view of the lumbar spine and pelvis. **Tuffier's / intercristal line at ≈ L4**; iliac crests; target interspaces **L3–L4 and L4–L5**, both **below the conus**; midline needle trajectory angled slightly cephalad.
