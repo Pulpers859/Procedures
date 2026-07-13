@@ -32,7 +32,7 @@ Do not promote these until Patrick has reviewed clinical accuracy, label spellin
 
 | Asset id | Prior file | Status | Reason |
 | --- | --- | --- | --- |
-| `pericardiocentesis_needle_path` | `docs/visual-assets/review-candidates/pericardiocentesis_needle_path_iter20_hybrid_overlay_candidate.png` | PASS for Patrick review | Hybrid candidate: Gemini anatomy-only base plus deterministic syringe/needle overlay. No labels/text. Main needle reads lower-left/bottom-center to upper-right toward the patient's left shoulder, stays visually clear of the liver, and inset needle tip lands in the blue external pericardial fluid crescent. Requires Patrick clinical review before bundling. |
+| `pericardiocentesis_needle_path` | `docs/visual-assets/review-candidates/pericardiocentesis_needle_path_iter21_hybrid_overlay_candidate.png` | PASS for Patrick review | Hybrid candidate: full-resolution Gemini anatomy-only base plus deterministic syringe/needle overlay. No labels/text. Main syringe is fully visible, enters from the subxiphoid/substernal region, angles lower-left to upper-right toward the patient's left shoulder, stays visually clear of the liver, and the inset needle tip lands in the blue external pericardial fluid crescent. Requires Patrick clinical review before bundling. |
 | `pericardiocentesis_approach` | `tmp/visual-drafts/antigravity/pericardiocentesis_approach/pericardiocentesis_approach_review_candidate_cropped.png` | Retired | Prior draft passed a narrow geometry audit but read like a subxiphoid TTE view rather than a procedural teaching image. This slot now owns ultrasound target confirmation only. |
 
 ## Promotion Checklist
