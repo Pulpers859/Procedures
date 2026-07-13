@@ -59,11 +59,22 @@ canthotomy is a **frontal (anterior) view of the eye**, never a sagittal globe
 cutaway; IJ ultrasound is a **grayscale short-axis B-mode window**, not a
 colorized Doppler cartoon.
 
+### 5a. Laterality is clinical anatomy, not layout
+For any torso, eye, limb, neck, or ultrasound view where right/left matters,
+lock the view orientation in the prompt and audit it before scoring. If the
+composition uses an anterior-facing torso, the patient's right is image-left
+and the patient's left is image-right. Direction arrows such as "Toward left
+shoulder" must follow that orientation, and danger anatomy such as the liver
+must stay on the patient's anatomical side. A mirrored render fails even if the
+labels, leader lines, and general shapes look clean.
+
 ### 6. A leader lands exactly on its structure
 Ambiguity is failure. "Lateral canthus" lands on the outer (lateral) corner, not
 the medial one. "Inferior crus" lands at the lateral canthus, not mid-lid.
 "Internal jugular vein" lands on the lateral, superficial, compressible vessel.
-If two structures are close, separate the leaders clearly.
+If two structures are close, separate the leaders clearly. A leader line that
+crosses multiple plausible targets or lands in empty/confusing space fails even
+when the label text is spelled correctly.
 
 ### 7. Only the required labels, exactly once
 Render exactly the labels in the asset's `requiredLabels`, spelled verbatim,
@@ -77,20 +88,48 @@ parentheticals, vertebral-body labels, nonsense text, duplicated labels
 ("Needle trajectory", "Diaphragm", "Pectoralis major"), and misspellings
 ("epgastric"). Extra text is not harmless; it is a critical defect.
 
-### 8. Aspect ratio is a requirement, not a preference
+Required labels should be sparse. Label procedural decision points, targets,
+trajectories, and ambiguous landmarks. Do not label obvious organs or basic
+anatomy that a proceduralist is expected to recognize unless the label prevents
+a specific high-risk miss. Show those structures visually instead.
+
+### 7a. Prefer controlled label overlays for high-risk visuals
+For high-risk procedure visuals, ask the image model for clean unlabeled
+anatomy/geometry whenever label placement has failed once. Add labels and
+leader lines afterward in a deterministic overlay controlled by the app asset
+pipeline. The generated base image should contain no text at all; the overlay
+owns exact spelling, count, clipping, and leader-line endpoints.
+
+**Why:** Gemini improved the pericardiocentesis anatomy after reference
+grounding, but repeatedly added extra labels, clipped required labels, or moved
+leaders ambiguously. Text is not where the image model should be trusted.
+
+If the model also misplaces the procedure trajectory, remove the trajectory
+from the generation prompt too. Generate anatomy-only, then add entry dots,
+needle paths, arrows, target dots, and labels in the deterministic overlay.
+
+### 8. No unexplained devices or phantom anatomy
+Only draw tools, wires, catheters, sheaths, tubes, drains, needles, probes, and
+anatomy that the asset spec explicitly requires. A random device crossing a
+target organ is a failure because it changes the procedure story. If the asset
+is about a needle path, draw one visually thin needle shaft with a clear tip;
+do not replace it with a thick tube, catheter, or guidewire unless that is the
+explicit teaching point.
+
+### 9. Aspect ratio is a requirement, not a preference
 Generate a true 4:3 composition unless a spec explicitly says otherwise. Do not
 accept near-square output as the target format. If a clinically correct render
 comes out near-square, treat it as a review candidate that needs crop or light
 re-render before bundling.
 
-### 9. Restrained clinical palette, phone-legible
+### 10. Restrained clinical palette, phone-legible
 Premium medical-reference look, flat vector-like shapes, light background, calm
 palette. Red-orange only for incision / danger / cut direction; blue-cyan only
 for ultrasound or landmark guidance. Soft rounded humanist sans-serif labels
 with generous spacing so words never touch. One teaching point per image — no
 gallery layouts. Tighten the crop so the anatomy fills the frame.
 
-### 10. Split concepts instead of cramming them
+### 11. Split concepts instead of cramming them
 A procedure can have more than one visual when the images prevent different
 high-risk errors. Do not compress procedural setup, landmark geometry,
 ultrasound confirmation, rescue anatomy, and danger zones into one crowded
@@ -102,13 +141,28 @@ read like a subxiphoid TTE view rather than a procedural access image. The fix
 is not prettier arrows; it is splitting subxiphoid needle geometry from
 ultrasound target confirmation.
 
-### 11. Repair prompts preserve what passed
+### 12. Use real procedure references before generating
+For high-risk anatomy, do not invent the composition from prose alone. First
+collect a small reference board from reputable procedural examples such as
+society guidance, major clinical centers, textbooks, open medical diagrams, or
+the procedure's cited references. Extract factual constraints from those
+references — patient orientation, landmark side, approach options, needle
+direction, danger anatomy, and what the standard diagrams consistently show.
+Then generate an original app-native schematic from those constraints. Do not
+copy, trace, restyle, or closely reproduce any single copyrighted reference
+image.
+
+**Why:** pericardiocentesis failed repeatedly when prompted from an abstract
+description. Reference diagrams immediately exposed the mirrored-liver error
+and made the substernal/subxiphoid access geometry more coherent.
+
+### 13. Repair prompts preserve what passed
 When repairing a failed render, name the failed element and ask for the smallest
 change that fixes it. Preserve passed anatomy, view, crop, colors, and labels.
 For trajectory failures, explicitly say to erase the wrong trajectory and redraw
 it from scratch; small nudges often keep the original error.
 
-### 12. Every image is a draft for clinician review
+### 14. Every image is a draft for clinician review
 No image here is final medical authority. Do not invent clinical claims beyond
 the requested labels and anatomy. Validator-clean and rubric-passing means
 structurally sound, not clinically ratified.
@@ -124,11 +178,21 @@ Specifics that have burned us; keep them true in every regeneration.
   Inferior crus, Globe.
 - **pericardiocentesis_needle_path** — This is the procedural geometry image,
   not a TTE teaching view. Oblique torso/procedure view with xiphoid/costal
-  margin, probe low in the subxiphoid window, and the needle as the star. Show
-  a shallow path entering adjacent to the probe, tracking under the costal
-  margin toward the patient's left shoulder, with liver and myocardium as
-  red-orange danger anatomy. A small ultrasound inset is allowed only as
-  confirmation.
+  margin, probe low in the subxiphoid window, and one thin needle shaft as the
+  star. Use an anterior-facing torso orientation unless explicitly changed:
+  patient's right is image-left, patient's left is image-right. The liver stays
+  on the patient's right upper abdomen / image-left side; the left-shoulder
+  direction trends image-right/superior. Show a shallow path entering adjacent
+  to the probe, tracking under the costal margin toward the patient's left
+  shoulder, with liver and myocardium as red-orange danger anatomy. The needle
+  shaft ends at the labeled needle tip in the effusion; it must not continue
+  beyond the effusion toward the shoulder. Show left-shoulder direction with a
+  separate short direction arrow if needed, not by extending the needle as a
+  long wire. The needle shaft must not pass through or in front of the
+  myocardium, and no random catheter/guidewire/sheath may cross the heart.
+  Show liver and myocardium clearly as recognizable danger anatomy, but do not
+  label them in the procedural-geometry visual unless Patrick explicitly asks
+  for organ labels. A small ultrasound inset is allowed only as confirmation.
 - **pericardiocentesis_approach** — This is the ultrasound target-confirmation
   image. The ultrasound panel is the star: pericardial effusion, myocardium,
   drainage target, and needle tip entering the fluid pocket. Do not reuse this

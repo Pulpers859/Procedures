@@ -4,7 +4,11 @@ Use Gemini image generation outside the iOS app to create draft clinical illustr
 
 ## Current Google Path
 
-Use the Gemini API image models:
+Use either the Gemini API image models or Patrick's logged-in Gemini web app,
+depending on what he explicitly asks for in the session. If Patrick says to use
+Chrome/Gemini web, do not switch back to API generation.
+
+For the API lane, use:
 
 - `gemini-3-pro-image` for higher-quality production drafts.
 - `gemini-3.1-flash-image` for faster or cheaper iteration.
@@ -12,6 +16,26 @@ Use the Gemini API image models:
 Do not build new workflow around Imagen. Google marks Imagen 4 as deprecated with shutdown on August 17, 2026.
 
 A second, local render lane exists through the Google Antigravity desktop app; it uses the same prompt spec and promotion rule. See `ANTIGRAVITY_WORKFLOW.md`.
+
+## Gemini Web + Reference Overlay Lane
+
+For high-risk procedure visuals, especially after one failed anatomy or label
+iteration:
+
+1. Build a small reference board from reputable procedure examples. Extract
+   factual constraints only: patient orientation, approach geometry, needle
+   direction, target anatomy, and danger anatomy. Do not copy, trace, or
+   closely restyle a single reference image.
+2. Ask Gemini web for an original anatomy-only base when labels or procedural
+   paths have been unreliable. The base should contain no text, labels, dots,
+   arrows, or path lines if those will be overlaid deterministically.
+3. Add exact labels, leader lines, entry dots, target dots, arrows, and needle
+   paths locally in a deterministic overlay.
+4. Audit the composite image against `CLINICAL_IMAGE_RUBRIC.md`. A rubric PASS
+   makes the image eligible for Patrick's clinical review only.
+
+This overlay lane is preferred when Gemini repeatedly misspells labels, clips
+text, adds extra labels, or draws unsafe/random procedure geometry.
 
 ## Setup
 
