@@ -25,7 +25,6 @@ Do not promote these until Patrick has reviewed clinical accuracy, label spellin
 | `lp_position_landmark` | `tmp/visual-drafts/antigravity/lp_position_landmark/lp_position_landmark_iter3.png` | PASS | Clean review candidate. |
 | `needle_decompression_landmarks` | `tmp/visual-drafts/antigravity/needle_decompression_landmarks/needle_decompression_landmarks_iter3.png` | PASS | Confirm the 2nd intercostal-space marker reads midclavicular, not parasternal. |
 | `paracentesis_liq_site` | `tmp/visual-drafts/antigravity/paracentesis_liq_site/paracentesis_liq_site_iter6.png` | PASS with cosmetic note | Near-square and slightly sketchier than earlier drafts; clinically correct per audit. |
-| `pericardiocentesis_needle_path` | `tmp/visual-drafts/gemini-web/pericardiocentesis_needle_path/pericardiocentesis_needle_path_iter12_overlay_candidate_v5_fluid_target.png` | PASS | Reference-grounded anatomy-only Gemini base with deterministic overlay and minimal procedural labels; confirm subxiphoid entry/path placement before promotion. |
 | `thoracentesis_site` | `tmp/visual-drafts/antigravity/thoracentesis_site/thoracentesis_site_iter3.png` | PASS | Confirm entry height is safely above the diaphragm. |
 | `usgiv_needle_tracking` | `tmp/visual-drafts/antigravity/usgiv_needle_tracking/usgiv_needle_tracking_iter3.png` | PASS | Confirm the long visible shaft is acceptable as a short-axis teaching simplification. |
 
@@ -33,6 +32,7 @@ Do not promote these until Patrick has reviewed clinical accuracy, label spellin
 
 | Asset id | Prior file | Status | Reason |
 | --- | --- | --- | --- |
+| `pericardiocentesis_needle_path` | `tmp/visual-drafts/gemini-web/pericardiocentesis_needle_path/pericardiocentesis_needle_path_iter12_overlay_candidate_v6_unlabeled_action.png` | Needs regeneration | User wants a reference-style anterior torso procedural plate with translucent ribs, real syringe/needle placement, and magnified cardiac inset, not a labeled/schematic path diagram. |
 | `pericardiocentesis_approach` | `tmp/visual-drafts/antigravity/pericardiocentesis_approach/pericardiocentesis_approach_review_candidate_cropped.png` | Retired | Prior draft passed a narrow geometry audit but read like a subxiphoid TTE view rather than a procedural teaching image. This slot now owns ultrasound target confirmation only. |
 
 ## Promotion Checklist

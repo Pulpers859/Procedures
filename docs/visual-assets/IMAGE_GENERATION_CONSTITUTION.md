@@ -14,7 +14,18 @@ wrong structure fails.
 
 ## Articles
 
-### 1. Labels are nouns, never instructions
+### 1. Labels are optional, and often absent
+Do not assume a procedure visual needs labels. Many bedside procedure visuals
+should work more like a clean procedural plate: anatomy, tool position, entry
+site, target, and direction are shown by composition, path, arrows, contrast,
+and inset detail. Use in-image labels only when they identify an ambiguous
+landmark or target that the image cannot otherwise make obvious.
+
+For proceduralists, labels such as "shallow needle path", "toward left
+shoulder", "liver", or "myocardium" often add strain without adding knowledge.
+Show those ideas visually unless Patrick explicitly asks for labels.
+
+### 1a. Labels are nouns, never instructions
 Every label names the anatomical structure or the single target its leader line
 touches. No imperative, directive, or warning text as a label — no "cut away
 from globe", "avoid", "do not", "danger", "stay midline". Those are wasted space
@@ -38,7 +49,8 @@ pointing at the wrong structure is a clinical error.
 Cut direction, needle trajectory, insertion angle, and motion are drawn as
 arrows. The arrow must be unambiguous and must point **away from** the danger
 structure it protects (e.g., cut direction points away from the globe; needle
-passes over the top of the rib, not under it).
+passes over the top of the rib, not under it). Do not add direction labels when
+the arrow itself makes the direction clear.
 
 ### 4. Trajectories start from the real entry point
 Needles, scissors, and procedural arrows must originate at the real skin,
@@ -156,6 +168,14 @@ image.
 description. Reference diagrams immediately exposed the mirrored-liver error
 and made the substernal/subxiphoid access geometry more coherent.
 
+When Patrick provides a reference image, study the composition language, not
+just the labels. Capture whether the reference teaches through a patient torso,
+transparent anatomy, procedural instruments, approach letters, magnified
+insets, ultrasound panels, or comparison views. Prompt for an original image
+with the useful composition pattern while removing the clutter Patrick does not
+want. Do not merely make the existing schematic less labeled if the reference
+is showing a different kind of procedural plate.
+
 ### 13. Repair prompts preserve what passed
 When repairing a failed render, name the failed element and ask for the smallest
 change that fixes it. Preserve passed anatomy, view, crop, colors, and labels.
@@ -177,22 +197,21 @@ Specifics that have burned us; keep them true in every regeneration.
   the scissors' side. Four labels only: Lateral canthus, Canthotomy incision,
   Inferior crus, Globe.
 - **pericardiocentesis_needle_path** — This is the procedural geometry image,
-  not a TTE teaching view. Oblique torso/procedure view with xiphoid/costal
-  margin, probe low in the subxiphoid window, and one thin needle shaft as the
-  star. Use an anterior-facing torso orientation unless explicitly changed:
-  patient's right is image-left, patient's left is image-right. The liver stays
-  on the patient's right upper abdomen / image-left side; the left-shoulder
-  direction trends image-right/superior. Show a shallow path entering adjacent
-  to the probe, tracking under the costal margin toward the patient's left
-  shoulder, with liver and myocardium as red-orange danger anatomy. The needle
-  shaft ends at the labeled needle tip in the effusion; it must not continue
-  beyond the effusion toward the shoulder. Show left-shoulder direction with a
-  separate short direction arrow if needed, not by extending the needle as a
-  long wire. The needle shaft must not pass through or in front of the
-  myocardium, and no random catheter/guidewire/sheath may cross the heart.
-  Show liver and myocardium clearly as recognizable danger anatomy, but do not
-  label them in the procedural-geometry visual unless Patrick explicitly asks
-  for organ labels. A small ultrasound inset is allowed only as confirmation.
+  not a TTE teaching view. The preferred composition is a reference-style
+  procedural plate: anterior torso, semi-transparent ribs/sternum/costal
+  margins, real syringe/needle entering the subxiphoid/substernal region, and a
+  magnified cardiac inset showing the tip in pericardial fluid. Use an
+  anterior-facing torso orientation unless explicitly changed: patient's right
+  is image-left, patient's left is image-right. The liver stays on the
+  patient's right upper abdomen / image-left side; the needle trajectory trends
+  image-right/superior toward the patient's left shoulder. Show only the
+  subxiphoid/substernal approach in this asset; do not include parasternal or
+  apical approaches unless a separate comparison asset is requested. The needle
+  tip must terminate visibly inside the blue pericardial fluid pocket in the
+  inset, not on epicardium or myocardium. Do not add in-image labels, approach
+  letters, direction labels, path labels, organ labels, or basic-anatomy labels.
+  The path's shallowness and target should be visible through the instrument
+  angle, inset, and anatomy.
 - **pericardiocentesis_approach** — This is the ultrasound target-confirmation
   image. The ultrasound panel is the star: pericardial effusion, myocardium,
   drainage target, and needle tip entering the fluid pocket. Do not reuse this

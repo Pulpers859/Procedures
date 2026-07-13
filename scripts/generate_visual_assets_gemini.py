@@ -34,18 +34,10 @@ def asset_map(specs: dict[str, Any]) -> dict[str, dict[str, Any]]:
 
 
 def build_prompt(asset: dict[str, Any]) -> str:
-    labels = "\n".join(f"- {label}" for label in asset.get("requiredLabels", []))
-    return f"""Create one clinical illustration draft for the Procedures iOS app.
-
-Procedure: {asset["procedure"]}
-Visual asset id: {asset["assetId"]}
-Visual kind: {asset["kind"]}
-Clinical purpose: {asset["purpose"]}
-
-Primary request:
-{asset["prompt"]}
-
-Required text labels, verbatim:
+    required_labels = asset.get("requiredLabels", [])
+    if required_labels:
+        labels = "\n".join(f"- {label}" for label in required_labels)
+        label_contract = f"""Required text labels, verbatim:
 {labels}
 
 Render every required label exactly once, with exactly that spelling. Do not add
@@ -61,6 +53,35 @@ Labeling rules:
 - Each label must sit on the side of the image nearest the structure it
   points to, and its leader line must land exactly on that structure. Correct,
   unambiguous placement always wins over visual symmetry.
+"""
+        label_style = """- Large readable labels in a soft, rounded, humanist sans-serif, with
+  generous letter, word, and line spacing so words never appear to touch.
+- Position each label freely wherever its leader line can reach the correct
+  structure by the shortest clear path. Do NOT force the labels into two even
+  columns and do NOT balance the count per side; an uneven layout with correct
+  placement is required over a symmetric layout that mislabels anything."""
+    else:
+        label_contract = """Text policy:
+Render no text anywhere in the image: no labels, title, heading, subtitle,
+caption, watermark, signature, logo, letters, numbers, parenthetical
+explanation, or invented anatomy label. Teach the procedure through anatomy,
+trajectory, arrows, shading, and composition instead of words.
+"""
+        label_style = """- No in-image labels. Use visual hierarchy, arrows, target dots, color, and
+  composition to make the teaching point readable at phone size."""
+
+    return f"""Create one clinical illustration draft for the Procedures iOS app.
+
+Procedure: {asset["procedure"]}
+Visual asset id: {asset["assetId"]}
+Visual kind: {asset["kind"]}
+Clinical purpose: {asset["purpose"]}
+
+Primary request:
+{asset["prompt"]}
+
+{label_contract}
+Trajectory rules:
 - For any arrow, needle, incision, or tool trajectory, start the path at the
   real entry point. If showing both a correct and incorrect path, use the same
   entry point when that is the clinical comparison. No looping, curling, or
@@ -70,14 +91,10 @@ Style requirements:
 - Premium medical illustration, not stock art.
 - Clean true 4:3 composition for an iPhone procedure card; do not render a
   near-square canvas unless the asset spec explicitly requests it.
-- Large readable labels in a soft, rounded, humanist sans-serif, with
-  generous letter, word, and line spacing so words never appear to touch.
-- Position each label freely wherever its leader line can reach the correct
-  structure by the shortest clear path. Do NOT force the labels into two even
-  columns and do NOT balance the count per side; an uneven layout with correct
-  placement is required over a symmetric layout that mislabels anything.
+{label_style}
 - Tighten the crop so the key anatomy fills most of the frame. Keep only
-  enough margin for the labels; avoid large empty low-information areas.
+  enough margin for required labels or procedural overlays; avoid large
+  empty low-information areas.
 - Sparse visual hierarchy: one main teaching point, no gallery layout.
 - Do not cram separate teaching points into one frame. If another visual asset
   covers a different concept, keep this image focused on its own purpose.
