@@ -28,10 +28,9 @@
         "Cricothyroid membrane",
         "Anterior jugular veins",
         "Thyroid isthmus",
-        "Laryngeal artery branches",
-        "Stay midline"
+        "Laryngeal artery branches"
       ],
-      "prompt": "Create a premium, clinically restrained medical illustration of anterior neck danger zones for emergency cricothyrotomy. Show the same simplified anterior neck schematic as a membrane-identification view: thyroid cartilage, cricothyroid membrane, cricoid cartilage, and upper tracheal rings on an exactly midline airway column, cropped tightly from just below the jaw to the sternal notch with no face, so the anatomy fills most of the frame. Shade a narrow vertical midline safe zone over the airway column in a calm blue-green tone. In warning red-orange, show the structures to avoid: paired anterior jugular veins running vertically lateral to the midline on each side, the thyroid isthmus crossing the airway inferior to the cricothyroid membrane, and small laryngeal artery branches coursing near the lateral edges of the membrane. Include one short instruction label reading exactly 'Stay midline'. Balance the labels in two columns of three: place Anterior jugular veins, Thyroid isthmus, and Cricothyroid membrane down the left, and Midline safe zone, Laryngeal artery branches, and Stay midline down the right. Use a clean 4:3 educational medical diagram style for an iPhone app: flat vector-like shapes, light neutral background, high contrast, and large readable labels aligned in each column with thin leader lines.",
+      "prompt": "Create a premium, clinically restrained medical illustration of anterior neck danger zones for emergency cricothyrotomy. Show the same simplified anterior neck schematic as a membrane-identification view: thyroid cartilage, cricothyroid membrane, cricoid cartilage, and upper tracheal rings on an exactly midline airway column, cropped tightly from just below the jaw to the sternal notch with no face, so the anatomy fills most of the frame. Shade a narrow vertical midline safe zone over the airway column in a calm blue-green tone. In warning red-orange, show the structures to avoid: paired anterior jugular veins running vertically lateral to the midline on each side, the thyroid isthmus crossing the airway low, over the upper tracheal rings just below the cricoid cartilage (well below the cricothyroid membrane, not up at the membrane), and small laryngeal artery branches coursing near the lateral edges of the membrane. Place each label on the side nearest the structure it names, with its leader line landing exactly on that structure; do not force the labels into even columns or balance the count per side. Use a clean 4:3 educational medical diagram style for an iPhone app: flat vector-like shapes, light neutral background, high contrast, and large readable labels with thin leader lines.",
       "avoid": "No photorealism, no blood, no scalpel or hands, no patient face, no dense vascular atlas detail, no tiny labels, no misspelled or extra text, no decorative background, no watermark."
     },
     {
@@ -108,9 +107,9 @@
         "Pericardial effusion",
         "Needle path",
         "Toward left shoulder",
-        "Avoid steep angle"
+        "Steep angle"
       ],
-      "prompt": "Create a premium medical diagram for ultrasound-guided pericardiocentesis using the subxiphoid approach. Show a simplified torso with a phased-array probe below the xiphoid, ultrasound window showing heart with pericardial effusion, and a shallow needle path toward the left shoulder. Include a clear warning mark for overly steep trajectory risk. Use a 4:3 iPhone app educational style with large labels, no gore, and restrained clinical colors.",
+      "prompt": "Create a premium medical diagram for ultrasound-guided pericardiocentesis using the subxiphoid approach. Show a simplified torso with a phased-array probe below the xiphoid, ultrasound window showing heart with pericardial effusion, and a shallow, correct needle path aimed toward the left shoulder. Also draw a second, overly steep near-vertical needle trajectory crossed out with a red X; this crossed-out path is the one labeled 'Steep angle'. Use a 4:3 iPhone app educational style with large labels, no gore, and restrained clinical colors.",
       "avoid": "No photorealism, no graphic needle penetration, no blood, no cluttered ECG or monitor content, no small labels, no watermark."
     },
     {
@@ -137,9 +136,9 @@
         "ASIS",
         "Umbilicus",
         "Inferior epigastric vessels",
-        "Avoid bowel"
+        "Bowel"
       ],
-      "prompt": "Create a premium medical landmark diagram for paracentesis. Show a simplified abdomen with umbilicus, ASIS, LLQ entry site, inferior epigastric vessel course, and bowel avoidance zone. Make the safe LLQ target visually clear. Use a clean 4:3 iPhone medical reference style with large readable labels and restrained colors.",
+      "prompt": "Create a premium medical landmark diagram for paracentesis. Show a simplified abdomen with umbilicus, ASIS, LLQ entry site, inferior epigastric vessel course, and underlying bowel loops. Place the LLQ entry site clearly lateral to the midline and away from both the bowel loops and the inferior epigastric vessels, so avoidance is shown by position rather than words. Make the safe LLQ target visually clear. Use a clean 4:3 iPhone medical reference style with large readable labels and restrained colors.",
       "avoid": "No photorealistic abdomen, no needle in real skin, no blood, no crowded anatomy, no tiny labels, no decorative background, no watermark."
     },
     {
@@ -166,8 +165,7 @@
         "Needle tip",
         "Needle shaft",
         "Vein lumen",
-        "Anterior wall tenting",
-        "Do not lose the tip"
+        "Anterior wall tenting"
       ],
       "prompt": "Create a premium ultrasound teaching diagram for ultrasound-guided peripheral IV placement. Show a short-axis ultrasound view with a compressible vein, needle shaft, and needle tip as a bright dot entering the vein lumen. Emphasize anterior wall tenting and the warning not to mistake shaft visualization for true tip location. Use a clean 4:3 iPhone medical reference style with large readable labels and dark ultrasound panel.",
       "avoid": "No photorealistic arm, no real puncture, no blood, no cluttered ultrasound artifacts, no tiny labels, no decorative background, no watermark."
