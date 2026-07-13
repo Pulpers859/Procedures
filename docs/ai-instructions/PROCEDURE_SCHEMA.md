@@ -57,7 +57,7 @@ Procedure content may include a `visualAssets` array. This is the structure that
     "subtitle": "Visual slot for safe triangle, over-the-rib entry, and areas to avoid.",
     "assetName": "chest_tube_safe_triangle.png",
     "systemImage": "stethoscope",
-    "caption": "Use one reviewed visual that prevents the bad miss. Avoid decorative gallery bloat.",
+    "caption": "Use one focused reviewed visual per teaching point. Split separate misses into separate visualAssets.",
     "clinicalWarning": "Do not place too low or under the rib."
   }
 ]
@@ -72,6 +72,11 @@ Allowed `kind` values:
 - `Setup`
 
 If `assetName` is null, the app renders a premium placeholder. When final artwork is available, add the bundled image file and set `assetName`.
+
+Keep the visual layer restrained but not artificially single-image. A procedure
+may have multiple `visualAssets` when each one prevents a distinct miss, such as
+landmark geometry, danger-zone avoidance, or ultrasound confirmation. Do not
+force those into one cramped diagram.
 
 ## Rescue Card Schema
 

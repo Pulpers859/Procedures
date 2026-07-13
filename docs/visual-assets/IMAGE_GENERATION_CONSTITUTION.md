@@ -90,13 +90,25 @@ for ultrasound or landmark guidance. Soft rounded humanist sans-serif labels
 with generous spacing so words never touch. One teaching point per image — no
 gallery layouts. Tighten the crop so the anatomy fills the frame.
 
-### 10. Repair prompts preserve what passed
+### 10. Split concepts instead of cramming them
+A procedure can have more than one visual when the images prevent different
+high-risk errors. Do not compress procedural setup, landmark geometry,
+ultrasound confirmation, rescue anatomy, and danger zones into one crowded
+diagram. Create separate `visualAssets` and prompts, each with one teaching
+point and a small label set.
+
+**Why:** the first pericardiocentesis draft passed a geometry rubric but still
+read like a subxiphoid TTE view rather than a procedural access image. The fix
+is not prettier arrows; it is splitting subxiphoid needle geometry from
+ultrasound target confirmation.
+
+### 11. Repair prompts preserve what passed
 When repairing a failed render, name the failed element and ask for the smallest
 change that fixes it. Preserve passed anatomy, view, crop, colors, and labels.
 For trajectory failures, explicitly say to erase the wrong trajectory and redraw
 it from scratch; small nudges often keep the original error.
 
-### 11. Every image is a draft for clinician review
+### 12. Every image is a draft for clinician review
 No image here is final medical authority. Do not invent clinical claims beyond
 the requested labels and anatomy. Validator-clean and rubric-passing means
 structurally sound, not clinically ratified.
@@ -110,12 +122,17 @@ Specifics that have burned us; keep them true in every regeneration.
   arrow points inferolaterally, away from the globe, toward the orbital rim on
   the scissors' side. Four labels only: Lateral canthus, Canthotomy incision,
   Inferior crus, Globe.
-- **pericardiocentesis_approach** — Subxiphoid probe just below the xiphoid.
-  Correct teal needle path and incorrect red steep-angle path both start from
-  one shared skin entry at the top face of the probe. Correct path is shallow
-  toward the patient's left shoulder into the effusion. Incorrect path is
-  steeper toward the heart, crossed out with a red X. No loops, curls, downward
-  arrows, or arrows starting inside the heart.
+- **pericardiocentesis_needle_path** — This is the procedural geometry image,
+  not a TTE teaching view. Oblique torso/procedure view with xiphoid/costal
+  margin, probe low in the subxiphoid window, and the needle as the star. Show
+  a shallow path entering adjacent to the probe, tracking under the costal
+  margin toward the patient's left shoulder, with liver and myocardium as
+  red-orange danger anatomy. A small ultrasound inset is allowed only as
+  confirmation.
+- **pericardiocentesis_approach** — This is the ultrasound target-confirmation
+  image. The ultrasound panel is the star: pericardial effusion, myocardium,
+  drainage target, and needle tip entering the fluid pocket. Do not reuse this
+  slot for the procedural access geometry.
 - **ij_probe_orientation** — Grayscale short-axis B-mode. Vein lateral +
   superficial + compressible; artery medial + deeper + round. Needle target
   sits inside the IJ lumen, away from the carotid. No saturated red/blue vessel

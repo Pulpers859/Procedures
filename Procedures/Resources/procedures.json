@@ -1160,23 +1160,23 @@
     "visualAssets": [
       {
         "id": "pericardiocentesis_approach",
-        "kind": "Probe Position",
-        "title": "Subxiphoid ultrasound approach",
-        "subtitle": "Phased array probe in the subxiphoid window angled toward the left shoulder. Pericardial effusion appears as an anechoic stripe surrounding the heart.",
+        "kind": "Confirmation",
+        "title": "Ultrasound target confirmation",
+        "subtitle": "Subxiphoid view showing pericardial effusion, myocardium, drainage target, and needle tip entering the fluid pocket.",
         "assetName": null,
         "systemImage": "heart.text.square",
         "caption": "Replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "Always use ultrasound guidance. Blind pericardiocentesis carries significant risk."
+        "clinicalWarning": "Confirm the needle tip enters the effusion, not myocardium."
       },
       {
         "id": "pericardiocentesis_needle_path",
         "kind": "Landmark",
-        "title": "Needle entry point",
-        "subtitle": "1–2 cm inferior and left of the xiphoid process, needle directed toward the left shoulder at 15–30 degrees from the skin. Aspirate continuously during advance.",
+        "title": "Subxiphoid needle geometry",
+        "subtitle": "Needle enters adjacent to the probe, tracks shallowly under the costal margin, and aims toward the left shoulder while avoiding myocardium and liver.",
         "assetName": null,
         "systemImage": "scope",
         "caption": "Replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "Steeper angles risk myocardial puncture. Shallow approach under the costal margin."
+        "clinicalWarning": "Steep/deep trajectories risk myocardium or liver."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"

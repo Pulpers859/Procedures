@@ -64,6 +64,10 @@ tmp/visual-drafts/gemini/
 ## Promotion Rule
 
 Do not set `visualAssets.assetName` just because an image was generated.
+Do not force one generated image to teach multiple procedural decisions. If a
+procedure needs separate landmark geometry, danger-zone avoidance, and
+confirmation views, create separate focused `visualAssets` and review them one
+at a time.
 
 Promote only after review:
 

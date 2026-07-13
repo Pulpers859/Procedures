@@ -2,7 +2,10 @@
 
 Procedures should use illustrations as clinical content, not decoration.
 
-The goal is a reviewed offline visual that helps a trained clinician avoid one important miss in under 10 seconds. One excellent diagram is better than a gallery.
+The goal is a reviewed offline visual that helps a trained clinician avoid one
+important miss in under 10 seconds. One focused diagram is better than a
+crowded mega-diagram; use multiple visuals only when they prevent different
+high-risk errors.
 
 ## Product Fit
 
@@ -21,10 +24,13 @@ Do not use visuals for:
 - Broad anatomy galleries
 - Unreviewed AI-generated anatomy in release builds
 - Long instructional sequences that turn the app into a course module
+- Crammed multi-concept diagrams that are too dense to guide a procedure
 
 ## Production Rule
 
-Each procedure should start with one primary visual asset. Add a second only when it prevents a different high-risk error.
+Each procedure should start with one primary visual asset. Add a second or third
+only when each image prevents a different high-risk error or answers a different
+procedural question, such as landmark geometry versus ultrasound confirmation.
 
 The visual must answer:
 
@@ -32,6 +38,8 @@ The visual must answer:
 - What is the bad miss this image prevents?
 - What labels are absolutely necessary on a phone?
 - What clinical reviewer must approve this before release?
+- Would this image help a proceduralist trainee perform or verify the next
+  critical step, or is it merely an adjacent anatomy/probe picture?
 
 ## Style Standard
 
@@ -46,6 +54,7 @@ Use simple schematic medical illustration:
 - Green only for confirmation/success states
 - No photorealism unless the image must show a real device, kit, or waveform
 - No small textbook labels, dense arrows, or multi-panel clutter
+- Split separate teaching points into separate `visualAssets`
 
 Recommended canvas:
 
@@ -140,7 +149,8 @@ Prioritize visuals where the image can prevent a major miss:
 | Thoracostomy / Chest Tube | `chest_tube_safe_triangle` | Show safe triangle and over-the-rib entry. |
 | Central Venous Catheter | `ij_probe_orientation` | Show IJ/carotid relationship, compression, and needle path. |
 | Needle Decompression | `needle_decompression_landmarks` | Show correct decompression sites and medial danger zone. |
-| Pericardiocentesis | `pericardiocentesis_approach` | Show ultrasound-guided approach and unsafe trajectory risk. |
+| Pericardiocentesis | `pericardiocentesis_needle_path` | Show subxiphoid procedural needle geometry and danger anatomy. |
+| Pericardiocentesis | `pericardiocentesis_approach` | Show ultrasound target confirmation with effusion, myocardium, drainage target, and needle tip. |
 | Lateral Canthotomy & Cantholysis | `canthotomy_inferior_crus` | Show inferior crus target and globe-safe direction. |
 | Lumbar Puncture | `lp_position_landmark` | Show iliac crest line, safe interspace, and trajectory. |
 | Paracentesis | `paracentesis_liq_site` | Show LLQ site, inferior epigastric vessel avoidance, and bowel risk. |
@@ -151,4 +161,5 @@ Prioritize visuals where the image can prevent a major miss:
 
 The app already has visual metadata and rendering infrastructure. The missing work is final reviewed artwork and bundle integration.
 
-Keep the system restrained: build the first reviewed visual set before expanding into more images per procedure.
+Keep the system restrained: expand into multiple images only when the split
+makes the procedure safer or clearer than a single crowded visual.

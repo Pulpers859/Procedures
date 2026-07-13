@@ -79,6 +79,8 @@ Style requirements:
 - Tighten the crop so the key anatomy fills most of the frame. Keep only
   enough margin for the labels; avoid large empty low-information areas.
 - Sparse visual hierarchy: one main teaching point, no gallery layout.
+- Do not cram separate teaching points into one frame. If another visual asset
+  covers a different concept, keep this image focused on its own purpose.
 - High contrast, light background, calm clinical palette.
 - Red or orange only for danger, incision, or warning.
 - Blue or cyan for ultrasound or landmark guidance.

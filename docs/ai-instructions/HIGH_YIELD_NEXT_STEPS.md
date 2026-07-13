@@ -195,7 +195,11 @@ This is important because rescue content should be editable, versioned, reviewed
    - Model: `ProcedureVisualAsset`
    - UI: `VisualLandmarkPlaceholder` / `ProcedureVisualThumbnail`
 
-Every high-yield procedure should eventually have one reviewed visual that prevents a clinically meaningful miss. The visual layer should not become a bloated gallery. Prefer exactly one primary image at first:
+Every high-yield procedure should eventually have at least one reviewed visual
+that prevents a clinically meaningful miss. The visual layer should not become a
+bloated gallery, but it also should not cram multiple procedural questions into
+one unusable image. Prefer one primary image at first, then add a second only
+when it prevents a different miss:
 
 - landmark
 - probe position
