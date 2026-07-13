@@ -109,7 +109,7 @@
         "Toward left shoulder",
         "Steep angle"
       ],
-      "prompt": "Create a premium medical diagram for ultrasound-guided pericardiocentesis using the subxiphoid approach. Show a simplified torso with a phased-array probe below the xiphoid, ultrasound window showing heart with pericardial effusion, and a shallow, correct needle path aimed toward the left shoulder. Also draw a second, overly steep near-vertical needle trajectory crossed out with a red X; this crossed-out path is the one labeled 'Steep angle'. Use a 4:3 iPhone app educational style with large labels, no gore, and restrained clinical colors.",
+      "prompt": "Create a premium medical diagram for ultrasound-guided pericardiocentesis using the subxiphoid approach. Show a simplified torso with a phased-array probe just below the xiphoid and its ultrasound sector showing the heart with a pericardial effusion. Draw BOTH needle trajectories starting from a single entry point at the subxiphoid skin, at the top face of the probe. The correct trajectory is one straight, shallow arrow from that entry running up toward the patient's left shoulder into the effusion. The incorrect trajectory is one straight, overly steep near-vertical arrow from the SAME entry plunging deep toward the heart, crossed out with a red X and labeled 'Steep angle'. Neither arrow loops, curls, or points downward out of the body. Use a 4:3 iPhone app educational style with large labels, no gore, and restrained clinical colors.",
       "avoid": "No photorealism, no graphic needle penetration, no blood, no cluttered ECG or monitor content, no small labels, no watermark."
     },
     {
