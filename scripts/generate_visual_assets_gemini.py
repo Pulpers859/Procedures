@@ -48,8 +48,10 @@ Primary request:
 Required text labels, verbatim:
 {labels}
 
-Render every required label with exactly that spelling. Do not add any other
-text, caption, or watermark anywhere in the image.
+Render every required label exactly once, with exactly that spelling. Do not add
+any other text anywhere in the image: no title, heading, subtitle, caption,
+watermark, signature, logo, parenthetical explanation, duplicated label, or
+invented anatomy label.
 
 Labeling rules:
 - Every label names an anatomical structure or the single target the leader
@@ -59,10 +61,15 @@ Labeling rules:
 - Each label must sit on the side of the image nearest the structure it
   points to, and its leader line must land exactly on that structure. Correct,
   unambiguous placement always wins over visual symmetry.
+- For any arrow, needle, incision, or tool trajectory, start the path at the
+  real entry point. If showing both a correct and incorrect path, use the same
+  entry point when that is the clinical comparison. No looping, curling, or
+  arrows starting inside the target organ.
 
 Style requirements:
 - Premium medical illustration, not stock art.
-- Clean 4:3 composition for an iPhone procedure card.
+- Clean true 4:3 composition for an iPhone procedure card; do not render a
+  near-square canvas unless the asset spec explicitly requests it.
 - Large readable labels in a soft, rounded, humanist sans-serif, with
   generous letter, word, and line spacing so words never appear to touch.
 - Position each label freely wherever its leader line can reach the correct

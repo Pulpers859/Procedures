@@ -21,7 +21,7 @@ The controlling agent grades depiction correctness against the per-image answer 
 - **A key structure in the wrong position** relative to the others (e.g., IJ vein drawn medial to the carotid; thyroid isthmus drawn at the membrane instead of over the upper tracheal rings).
 - **Wrong or misplaced procedure target / entry site / landmark** (e.g., decompression crosshair not at the taught intercostal space and line).
 - **Danger structure omitted, mislabeled, or drawn in the wrong place.**
-- **A label that points to the wrong structure**, or garbled/duplicated/invented text, or any added title/caption/watermark.
+- **A label that points to the wrong structure**, or garbled/duplicated/invented text, or any added title/heading/subtitle/caption/watermark.
 - **Modality misrepresented** (e.g., a B-mode ultrasound window drawn with saturated red/blue vessels — real B-mode is grayscale with anechoic/black lumens; color implies Doppler).
 - **An implied action that is unsafe** (e.g., cut direction toward the globe, entry below the rib into the neurovascular bundle).
 
@@ -45,6 +45,9 @@ Deductions are per defect, judged against the per-image answer key. Because the 
 
 1. **Labels are nouns, never instructions.** Each label names the anatomical structure or single target its leader line touches. No imperative or warning text ("cut away from globe", "avoid", "do not", "danger"). Direction and motion are shown with arrows, not words. A directive label is a defect: delete it, don't reword it.
 2. **Correct placement beats symmetry.** A label sits on the side nearest its structure and its leader line lands exactly on that structure. Never force labels into evenly balanced two-column layouts — that forced balance previously dragged the "Lateral canthus" label onto the wrong (medial) corner. An asymmetric layout with correct leaders passes; a symmetric layout with one misplaced leader fails.
+3. **Required labels exactly once.** Every label in the asset's `requiredLabels` must appear once, spelled verbatim. Duplicated labels, misspellings, parenthetical expansions, invented captions, titles, subtitles, body text, or extra anatomy labels are failures, even if the anatomy is otherwise correct.
+4. **Trajectories originate correctly.** Needles, scissors, and arrows start at the real entry point and travel in the clinically intended direction. Correct and incorrect comparison paths share the same entry when the procedure logic requires it. Loops, curls, downward exits, or paths starting inside the target organ are failures.
+5. **Canvas shape matters.** A PASS candidate should be true 4:3 for the app card. A near-square render can be clinically reviewable only as a draft needing crop or light re-render before bundling.
 
 ## Per-image answer key
 
@@ -71,8 +74,8 @@ Ground truth: two sites — **2nd ICS at the midclavicular line** and the latera
 Auto-fail: crosshairs not at the named ICS/line; MCL site too medial (over the internal mammary); entry under the rib.
 
 ### pericardiocentesis_approach — Pericardiocentesis, probe position
-Ground truth: subxiphoid approach; needle **toward the left shoulder** at a **shallow** angle; target the effusion, not the myocardium; avoid a steep angle. Subxiphoid probe, ultrasound window showing pericardial effusion around the heart, shallow needle path, explicit steep-angle warning. **No title/caption text.**
-Auto-fail: any added title banner; steep near-vertical needle path shown as correct; needle aimed away from the left shoulder.
+Ground truth: subxiphoid approach; needle **toward the left shoulder** at a **shallow** angle; target the effusion, not the myocardium; avoid a steep angle. Subxiphoid probe, ultrasound window showing pericardial effusion around the heart, shallow needle path, explicit steep-angle warning. Correct and incorrect trajectories both start from **one shared subxiphoid skin entry at the top face of the probe**. The correct path is a straight shallow path toward the patient's left shoulder into the effusion; the incorrect path is a steeper path toward the heart, crossed out with a red X. **No title/caption text.**
+Auto-fail: any added title banner; steep near-vertical needle path shown as correct; needle aimed away from the left shoulder; either path starts inside the heart; arrows loop, curl, point downward out of the body, or do not share the same subxiphoid entry.
 
 ### canthotomy_inferior_crus — Lateral Canthotomy, landmark
 Ground truth: "lateral canthal tendon … superior and inferior crus; **cantholysis of the inferior crus**; aim toward the **lateral orbital rim, away from the globe**; lacrimal apparatus medial." **Frontal (anterior) view of the eye and lateral canthus** — not a sagittal globe cross-section. Show the lateral canthus, the horizontal canthotomy incision, the **inferior crus** of the lateral canthal tendon as the release target, and scissors/cut direction **inferolaterally toward the orbital rim, away from the globe.**
