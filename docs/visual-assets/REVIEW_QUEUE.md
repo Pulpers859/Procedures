@@ -32,7 +32,7 @@ Do not promote these until Patrick has reviewed clinical accuracy, label spellin
 
 | Asset id | Prior file | Status | Reason |
 | --- | --- | --- | --- |
-| `pericardiocentesis_needle_path` | `tmp/visual-drafts/gemini-web/pericardiocentesis_needle_path/pericardiocentesis_needle_path_iter19_reference_image_guided_FAILED_crop.png` | Needs hybrid regeneration | Reference-guided Gemini finally corrected the lower-left to upper-right needle direction but routed the path through/over the liver. Next pass should generate an unlabeled anatomy plate and add the syringe/needle with a deterministic overlay controlling angle, liver clearance, and inset target. |
+| `pericardiocentesis_needle_path` | `docs/visual-assets/review-candidates/pericardiocentesis_needle_path_iter20_hybrid_overlay_candidate.png` | PASS for Patrick review | Hybrid candidate: Gemini anatomy-only base plus deterministic syringe/needle overlay. No labels/text. Main needle reads lower-left/bottom-center to upper-right toward the patient's left shoulder, stays visually clear of the liver, and inset needle tip lands in the blue external pericardial fluid crescent. Requires Patrick clinical review before bundling. |
 | `pericardiocentesis_approach` | `tmp/visual-drafts/antigravity/pericardiocentesis_approach/pericardiocentesis_approach_review_candidate_cropped.png` | Retired | Prior draft passed a narrow geometry audit but read like a subxiphoid TTE view rather than a procedural teaching image. This slot now owns ultrasound target confirmation only. |
 
 ## Promotion Checklist
