@@ -36,6 +36,11 @@ iteration:
 
 This overlay lane is preferred when Gemini repeatedly misspells labels, clips
 text, adds extra labels, or draws unsafe/random procedure geometry.
+It is mandatory after repeated geometry failures on the same asset. For example,
+`pericardiocentesis_needle_path` should move to anatomy-only Gemini generation
+plus a deterministic syringe/needle overlay if Gemini flips the substernal
+needle direction or clears the direction only by routing the path through the
+liver.
 
 ## Setup
 

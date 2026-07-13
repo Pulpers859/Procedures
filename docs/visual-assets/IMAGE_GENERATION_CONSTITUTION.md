@@ -119,6 +119,11 @@ leaders ambiguously. Text is not where the image model should be trusted.
 If the model also misplaces the procedure trajectory, remove the trajectory
 from the generation prompt too. Generate anatomy-only, then add entry dots,
 needle paths, arrows, target dots, and labels in the deterministic overlay.
+For procedures where a few pixels change the clinical meaning, the instrument
+itself may need to be an overlay too. If Gemini repeatedly flips a needle
+trajectory or routes it through danger anatomy, stop asking Gemini to draw the
+needle. Use Gemini for the anatomy plate and add the syringe/needle locally
+with fixed coordinates.
 
 ### 8. No unexplained devices or phantom anatomy
 Only draw tools, wires, catheters, sheaths, tubes, drains, needles, probes, and
@@ -210,6 +215,12 @@ Specifics that have burned us; keep them true in every regeneration.
   tip must terminate visibly inside the blue pericardial fluid pocket in the
   inset, not on epicardium or myocardium. Do not add in-image labels, approach
   letters, direction labels, path labels, organ labels, or basic-anatomy labels.
+  If Gemini draws the main needle as lower-right to upper-left, or if a corrected
+  bottom-left to upper-right needle crosses the liver, do not keep iterating on
+  that full-scene prompt. Generate an unlabeled anatomy/background plate without
+  any syringe/needle and add the subxiphoid syringe/needle as a deterministic
+  overlay so the hub, entry, direction, liver clearance, and target endpoint are
+  controlled.
   The path's shallowness and target should be visible through the instrument
   angle, inset, and anatomy.
 - **pericardiocentesis_approach** — This is the ultrasound target-confirmation
