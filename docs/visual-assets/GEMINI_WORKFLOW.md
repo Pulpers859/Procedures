@@ -69,8 +69,8 @@ Promote only after review:
 
 1. Review visual accuracy, label spelling, layout, and phone readability.
 2. Record clinical review status.
-3. Move the final PNG into `Procedures/Resources/Visuals`.
-4. Add it to the Xcode target resources.
+3. Add the final PNG to the app bundle. Prefer `Procedures/Assets.xcassets/<assetId>.imageset/` for catalog-managed images, matching the currently bundled cricothyrotomy and canthotomy visuals. `Procedures/Resources/Visuals` is also supported when that folder is explicitly added to the Xcode target resources.
+4. Confirm the image is included in the Xcode target resources.
 5. Set `visualAssets.assetName` in `Procedures/Resources/procedures.json`.
 6. Run `python scripts/validate_procedures.py`.
 

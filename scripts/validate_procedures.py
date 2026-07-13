@@ -31,6 +31,7 @@ def review_age_days(last_reviewed):
         return None
     return (date.today() - reviewed).days
 RESOURCES = ROOT / "Procedures" / "Resources"
+ASSET_CATALOG = ROOT / "Procedures" / "Assets.xcassets"
 PROCEDURES = RESOURCES / "procedures.json"
 RESCUE_CARDS = RESOURCES / "rescue_cards.json"
 KITS = RESOURCES / "kits.json"
@@ -89,6 +90,38 @@ def load_json(path: Path):
         return None
 
 
+def visual_asset_exists(asset_name: str) -> bool:
+    """Match the app loader: loose files in Resources/Visuals or image sets."""
+    asset_path = Path(asset_name)
+    stem = asset_path.stem if asset_path.suffix else asset_name
+    extensions = [asset_path.suffix.lstrip(".")] if asset_path.suffix else ["png", "jpg", "jpeg"]
+
+    candidate_roots = [RESOURCES, RESOURCES / "Visuals"]
+    candidates = []
+    for root in candidate_roots:
+        candidates.append(root / asset_name)
+        candidates.extend(root / f"{asset_name}.{ext}" for ext in extensions if not asset_path.suffix)
+    if any(path.exists() for path in candidates):
+        return True
+
+    image_set = ASSET_CATALOG / f"{stem}.imageset"
+    if not image_set.exists():
+        return False
+
+    contents = image_set / "Contents.json"
+    if contents.exists():
+        try:
+            metadata = json.loads(contents.read_text())
+            for image in metadata.get("images", []):
+                filename = image.get("filename")
+                if filename and (image_set / filename).exists():
+                    return True
+        except json.JSONDecodeError:
+            pass
+
+    return any((image_set / f"{stem}.{ext}").exists() for ext in extensions)
+
+
 def validate_procedures(data):
     issues = []
     ids = [item.get("id") for item in data]
@@ -143,18 +176,7 @@ def validate_procedures(data):
                     issues.append(("WARNING", title, f"visual asset missing {field}"))
             asset_name = visual.get("assetName")
             if asset_name:
-                candidate_roots = [RESOURCES, RESOURCES / "Visuals"]
-                candidates = []
-                for root in candidate_roots:
-                    candidates.extend(
-                        [
-                            root / asset_name,
-                            root / f"{asset_name}.png",
-                            root / f"{asset_name}.jpg",
-                            root / f"{asset_name}.jpeg",
-                        ]
-                    )
-                if not any(path.exists() for path in candidates):
+                if not visual_asset_exists(asset_name):
                     issues.append(("WARNING", title, f"visual asset file not found: {asset_name}"))
 
     return issues
