@@ -151,11 +151,11 @@
         "id": "laryngoscope_view",
         "kind": "Confirmation",
         "title": "Laryngoscopic view grades",
-        "subtitle": "Cormack-Lehane grades I–IV. Grade I: full cords visible. Grade IV: no glottic structures seen. Bougie or video laryngoscopy for grade III–IV.",
+        "subtitle": "Cormack-Lehane grades I\u2013IV. Grade I: full cords visible. Grade IV: no glottic structures seen. Bougie or video laryngoscopy for grade III\u2013IV.",
         "assetName": null,
         "systemImage": "eye",
         "caption": "Replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "Grade III–IV views require immediate backup plan. Do not persist with direct laryngoscopy."
+        "clinicalWarning": "Grade III\u2013IV views require immediate backup plan. Do not persist with direct laryngoscopy."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -386,8 +386,8 @@
       ],
       "equipment": [
         "Local anesthetic",
-        "3–5 mL syringe",
-        "25–30G needle",
+        "3\u20135 mL syringe",
+        "25\u201330G needle",
         "Alcohol or chlorhexidine prep",
         "Gloves",
         "Gauze",
@@ -592,7 +592,7 @@
         "id": "cric_membrane",
         "kind": "Landmark",
         "title": "Cricothyroid membrane palpation",
-        "subtitle": "Palpate the thyroid cartilage notch, slide inferiorly to the soft depression before the cricoid ring. This is the cricothyroid membrane — the incision target.",
+        "subtitle": "Palpate the thyroid cartilage notch, slide inferiorly to the soft depression before the cricoid ring. This is the cricothyroid membrane \u2014 the incision target.",
         "assetName": "cric_membrane",
         "systemImage": "scalpel",
         "caption": "Target: cricothyroid membrane between the thyroid and cricoid cartilage.",
@@ -744,7 +744,7 @@
         "id": "chest_tube_safe_triangle",
         "kind": "Danger Zone",
         "title": "Safe triangle of insertion",
-        "subtitle": "Bordered by the anterior border of latissimus dorsi, lateral border of pectoralis major, a line superior to the horizontal level of the nipple, and the apex of the axilla. 4th–5th intercostal space, mid-axillary line.",
+        "subtitle": "Bordered by the anterior border of latissimus dorsi, lateral border of pectoralis major, a line superior to the horizontal level of the nipple, and the apex of the axilla. 4th\u20135th intercostal space, mid-axillary line.",
         "assetName": null,
         "systemImage": "triangle",
         "caption": "Illustration pending clinical review. Use the visual asset workflow before bundling final artwork.",
@@ -898,7 +898,7 @@
         "id": "pigtail_seldinger",
         "kind": "Setup",
         "title": "Seldinger technique setup",
-        "subtitle": "Needle → wire → dilator → pigtail catheter over wire. Confirm wire position with ultrasound before dilation. The pigtail curl should deploy in the pleural space.",
+        "subtitle": "Needle \u2192 wire \u2192 dilator \u2192 pigtail catheter over wire. Confirm wire position with ultrasound before dilation. The pigtail curl should deploy in the pleural space.",
         "assetName": null,
         "systemImage": "arrow.down.to.line",
         "caption": "Replace assetName with reviewed artwork when available.",
@@ -1021,7 +1021,7 @@
         "id": "needle_decompression_landmarks",
         "kind": "Landmark",
         "title": "Decompression landmarks",
-        "subtitle": "2nd intercostal space, midclavicular line (anterior) or 4th–5th intercostal space, anterior axillary line (lateral). Lateral approach preferred in muscular or obese patients.",
+        "subtitle": "2nd intercostal space, midclavicular line (anterior) or 4th\u20135th intercostal space, anterior axillary line (lateral). Lateral approach preferred in muscular or obese patients.",
         "assetName": null,
         "systemImage": "target",
         "caption": "Illustration pending clinical review. Use the visual asset workflow before bundling final artwork.",
@@ -1031,7 +1031,7 @@
         "id": "needle_decompression_danger",
         "kind": "Danger Zone",
         "title": "Medial danger zone",
-        "subtitle": "Internal mammary artery runs 1–2 cm lateral to the sternum. Stay in the midclavicular line to avoid it. The intercostal bundle runs along the inferior rib margin.",
+        "subtitle": "Internal mammary artery runs 1\u20132 cm lateral to the sternum. Stay in the midclavicular line to avoid it. The intercostal bundle runs along the inferior rib margin.",
         "assetName": null,
         "systemImage": "exclamationmark.triangle",
         "caption": "Replace assetName with reviewed artwork when available.",
@@ -1501,7 +1501,7 @@
         "Sterile gloves/mask/prep/drape",
         "Spinal needle with stylet",
         "Manometer tubing if opening pressure needed",
-        "Collection tubes labeled 1–4",
+        "Collection tubes labeled 1\u20134",
         "Local anesthetic and small needle",
         "Bandage",
         "Assistant for positioning",
@@ -1576,11 +1576,11 @@
         "id": "lp_position_landmark",
         "kind": "Landmark",
         "title": "LP interspace landmarks",
-        "subtitle": "Tuffier's line (a line connecting the iliac crests) crosses at approximately the L4 spinous process. L3–L4 or L4–L5 interspaces are the target, below the conus medullaris.",
+        "subtitle": "Tuffier's line (a line connecting the iliac crests) crosses at approximately the L4 spinous process. L3\u2013L4 or L4\u2013L5 interspaces are the target, below the conus medullaris.",
         "assetName": null,
         "systemImage": "figure.seated.side",
         "caption": "Illustration pending clinical review. Use the visual asset workflow before bundling final artwork.",
-        "clinicalWarning": "The conus medullaris typically ends at L1–L2. Do not insert above L3."
+        "clinicalWarning": "The conus medullaris typically ends at L1\u2013L2. Do not insert above L3."
       },
       {
         "id": "lp_needle_trajectory",
@@ -1590,7 +1590,7 @@
         "assetName": null,
         "systemImage": "arrow.up.forward",
         "caption": "Replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "If bone is hit, withdraw and redirect — do not force through."
+        "clinicalWarning": "If bone is hit, withdraw and redirect \u2014 do not force through."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -1619,11 +1619,11 @@
     "sections": {
       "shiftMode": [
         "Confirm indication, site preference (radial first), and assess collateral flow with ultrasound before committing.",
-        "Position wrist in 20-30° extension over a firm roll; tape securely without restricting distal circulation.",
+        "Position wrist in 20-30\u00b0 extension over a firm roll; tape securely without restricting distal circulation.",
         "Ultrasound preferred: identify radial artery, confirm pulsatility and depth, plan entry point.",
-        "Anesthetize even in awake patients — arterial puncture without local anesthetic causes involuntary movement and failed placement.",
-        "Advance catheter-over-needle with bevel up at 30-45°; on flashback, flatten and advance catheter. Use Seldinger for deep or small vessels.",
-        "Arterial waveform on the transducer is definitive confirmation — a flat or venous tracing means reposition or replace.",
+        "Anesthetize even in awake patients \u2014 arterial puncture without local anesthetic causes involuntary movement and failed placement.",
+        "Advance catheter-over-needle with bevel up at 30-45\u00b0; on flashback, flatten and advance catheter. Use Seldinger for deep or small vessels.",
+        "Arterial waveform on the transducer is definitive confirmation \u2014 a flat or venous tracing means reposition or replace.",
         "Label, zero, and document waveform quality before relying on readings."
       ],
       "indications": [
@@ -1633,11 +1633,11 @@
         "High-risk procedures, RSI, or sedation requiring real-time hemodynamic monitoring"
       ],
       "contraindications": [
-        "No identifiable arterial signal at planned site — do not attempt blind",
+        "No identifiable arterial signal at planned site \u2014 do not attempt blind",
         "Raynaud phenomenon, limb ischemia, or insufficient collateral flow (relative; assess with ultrasound)",
         "Active infection, burn, or wound overlying the insertion site",
         "Suspected arterial disease, thrombosis, or prior catheterization damage at site",
-        "Severe coagulopathy — weigh urgency; compressible sites preferred"
+        "Severe coagulopathy \u2014 weigh urgency; compressible sites preferred"
       ],
       "anatomy": [
         "Radial artery runs along the lateral volar forearm, superficial to the flexor carpi radialis tendon; typically 2-4 mm diameter at 3-8 mm depth.",
@@ -1660,18 +1660,18 @@
         "Monitor with arterial waveform capability"
       ],
       "positioning": [
-        "Extend wrist 20-30° over a firm roll (rolled towel or IV bag) with the volar surface facing up.",
+        "Extend wrist 20-30\u00b0 over a firm roll (rolled towel or IV bag) with the volar surface facing up.",
         "Tape hand and forearm securely to arm board; prevent movement without restricting distal perfusion.",
         "Abduct arm and position ultrasound screen in direct line of sight before prep."
       ],
       "steps": [
         "Confirm indication, check for contraindications, and obtain consent if non-emergent.",
         "Set up pressure transducer and tubing; connect to monitor and zero at the phlebostatic axis.",
-        "Position wrist over roll in 20-30° extension; secure with tape.",
+        "Position wrist over roll in 20-30\u00b0 extension; secure with tape.",
         "Perform ultrasound survey: identify artery, confirm pulsatility, estimate depth, and plan entry point.",
         "Prep skin widely with chlorhexidine; apply sterile drape.",
         "Infiltrate skin and subcutaneous tissue with local anesthetic along the planned tract.",
-        "With ultrasound guidance, advance needle at 30-45° bevel-up; watch for pulsatile flash.",
+        "With ultrasound guidance, advance needle at 30-45\u00b0 bevel-up; watch for pulsatile flash.",
         "On flash: for catheter-over-needle, flatten slightly, advance catheter off needle, remove needle; for Seldinger, flatten, pass wire without force, remove needle, thread catheter over wire, remove wire.",
         "Connect arterial tubing; confirm arterial waveform on monitor.",
         "Secure catheter, apply clear dressing, and label with site and date.",
@@ -1695,10 +1695,10 @@
         "Catheter will not advance over needle: do not force; switch to Seldinger technique or resite.",
         "Dampened waveform: check for clot at catheter tip, kink in tubing, or transducer below heart level.",
         "Loss of signal with movement: improve limb securement and confirm catheter is not kinked.",
-        "Hematoma: remove catheter, hold firm pressure ≥5 min (longer if anticoagulated), and check distal perfusion."
+        "Hematoma: remove catheter, hold firm pressure \u22655 min (longer if anticoagulated), and check distal perfusion."
       ],
       "complications": [
-        "Thrombosis with distal ischemia — remove catheter immediately if suspected",
+        "Thrombosis with distal ischemia \u2014 remove catheter immediately if suspected",
         "Hematoma",
         "Infection, especially after 72-96 hours",
         "Pseudoaneurysm",
@@ -1722,7 +1722,7 @@
         "Distal perfusion intact after placement."
       ],
       "seniorPearls": [
-        "The wrist roll is often underdone — a firm, secure 20-30° extension dramatically improves first-pass success.",
+        "The wrist roll is often underdone \u2014 a firm, secure 20-30\u00b0 extension dramatically improves first-pass success.",
         "Seldinger technique outperforms catheter-over-needle in patients with deep, small, or difficult vessels.",
         "A persistently dampened waveform is a reason to replace the line, not to accept inaccurate readings."
       ],
@@ -1736,17 +1736,17 @@
         "id": "radial_approach",
         "kind": "Landmark",
         "title": "Radial artery approach",
-        "subtitle": "Wrist extended 30–45 degrees over a towel roll. Radial artery palpated 1–2 cm proximal to the wrist crease, lateral to the flexor carpi radialis tendon.",
+        "subtitle": "Wrist extended 30\u201345 degrees over a towel roll. Radial artery palpated 1\u20132 cm proximal to the wrist crease, lateral to the flexor carpi radialis tendon.",
         "assetName": null,
         "systemImage": "hand.raised",
         "caption": "Replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "Avoid hyperextension — it can occlude the artery."
+        "clinicalWarning": "Avoid hyperextension \u2014 it can occlude the artery."
       },
       {
         "id": "aline_us_short_axis",
         "kind": "Probe Position",
         "title": "Ultrasound short-axis view",
-        "subtitle": "Linear probe perpendicular to the radial artery. Small pulsatile structure visible at 2–5 mm depth. Radial nerve and vein are adjacent.",
+        "subtitle": "Linear probe perpendicular to the radial artery. Small pulsatile structure visible at 2\u20135 mm depth. Radial nerve and vein are adjacent.",
         "assetName": null,
         "systemImage": "dot.viewfinder",
         "caption": "Replace assetName with reviewed artwork when available.",
@@ -1778,12 +1778,12 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm indication (diagnostic vs. therapeutic) and laterality; verify effusion is free-flowing on ultrasound — not loculated.",
+        "Confirm indication (diagnostic vs. therapeutic) and laterality; verify effusion is free-flowing on ultrasound \u2014 not loculated.",
         "Mark the site with the patient in the procedure position; fluid pockets shift significantly when patients change position.",
         "Puncture over the superior margin of the lower rib to avoid the intercostal neurovascular bundle (nerve-artery-vein runs inferior to each rib).",
-        "Anesthetize all the way to the pleural surface — the parietal pleura is where the pain is.",
+        "Anesthetize all the way to the pleural surface \u2014 the parietal pleura is where the pain is.",
         "For therapeutic: connect drainage before advancing catheter; preventing air entry is critical.",
-        "Stop at 1–1.5 L per session unless monitoring closely; cough and chest tightness are early warnings of re-expansion risk.",
+        "Stop at 1\u20131.5 L per session unless monitoring closely; cough and chest tightness are early warnings of re-expansion risk.",
         "Post-procedure ultrasound or CXR to confirm adequate drainage and screen for pneumothorax."
       ],
       "indications": [
@@ -1793,9 +1793,9 @@
       ],
       "contraindications": [
         "Uncooperative patient unable to remain still during procedure (relative; consider procedural sedation)",
-        "Uncorrected coagulopathy with significant bleeding risk — weigh urgency and available reversal",
+        "Uncorrected coagulopathy with significant bleeding risk \u2014 weigh urgency and available reversal",
         "Effusion too small or clearly loculated with no safe accessible pocket on ultrasound",
-        "Active ipsilateral pneumothorax — decompress first",
+        "Active ipsilateral pneumothorax \u2014 decompress first",
         "Known lung adherence to chest wall at the planned site"
       ],
       "anatomy": [
@@ -1818,7 +1818,7 @@
         "Drainage measurement container"
       ],
       "positioning": [
-        "Seated and leaning forward over a padded bedside table with arms resting on a pillow — drops the scapula and opens interspaces for posterior access.",
+        "Seated and leaning forward over a padded bedside table with arms resting on a pillow \u2014 drops the scapula and opens interspaces for posterior access.",
         "Supine with ipsilateral arm raised overhead is acceptable for ventilated or unable-to-sit patients; locate fluid in this position.",
         "Perform ultrasound with the patient in the exact position you will use for the procedure."
       ],
@@ -1838,7 +1838,7 @@
       ],
       "ultrasound": [
         "Use a low-frequency curvilinear or phased-array probe in the posterior-lateral chest to identify the effusion in coronal plane.",
-        "Confirm fluid is anechoic or hypoechoic and free-flowing with respiration — loculations appear as hyperechoic strands.",
+        "Confirm fluid is anechoic or hypoechoic and free-flowing with respiration \u2014 loculations appear as hyperechoic strands.",
         "Measure the largest pocket depth and distance from skin to fluid before marking.",
         "Mark the entry site with the patient in the procedure position; fluid pockets shift with position changes.",
         "Post-procedure: scan for pneumothorax (absent lung sliding ipsilateral) before imaging is complete."
@@ -1851,9 +1851,9 @@
         "Specimens labeled and sent promptly"
       ],
       "troubleshooting": [
-        "No fluid on aspiration: confirm with real-time ultrasound — pocket may have shifted; use live guidance for next attempt.",
+        "No fluid on aspiration: confirm with real-time ultrasound \u2014 pocket may have shifted; use live guidance for next attempt.",
         "Air return: withdraw immediately; the needle may be in lung parenchyma; assess urgently for pneumothorax.",
-        "Bloody return: distinguish hemorrhagic effusion from hemothorax vs. vessel injury — non-clotting blood suggests pleural; rapidly clotting suggests vascular.",
+        "Bloody return: distinguish hemorrhagic effusion from hemothorax vs. vessel injury \u2014 non-clotting blood suggests pleural; rapidly clotting suggests vascular.",
         "Cough or chest tightness after 1 L: stop drainage; may indicate re-expansion risk or pleural irritation; observe and reassess.",
         "Loculated pocket: scan multiple windows; if truly inaccessible, consult interventional radiology or thoracics."
       ],
@@ -1867,7 +1867,7 @@
         "Air embolism"
       ],
       "aftercare": [
-        "Monitor O2 saturation, respiratory rate, and breath sounds for ≥1 hour after procedure.",
+        "Monitor O2 saturation, respiratory rate, and breath sounds for \u22651 hour after procedure.",
         "Obtain CXR or lung ultrasound to evaluate for pneumothorax and residual effusion.",
         "Send pleural fluid samples promptly; pH degrades quickly if not capped.",
         "Record total volume drained and fluid character; document in procedure note."
@@ -1882,7 +1882,7 @@
         "Patient tolerated procedure without oxygen desaturation, respiratory distress, or significant bleeding."
       ],
       "seniorPearls": [
-        "Mark the site with the patient in the procedure position — the fluid pocket moves when they lie down and you will miss it.",
+        "Mark the site with the patient in the procedure position \u2014 the fluid pocket moves when they lie down and you will miss it.",
         "Most missed pneumothoraces occur in ventilated or obtunded patients who cannot report symptoms; get post-procedure ultrasound routinely.",
         "Stop before 1.5 L unless you have a compelling reason and are monitoring closely; re-expansion pulmonary edema is rare but underappreciated."
       ],
@@ -1931,12 +1931,12 @@
     "sections": {
       "shiftMode": [
         "Confirm indication (diagnostic vs. therapeutic); verify ascites is present and accessible by ultrasound.",
-        "Ultrasound marks the largest, safest pocket in the LLQ — avoids bowel, bladder, and inferior epigastric vessels.",
-        "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum — reduces post-procedure fluid leak.",
+        "Ultrasound marks the largest, safest pocket in the LLQ \u2014 avoids bowel, bladder, and inferior epigastric vessels.",
+        "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum \u2014 reduces post-procedure fluid leak.",
         "For large-volume (>5 L): administer albumin 6-8 g per liter removed to prevent paracentesis-induced circulatory dysfunction.",
-        "Do not give albumin for diagnostic or small-volume (<5 L) taps — no evidence of benefit.",
-        "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap — you cannot rule out SBP clinically.",
-        "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn — highest diagnostic yield for SBP."
+        "Do not give albumin for diagnostic or small-volume (<5 L) taps \u2014 no evidence of benefit.",
+        "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap \u2014 you cannot rule out SBP clinically.",
+        "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn \u2014 highest diagnostic yield for SBP."
       ],
       "indications": [
         "New-onset ascites requiring diagnostic evaluation",
@@ -1945,7 +1945,7 @@
         "Evaluation of ascites in acute decompensated liver disease, malignancy, or unknown etiology"
       ],
       "contraindications": [
-        "Disseminated intravascular coagulation (DIC) — significant bleeding risk",
+        "Disseminated intravascular coagulation (DIC) \u2014 significant bleeding risk",
         "Surgical abdomen where bowel perforation is possible at all accessible sites",
         "Active infection, wound, or burn overlying all potential insertion sites",
         "Known adhesions or bowel loops adherent to the anterior abdominal wall at the planned site",
@@ -1955,7 +1955,7 @@
         "Standard entry: LLQ 4-6 cm lateral to the midline, midway between umbilicus and anterior superior iliac spine (ASIS).",
         "RLQ is acceptable alternative if LLQ is unsafe due to prior surgery, ostomy, or other anatomy.",
         "Avoid the midline: risk of diastasis, recanalized umbilical vein, and thin soft tissue.",
-        "Inferior epigastric vessels run cephalocaudally approximately 3-5 cm medial to the ASIS — confirm with Doppler ultrasound.",
+        "Inferior epigastric vessels run cephalocaudally approximately 3-5 cm medial to the ASIS \u2014 confirm with Doppler ultrasound.",
         "The bladder must be empty; the bowel shifts unpredictably. Ultrasound-guided entry is standard of care."
       ],
       "equipment": [
@@ -1972,8 +1972,8 @@
       ],
       "positioning": [
         "Supine with slight left lateral decubitus (left side down) to pool ascites in the LLQ.",
-        "Head of bed elevated 30° if patient cannot lie flat due to respiratory compromise.",
-        "Empty the bladder before starting — foley or void — to clear the pelvic space.",
+        "Head of bed elevated 30\u00b0 if patient cannot lie flat due to respiratory compromise.",
+        "Empty the bladder before starting \u2014 foley or void \u2014 to clear the pelvic space.",
         "Scan with the patient in the exact position you will use for the procedure."
       ],
       "steps": [
@@ -1995,11 +1995,11 @@
         "Use a curvilinear or low-frequency probe to identify the largest free-flowing fluid pocket in the LLQ.",
         "Confirm depth from skin to fluid and the absence of bowel loops in the intended needle path.",
         "Color Doppler at the planned site identifies the inferior epigastric vessels before puncture.",
-        "Mark the entry site with the patient in the procedure position — fluid redistributes when position changes.",
+        "Mark the entry site with the patient in the procedure position \u2014 fluid redistributes when position changes.",
         "Post-procedure: brief scan to assess for residual ascites and any hematoma at the entry site."
       ],
       "confirmation": [
-        "Peritoneal fluid returns freely on aspiration — straw-colored, turbid, milky, or bloody depending on etiology",
+        "Peritoneal fluid returns freely on aspiration \u2014 straw-colored, turbid, milky, or bloody depending on etiology",
         "Fluid flows freely during therapeutic drainage",
         "No bowel contents (feculent material or food particles) in return",
         "Abdominal distension and discomfort reduce during therapeutic drainage",
@@ -2010,7 +2010,7 @@
         "Bowel contents in return: withdraw immediately; monitor for peritonitis signs; most isolated needle punctures of bowel are self-limiting.",
         "Catheter clogs during large-volume tap: reposition patient slightly; flush gently; replace if blocked.",
         "Persistent fluid leak from site post-procedure: hold pressure; Z-track technique reduces this; purse-string suture rarely required.",
-        "Neutrophils >250/mm³ with SBP suspicion: treat empirically while awaiting confirmatory culture results."
+        "Neutrophils >250/mm\u00b3 with SBP suspicion: treat empirically while awaiting confirmatory culture results."
       ],
       "complications": [
         "Intra-abdominal hematoma or bleeding",
@@ -2023,7 +2023,7 @@
       ],
       "aftercare": [
         "For >5 L: confirm albumin replacement administered; reassess BP and HR at 1 hour.",
-        "Send specimens promptly; neutrophil count >250 cells/mm³ meets criteria for empiric SBP treatment.",
+        "Send specimens promptly; neutrophil count >250 cells/mm\u00b3 meets criteria for empiric SBP treatment.",
         "Monitor for abdominal pain, fever, or hematoma for 4-6 hours after the procedure.",
         "Record total volume drained and fluid character in the procedure note.",
         "Educate patient on return precautions: worsening pain, fever, spreading redness, or fluid leak from the site."
@@ -2034,11 +2034,11 @@
         "Ultrasound guidance used; largest pocket identified at [site].",
         "[Volume] mL of [character] peritoneal fluid removed without complication.",
         "Specimens sent for [cell count, albumin, protein, LDH, culture, cytology as ordered]; blood culture bottles inoculated at bedside.",
-        "Albumin [administered at X g per liter / not indicated — volume <5 L].",
+        "Albumin [administered at X g per liter / not indicated \u2014 volume <5 L].",
         "Patient hemodynamically stable post-procedure; no abdominal rigidity or signs of peritonitis."
       ],
       "seniorPearls": [
-        "Every hospitalized cirrhotic who decompensates gets a diagnostic tap first — you cannot exclude SBP on exam.",
+        "Every hospitalized cirrhotic who decompensates gets a diagnostic tap first \u2014 you cannot exclude SBP on exam.",
         "The Z-track technique reduces post-tap ascites leak; teach it and use it consistently.",
         "Albumin replacement for large-volume taps is non-negotiable; paracentesis-induced circulatory dysfunction is underdiagnosed and preventable."
       ],
@@ -2085,12 +2085,12 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node — ultrasound identifies occult pockets and depth, avoids dry incisions.",
-        "Anesthetize generously before incising — acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
+        "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node \u2014 ultrasound identifies occult pockets and depth, avoids dry incisions.",
+        "Anesthetize generously before incising \u2014 acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
         "The incision must be adequate: span the entire fluctuant cavity and allow complete drainage and loculation breakdown.",
-        "Irrigate vigorously with normal saline until return is clear — this step is often rushed.",
+        "Irrigate vigorously with normal saline until return is clear \u2014 this step is often rushed.",
         "Loop drain or loose packing prevents premature closure without the pain of tight gauze packing.",
-        "Primary closure is contraindicated — leave it open.",
+        "Primary closure is contraindicated \u2014 leave it open.",
         "Most simple abscesses in immunocompetent patients do not need antibiotics; treat the cavity."
       ],
       "indications": [
@@ -2099,16 +2099,16 @@
         "Paronychia with subungual extension unresponsive to soaking"
       ],
       "contraindications": [
-        "Tissue not clearly fluctuant and abscess not confirmed — do not incise cellulitis blindly",
-        "Hand deep-space infection (flexor tenosynovitis risk) — surgical consultation required",
-        "Facial abscess near the dangerous triangle or other high-risk vascular territory — surgical consultation preferred",
-        "Signs of necrotizing infection (pain out of proportion, crepitus, skin necrosis, rapid spread) — this is a surgical emergency, not a bedside I&D",
+        "Tissue not clearly fluctuant and abscess not confirmed \u2014 do not incise cellulitis blindly",
+        "Hand deep-space infection (flexor tenosynovitis risk) \u2014 surgical consultation required",
+        "Facial abscess near the dangerous triangle or other high-risk vascular territory \u2014 surgical consultation preferred",
+        "Signs of necrotizing infection (pain out of proportion, crepitus, skin necrosis, rapid spread) \u2014 this is a surgical emergency, not a bedside I&D",
         "Abscess adjacent to neurovascular structures or deep fascia without adequate training and imaging"
       ],
       "anatomy": [
         "Identify abscess boundaries by palpation and ultrasound; plan incision at point of maximal fluctuance.",
         "Avoid crossing joint lines, tendon sheaths, or neurovascular structures with the incision when possible.",
-        "Satellite collections are common — explore for and break down connecting loculations with blunt dissection.",
+        "Satellite collections are common \u2014 explore for and break down connecting loculations with blunt dissection.",
         "Perirectal and ischiorectal abscesses require colorectal or surgical expertise; do not attempt without proper training.",
         "Avoid end-arterial zones (fingertip, toe, pinna, nasal tip, penis) with epinephrine-containing anesthetic."
       ],
@@ -2125,26 +2125,26 @@
         "Wound cultures if immunocompromise, recurrence, or systemic infection suspected"
       ],
       "positioning": [
-        "Position the abscess for optimal visualization and operator ergonomics — often lateral decubitus for buttock or perianal.",
+        "Position the abscess for optimal visualization and operator ergonomics \u2014 often lateral decubitus for buttock or perianal.",
         "Adequate lighting is critical; use a headlamp or task light for depth visualization.",
         "Pediatric patients may require restraint assistance or procedural sedation for larger abscesses."
       ],
       "steps": [
         "Confirm diagnosis with exam and ultrasound; identify all pockets, satellite collections, and the point of maximal fluctuance.",
-        "Infiltrate local anesthetic widely around and beneath the abscess margin — not into the cavity. Allow adequate time for onset (2-3 minutes minimum).",
+        "Infiltrate local anesthetic widely around and beneath the abscess margin \u2014 not into the cavity. Allow adequate time for onset (2-3 minutes minimum).",
         "Optionally consider regional nerve block for large or anatomically favorable abscesses.",
         "Prep the area; apply sterile drape.",
-        "Make a single, adequate linear incision through the abscess dome at maximal fluctuance — it must be long enough to allow complete drainage and instrument access.",
+        "Make a single, adequate linear incision through the abscess dome at maximal fluctuance \u2014 it must be long enough to allow complete drainage and instrument access.",
         "Gently express contents; do not squeeze forcefully.",
-        "Insert closed hemostat, open along cavity axis, and sweep to break down all loculations — confirm cavity extent.",
+        "Insert closed hemostat, open along cavity axis, and sweep to break down all loculations \u2014 confirm cavity extent.",
         "Irrigate vigorously with normal saline under moderate pressure using a syringe; repeat until return is clear or nearly clear.",
-        "Place a loop drain loosely through the cavity (preferred) or insert plain strip gauze loosely — do not pack tightly.",
+        "Place a loop drain loosely through the cavity (preferred) or insert plain strip gauze loosely \u2014 do not pack tightly.",
         "Apply non-adherent dressing over the drain or packing.",
         "Plan follow-up at 48-72 hours for packing change, drain assessment, or wound check."
       ],
       "ultrasound": [
         "High-frequency linear probe (10+ MHz) for soft tissue abscess identification.",
-        "Confirms hypoechoic or anechoic fluid cavity with posterior acoustic enhancement and internal debris — differentiates from solid mass.",
+        "Confirms hypoechoic or anechoic fluid cavity with posterior acoustic enhancement and internal debris \u2014 differentiates from solid mass.",
         "Color Doppler identifies adjacent vessels before incision.",
         "Reveals hidden loculations and satellite pockets that palpation alone misses.",
         "Use ultrasound to guide needle aspiration for depth confirmation before incision in deep or uncertain abscesses."
@@ -2153,11 +2153,11 @@
         "Frank pus drains freely on incision",
         "All loculations broken down and cavity fully explored with instrument",
         "Vigorous irrigation return is clear or near-clear before packing",
-        "Loop drain or loose packing placed — not tight, not obliterating the cavity",
+        "Loop drain or loose packing placed \u2014 not tight, not obliterating the cavity",
         "No evidence of deeper structure involvement (tendon, joint, fascia)"
       ],
       "troubleshooting": [
-        "No pus on incision: reassess with ultrasound — may have incised into cellulitis or missed the pocket; do not extend blindly.",
+        "No pus on incision: reassess with ultrasound \u2014 may have incised into cellulitis or missed the pocket; do not extend blindly.",
         "Bleeding during incision: direct pressure; abscess-bed bleeding is usually minor and self-limited.",
         "Inadequate anesthesia despite infiltration: add more anesthetic outside the margin, wait longer; acidic purulent environment inactivates local anesthetic near the core.",
         "Deep pocket inaccessible: ultrasound-guided aspiration to confirm location; surgical consultation if complex anatomy or uncertain.",
@@ -2188,9 +2188,9 @@
         "Patient discharged with wound care instructions and 48-72 hour follow-up arranged."
       ],
       "seniorPearls": [
-        "Acidic pus inactivates local anesthetic inside the cavity — infiltrate around the margin and wait; never rush into an under-anesthetized abscess.",
+        "Acidic pus inactivates local anesthetic inside the cavity \u2014 infiltrate around the margin and wait; never rush into an under-anesthetized abscess.",
         "The incision length is the most common technical mistake: if you cannot freely break down all loculations and irrigate completely, it is not big enough.",
-        "Packing is not the therapy — irrigation and complete drainage are. Packing is just a spacer."
+        "Packing is not the therapy \u2014 irrigation and complete drainage are. Packing is just a spacer."
       ],
       "references": [
         "Roberts JR, Custalow CB. Roberts and Hedges' Clinical Procedures in Emergency Medicine. Abscess Incision and Drainage chapter.",
@@ -2207,7 +2207,7 @@
         "assetName": null,
         "systemImage": "scissors",
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual should clarify incision length adequacy and loculation breakdown — the two most common technical failures."
+        "clinicalWarning": "Visual should clarify incision length adequacy and loculation breakdown \u2014 the two most common technical failures."
       }
     ],
     "reviewerStatus": "Needs Clinical Review"
@@ -2240,9 +2240,9 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm you actually need large-bore central access (massive transfusion, rapid volume, or a conduit for a transvenous pacer/PA catheter) — a triple lumen is not interchangeable with an introducer.",
+        "Confirm you actually need large-bore central access (massive transfusion, rapid volume, or a conduit for a transvenous pacer/PA catheter) \u2014 a triple lumen is not interchangeable with an introducer.",
         "Full sterile barrier and ultrasound, exactly as for any central line. The larger dilator is less forgiving, not more.",
-        "Confirm the wire is venous before dilating — arterial dilation with an 8.5 Fr sheath is a surgical emergency.",
+        "Confirm the wire is venous before dilating \u2014 arterial dilation with an 8.5 Fr sheath is a surgical emergency.",
         "Dilator and sheath advance together as a unit over the wire; keep the wire moving freely and never lose the back end.",
         "Advance with gentle rotation, not force. The skin nick must be adequate or the sheath tip will peel back.",
         "Remove dilator and wire together, then immediately cap or connect the side port and aspirate/flush.",
@@ -2263,7 +2263,7 @@
       ],
       "anatomy": [
         "IJ and femoral are the usual sites; subclavian/axillary carry higher pneumothorax and noncompressible-bleeding risk with a large sheath.",
-        "The vein must comfortably accommodate an 8.5 Fr (or larger) sheath — confirm caliber and compressibility on ultrasound.",
+        "The vein must comfortably accommodate an 8.5 Fr (or larger) sheath \u2014 confirm caliber and compressibility on ultrasound.",
         "Distinguish compressible vein from pulsatile, noncompressible artery before puncture; the consequence of error scales with sheath size.",
         "For IJ, note proximity of the carotid and the pleural dome at the base of the neck."
       ],
@@ -2301,7 +2301,7 @@
       "ultrasound": [
         "Confirm the vein is large enough for the sheath and compresses fully before puncture.",
         "Use short-axis for vessel ID; long-axis helps track needle and wire if skilled.",
-        "Confirm guidewire within the vein before dilating — this is the highest-stakes confirmation given the dilator size.",
+        "Confirm guidewire within the vein before dilating \u2014 this is the highest-stakes confirmation given the dilator size.",
         "For IJ, check lung sliding afterward as a rapid pneumothorax screen, but follow local confirmation standards."
       ],
       "confirmation": [
@@ -2313,7 +2313,7 @@
       ],
       "troubleshooting": [
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
-        "Sheath tip peels back or kinks on advancement: the skin/tract nick is too small — withdraw, enlarge the nick, and re-advance over a controlled wire.",
+        "Sheath tip peels back or kinks on advancement: the skin/tract nick is too small \u2014 withdraw, enlarge the nick, and re-advance over a controlled wire.",
         "Bright pulsatile blood or arterial waveform before dilation: stop; do not dilate; manage as arterial puncture.",
         "Brisk bleeding around the sheath: apply pressure, assess coagulopathy, and confirm intraluminal placement.",
         "Unstable after placement: consider pneumothorax, bleeding, arrhythmia, air embolism, or progression of underlying shock."
@@ -2345,7 +2345,7 @@
       ],
       "seniorPearls": [
         "The skin nick is the step most people underdo; an 8.5 Fr sheath needs a real nick or the tip accordions on the way in.",
-        "Dilation is irreversible — if you are not certain the wire is venous, you are not ready to dilate.",
+        "Dilation is irreversible \u2014 if you are not certain the wire is venous, you are not ready to dilate.",
         "An uncapped large-bore sheath is an open conduit for air; cap or connect it the moment the dilator and wire come out."
       ],
       "references": [
@@ -2363,7 +2363,7 @@
         "assetName": null,
         "systemImage": "arrow.down.to.line",
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Visual must make wire control and adequate skin nick obvious — the two failure points for large sheaths."
+        "clinicalWarning": "Visual must make wire control and adequate skin nick obvious \u2014 the two failure points for large sheaths."
       }
     ]
   },
@@ -2394,7 +2394,7 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis) — a triple lumen will not deliver it.",
+        "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis) \u2014 a triple lumen will not deliver it.",
         "Site choice matters: right IJ is preferred for function and lower complication; avoid subclavian to preserve future fistula options.",
         "Full sterile barrier and ultrasound, identical discipline to any central line.",
         "Confirm the wire is venous before dilating; dialysis catheters use serial dilators and a large stiff catheter.",
@@ -2419,7 +2419,7 @@
         "Right IJ offers the straightest path to the SVC/RA junction and is the preferred site for catheter function.",
         "Femoral is acceptable for short-term or emergent access, with higher infection risk and flow limitations.",
         "Avoid subclavian when possible to preserve the vasculature for future arteriovenous access.",
-        "The vein must accommodate a large, stiff dual-lumen catheter — confirm caliber and compressibility on ultrasound."
+        "The vein must accommodate a large, stiff dual-lumen catheter \u2014 confirm caliber and compressibility on ultrasound."
       ],
       "equipment": [
         "Dialysis catheter kit (dual-lumen catheter, guidewire, needle, scalpel, serial dilators)",
@@ -2498,7 +2498,7 @@
       ],
       "seniorPearls": [
         "Right IJ to the cavoatrial junction is the functional sweet spot; femoral works in a pinch but flows and infection rates are worse.",
-        "Avoid the subclavian in anyone who may ever need a fistula — central stenosis can cost them future access.",
+        "Avoid the subclavian in anyone who may ever need a fistula \u2014 central stenosis can cost them future access.",
         "If a lumen will not aspirate, do not flush it under pressure; reposition and reconfirm tip position first."
       ],
       "references": [
@@ -2549,7 +2549,7 @@
       "shiftMode": [
         "Reserve for difficult access; do not default to it when a visible/palpable vein is available.",
         "Pick a target 0.3-1.5 cm deep with a straight segment; deeper than the catheter is too short to stay in.",
-        "Use an adequately long catheter (4.8 cm or longer) — at least one third of the catheter should sit inside the vein, or it will infiltrate.",
+        "Use an adequately long catheter (4.8 cm or longer) \u2014 at least one third of the catheter should sit inside the vein, or it will infiltrate.",
         "Avoid the brachial artery and median nerve in the medial upper arm; confirm the structure is a compressible vein.",
         "Track the needle tip, not just tissue movement, in short or long axis as you advance.",
         "Confirm flash, then lower the angle and advance several more millimeters before threading the catheter.",
@@ -2568,7 +2568,7 @@
       ],
       "anatomy": [
         "Common forearm and upper-arm targets include the basilic, brachial, and cephalic veins.",
-        "In the medial upper arm, the brachial veins flank the brachial artery and lie near the median nerve — identify all three before puncture.",
+        "In the medial upper arm, the brachial veins flank the brachial artery and lie near the median nerve \u2014 identify all three before puncture.",
         "Veins are compressible and lack a pulsatile, thick wall; arteries are pulsatile and noncompressible.",
         "Deeper veins need a longer catheter so that enough length remains seated within the lumen."
       ],
@@ -2594,7 +2594,7 @@
         "Clean the skin and prepare a long catheter and flush.",
         "Center the vein on the screen in short axis (or align it in long axis if skilled).",
         "Insert the catheter at roughly 30-45 degrees, advancing while keeping the needle tip in view.",
-        "On flash, lower the angle and advance 2-4 mm further so the catheter tip — not just the needle — is intraluminal.",
+        "On flash, lower the angle and advance 2-4 mm further so the catheter tip \u2014 not just the needle \u2014 is intraluminal.",
         "Thread the catheter off the needle into the vein while stabilizing the hub.",
         "Release the tourniquet, withdraw the needle into the safety device, and attach the extension set.",
         "Aspirate and flush while imaging; confirm intraluminal flow without tissue bulging.",
@@ -2614,11 +2614,11 @@
         "Secured with a clear dressing and dated"
       ],
       "troubleshooting": [
-        "Flash but catheter will not thread: the tip is against a wall or only the needle entered — lower the angle, advance slightly, and re-confirm tip position.",
+        "Flash but catheter will not thread: the tip is against a wall or only the needle entered \u2014 lower the angle, advance slightly, and re-confirm tip position.",
         "Lost needle tip: stop advancing; slide the probe forward to find the tip before moving the needle.",
         "Vein rolls or collapses: reduce probe pressure, reposition, or choose a better-supported segment.",
-        "Swelling or resistance on flush: infiltration — stop, remove, hold pressure, and select a new site.",
-        "Bright pulsatile blood: arterial puncture — remove, hold firm pressure, and reassess."
+        "Swelling or resistance on flush: infiltration \u2014 stop, remove, hold pressure, and select a new site.",
+        "Bright pulsatile blood: arterial puncture \u2014 remove, hold firm pressure, and reassess."
       ],
       "complications": [
         "Infiltration or extravasation, especially with short catheters in deep veins",
@@ -2642,7 +2642,7 @@
         "No immediate evidence of arterial puncture, infiltration, or nerve injury."
       ],
       "seniorPearls": [
-        "Catheter length is the difference between a line that lasts and one that infiltrates in an hour — match length to depth, not habit.",
+        "Catheter length is the difference between a line that lasts and one that infiltrates in an hour \u2014 match length to depth, not habit.",
         "If you cannot keep the needle tip on screen, you are advancing blind; fan or slide the probe and find it before moving.",
         "The medial upper arm is rich in arteries and nerves; one extra moment confirming the structure is a vein prevents the worst complications."
       ],
@@ -2701,9 +2701,9 @@
     ],
     "sections": {
       "shiftMode": [
-        "This is a vision-saving, time-critical procedure — minutes matter; do not wait for ophthalmology or imaging if the diagnosis is clear.",
+        "This is a vision-saving, time-critical procedure \u2014 minutes matter; do not wait for ophthalmology or imaging if the diagnosis is clear.",
         "Diagnose clinically: acute orbital compartment syndrome with a tense, proptotic eye, decreased vision/APD, raised intraocular pressure, and pain after trauma or retrobulbar hemorrhage.",
-        "The goal is to release the inferior crus of the lateral canthal tendon (cantholysis) — the canthotomy incision alone is not enough.",
+        "The goal is to release the inferior crus of the lateral canthal tendon (cantholysis) \u2014 the canthotomy incision alone is not enough.",
         "Anesthetize and clamp the lateral canthus to reduce bleeding, then cut horizontally to the orbital rim.",
         "Strum for the inferior crus and cut it; the lower lid should swing free and the globe should soften.",
         "Reassess intraocular pressure and proptosis; if still tense, release the superior crus as well.",
@@ -2715,7 +2715,7 @@
         "Progressive vision loss with orbital tension after facial/orbital trauma or surgery"
       ],
       "contraindications": [
-        "Suspected globe rupture — manipulating the orbit can extrude intraocular contents; avoid and get emergent ophthalmology",
+        "Suspected globe rupture \u2014 manipulating the orbit can extrude intraocular contents; avoid and get emergent ophthalmology",
         "No evidence of orbital compartment syndrome (the procedure treats a pressure problem, not all eye injuries)",
         "An alternative, immediately treatable cause of the findings that does not involve orbital pressure"
       ],
@@ -2761,7 +2761,7 @@
         "Hemostasis achieved at the canthotomy site"
       ],
       "troubleshooting": [
-        "No softening after the incision: the tendon was not released — the canthotomy cut alone is insufficient; perform the cantholysis.",
+        "No softening after the incision: the tendon was not released \u2014 the canthotomy cut alone is insufficient; perform the cantholysis.",
         "Still tense after inferior cantholysis: release the superior crus as well.",
         "Cannot identify the crus: pull the lid on tension and strum for the taut band toward the orbital rim before cutting.",
         "Brisk bleeding obscuring the field: apply gentle pressure and use the pre-incision hemostat clamp to limit it.",
@@ -2782,7 +2782,7 @@
         "Document the time of decompression relative to symptom onset."
       ],
       "documentation": [
-        "Lateral canthotomy and inferior (± superior) cantholysis performed for acute orbital compartment syndrome.",
+        "Lateral canthotomy and inferior (\u00b1 superior) cantholysis performed for acute orbital compartment syndrome.",
         "Clinical findings documented: proptosis, raised intraocular pressure, vision change, and afferent pupillary defect.",
         "Globe rupture not suspected prior to the procedure.",
         "Inferior crus released with resultant lid release and globe softening; superior crus released if needed.",
@@ -2790,9 +2790,9 @@
         "Emergent ophthalmology consultation arranged; time from onset to decompression documented."
       ],
       "seniorPearls": [
-        "The canthotomy is just the approach — the cantholysis is the treatment; cutting skin without releasing the crus does nothing for the pressure.",
+        "The canthotomy is just the approach \u2014 the cantholysis is the treatment; cutting skin without releasing the crus does nothing for the pressure.",
         "This is one of the few true 'cut now, consult after' ophthalmic emergencies; sight is lost in tens of minutes of optic nerve ischemia.",
-        "If the globe might be ruptured, stop — decompression can turn a salvageable eye into an extruded one."
+        "If the globe might be ruptured, stop \u2014 decompression can turn a salvageable eye into an extruded one."
       ],
       "references": [
         "Roberts and Hedges' Clinical Procedures in Emergency Medicine, lateral canthotomy and cantholysis.",
@@ -2839,7 +2839,7 @@
       "shiftMode": [
         "Assess the wound for foreign body, tendon/nerve/vessel injury, joint involvement, and contamination before closing anything.",
         "Check distal neurovascular and motor function and document it before infiltrating anesthetic.",
-        "Anesthetize, then explore through the full depth and range of motion — injuries hide off the resting position.",
+        "Anesthetize, then explore through the full depth and range of motion \u2014 injuries hide off the resting position.",
         "Irrigate copiously with normal saline or potable tap water; pressure and volume matter more than additives.",
         "Choose closure: primary now, delayed primary for high-contamination/older wounds, or referral for complex/specialty areas.",
         "Approximate without tension; evert edges; match suture size to location and remove on schedule.",
@@ -2933,7 +2933,7 @@
         "Aftercare and suture-removal instructions provided."
       ],
       "seniorPearls": [
-        "The repair is only as good as the exploration — most missed tendon and foreign-body injuries are closed over, not unfindable.",
+        "The repair is only as good as the exploration \u2014 most missed tendon and foreign-body injuries are closed over, not unfindable.",
         "Examine the wound in the position of injury, not the position of rest, or you will miss tendon lacerations that retracted.",
         "Eversion and tension control determine the scar far more than how fancy the stitch is."
       ],
@@ -2980,7 +2980,7 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm anterior dislocation and document neurovascular status — especially axillary nerve sensation over the deltoid — before and after.",
+        "Confirm anterior dislocation and document neurovascular status \u2014 especially axillary nerve sensation over the deltoid \u2014 before and after.",
         "Get pre-reduction imaging unless the presentation is clearly recurrent and atraumatic per local practice.",
         "Optimize analgesia/relaxation: intra-articular block, procedural sedation, or a gentle technique the patient can tolerate.",
         "Choose a low-force technique first (scapular manipulation, Cunningham, external rotation) before high-traction methods.",
@@ -3002,7 +3002,7 @@
       ],
       "anatomy": [
         "The glenohumeral joint trades stability for mobility; the humeral head sits anterior/inferior in the common dislocation.",
-        "The axillary nerve wraps the surgical neck of the humerus and is the most commonly injured nerve — test deltoid sensation and function.",
+        "The axillary nerve wraps the surgical neck of the humerus and is the most commonly injured nerve \u2014 test deltoid sensation and function.",
         "The brachial plexus and axillary vessels lie medially; assess distal pulses and perfusion.",
         "Associated injuries include Hill-Sachs and Bankart lesions and greater tuberosity fractures."
       ],
@@ -3045,7 +3045,7 @@
         "Shoulder immobilized and follow-up arranged"
       ],
       "troubleshooting": [
-        "Reduction failing: ensure adequate analgesia/relaxation; muscle spasm is the usual obstacle — add an intra-articular block or sedation and switch technique.",
+        "Reduction failing: ensure adequate analgesia/relaxation; muscle spasm is the usual obstacle \u2014 add an intra-articular block or sedation and switch technique.",
         "Persistent inability after multiple attempts: reassess for fracture or alternate dislocation type and involve orthopedics.",
         "New neurologic deficit after reduction: document and arrange urgent orthopedic/neuro evaluation.",
         "Suspected associated fracture on pre-reduction film: weigh technique choice and consult orthopedics.",
@@ -3074,7 +3074,7 @@
         "Immobilization applied and orthopedic follow-up arranged."
       ],
       "seniorPearls": [
-        "Most failed reductions are really failed analgesia — relax the patient and the shoulder usually follows.",
+        "Most failed reductions are really failed analgesia \u2014 relax the patient and the shoulder usually follows.",
         "Always test and document the axillary nerve before and after; an unrecorded pre-reduction deficit becomes 'your' deficit.",
         "Lead with low-force techniques; high-traction methods add fracture and soft-tissue risk for little benefit in cooperative patients."
       ],
@@ -3125,7 +3125,7 @@
         "Most useful for hip and proximal femur fractures: opioid-sparing analgesia that helps frail and elderly patients.",
         "Confirm no allergy, no infection over the site, and document distal neurovascular function before the block.",
         "Use ultrasound; deposit local anesthetic beneath the fascia iliaca, lateral to the femoral artery and nerve, not into them.",
-        "Calculate a weight-based maximum local anesthetic dose and stay under it — these are large-volume blocks.",
+        "Calculate a weight-based maximum local anesthetic dose and stay under it \u2014 these are large-volume blocks.",
         "Aspirate before and during injection to avoid intravascular delivery; watch for LAST.",
         "Confirm spread under the fascia (a lens of fluid lifting the fascia) rather than within muscle.",
         "Have LAST rescue (lipid emulsion) and resuscitation equipment available before you start."
@@ -3191,7 +3191,7 @@
       ],
       "troubleshooting": [
         "Fluid spreading in muscle, not under the fascia: reposition the tip to the correct plane before continuing.",
-        "Resistance or the patient reports lancinating pain on injection: stop — possible intraneural position; withdraw and reassess.",
+        "Resistance or the patient reports lancinating pain on injection: stop \u2014 possible intraneural position; withdraw and reassess.",
         "Blood on aspiration: withdraw and reposition; never inject against a positive aspirate.",
         "Early LAST signs (perioral numbness, tinnitus, agitation, dysrhythmia): stop injection and begin lipid-emulsion rescue.",
         "Inadequate block despite good spread: confirm dose and onset time; supplement analgesia as needed within safe limits."
@@ -3220,7 +3220,7 @@
       ],
       "seniorPearls": [
         "This block shines in elderly hip fractures precisely because it spares the opioids that cause their delirium and respiratory trouble.",
-        "Subfascial spread is the whole game — fluid in muscle means no block and a wasted dose near your maximum.",
+        "Subfascial spread is the whole game \u2014 fluid in muscle means no block and a wasted dose near your maximum.",
         "Calculate the maximum dose every time and keep lipid emulsion in the room; large-volume blocks are where LAST happens."
       ],
       "references": [
@@ -3278,7 +3278,7 @@
     ],
     "sections": {
       "shiftMode": [
-        "This is a last-resort, time-critical trauma procedure with narrow indications — apply the criteria, do not improvise them.",
+        "This is a last-resort, time-critical trauma procedure with narrow indications \u2014 apply the criteria, do not improvise them.",
         "Best evidence supports penetrating chest trauma with signs of life within a short window before arrest; blunt arrest outcomes are dismal.",
         "Goals: release tamponade, control intrathoracic hemorrhage, cross-clamp the aorta, and allow internal cardiac massage.",
         "Left anterolateral thoracotomy at the 4th/5th intercostal space; extend across the sternum (clamshell) for right-sided or wider access.",
@@ -3369,13 +3369,13 @@
       "documentation": [
         "Resuscitative thoracotomy performed for [penetrating/blunt] trauma arrest meeting local criteria.",
         "Mechanism, arrest interval, and signs of life documented.",
-        "Procedure performed: thoracotomy ± clamshell, pericardiotomy, hemorrhage control, aortic cross-clamp as applicable.",
+        "Procedure performed: thoracotomy \u00b1 clamshell, pericardiotomy, hemorrhage control, aortic cross-clamp as applicable.",
         "Intraoperative findings and interventions recorded.",
         "Resuscitation endpoint and disposition (OR vs. termination) documented.",
         "Team exposures and debrief noted."
       ],
       "seniorPearls": [
-        "The decision to open is the procedure — applying the indication criteria correctly matters more than blade speed.",
+        "The decision to open is the procedure \u2014 applying the indication criteria correctly matters more than blade speed.",
         "Open the pericardium anterior to the phrenic nerve and longitudinally; tamponade release is often the single highest-yield action.",
         "This is a bridge, not a destination: it buys minutes to reach the OR, and only certain patients can cross that bridge."
       ],
@@ -3444,15 +3444,15 @@
       ],
       "contraindications": [
         "Fracture in the target bone",
-        "Prior IO attempt in the same bone within 24–48 hours",
+        "Prior IO attempt in the same bone within 24\u201348 hours",
         "Overlying infection or burn at insertion site",
         "Prosthetic joint or hardware at target site",
         "Conditions with fragile bone (relative: osteogenesis imperfecta, severe osteoporosis)"
       ],
       "anatomy": [
-        "Proximal tibia: flat anteromedial surface, 1–2 cm distal and medial to the tibial tuberosity.",
+        "Proximal tibia: flat anteromedial surface, 1\u20132 cm distal and medial to the tibial tuberosity.",
         "Proximal humerus: greater tubercle, with arm adducted and internally rotated (hand resting on abdomen).",
-        "Distal tibia: medial malleolus, 1–2 cm proximal to the most prominent point.",
+        "Distal tibia: medial malleolus, 1\u20132 cm proximal to the most prominent point.",
         "In pediatrics the proximal tibia is preferred; the flat medial tibial surface is more accessible."
       ],
       "equipment": [
@@ -3479,7 +3479,7 @@
         "Insert at 90 degrees to the bone surface. Drill until loss of resistance (a subtle give or pop).",
         "Remove the trocar, attach a syringe, and aspirate (marrow aspirate confirms placement but is not always obtained).",
         "Flush with 10 mL normal saline. Observe for swelling or extravasation.",
-        "In conscious patients, slowly inject 20–40 mg lidocaine 2% (preservative-free) IO and allow 60 seconds before flushing.",
+        "In conscious patients, slowly inject 20\u201340 mg lidocaine 2% (preservative-free) IO and allow 60 seconds before flushing.",
         "Connect IV tubing with extension set. Use pressure bag for rapid infusion.",
         "Secure the needle and apply stabilizer dressing.",
         "Document time of insertion, site, confirmation method, and complications."
@@ -3528,9 +3528,9 @@
         "Through-and-through is a real risk in peds. Use the correct needle length and stop at loss of resistance."
       ],
       "references": [
-        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
         "ACLS/PALS guidelines on vascular access.",
-        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
         "Verify device-specific instructions and institutional IO protocols."
       ]
     },
@@ -3539,7 +3539,7 @@
         "id": "io_proximal_tibia_landmark",
         "kind": "Landmark",
         "title": "Proximal tibia insertion site",
-        "subtitle": "Palpate the tibial tuberosity. Move 1–2 cm distal and medial to the flat anteromedial tibial surface. This is the insertion point. Needle at 90 degrees to the bone.",
+        "subtitle": "Palpate the tibial tuberosity. Move 1\u20132 cm distal and medial to the flat anteromedial tibial surface. This is the insertion point. Needle at 90 degrees to the bone.",
         "assetName": null,
         "systemImage": "figure.walk",
         "caption": "Replace assetName with reviewed artwork when available.",
@@ -3549,11 +3549,11 @@
         "id": "io_humeral_site",
         "kind": "Landmark",
         "title": "Proximal humerus insertion site",
-        "subtitle": "Arm adducted, hand on abdomen (internal rotation). Palpate the greater tubercle — the most prominent lateral bony point of the shoulder. Needle at 90 degrees to the bone surface.",
+        "subtitle": "Arm adducted, hand on abdomen (internal rotation). Palpate the greater tubercle \u2014 the most prominent lateral bony point of the shoulder. Needle at 90 degrees to the bone surface.",
         "assetName": null,
         "systemImage": "figure.arms.open",
         "caption": "Replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "Humeral IO flows faster than tibial in adults. Secure well — humeral IOs dislodge more easily."
+        "clinicalWarning": "Humeral IO flows faster than tibial in adults. Secure well \u2014 humeral IOs dislodge more easily."
       }
     ]
   },
@@ -3613,14 +3613,14 @@
         "Sterile gloves and drape",
         "Antiseptic prep (chlorhexidine or povidone-iodine)",
         "Local anesthetic (1% lidocaine), 5 mL syringe, 25G needle for skin wheal",
-        "18G needle and 20–60 mL syringe for aspiration",
+        "18G needle and 20\u201360 mL syringe for aspiration",
         "Specimen tubes: purple top (cell count), blood culture bottle or sterile tube (culture), green top or plain tube (crystals)",
         "Sterile dressing",
         "Ultrasound with high-frequency linear probe (if available)",
         "Hemostat (optional, for syringe exchange)"
       ],
       "positioning": [
-        "Patient supine with knee in slight flexion (15–20 degrees). A rolled towel behind the knee helps.",
+        "Patient supine with knee in slight flexion (15\u201320 degrees). A rolled towel behind the knee helps.",
         "Relaxed quadriceps. The patella should be mobile.",
         "Identify landmarks or use ultrasound to confirm effusion location."
       ],
@@ -3682,8 +3682,8 @@
         "A white count over 50,000 with >90% PMNs is septic until proven otherwise, regardless of crystals."
       ],
       "references": [
-        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
         "Verify institutional policy on anticoagulation and prosthetic joint aspiration."
       ]
     },
@@ -3740,7 +3740,7 @@
         "If a single bleeding point is visible, silver nitrate cautery may stop the bleed without packing.",
         "If packing is needed, Rapid Rhino or Merocel sponge are first-line devices.",
         "Always check vitals and hemodynamic stability. Posterior bleeds and anticoagulated patients can hemorrhage.",
-        "Patients discharged with packing need ENT follow-up for removal in 48–72 hours."
+        "Patients discharged with packing need ENT follow-up for removal in 48\u201372 hours."
       ],
       "indications": [
         "Anterior epistaxis uncontrolled by direct pressure",
@@ -3775,15 +3775,15 @@
       "positioning": [
         "Patient seated upright leaning slightly forward to prevent blood swallowing.",
         "Have the patient blow out clots gently before examination.",
-        "Apply topical vasoconstrictor and anesthetic pledgets for 10–15 minutes before instrumentation."
+        "Apply topical vasoconstrictor and anesthetic pledgets for 10\u201315 minutes before instrumentation."
       ],
       "steps": [
         "Ensure hemodynamic stability. Obtain IV access if significant bleeding or anticoagulation.",
         "Apply personal protective equipment.",
         "Have the patient blow out clots. Suction the nasal cavity.",
-        "Apply topical vasoconstrictor and anesthetic pledgets. Wait 10–15 minutes.",
+        "Apply topical vasoconstrictor and anesthetic pledgets. Wait 10\u201315 minutes.",
         "Remove pledgets and inspect with nasal speculum and headlamp to identify bleeding source.",
-        "If a single anterior point is identified and bleeding is controlled: apply silver nitrate to the site for 5–10 seconds. Do not cauterize both sides of the septum simultaneously (perforation risk).",
+        "If a single anterior point is identified and bleeding is controlled: apply silver nitrate to the site for 5\u201310 seconds. Do not cauterize both sides of the septum simultaneously (perforation risk).",
         "If cautery fails or bleeding is diffuse: proceed to nasal packing.",
         "Rapid Rhino: coat with water to activate lubricant, insert along nasal floor, inflate balloon with air or saline per device instructions.",
         "Merocel sponge: insert dry sponge along the nasal floor, then hydrate with saline to expand.",
@@ -3814,7 +3814,7 @@
         "Septal perforation from bilateral cautery"
       ],
       "aftercare": [
-        "Discharge with packing in place. Arrange ENT follow-up for removal in 48–72 hours.",
+        "Discharge with packing in place. Arrange ENT follow-up for removal in 48\u201372 hours.",
         "Prescribe antibiotics covering for toxic shock syndrome prevention per institutional protocol (controversial; follow local practice).",
         "Instruct patient to keep head elevated, avoid straining, nose blowing, and blood thinners if safe to hold.",
         "Return precautions: recurrent heavy bleeding, difficulty breathing, fever, significant swelling."
@@ -3835,8 +3835,8 @@
         "A posterior bleed masquerading as anterior packing failure will waste your time until you check the oropharynx."
       ],
       "references": [
-        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
         "Verify institutional policy on antibiotic prophylaxis with nasal packing and cautery technique."
       ]
     },
@@ -3876,7 +3876,7 @@
         "Signs of instability: hypotension, altered mental status, ischemic chest pain, acute heart failure.",
         "Sedate the patient before cardioversion unless peri-arrest.",
         "If the patient deteriorates into pulseless VT or VF, switch to defibrillation (SYNC off, max energy).",
-        "Starting energy: atrial fibrillation 120–200 J biphasic; atrial flutter/SVT 50–100 J; VT with pulse 100 J."
+        "Starting energy: atrial fibrillation 120\u2013200 J biphasic; atrial flutter/SVT 50\u2013100 J; VT with pulse 100 J."
       ],
       "indications": [
         "Unstable tachyarrhythmia with a pulse (SVT, atrial fibrillation, atrial flutter, monomorphic VT with a pulse)",
@@ -3885,12 +3885,12 @@
       ],
       "contraindications": [
         "Pulseless VT or VF (requires unsynchronized defibrillation, not cardioversion)",
-        "Digitalis toxicity–related arrhythmia (relative; cardioversion may precipitate refractory VF)",
+        "Digitalis toxicity\u2013related arrhythmia (relative; cardioversion may precipitate refractory VF)",
         "Multifocal atrial tachycardia (will not respond; treat underlying cause)",
         "Sinus tachycardia (not an indication for cardioversion; treat the cause)"
       ],
       "anatomy": [
-        "Anterolateral pad placement: right parasternal and left lateral chest wall (V5–V6 position at the mid-axillary line).",
+        "Anterolateral pad placement: right parasternal and left lateral chest wall (V5\u2013V6 position at the mid-axillary line).",
         "Anteroposterior placement: sternum and left infrascapular area. May be superior for atrial fibrillation.",
         "Ensure pads do not overlap implanted devices (pacemaker, ICD). Place pads at least 8 cm from the generator."
       ],
@@ -3947,7 +3947,7 @@
         "Failure to cardiovert"
       ],
       "aftercare": [
-        "Monitor on telemetry for at least 1–3 hours post-cardioversion.",
+        "Monitor on telemetry for at least 1\u20133 hours post-cardioversion.",
         "Repeat 12-lead ECG.",
         "Assess for chest wall discomfort, skin burns at pad sites.",
         "Resume or initiate anticoagulation and antiarrhythmic therapy as indicated.",
@@ -3972,7 +3972,7 @@
       "references": [
         "ACLS guidelines on tachycardia management.",
         "AHA/ACC guidelines on atrial fibrillation management.",
-        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
         "Verify institutional cardioversion and sedation protocols."
       ]
     },
@@ -4005,7 +4005,7 @@
     "sections": {
       "shiftMode": [
         "Needle aspiration is the first-line ED drainage technique. Most PTAs can be aspirated at bedside.",
-        "The danger: the internal carotid artery lies posterolateral to the tonsil, typically 2–2.5 cm from the mucosal surface.",
+        "The danger: the internal carotid artery lies posterolateral to the tonsil, typically 2\u20132.5 cm from the mucosal surface.",
         "Limit needle depth to 1 cm with a guard (cut syringe sheath or tape) to prevent deep penetration.",
         "Aspirate at the point of maximal fluctuance or bulging, usually the superior pole of the tonsil.",
         "Always have suction ready. These patients aspirate pus.",
@@ -4024,7 +4024,7 @@
       ],
       "anatomy": [
         "The peritonsillar space lies between the tonsillar capsule and the superior pharyngeal constrictor muscle.",
-        "The internal carotid artery runs posterolateral, typically 2–2.5 cm from the pharyngeal mucosal surface.",
+        "The internal carotid artery runs posterolateral, typically 2\u20132.5 cm from the pharyngeal mucosal surface.",
         "Most PTAs collect at the superior pole of the tonsil, between the anterior tonsillar pillar and the soft palate.",
         "Uvular deviation is typically away from the affected side.",
         "The palatine tonsil, anterior and posterior pillars, and soft palate are key landmarks."
@@ -4056,7 +4056,7 @@
         "Aspirate while advancing slowly up to 1 cm only.",
         "If pus is obtained: aspirate as much as possible. Send sample for culture.",
         "If no pus is obtained: redirect the needle slightly inferior or medial. A second attempt at the middle pole may be tried.",
-        "If no pus after 2–3 attempts: consider CT to confirm abscess vs. cellulitis, or consult ENT.",
+        "If no pus after 2\u20133 attempts: consider CT to confirm abscess vs. cellulitis, or consult ENT.",
         "After drainage, have the patient gargle and spit. Reassess the oropharynx."
       ],
       "ultrasound": [
@@ -4088,7 +4088,7 @@
         "Oral antibiotics: amoxicillin-clavulanate or clindamycin. Follow institutional guidelines.",
         "Pain management: NSAIDs, acetaminophen, consider medrol dose pack per institutional protocol.",
         "Encourage oral hydration. Soft diet.",
-        "ENT follow-up within 2–3 days for reassessment.",
+        "ENT follow-up within 2\u20133 days for reassessment.",
         "Return precautions: worsening pain, inability to swallow, difficulty breathing, fever, neck swelling."
       ],
       "documentation": [
@@ -4107,8 +4107,8 @@
         "These patients look terrible but get dramatically better within minutes of drainage. That immediate relief is diagnostic and therapeutic."
       ],
       "references": [
-        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
         "Verify institutional antibiotic guidelines and ENT referral pathways."
       ]
     },
@@ -4169,7 +4169,7 @@
       ],
       "equipment": [
         "Local anesthetic (1% or 2% lidocaine with or without epinephrine)",
-        "Syringe and needle for anesthesia (25–27G)",
+        "Syringe and needle for anesthesia (25\u201327G)",
         "Antiseptic prep",
         "Sterile gloves and drape",
         "Scalpel (#11 or #15 blade)",
@@ -4177,7 +4177,7 @@
         "Fine-tipped forceps (splinter forceps or Adson)",
         "Iris scissors",
         "Needle driver",
-        "Wound irrigation supplies (saline, 18G angiocath on 30–60 mL syringe)",
+        "Wound irrigation supplies (saline, 18G angiocath on 30\u201360 mL syringe)",
         "Tourniquet or Penrose drain (for digit bloodless field)",
         "Ultrasound with high-frequency linear probe",
         "Suture material for closure if needed"
@@ -4204,7 +4204,7 @@
         "Apply appropriate dressing."
       ],
       "ultrasound": [
-        "High-frequency linear probe (10–15 MHz) provides best resolution for superficial foreign bodies.",
+        "High-frequency linear probe (10\u201315 MHz) provides best resolution for superficial foreign bodies.",
         "Foreign bodies appear as hyperechoic structures, often with posterior shadowing (glass, metal) or reverberation artifact.",
         "Wood may appear as a hyperechoic linear structure with dirty shadowing.",
         "Scan in two orthogonal planes to localize in 3D.",
@@ -4255,8 +4255,8 @@
         "Telling a patient there might be a retained fragment is better than a malpractice deposition about one you missed."
       ],
       "references": [
-        "Roberts and Hedges’ Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli’s Emergency Medicine: A Comprehensive Study Guide.",
+        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
+        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
         "Emergency Ultrasound Guidelines from ACEP.",
         "Verify institutional wound management and antibiotic prophylaxis guidelines."
       ]
@@ -4272,6 +4272,2245 @@
         "caption": "Replace assetName with reviewed artwork when available.",
         "clinicalWarning": "X-ray misses wood, plastic, and thorns. Ultrasound is the bedside tool for radiolucent foreign bodies."
       }
+    ]
+  },
+  {
+    "id": "block_interscalene",
+    "title": "Interscalene Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: C5-C7 nerve roots between anterior and middle scalene muscles.",
+        "High risk for phrenic nerve palsy (100% block) \u2013 avoid in severe COPD/respiratory failure.",
+        "Use low volume (10-15 mL) and always visualize needle tip to avoid intravascular/intraneural injection."
+      ],
+      "indications": [
+        "Shoulder dislocation (pre-reduction)",
+        "Proximal humerus fracture",
+        "Clavicle fracture (lateral third)",
+        "Complex shoulder or upper arm lacerations"
+      ],
+      "contraindications": [
+        "Contralateral phrenic nerve palsy or severe baseline pulmonary disease (e.g., severe COPD)",
+        "Infection over the injection site",
+        "Patient refusal or inability to cooperate",
+        "Local anesthetic allergy"
+      ],
+      "anatomy": [
+        "The brachial plexus roots (C5-C7) exit between the anterior and middle scalene muscles.",
+        "The 'stoplight' sign: three hypoechoic circles (C5, C6, C7 roots) stacked vertically between the scalene muscles.",
+        "The phrenic nerve runs anteriorly over the anterior scalene muscle.",
+        "The carotid artery and internal jugular vein are medial to the anterior scalene."
+      ],
+      "equipment": [
+        "Ultrasound machine with high-frequency linear transducer",
+        "Sterile ultrasound gel and probe cover",
+        "Chlorhexidine skin prep",
+        "Regional block needle (echogenic, short bevel, e.g., 21G or 22G, 50mm)",
+        "Local anesthetic (e.g., 10-15 mL of 0.25% or 0.5% bupivacaine or ropivacaine)",
+        "Normal saline for hydrodissection (optional but recommended)"
+      ],
+      "positioning": [
+        "Patient supine or semi-recumbent with the head turned slightly away from the side to be blocked.",
+        "Place the ultrasound machine on the side of the bed opposite the provider for direct line of sight."
+      ],
+      "steps": [
+        "Perform a pre-block neurovascular exam of the upper extremity.",
+        "Apply cardiac monitoring if using large volumes, and ensure intralipid is available.",
+        "Prep the lateral neck with chlorhexidine.",
+        "Place the linear probe transversely over the supraclavicular fossa to identify the subclavian artery and brachial plexus ('bunch of grapes').",
+        "Trace the brachial plexus cephalad until it forms the 'stoplight' sign between the anterior and middle scalenes.",
+        "Insert the needle in-plane from posterior to anterior (lateral to medial).",
+        "Advance the needle through the middle scalene muscle until the tip rests in the interscalene groove.",
+        "Aspirate to ensure no vascular puncture, then inject 1-2 mL to confirm spread (hydrodissection).",
+        "Inject the remaining anesthetic in 3-5 mL aliquots, aspirating between each, targeting the space around C5-C7.",
+        "Withdraw the needle and apply a sterile dressing."
+      ],
+      "ultrasound": [
+        "Identify the carotid artery medially and the sternocleidomastoid (SCM) superficially.",
+        "The anterior scalene muscle lies deep to the SCM and lateral to the internal jugular vein.",
+        "The middle scalene muscle is lateral to the anterior scalene.",
+        "The nerve roots appear as hypoechoic, round structures in the fascial plane between the two scalene muscles."
+      ],
+      "confirmation": [
+        "Anechoic fluid seen spreading around the C5-C7 nerve roots in the interscalene groove.",
+        "Patient reports subjective loss of sensation over the shoulder/deltoid.",
+        "Motor weakness in shoulder abduction (deltoid) and elbow flexion (biceps)."
+      ],
+      "troubleshooting": [
+        "If the needle is difficult to see: adjust the angle of incidence, use heel-toe maneuvers, or jiggle the needle slightly.",
+        "If injection pressure is high or patient reports severe pain/paresthesia: stop immediately (possible intraneural injection). Withdraw 1-2 mm and try again.",
+        "If the phrenic nerve is inadvertently blocked (expected complication): reassure the patient, monitor oxygenation, and support breathing if necessary."
+      ],
+      "complications": [
+        "Phrenic nerve palsy (hemidiaphragmatic paresis) - expected in up to 100% of cases",
+        "Horner syndrome (stellate ganglion block) - transient ptosis, miosis, anhidrosis",
+        "Recurrent laryngeal nerve block (hoarseness)",
+        "Intravascular injection (vertebral or carotid artery) causing LAST",
+        "Pneumothorax (if needle advanced too far inferiorly/medially)",
+        "Peripheral nerve injury"
+      ],
+      "aftercare": [
+        "Monitor the patient for at least 30 minutes for signs of LAST.",
+        "Place the arm in a sling to prevent traction injuries to the anesthetized limb.",
+        "Educate the patient about the expected duration of numbness and weakness.",
+        "Document the post-block neurovascular exam."
+      ],
+      "documentation": [
+        "Indications, consent (written or verbal per policy), and pre-block neurovascular exam.",
+        "Anesthetic used (type, volume, concentration).",
+        "Ultrasound guidance confirming spread in the interscalene groove.",
+        "No vascular puncture or intraneural injection.",
+        "Post-block neurovascular exam and absence of immediate complications."
+      ],
+      "seniorPearls": [
+        "Tracing the plexus up from the supraclavicular fossa is often easier than starting directly at the neck.",
+        "You don't need to surround every root perfectly. Injecting into the general fascial plane is usually sufficient.",
+        "Always assume you will block the phrenic nerve; do not do this block bilaterally."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "shoulder block",
+      "humerus block",
+      "interscalene"
+    ]
+  },
+  {
+    "id": "block_supraclavicular",
+    "title": "Supraclavicular Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "The 'spinal of the arm' - covers distal humerus, elbow, forearm, wrist, and hand.",
+        "Target: Brachial plexus trunks/divisions ('bunch of grapes') lateral and superficial to the subclavian artery.",
+        "High risk for pneumothorax (pleura is just deep to the artery) - always visualize the needle tip!"
+      ],
+      "indications": [
+        "Fractures of the distal humerus, elbow, forearm, wrist, or hand",
+        "Complex lacerations or amputations of the upper extremity",
+        "Painful procedures involving the arm below the mid-humerus"
+      ],
+      "contraindications": [
+        "Severe baseline pulmonary disease (risk of phrenic nerve palsy or pneumothorax)",
+        "Infection over the injection site",
+        "Patient refusal or inability to cooperate",
+        "Local anesthetic allergy"
+      ],
+      "anatomy": [
+        "The brachial plexus at this level is tightly bundled ('bunch of grapes') lateral and superficial to the subclavian artery.",
+        "The subclavian artery rests on the first rib.",
+        "The pleura (hyperechoic line with lung sliding) lies immediately deep to the first rib and medial to the artery.",
+        "The 'corner pocket' is the space between the first rib, subclavian artery, and the brachial plexus."
+      ],
+      "equipment": [
+        "Ultrasound machine with high-frequency linear transducer",
+        "Sterile ultrasound gel and probe cover",
+        "Chlorhexidine skin prep",
+        "Regional block needle (echogenic, short bevel, e.g., 21G or 22G, 50mm)",
+        "Local anesthetic (e.g., 15-20 mL of 0.25% or 0.5% bupivacaine or ropivacaine)",
+        "Normal saline for hydrodissection"
+      ],
+      "positioning": [
+        "Patient supine or semi-recumbent, head turned slightly away.",
+        "Arm resting comfortably at the side or across the abdomen."
+      ],
+      "steps": [
+        "Perform a pre-block neurovascular exam.",
+        "Apply cardiac monitoring and ensure intralipid is available.",
+        "Prep the supraclavicular fossa.",
+        "Place the probe transversely in the supraclavicular fossa, aiming caudally to identify the subclavian artery, first rib, and pleura.",
+        "Identify the brachial plexus lateral to the artery.",
+        "Insert the needle in-plane from lateral to medial, aiming for the 'corner pocket' (the area deep to the plexus, superficial to the first rib, lateral to the artery).",
+        "Aspirate, then inject 1-2 mL of saline to confirm position.",
+        "Inject 10-15 mL in the corner pocket.",
+        "Withdraw the needle slightly and redirect to the superficial aspect of the plexus to inject the remaining 5-10 mL.",
+        "Remove the needle and apply a dressing."
+      ],
+      "ultrasound": [
+        "Subclavian artery: large, pulsatile, anechoic circle.",
+        "First rib: hyperechoic line with posterior acoustic shadowing just deep to the artery.",
+        "Pleura: hyperechoic line medial to the rib, showing lung sliding.",
+        "Brachial plexus: hypoechoic, honeycomb-like structure ('bunch of grapes') lateral/superficial to the artery."
+      ],
+      "confirmation": [
+        "Anechoic fluid spreading around the brachial plexus, especially expanding the 'corner pocket'.",
+        "Loss of sensation and motor function in the arm below the mid-humerus."
+      ],
+      "troubleshooting": [
+        "If the first rib is not visible, do not advance the needle. The pleura is directly underneath.",
+        "If the needle is lost, stop. Do not advance blindly. Use saline hydrodissection to locate the tip.",
+        "To avoid the artery, aim the needle intentionally toward the first rib (bouncing off the rib into the corner pocket is safer than aiming at the artery)."
+      ],
+      "complications": [
+        "Pneumothorax (most feared complication if needle goes too deep/medial)",
+        "Phrenic nerve palsy (less common than interscalene, but still ~50%)",
+        "Intravascular injection (subclavian artery/vein) causing LAST",
+        "Peripheral nerve injury",
+        "Horner syndrome"
+      ],
+      "aftercare": [
+        "Monitor for at least 30 minutes.",
+        "Place the arm in a sling to prevent traction injury.",
+        "Assess for shortness of breath (pneumothorax or phrenic nerve palsy).",
+        "Document post-block exam."
+      ],
+      "documentation": [
+        "Consent, indications, and pre-block exam.",
+        "Anesthetic used.",
+        "Ultrasound guidance confirming spread in the corner pocket and around the plexus.",
+        "First rib visualized and pleura avoided.",
+        "No vascular puncture or intraneural injection."
+      ],
+      "seniorPearls": [
+        "Aim for the first rib. If you hit the rib, you know you are safe from the pleura. Then slide up into the corner pocket.",
+        "Injecting the corner pocket first floats the plexus up and makes the rest of the block easier and safer."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "arm block",
+      "supraclavicular",
+      "brachial plexus"
+    ]
+  },
+  {
+    "id": "block_raptir",
+    "title": "RAPTIR (Infraclavicular) Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Retroclavicular Approach to the Infraclavicular Region (RAPTIR).",
+        "Excellent for forearm/hand trauma without the pneumothorax/phrenic risk of supraclavicular blocks.",
+        "Target: Axillary artery posterior to the pectoralis minor. The cords surround the artery."
+      ],
+      "indications": [
+        "Fractures of the forearm, wrist, or hand",
+        "Complex lacerations or amputations below the elbow",
+        "Patients where phrenic nerve palsy or pneumothorax risk is unacceptable (e.g., severe COPD)"
+      ],
+      "contraindications": [
+        "Infection over the injection site",
+        "Patient refusal or inability to cooperate",
+        "Local anesthetic allergy",
+        "Coagulopathy (infraclavicular area is less compressible)"
+      ],
+      "anatomy": [
+        "The brachial plexus cords (lateral, posterior, medial) surround the axillary artery deep to the pectoralis major and minor muscles.",
+        "The RAPTIR approach involves inserting the needle posterior to the clavicle, advancing caudally into the infraclavicular space."
+      ],
+      "equipment": [
+        "Ultrasound machine with high-frequency linear or curvilinear transducer (depending on depth)",
+        "Sterile ultrasound gel and probe cover",
+        "Chlorhexidine skin prep",
+        "Regional block needle (echogenic, longer needle required, e.g., 21G 80-100mm)",
+        "Local anesthetic (e.g., 20-30 mL of 0.25% or 0.5% bupivacaine or ropivacaine)"
+      ],
+      "positioning": [
+        "Patient supine, head neutral or turned slightly away.",
+        "Arm adducted and resting on the abdomen."
+      ],
+      "steps": [
+        "Perform a pre-block neurovascular exam.",
+        "Apply cardiac monitoring and ensure intralipid is available.",
+        "Place the transducer in the sagittal plane over the infraclavicular fossa to identify the axillary artery and vein deep to the pectoralis muscles.",
+        "Prep the skin posterior to the clavicle.",
+        "Insert the needle posterior to the clavicle, aiming caudally, strictly in-plane with the transducer.",
+        "Advance the needle under the clavicle, visualizing the tip as it enters the ultrasound beam in the infraclavicular space.",
+        "Aim for the posterior aspect of the axillary artery (approx. 6 o'clock position).",
+        "Aspirate and inject a small test dose of saline.",
+        "Inject 20-30 mL of anesthetic, aiming to create a U-shaped spread around the artery.",
+        "Withdraw the needle and apply a dressing."
+      ],
+      "ultrasound": [
+        "Pectoralis major (superficial) and pectoralis minor (deep).",
+        "Axillary artery is a pulsatile anechoic circle deep to the muscles.",
+        "Axillary vein is usually medial/caudal to the artery.",
+        "The cords appear as hyperechoic dots surrounding the artery (lateral, posterior, medial)."
+      ],
+      "confirmation": [
+        "Anechoic fluid spreading in a U-shape or completely surrounding the axillary artery.",
+        "Loss of sensation and motor function in the arm below the elbow."
+      ],
+      "troubleshooting": [
+        "If the needle trajectory is unclear, withdraw and redirect. The clavicle can obstruct the view if the probe is too close.",
+        "If the vein is in the way, adjust the angle or use less probe pressure to avoid compressing it entirely (making it invisible).",
+        "If spread is only on one side of the artery, consider a second injection site to surround it, though large volume often spreads sufficiently."
+      ],
+      "complications": [
+        "Vascular puncture (axillary artery/vein) causing hematoma or LAST",
+        "Peripheral nerve injury",
+        "Pneumothorax (rare, less risk than supraclavicular)"
+      ],
+      "aftercare": [
+        "Monitor for at least 30 minutes.",
+        "Place the arm in a sling to prevent traction injury.",
+        "Document post-block exam."
+      ],
+      "documentation": [
+        "Consent, indications, and pre-block exam.",
+        "Anesthetic used.",
+        "Ultrasound guidance confirming spread around the axillary artery.",
+        "No vascular puncture.",
+        "Post-block neurovascular exam."
+      ],
+      "seniorPearls": [
+        "The RAPTIR approach provides a fantastic in-plane view of the needle approaching the artery, unlike traditional infraclavicular approaches.",
+        "Aiming posterior to the artery (6 o'clock) usually ensures the local anesthetic spreads to all three cords."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "raptir",
+      "infraclavicular",
+      "arm block"
+    ]
+  },
+  {
+    "id": "block_radial_nerve",
+    "title": "Radial Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Radial nerve in the spiral groove of the humerus or at the elbow joint.",
+        "Provides anesthesia to the dorsal thumb, index, and lateral middle finger.",
+        "Combine with Median/Ulnar for complete hand anesthesia."
+      ],
+      "indications": [
+        "Lacerations or fractures of the dorsal hand (radial aspect)",
+        "Procedures on the thumb or index finger (dorsal)"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "At the elbow, the radial nerve is located between the brachialis and brachioradialis muscles.",
+        "Higher up, it wraps around the humerus in the spiral groove."
+      ],
+      "equipment": [
+        "High-frequency linear ultrasound transducer",
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (5-10 mL)"
+      ],
+      "positioning": [
+        "Arm supinated and extended, resting comfortably."
+      ],
+      "steps": [
+        "Identify the nerve in short axis at the level of the elbow crease.",
+        "Insert the needle in-plane.",
+        "Aspirate, then inject 5-10 mL of anesthetic around the nerve."
+      ],
+      "ultrasound": [
+        "Look for the 'honeycomb' appearance of the nerve between the brachialis (medial) and brachioradialis (lateral)."
+      ],
+      "confirmation": [
+        "Anesthetic surrounding the nerve circumferentially.",
+        "Numbness in the radial nerve distribution."
+      ],
+      "troubleshooting": [
+        "If the nerve is hard to find at the elbow, scan proximally up the lateral arm."
+      ],
+      "complications": [
+        "Intravascular injection",
+        "Nerve injury"
+      ],
+      "aftercare": [
+        "Protect the anesthetized limb."
+      ],
+      "documentation": [
+        "Pre/post neurovascular exam, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "Blocking at the elbow covers more branches than blocking at the wrist."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "radial",
+      "forearm block"
+    ]
+  },
+  {
+    "id": "block_median_nerve",
+    "title": "Median Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Median nerve in the mid-forearm, between FDS and FDP.",
+        "Provides anesthesia to the palmar thumb, index, middle, and radial half of ring finger."
+      ],
+      "indications": [
+        "Palmar lacerations",
+        "Volar finger fractures/dislocations"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "In the mid-forearm, the median nerve lies between the flexor digitorum superficialis (FDS) and flexor digitorum profundus (FDP)."
+      ],
+      "equipment": [
+        "High-frequency linear ultrasound transducer",
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (5-10 mL)"
+      ],
+      "positioning": [
+        "Arm supinated and extended."
+      ],
+      "steps": [
+        "Identify the nerve in short axis in the mid-forearm.",
+        "Insert the needle in-plane or out-of-plane.",
+        "Aspirate, then inject 5-10 mL of anesthetic to separate the fascial planes."
+      ],
+      "ultrasound": [
+        "Look for a hyperechoic, oval structure between the muscle bellies of the FDS and FDP."
+      ],
+      "confirmation": [
+        "Anesthetic spreading in the fascial plane around the nerve."
+      ],
+      "troubleshooting": [
+        "Have the patient flex their fingers to identify the FDS/FDP muscles sliding; the nerve will remain stationary."
+      ],
+      "complications": [
+        "Intravascular injection (rare here)",
+        "Nerve injury"
+      ],
+      "aftercare": [
+        "Protect the anesthetized limb."
+      ],
+      "documentation": [
+        "Pre/post neurovascular exam, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "Avoid blocking at the wrist (carpal tunnel) due to limited space and higher risk of nerve injury. The mid-forearm is much safer."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "median",
+      "forearm block",
+      "carpal tunnel"
+    ]
+  },
+  {
+    "id": "block_ulnar_nerve",
+    "title": "Ulnar Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Ulnar nerve in the mid-to-distal forearm, medial to the ulnar artery.",
+        "Provides anesthesia to the 5th digit and medial half of the 4th digit."
+      ],
+      "indications": [
+        "Boxer's fractures",
+        "Lacerations or injuries to the ulnar aspect of the hand"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "In the mid-forearm, the ulnar nerve lies just medial (ulnar) to the ulnar artery, deep to the flexor carpi ulnaris (FCU)."
+      ],
+      "equipment": [
+        "High-frequency linear ultrasound transducer",
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (5-10 mL)"
+      ],
+      "positioning": [
+        "Arm supinated and extended."
+      ],
+      "steps": [
+        "Identify the ulnar artery in the mid-to-distal forearm.",
+        "Identify the ulnar nerve immediately medial to the artery.",
+        "Insert the needle in-plane, approaching from the medial side.",
+        "Aspirate, then inject 5-10 mL of anesthetic around the nerve."
+      ],
+      "ultrasound": [
+        "The nerve is a hyperechoic honeycomb structure next to the pulsatile, anechoic ulnar artery."
+      ],
+      "confirmation": [
+        "Anesthetic spreading between the nerve and the artery, and around the nerve."
+      ],
+      "troubleshooting": [
+        "If the nerve and artery are too close, inject a small amount of saline or anesthetic to dissect them apart before fully surrounding the nerve."
+      ],
+      "complications": [
+        "Intravascular injection (ulnar artery)",
+        "Nerve injury"
+      ],
+      "aftercare": [
+        "Protect the anesthetized limb."
+      ],
+      "documentation": [
+        "Pre/post neurovascular exam, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "Block higher up in the forearm to ensure you catch the dorsal cutaneous branch of the ulnar nerve, which branches off proximal to the wrist."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "ulnar",
+      "forearm block"
+    ]
+  },
+  {
+    "id": "block_superficial_cervical_plexus",
+    "title": "Superficial Cervical Plexus Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Superficial cervical plexus as it emerges behind the posterior border of the sternocleidomastoid (SCM) muscle.",
+        "Provides anesthesia to the anterior/lateral neck, clavicle, and skin over the shoulder."
+      ],
+      "indications": [
+        "Clavicle fractures",
+        "Laceration repairs of the anterior/lateral neck or earlobe",
+        "Internal jugular vein cannulation (pain control)"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The plexus wraps around the posterior border of the SCM at approximately its midpoint.",
+        "The external jugular vein typically crosses the SCM near this level."
+      ],
+      "equipment": [
+        "High-frequency linear ultrasound transducer",
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (5-10 mL, e.g., 1% lidocaine or 0.25% bupivacaine)"
+      ],
+      "positioning": [
+        "Patient supine, head turned away from the side being blocked."
+      ],
+      "steps": [
+        "Place the transducer transversely over the mid-SCM.",
+        "Identify the posterior border of the SCM.",
+        "Insert the needle in-plane from posterior to anterior.",
+        "Aspirate, then inject 5-10 mL of anesthetic in the fascial plane immediately deep to the posterior border of the SCM."
+      ],
+      "ultrasound": [
+        "SCM is the large superficial muscle. Deep to it is the levator scapulae or scalenes.",
+        "The plexus often appears as a small hyperechoic cluster at the posterior edge of the SCM."
+      ],
+      "confirmation": [
+        "Anesthetic spreading along the posterior border of the SCM, separating the fascial layers.",
+        "Numbness over the neck and clavicle."
+      ],
+      "troubleshooting": [
+        "If the needle tip is not visible, use hydrodissection with small amounts of saline.",
+        "Avoid going too deep to prevent a deep cervical plexus block or phrenic nerve block."
+      ],
+      "complications": [
+        "Intravascular injection (EJV or deeper vessels)",
+        "Phrenic nerve block (if injection is too deep/voluminous)",
+        "Horner syndrome"
+      ],
+      "aftercare": [
+        "Monitor for 30 minutes, especially for dyspnea (phrenic nerve involvement)."
+      ],
+      "documentation": [
+        "Consent, indications, anesthetic volume/type, absence of complications."
+      ],
+      "seniorPearls": [
+        "This is an extremely superficial block. Do not plunge the needle deep to the SCM."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "neck block",
+      "clavicle block",
+      "cervical"
+    ]
+  },
+  {
+    "id": "block_serratus_anterior",
+    "title": "Serratus Anterior Plane Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Fascial plane superficial OR deep to the serratus anterior muscle.",
+        "Provides analgesia to the lateral chest wall (T3-T9).",
+        "Essential for multi-level rib fractures or chest tube placement."
+      ],
+      "indications": [
+        "Multiple rib fractures (lateral/anterior)",
+        "Tube thoracostomy (chest tube) placement",
+        "Chest wall abscesses or lacerations"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The latissimus dorsi is the most superficial muscle on the lateral chest wall. The serratus anterior is deep to it, sitting on the ribs.",
+        "The thoracodorsal artery and long thoracic nerve run in the plane superficial to the serratus anterior."
+      ],
+      "equipment": [
+        "High-frequency linear transducer",
+        "Regional block needle (21G or 22G, 50-100mm)",
+        "Local anesthetic (large volume: 20-30 mL of 0.25% bupivacaine or ropivacaine)"
+      ],
+      "positioning": [
+        "Patient supine or lateral decubitus, arm abducted to expose the lateral chest (axilla)."
+      ],
+      "steps": [
+        "Place the transducer in the mid-axillary line at the 4th or 5th intercostal space (sagittal orientation).",
+        "Identify the latissimus dorsi, serratus anterior, ribs, and pleura.",
+        "Insert the needle in-plane from cranial to caudal (or caudal to cranial).",
+        "Advance into the fascial plane either superficial to the serratus anterior (between latissimus and serratus) OR deep to the serratus anterior (between serratus and ribs).",
+        "Aspirate, then inject 20-30 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "Latissimus dorsi (superficial), Serratus anterior (middle), Ribs with posterior shadowing (deep), Pleura (deep to ribs with sliding).",
+        "Look for the thoracodorsal artery in the superficial plane to avoid it."
+      ],
+      "confirmation": [
+        "Anechoic fluid spreading linearly along the fascial plane, unzipping the muscles.",
+        "Pain relief over the lateral chest wall."
+      ],
+      "troubleshooting": [
+        "If the pleura is not clearly visualized, slide up or down until a rib is clearly in view. Always aim your needle towards a rib to prevent pleural puncture."
+      ],
+      "complications": [
+        "Pneumothorax (if needle goes deep between ribs)",
+        "LAST (due to large volume)",
+        "Intravascular injection"
+      ],
+      "aftercare": [
+        "Monitor for LAST for 30-60 minutes.",
+        "Assess for pneumothorax if patient becomes symptomatic."
+      ],
+      "documentation": [
+        "Consent, indications, large volume anesthetic, confirmation of fascial spread, absence of pneumothorax."
+      ],
+      "seniorPearls": [
+        "Aiming for the rib (deep to serratus) is often safer and provides an excellent block. 'Hit the rib, slide off, inject.'"
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "rib block",
+      "serratus",
+      "chest tube block"
+    ]
+  },
+  {
+    "id": "block_thoracic_esp",
+    "title": "Thoracic Erector Spinae Plane (ESP) Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Fascial plane deep to the erector spinae muscle, resting on the transverse processes.",
+        "Provides somatic and visceral analgesia for posterior/lateral/anterior chest wall."
+      ],
+      "indications": [
+        "Posterior or multiple rib fractures",
+        "Herpes zoster (shingles) pain",
+        "Thoracic spine fractures (lateral to midline)"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The erector spinae muscle runs vertically along the spine.",
+        "The transverse processes (TP) project laterally from the vertebral bodies.",
+        "Injecting deep to the erector spinae muscle allows anesthetic to spread cranio-caudally and into the paravertebral space."
+      ],
+      "equipment": [
+        "High-frequency linear or curvilinear transducer",
+        "Regional block needle (21G or 22G, 50-100mm)",
+        "Local anesthetic (large volume: 20-30 mL of 0.25% bupivacaine or ropivacaine)"
+      ],
+      "positioning": [
+        "Patient sitting up or in lateral decubitus position.",
+        "Identify the spinous processes and move ~3 cm laterally to find the TPs."
+      ],
+      "steps": [
+        "Place the transducer in a sagittal orientation about 3 cm lateral to the thoracic spinous processes.",
+        "Identify the erector spinae muscle and the square, blocky shadows of the transverse processes.",
+        "Insert the needle in-plane (usually cranial to caudal).",
+        "Advance until the needle tip touches the bony contour of a transverse process.",
+        "Aspirate, then inject 20-30 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "Transverse processes appear as square or rectangular hyperechoic structures with posterior shadowing (unlike the rounded ribs).",
+        "Erector spinae is the thick muscle layer superficial to the TPs."
+      ],
+      "confirmation": [
+        "Anechoic fluid unzipping the erector spinae muscle off the transverse processes."
+      ],
+      "troubleshooting": [
+        "If you see the pleura between the bony shadows, you are too lateral (on the ribs). Move medially to find the TPs."
+      ],
+      "complications": [
+        "LAST (large volume block)",
+        "Pneumothorax (if too lateral and deep)",
+        "Epidural or subarachnoid spread (rare but possible)"
+      ],
+      "aftercare": [
+        "Monitor for LAST for 30-60 minutes."
+      ],
+      "documentation": [
+        "Consent, volume of anesthetic, confirmation of spread over transverse process, absence of pneumothorax."
+      ],
+      "seniorPearls": [
+        "The ESP block is remarkably safe because the target is bone (the TP), keeping you far from the pleura if identified correctly."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "esp",
+      "erector spinae",
+      "posterior rib block"
+    ]
+  },
+  {
+    "id": "block_tap",
+    "title": "Transversus Abdominis Plane (TAP) Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Fascial plane between the internal oblique and transversus abdominis muscles.",
+        "Provides analgesia to the anterior abdominal wall (parietal peritoneum and skin)."
+      ],
+      "indications": [
+        "Appendicitis pain (pre-op)",
+        "Abdominal wall abscesses or lacerations",
+        "Post-operative abdominal pain"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The lateral abdominal wall consists of three muscle layers: external oblique (superficial), internal oblique (middle), and transversus abdominis (deep).",
+        "The nerves supplying the abdominal wall run in the plane between the internal oblique and transversus abdominis."
+      ],
+      "equipment": [
+        "High-frequency linear or curvilinear transducer",
+        "Regional block needle (21G or 22G, 80-100mm)",
+        "Local anesthetic (large volume: 20-30 mL of 0.25% bupivacaine or ropivacaine per side)"
+      ],
+      "positioning": [
+        "Patient supine, abdomen exposed."
+      ],
+      "steps": [
+        "Place the transducer transversely on the lateral abdominal wall, midway between the costal margin and the iliac crest (mid-axillary line).",
+        "Identify the three muscle layers.",
+        "Insert the needle in-plane from anterior to posterior (or vice-versa).",
+        "Advance the needle until the tip pops through the fascia of the internal oblique into the TAP plane.",
+        "Aspirate, then inject 20-30 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "Look for the 'three stripes' of muscle. The deepest stripe (transversus abdominis) sits right above the peritoneum/bowel."
+      ],
+      "confirmation": [
+        "Anechoic fluid spreading linearly, creating a black elliptical space separating the internal oblique and transversus abdominis."
+      ],
+      "troubleshooting": [
+        "If you only see two muscle layers, you may be too far anterior (rectus sheath) or too far posterior. Move towards the mid-axillary line."
+      ],
+      "complications": [
+        "Intraperitoneal injection / Bowel puncture (if needle goes too deep)",
+        "LAST (large volume block)",
+        "Liver/spleen injury (rare, if performed too high)"
+      ],
+      "aftercare": [
+        "Monitor for LAST for 30-60 minutes."
+      ],
+      "documentation": [
+        "Consent, confirmation of the three muscle layers, visualization of spread in the correct plane, absence of intraperitoneal injection."
+      ],
+      "seniorPearls": [
+        "This block only covers somatic pain (abdominal wall), not visceral pain (the inflamed organ itself). Patients will still have some deep pain."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "tap",
+      "abdomen block",
+      "abdominal wall"
+    ]
+  },
+  {
+    "id": "block_pecs",
+    "title": "PECS I / II Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Fascial planes between the pectoralis major and minor (PECS I), and between the pectoralis minor and serratus anterior (PECS II).",
+        "Provides analgesia to the anterior chest wall and axilla."
+      ],
+      "indications": [
+        "Anterior chest wall trauma (anterior rib fractures)",
+        "Breast abscess incision and drainage",
+        "Pectoral muscle tears"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The pectoralis major is superficial to the pectoralis minor.",
+        "The pectoral branch of the thoracoacromial artery runs in the plane between the two muscles (PECS I).",
+        "The serratus anterior muscle lies deep to the pectoralis minor, on top of the ribs (PECS II)."
+      ],
+      "equipment": [
+        "High-frequency linear transducer",
+        "Regional block needle (21G or 22G, 50-100mm)",
+        "Local anesthetic (20-30 mL of 0.25% bupivacaine or ropivacaine)"
+      ],
+      "positioning": [
+        "Patient supine, arm abducted to 90 degrees."
+      ],
+      "steps": [
+        "Place the transducer obliquely on the chest, below the lateral third of the clavicle.",
+        "Identify the pectoralis major, pectoralis minor, and the ribs/pleura deep to them.",
+        "Insert the needle in-plane from medial to lateral.",
+        "For PECS I: Advance the needle into the fascial plane between the pectoralis major and minor. Inject 10 mL.",
+        "For PECS II: Advance the needle deeper, through the pectoralis minor, into the fascial plane between the pectoralis minor and the serratus anterior (or ribs). Inject 15-20 mL."
+      ],
+      "ultrasound": [
+        "Pectoralis major (thickest, superficial), Pectoralis minor (deep to major), Serratus anterior/ribs (deepest)."
+      ],
+      "confirmation": [
+        "Anechoic fluid separating the respective muscle layers."
+      ],
+      "troubleshooting": [
+        "Use color Doppler to identify the thoracoacromial artery in the PECS I plane and avoid it."
+      ],
+      "complications": [
+        "Pneumothorax (if needle goes too deep into the pleura)",
+        "LAST (large volume block)",
+        "Intravascular injection"
+      ],
+      "aftercare": [
+        "Monitor for LAST for 30-60 minutes."
+      ],
+      "documentation": [
+        "Consent, volume injected in each plane, absence of pneumothorax."
+      ],
+      "seniorPearls": [
+        "Always keep the needle tip in view when passing through the pectoralis minor, as the pleura is just beneath the next muscle layer."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "pecs",
+      "chest block",
+      "breast block"
+    ]
+  },
+  {
+    "id": "block_femoral_nerve",
+    "title": "Femoral Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Femoral nerve lateral to the femoral artery, deep to the fascia iliaca.",
+        "Provides anesthesia to the anterior thigh, femur, and knee.",
+        "Mnemonic: NAVEL (from lateral to medial: Nerve, Artery, Vein, Empty space, Lymphatics)."
+      ],
+      "indications": [
+        "Femur fractures (mid-shaft)",
+        "Patellar fractures or severe knee trauma",
+        "Large lacerations on the anterior thigh"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The femoral nerve lies lateral to the femoral artery in the femoral triangle, just distal to the inguinal ligament.",
+        "It is covered by the fascia iliaca."
+      ],
+      "equipment": [
+        "High-frequency linear transducer",
+        "Regional block needle (21G or 22G, 50-100mm)",
+        "Local anesthetic (15-20 mL of 0.25% or 0.5% bupivacaine)"
+      ],
+      "positioning": [
+        "Patient supine, leg extended."
+      ],
+      "steps": [
+        "Place the transducer transversely over the femoral crease.",
+        "Identify the femoral artery and vein.",
+        "Identify the femoral nerve lateral to the artery as a hyperechoic, triangular or oval structure.",
+        "Insert the needle in-plane from lateral to medial.",
+        "Advance the needle until the tip pops through the fascia iliaca, aiming adjacent to the nerve.",
+        "Aspirate, then inject 15-20 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "Femoral artery is a pulsatile, anechoic circle.",
+        "The nerve is a hyperechoic cluster lateral to the artery, often appearing triangular or oval."
+      ],
+      "confirmation": [
+        "Anechoic fluid surrounding the nerve beneath the fascia iliaca.",
+        "Loss of sensation over the anterior thigh and weakness in knee extension (quadriceps)."
+      ],
+      "troubleshooting": [
+        "If the nerve is hard to distinguish from fat or connective tissue, tilt the probe to enhance anisotropy.",
+        "If fluid spreads superficial to the fascia iliaca, withdraw slightly and redirect deeper."
+      ],
+      "complications": [
+        "Intravascular injection (femoral artery or vein)",
+        "Nerve injury"
+      ],
+      "aftercare": [
+        "Patient will have significant quadriceps weakness and a high fall risk. Strict non-weight-bearing until the block wears off."
+      ],
+      "documentation": [
+        "Consent, volume of anesthetic, confirmation of spread below fascia iliaca, warnings given regarding fall risk."
+      ],
+      "seniorPearls": [
+        "Always document that you told the patient they cannot walk on that leg. The quad weakness is profound."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "femoral",
+      "leg block",
+      "femur fracture"
+    ]
+  },
+  {
+    "id": "block_peng",
+    "title": "PENG (Pericapsular Nerve Group) Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Fascial plane between the psoas tendon and the pubic ramus.",
+        "Provides excellent analgesia for the hip joint (articular branches of femoral and obturator nerves).",
+        "Motor-sparing alternative to the fascia iliaca or femoral nerve block."
+      ],
+      "indications": [
+        "Hip fractures (neck of femur, intertrochanteric)",
+        "Pelvic fractures involving the acetabulum"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The articular branches of the femoral, obturator, and accessory obturator nerves supply the anterior hip capsule.",
+        "These nerves run in the space between the psoas muscle/tendon and the iliopubic eminence."
+      ],
+      "equipment": [
+        "Curvilinear or low-frequency linear transducer (due to depth)",
+        "Regional block needle (21G or 22G, 80-100mm)",
+        "Local anesthetic (large volume: 20-30 mL of 0.25% bupivacaine)"
+      ],
+      "positioning": [
+        "Patient supine."
+      ],
+      "steps": [
+        "Place the transducer in a transverse plane over the Anterior Inferior Iliac Spine (AIIS), then slide caudally to find the iliopubic eminence (IPE) and psoas tendon.",
+        "Identify the femoral artery/vein sitting medially.",
+        "Insert the needle in-plane from lateral to medial.",
+        "Advance the needle tip until it rests on the bony contour of the IPE, deep to the psoas tendon.",
+        "Aspirate, then inject 20-30 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "The bony contour shows the rounded AIIS transitioning into the more flattened IPE.",
+        "The thick psoas muscle sits directly on the bone.",
+        "The femoral vessels are medial."
+      ],
+      "confirmation": [
+        "Anechoic fluid lifting the psoas muscle off the bone."
+      ],
+      "troubleshooting": [
+        "Ensure you are deep to the psoas tendon. If the fluid injects into the muscle belly, you are too superficial."
+      ],
+      "complications": [
+        "Intravascular injection",
+        "LAST (large volume block)"
+      ],
+      "aftercare": [
+        "Monitor for LAST for 30-60 minutes."
+      ],
+      "documentation": [
+        "Consent, volume of anesthetic, confirmation of spread deep to psoas tendon."
+      ],
+      "seniorPearls": [
+        "The PENG block is fantastic for hip fractures because it is largely motor-sparing, unlike a femoral or fascia iliaca block which paralyzes the quad."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "peng",
+      "hip fracture",
+      "pelvis"
+    ]
+  },
+  {
+    "id": "block_saphenous_nerve",
+    "title": "Saphenous Nerve (Adductor Canal) Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Saphenous nerve in the adductor canal.",
+        "Provides sensory analgesia to the medial lower leg and ankle.",
+        "Purely sensory branch of the femoral nerve (motor-sparing)."
+      ],
+      "indications": [
+        "Lacerations or fractures of the medial lower leg",
+        "Medial ankle fractures (often combined with popliteal sciatic)"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The saphenous nerve travels with the superficial femoral artery in the adductor canal, deep to the sartorius muscle."
+      ],
+      "equipment": [
+        "High-frequency linear transducer",
+        "Regional block needle (21G or 22G, 50-100mm)",
+        "Local anesthetic (10-15 mL)"
+      ],
+      "positioning": [
+        "Patient supine, leg slightly externally rotated ('frog leg' position)."
+      ],
+      "steps": [
+        "Place the transducer transversely on the mid-medial thigh.",
+        "Identify the sartorius muscle (boat-shaped).",
+        "Deep to the sartorius, identify the femoral artery and vein.",
+        "The saphenous nerve is often visible as a small hyperechoic dot anterior/lateral to the artery.",
+        "Insert the needle in-plane from anterior to posterior (or lateral to medial).",
+        "Advance through the sartorius muscle or vastus medialis into the fascial plane surrounding the artery.",
+        "Aspirate, then inject 10-15 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "Sartorius is the most superficial muscle on the anteromedial thigh.",
+        "The artery is pulsatile and anechoic just beneath it."
+      ],
+      "confirmation": [
+        "Anechoic fluid surrounding the artery and nerve in the adductor canal.",
+        "Loss of sensation on the medial aspect of the lower leg."
+      ],
+      "troubleshooting": [
+        "If the nerve is not visible, simply injecting the local anesthetic around the artery (perivascular spread) within the canal is usually sufficient."
+      ],
+      "complications": [
+        "Intravascular injection"
+      ],
+      "aftercare": [
+        "Protect the anesthetized skin from injury."
+      ],
+      "documentation": [
+        "Pre/post neurovascular exam, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "Because it's a sensory block, patients can still walk (unlike a femoral nerve block), making it ideal for medial leg/ankle injuries in patients who need to ambulate."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "saphenous",
+      "adductor canal",
+      "knee block"
+    ]
+  },
+  {
+    "id": "block_popliteal_sciatic",
+    "title": "Popliteal Sciatic Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Sciatic nerve in the popliteal fossa before it bifurcates.",
+        "Provides anesthesia to the entire lower leg and foot, EXCEPT the medial strip (covered by the saphenous nerve)."
+      ],
+      "indications": [
+        "Achilles tendon ruptures",
+        "Ankle and foot fractures (often combined with a saphenous block)",
+        "Complex foot lacerations"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The sciatic nerve travels down the posterior thigh.",
+        "In the popliteal fossa, it bifurcates into the tibial nerve (medial) and common peroneal nerve (lateral).",
+        "The popliteal artery and vein are medial and deep to the nerve."
+      ],
+      "equipment": [
+        "High-frequency linear transducer",
+        "Regional block needle (21G or 22G, 50-100mm)",
+        "Local anesthetic (20-30 mL)"
+      ],
+      "positioning": [
+        "Patient prone, or lateral decubitus, or supine with the leg elevated."
+      ],
+      "steps": [
+        "Place the transducer transversely over the popliteal crease.",
+        "Identify the popliteal artery (deepest), vein (middle), and the tibial and common peroneal nerves (superficial and lateral).",
+        "Trace the two nerves proximally (cephalad) until they join into the single sciatic nerve.",
+        "Insert the needle in-plane from lateral to medial.",
+        "Advance the needle to the sciatic nerve, within its epineural sheath (the 'Vloka sheath').",
+        "Aspirate, then inject 20-30 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "The nerves look like hyperechoic honeycombs.",
+        "The 'stoplight' sign in the popliteal crease: Artery (deep), Vein (middle), Tibial Nerve (superficial)."
+      ],
+      "confirmation": [
+        "Anechoic fluid spreading circumferentially around the sciatic nerve, often dissecting it back into its two branches.",
+        "Loss of sensation over the lateral leg and entire foot (except medial strip)."
+      ],
+      "troubleshooting": [
+        "Injecting just as the nerve bifurcates, inside the common paraneural sheath, provides the most rapid onset."
+      ],
+      "complications": [
+        "Intravascular injection",
+        "Nerve injury"
+      ],
+      "aftercare": [
+        "Patient will have foot drop (inability to dorsiflex). Strictly non-weight-bearing."
+      ],
+      "documentation": [
+        "Consent, volume of anesthetic, warning about foot drop and fall risk."
+      ],
+      "seniorPearls": [
+        "Always combine this with a saphenous nerve block if you need complete anesthesia of the ankle/foot (e.g., for an ankle fracture reduction)."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "popliteal",
+      "sciatic",
+      "ankle block"
+    ]
+  },
+  {
+    "id": "block_transgluteal_sciatic",
+    "title": "Transgluteal / Proximal Sciatic Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Sciatic nerve deep in the posterior thigh/gluteal region.",
+        "Provides anesthesia to the posterior thigh and the entire lower leg (except medial strip)."
+      ],
+      "indications": [
+        "Posterior thigh lacerations or hamstring tears",
+        "Knee trauma requiring posterior capsule analgesia"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The sciatic nerve is large and located deep to the gluteus maximus (or biceps femoris, depending on level) and superficial to the quadratus femoris or adductor magnus."
+      ],
+      "equipment": [
+        "Curvilinear transducer (due to depth)",
+        "Regional block needle (21G or 22G, 80-100mm)",
+        "Local anesthetic (20-30 mL)"
+      ],
+      "positioning": [
+        "Patient in lateral decubitus position (sims position) or prone."
+      ],
+      "steps": [
+        "Place the transducer transversely below the gluteal fold.",
+        "Identify the ischial tuberosity (medial) and the greater trochanter (lateral) if scanning high enough.",
+        "Identify the large, hyperechoic, oval sciatic nerve midway between them, deep to the gluteus maximus.",
+        "Insert the needle in-plane.",
+        "Advance to the nerve, aspirate, and inject 20-30 mL of anesthetic around it."
+      ],
+      "ultrasound": [
+        "The nerve is highly anisotropic and may appear dark depending on probe angle. Heel-toe the probe to make it bright."
+      ],
+      "confirmation": [
+        "Circumferential spread around the nerve."
+      ],
+      "troubleshooting": [
+        "If the nerve is difficult to see, look for the acoustic shadow of the ischial tuberosity and greater trochanter; the nerve is exactly in the middle."
+      ],
+      "complications": [
+        "Intravascular injection",
+        "Nerve injury"
+      ],
+      "aftercare": [
+        "Foot drop will occur. Strictly non-weight-bearing."
+      ],
+      "documentation": [
+        "Pre/post neurovascular exam, volume of anesthetic, warning about foot drop."
+      ],
+      "seniorPearls": [
+        "The sciatic nerve at this level is the largest nerve in the body. It takes a significant volume (20-30 mL) and time (up to 30 mins) to fully block."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "sciatic",
+      "gluteal",
+      "posterior thigh"
+    ]
+  },
+  {
+    "id": "block_tibial_nerve",
+    "title": "Tibial Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Posterior tibial nerve posterior to the medial malleolus.",
+        "Provides anesthesia to the heel and sole (plantar aspect) of the foot."
+      ],
+      "indications": [
+        "Plantar lacerations",
+        "Foreign body removal from the sole of the foot"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "Posterior to the medial malleolus. Mnemonic: Tom, Dick, AND Very Nervous Harry (Tibialis posterior, flexor Digitorum longus, Artery, Nerve, Vein, flexor Hallucis longus)."
+      ],
+      "equipment": [
+        "High-frequency linear transducer (or landmark technique)",
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (5-10 mL)"
+      ],
+      "positioning": [
+        "Patient supine, foot externally rotated."
+      ],
+      "steps": [
+        "Place transducer transversely behind the medial malleolus.",
+        "Identify the posterior tibial artery.",
+        "Identify the nerve immediately posterior/lateral to the artery.",
+        "Insert the needle in-plane or out-of-plane, aspirate, and inject 5-10 mL around the nerve."
+      ],
+      "ultrasound": [
+        "The artery is the pulsatile anechoic circle; the nerve is the honeycomb structure next to it."
+      ],
+      "confirmation": [
+        "Anechoic fluid surrounding the nerve.",
+        "Numbness on the sole of the foot."
+      ],
+      "troubleshooting": [
+        "Use color Doppler to ensure you don't inject into the artery or veins."
+      ],
+      "complications": [
+        "Intravascular injection",
+        "Nerve injury"
+      ],
+      "aftercare": [
+        "Warn the patient about lack of sensation when walking, to avoid unnoticed injuries."
+      ],
+      "documentation": [
+        "Pre/post exam, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "For a purely plantar laceration, this block is vastly superior to injecting local anesthetic directly into the exquisitely sensitive sole of the foot."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "tibial",
+      "ankle block",
+      "plantar"
+    ]
+  },
+  {
+    "id": "block_sural_nerve",
+    "title": "Sural Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Sural nerve posterior to the lateral malleolus.",
+        "Provides anesthesia to the lateral/posterior aspect of the foot."
+      ],
+      "indications": [
+        "Lacerations on the lateral aspect of the foot"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The sural nerve travels with the small saphenous vein posterior to the lateral malleolus."
+      ],
+      "equipment": [
+        "High-frequency linear transducer (or landmark technique)",
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (3-5 mL)"
+      ],
+      "positioning": [
+        "Patient supine, foot internally rotated."
+      ],
+      "steps": [
+        "Place transducer transversely behind the lateral malleolus.",
+        "Identify the small saphenous vein.",
+        "The nerve is adjacent to the vein.",
+        "Inject 3-5 mL of anesthetic around the nerve/vein."
+      ],
+      "ultrasound": [
+        "The vein is easily compressible. The nerve is a tiny honeycomb structure next to it."
+      ],
+      "confirmation": [
+        "Fluid surrounding the nerve.",
+        "Numbness on the lateral foot."
+      ],
+      "troubleshooting": [
+        "If using landmarks, simply deposit a subcutaneous wheal of anesthetic from the Achilles tendon to the lateral malleolus."
+      ],
+      "complications": [
+        "Intravascular injection"
+      ],
+      "aftercare": [
+        "Routine wound care."
+      ],
+      "documentation": [
+        "Pre/post exam, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "The landmark 'subcutaneous wheal' technique is often faster and just as effective as ultrasound for this specific small nerve."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "sural",
+      "lateral foot",
+      "ankle block"
+    ]
+  },
+  {
+    "id": "block_superficial_peroneal",
+    "title": "Superficial Peroneal Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Superficial peroneal nerve on the anterior/lateral aspect of the distal leg.",
+        "Provides anesthesia to the dorsum of the foot (except the first web space)."
+      ],
+      "indications": [
+        "Lacerations or procedures on the dorsum of the foot"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The nerve pierces the deep fascia in the distal third of the lateral leg to become superficial."
+      ],
+      "equipment": [
+        "High-frequency linear transducer (or landmark technique)",
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (5-10 mL)"
+      ],
+      "positioning": [
+        "Patient supine."
+      ],
+      "steps": [
+        "Place transducer transversely on the anterolateral distal leg.",
+        "Identify the nerve as it emerges through the crural fascia.",
+        "Inject 5-10 mL of anesthetic around the nerve."
+      ],
+      "ultrasound": [
+        "The nerve is a small hyperechoic structure that pops through the bright fascial line."
+      ],
+      "confirmation": [
+        "Numbness on the dorsum of the foot."
+      ],
+      "troubleshooting": [
+        "For landmarks, inject a subcutaneous band of anesthetic from the anterior tibial crest to the lateral malleolus."
+      ],
+      "complications": [
+        "Intravascular injection"
+      ],
+      "aftercare": [
+        "Routine wound care."
+      ],
+      "documentation": [
+        "Pre/post exam, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "This nerve branches extensively. A wide subcutaneous band of anesthetic is often needed if using landmarks."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "superficial peroneal",
+      "dorsum foot",
+      "ankle block"
+    ]
+  },
+  {
+    "id": "block_deep_peroneal",
+    "title": "Deep Peroneal Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Deep peroneal nerve anterior to the ankle joint.",
+        "Provides anesthesia to the first web space (between big toe and second toe)."
+      ],
+      "indications": [
+        "Lacerations or procedures in the first web space of the foot"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The deep peroneal nerve travels with the anterior tibial artery (dorsalis pedis) between the extensor hallucis longus and extensor digitorum longus tendons."
+      ],
+      "equipment": [
+        "High-frequency linear transducer",
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (3-5 mL)"
+      ],
+      "positioning": [
+        "Patient supine."
+      ],
+      "steps": [
+        "Place transducer transversely over the anterior ankle.",
+        "Identify the anterior tibial artery.",
+        "The nerve is usually lateral to the artery.",
+        "Inject 3-5 mL of anesthetic next to the artery."
+      ],
+      "ultrasound": [
+        "Pulsatile artery; nerve is a small honeycomb dot next to it."
+      ],
+      "confirmation": [
+        "Numbness in the first web space."
+      ],
+      "troubleshooting": [
+        "Avoid intravascular injection by carefully aspirating and using color Doppler."
+      ],
+      "complications": [
+        "Intravascular injection"
+      ],
+      "aftercare": [
+        "Routine wound care."
+      ],
+      "documentation": [
+        "Pre/post exam, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "This nerve is very small. Perivascular spread around the anterior tibial artery is usually sufficient."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "deep peroneal",
+      "first web space",
+      "ankle block"
+    ]
+  },
+  {
+    "id": "block_supraorbital",
+    "title": "Supraorbital Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Supraorbital and supratrochlear nerves as they exit the supraorbital rim.",
+        "Provides anesthesia to the forehead and anterior scalp.",
+        "Landmark-guided injection along the superior orbital rim."
+      ],
+      "indications": [
+        "Forehead lacerations",
+        "Anterior scalp lacerations",
+        "Abscess drainage on the forehead"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The supraorbital notch/foramen is located on the superior orbital rim, typically in line with the patient's pupil when looking straight ahead.",
+        "The supratrochlear nerve exits slightly medial to this."
+      ],
+      "equipment": [
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (3-5 mL of 1% or 2% lidocaine with epinephrine)"
+      ],
+      "positioning": [
+        "Patient supine or seated."
+      ],
+      "steps": [
+        "Palpate the superior orbital rim to find the supraorbital notch (in line with the pupil).",
+        "Cleanse the skin.",
+        "Insert the needle subcutaneously just above the eyebrow, aiming medially over the notch.",
+        "Aspirate, then inject 1-2 mL over the notch.",
+        "To block the supratrochlear nerve, advance the needle slightly further medially towards the bridge of the nose and inject another 1-2 mL."
+      ],
+      "ultrasound": [
+        "Not typically required. Can be used to identify the notch (a break in the hyperechoic bony line of the orbital rim) if landmarks are obscured by swelling."
+      ],
+      "confirmation": [
+        "Numbness of the forehead and anterior scalp extending back to the vertex."
+      ],
+      "troubleshooting": [
+        "If the block fails, simply inject a continuous subcutaneous band of anesthetic along the entire eyebrow (a 'field block')."
+      ],
+      "complications": [
+        "Intravascular injection",
+        "Hematoma (black eye if fluid tracks down into the eyelid)"
+      ],
+      "aftercare": [
+        "Routine wound care. Warn the patient about potential eyelid swelling if volume was large."
+      ],
+      "documentation": [
+        "Pre/post neurovascular exam, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "Adding epinephrine helps reduce bleeding for forehead lacerations and prolongs the block.",
+        "Always apply pressure to the upper eyelid below the injection site to prevent the anesthetic from tracking downward and causing a swollen eyelid."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "forehead block",
+      "supraorbital",
+      "supratrochlear"
+    ]
+  },
+  {
+    "id": "block_infraorbital",
+    "title": "Infraorbital Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Infraorbital nerve as it exits the infraorbital foramen on the maxilla.",
+        "Provides anesthesia to the lower eyelid, cheek, lateral nose, and upper lip.",
+        "Can be performed via an intraoral (preferred) or extraoral approach."
+      ],
+      "indications": [
+        "Upper lip lacerations (especially those crossing the vermilion border)",
+        "Cheek lacerations",
+        "Nasal lacerations"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The infraorbital foramen is located on the maxilla, roughly 1 cm below the inferior orbital rim, directly below the pupil.",
+        "It is in line with the supraorbital notch and the mental foramen."
+      ],
+      "equipment": [
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (2-3 mL of 1% or 2% lidocaine with epinephrine)",
+        "Topical anesthetic (e.g., benzocaine gel) for intraoral approach"
+      ],
+      "positioning": [
+        "Patient supine or seated."
+      ],
+      "steps": [
+        "**Intraoral Approach (Preferred):**",
+        "Palpate the infraorbital foramen extraorally with your non-dominant index finger.",
+        "Apply topical anesthetic to the buccal mucosa above the maxillary canine/first premolar.",
+        "Retract the upper lip.",
+        "Insert the needle into the mucobuccal fold above the canine/first premolar, directing it superiorly toward your palpating finger.",
+        "Stop before hitting the bone or entering the foramen.",
+        "Aspirate, then inject 2-3 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "Can be used extraorally to identify the foramen (a break in the hyperechoic maxillary bone) and guide an extraoral injection."
+      ],
+      "confirmation": [
+        "Numbness of the upper lip, cheek, and side of the nose."
+      ],
+      "troubleshooting": [
+        "Do NOT enter the foramen. Injecting directly into the foramen can cause nerve injury or severe pressure necrosis. Injecting in the tissue *near* the foramen is sufficient."
+      ],
+      "complications": [
+        "Intravascular injection",
+        "Nerve injury (if injected into the foramen)"
+      ],
+      "aftercare": [
+        "Routine wound care."
+      ],
+      "documentation": [
+        "Pre/post exam, approach used (intraoral vs extraoral), volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "The intraoral approach is much less painful for the patient than going through the facial skin.",
+        "This block is essential for perfectly aligning the vermilion border of the upper lip without distorting the tissue with local infiltration."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "cheek block",
+      "upper lip block",
+      "infraorbital"
+    ]
+  },
+  {
+    "id": "block_mental",
+    "title": "Mental Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Mental nerve as it exits the mental foramen on the mandible.",
+        "Provides anesthesia to the lower lip and chin.",
+        "Intraoral approach is preferred."
+      ],
+      "indications": [
+        "Lower lip lacerations (especially crossing the vermilion border)",
+        "Chin lacerations"
+      ],
+      "contraindications": [
+        "Infection at the injection site",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The mental foramen is located on the anterior mandible, typically below the first or second mandibular premolar.",
+        "It is in line with the pupil, supraorbital notch, and infraorbital foramen."
+      ],
+      "equipment": [
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (2-3 mL of 1% or 2% lidocaine with epinephrine)",
+        "Topical anesthetic (e.g., benzocaine gel) for intraoral approach"
+      ],
+      "positioning": [
+        "Patient supine or seated."
+      ],
+      "steps": [
+        "**Intraoral Approach:**",
+        "Retract the lower lip to expose the mucobuccal fold.",
+        "Apply topical anesthetic to the mucosa below the first/second premolar.",
+        "Palpate the mental foramen through the mucosa.",
+        "Insert the needle into the mucobuccal fold directed inferiorly toward the foramen.",
+        "Stop before hitting the bone or entering the foramen.",
+        "Aspirate, then inject 2-3 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "Can be used extraorally to identify the foramen on the mandible if landmarks are unclear."
+      ],
+      "confirmation": [
+        "Numbness of the lower lip and chin on the ipsilateral side."
+      ],
+      "troubleshooting": [
+        "Like the infraorbital block, do NOT inject into the foramen itself to avoid nerve injury."
+      ],
+      "complications": [
+        "Intravascular injection",
+        "Nerve injury"
+      ],
+      "aftercare": [
+        "Routine wound care."
+      ],
+      "documentation": [
+        "Pre/post exam, approach used, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "This is the fastest, easiest, and least painful way to repair a complex lower lip laceration."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "lower lip block",
+      "chin block",
+      "mental"
+    ]
+  },
+  {
+    "id": "block_inferior_alveolar",
+    "title": "Inferior Alveolar Nerve Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: Inferior alveolar nerve before it enters the mandibular foramen on the medial aspect of the mandibular ramus.",
+        "Provides profound anesthesia to all mandibular teeth to the midline, the lower lip, and the chin.",
+        "The 'gold standard' for lower jaw dental pain in the ED."
+      ],
+      "indications": [
+        "Severe dental pain of the lower teeth (caries, abscess, fracture)",
+        "Mandibular fractures (for pain control)",
+        "Dry socket (alveolar osteitis)"
+      ],
+      "contraindications": [
+        "Infection in the retromolar/pterygomandibular space",
+        "Allergy to local anesthetic",
+        "Coagulopathy"
+      ],
+      "anatomy": [
+        "The nerve enters the mandibular foramen on the medial surface of the ramus.",
+        "The lingual nerve lies just anterior/medial to it.",
+        "Landmarks: Coronoid notch (anterior border of ramus) and pterygomandibular raphe."
+      ],
+      "equipment": [
+        "25G or 27G needle (long, 1.5 inch minimum)",
+        "Local anesthetic (2-3 mL of 0.5% bupivacaine for long duration, or lidocaine/articaine)",
+        "Topical anesthetic"
+      ],
+      "positioning": [
+        "Patient seated, head resting firmly against the chair/bed, mouth opened as wide as possible."
+      ],
+      "steps": [
+        "Apply topical anesthetic to the mucosa posterior to the last molar.",
+        "Palpate the greatest concavity on the anterior border of the mandibular ramus (coronoid notch) with your non-dominant thumb.",
+        "Visualize the pterygomandibular raphe (a vertical fold of tissue medial to the ramus).",
+        "Approach with the syringe barrel resting over the premolars of the *opposite* side of the mouth.",
+        "Insert the needle at the midpoint between your thumb and the raphe, about 1 cm above the occlusal plane of the lower molars.",
+        "Advance until you contact bone (usually ~20-25 mm).",
+        "Withdraw 1-2 mm, aspirate carefully (high vascularity area), and inject 1.5-2 mL.",
+        "As you withdraw the needle halfway, inject the remaining 0.5 mL to block the lingual nerve."
+      ],
+      "ultrasound": [
+        "Not routinely used for this block, though intraoral/extraoral US-guided techniques exist in the literature."
+      ],
+      "confirmation": [
+        "Profound numbness of the lower teeth, lower lip, and ipsilateral anterior 2/3 of the tongue (lingual nerve)."
+      ],
+      "troubleshooting": [
+        "If you do not hit bone, you are too far posterior (risk of injecting into the parotid gland and paralyzing the facial nerve). Withdraw and redirect more laterally.",
+        "If you hit bone immediately, you are too far anterior. Withdraw and redirect more medially."
+      ],
+      "complications": [
+        "Transient facial nerve paralysis (if injected into parotid gland)",
+        "Intravascular injection",
+        "Trismus (jaw stiffness) post-injection",
+        "Needle breakage (rare, do not bend the needle)"
+      ],
+      "aftercare": [
+        "Warn the patient not to chew on their numb lip or tongue.",
+        "Prescribe appropriate dental follow-up."
+      ],
+      "documentation": [
+        "Pre/post exam, volume and type of anesthetic, confirmation of bone contact prior to injection."
+      ],
+      "seniorPearls": [
+        "Using long-acting bupivacaine gives the patient 12-24 hours of profound pain relief, allowing them to sleep and find a dentist the next day.",
+        "Always contact bone! If you don't feel the hard stop, do not inject."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "dental block",
+      "mandibular block",
+      "ianb"
+    ]
+  },
+  {
+    "id": "block_superior_alveolar",
+    "title": "Superior Alveolar Nerve Block (Supraperiosteal)",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: The small nerve branches entering the apex of the maxillary tooth roots.",
+        "Unlike the dense mandible, the maxillary bone is porous, allowing anesthetic to diffuse directly through the bone to the tooth root (Supraperiosteal infiltration).",
+        "Provides anesthesia to individual upper teeth."
+      ],
+      "indications": [
+        "Maxillary dental pain (caries, abscess, fracture)",
+        "Procedures on individual upper teeth"
+      ],
+      "contraindications": [
+        "Injection directly into an infected area or abscess",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The roots of the maxillary teeth sit just above the mucobuccal fold.",
+        "The porous maxilla allows fluid injected at the mucobuccal fold to penetrate to the nerve."
+      ],
+      "equipment": [
+        "25G or 27G needle (short, 1 inch is fine)",
+        "Local anesthetic (1-2 mL of 0.5% bupivacaine or lidocaine)",
+        "Topical anesthetic"
+      ],
+      "positioning": [
+        "Patient seated, head resting firmly."
+      ],
+      "steps": [
+        "Identify the specific tooth causing pain.",
+        "Apply topical anesthetic to the mucobuccal fold directly above that tooth.",
+        "Retract the upper lip/cheek.",
+        "Insert the needle at the height of the mucobuccal fold, angled toward the apex (root) of the tooth.",
+        "Advance a few millimeters until the tip is near the bone (do not scrape the periosteum excessively, it hurts).",
+        "Aspirate, then inject 1-2 mL of anesthetic."
+      ],
+      "ultrasound": [
+        "Not used."
+      ],
+      "confirmation": [
+        "Numbness of the specific tooth and surrounding gingiva."
+      ],
+      "troubleshooting": [
+        "If the block fails, the infection may be altering the local pH, rendering the anesthetic less effective. You may need a true regional block (like an infraorbital or posterior superior alveolar block) further away from the infection."
+      ],
+      "complications": [
+        "Intravascular injection (rare)",
+        "Pain at injection site"
+      ],
+      "aftercare": [
+        "Dental follow-up."
+      ],
+      "documentation": [
+        "Specific tooth targeted, volume and type of anesthetic."
+      ],
+      "seniorPearls": [
+        "Because the maxilla is porous, you don't need a complex nerve block for upper teeth. Local infiltration above the tooth root works beautifully 95% of the time."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "maxillary block",
+      "upper dental",
+      "supraperiosteal"
+    ]
+  },
+  {
+    "id": "block_auricular",
+    "title": "Auricular Block",
+    "icon": "lungs",
+    "sections": {
+      "shiftMode": [
+        "Target: A 'ring block' around the base of the ear to hit the greater auricular, lesser occipital, and auriculotemporal nerves.",
+        "Provides complete anesthesia of the auricle (except the external auditory canal and concha)."
+      ],
+      "indications": [
+        "Complex ear lacerations",
+        "Auricular hematoma drainage"
+      ],
+      "contraindications": [
+        "Infection at the injection sites",
+        "Allergy to local anesthetic"
+      ],
+      "anatomy": [
+        "The ear is supplied by multiple nerves coming from different directions.",
+        "A diamond-shaped ring of subcutaneous anesthetic around the base of the ear blocks them all."
+      ],
+      "equipment": [
+        "25G or 27G needle (1.5 inch)",
+        "Local anesthetic (5-10 mL of 1% lidocaine or bupivacaine, WITHOUT epinephrine to avoid cartilage ischemia)"
+      ],
+      "positioning": [
+        "Patient seated or in lateral decubitus with the affected ear up."
+      ],
+      "steps": [
+        "Cleanse the skin around the entire ear.",
+        "1. Insert the needle just inferior to the earlobe. Inject subcutaneously while tracking anteriorly in front of the tragus.",
+        "2. From the same inferior puncture site, track the needle posteriorly behind the earlobe, injecting subcutaneously along the mastoid.",
+        "3. Insert the needle just superior to the ear. Track anteriorly to meet the first track.",
+        "4. From the superior puncture site, track posteriorly to meet the second track.",
+        "You have now created a complete diamond or ring of anesthetic around the base of the ear."
+      ],
+      "ultrasound": [
+        "Not used."
+      ],
+      "confirmation": [
+        "Complete numbness of the auricle (pinna)."
+      ],
+      "troubleshooting": [
+        "If the concha (the bowl of the ear) remains painful, it is because it receives innervation from the vagus/facial nerves deeper inside. A local wheal directly in the concha may be needed."
+      ],
+      "complications": [
+        "Cartilage necrosis (if epinephrine is used, though controversial, best avoided)",
+        "Intravascular injection"
+      ],
+      "aftercare": [
+        "Routine wound care or compression dressing (for hematomas)."
+      ],
+      "documentation": [
+        "Volume and type of anesthetic (note NO epinephrine used)."
+      ],
+      "seniorPearls": [
+        "Use a long needle so you only have to poke the patient twice (once at the bottom, once at the top) to complete the entire ring."
+      ],
+      "references": [
+        "Standard emergency medicine regional anesthesia literature."
+      ]
+    },
+    "reviewTime": "standard",
+    "reviewerStatus": "Needs Clinical Review",
+    "category": "Regional Anesthesia",
+    "difficulty": "Advanced",
+    "setting": [
+      "ED",
+      "Trauma"
+    ],
+    "lastReviewed": "2026-07-14",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "ultrasound",
+      "ear block",
+      "auricular"
     ]
   }
 ]
