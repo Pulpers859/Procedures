@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		01BE97BB2FE0E226000F52A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01BE97BA2FE0E226000F52A9 /* Assets.xcassets */; };
+		0D5B4792BE26E9D237A5C539 /* ShiftModeProcedureContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690048698C3223849F1A273D /* ShiftModeProcedureContent.swift */; };
+		2B6C43D0970D09DC0C2F7911 /* StepByStepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCB41509D936A700A57BA27 /* StepByStepContent.swift */; };
+		2C8345B599B10EC6C30ABE04 /* ComplicationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F4996A814610FED22A5D7 /* ComplicationContent.swift */; };
 		338F8C8BBF1343EB69A78AD0 /* Models/ContentValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8DC468D85E10471B68033F /* Models/ContentValidation.swift */; };
 		34895A7D84534D8CA7CF6D2C /* Data/ProcedureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9DA74992140609FB5FBCB /* Data/ProcedureRepository.swift */; };
 		489861521A8E4EE8B8A92E0F /* Views/Procedures/ProcedureDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44016AEFAE5E48D48C84BAE1 /* Views/Procedures/ProcedureDetailView.swift */; };
 		5A6D4E9C7089450EB8F5B4ED /* Components/ProcedureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD851062FD4CF6B0503C4B /* Components/ProcedureCard.swift */; };
 		69BFFF9DEFEE45C18A32A93F /* ProceduresApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160FBDD0DD9E41C9906384DF /* ProceduresApp.swift */; };
 		761FD7F437374F90B4F87581 /* Models/Procedure.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCEB8DF5BB34D20A3222B6E /* Models/Procedure.swift */; };
+		7D124F2E94F7C9E3165F91ED /* DeepReviewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D64FECBA68F6A050F476F3 /* DeepReviewContent.swift */; };
 		7E570000000000000000000D /* ContentDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000000A /* ContentDecodingTests.swift */; };
 		7E570000000000000000000E /* RescueSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000000B /* RescueSearchTests.swift */; };
 		7E570000000000000000000F /* ValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000000C /* ValidationTests.swift */; };
@@ -26,18 +30,21 @@
 		92AACC753D3533D81A9532F1 /* Views/Review/ReviewCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EEE6E0342FFE24C67FCF75 /* Views/Review/ReviewCenterView.swift */; };
 		958492D1300C4EEC9CE1FAEA /* Views/Saved/SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5529C4505C4F41A4A01806 /* Views/Saved/SavedView.swift */; };
 		A11111111111111111111111 /* Views/Guide/GuideHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222222222222222222222 /* Views/Guide/GuideHomeView.swift */; };
+		A78C4FBAA6A8863C56581F6E /* EquipmentChecklistContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15794525B7A6BE177418651C /* EquipmentChecklistContent.swift */; };
 		AABBCCDD0000000000005E71 /* Views/Settings/SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */; };
 		B1C2D3E4F5A60718293A4B5C /* Resources/rescue_cards.json in Resources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60718293A4B5C /* Resources/rescue_cards.json */; };
+		B258482ABCB439CDD9443F0F /* ProcedureVisualCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ED4C4DA22FDA9AA510E1EE /* ProcedureVisualCard.swift */; };
 		BA427DAF09B3410CAD39E4DD /* Components/ChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD19908C0EF438BABD37112 /* Components/ChecklistRow.swift */; };
+		BC284A56BBA4153FAE73C184 /* DocumentationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D594AF99D4CDAC356148B0C /* DocumentationContent.swift */; };
 		C637CD5B4F7C4AE4ADE9E581 /* Views/Equipment/EquipmentHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E9D92490F346AC94F36B69 /* Views/Equipment/EquipmentHomeView.swift */; };
 		CB2CA167E0F74C4A8EDE9CA4 /* Data/UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB17579B3E40EDB201B37B /* Data/UserDataStore.swift */; };
 		CC94070492474B6EBF6DD38E /* Views/Procedures/ProcedureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA73F6A3DD4C6599CF0094 /* Views/Procedures/ProcedureListView.swift */; };
 		D6B981D555E14D429E0F5A4E /* Resources/procedures.json in Resources */ = {isa = PBXBuildFile; fileRef = 915119767C5F42828C5B518A /* Resources/procedures.json */; };
 		E075E2EF1601425490291385 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9118E397A43DFBAA25820 /* RootTabView.swift */; };
+		EAB54EC9809C53CA9A12E8CD /* VisualGuideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD154108A4CEFFACAD65A0E6 /* VisualGuideContent.swift */; };
 		ECF59648B12840F78DBE7AAD /* Components/EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B819C919EE4D2797D8FBA7 /* Components/EmptyStateView.swift */; };
 		F312BCB2A1354D51B8B76D53 /* Components/SectionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B31E7F747418789D2A966 /* Components/SectionCard.swift */; };
 /* End PBXBuildFile section */
-
 
 /* Begin PBXContainerItemProxy section */
 		7E5700000000000000000007 /* PBXContainerItemProxy */ = {
@@ -52,14 +59,17 @@
 /* Begin PBXFileReference section */
 		01BE97BA2FE0E226000F52A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B9118E397A43DFBAA25820 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		0C4F4996A814610FED22A5D7 /* ComplicationContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComplicationContent.swift; path = Procedures\Views\Procedures\Sections\ComplicationContent.swift; sourceTree = SOURCE_ROOT; };
 		13EEE6E0342FFE24C67FCF75 /* Views/Review/ReviewCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Review/ReviewCenterView.swift; sourceTree = "<group>"; };
 		14AA73F6A3DD4C6599CF0094 /* Views/Procedures/ProcedureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/ProcedureListView.swift; sourceTree = "<group>"; };
+		15794525B7A6BE177418651C /* EquipmentChecklistContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EquipmentChecklistContent.swift; path = Procedures\Views\Procedures\Sections\EquipmentChecklistContent.swift; sourceTree = SOURCE_ROOT; };
 		160FBDD0DD9E41C9906384DF /* ProceduresApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceduresApp.swift; sourceTree = "<group>"; };
 		292B31E7F747418789D2A966 /* Components/SectionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/SectionCard.swift; sourceTree = "<group>"; };
 		32D9DA74992140609FB5FBCB /* Data/ProcedureRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/ProcedureRepository.swift; sourceTree = "<group>"; };
 		4301701BC4A744288E325DE7 /* Components/CriticalWarningCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/CriticalWarningCard.swift; sourceTree = "<group>"; };
 		44016AEFAE5E48D48C84BAE1 /* Views/Procedures/ProcedureDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/ProcedureDetailView.swift; sourceTree = "<group>"; };
 		60B819C919EE4D2797D8FBA7 /* Components/EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/EmptyStateView.swift; sourceTree = "<group>"; };
+		690048698C3223849F1A273D /* ShiftModeProcedureContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShiftModeProcedureContent.swift; path = Procedures\Views\Procedures\Sections\ShiftModeProcedureContent.swift; sourceTree = SOURCE_ROOT; };
 		6CBD851062FD4CF6B0503C4B /* Components/ProcedureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/ProcedureCard.swift; sourceTree = "<group>"; };
 		6DDB17579B3E40EDB201B37B /* Data/UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/UserDataStore.swift; sourceTree = "<group>"; };
 		7E5700000000000000000008 /* ProceduresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProceduresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,19 +77,24 @@
 		7E570000000000000000000B /* RescueSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescueSearchTests.swift; sourceTree = "<group>"; };
 		7E570000000000000000000C /* ValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTests.swift; sourceTree = "<group>"; };
 		7E570000000000000000001B /* Models/ReviewerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ReviewerStatus.swift; sourceTree = "<group>"; };
+		7E580000000000000000001B /* Models/Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Kit.swift; sourceTree = "<group>"; };
+		7E580000000000000000002B /* Resources/kits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/kits.json; sourceTree = "<group>"; };
+		8D594AF99D4CDAC356148B0C /* DocumentationContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DocumentationContent.swift; path = Procedures\Views\Procedures\Sections\DocumentationContent.swift; sourceTree = SOURCE_ROOT; };
 		915119767C5F42828C5B518A /* Resources/procedures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/procedures.json; sourceTree = "<group>"; };
 		A22222222222222222222222 /* Views/Guide/GuideHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Guide/GuideHomeView.swift; sourceTree = "<group>"; };
 		AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
 		AD38FED1DEFEFB62F3922F4C /* Models/ComplicationRescueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ComplicationRescueCard.swift; sourceTree = "<group>"; };
 		B7E9D92490F346AC94F36B69 /* Views/Equipment/EquipmentHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Equipment/EquipmentHomeView.swift; sourceTree = "<group>"; };
 		C1D2E3F4A5B60718293A4B5C /* Resources/rescue_cards.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/rescue_cards.json; sourceTree = "<group>"; };
+		C2ED4C4DA22FDA9AA510E1EE /* ProcedureVisualCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProcedureVisualCard.swift; path = Procedures\Views\Procedures\Sections\ProcedureVisualCard.swift; sourceTree = SOURCE_ROOT; };
+		C3D64FECBA68F6A050F476F3 /* DeepReviewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeepReviewContent.swift; path = Procedures\Views\Procedures\Sections\DeepReviewContent.swift; sourceTree = SOURCE_ROOT; };
 		C6E0BB9EE5B04E889679E603 /* Procedures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Procedures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA5529C4505C4F41A4A01806 /* Views/Saved/SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Saved/SavedView.swift; sourceTree = "<group>"; };
 		CA8DC468D85E10471B68033F /* Models/ContentValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ContentValidation.swift; sourceTree = "<group>"; };
+		CFCB41509D936A700A57BA27 /* StepByStepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepByStepContent.swift; path = Procedures\Views\Procedures\Sections\StepByStepContent.swift; sourceTree = SOURCE_ROOT; };
 		EFCEB8DF5BB34D20A3222B6E /* Models/Procedure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Procedure.swift; sourceTree = "<group>"; };
 		EFF198A70EE348B5AF64D291 /* Views/Complications/ComplicationsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Complications/ComplicationsHomeView.swift; sourceTree = "<group>"; };
-		7E580000000000000000001B /* Models/Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Kit.swift; sourceTree = "<group>"; };
-		7E580000000000000000002B /* Resources/kits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/kits.json; sourceTree = "<group>"; };
+		FD154108A4CEFFACAD65A0E6 /* VisualGuideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VisualGuideContent.swift; path = Procedures\Views\Procedures\Sections\VisualGuideContent.swift; sourceTree = SOURCE_ROOT; };
 		FFD19908C0EF438BABD37112 /* Components/ChecklistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/ChecklistRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +115,14 @@
 				75B0D31EEBCD47FA8577DB0A /* Procedures */,
 				7E5700000000000000000009 /* ProceduresTests */,
 				8937EBE7AE1F4E2A9E52D0F9 /* Products */,
+				0C4F4996A814610FED22A5D7 /* ComplicationContent.swift */,
+				C3D64FECBA68F6A050F476F3 /* DeepReviewContent.swift */,
+				8D594AF99D4CDAC356148B0C /* DocumentationContent.swift */,
+				15794525B7A6BE177418651C /* EquipmentChecklistContent.swift */,
+				C2ED4C4DA22FDA9AA510E1EE /* ProcedureVisualCard.swift */,
+				690048698C3223849F1A273D /* ShiftModeProcedureContent.swift */,
+				CFCB41509D936A700A57BA27 /* StepByStepContent.swift */,
+				FD154108A4CEFFACAD65A0E6 /* VisualGuideContent.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,6 +303,14 @@
 				AABBCCDD0000000000005E71 /* Views/Settings/SettingsView.swift in Sources */,
 				7E570000000000000000001A /* Models/ReviewerStatus.swift in Sources */,
 				7E580000000000000000001A /* Models/Kit.swift in Sources */,
+				2C8345B599B10EC6C30ABE04 /* ComplicationContent.swift in Sources */,
+				7D124F2E94F7C9E3165F91ED /* DeepReviewContent.swift in Sources */,
+				BC284A56BBA4153FAE73C184 /* DocumentationContent.swift in Sources */,
+				A78C4FBAA6A8863C56581F6E /* EquipmentChecklistContent.swift in Sources */,
+				B258482ABCB439CDD9443F0F /* ProcedureVisualCard.swift in Sources */,
+				0D5B4792BE26E9D237A5C539 /* ShiftModeProcedureContent.swift in Sources */,
+				2B6C43D0970D09DC0C2F7911 /* StepByStepContent.swift in Sources */,
+				EAB54EC9809C53CA9A12E8CD /* VisualGuideContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +345,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)\\Procedures\\Views\\Procedures\\Sections";
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pjkane859.ProcedureSTAT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -335,6 +367,7 @@
 				DEVELOPMENT_TEAM = R4L58G49L2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)\\Procedures\\Views\\Procedures\\Sections";
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pjkane859.ProcedureSTATTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,6 +387,7 @@
 				DEVELOPMENT_TEAM = R4L58G49L2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)\\Procedures\\Views\\Procedures\\Sections";
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pjkane859.ProcedureSTATTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -384,6 +418,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)\\Procedures\\Views\\Procedures\\Sections";
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pjkane859.ProcedureSTAT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
