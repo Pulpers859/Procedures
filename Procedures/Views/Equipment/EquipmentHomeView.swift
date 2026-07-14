@@ -6,7 +6,7 @@ struct KitsHomeView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     @State private var searchText = ""
-    @State private var selectedCategory: Kit.KitCategory?
+    @State private var selectedCategory: ProcedureCategory?
 
     private var displayedKits: [Kit] {
         if !searchText.isEmpty {
@@ -18,8 +18,8 @@ struct KitsHomeView: View {
         return repository.kits
     }
 
-    private var populatedCategories: [Kit.KitCategory] {
-        Kit.KitCategory.allCases.filter { !repository.kits(in: $0).isEmpty }
+    private var populatedCategories: [ProcedureCategory] {
+        ProcedureCategory.allCases.filter { !repository.kits(in: $0).isEmpty }
     }
 
     var body: some View {
@@ -425,7 +425,7 @@ struct KitDetailView: View {
 
 // MARK: - Shared helpers (used by both KitsHomeView and KitDetailView)
 
-private func kitIcon(for category: Kit.KitCategory) -> String {
+private func kitIcon(for category: ProcedureCategory) -> String {
     switch category {
     case .airway: return "lungs.fill"
     case .vascularAccess: return "drop.fill"
@@ -440,7 +440,7 @@ private func kitIcon(for category: Kit.KitCategory) -> String {
     }
 }
 
-private func kitTint(for category: Kit.KitCategory) -> Color {
+private func kitTint(for category: ProcedureCategory) -> Color {
     switch category {
     case .airway: return .cyan
     case .vascularAccess: return .blue

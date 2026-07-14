@@ -211,7 +211,7 @@ final class ProcedureRepository: ObservableObject {
         kits.first { $0.id == id }
     }
 
-    func kits(in category: Kit.KitCategory) -> [Kit] {
+    func kits(in category: ProcedureCategory) -> [Kit] {
         kits.filter { $0.category == category }
     }
 
