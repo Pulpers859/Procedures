@@ -26,21 +26,19 @@ iteration:
    factual constraints only: patient orientation, approach geometry, needle
    direction, target anatomy, and danger anatomy. Do not copy, trace, or
    closely restyle a single reference image.
-2. Ask Gemini web for an original anatomy-only base when labels or procedural
-   paths have been unreliable. The base should contain no text, labels, dots,
-   arrows, or path lines if those will be overlaid deterministically.
-3. Add exact labels, leader lines, entry dots, target dots, arrows, and needle
-   paths locally in a deterministic overlay.
+2. Ask Gemini web for an original full-scene procedural plate when the actual
+   instrument must look integrated with the anatomy. Keep the prompt simple,
+   reference-first, and focused on one approach.
+3. Use deterministic overlays for labels, leader lines, simple arrows, and
+   small target dots only. Avoid drawing the real syringe/needle locally unless
+   the output is explicitly a schematic overlay, because it will usually look
+   pasted-on compared with a generated medical plate.
 4. Audit the composite image against `CLINICAL_IMAGE_RUBRIC.md`. A rubric PASS
    makes the image eligible for Patrick's clinical review only.
 
 This overlay lane is preferred when Gemini repeatedly misspells labels, clips
-text, adds extra labels, or draws unsafe/random procedure geometry.
-It is mandatory after repeated geometry failures on the same asset. For example,
-`pericardiocentesis_needle_path` should move to anatomy-only Gemini generation
-plus a deterministic syringe/needle overlay if Gemini flips the substernal
-needle direction or clears the direction only by routing the path through the
-liver.
+text, or adds extra labels. If Gemini draws unsafe/random procedure geometry,
+restart with a simpler reference-first prompt before moving to overlays.
 
 ## Setup
 

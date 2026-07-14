@@ -116,14 +116,13 @@ owns exact spelling, count, clipping, and leader-line endpoints.
 grounding, but repeatedly added extra labels, clipped required labels, or moved
 leaders ambiguously. Text is not where the image model should be trusted.
 
-If the model also misplaces the procedure trajectory, remove the trajectory
-from the generation prompt too. Generate anatomy-only, then add entry dots,
-needle paths, arrows, target dots, and labels in the deterministic overlay.
-For procedures where a few pixels change the clinical meaning, the instrument
-itself may need to be an overlay too. If Gemini repeatedly flips a needle
-trajectory or routes it through danger anatomy, stop asking Gemini to draw the
-needle. Use Gemini for the anatomy plate and add the syringe/needle locally
-with fixed coordinates.
+If the model also misplaces the procedure trajectory, first simplify and
+reference-ground the full-scene prompt so the instrument is rendered as part of
+the same illustration. Do not jump straight to a local instrument overlay.
+Manual or deterministic overlays are appropriate for labels, leader lines,
+simple arrows, or small target dots. They are usually a poor fit for the actual
+procedure instrument because a separately drawn syringe/needle looks pasted on,
+breaks the visual style, and can make a clinically correct path feel wrong.
 
 ### 8. No unexplained devices or phantom anatomy
 Only draw tools, wires, catheters, sheaths, tubes, drains, needles, probes, and
@@ -132,6 +131,18 @@ target organ is a failure because it changes the procedure story. If the asset
 is about a needle path, draw one visually thin needle shaft with a clear tip;
 do not replace it with a thick tube, catheter, or guidewire unless that is the
 explicit teaching point.
+
+For instrument-path assets, the tool itself must carry the teaching geometry.
+Do not accept a render where the syringe points one direction but a separate
+arrow, pointer, guide line, or second shaft shows the intended direction. That
+is a clinical failure, not a cosmetic simplification, because the learner cannot
+tell which line is the real instrument.
+
+If the model repeatedly turns an internal needle path into a duplicate shaft,
+ghost tip, wire, or unsafe line over an organ, split the concept: main panel
+shows the external instrument angle up to the entry site, and the inset shows
+the internal endpoint. Do not force the main panel to show an internal line just
+because the procedure path exists in three dimensions.
 
 ### 9. Aspect ratio is a requirement, not a preference
 Generate a true 4:3 composition unless a spec explicitly says otherwise. Do not
@@ -215,12 +226,19 @@ Specifics that have burned us; keep them true in every regeneration.
   tip must terminate visibly inside the blue pericardial fluid pocket in the
   inset, not on epicardium or myocardium. Do not add in-image labels, approach
   letters, direction labels, path labels, organ labels, or basic-anatomy labels.
+  The syringe barrel, hub, and needle must be one continuous physical instrument;
+  do not accept a separate arrow/trajectory line as a substitute for the needle.
+  If full internal main-torso path rendering creates a double needle, a ghost
+  tip, or a line over the heart, use the external-entry-plus-inset design: the
+  main torso shows the external syringe/needle up to the skin entry only, and
+  the inset shows the needle tip in the fluid pocket.
   If Gemini draws the main needle as lower-right to upper-left, or if a corrected
-  bottom-left to upper-right needle crosses the liver, do not keep iterating on
-  that full-scene prompt. Generate an unlabeled anatomy/background plate without
-  any syringe/needle and add the subxiphoid syringe/needle as a deterministic
-  overlay so the hub, entry, direction, liver clearance, and target endpoint are
-  controlled.
+  bottom-left to upper-right needle crosses the liver, restart with a simpler
+  reference-first prompt before trying local overlays. The syringe/needle should
+  normally be generated as part of the illustration so it matches the plate's
+  style and reads like a real procedure, not a post-hoc vector line.
+  If a render lane repeats the same critical direction error after focused
+  repair, mark the lane blocked instead of promoting a "closest so far" image.
   The path's shallowness and target should be visible through the instrument
   angle, inset, and anatomy.
 - **pericardiocentesis_approach** — This is the ultrasound target-confirmation
