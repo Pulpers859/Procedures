@@ -63,17 +63,23 @@ struct RootTabView: View {
             }
         }
         .onAppear {
-            if !repository.procedures.isEmpty {
+            let hasProcedures = !repository.procedures.isEmpty
+            let hasRescueCards = !repository.rescueCards.isEmpty
+            let hasKits = !repository.kits.isEmpty
+
+            if hasProcedures {
                 userData.pruneMissingProcedureData(validProcedureIDs: Set(repository.procedures.map(\.id)))
             }
-            if !repository.kits.isEmpty {
+            if hasKits {
                 userData.pruneMissingKitData(validKitIDs: Set(repository.kits.map(\.id)))
             }
-            userData.pruneMissingReviewData(
-                validProcedureIDs: Set(repository.procedures.map(\.id)),
-                validRescueCardIDs: Set(repository.rescueCards.map(\.id)),
-                validKitIDs: Set(repository.kits.map(\.id))
-            )
+            if hasProcedures || hasRescueCards || hasKits {
+                userData.pruneMissingReviewData(
+                    validProcedureIDs: Set(repository.procedures.map(\.id)),
+                    validRescueCardIDs: Set(repository.rescueCards.map(\.id)),
+                    validKitIDs: Set(repository.kits.map(\.id))
+                )
+            }
         }
     }
 }

@@ -93,10 +93,17 @@ enum ContentValidator {
 
         let required: [(String, [String], Int, ContentValidationIssue.Severity)] = [
             ("Shift Mode", procedure.sections.shiftMode, 6, .blocker),
+            ("Indications", procedure.sections.indications, 1, .blocker),
+            ("Contraindications", procedure.sections.contraindications, 1, .warning),
+            ("Anatomy", procedure.sections.anatomy, 1, .warning),
             ("Equipment", procedure.sections.equipment, 5, .blocker),
+            ("Positioning", procedure.sections.positioning, 1, .warning),
             ("Steps", procedure.sections.steps, 5, .blocker),
+            ("Ultrasound", procedure.sections.ultrasound, 0, .polish),
+            ("Confirmation", procedure.sections.confirmation, 1, .warning),
             ("Complications", procedure.sections.complications, 4, .blocker),
             ("Troubleshooting", procedure.sections.troubleshooting, 3, .warning),
+            ("Aftercare", procedure.sections.aftercare, 1, .warning),
             ("Documentation", procedure.sections.documentation, 4, .warning),
             ("Senior Pearls", procedure.sections.seniorPearls, 2, .polish),
             ("References", procedure.sections.references, 1, .blocker)

@@ -15,7 +15,8 @@ struct ReviewCenterView: View {
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     var body: some View {
-        List {
+        NavigationStack {
+            List {
             heroSection
 
             Section {
@@ -36,11 +37,9 @@ struct ReviewCenterView: View {
             case .track:
                 trackContent
             }
-        }
-        .listStyle(.insetGrouped)
-        .navigationTitle("Review Center")
-        .onAppear {
-            reviewModeEnabled = true
+            }
+            .listStyle(.insetGrouped)
+            .navigationTitle("Review Center")
         }
     }
 

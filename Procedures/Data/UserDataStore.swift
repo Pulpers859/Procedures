@@ -349,28 +349,40 @@ final class UserDataStore: ObservableObject {
     }
 
     private func saveNotes() {
-        if let data = try? JSONEncoder().encode(notes) {
+        do {
+            let data = try JSONEncoder().encode(notes)
             UserDefaults.standard.set(data, forKey: UserDataStoreKey.notes)
+        } catch {
+            print("Failed to encode notes: \(error)")
         }
     }
 
     private func saveCheckedEquipment() {
         let encoded = checkedEquipment.mapValues { Array($0).sorted() }
-        if let data = try? JSONEncoder().encode(encoded) {
+        do {
+            let data = try JSONEncoder().encode(encoded)
             UserDefaults.standard.set(data, forKey: UserDataStoreKey.checkedEquipment)
+        } catch {
+            print("Failed to encode checkedEquipment: \(error)")
         }
     }
 
     private func saveKitCheckedItems() {
         let encoded = kitCheckedItems.mapValues { Array($0).sorted() }
-        if let data = try? JSONEncoder().encode(encoded) {
+        do {
+            let data = try JSONEncoder().encode(encoded)
             UserDefaults.standard.set(data, forKey: UserDataStoreKey.kitCheckedItems)
+        } catch {
+            print("Failed to encode kitCheckedItems: \(error)")
         }
     }
 
     private func saveLocallyReviewedContent() {
-        if let data = try? JSONEncoder().encode(locallyReviewedContent) {
+        do {
+            let data = try JSONEncoder().encode(locallyReviewedContent)
             UserDefaults.standard.set(data, forKey: UserDataStoreKey.locallyReviewedContent)
+        } catch {
+            print("Failed to encode locallyReviewedContent: \(error)")
         }
     }
 
@@ -388,12 +400,16 @@ final class UserDataStore: ObservableObject {
         "\(kind):\(id)"
     }
 
-    private static func todayString(now: Date = Date()) -> String {
+    private static let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .iso8601)
         formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone.current
+        formatter.timeZone = TimeZone(identifier: "UTC")
         formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+
+    private static func todayString(now: Date = Date()) -> String {
         return formatter.string(from: now)
     }
 }

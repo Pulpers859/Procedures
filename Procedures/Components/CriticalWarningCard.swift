@@ -11,6 +11,7 @@ struct CriticalWarningCard: View {
                     .foregroundStyle(.orange)
                 Text(title)
                     .font(.headline)
+                    .accessibilityAddTraits(.isHeader)
                 Spacer()
             }
             BulletListView(items: items)

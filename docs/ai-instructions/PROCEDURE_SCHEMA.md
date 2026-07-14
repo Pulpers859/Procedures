@@ -10,10 +10,11 @@ Each procedure should follow this structure:
   "title": "string",
   "category": "Airway | Vascular Access | Thoracic | Cardiac / Resuscitation | Neuro | Regional Anesthesia | Wound / Soft Tissue | Ultrasound-Guided | Other",
   "difficulty": "Basic | Intermediate | Advanced | Rare-Crash",
-  "reviewTime": "60 sec | 2 min | 5 min | Deep",
+  "reviewTime": "60 sec | 2 min | 3 min | 4 min | 5 min | Deep",
   "setting": ["ED", "ICU", "Trauma", "Peds"],
   "lastReviewed": "YYYY-MM-DD",
   "version": "0.1.0",
+  "reviewerStatus": "Draft | Needs Clinical Review | Internally Reviewed | Externally Reviewed | Institution-Specific",
   "tags": ["search", "synonyms"],
   "sections": {
     "shiftMode": [],
@@ -102,3 +103,30 @@ Required fields:
 ```
 
 Rescue cards must remain problem-first. They are not procedure complications paragraphs. They should answer: what is happening, what should I do now, what should I reassess, and what mistake should I avoid?
+
+## Kit Schema
+
+Kits live in `Procedures/Resources/kits.json`.
+
+Required fields:
+
+```json
+{
+  "id": "central_line_kit",
+  "title": "Central Line Kit",
+  "subtitle": "Standard triple-lumen CVC tray",
+  "category": "Vascular Access",
+  "relatedProcedureIDs": ["internal_jugular_cvc", "subclavian_cvc", "femoral_cvc"],
+  "tags": ["cvc", "central line", "triple lumen"],
+  "lastReviewed": "YYYY-MM-DD",
+  "version": "0.1.0",
+  "reviewerStatus": "Draft | Needs Clinical Review | Internally Reviewed | Externally Reviewed | Institution-Specific",
+  "inKit": ["ChloraPrep", "Lidocaine 1%", "Guidewire", "Dilator", "Catheter"],
+  "outsideKit": ["Sterile gown", "Sterile gloves", "Ultrasound probe cover", "Saline flushes"],
+  "commonlyForgotten": ["Biopatch", "Extra chlorhexidine"],
+  "patientSetup": ["Supine", "Trendelenburg if tolerated"],
+  "sterileSetup": ["Full sterile drape", "Prep widely"],
+  "backupEquipment": ["Arterial line kit (for rescue)"],
+  "references": []
+}
+```

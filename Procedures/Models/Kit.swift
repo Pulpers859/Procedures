@@ -1,25 +1,11 @@
 import Foundation
 
 struct Kit: Identifiable, Codable, Hashable {
-    enum KitCategory: String, Codable, Hashable, CaseIterable, Identifiable {
-        case airway = "Airway"
-        case vascularAccess = "Vascular Access"
-        case thoracic = "Thoracic"
-        case cardiacResuscitation = "Cardiac / Resuscitation"
-        case neuro = "Neuro"
-        case regionalAnesthesia = "Regional Anesthesia"
-        case woundSoftTissue = "Wound / Soft Tissue"
-        case sedationAnalgesia = "Sedation & Analgesia"
-        case ultrasoundGuided = "Ultrasound-Guided"
-        case other = "Other"
-
-        var id: String { rawValue }
-    }
 
     let id: String
     let title: String
     let subtitle: String
-    let category: KitCategory
+    let category: ProcedureCategory
     let relatedProcedureIDs: [String]
     let tags: [String]
     let lastReviewed: String
