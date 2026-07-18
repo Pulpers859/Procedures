@@ -38,7 +38,6 @@
 		F312BCB2A1354D51B8B76D53 /* Components/SectionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B31E7F747418789D2A966 /* Components/SectionCard.swift */; };
 /* End PBXBuildFile section */
 
-
 /* Begin PBXContainerItemProxy section */
 		7E5700000000000000000007 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -67,6 +66,8 @@
 		7E570000000000000000000B /* RescueSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescueSearchTests.swift; sourceTree = "<group>"; };
 		7E570000000000000000000C /* ValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTests.swift; sourceTree = "<group>"; };
 		7E570000000000000000001B /* Models/ReviewerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ReviewerStatus.swift; sourceTree = "<group>"; };
+		7E580000000000000000001B /* Models/Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Kit.swift; sourceTree = "<group>"; };
+		7E580000000000000000002B /* Resources/kits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/kits.json; sourceTree = "<group>"; };
 		915119767C5F42828C5B518A /* Resources/procedures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/procedures.json; sourceTree = "<group>"; };
 		A22222222222222222222222 /* Views/Guide/GuideHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Guide/GuideHomeView.swift; sourceTree = "<group>"; };
 		AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
@@ -78,8 +79,6 @@
 		CA8DC468D85E10471B68033F /* Models/ContentValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ContentValidation.swift; sourceTree = "<group>"; };
 		EFCEB8DF5BB34D20A3222B6E /* Models/Procedure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Procedure.swift; sourceTree = "<group>"; };
 		EFF198A70EE348B5AF64D291 /* Views/Complications/ComplicationsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Complications/ComplicationsHomeView.swift; sourceTree = "<group>"; };
-		7E580000000000000000001B /* Models/Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Kit.swift; sourceTree = "<group>"; };
-		7E580000000000000000002B /* Resources/kits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/kits.json; sourceTree = "<group>"; };
 		FFD19908C0EF438BABD37112 /* Components/ChecklistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/ChecklistRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -385,7 +384,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pjkane859.ProcedureSTAT;
+				PRODUCT_BUNDLE_IDENTIFIER = "Patrick-App.ProceduresSTAT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
