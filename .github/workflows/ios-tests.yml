@@ -21,10 +21,10 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 35
     env:
-      RESULT_BUNDLE: ${{ runner.temp }}/ProceduresTests.xcresult
-      XCODE_LOG: ${{ runner.temp }}/xcodebuild-test.log
-      RELEASE_LOG: ${{ runner.temp }}/xcodebuild-release.log
-      DERIVED_DATA: ${{ runner.temp }}/ProceduresDerivedData
+      RESULT_BUNDLE: ProceduresTests.xcresult
+      XCODE_LOG: xcodebuild-test.log
+      RELEASE_LOG: xcodebuild-release.log
+      DERIVED_DATA: ProceduresDerivedData
 
     steps:
       - name: Checkout repository
@@ -38,7 +38,7 @@ jobs:
           xcodebuild -version
           xcode-select -p
           xcrun simctl list runtimes
-          xcrun simctl list devices available -j > "$RUNNER_TEMP/simulator-inventory.json"
+          xcrun simctl list devices available -j > simulator-inventory.json
 
       - name: Select an available iPhone simulator
         id: simulator
@@ -92,10 +92,10 @@ jobs:
           set -euo pipefail
           xcrun xcresulttool get test-results summary \
             --path "$RESULT_BUNDLE" \
-            --format json > "$RUNNER_TEMP/test-summary.json"
+            --format json > test-summary.json
           expected="$(python3 scripts/verify_xcode_project.py --test-count-only)"
           python3 scripts/verify_xcresult_summary.py \
-            "$RUNNER_TEMP/test-summary.json" \
+            test-summary.json \
             --expected "$expected"
 
       - name: Verify Release configuration builds
@@ -121,8 +121,8 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
           path: |
-            ${{ runner.temp }}/ProceduresTests.xcresult
-            ${{ runner.temp }}/test-summary.json
-            ${{ runner.temp }}/simulator-inventory.json
-            ${{ runner.temp }}/xcodebuild-test.log
-            ${{ runner.temp }}/xcodebuild-release.log
+            ProceduresTests.xcresult
+            test-summary.json
+            simulator-inventory.json
+            xcodebuild-test.log
+            xcodebuild-release.log
