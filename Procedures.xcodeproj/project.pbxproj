@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		01BE97BB2FE0E226000F52A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01BE97BA2FE0E226000F52A9 /* Assets.xcassets */; };
+		A90000000000000000000001 /* ShiftModeProcedureContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000011 /* ShiftModeProcedureContent.swift */; };
+		A90000000000000000000002 /* StepByStepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000012 /* StepByStepContent.swift */; };
+		A90000000000000000000003 /* EquipmentChecklistContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000013 /* EquipmentChecklistContent.swift */; };
+		A90000000000000000000004 /* DocumentationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000014 /* DocumentationContent.swift */; };
+		A90000000000000000000005 /* DeepReviewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000015 /* DeepReviewContent.swift */; };
+		A90000000000000000000006 /* ComplicationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000016 /* ComplicationContent.swift */; };
+		A90000000000000000000007 /* VisualGuideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000017 /* VisualGuideContent.swift */; };
+		A90000000000000000000008 /* ProcedureVisualCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000018 /* ProcedureVisualCard.swift */; };
+		A90000000000000000000009 /* PersistenceSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000019 /* PersistenceSafetyTests.swift */; };
 		338F8C8BBF1343EB69A78AD0 /* Models/ContentValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8DC468D85E10471B68033F /* Models/ContentValidation.swift */; };
 		34895A7D84534D8CA7CF6D2C /* Data/ProcedureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9DA74992140609FB5FBCB /* Data/ProcedureRepository.swift */; };
 		489861521A8E4EE8B8A92E0F /* Views/Procedures/ProcedureDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44016AEFAE5E48D48C84BAE1 /* Views/Procedures/ProcedureDetailView.swift */; };
@@ -51,6 +60,15 @@
 
 /* Begin PBXFileReference section */
 		01BE97BA2FE0E226000F52A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A90000000000000000000011 /* ShiftModeProcedureContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/ShiftModeProcedureContent.swift; sourceTree = "<group>"; };
+		A90000000000000000000012 /* StepByStepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/StepByStepContent.swift; sourceTree = "<group>"; };
+		A90000000000000000000013 /* EquipmentChecklistContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/EquipmentChecklistContent.swift; sourceTree = "<group>"; };
+		A90000000000000000000014 /* DocumentationContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/DocumentationContent.swift; sourceTree = "<group>"; };
+		A90000000000000000000015 /* DeepReviewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/DeepReviewContent.swift; sourceTree = "<group>"; };
+		A90000000000000000000016 /* ComplicationContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/ComplicationContent.swift; sourceTree = "<group>"; };
+		A90000000000000000000017 /* VisualGuideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/VisualGuideContent.swift; sourceTree = "<group>"; };
+		A90000000000000000000018 /* ProcedureVisualCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/ProcedureVisualCard.swift; sourceTree = "<group>"; };
+		A90000000000000000000019 /* PersistenceSafetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceSafetyTests.swift; sourceTree = "<group>"; };
 		05B9118E397A43DFBAA25820 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		13EEE6E0342FFE24C67FCF75 /* Views/Review/ReviewCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Review/ReviewCenterView.swift; sourceTree = "<group>"; };
 		14AA73F6A3DD4C6599CF0094 /* Views/Procedures/ProcedureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/ProcedureListView.swift; sourceTree = "<group>"; };
@@ -108,6 +126,14 @@
 			children = (
 				160FBDD0DD9E41C9906384DF /* ProceduresApp.swift */,
 				05B9118E397A43DFBAA25820 /* RootTabView.swift */,
+				A90000000000000000000011 /* ShiftModeProcedureContent.swift */,
+				A90000000000000000000012 /* StepByStepContent.swift */,
+				A90000000000000000000013 /* EquipmentChecklistContent.swift */,
+				A90000000000000000000014 /* DocumentationContent.swift */,
+				A90000000000000000000015 /* DeepReviewContent.swift */,
+				A90000000000000000000016 /* ComplicationContent.swift */,
+				A90000000000000000000017 /* VisualGuideContent.swift */,
+				A90000000000000000000018 /* ProcedureVisualCard.swift */,
 				EFCEB8DF5BB34D20A3222B6E /* Models/Procedure.swift */,
 				32D9DA74992140609FB5FBCB /* Data/ProcedureRepository.swift */,
 				6DDB17579B3E40EDB201B37B /* Data/UserDataStore.swift */,
@@ -142,6 +168,7 @@
 				7E570000000000000000000A /* ContentDecodingTests.swift */,
 				7E570000000000000000000B /* RescueSearchTests.swift */,
 				7E570000000000000000000C /* ValidationTests.swift */,
+				A90000000000000000000019 /* PersistenceSafetyTests.swift */,
 			);
 			path = ProceduresTests;
 			sourceTree = "<group>";
@@ -251,6 +278,7 @@
 				7E570000000000000000000D /* ContentDecodingTests.swift in Sources */,
 				7E570000000000000000000E /* RescueSearchTests.swift in Sources */,
 				7E570000000000000000000F /* ValidationTests.swift in Sources */,
+				A90000000000000000000009 /* PersistenceSafetyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +288,14 @@
 			files = (
 				69BFFF9DEFEE45C18A32A93F /* ProceduresApp.swift in Sources */,
 				E075E2EF1601425490291385 /* RootTabView.swift in Sources */,
+				A90000000000000000000001 /* ShiftModeProcedureContent.swift in Sources */,
+				A90000000000000000000002 /* StepByStepContent.swift in Sources */,
+				A90000000000000000000003 /* EquipmentChecklistContent.swift in Sources */,
+				A90000000000000000000004 /* DocumentationContent.swift in Sources */,
+				A90000000000000000000005 /* DeepReviewContent.swift in Sources */,
+				A90000000000000000000006 /* ComplicationContent.swift in Sources */,
+				A90000000000000000000007 /* VisualGuideContent.swift in Sources */,
+				A90000000000000000000008 /* ProcedureVisualCard.swift in Sources */,
 				761FD7F437374F90B4F87581 /* Models/Procedure.swift in Sources */,
 				34895A7D84534D8CA7CF6D2C /* Data/ProcedureRepository.swift in Sources */,
 				CB2CA167E0F74C4A8EDE9CA4 /* Data/UserDataStore.swift in Sources */,

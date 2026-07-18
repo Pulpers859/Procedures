@@ -22,6 +22,14 @@ Every procedure should include:
 - Troubleshooting
 - Documentation considerations
 
+Every procedure, rescue card, and kit must include `reviewerStatus`. Draft and
+Needs Clinical Review content may exist in authoring builds but cannot pass the
+strict release gate. A reviewed status records workflow state only; qualified
+clinical sign-off for the exact content version remains required.
+
+Declared visual assets must be bundled and clinically approved before release.
+Placeholders are allowed during authoring but are stop-ship conditions.
+
 ## Review interval suggestion
 
 - High-risk procedures: every 6 months

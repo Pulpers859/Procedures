@@ -98,6 +98,7 @@ Required fields:
   "tags": [],
   "lastReviewed": "YYYY-MM-DD",
   "version": "0.1.0",
+  "reviewerStatus": "Draft | Needs Clinical Review | Internally Reviewed | Externally Reviewed | Institution-Specific",
   "references": []
 }
 ```

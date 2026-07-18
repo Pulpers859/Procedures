@@ -1,14 +1,21 @@
-name: Validate content
+name: Release Readiness
 
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
 
 jobs:
-  validate:
-    name: Clinical content validation
+  ios-evidence:
+    name: Reuse iOS Build and XCTest Gate
+    uses: ./.github/workflows/ios-tests.yml
+
+  clinical-release-gate:
+    name: Strict Clinical Release Gate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
@@ -23,8 +30,8 @@ jobs:
       - name: Run validator negative-control tests
         run: python3 -m unittest discover -s scripts/tests -p "test_*.py"
 
-      # Fails the build on any content blocker (missing sections, duplicate IDs,
-      # invalid relationships, etc). Release-only clinical approval gates run in
-      # the separate release-readiness workflow.
-      - name: Run content validator
-        run: python3 scripts/validate_procedures.py
+      - name: Verify Xcode project source membership
+        run: python3 scripts/verify_xcode_project.py
+
+      - name: Enforce strict clinical release policy
+        run: python3 scripts/validate_procedures.py --release

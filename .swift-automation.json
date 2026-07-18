@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "appName": "Procedures",
+  "projectType": "xcode",
+  "platform": "ios",
+  "defaultBranch": "main",
+  "workflowMode": "existing",
+  "physicalDeviceRequired": true,
+  "existingWorkflowPaths": [
+    ".github/workflows/ios-tests.yml",
+    ".github/workflows/validate-content.yml",
+    ".github/workflows/release-readiness.yml"
+  ],
+  "swiftPackage": {
+    "enabled": false,
+    "workingDirectory": ".",
+    "testCommand": "",
+    "requireExecutedTests": false,
+    "requiredLogPatterns": [],
+    "timeoutMinutes": 15
+  },
+  "xcode": {
+    "enabled": true,
+    "workingDirectory": ".",
+    "containerType": "project",
+    "containerPath": "Procedures.xcodeproj",
+    "selectorType": "scheme",
+    "selector": "Procedures",
+    "configuration": "Debug",
+    "sdk": "iphonesimulator",
+    "destination": "platform=iOS Simulator,id=$SIMULATOR_UDID",
+    "action": "test",
+    "timeoutMinutes": 35
+  },
+  "liveAI": {
+    "enabled": false,
+    "providerSecretName": "",
+    "secretEnvironmentName": "",
+    "confirmationPhrase": "",
+    "workingDirectory": ".",
+    "deterministicCommand": "python scripts/validate_procedures.py",
+    "surfaces": []
+  }
+}

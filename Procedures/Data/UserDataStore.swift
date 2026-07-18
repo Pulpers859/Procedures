@@ -37,6 +37,7 @@ struct LocalReviewRecord: Codable, Hashable {
 
 @MainActor
 final class UserDataStore: ObservableObject {
+    private let defaults: UserDefaults
     @Published private(set) var favoriteIDs: Set<String> = []
     @Published private(set) var recentIDs: [String] = []
     @Published private(set) var notes: [String: String] = [:]
@@ -44,7 +45,8 @@ final class UserDataStore: ObservableObject {
     @Published private(set) var kitCheckedItems: [String: Set<String>] = [:]
     @Published private(set) var locallyReviewedContent: [String: LocalReviewRecord] = [:]
 
-    init() {
+    init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
         load()
     }
 
@@ -243,17 +245,42 @@ final class UserDataStore: ObservableObject {
         }
     }
 
-    func pruneMissingReviewData(validProcedureIDs: Set<String>, validRescueCardIDs: Set<String>, validKitIDs: Set<String>) {
+    func reconcileLoadedContent(
+        validProcedureIDs: Set<String>?,
+        validRescueCardIDs: Set<String>?,
+        validKitIDs: Set<String>?
+    ) {
+        if let validProcedureIDs {
+            pruneMissingProcedureData(validProcedureIDs: validProcedureIDs)
+        }
+        if let validKitIDs {
+            pruneMissingKitData(validKitIDs: validKitIDs)
+        }
+        pruneMissingReviewData(
+            validProcedureIDs: validProcedureIDs,
+            validRescueCardIDs: validRescueCardIDs,
+            validKitIDs: validKitIDs
+        )
+    }
+
+    func pruneMissingReviewData(
+        validProcedureIDs: Set<String>?,
+        validRescueCardIDs: Set<String>?,
+        validKitIDs: Set<String>?
+    ) {
+        guard validProcedureIDs != nil || validRescueCardIDs != nil || validKitIDs != nil else {
+            return
+        }
         let originalKeys = Set(locallyReviewedContent.keys)
         locallyReviewedContent = locallyReviewedContent.filter { key, _ in
             let parts = key.split(separator: ":", maxSplits: 1).map(String.init)
             guard parts.count == 2 else { return false }
 
             switch parts[0] {
-            case "procedure": return validProcedureIDs.contains(parts[1])
-            case "rescue": return validRescueCardIDs.contains(parts[1])
-            case "kit": return validKitIDs.contains(parts[1])
-            default: return false
+            case "procedure": return validProcedureIDs?.contains(parts[1]) ?? true
+            case "rescue": return validRescueCardIDs?.contains(parts[1]) ?? true
+            case "kit": return validKitIDs?.contains(parts[1]) ?? true
+            default: return true
             }
         }
         if Set(locallyReviewedContent.keys) != originalKeys {
@@ -289,8 +316,6 @@ final class UserDataStore: ObservableObject {
     }
 
     private func load() {
-        let defaults = UserDefaults.standard
-
         if let favoriteArray = defaults.array(forKey: UserDataStoreKey.favorites) as? [String] {
             favoriteIDs = Set(favoriteArray)
         } else if let favoriteArray = defaults.array(forKey: UserDataStoreKey.legacyFavorites) as? [String] {
@@ -341,17 +366,17 @@ final class UserDataStore: ObservableObject {
     }
 
     private func saveFavorites() {
-        UserDefaults.standard.set(Array(favoriteIDs).sorted(), forKey: UserDataStoreKey.favorites)
+        defaults.set(Array(favoriteIDs).sorted(), forKey: UserDataStoreKey.favorites)
     }
 
     private func saveRecents() {
-        UserDefaults.standard.set(recentIDs, forKey: UserDataStoreKey.recents)
+        defaults.set(recentIDs, forKey: UserDataStoreKey.recents)
     }
 
     private func saveNotes() {
         do {
             let data = try JSONEncoder().encode(notes)
-            UserDefaults.standard.set(data, forKey: UserDataStoreKey.notes)
+            defaults.set(data, forKey: UserDataStoreKey.notes)
         } catch {
             print("Failed to encode notes: \(error)")
         }
@@ -361,7 +386,7 @@ final class UserDataStore: ObservableObject {
         let encoded = checkedEquipment.mapValues { Array($0).sorted() }
         do {
             let data = try JSONEncoder().encode(encoded)
-            UserDefaults.standard.set(data, forKey: UserDataStoreKey.checkedEquipment)
+            defaults.set(data, forKey: UserDataStoreKey.checkedEquipment)
         } catch {
             print("Failed to encode checkedEquipment: \(error)")
         }
@@ -371,7 +396,7 @@ final class UserDataStore: ObservableObject {
         let encoded = kitCheckedItems.mapValues { Array($0).sorted() }
         do {
             let data = try JSONEncoder().encode(encoded)
-            UserDefaults.standard.set(data, forKey: UserDataStoreKey.kitCheckedItems)
+            defaults.set(data, forKey: UserDataStoreKey.kitCheckedItems)
         } catch {
             print("Failed to encode kitCheckedItems: \(error)")
         }
@@ -380,7 +405,7 @@ final class UserDataStore: ObservableObject {
     private func saveLocallyReviewedContent() {
         do {
             let data = try JSONEncoder().encode(locallyReviewedContent)
-            UserDefaults.standard.set(data, forKey: UserDataStoreKey.locallyReviewedContent)
+            defaults.set(data, forKey: UserDataStoreKey.locallyReviewedContent)
         } catch {
             print("Failed to encode locallyReviewedContent: \(error)")
         }
