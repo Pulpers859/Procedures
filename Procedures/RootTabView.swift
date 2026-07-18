@@ -63,23 +63,27 @@ struct RootTabView: View {
             }
         }
         .onAppear {
-            let hasProcedures = !repository.procedures.isEmpty
-            let hasRescueCards = !repository.rescueCards.isEmpty
-            let hasKits = !repository.kits.isEmpty
+            let procedureIDs = ContentLoadAuthority.authoritativeIDs(
+                Set(repository.procedures.map(\.id)),
+                loadError: repository.loadError,
+                loadWarning: repository.loadWarning
+            )
+            let rescueCardIDs = ContentLoadAuthority.authoritativeIDs(
+                Set(repository.rescueCards.map(\.id)),
+                loadError: repository.rescueLoadError,
+                loadWarning: repository.rescueLoadWarning
+            )
+            let kitIDs = ContentLoadAuthority.authoritativeIDs(
+                Set(repository.kits.map(\.id)),
+                loadError: repository.kitLoadError,
+                loadWarning: repository.kitLoadWarning
+            )
 
-            if hasProcedures {
-                userData.pruneMissingProcedureData(validProcedureIDs: Set(repository.procedures.map(\.id)))
-            }
-            if hasKits {
-                userData.pruneMissingKitData(validKitIDs: Set(repository.kits.map(\.id)))
-            }
-            if hasProcedures || hasRescueCards || hasKits {
-                userData.pruneMissingReviewData(
-                    validProcedureIDs: Set(repository.procedures.map(\.id)),
-                    validRescueCardIDs: Set(repository.rescueCards.map(\.id)),
-                    validKitIDs: Set(repository.kits.map(\.id))
-                )
-            }
+            userData.reconcileLoadedContent(
+                validProcedureIDs: procedureIDs,
+                validRescueCardIDs: rescueCardIDs,
+                validKitIDs: kitIDs
+            )
         }
     }
 }

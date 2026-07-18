@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
-"""Lightweight local content validation for Procedures.
+"""Local authoring and release-readiness validation for Procedures.
 Run from the project root:
     ./scripts/validate_procedures.py
+    ./scripts/validate_procedures.py --release
 """
+import argparse
 import json
 import sys
 from datetime import date, datetime
 from pathlib import Path
 
+from PIL import Image, UnidentifiedImageError
+
 ROOT = Path(__file__).resolve().parents[1]
+PROJECT_FILE = ROOT / "Procedures.xcodeproj" / "project.pbxproj"
 
 # Mirror of ReviewerStatus.swift and ContentFreshness.swift. Keep these in sync
 # so the Python validator and the in-app validator agree on governance rules.
@@ -56,6 +61,10 @@ VALID_CATEGORIES = {
 }
 VALID_DIFFICULTIES = {"Basic", "Intermediate", "Advanced", "Rare-Crash"}
 MINIMUM_TAGS = 5
+RELEASE_REFERENCE_MARKERS = (
+    "replace with formal reviewer-approved references before release",
+    "standard emergency medicine regional anesthesia literature",
+)
 
 
 def governance_issues(title, item):
@@ -90,22 +99,58 @@ def load_json(path: Path):
         return None
 
 
+def image_file_is_valid(path: Path) -> bool:
+    """Require Pillow to verify the container and fully decode pixel data."""
+    if not path.is_file() or path.stat().st_size == 0:
+        return False
+    try:
+        with Image.open(path) as image:
+            image.verify()
+        with Image.open(path) as image:
+            image.load()
+            return image.width > 0 and image.height > 0
+    except (OSError, UnidentifiedImageError, ValueError):
+        return False
+
+
+def resources_phase_text() -> str:
+    try:
+        project_text = PROJECT_FILE.read_text(encoding="utf-8")
+    except OSError:
+        return ""
+    marker = "/* Begin PBXResourcesBuildPhase section */"
+    start = project_text.find(marker)
+    end = project_text.find("/* End PBXResourcesBuildPhase section */", start)
+    return project_text[start:end] if start >= 0 and end >= 0 else ""
+
+
 def visual_asset_exists(asset_name: str) -> bool:
-    """Match the app loader: loose files in Resources/Visuals or image sets."""
+    """Require a valid image that the app target actually bundles."""
+    if not isinstance(asset_name, str) or not asset_name.strip():
+        return False
+    asset_name = asset_name.strip()
     asset_path = Path(asset_name)
+    if asset_path.is_absolute() or asset_name in {".", ".."} or ".." in asset_path.parts:
+        return False
     stem = asset_path.stem if asset_path.suffix else asset_name
     extensions = [asset_path.suffix.lstrip(".")] if asset_path.suffix else ["png", "jpg", "jpeg"]
+    if any(extension.lower() not in {"png", "jpg", "jpeg"} for extension in extensions):
+        return False
 
     candidate_roots = [RESOURCES, RESOURCES / "Visuals"]
     candidates = []
     for root in candidate_roots:
         candidates.append(root / asset_name)
         candidates.extend(root / f"{asset_name}.{ext}" for ext in extensions if not asset_path.suffix)
-    if any(path.exists() for path in candidates):
-        return True
+    resource_phase = resources_phase_text()
+    for path in candidates:
+        if image_file_is_valid(path):
+            relative = path.relative_to(ROOT / "Procedures").as_posix()
+            if f"{relative} in Resources */" in resource_phase:
+                return True
 
     image_set = ASSET_CATALOG / f"{stem}.imageset"
-    if not image_set.exists():
+    if not image_set.is_dir() or "Assets.xcassets in Resources */" not in resource_phase:
         return False
 
     contents = image_set / "Contents.json"
@@ -114,12 +159,12 @@ def visual_asset_exists(asset_name: str) -> bool:
             metadata = json.loads(contents.read_text())
             for image in metadata.get("images", []):
                 filename = image.get("filename")
-                if filename and (image_set / filename).exists():
+                if filename and image_file_is_valid(image_set / filename):
                     return True
         except json.JSONDecodeError:
             pass
 
-    return any((image_set / f"{stem}.{ext}").exists() for ext in extensions)
+    return any(image_file_is_valid(image_set / f"{stem}.{ext}") for ext in extensions)
 
 
 def validate_procedures(data):
@@ -271,19 +316,106 @@ def validate_kits(kits, procedure_ids):
     return issues
 
 
-def main() -> int:
+def release_readiness_issues(procedures, rescue_cards, kits):
+    """Hard gates that apply only to a release candidate, not authoring work."""
+    issues = []
+    content_groups = (
+        ("procedure", procedures),
+        ("rescue card", rescue_cards),
+        ("kit", kits),
+    )
+
+    for kind, items in content_groups:
+        for item in items:
+            title = item.get("title", item.get("id", f"<missing {kind} id>"))
+            status = item.get("reviewerStatus")
+            if status not in REVIEWED_STATUSES:
+                issues.append((
+                    "BLOCKER",
+                    title,
+                    f"release requires a clinically reviewed reviewerStatus for this {kind}; found '{status or 'missing'}'",
+                ))
+
+            if kind == "procedure":
+                references = item.get("sections", {}).get("references", [])
+            else:
+                references = item.get("references", [])
+
+            if not isinstance(references, list) or not references:
+                issues.append((
+                    "BLOCKER",
+                    title,
+                    "release requires at least one traceable reviewer-approved reference",
+                ))
+            for reference in references if isinstance(references, list) else []:
+                if not isinstance(reference, str) or not reference.strip():
+                    issues.append((
+                        "BLOCKER",
+                        title,
+                        "release references must be nonblank strings",
+                    ))
+                    break
+                normalized = reference.strip().lower()
+                if any(marker in normalized for marker in RELEASE_REFERENCE_MARKERS):
+                    issues.append((
+                        "BLOCKER",
+                        title,
+                        "release requires traceable reviewer-approved references; placeholder or generic reference found",
+                    ))
+                    break
+
+    for procedure in procedures:
+        title = procedure.get("title", procedure.get("id", "<missing procedure id>"))
+        for visual in procedure.get("visualAssets", []):
+            visual_id = visual.get("id", "<missing visual id>")
+            asset_name = visual.get("assetName")
+            if not isinstance(asset_name, str) or not asset_name.strip():
+                issues.append((
+                    "BLOCKER",
+                    title,
+                    f"release requires bundled artwork for declared visual asset '{visual_id}'",
+                ))
+            elif not visual_asset_exists(asset_name):
+                issues.append((
+                    "BLOCKER",
+                    title,
+                    f"release visual asset '{visual_id}' is not present in the app bundle: {asset_name}",
+                ))
+
+    return issues
+
+
+def collect_issues(procedures, rescue_cards, kits, release=False):
+    issues = []
+    issues.extend(validate_procedures(procedures))
+    procedure_ids = {item.get("id") for item in procedures}
+    issues.extend(validate_rescue_cards(rescue_cards, procedure_ids))
+    issues.extend(validate_rescue_coverage(procedures, rescue_cards))
+    issues.extend(validate_kits(kits, procedure_ids))
+    if release:
+        issues.extend(release_readiness_issues(procedures, rescue_cards, kits))
+    return issues
+
+
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--release",
+        action="store_true",
+        help="Apply stop-ship clinical review, provenance, and visual-asset gates.",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv=None) -> int:
+    args = parse_args(argv)
     procedures = load_json(PROCEDURES)
     rescue_cards = load_json(RESCUE_CARDS)
     kits_data = load_json(KITS)
     if procedures is None or rescue_cards is None or kits_data is None:
         return 1
 
-    issues = []
-    issues.extend(validate_procedures(procedures))
-    procedure_ids = {item.get("id") for item in procedures}
-    issues.extend(validate_rescue_cards(rescue_cards, procedure_ids))
-    issues.extend(validate_rescue_coverage(procedures, rescue_cards))
-    issues.extend(validate_kits(kits_data, procedure_ids))
+    issues = collect_issues(procedures, rescue_cards, kits_data, release=args.release)
 
     severity_order = {"BLOCKER": 0, "WARNING": 1, "POLISH": 2}
     issues.sort(key=lambda issue: (severity_order.get(issue[0], 99), issue[1], issue[2]))
@@ -300,6 +432,7 @@ def main() -> int:
     print(
         f"\nValidated {len(procedures)} procedures, {len(rescue_cards)} rescue cards, "
         f"and {len(kits_data)} kits. "
+        f"Mode: {'release' if args.release else 'authoring'}. "
         f"Blockers: {len(blockers)}. Total issues: {len(issues)}. "
         f"Clinically reviewed: {reviewed}/{total_items}."
     )

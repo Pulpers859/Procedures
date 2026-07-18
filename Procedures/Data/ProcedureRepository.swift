@@ -2,6 +2,17 @@ import Foundation
 
 private typealias SearchableField = (text: String, weight: Int)
 
+enum ContentLoadAuthority {
+    static func authoritativeIDs(
+        _ ids: Set<String>,
+        loadError: String?,
+        loadWarning: String?
+    ) -> Set<String>? {
+        guard !ids.isEmpty, loadError == nil, loadWarning == nil else { return nil }
+        return ids
+    }
+}
+
 /// Decodes one element of a JSON array without throwing: a malformed record
 /// becomes `nil` instead of aborting the decode of the entire file. This keeps
 /// a single bad procedure or rescue card from emptying the whole library while

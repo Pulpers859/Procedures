@@ -20,6 +20,8 @@
 - `../Procedures/Resources/rescue_cards.json` - bundled rescue-card content
 - `ai-instructions/SWIFT_ARCHITECTURE.md` - current runtime structure and data flow
 - `ai-instructions/TESTING_CHECKLIST.md` - manual verification checklist
+- `AUTOMATED_TESTING_HANDOFF.md` - CI surfaces, evidence boundaries, and required commands
+- `RELEASE_CONSTITUTION.md` - release authority and non-bypassable stop-ship gates
 - `ai-instructions/XCTEST_GUIDE.md` - beginner guide for running and interpreting the `ProceduresTests` XCTest target
 - `ai-instructions/UI_UX_RULES.md` - bedside UX direction and navigation rules
 - `ai-instructions/SAFETY_AND_REVIEW_POLICY.md` - clinical safety/document review expectations
