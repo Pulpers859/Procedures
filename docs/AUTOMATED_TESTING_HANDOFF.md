@@ -21,8 +21,9 @@
 ### iOS build and XCTest
 
 `.github/workflows/ios-tests.yml` dynamically selects an available iPhone
-simulator by UDID, runs the shared scheme, requires at least one executed test,
-builds the Release configuration, and retains logs plus the `.xcresult` bundle.
+simulator by UDID, runs the shared scheme, requires the executed XCTest count to
+exactly match the 30 source declarations, builds the Release configuration, and
+retains logs plus the `.xcresult` bundle.
 
 ### Release readiness
 
@@ -63,7 +64,14 @@ responses are used by deterministic CI. There are no live-AI test surfaces.
 
 ## Evidence Still Required
 
-- A green GitHub iOS workflow after the current changes are pushed.
-- Confirmed executed XCTest count and retained `.xcresult` artifact.
 - Physical-device offline, migration, accessibility, and bedside scenario runs.
 - Named clinical owner and signed release corpus.
+
+## Latest Automated Evidence
+
+- Commit: `4a731bc`.
+- Content validation: GitHub run `29632640552`, passed.
+- Xcode build, exact XCTest count, and Release build: GitHub run
+  `29632640535`, passed.
+- Retained artifact: `procedures-xcode-evidence-29632640535`, expires
+  2026-08-01.
