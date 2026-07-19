@@ -19,24 +19,27 @@ struct ComplicationsHomeView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Rescue Cards")
-                            .font(.title3.weight(.bold))
-                        Text("Problem-first rescue cards for the moment a procedure starts going sideways. This is the action layer, not a passive complication list.")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                if let error = repository.rescueLoadError {
+                    Section {
+                        Label(error, systemImage: "exclamationmark.triangle.fill")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.red)
                     }
-                    .padding(.vertical, 4)
+                } else if let warning = repository.rescueLoadWarning, searchText.isEmpty {
+                    Section {
+                        Label(warning, systemImage: "exclamationmark.triangle.fill")
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(.orange)
+                    }
                 }
 
-                if rescueCards.isEmpty && !searchText.isEmpty {
+                if rescueCards.isEmpty {
                     Section("Immediate Rescue") {
-                        Text("No rescue cards match \"\(searchText)\". Try clinical shorthand like hypotension, apnea, LAST, wire, or laryngospasm.")
+                        Text(searchText.isEmpty ? "Rescue cards are unavailable." : "No rescue cards match \"\(searchText)\".")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
-                } else if !rescueCards.isEmpty {
+                } else {
                     Section("Immediate Rescue") {
                         ForEach(rescueCards) { card in
                             NavigationLink(value: card) {
@@ -52,7 +55,8 @@ struct ComplicationsHomeView: View {
                             NavigationLink {
                                 ScrollView {
                                     ComplicationContent(procedure: procedure)
-                                        .padding()
+                                        .detailContentColumn()
+                                        .padding(16)
                                 }
                                 .background(Color(.systemGroupedBackground))
                                 .navigationTitle(procedure.title)
@@ -85,27 +89,43 @@ struct RescueCardRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(card.title)
-                        .font(.headline)
-                    Text(card.trigger.first ?? "")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(2)
+            ViewThatFits(in: .horizontal) {
+                HStack(alignment: .top) {
+                    titleBlock
+                    Spacer(minLength: 8)
+                    badges
                 }
-                Spacer()
-                Text(card.acuity.rawValue.uppercased())
-                    .font(.caption2.weight(.heavy))
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 5)
-                    .foregroundStyle(card.acuity.tintColor)
-                    .background(card.acuity.tintColor.opacity(0.14), in: Capsule())
+                VStack(alignment: .leading, spacing: 6) {
+                    titleBlock
+                    badges
+                }
             }
 
             FlowTagView(tags: card.tags.prefix(3).map { String($0) })
         }
         .padding(.vertical, 6)
+    }
+
+    private var titleBlock: some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text(card.title)
+                .font(.headline)
+            Text(card.trigger.first ?? "")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .lineLimit(2)
+        }
+    }
+
+    private var badges: some View {
+        HStack(spacing: 8) {
+            if !card.reviewer.isClinicallyReviewed {
+                Image(systemName: "exclamationmark.shield")
+                    .foregroundStyle(.orange)
+                    .accessibilityLabel("Needs clinical review")
+            }
+            AcuityBadge(acuity: card.acuity)
+        }
     }
 }
 
@@ -122,11 +142,14 @@ struct RescueCardDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                header
+            VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
+                CriticalWarningCard(title: "Act Now", items: card.immediateMoves, ordered: true)
 
-                CriticalWarningCard(title: "Trigger", items: card.trigger)
-                CriticalWarningCard(title: "Immediate Moves", items: card.immediateMoves)
+                statusStrip
+
+                SectionCard(title: "Recognize", systemImage: "waveform.path.ecg") {
+                    BulletListView(items: card.trigger)
+                }
 
                 SectionCard(title: "Reassess", systemImage: "waveform.path.ecg") {
                     BulletListView(items: card.reassess)
@@ -197,7 +220,8 @@ struct RescueCardDetailView: View {
                     }
                 }
             }
-            .padding()
+            .detailContentColumn()
+            .padding(16)
         }
         .background(Color(.systemGroupedBackground))
         .navigationTitle(card.title)
@@ -208,17 +232,16 @@ struct RescueCardDetailView: View {
         reviewModeEnabled || !hideGovernanceCopy
     }
 
-    private var header: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Rescue Card")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.secondary)
-            Text(card.title)
-                .font(.title2.weight(.bold))
-            FlowTagView(tags: [card.acuity.rawValue] + card.tags.prefix(4).map { String($0) })
+    private var statusStrip: some View {
+        HStack(spacing: 10) {
+            AcuityBadge(acuity: card.acuity)
+            if !card.reviewer.isClinicallyReviewed {
+                Label("Needs clinical review", systemImage: "exclamationmark.shield")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.orange)
+            }
+            Spacer(minLength: 0)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .frame(maxWidth: .infinity, minHeight: AppLayout.controlMinHeight, alignment: .leading)
     }
 }

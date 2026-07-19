@@ -10,7 +10,7 @@ struct DeepReviewContent: View {
     @State private var saveTask: Task<Void, Never>?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
             if !procedure.sections.indications.isEmpty {
                 SectionCard(title: "Indications", systemImage: "target") { BulletListView(items: procedure.sections.indications) }
             }
@@ -70,7 +70,7 @@ struct DeepReviewContent: View {
                             .frame(minHeight: 120)
                             .padding(8)
                             .scrollContentBackground(.hidden)
-                            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.controlRadius))
                             .toolbar {
                                 ToolbarItemGroup(placement: .keyboard) {
                                     Spacer()

@@ -15,7 +15,7 @@ struct VisualGuideContent: View {
                     .foregroundStyle(.secondary)
             }
         } else {
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
                 ForEach(assets) { asset in
                     VisualAssetCard(asset: asset)
                 }
@@ -26,8 +26,6 @@ struct VisualGuideContent: View {
 
 struct VisualAssetCard: View {
     let asset: ProcedureVisualAsset
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
-    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     private var kindTint: Color {
         switch asset.kind {
@@ -71,7 +69,7 @@ struct VisualAssetCard: View {
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: .infinity)
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    .clipShape(RoundedRectangle(cornerRadius: AppLayout.mediaRadius, style: .continuous))
                     .padding(.horizontal, 16)
                     .padding(.bottom, 12)
                     .accessibilityLabel(asset.title)
@@ -93,7 +91,7 @@ struct VisualAssetCard: View {
             .padding(.horizontal, 16)
 
             // Clinical warning
-            if showGovernanceCopy, let warning = asset.clinicalWarning, !warning.isEmpty {
+            if let warning = asset.clinicalWarning, !warning.isEmpty {
                 HStack(alignment: .top, spacing: 8) {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .font(.caption)
@@ -118,15 +116,11 @@ struct VisualAssetCard: View {
 
             Spacer().frame(height: 14)
         }
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
         .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
+            RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous)
                 .stroke(kindTint.opacity(0.25), lineWidth: 1)
         )
-    }
-
-    private var showGovernanceCopy: Bool {
-        reviewModeEnabled || !hideGovernanceCopy
     }
 }
 
@@ -140,7 +134,7 @@ struct SchematicPlaceholder: View {
                 .font(.system(size: 44, weight: .medium))
                 .foregroundStyle(tint.opacity(0.7))
                 .frame(width: 80, height: 80)
-                .background(tint.opacity(0.08), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .background(tint.opacity(0.08), in: RoundedRectangle(cornerRadius: AppLayout.mediaRadius, style: .continuous))
 
             Text("Illustration Pending")
                 .font(.caption2.weight(.semibold))
@@ -151,7 +145,7 @@ struct SchematicPlaceholder: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 20)
-        .background(tint.opacity(0.04), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .background(tint.opacity(0.04), in: RoundedRectangle(cornerRadius: AppLayout.mediaRadius, style: .continuous))
         .accessibilityLabel("\(asset.kind.rawValue) diagram: \(asset.title). Illustration pending.")
     }
 }

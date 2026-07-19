@@ -19,8 +19,8 @@ struct ChecklistRow: View {
                     .fixedSize(horizontal: false, vertical: true)
                 Spacer(minLength: 8)
             }
+            .frame(maxWidth: .infinity, minHeight: AppLayout.controlMinHeight, alignment: .leading)
             .contentShape(Rectangle())
-            .padding(.vertical, 2)
         }
         .buttonStyle(.plain)
         .sensoryFeedback(.selection, trigger: isChecked)

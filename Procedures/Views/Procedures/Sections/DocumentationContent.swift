@@ -10,7 +10,7 @@ struct DocumentationContent: View {
     @State private var saveTask: Task<Void, Never>?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
             SectionCard(title: "Documentation Language", systemImage: "doc.text") {
                 VStack(alignment: .leading, spacing: 10) {
                     if procedure.sections.documentation.isEmpty {
@@ -53,7 +53,7 @@ struct DocumentationContent: View {
                         .frame(minHeight: 140)
                         .padding(8)
                         .scrollContentBackground(.hidden)
-                        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.controlRadius))
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
                                 Spacer()

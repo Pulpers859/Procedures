@@ -44,6 +44,8 @@ final class UserDataStore: ObservableObject {
     @Published private(set) var checkedEquipment: [String: Set<String>] = [:]
     @Published private(set) var kitCheckedItems: [String: Set<String>] = [:]
     @Published private(set) var locallyReviewedContent: [String: LocalReviewRecord] = [:]
+    @Published private(set) var activeEquipmentSessionIDs: Set<String> = []
+    @Published private(set) var activeKitSessionIDs: Set<String> = []
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
@@ -91,6 +93,7 @@ final class UserDataStore: ObservableObject {
     }
 
     func toggleEquipment(_ item: String, for procedure: Procedure) {
+        activeEquipmentSessionIDs.insert(procedure.id)
         var procedureSet = checkedEquipment[procedure.id, default: []]
         if procedureSet.contains(item) {
             procedureSet.remove(item)
@@ -102,8 +105,18 @@ final class UserDataStore: ObservableObject {
     }
 
     func resetEquipment(for procedure: Procedure) {
+        activeEquipmentSessionIDs.insert(procedure.id)
         checkedEquipment[procedure.id] = []
         saveCheckedEquipment()
+    }
+
+    func requiresEquipmentSessionDecision(for procedure: Procedure) -> Bool {
+        !checkedEquipment[procedure.id, default: []].isEmpty
+            && !activeEquipmentSessionIDs.contains(procedure.id)
+    }
+
+    func resumeEquipmentSession(for procedure: Procedure) {
+        activeEquipmentSessionIDs.insert(procedure.id)
     }
 
     // MARK: - Kit checklist
@@ -113,6 +126,7 @@ final class UserDataStore: ObservableObject {
     }
 
     func toggleKitItem(_ item: String, forKitID kitID: String) {
+        activeKitSessionIDs.insert(kitID)
         var kitSet = kitCheckedItems[kitID, default: []]
         if kitSet.contains(item) {
             kitSet.remove(item)
@@ -124,8 +138,18 @@ final class UserDataStore: ObservableObject {
     }
 
     func resetKit(withID kitID: String) {
+        activeKitSessionIDs.insert(kitID)
         kitCheckedItems[kitID] = []
         saveKitCheckedItems()
+    }
+
+    func requiresKitSessionDecision(forKitID kitID: String) -> Bool {
+        !kitCheckedItems[kitID, default: []].isEmpty
+            && !activeKitSessionIDs.contains(kitID)
+    }
+
+    func resumeKitSession(withID kitID: String) {
+        activeKitSessionIDs.insert(kitID)
     }
 
     // MARK: - Local review status

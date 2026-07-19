@@ -4,7 +4,7 @@ struct ProcedureCard: View {
     let procedure: Procedure
     let isFavorite: Bool
 
-    private var isHighRisk: Bool {
+    private var isAdvanced: Bool {
         procedure.difficulty == .advanced || procedure.difficulty == .rareCrash
     }
 
@@ -21,15 +21,20 @@ struct ProcedureCard: View {
                 }
                 Spacer(minLength: 8)
                 HStack(spacing: 8) {
+                    if !procedure.reviewer.isClinicallyReviewed {
+                        Image(systemName: "exclamationmark.shield")
+                            .foregroundStyle(.orange)
+                            .accessibilityLabel("Needs clinical review")
+                    }
                     if isFavorite {
                         Image(systemName: "bookmark.fill")
                             .foregroundStyle(.blue)
                             .accessibilityLabel("Saved")
                     }
-                    if isHighRisk {
+                    if isAdvanced {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .foregroundStyle(.orange)
-                            .accessibilityLabel("High risk")
+                            .accessibilityLabel(procedure.difficulty.rawValue)
                     }
                 }
                 .font(.subheadline)
@@ -64,8 +69,8 @@ struct TagView: View {
             .padding(.vertical, 5)
             .foregroundStyle(.secondary)
             .background(Color(.tertiarySystemFill), in: Capsule())
-            .lineLimit(1)
-            .fixedSize()
+            .lineLimit(2)
+            .multilineTextAlignment(.leading)
     }
 }
 
@@ -99,7 +104,7 @@ struct FlowLayout: Layout {
         var totalHeight: CGFloat = 0
 
         for subview in subviews {
-            let size = subview.sizeThatFits(.unspecified)
+            let size = measuredSize(for: subview, maxWidth: maxWidth)
             if rowWidth > 0, rowWidth + spacing + size.width > maxWidth {
                 totalWidth = max(totalWidth, rowWidth)
                 totalHeight += rowHeight + lineSpacing
@@ -123,7 +128,7 @@ struct FlowLayout: Layout {
         var rowHeight: CGFloat = 0
 
         for subview in subviews {
-            let size = subview.sizeThatFits(.unspecified)
+            let size = measuredSize(for: subview, maxWidth: bounds.width)
             if x > bounds.minX, x + size.width > bounds.maxX {
                 x = bounds.minX
                 y += rowHeight + lineSpacing
@@ -133,5 +138,11 @@ struct FlowLayout: Layout {
             x += size.width + spacing
             rowHeight = max(rowHeight, size.height)
         }
+    }
+
+    private func measuredSize(for subview: LayoutSubview, maxWidth: CGFloat) -> CGSize {
+        let ideal = subview.sizeThatFits(.unspecified)
+        guard maxWidth.isFinite, ideal.width > maxWidth else { return ideal }
+        return subview.sizeThatFits(ProposedViewSize(width: maxWidth, height: nil))
     }
 }

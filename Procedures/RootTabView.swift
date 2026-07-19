@@ -5,16 +5,30 @@ private enum RootTabStorageKey {
     static let legacyDisclaimerAccepted = "ProcedureSTAT.hasAcceptedClinicalDisclaimer"
 }
 
+private enum RootTab: String, Hashable {
+    case guide
+    case procedures
+    case rescue
+    case kits
+    case saved
+}
+
 struct RootTabView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
-    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
+    @SceneStorage("Procedures.selectedRootTab") private var selectedTabRaw = RootTab.guide.rawValue
 
     private var appearance: AppAppearance {
         AppAppearance(rawValue: appearanceRaw) ?? .system
+    }
+
+    private var selectedTab: Binding<RootTab> {
+        Binding(
+            get: { RootTab(rawValue: selectedTabRaw) ?? .guide },
+            set: { selectedTabRaw = $0.rawValue }
+        )
     }
 
     init() {
@@ -29,31 +43,31 @@ struct RootTabView: View {
     }
 
     var body: some View {
-        TabView {
+        TabView(selection: selectedTab) {
             GuideHomeView()
                 .tabItem { Label("Guide", systemImage: "sparkles.rectangle.stack") }
+                .tag(RootTab.guide)
 
             ProcedureListView()
                 .tabItem { Label("Procedures", systemImage: "list.bullet.rectangle") }
+                .tag(RootTab.procedures)
 
             ComplicationsHomeView()
                 .tabItem { Label("Rescue", systemImage: "lifepreserver.fill") }
+                .tag(RootTab.rescue)
 
             KitsHomeView()
                 .tabItem { Label("Kits", systemImage: "checklist.checked") }
+                .tag(RootTab.kits)
 
             SavedView()
                 .tabItem { Label("Saved", systemImage: "bookmark.fill") }
-
-            if reviewModeEnabled {
-                ReviewCenterView()
-                    .tabItem { Label("Review", systemImage: "checkmark.seal") }
-            }
+                .tag(RootTab.saved)
         }
         .tint(.blue)
         .preferredColorScheme(appearance.colorScheme)
         .fullScreenCover(isPresented: Binding(
-            get: { !hasAcceptedClinicalDisclaimer && !hideGovernanceCopy },
+            get: { !hasAcceptedClinicalDisclaimer },
             set: { newValue in
                 if newValue == false { hasAcceptedClinicalDisclaimer = true }
             }
@@ -92,9 +106,7 @@ private struct DisclaimerView: View {
     let onAccept: () -> Void
 
     var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
-
+        ScrollView {
             VStack(spacing: 24) {
                 Image(systemName: "cross.case.fill")
                     .font(.system(size: 48))
@@ -110,9 +122,10 @@ private struct DisclaimerView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal, 32)
-
-            Spacer()
-
+            .padding(.vertical, 48)
+            .frame(maxWidth: .infinity)
+        }
+        .safeAreaInset(edge: .bottom) {
             Button(action: onAccept) {
                 Text("I Understand")
                     .font(.headline)
@@ -121,7 +134,8 @@ private struct DisclaimerView: View {
             }
             .buttonStyle(.borderedProminent)
             .padding(.horizontal, 32)
-            .padding(.bottom, 48)
+            .padding(.vertical, 12)
+            .background(.bar)
         }
         .background(Color(.systemBackground))
         .interactiveDismissDisabled()

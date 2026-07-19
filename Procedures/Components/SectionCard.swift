@@ -1,5 +1,22 @@
 import SwiftUI
 
+enum AppLayout {
+    static let cardRadius: CGFloat = 8
+    static let controlRadius: CGFloat = 8
+    static let mediaRadius: CGFloat = 8
+    static let cardPadding: CGFloat = 14
+    static let sectionSpacing: CGFloat = 12
+    static let controlMinHeight: CGFloat = 44
+    static let readableContentWidth: CGFloat = 760
+}
+
+extension View {
+    func detailContentColumn() -> some View {
+        frame(maxWidth: AppLayout.readableContentWidth, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .center)
+    }
+}
+
 struct SectionCard<Content: View>: View {
     let title: String
     var systemImage: String? = nil
@@ -19,7 +36,7 @@ struct SectionCard<Content: View>: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 8) {
                 if let systemImage {
                     Image(systemName: systemImage)
@@ -28,15 +45,16 @@ struct SectionCard<Content: View>: View {
                 }
                 Text(title)
                     .font(.headline)
+                    .accessibilityHeading(.h2)
                 Spacer()
             }
             content
         }
-        .padding()
+        .padding(AppLayout.cardPadding)
         .frame(maxWidth: .infinity, minHeight: miniHeight, alignment: .topLeading)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
         .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
+            RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous)
                 .stroke(.secondary.opacity(0.12), lineWidth: 1)
         )
     }
@@ -44,6 +62,7 @@ struct SectionCard<Content: View>: View {
 
 struct BulletListView: View {
     let items: [String]
+    var markerTint: Color = .blue
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -51,12 +70,14 @@ struct BulletListView: View {
                 HStack(alignment: .top, spacing: 8) {
                     Text("•")
                         .font(.body.weight(.bold))
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(markerTint)
+                        .accessibilityHidden(true)
                     Text(item)
                         .font(.body)
                         .fixedSize(horizontal: false, vertical: true)
                         .textSelection(.enabled)
                 }
+                .accessibilityElement(children: .combine)
             }
         }
     }
@@ -64,6 +85,7 @@ struct BulletListView: View {
 
 struct NumberedListView: View {
     let items: [String]
+    var markerTint: Color = .blue
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -71,14 +93,17 @@ struct NumberedListView: View {
                 HStack(alignment: .top, spacing: 10) {
                     Text("\(index + 1).")
                         .font(.body.weight(.bold))
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(markerTint)
                         .monospacedDigit()
                         .frame(minWidth: 30, alignment: .leading)
+                        .accessibilityHidden(true)
                     Text(item)
                         .font(.body)
                         .fixedSize(horizontal: false, vertical: true)
                         .textSelection(.enabled)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel("Step \(index + 1). \(item)")
             }
         }
     }
@@ -90,17 +115,36 @@ struct MetadataRow: View {
     let value: String
 
     var body: some View {
-        HStack(spacing: 10) {
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 10) {
+                metadataLabel
+                Spacer()
+                metadataValue
+            }
+            VStack(alignment: .leading, spacing: 4) {
+                metadataLabel
+                metadataValue
+                    .padding(.leading, 32)
+            }
+        }
+    }
+
+    private var metadataLabel: some View {
+        Label {
+            Text(title)
+                .font(.subheadline.weight(.semibold))
+        } icon: {
             Image(systemName: icon)
                 .foregroundStyle(.blue)
                 .frame(width: 22)
-            Text(title)
-                .font(.subheadline.weight(.semibold))
-            Spacer()
-            Text(value)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
         }
+    }
+
+    private var metadataValue: some View {
+        Text(value)
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
+            .fixedSize(horizontal: false, vertical: true)
     }
 }
 
@@ -242,6 +286,28 @@ extension ComplicationRescueCard.Acuity {
         case .crash: return .red
         case .urgent: return .orange
         case .watch: return .yellow
+        }
+    }
+}
+
+struct AcuityBadge: View {
+    let acuity: ComplicationRescueCard.Acuity
+
+    var body: some View {
+        Label(acuity.rawValue.uppercased(), systemImage: systemImage)
+            .font(.caption.weight(.bold))
+            .padding(.horizontal, 8)
+            .padding(.vertical, 5)
+            .foregroundStyle(.primary)
+            .background(acuity.tintColor.opacity(0.14), in: Capsule())
+            .accessibilityLabel("\(acuity.rawValue) acuity")
+    }
+
+    private var systemImage: String {
+        switch acuity {
+        case .crash: return "bolt.fill"
+        case .urgent: return "exclamationmark.triangle.fill"
+        case .watch: return "eye.fill"
         }
     }
 }

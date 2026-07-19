@@ -3,6 +3,7 @@ import SwiftUI
 struct GuideHomeView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var searchText = ""
     @State private var showingSettings = false
     @State private var selectedPathway: ClinicalPathway?
@@ -13,6 +14,10 @@ struct GuideHomeView: View {
 
     private var filteredRescueCards: [ComplicationRescueCard] {
         repository.searchRescueCards(searchText)
+    }
+
+    private var filteredKits: [Kit] {
+        repository.searchKits(searchText)
     }
 
     private var recentProcedures: [Procedure] {
@@ -29,18 +34,16 @@ struct GuideHomeView: View {
         NavigationStack {
             List {
                 if searchText.isEmpty {
-                    heroSection
-                    clinicalPathwaysSection
-
                     if !recentProcedures.isEmpty {
                         procedureSection(title: "Recently Viewed", procedures: recentProcedures)
                     }
 
-                    if !crashProcedures.isEmpty {
-                        procedureSection(title: "Crash / High-Risk", procedures: crashProcedures)
-                    }
-
                     rescuePreviewSection
+                    clinicalPathwaysSection
+
+                    if !crashProcedures.isEmpty {
+                        procedureSection(title: "Advanced / Rare-Crash", procedures: crashProcedures)
+                    }
                 } else {
                     searchResults
                 }
@@ -57,12 +60,15 @@ struct GuideHomeView: View {
                     .accessibilityLabel("Settings")
                 }
             }
-            .searchable(text: $searchText, prompt: "Search problem or procedure…")
+            .searchable(text: $searchText, prompt: "Search procedure, problem, or kit…")
             .navigationDestination(for: Procedure.self) { procedure in
                 ProcedureDetailView(procedure: procedure)
             }
             .navigationDestination(for: ComplicationRescueCard.self) { card in
                 RescueCardDetailView(card: card)
+            }
+            .navigationDestination(for: Kit.self) { kit in
+                KitDetailView(kit: kit)
             }
             .navigationDestination(item: $selectedPathway) { pathway in
                 PathwayProcedureListView(pathway: pathway)
@@ -75,7 +81,15 @@ struct GuideHomeView: View {
 
     @ViewBuilder
     private var searchResults: some View {
-        if !filteredRescueCards.isEmpty {
+        if filteredRescueCards.isEmpty && filteredProcedures.isEmpty && filteredKits.isEmpty {
+            Section {
+                EmptyStateView(
+                    title: "No results",
+                    message: "Try a procedure, clinical problem, abbreviation, or kit name.",
+                    systemImage: "magnifyingglass"
+                )
+            }
+        } else if !filteredRescueCards.isEmpty {
             Section("Rescue Cards") {
                 ForEach(filteredRescueCards) { card in
                     NavigationLink(value: card) {
@@ -85,12 +99,8 @@ struct GuideHomeView: View {
             }
         }
 
-        Section("Procedure Results") {
-            if filteredProcedures.isEmpty {
-                Text("No procedures found. Try clinical shorthand like ETT, CVC, cordis, US IV, a-line, tap, abscess, suture, shoulder, fascia iliaca, pacer, LP, or thoracotomy.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            } else {
+        if !filteredProcedures.isEmpty {
+            Section("Procedures") {
                 ForEach(filteredProcedures) { procedure in
                     NavigationLink(value: procedure) {
                         ProcedureCard(procedure: procedure, isFavorite: userData.isFavorite(procedure))
@@ -98,41 +108,28 @@ struct GuideHomeView: View {
                 }
             }
         }
-    }
 
-    private var heroSection: some View {
-        Section {
-            VStack(alignment: .leading, spacing: 14) {
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("Bedside Command Center")
-                            .font(.title3.weight(.bold))
-                        Text("Start with the problem, the procedure, or the complication. Built to get you to the right card fast.")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
+        if !filteredKits.isEmpty {
+            Section("Kits") {
+                ForEach(filteredKits) { kit in
+                    NavigationLink(value: kit) {
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(kit.title)
+                                .font(.headline)
+                            Text(kit.subtitle)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(2)
+                        }
                     }
-                    Spacer(minLength: 12)
-                    Image(systemName: "cross.case.fill")
-                        .font(.title2)
-                        .foregroundStyle(.blue)
-                        .padding(10)
-                        .background(.blue.opacity(0.12), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                }
-
-                HStack(spacing: 10) {
-                    QuickStatPill(value: "\(repository.procedures.count)", label: "procedures")
-                    QuickStatPill(value: "\(repository.rescueCards.count)", label: "rescue")
-                    QuickStatPill(value: "Offline", label: "ready")
                 }
             }
-            .padding(.vertical, 6)
         }
     }
 
     private var clinicalPathwaysSection: some View {
         Section("Clinical Pathways") {
-            LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
+            LazyVGrid(columns: pathwayColumns, spacing: 8) {
                 ForEach(ClinicalPathway.defaultPathways) { pathway in
                     Button {
                         selectedPathway = pathway
@@ -142,23 +139,41 @@ struct GuideHomeView: View {
                     .buttonStyle(.plain)
                 }
             }
-            .padding(.vertical, 4)
+            .padding(.vertical, 2)
             .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            .listRowBackground(Color.clear)
         }
+    }
+
+    private var pathwayColumns: [GridItem] {
+        if dynamicTypeSize.isAccessibilitySize {
+            return [GridItem(.flexible())]
+        }
+        return [GridItem(.flexible(), spacing: 8), GridItem(.flexible(), spacing: 8)]
     }
 
     private var rescuePreviewSection: some View {
         Section("Immediate Rescue") {
-            ForEach(repository.rescueCards.prefix(3)) { card in
-                NavigationLink(value: card) {
-                    RescueCardRow(card: card)
+            if let error = repository.rescueLoadError {
+                Label(error, systemImage: "exclamationmark.triangle.fill")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.red)
+            } else if repository.rescueCards.isEmpty {
+                Text("Rescue cards are unavailable.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            } else {
+                ForEach(repository.rescueCards.prefix(3)) { card in
+                    NavigationLink(value: card) {
+                        RescueCardRow(card: card)
+                    }
                 }
-            }
 
-            NavigationLink {
-                AllRescueCardsListView()
-            } label: {
-                Label("View all Rescue Cards", systemImage: "lifepreserver")
+                NavigationLink {
+                    AllRescueCardsListView()
+                } label: {
+                    Label("All rescue cards", systemImage: "lifepreserver")
+                }
             }
         }
     }
@@ -178,38 +193,18 @@ struct GuideHomeView: View {
     }
 }
 
-struct QuickStatPill: View {
-    let value: String
-    let label: String
-
-    var body: some View {
-        VStack(spacing: 2) {
-            Text(value)
-                .font(.subheadline.weight(.bold))
-                .lineLimit(1)
-            Text(label)
-                .font(.caption2.weight(.semibold))
-                .foregroundStyle(.secondary)
-                .lineLimit(1)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 8)
-        .background(.thinMaterial, in: Capsule())
-    }
-}
-
 struct PathwayTile: View {
     let pathway: ClinicalPathway
     let count: Int
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Image(systemName: pathway.systemImage)
                     .font(.title3.weight(.semibold))
                     .foregroundStyle(pathway.tint)
-                    .frame(width: 34, height: 34)
-                    .background(pathway.tint.opacity(0.14), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    .frame(width: 32, height: 32)
+                    .background(pathway.tint.opacity(0.14), in: RoundedRectangle(cornerRadius: 6, style: .continuous))
                 Spacer()
                 Text("\(count)")
                     .font(.caption.weight(.bold))
@@ -219,21 +214,15 @@ struct PathwayTile: View {
                     .background(Color(.tertiarySystemFill), in: Capsule())
             }
 
-            VStack(alignment: .leading, spacing: 3) {
-                Text(pathway.title)
-                    .font(.headline)
-                    .foregroundStyle(.primary)
-                Text(pathway.subtitle)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(2)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
+            Text(pathway.title)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.primary)
+                .fixedSize(horizontal: false, vertical: true)
         }
-        .frame(maxWidth: .infinity, minHeight: 120, alignment: .topLeading)
-        .padding(14)
-        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
+        .frame(maxWidth: .infinity, minHeight: 84, alignment: .topLeading)
+        .padding(12)
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
     }
 }
 

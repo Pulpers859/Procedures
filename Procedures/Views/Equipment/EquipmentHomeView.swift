@@ -121,14 +121,18 @@ struct KitsHomeView: View {
                 Text(label)
                     .font(.subheadline.weight(.semibold))
                     .lineLimit(1)
+                if isSelected {
+                    Image(systemName: "checkmark")
+                        .font(.caption.weight(.bold))
+                }
             }
             .padding(.horizontal, 13)
-            .padding(.vertical, 8)
+            .frame(minHeight: AppLayout.controlMinHeight)
             .background(isSelected ? tint : Color(.tertiarySystemFill), in: Capsule())
             .foregroundStyle(isSelected ? .white : .primary)
         }
         .buttonStyle(.plain)
-        .animation(.easeInOut(duration: 0.15), value: isSelected)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 
     private func checkedCount(for kit: Kit) -> Int {
@@ -165,11 +169,17 @@ struct KitRow: View {
 
             Spacer(minLength: 8)
 
+            if !kit.reviewer.isClinicallyReviewed {
+                Image(systemName: "exclamationmark.shield")
+                    .foregroundStyle(.orange)
+                    .accessibilityLabel("Needs clinical review")
+            }
+
             if isComplete {
                 Image(systemName: "checkmark.seal.fill")
                     .foregroundStyle(.green)
                     .font(.title3)
-                    .accessibilityLabel("Room ready")
+                    .accessibilityLabel("Saved checklist complete")
             } else if isStarted {
                 Text("\(checkedCount)/\(totalCount)")
                     .font(.caption2.weight(.heavy))
@@ -192,6 +202,7 @@ struct KitDetailView: View {
     let kit: Kit
     @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
+    @State private var showingResetConfirmation = false
 
     private var relatedProcedures: [Procedure] {
         kit.relatedProcedureIDs.compactMap { repository.procedure(withID: $0) }
@@ -203,16 +214,24 @@ struct KitDetailView: View {
 
     private var totalChecklistItems: Int { kit.allChecklistItems.count }
 
+    private var requiresSessionDecision: Bool {
+        userData.requiresKitSessionDecision(forKitID: kit.id)
+    }
+
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
                 header
+
+                if requiresSessionDecision {
+                    savedChecklistDecisionCard
+                }
 
                 if !kit.patientSetup.isEmpty {
                     CriticalWarningCard(title: "Patient & Room Setup First", items: kit.patientSetup)
                 }
 
-                if !kit.inKit.isEmpty {
+                if !requiresSessionDecision, !kit.inKit.isEmpty {
                     SectionCard(title: "In the Kit", systemImage: "shippingbox.fill") {
                         VStack(alignment: .leading, spacing: 2) {
                             ForEach(kit.inKit, id: \.self) { item in
@@ -227,7 +246,7 @@ struct KitDetailView: View {
                     }
                 }
 
-                if !kit.outsideKit.isEmpty {
+                if !requiresSessionDecision, !kit.outsideKit.isEmpty {
                     SectionCard(title: "Pull Separately", systemImage: "arrow.up.right.square") {
                         VStack(alignment: .leading, spacing: 2) {
                             ForEach(kit.outsideKit, id: \.self) { item in
@@ -319,19 +338,29 @@ struct KitDetailView: View {
                     }
                 }
             }
-            .padding()
+            .detailContentColumn()
+            .padding(16)
         }
         .background(Color(.systemGroupedBackground))
         .navigationTitle(kit.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            if checkedCount > 0 {
+            if checkedCount > 0, !requiresSessionDecision {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Reset") {
-                        userData.resetKit(withID: kit.id)
+                        showingResetConfirmation = true
                     }
                     .foregroundStyle(.secondary)
                 }
+            }
+        }
+        .confirmationDialog(
+            "Reset all kit checklist items?",
+            isPresented: $showingResetConfirmation,
+            titleVisibility: .visible
+        ) {
+            Button("Reset Checklist", role: .destructive) {
+                userData.resetKit(withID: kit.id)
             }
         }
     }
@@ -368,13 +397,19 @@ struct KitDetailView: View {
             }
 
             if totalChecklistItems > 0 {
-                checklistProgressView
+                if requiresSessionDecision {
+                    Label("Saved checklist needs confirmation", systemImage: "clock.arrow.circlepath")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.orange)
+                } else {
+                    checklistProgressView
+                }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
+        .padding(AppLayout.cardPadding)
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
     }
 
     private var checklistProgressView: some View {
@@ -386,7 +421,7 @@ struct KitDetailView: View {
                     checkedCount == 0
                         ? "\(totalChecklistItems) items to confirm"
                         : isComplete
-                            ? "Room ready"
+                            ? "Checklist complete"
                             : "\(checkedCount) of \(totalChecklistItems) confirmed"
                 )
                 .font(.caption.weight(.semibold))
@@ -403,7 +438,7 @@ struct KitDetailView: View {
         }
         .padding(.top, 2)
         .accessibilityElement(children: .combine)
-        .accessibilityLabel(checkedCount == totalChecklistItems ? "Room ready, all items confirmed" : "\(checkedCount) of \(totalChecklistItems) items confirmed")
+        .accessibilityLabel(checkedCount == totalChecklistItems ? "Checklist complete, all items confirmed" : "\(checkedCount) of \(totalChecklistItems) items confirmed")
     }
 
     private var commonlyForgottenCard: some View {
@@ -417,9 +452,40 @@ struct KitDetailView: View {
             }
             BulletListView(items: kit.commonlyForgotten)
         }
-        .padding()
-        .background(.yellow.opacity(0.10), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).stroke(.yellow.opacity(0.35), lineWidth: 1))
+        .padding(AppLayout.cardPadding)
+        .background(.yellow.opacity(0.10), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous).stroke(.yellow.opacity(0.35), lineWidth: 1))
+    }
+
+    private var savedChecklistDecisionCard: some View {
+        SectionCard(title: "Saved Checklist", systemImage: "clock.arrow.circlepath") {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Saved checks may be from a prior patient or room. Choose before using this checklist.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 10) { savedChecklistButtons }
+                    VStack(spacing: 8) { savedChecklistButtons }
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var savedChecklistButtons: some View {
+        Button("Resume Saved") {
+            userData.resumeKitSession(withID: kit.id)
+        }
+        .buttonStyle(.borderedProminent)
+        .frame(minHeight: AppLayout.controlMinHeight)
+
+        Button("Start New", role: .destructive) {
+            userData.resetKit(withID: kit.id)
+        }
+        .buttonStyle(.bordered)
+        .frame(minHeight: AppLayout.controlMinHeight)
     }
 }
 

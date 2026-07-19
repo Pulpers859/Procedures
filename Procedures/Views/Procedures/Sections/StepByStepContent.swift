@@ -4,7 +4,7 @@ struct StepByStepContent: View {
     let procedure: Procedure
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
             if !procedure.sections.positioning.isEmpty {
                 SectionCard(title: "Positioning", systemImage: "person.crop.rectangle") {
                     BulletListView(items: procedure.sections.positioning)

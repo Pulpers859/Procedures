@@ -40,7 +40,6 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
 
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
-    @AppStorage(SettingsStorageKey.defaultSection) private var defaultSectionRaw = ProcedureDetailSection.shiftMode.rawValue
     @AppStorage(SettingsStorageKey.disclaimerAccepted) private var hasAcceptedDisclaimer = false
     @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
@@ -51,13 +50,6 @@ struct SettingsView: View {
         Binding(
             get: { AppAppearance(rawValue: appearanceRaw) ?? .system },
             set: { appearanceRaw = $0.rawValue }
-        )
-    }
-
-    private var defaultSection: Binding<ProcedureDetailSection> {
-        Binding(
-            get: { ProcedureDetailSection(rawValue: defaultSectionRaw) ?? .shiftMode },
-            set: { defaultSectionRaw = $0.rawValue }
         )
     }
 
@@ -73,20 +65,15 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Picker("Open procedures to", selection: defaultSection) {
-                        ForEach(ProcedureDetailSection.allCases) { section in
-                            Text(section.rawValue).tag(section)
-                        }
-                    }
                     Toggle("Clinical Mode", isOn: $hideGovernanceCopy)
                 } header: {
                     Text("Procedure Pages")
                 } footer: {
-                    Text("Clinical Mode keeps bedside screens quiet by hiding governance copy, disclaimers, source review badges, and visual warning callouts. Procedure clinical content remains visible.")
+                    Text("Clinical Mode hides editorial metadata and review controls. Clinical warnings and the first-run acknowledgment always remain visible.")
                 }
 
                 Section {
-                    Toggle("Show Review Center Tab", isOn: $reviewModeEnabled)
+                    Toggle("Show review tools", isOn: $reviewModeEnabled)
                     NavigationLink {
                         ReviewCenterView()
                     } label: {
@@ -95,7 +82,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Review Mode")
                 } footer: {
-                    Text("Review Center is the editor workspace for content review, issue fixing, and local reviewer notes. Keep it off for the clean bedside app.")
+                    Text("Review Center stays in Settings so the bedside tab bar remains stable.")
                 }
 
                 Section {

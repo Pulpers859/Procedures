@@ -21,8 +21,6 @@ extension Procedure {
 struct ProcedureVisualCard: View {
     let asset: ProcedureVisualAsset
     let image: UIImage
-    @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
-    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -30,29 +28,25 @@ struct ProcedureVisualCard: View {
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: .infinity)
-                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .clipShape(RoundedRectangle(cornerRadius: AppLayout.mediaRadius, style: .continuous))
                 .accessibilityLabel(asset.title)
 
             Text(asset.title)
                 .font(.subheadline.weight(.semibold))
 
-            if showGovernanceCopy, let warning = asset.clinicalWarning, !warning.isEmpty {
+            if let warning = asset.clinicalWarning, !warning.isEmpty {
                 Label(warning, systemImage: "exclamationmark.triangle.fill")
                     .font(.caption)
                     .foregroundStyle(.orange)
                     .fixedSize(horizontal: false, vertical: true)
             }
         }
-        .padding()
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .padding(AppLayout.cardPadding)
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
         .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
+            RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous)
                 .stroke(.secondary.opacity(0.12), lineWidth: 1)
         )
-    }
-
-    private var showGovernanceCopy: Bool {
-        reviewModeEnabled || !hideGovernanceCopy
     }
 }
 

@@ -19,7 +19,7 @@ struct ProcedureListView: View {
                 if let error = repository.loadError {
                     EmptyStateView(title: "Content failed to load", message: error, systemImage: "exclamationmark.triangle")
                 } else if filteredProcedures.isEmpty {
-                    EmptyStateView(title: "No procedures found", message: "Try a synonym, abbreviation, or category. Search understands terms like ETT, CVC, cordis, US IV, a-line, tap, abscess, suture, shoulder, fascia iliaca, pacer, LP, and thoracotomy.", systemImage: "magnifyingglass")
+                    EmptyStateView(title: "No procedures found", message: "Try a procedure name, abbreviation, or category.", systemImage: "magnifyingglass")
                 } else {
                     List {
                         if searchText.isEmpty {
@@ -70,21 +70,22 @@ struct ProcedureListView: View {
                                 Text(category.rawValue)
                                     .font(.subheadline.weight(.semibold))
                                     .foregroundStyle(.primary)
-                                Text("\(repository.procedures(in: category).count) procedures")
-                                    .font(.caption)
+                                Text("\(repository.procedures(in: category).count)")
+                                    .font(.caption.weight(.semibold))
                                     .foregroundStyle(.secondary)
                             }
-                            .padding()
-                            .frame(minWidth: 160, idealWidth: 172, maxWidth: 240, alignment: .leading)
-                            .frame(minHeight: 110)
-                            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-                            .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
+                            .padding(12)
+                            .frame(width: 144, minHeight: 92, alignment: .leading)
+                            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
+                            .overlay(RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
                         }
                         .buttonStyle(.plain)
                     }
                 }
                 .padding(.vertical, 4)
             }
+            .listRowBackground(Color.clear)
+            .listRowInsets(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16))
         }
     }
 

@@ -9,11 +9,9 @@ struct ComplicationContent: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            CriticalWarningCard(title: "Complications to anticipate", items: procedure.sections.complications)
-
+        VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
             if !relatedRescueCards.isEmpty {
-                SectionCard(title: "Rescue Cards", systemImage: "lifepreserver.fill") {
+                SectionCard(title: "Open Rescue", systemImage: "lifepreserver.fill") {
                     VStack(alignment: .leading, spacing: 10) {
                         // Procedure detail can be opened from multiple tab stacks.
                         // Use an explicit destination so rescue links work the same
@@ -32,12 +30,7 @@ struct ComplicationContent: View {
                                             .lineLimit(1)
                                     }
                                     Spacer()
-                                    Text(card.acuity.rawValue.uppercased())
-                                        .font(.caption2.weight(.heavy))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 4)
-                                        .foregroundStyle(card.acuity.tintColor)
-                                        .background(card.acuity.tintColor.opacity(0.14), in: Capsule())
+                                    AcuityBadge(acuity: card.acuity)
                                     Image(systemName: "chevron.right")
                                         .font(.caption.weight(.semibold))
                                         .foregroundStyle(.secondary)
@@ -49,8 +42,10 @@ struct ComplicationContent: View {
                 }
             }
 
+            CriticalWarningCard(title: "Watch For", items: procedure.sections.complications)
+
             if !procedure.sections.troubleshooting.isEmpty {
-                SectionCard(title: "Immediate Rescue Moves", systemImage: "lifepreserver") {
+                SectionCard(title: "If It Fails", systemImage: "wrench.and.screwdriver") {
                     BulletListView(items: procedure.sections.troubleshooting)
                 }
             }
