@@ -28,84 +28,93 @@ struct FailableDecodable<Wrapped: Decodable>: Decodable {
 
 /// Single source of truth for clinical shorthand expansion. Both the procedure
 /// scorer and the rescue-card matcher read from this map so the two search
-/// surfaces can never drift apart (they previously kept separate, divergent
-/// copies). Keys are lowercased shorthand; values are related terms.
+/// surfaces can never drift apart. The map itself ships as validated content
+/// (`Resources/synonyms.json`, checked by scripts/validate_procedures.py)
+/// rather than Swift source, so shorthand can be extended and reviewed like
+/// any other content. Keys are lowercased shorthand; values are related terms.
 enum ClinicalSynonyms {
-    static let expansions: [String: [String]] = [
-        "ett": ["endotracheal", "intubation", "airway", "tube"],
-        "tube": ["endotracheal", "intubation", "chest", "thoracostomy"],
-        "rsi": ["rapid", "sequence", "intubation", "airway"],
-        "line": ["central", "catheter", "vascular", "access"],
-        "cvc": ["central", "venous", "catheter", "arterial"],
-        "ij": ["internal", "jugular", "central", "neck", "arterial"],
-        "cordis": ["introducer", "mac", "central", "sheath", "resuscitation"],
-        "vascath": ["dialysis", "catheter", "vas", "cath"],
-        "vas": ["dialysis", "catheter"],
-        "dialysis": ["vascath", "catheter", "crrt", "hemodialysis", "renal"],
-        "piv": ["peripheral", "iv", "ultrasound", "access", "difficult"],
-        "usgiv": ["ultrasound", "peripheral", "iv", "difficult", "access"],
-        "canthotomy": ["cantholysis", "orbital", "retrobulbar", "eye", "compartment"],
-        "orbital": ["canthotomy", "cantholysis", "retrobulbar", "eye", "compartment"],
-        "wire": ["guidewire", "seldinger"],
-        "pacer": ["transvenous", "pacemaker", "capture", "bradycardia"],
-        "tvp": ["transvenous", "pacemaker", "capture"],
-        "block": ["nerve", "anesthesia", "digital", "fascia", "iliaca"],
-        "finger": ["digital", "nerve", "block"],
-        "lac": ["laceration", "suture", "repair"],
-        "suture": ["laceration", "repair", "wound", "closure"],
-        "wound": ["laceration", "suture", "repair", "abscess"],
-        "shoulder": ["dislocation", "reduction", "glenohumeral"],
-        "dislocation": ["shoulder", "reduction", "glenohumeral"],
-        "fascia": ["iliaca", "ficb", "femoral", "hip", "block"],
-        "iliaca": ["fascia", "ficb", "femoral", "hip", "block"],
-        "hip": ["fascia", "iliaca", "femoral", "fracture", "block"],
-        "thoracotomy": ["edt", "clamshell", "trauma", "pericardiotomy", "resuscitative"],
-        "edt": ["thoracotomy", "clamshell", "trauma", "resuscitative"],
-        "clamshell": ["thoracotomy", "edt", "trauma", "resuscitative"],
-        "cric": ["cricothyrotomy", "surgical", "airway", "front", "neck", "failed"],
-        "chesttube": ["chest", "tube", "thoracostomy", "pneumothorax"],
-        "pigtail": ["catheter", "thoracic", "pleural", "pneumothorax", "effusion"],
-        "needle": ["decompression", "tension", "pneumothorax"],
-        "ptx": ["pneumothorax", "tension", "chest", "thoracostomy"],
-        "pericardial": ["pericardiocentesis", "tamponade", "cardiac"],
-        "tamponade": ["pericardiocentesis", "pericardial", "cardiac", "effusion"],
-        "sedation": ["procedural", "ketamine", "propofol", "apnea"],
-        "lp": ["lumbar", "puncture", "csf", "meningitis"],
-        "visual": ["landmark", "probe"],
-        "probe": ["ultrasound", "landmark", "visual"],
-        "hypotension": ["shock", "pressor", "blood", "pressure"],
-        "apnea": ["sedation", "hypoxia", "ventilation", "bvm"],
-        "last": ["local", "anesthetic", "toxicity", "lipid"],
-        "chest": ["thoracic", "tube", "pneumothorax"],
-        "aline": ["arterial", "line", "radial", "hemodynamic", "monitoring", "abg"],
-        "radial": ["arterial", "line", "wrist", "access"],
-        "abg": ["arterial", "blood", "gas", "radial", "line"],
-        "tap": ["thoracentesis", "paracentesis", "pleural", "ascites"],
-        "thoracentesis": ["pleural", "effusion", "thoracic", "drainage"],
-        "pleural": ["thoracentesis", "effusion", "thoracic"],
-        "para": ["paracentesis", "ascites", "cirrhosis"],
-        "paracentesis": ["ascites", "cirrhosis", "sbp"],
-        "ascites": ["paracentesis", "cirrhosis", "sbp", "tap", "abdominal"],
-        "sbp": ["spontaneous", "bacterial", "peritonitis", "paracentesis", "cirrhosis"],
-        "abscess": ["incision", "drainage", "pus", "soft", "tissue", "mrsa"],
-        "i&d": ["abscess", "incision", "drainage", "pus"],
-        "laryngospasm": ["airway", "sedation", "stridor", "succinylcholine", "crash"]
-    ]
+    /// Loaded once from the bundle. An unreadable or missing file degrades
+    /// search to exact matching; `ProcedureRepository` surfaces that as a
+    /// content warning instead of failing silently.
+    static let expansions: [String: [String]] = loadBundledExpansions() ?? [:]
 
-    /// Splits a raw query into normalized, lowercased tokens.
+    /// True when the bundled synonym map could not be loaded.
+    static var loadFailed: Bool { expansions.isEmpty }
+
+    private static func loadBundledExpansions() -> [String: [String]]? {
+        guard let url = Bundle.main.url(forResource: "synonyms", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let decoded = try? JSONDecoder().decode([String: [String]].self, from: data),
+              !decoded.isEmpty
+        else { return nil }
+        return decoded
+    }
+
+    /// Every shorthand key and expansion term — the vocabulary single-edit
+    /// typo recovery corrects toward.
+    private static let vocabulary: Set<String> = {
+        var words = Set(expansions.keys)
+        for terms in expansions.values { words.formUnion(terms) }
+        return words
+    }()
+
+    /// Splits a raw query into normalized, lowercased tokens. A hyphenated
+    /// chunk contributes its parts AND their concatenation, so "a-line"
+    /// searches as "aline" + "line" rather than dying on the hyphen.
+    /// Single-character tokens are dropped: they substring-match nearly every
+    /// field and only add ranking noise.
     static func tokens(in query: String) -> [String] {
-        query
+        let chunks = query
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .lowercased()
             .split { $0.isWhitespace || $0 == "," || $0 == ";" || $0 == "/" }
-            .map(String.init)
-            .filter { !$0.isEmpty }
+        var result: [String] = []
+        for chunk in chunks {
+            let parts = chunk.split(separator: "-").map(String.init)
+            if parts.count > 1 {
+                result.append(parts.joined())
+            }
+            result.append(contentsOf: parts)
+        }
+        return result.filter { $0.count > 1 }
     }
 
     /// A token together with its synonyms — the OR-group that satisfies that
-    /// token. Matching any one member counts the token as present.
+    /// token. Matching any one member counts the token as present. A token
+    /// with no exact expansion falls back to single-edit typo recovery, so
+    /// "crich" resolves through "cric" to the cricothyrotomy group.
     static func group(for token: String) -> [String] {
-        [token] + (expansions[token] ?? [])
+        if let expansion = expansions[token] { return [token] + expansion }
+        if let corrected = fuzzyMatch(for: token) {
+            return [token, corrected] + (expansions[corrected] ?? [])
+        }
+        return [token]
+    }
+
+    /// Nearest vocabulary word within one edit, or nil. Only engages for
+    /// tokens of 4+ characters, so short clinical shorthand ("ij", "lp",
+    /// "abg") is never rewritten into something else.
+    static func fuzzyMatch(for token: String) -> String? {
+        guard token.count >= 4, !vocabulary.contains(token) else { return nil }
+        return vocabulary.filter { isWithinOneEdit(token, $0) }.min()
+    }
+
+    /// True when the strings are equal or differ by one insertion, deletion,
+    /// or substitution.
+    static func isWithinOneEdit(_ first: String, _ second: String) -> Bool {
+        if first == second { return true }
+        let a = Array(first), b = Array(second)
+        guard abs(a.count - b.count) <= 1 else { return false }
+        var i = 0, j = 0, edits = 0
+        while i < a.count && j < b.count {
+            if a[i] == b[j] { i += 1; j += 1; continue }
+            edits += 1
+            if edits > 1 { return false }
+            if a.count == b.count { i += 1; j += 1 }
+            else if a.count > b.count { i += 1 }
+            else { j += 1 }
+        }
+        return edits + (a.count - i) + (b.count - j) <= 1
     }
 }
 
@@ -139,6 +148,14 @@ final class ProcedureRepository: ObservableObject {
         loadRescueCards()
         loadKits()
         contentIssues = ContentValidator.validate(procedures, rescueCards: rescueCards, kits: kits)
+        if ClinicalSynonyms.loadFailed {
+            contentIssues.append(.init(
+                severity: .warning,
+                procedureID: nil,
+                procedureTitle: nil,
+                message: "synonyms.json failed to load from the bundle; shorthand search is degraded to exact matching."
+            ))
+        }
     }
 
     func loadProcedures() {
@@ -255,11 +272,12 @@ final class ProcedureRepository: ObservableObject {
         let tokens = ClinicalSynonyms.tokens(in: query)
         guard !tokens.isEmpty else { return [] }
 
-        // Scoring is OR-based: every token and its synonyms contribute, so a
-        // flat expanded set is exactly what the scorer needs.
-        var terms = tokens
+        // Scoring is OR-based: every token, its synonyms, and any typo-
+        // corrected group contribute, so a flat expanded set is exactly what
+        // the scorer needs.
+        var terms: [String] = []
         for token in tokens {
-            terms.append(contentsOf: ClinicalSynonyms.expansions[token] ?? [])
+            terms.append(contentsOf: ClinicalSynonyms.group(for: token))
         }
         return Array(Set(terms))
     }

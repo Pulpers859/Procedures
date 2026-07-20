@@ -46,6 +46,7 @@ ASSET_CATALOG = ROOT / "Procedures" / "Assets.xcassets"
 PROCEDURES = RESOURCES / "procedures.json"
 RESCUE_CARDS = RESOURCES / "rescue_cards.json"
 KITS = RESOURCES / "kits.json"
+SYNONYMS = RESOURCES / "synonyms.json"
 REQUIRED_SECTIONS = [
     "shiftMode", "indications", "contraindications", "anatomy", "equipment",
     "positioning", "steps", "ultrasound", "confirmation", "troubleshooting",
@@ -343,6 +344,37 @@ def crash_card_dose_issues(cards, level="WARNING"):
     return issues
 
 
+def synonym_map_issues(synonyms):
+    """The clinical-shorthand synonym map is content, not code, so it is
+    validated like content. Search lowercases every query token, so keys and
+    terms must be lowercase or they can never match; a malformed map would
+    silently degrade bedside search. Mirrors ClinicalSynonyms in
+    ProcedureRepository.swift."""
+    issues = []
+    if not isinstance(synonyms, dict) or not synonyms:
+        issues.append(("BLOCKER", "synonyms.json", "synonym map must be a nonempty JSON object"))
+        return issues
+    for key, terms in synonyms.items():
+        if not key or key != key.lower() or any(ch.isspace() for ch in key):
+            issues.append(("BLOCKER", "synonyms.json", f"key must be lowercase with no whitespace: {key!r}"))
+        if not isinstance(terms, list) or not terms:
+            issues.append(("BLOCKER", "synonyms.json", f"'{key}' must map to a nonempty list of terms"))
+            continue
+        for term in terms:
+            if not isinstance(term, str) or not term or term != term.lower():
+                issues.append(("BLOCKER", "synonyms.json", f"'{key}' has a non-lowercase or empty term: {term!r}"))
+        if key in terms:
+            issues.append(("WARNING", "synonyms.json", f"'{key}' lists itself as a synonym; redundant"))
+
+    resources_phase = resources_phase_text()
+    if resources_phase and "Resources/synonyms.json in Resources */" not in resources_phase:
+        issues.append((
+            "BLOCKER", "synonyms.json",
+            "not in the app target's Copy Bundle Resources phase; shorthand search would silently degrade",
+        ))
+    return issues
+
+
 def validate_rescue_coverage(procedures, rescue_cards):
     """Flag procedures that have no rescue card coverage, especially high-risk ones."""
     issues = []
@@ -518,10 +550,12 @@ def main(argv=None) -> int:
     procedures = load_json(PROCEDURES)
     rescue_cards = load_json(RESCUE_CARDS)
     kits_data = load_json(KITS)
-    if procedures is None or rescue_cards is None or kits_data is None:
+    synonyms = load_json(SYNONYMS)
+    if procedures is None or rescue_cards is None or kits_data is None or synonyms is None:
         return 1
 
     issues = collect_issues(procedures, rescue_cards, kits_data, release=args.release)
+    issues.extend(synonym_map_issues(synonyms))
 
     severity_order = {"BLOCKER": 0, "WARNING": 1, "POLISH": 2}
     issues.sort(key=lambda issue: (severity_order.get(issue[0], 99), issue[1], issue[2]))

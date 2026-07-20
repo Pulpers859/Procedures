@@ -3809,7 +3809,9 @@
       "anterior bleed",
       "Kiesselbach",
       "cautery",
-      "silver nitrate"
+      "silver nitrate",
+      "txa",
+      "tranexamic acid"
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -3850,7 +3852,8 @@
         "Nasal packing device: Rapid Rhino, Merocel sponge, or ribbon gauze with petroleum jelly",
         "Syringe with water or saline for inflating balloon devices",
         "Antibiotic ointment (for gauze packing)",
-        "Kidney basin and gauze for blood management"
+        "Kidney basin and gauze for blood management",
+        "Tranexamic acid (TXA) for topical use per local policy (e.g. 500 mg/5 mL injectable solution applied on a pledget or used to soak the pack)"
       ],
       "positioning": [
         "Patient seated upright leaning slightly forward to prevent blood swallowing.",
@@ -3917,7 +3920,8 @@
       "references": [
         "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
         "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
-        "Verify institutional policy on antibiotic prophylaxis with nasal packing and cautery technique."
+        "Verify institutional policy on antibiotic prophylaxis with nasal packing and cautery technique.",
+        "Zahed R, Moharamzadeh P, Alizadeharasi S, Ghasemi A, Saeedi M. A new and rapid method for epistaxis treatment using injectable form of tranexamic acid topically: a randomized controlled trial. Am J Emerg Med. 2013;31(9):1389-1392."
       ]
     },
     "visualAssets": []
