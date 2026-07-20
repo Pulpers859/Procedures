@@ -13,7 +13,9 @@
       "Confirm pulse, blood pressure, waveform, oxygenation, and tube depth.",
       "Disconnect briefly if severe auto-PEEP/dynamic hyperinflation is plausible.",
       "Reduce excessive PEEP or tidal volume while maintaining oxygenation.",
-      "Give push-dose vasopressor if crashing and start norepinephrine early.",
+      "Give IV fluid bolus 500-1000 mL crystalloid if preload-dependent physiology is suspected.",
+      "Push-dose epinephrine 5-20 mcg IV every 2-5 minutes: mix 1 mL of 0.1 mg/mL (cardiac) epinephrine into 9 mL saline = 10 mcg/mL; give 0.5-2 mL per dose.",
+      "Start norepinephrine early at 0.05-0.1 mcg/kg/min and titrate to MAP.",
       "Consider tension pneumothorax, mainstem intubation, hemorrhage, sepsis, or peri-intubation arrest physiology."
     ],
     "reassess": [
@@ -189,7 +191,7 @@
       "Increase mA until capture, then set safety margin above threshold.",
       "Slowly advance/withdraw catheter while watching ECG and patient pulse/BP.",
       "Use ultrasound/fluoro/CXR if available to confirm course.",
-      "Continue transcutaneous pacing/pressors while troubleshooting."
+      "Continue transcutaneous pacing while troubleshooting; if hypotensive, start push-dose epinephrine 5-20 mcg IV every 2-5 minutes (1 mL of 0.1 mg/mL cardiac epinephrine into 9 mL saline = 10 mcg/mL, give 0.5-2 mL per dose) or norepinephrine infusion 0.05-0.1 mcg/kg/min titrated to MAP."
     ],
     "reassess": [
       "Electrical capture",
@@ -229,7 +231,7 @@
       "Stop sedative dosing and call for airway help.",
       "Reposition airway, jaw thrust, suction, and add oral/nasal airway as needed.",
       "BVM with PEEP if ventilation inadequate.",
-      "Consider reversal only when appropriate for agent/context; do not delay ventilation.",
+      "Reversal only when appropriate for agent/context and never instead of ventilation: opioid - naloxone 0.04-0.4 mg IV, titrate every 2-3 minutes; benzodiazepine - flumazenil 0.2 mg IV over 15 seconds ONLY in benzodiazepine-naive patients (seizure risk).",
       "Prepare for intubation if oxygenation or ventilation cannot be maintained."
     ],
     "reassess": [
@@ -301,7 +303,7 @@
       "Secure airway early if seizure or loss of consciousness: high-flow O2, prepare to intubate.",
       "If cardiac arrest: start ACLS; avoid vasopressin; use standard epinephrine doses sparingly (\u22641 mcg/kg); begin lipid emulsion simultaneously.",
       "Lipid emulsion 20%: bolus 1.5 mL/kg IV over 1 minute, then infusion 0.25 mL/kg/min; may repeat bolus in refractory arrest (max cumulative dose ~12 mL/kg).",
-      "Treat seizure with benzodiazepine; avoid propofol (myocardial depressant and dilute lipid \u2014 not a substitute for Intralipid)."
+      "Treat seizure with benzodiazepine (midazolam 1-2 mg IV, or 0.05 mg/kg, repeat as needed); avoid propofol (myocardial depressant and dilute lipid \u2014 not a substitute for Intralipid)."
     ],
     "reassess": [
       "Rhythm and BP every 1-2 minutes until stable",

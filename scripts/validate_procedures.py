@@ -65,6 +65,16 @@ RELEASE_REFERENCE_MARKERS = (
     "replace with formal reviewer-approved references before release",
     "standard emergency medicine regional anesthesia literature",
 )
+REGIONAL_CATEGORY = "Regional Anesthesia"
+# Drug or drug-class words that must never appear in a Crash card's immediate
+# moves without a number (dose, concentration, or rate) on the same line. A
+# rescue card that says "give a vasopressor" without a dose is a reading
+# assignment, not a rescue card.
+CRASH_DRUG_KEYWORDS = (
+    "vasopressor", "push-dose", "pressor", "lipid", "succinylcholine",
+    "epinephrine", "norepinephrine", "naloxone", "flumazenil",
+    "benzodiazepine", "midazolam", "ketamine", "propofol", "reversal",
+)
 
 
 def governance_issues(title, item):
@@ -252,6 +262,70 @@ def validate_rescue_cards(cards, procedure_ids):
     return issues
 
 
+def regional_dosing_issues(procedures, rescue_card_ids, level="WARNING"):
+    """Structured max-dose data is mandatory for regional anesthesia: a block
+    that states an injectate volume without a weight-based ceiling is a
+    patient-safety defect. Missing/thin dosing is `level` (WARNING while
+    authoring, BLOCKER for release); malformed structure and broken rescue
+    linkage are always blockers. Mirrors ContentValidation.swift."""
+    issues = []
+    for item in procedures:
+        if item.get("category") != REGIONAL_CATEGORY:
+            continue
+        title = item.get("title", item.get("id", "<missing id>"))
+        dosing = item.get("dosing")
+        if not isinstance(dosing, dict) or not dosing:
+            issues.append((level, title, "regional anesthesia procedure is missing structured max-dose (dosing) data"))
+            continue
+
+        agents = dosing.get("agents")
+        if not isinstance(agents, list) or not agents:
+            issues.append(("BLOCKER", title, "dosing block has no agents; a max-dose section without agents is unusable"))
+        else:
+            for agent in agents:
+                if not isinstance(agent, dict) or not str(agent.get("agent") or "").strip():
+                    issues.append(("BLOCKER", title, "dosing agent entry is malformed (missing 'agent' name)"))
+                    continue
+                name = agent["agent"]
+                max_dose = agent.get("maxDoseMgPerKg")
+                if not isinstance(max_dose, (int, float)) or isinstance(max_dose, bool) or max_dose <= 0:
+                    issues.append(("BLOCKER", title, f"dosing agent '{name}' has an invalid maxDoseMgPerKg: {max_dose!r}"))
+                if not str(agent.get("concentrationNote") or "").strip():
+                    issues.append((level, title, f"dosing agent '{name}' is missing a concentration-to-mg conversion note"))
+
+        if not str(dosing.get("workedExample") or "").strip():
+            issues.append((level, title, "dosing block is missing a worked max-dose example"))
+        if not str(dosing.get("cumulativeWarning") or "").strip():
+            issues.append((level, title, "dosing block is missing a cumulative-dose warning"))
+        monitoring = dosing.get("monitoring")
+        if not isinstance(monitoring, list) or len(monitoring) < 2:
+            issues.append((level, title, "dosing block needs at least 2 monitoring/LAST-preparation actions"))
+
+        rescue_id = dosing.get("rescueCardID")
+        if not rescue_id:
+            issues.append((level, title, "dosing block is missing rescueCardID (LAST rescue linkage)"))
+        elif rescue_id not in rescue_card_ids:
+            issues.append(("BLOCKER", title, f"dosing rescueCardID '{rescue_id}' not found in rescue_cards.json"))
+    return issues
+
+
+def crash_card_dose_issues(cards, level="WARNING"):
+    """Every Crash-acuity immediate move naming a drug or drug class must carry
+    a number on the same line (dose, concentration, mL, rate, or mg/kg)."""
+    issues = []
+    for card in cards:
+        if card.get("acuity") != "Crash":
+            continue
+        title = card.get("title", card.get("id", "<missing id>"))
+        for line in card.get("immediateMoves", []):
+            if not isinstance(line, str):
+                continue
+            lowered = line.lower()
+            if any(keyword in lowered for keyword in CRASH_DRUG_KEYWORDS) and not any(ch.isdigit() for ch in line):
+                issues.append((level, title, f"Crash card names a drug/class without a dose: '{line[:70]}'"))
+    return issues
+
+
 def validate_rescue_coverage(procedures, rescue_cards):
     """Flag procedures that have no rescue card coverage, especially high-risk ones."""
     issues = []
@@ -392,6 +466,14 @@ def collect_issues(procedures, rescue_cards, kits, release=False):
     issues.extend(validate_rescue_cards(rescue_cards, procedure_ids))
     issues.extend(validate_rescue_coverage(procedures, rescue_cards))
     issues.extend(validate_kits(kits, procedure_ids))
+
+    # Dosing-safety rules warn during authoring and become stop-ship in
+    # release mode; structural corruption inside them is always a blocker.
+    dosing_level = "BLOCKER" if release else "WARNING"
+    rescue_card_ids = {item.get("id") for item in rescue_cards}
+    issues.extend(regional_dosing_issues(procedures, rescue_card_ids, level=dosing_level))
+    issues.extend(crash_card_dose_issues(rescue_cards, level=dosing_level))
+
     if release:
         issues.extend(release_readiness_issues(procedures, rescue_cards, kits))
     return issues

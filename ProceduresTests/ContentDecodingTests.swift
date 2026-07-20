@@ -57,6 +57,26 @@ final class ContentDecodingTests: XCTestCase {
         }
     }
 
+    func testRegionalAnesthesiaProceduresCarryStructuredDosing() {
+        let repo = ProcedureRepository()
+        let rescueIDs = Set(repo.rescueCards.map(\.id))
+        for procedure in repo.procedures where procedure.category == .regionalAnesthesia {
+            guard let dosing = procedure.dosing else {
+                XCTFail("\(procedure.id): regional anesthesia procedure ships without structured max-dose data")
+                continue
+            }
+            XCTAssertFalse(dosing.agents.isEmpty, "\(procedure.id): dosing has no agents")
+            for agent in dosing.agents {
+                XCTAssertGreaterThan(agent.maxDoseMgPerKg, 0, "\(procedure.id): \(agent.agent) has a nonpositive mg/kg max")
+            }
+            XCTAssertFalse(dosing.workedExample.isEmpty, "\(procedure.id): missing worked example")
+            XCTAssertFalse(dosing.cumulativeWarning.isEmpty, "\(procedure.id): missing cumulative-dose warning")
+            if let rescueCardID = dosing.rescueCardID {
+                XCTAssertTrue(rescueIDs.contains(rescueCardID), "\(procedure.id): dosing rescue card \(rescueCardID) does not exist")
+            }
+        }
+    }
+
     func testProcedureIDsAreUnique() {
         let repo = ProcedureRepository()
         let ids = repo.procedures.map(\.id)

@@ -450,7 +450,9 @@
       "references": [
         "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
-        "Verify local anesthetic maximum dosing and institutional policy."
+        "Verify local anesthetic maximum dosing and institutional policy.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "visualAssets": [
@@ -465,7 +467,32 @@
         "clinicalWarning": "Keep this clean and simple; this is exactly where Fadial-style clarity helps."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 4 mL of 1% lidocaine = 40 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "cricothyrotomy",
@@ -3226,7 +3253,9 @@
       "references": [
         "ASRA guidance on regional anesthesia and management of local anesthetic systemic toxicity.",
         "Emergency medicine regional anesthesia references on the fascia iliaca compartment block.",
-        "Institutional protocols on ED nerve blocks, dosing limits, and LAST rescue; verify local policy."
+        "Institutional protocols on ED nerve blocks, dosing limits, and LAST rescue; verify local policy.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "visualAssets": [
@@ -3250,7 +3279,32 @@
         "caption": "Replace assetName with reviewed artwork when available.",
         "clinicalWarning": "Intravascular injection risk near femoral vessels. Aspirate before injecting."
       }
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 40 mL of 0.25% ropivacaine = 100 mg. Maximum at 3 mg/kg: 70 kg = 210 mg; 50 kg = 150 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "resuscitative_thoracotomy",
@@ -4316,7 +4370,7 @@
       ],
       "steps": [
         "Perform a pre-block neurovascular exam of the upper extremity.",
-        "Apply cardiac monitoring if using large volumes, and ensure intralipid is available.",
+        "Apply continuous cardiac monitoring and pulse oximetry, and confirm lipid emulsion availability, before injecting any volume.",
         "Prep the lateral neck with chlorhexidine.",
         "Place the linear probe transversely over the supraclavicular fossa to identify the subclavian artery and brachial plexus ('bunch of grapes').",
         "Trace the brachial plexus cephalad until it forms the 'stoplight' sign between the anterior and middle scalenes.",
@@ -4369,7 +4423,9 @@
         "Always assume you will block the phrenic nerve; do not do this block bilaterally."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -4389,7 +4445,32 @@
       "shoulder block",
       "humerus block",
       "interscalene"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        }
+      ],
+      "workedExample": "Worked example: 15 mL of 0.25% bupivacaine = 37.5 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_supraclavicular",
@@ -4482,7 +4563,9 @@
         "Injecting the corner pocket first floats the plexus up and makes the rest of the block easier and safer."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -4502,7 +4585,32 @@
       "arm block",
       "supraclavicular",
       "brachial plexus"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        }
+      ],
+      "workedExample": "Worked example: 20 mL of 0.25% bupivacaine = 50 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_raptir",
@@ -4589,7 +4697,9 @@
         "Aiming posterior to the artery (6 o'clock) usually ensures the local anesthetic spreads to all three cords."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -4609,7 +4719,32 @@
       "raptir",
       "infraclavicular",
       "arm block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        }
+      ],
+      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_radial_nerve",
@@ -4670,7 +4805,9 @@
         "Blocking at the elbow covers more branches than blocking at the wrist."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -4689,7 +4826,32 @@
       "ultrasound",
       "radial",
       "forearm block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_median_nerve",
@@ -4747,7 +4909,9 @@
         "Avoid blocking at the wrist (carpal tunnel) due to limited space and higher risk of nerve injury. The mid-forearm is much safer."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -4767,7 +4931,32 @@
       "median",
       "forearm block",
       "carpal tunnel"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_ulnar_nerve",
@@ -4826,7 +5015,9 @@
         "Block higher up in the forearm to ensure you catch the dorsal cutaneous branch of the ulnar nerve, which branches off proximal to the wrist."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -4845,7 +5036,32 @@
       "ultrasound",
       "ulnar",
       "forearm block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_superficial_cervical_plexus",
@@ -4910,7 +5126,9 @@
         "This is an extremely superficial block. Do not plunge the needle deep to the SCM."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -4930,7 +5148,32 @@
       "neck block",
       "clavicle block",
       "cervical"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_serratus_anterior",
@@ -4997,7 +5240,9 @@
         "Aiming for the rib (deep to serratus) is often safer and provides an excellent block. 'Hit the rib, slide off, inject.'"
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5017,7 +5262,32 @@
       "rib block",
       "serratus",
       "chest tube block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        }
+      ],
+      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg. Bilateral at the same volume = 150 mg total, which EXCEEDS the maximum for patients under 75 kg \u2014 dilute or reduce volume.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_thoracic_esp",
@@ -5083,7 +5353,9 @@
         "The ESP block is remarkably safe because the target is bone (the TP), keeping you far from the pleura if identified correctly."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5103,7 +5375,32 @@
       "esp",
       "erector spinae",
       "posterior rib block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        }
+      ],
+      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg. Bilateral at the same volume = 150 mg total, which EXCEEDS the maximum for patients under 75 kg \u2014 dilute or reduce volume.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_tap",
@@ -5121,7 +5418,9 @@
       ],
       "contraindications": [
         "Infection at the injection site",
-        "Allergy to local anesthetic"
+        "Allergy to local anesthetic",
+        "Therapeutic anticoagulation or significant coagulopathy (deep fascial plane; weigh risk/benefit and local policy)",
+        "Bilateral block without a recalculated combined maximum dose (both sides share one limit)"
       ],
       "anatomy": [
         "The lateral abdominal wall consists of three muscle layers: external oblique (superficial), internal oblique (middle), and transversus abdominis (deep).",
@@ -5130,7 +5429,7 @@
       "equipment": [
         "High-frequency linear or curvilinear transducer",
         "Regional block needle (21G or 22G, 80-100mm)",
-        "Local anesthetic (large volume: 20-30 mL of 0.25% bupivacaine or ropivacaine per side)"
+        "Local anesthetic (large volume: 20-30 mL of 0.25% bupivacaine or ropivacaine per side; for bilateral blocks the two sides share ONE weight-based maximum \u2014 dilute or reduce volume so the combined total stays under it)"
       ],
       "positioning": [
         "Patient supine, abdomen exposed."
@@ -5140,7 +5439,7 @@
         "Identify the three muscle layers.",
         "Insert the needle in-plane from anterior to posterior (or vice-versa).",
         "Advance the needle until the tip pops through the fascia of the internal oblique into the TAP plane.",
-        "Aspirate, then inject 20-30 mL of anesthetic."
+        "Aspirate, then inject 20-30 mL of anesthetic in 3-5 mL increments with repeat aspiration, staying under the calculated maximum dose."
       ],
       "ultrasound": [
         "Look for the 'three stripes' of muscle. The deepest stripe (transversus abdominis) sits right above the peritoneum/bowel."
@@ -5166,7 +5465,9 @@
         "This block only covers somatic pain (abdominal wall), not visceral pain (the inflamed organ itself). Patients will still have some deep pain."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5186,7 +5487,32 @@
       "tap",
       "abdomen block",
       "abdominal wall"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        }
+      ],
+      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg. Bilateral at the same volume = 150 mg total, which EXCEEDS the maximum for patients under 75 kg \u2014 dilute or reduce volume.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_pecs",
@@ -5250,7 +5576,9 @@
         "Always keep the needle tip in view when passing through the pectoralis minor, as the pleura is just beneath the next muscle layer."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5270,7 +5598,32 @@
       "pecs",
       "chest block",
       "breast block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        }
+      ],
+      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg. Bilateral at the same volume = 150 mg total, which EXCEEDS the maximum for patients under 75 kg \u2014 dilute or reduce volume.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_femoral_nerve",
@@ -5289,7 +5642,9 @@
       ],
       "contraindications": [
         "Infection at the injection site",
-        "Allergy to local anesthetic"
+        "Allergy to local anesthetic",
+        "Prior femoral vascular surgery or graft at the injection site",
+        "Therapeutic anticoagulation or significant coagulopathy (weigh risk/benefit and local policy)"
       ],
       "anatomy": [
         "The femoral nerve lies lateral to the femoral artery in the femoral triangle, just distal to the inguinal ligament.",
@@ -5337,7 +5692,9 @@
         "Always document that you told the patient they cannot walk on that leg. The quad weakness is profound."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5357,7 +5714,26 @@
       "femoral",
       "leg block",
       "femur fracture"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 20 mL of 0.25% bupivacaine = 50 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_peng",
@@ -5421,7 +5797,9 @@
         "The PENG block is fantastic for hip fractures because it is largely motor-sparing, unlike a femoral or fascia iliaca block which paralyzes the quad."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5441,7 +5819,26 @@
       "peng",
       "hip fracture",
       "pelvis"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_saphenous_nerve",
@@ -5505,7 +5902,9 @@
         "Because it's a sensory block, patients can still walk (unlike a femoral nerve block), making it ideal for medial leg/ankle injuries in patients who need to ambulate."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5525,7 +5924,32 @@
       "saphenous",
       "adductor canal",
       "knee block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 15 mL of 1% lidocaine = 150 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_popliteal_sciatic",
@@ -5543,7 +5967,8 @@
       ],
       "contraindications": [
         "Infection at the injection site",
-        "Allergy to local anesthetic"
+        "Allergy to local anesthetic",
+        "Injury at risk for compartment syndrome (e.g., tibial fracture) \u2014 the block can mask ischemic pain; discuss with the surgical team first"
       ],
       "anatomy": [
         "The sciatic nerve travels down the posterior thigh.",
@@ -5591,7 +6016,9 @@
         "Always combine this with a saphenous nerve block if you need complete anesthesia of the ankle/foot (e.g., for an ankle fracture reduction)."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5611,7 +6038,32 @@
       "popliteal",
       "sciatic",
       "ankle block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        }
+      ],
+      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_transgluteal_sciatic",
@@ -5628,7 +6080,8 @@
       ],
       "contraindications": [
         "Infection at the injection site",
-        "Allergy to local anesthetic"
+        "Allergy to local anesthetic",
+        "Injury at risk for compartment syndrome \u2014 the block can mask ischemic pain; discuss with the surgical team first"
       ],
       "anatomy": [
         "The sciatic nerve is large and located deep to the gluteus maximus (or biceps femoris, depending on level) and superficial to the quadratus femoris or adductor magnus."
@@ -5671,7 +6124,9 @@
         "The sciatic nerve at this level is the largest nerve in the body. It takes a significant volume (20-30 mL) and time (up to 30 mins) to fully block."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5691,7 +6146,32 @@
       "sciatic",
       "gluteal",
       "posterior thigh"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Ropivacaine (plain)",
+          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200
+        }
+      ],
+      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_tibial_nerve",
@@ -5751,7 +6231,9 @@
         "For a purely plantar laceration, this block is vastly superior to injecting local anesthetic directly into the exquisitely sensitive sole of the foot."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5771,7 +6253,32 @@
       "tibial",
       "ankle block",
       "plantar"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_sural_nerve",
@@ -5829,7 +6336,9 @@
         "The landmark 'subcutaneous wheal' technique is often faster and just as effective as ultrasound for this specific small nerve."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5849,7 +6358,32 @@
       "sural",
       "lateral foot",
       "ankle block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 5 mL of 1% lidocaine = 50 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_superficial_peroneal",
@@ -5905,7 +6439,9 @@
         "This nerve branches extensively. A wide subcutaneous band of anesthetic is often needed if using landmarks."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -5925,7 +6461,32 @@
       "superficial peroneal",
       "dorsum foot",
       "ankle block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_deep_peroneal",
@@ -5982,7 +6543,9 @@
         "This nerve is very small. Perivascular spread around the anterior tibial artery is usually sufficient."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -6002,7 +6565,32 @@
       "deep peroneal",
       "first web space",
       "ankle block"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 5 mL of 1% lidocaine = 50 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_supraorbital",
@@ -6065,7 +6653,9 @@
         "Always apply pressure to the upper eyelid below the injection site to prevent the anesthetic from tracking downward and causing a swollen eyelid."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -6085,7 +6675,32 @@
       "forehead block",
       "supraorbital",
       "supratrochlear"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine with epinephrine",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500
+        },
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        }
+      ],
+      "workedExample": "Worked example: 5 mL of 1% lidocaine = 50 mg. Maximum at 7 mg/kg: 70 kg = 490 mg; 50 kg = 350 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_infraorbital",
@@ -6151,7 +6766,9 @@
         "This block is essential for perfectly aligning the vermilion border of the upper lip without distorting the tissue with local infiltration."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -6171,7 +6788,32 @@
       "cheek block",
       "upper lip block",
       "infraorbital"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine with epinephrine",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500
+        },
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        }
+      ],
+      "workedExample": "Worked example: 3 mL of 1% lidocaine = 30 mg. Maximum at 7 mg/kg: 70 kg = 490 mg; 50 kg = 350 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_mental",
@@ -6235,7 +6877,9 @@
         "This is the fastest, easiest, and least painful way to repair a complex lower lip laceration."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -6255,7 +6899,32 @@
       "lower lip block",
       "chin block",
       "mental"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine with epinephrine",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500
+        },
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        }
+      ],
+      "workedExample": "Worked example: 3 mL of 1% lidocaine = 30 mg. Maximum at 7 mg/kg: 70 kg = 490 mg; 50 kg = 350 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_inferior_alveolar",
@@ -6328,7 +6997,9 @@
         "Always contact bone! If you don't feel the hard stop, do not inject."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -6348,7 +7019,32 @@
       "dental block",
       "mandibular block",
       "ianb"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        }
+      ],
+      "workedExample": "Worked example: 3 mL of 0.25% bupivacaine = 7.5 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_superior_alveolar",
@@ -6411,7 +7107,9 @@
         "Because the maxilla is porous, you don't need a complex nerve block for upper teeth. Local infiltration above the tooth root works beautifully 95% of the time."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -6431,7 +7129,32 @@
       "maxillary block",
       "upper dental",
       "supraperiosteal"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        },
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        }
+      ],
+      "workedExample": "Worked example: 2 mL of 0.25% bupivacaine = 5 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "block_auricular",
@@ -6492,7 +7215,9 @@
         "Use a long needle so you only have to poke the patient twice (once at the bottom, once at the top) to complete the entire ring."
       ],
       "references": [
-        "Standard emergency medicine regional anesthesia literature."
+        "Standard emergency medicine regional anesthesia literature.",
+        "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
+        "NYSORA. Clinical Pharmacology of Local Anesthetics (maximum recommended doses). nysora.com."
       ]
     },
     "reviewTime": "standard",
@@ -6511,6 +7236,31 @@
       "ultrasound",
       "ear block",
       "auricular"
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine (plain)",
+          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300
+        },
+        {
+          "agent": "Bupivacaine (plain)",
+          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175
+        }
+      ],
+      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
+      "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3-5 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   }
 ]

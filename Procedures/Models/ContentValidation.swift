@@ -43,6 +43,23 @@ enum ContentValidator {
         issues.append(contentsOf: validateRescueCoverage(procedures, rescueCards: rescueCards))
         issues.append(contentsOf: validateKits(kits, procedureIDs: Set(ids)))
 
+        // Dosing rescue linkage resolves against the loaded rescue cards, so it
+        // lives here rather than in the per-procedure pass. Skip when no cards
+        // were passed at all (unit fixtures) to avoid vacuous noise.
+        if !rescueCards.isEmpty {
+            let rescueIDs = Set(rescueCards.map(\.id))
+            for procedure in procedures {
+                if let rescueCardID = procedure.dosing?.rescueCardID, !rescueIDs.contains(rescueCardID) {
+                    issues.append(.init(
+                        severity: .blocker,
+                        procedureID: procedure.id,
+                        procedureTitle: procedure.title,
+                        message: "dosing rescue card ID '\(rescueCardID)' not found in rescue_cards.json."
+                    ))
+                }
+            }
+        }
+
         // Aggregate, honest read on clinical sign-off so the editor sees one
         // actionable line instead of a flag on every unreviewed item.
         let totalItems = procedures.count + rescueCards.count + kits.count
@@ -138,6 +155,35 @@ enum ContentValidator {
 
         if allContent.contains(where: { $0.localizedCaseInsensitiveContains("monitor closely") }) {
             add(.polish, "contains vague phrase 'monitor closely'; replace with concrete reassessment actions.")
+        }
+
+        // Local-anesthetic safety limits are first-class data for regional
+        // anesthesia: a block that states a volume without a weight-based
+        // ceiling is a patient-safety defect, not a polish item. Mirrors the
+        // Python validator's regional dosing rules.
+        if procedure.category == .regionalAnesthesia {
+            if let dosing = procedure.dosing {
+                if dosing.agents.isEmpty {
+                    add(.blocker, "dosing block has no agents; a max-dose section without agents is unusable.")
+                }
+                for agent in dosing.agents where agent.maxDoseMgPerKg <= 0 {
+                    add(.blocker, "dosing agent \(agent.agent) has a nonpositive mg/kg maximum.")
+                }
+                for agent in dosing.agents where agent.concentrationNote.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    add(.warning, "dosing agent \(agent.agent) is missing a concentration-to-mg conversion note.")
+                }
+                if dosing.workedExample.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    add(.warning, "dosing block is missing a worked max-dose example.")
+                }
+                if dosing.cumulativeWarning.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    add(.warning, "dosing block is missing a cumulative-dose warning.")
+                }
+                if dosing.monitoring.count < 2 {
+                    add(.warning, "dosing block needs concrete monitoring/LAST-preparation actions.")
+                }
+            } else {
+                add(.warning, "regional anesthesia procedure is missing structured max-dose (dosing) data.")
+            }
         }
 
         if procedure.difficulty == .advanced || procedure.difficulty == .rareCrash {

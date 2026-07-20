@@ -12,6 +12,11 @@ struct Procedure: Identifiable, Codable, Hashable {
     let tags: [String]
     let visualAssets: [ProcedureVisualAsset]?
 
+    /// Structured local-anesthetic safety limits. Required content for
+    /// Regional Anesthesia procedures (enforced by the validators); nil for
+    /// categories where a max-dose block does not apply.
+    let dosing: ProcedureDosing?
+
     /// Editorial review state. Optional in the wire format for decode
     /// resilience; absent content is treated as the conservative default.
     /// Declared before `sections` so the memberwise initializer reads with the
@@ -25,6 +30,37 @@ struct Procedure: Identifiable, Codable, Hashable {
     var reviewer: ReviewerStatus { reviewerStatus ?? .unreviewedDefault }
 
     var primaryVisualAsset: ProcedureVisualAsset? { visualAssets?.first }
+}
+
+/// Machine-checkable dosing limits for procedures that inject local
+/// anesthetic. This is first-class data — not prose — so the validator can
+/// refuse content that names a volume without a weight-based ceiling, and the
+/// UI can render the ceiling before the operator draws up.
+struct ProcedureDosing: Codable, Hashable {
+    struct Agent: Codable, Hashable, Identifiable {
+        var id: String { agent }
+        /// Agent name including plain/with-epinephrine qualifier.
+        let agent: String
+        /// Concentration-to-mg conversion the operator needs at the bedside,
+        /// e.g. "0.25% = 2.5 mg/mL".
+        let concentrationNote: String
+        /// Conventional weight-based maximum in mg/kg.
+        let maxDoseMgPerKg: Double
+        /// Conventional absolute ceiling in mg regardless of weight.
+        let absoluteMaxMg: Double?
+    }
+
+    let agents: [Agent]
+    /// A worked mg/mL calculation at this block's typical volume.
+    let workedExample: String
+    /// Cumulative-dose rule covering bilateral blocks, prior infiltration,
+    /// and repeat dosing in the same encounter.
+    let cumulativeWarning: String
+    /// Non-negotiable monitoring and preparation actions (lipid location,
+    /// incremental injection, monitoring window).
+    let monitoring: [String]
+    /// Rescue card the operator escalates to, typically LAST.
+    let rescueCardID: String?
 }
 
 struct ProcedureVisualAsset: Identifiable, Codable, Hashable {

@@ -79,6 +79,77 @@ final class ValidationTests: XCTestCase {
         return formatter.date(from: iso)!
     }
 
+    func testRegionalAnesthesiaWithoutDosingIsWarned() {
+        let issues = ContentValidator.validate([makeProcedure(category: .regionalAnesthesia)])
+        XCTAssertTrue(
+            issues.contains { $0.severity == .warning && $0.message.localizedCaseInsensitiveContains("max-dose") },
+            "a regional anesthesia procedure without structured dosing must be flagged"
+        )
+    }
+
+    func testDosingWithNoAgentsIsBlocked() {
+        let dosing = ProcedureDosing(
+            agents: [],
+            workedExample: "example",
+            cumulativeWarning: "warning",
+            monitoring: ["a", "b"],
+            rescueCardID: nil
+        )
+        let issues = ContentValidator.validate([makeProcedure(category: .regionalAnesthesia, dosing: dosing)])
+        XCTAssertTrue(
+            issues.contains { $0.severity == .blocker && $0.message.localizedCaseInsensitiveContains("no agents") },
+            "an empty agents list is an unusable max-dose section and must be a blocker"
+        )
+    }
+
+    func testWellFormedDosingProducesNoDosingIssues() {
+        let dosing = ProcedureDosing(
+            agents: [.init(agent: "Bupivacaine (plain)", concentrationNote: "0.25% = 2.5 mg/mL", maxDoseMgPerKg: 2.0, absoluteMaxMg: 175)],
+            workedExample: "70 kg: 2 mg/kg = 140 mg = 56 mL of 0.25%.",
+            cumulativeWarning: "All local anesthetic this encounter shares one maximum.",
+            monitoring: ["Continuous cardiac monitoring", "Confirm lipid emulsion location"],
+            rescueCardID: nil
+        )
+        let issues = ContentValidator.validate([makeProcedure(category: .regionalAnesthesia, dosing: dosing)])
+        XCTAssertFalse(
+            issues.contains { $0.message.localizedCaseInsensitiveContains("dosing") || $0.message.localizedCaseInsensitiveContains("max-dose") },
+            "well-formed dosing should be clean: \(issues.map(\.message))"
+        )
+    }
+
+    func testDanglingDosingRescueCardIDIsBlocked() {
+        let dosing = ProcedureDosing(
+            agents: [.init(agent: "Bupivacaine (plain)", concentrationNote: "0.25% = 2.5 mg/mL", maxDoseMgPerKg: 2.0, absoluteMaxMg: 175)],
+            workedExample: "example",
+            cumulativeWarning: "warning",
+            monitoring: ["a", "b"],
+            rescueCardID: "does_not_exist"
+        )
+        let card = ComplicationRescueCard(
+            id: "some_other_card",
+            title: "Card",
+            acuity: .urgent,
+            relatedProcedureIDs: [],
+            trigger: ["t"],
+            immediateMoves: ["a", "b", "c"],
+            reassess: ["a", "b"],
+            avoid: ["a"],
+            tags: ["t"],
+            lastReviewed: "2026-01-01",
+            version: "1.0",
+            references: ["Smith et al. 2024"],
+            reviewerStatus: .internallyReviewed
+        )
+        let issues = ContentValidator.validate(
+            [makeProcedure(category: .regionalAnesthesia, dosing: dosing)],
+            rescueCards: [card]
+        )
+        XCTAssertTrue(
+            issues.contains { $0.severity == .blocker && $0.message.localizedCaseInsensitiveContains("dosing rescue card") },
+            "a dosing rescue link that resolves to nothing is a broken relation and must be a blocker"
+        )
+    }
+
     func testDuplicateEquipmentItemsAreWarned() {
         let issues = ContentValidator.validate([makeProcedure(equipment: ["scalpel", "scalpel", "gauze", "gauze", "drape"])])
         XCTAssertTrue(
@@ -91,12 +162,14 @@ final class ValidationTests: XCTestCase {
         id: String = "test",
         references: [String] = ["Smith et al. 2024"],
         reviewerStatus: ReviewerStatus? = .internallyReviewed,
-        equipment: [String] = ["a", "b", "c", "d", "e"]
+        equipment: [String] = ["a", "b", "c", "d", "e"],
+        category: ProcedureCategory = .other,
+        dosing: ProcedureDosing? = nil
     ) -> Procedure {
         Procedure(
             id: id,
             title: "Test Procedure",
-            category: .other,
+            category: category,
             difficulty: .basic,
             reviewTime: "1 min",
             setting: [.ed],
@@ -104,6 +177,7 @@ final class ValidationTests: XCTestCase {
             version: "1.0",
             tags: ["test"],
             visualAssets: nil,
+            dosing: dosing,
             reviewerStatus: reviewerStatus,
             sections: ProcedureSections(
                 shiftMode: ["a", "b", "c", "d", "e", "f"],
