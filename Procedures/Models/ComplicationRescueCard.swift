@@ -26,8 +26,15 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
     /// resilience. See `reviewer` for the never-nil value used by the app.
     let reviewerStatus: ReviewerStatus?
 
+    /// Content provenance; optional in the wire format. Undeclared provenance
+    /// reads as an AI draft, never as trusted human work.
+    let contentSource: ContentSource?
+
     /// Never-nil review state: undeclared content is treated as needing review.
     var reviewer: ReviewerStatus { reviewerStatus ?? .unreviewedDefault }
+
+    /// Never-nil provenance: undeclared content reads as an AI draft.
+    var source: ContentSource { contentSource ?? .undeclaredDefault }
 
     func matches(_ query: String) -> Bool {
         let tokens = ClinicalSynonyms.tokens(in: query)

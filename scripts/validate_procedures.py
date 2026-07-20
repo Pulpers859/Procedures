@@ -25,6 +25,12 @@ REVIEWER_STATUSES = {
     "Institution-Specific",
 }
 REVIEWED_STATUSES = {"Internally Reviewed", "Externally Reviewed", "Institution-Specific"}
+# Mirror of ContentSource in ReviewerStatus.swift. Undeclared provenance is
+# treated as "ai-draft" (the least trusted answer), and a clinically reviewed
+# reviewerStatus on an item still marked "ai-draft" is a contradiction: a
+# sign-off must update provenance.
+CONTENT_SOURCES = {"ai-draft", "human-authored", "clinician-reviewed"}
+AI_DRAFT_SOURCE = "ai-draft"
 STALENESS_THRESHOLD_DAYS = 365
 
 
@@ -95,6 +101,17 @@ def governance_issues(title, item):
         issues.append(("WARNING", title, "missing reviewerStatus; treated as 'Needs Clinical Review'"))
     elif status not in REVIEWER_STATUSES:
         issues.append(("WARNING", title, f"unknown reviewerStatus '{status}'"))
+
+    source = item.get("contentSource")
+    if source is None:
+        issues.append(("WARNING", title, "missing contentSource provenance; treated as 'ai-draft'"))
+    elif source not in CONTENT_SOURCES:
+        issues.append(("WARNING", title, f"unknown contentSource '{source}'"))
+    if (source or AI_DRAFT_SOURCE) == AI_DRAFT_SOURCE and status in REVIEWED_STATUSES:
+        issues.append((
+            "BLOCKER", title,
+            "reviewerStatus claims clinical review but contentSource is still 'ai-draft'; a sign-off must update provenance",
+        ))
     return issues
 
 
@@ -408,6 +425,13 @@ def release_readiness_issues(procedures, rescue_cards, kits):
                     "BLOCKER",
                     title,
                     f"release requires a clinically reviewed reviewerStatus for this {kind}; found '{status or 'missing'}'",
+                ))
+
+            if item.get("contentSource") not in CONTENT_SOURCES:
+                issues.append((
+                    "BLOCKER",
+                    title,
+                    f"release requires declared content provenance (contentSource) for this {kind}",
                 ))
 
             if kind == "procedure":

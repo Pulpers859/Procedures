@@ -158,7 +158,8 @@
         "clinicalWarning": "Grade III\u2013IV views require immediate backup plan. Do not persist with direct laryngoscopy."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "central_venous_catheter",
@@ -336,7 +337,8 @@
         "clinicalWarning": "Never dilate or place the catheter without confirmed wire position."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "digital_nerve_block",
@@ -468,6 +470,7 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "dosing": {
       "agents": [
         {
@@ -636,7 +639,8 @@
         "clinicalWarning": "Stay midline. Lateral deviation risks vascular injury."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "thoracostomy_chest_tube",
@@ -788,7 +792,8 @@
         "clinicalWarning": "Inferior rib entry risks intercostal artery laceration and hemorrhage."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "pigtail_catheter",
@@ -932,7 +937,8 @@
         "clinicalWarning": "Never advance the dilator without confirmed wire position."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "needle_decompression",
@@ -1065,7 +1071,8 @@
         "clinicalWarning": "Too medial risks internal mammary artery. Too low risks abdominal contents."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "pericardiocentesis",
@@ -1206,7 +1213,8 @@
         "clinicalWarning": "Steep/deep trajectories risk myocardium or liver."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "transvenous_pacemaker",
@@ -1339,7 +1347,8 @@
         "clinicalWarning": "The image must teach not to accept spikes without capture."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "procedural_sedation",
@@ -1474,7 +1483,8 @@
         "clinicalWarning": "Premium version should show the room before drugs go in."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "lumbar_puncture",
@@ -1620,7 +1630,8 @@
         "clinicalWarning": "If bone is hit, withdraw and redirect \u2014 do not force through."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "arterial_line",
@@ -1780,7 +1791,8 @@
         "clinicalWarning": "Use minimal probe pressure to avoid compressing the artery flat."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "thoracentesis",
@@ -1931,7 +1943,8 @@
         "clinicalWarning": "Visual must make neurovascular bundle avoidance and diaphragm boundary unambiguous."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "paracentesis",
@@ -2087,7 +2100,8 @@
         "clinicalWarning": "Visual must make inferior epigastric vessel and bowel avoidance unambiguous."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "abscess_incision_drainage",
@@ -2237,7 +2251,8 @@
         "clinicalWarning": "Visual should clarify incision length adequacy and loculation breakdown \u2014 the two most common technical failures."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review"
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   },
   {
     "id": "introducer_sheath_cordis",
@@ -2253,6 +2268,7 @@
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "tags": [
       "cordis",
       "introducer",
@@ -2407,6 +2423,7 @@
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "tags": [
       "vascath",
       "vas cath",
@@ -2560,6 +2577,7 @@
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "tags": [
       "ultrasound IV",
       "USGIV",
@@ -2715,6 +2733,7 @@
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "tags": [
       "canthotomy",
       "cantholysis",
@@ -2852,6 +2871,7 @@
     "lastReviewed": "2026-06-16",
     "version": "0.1.0",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "tags": [
       "laceration",
       "suture",
@@ -2995,6 +3015,7 @@
     "lastReviewed": "2026-06-16",
     "version": "0.1.0",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "tags": [
       "shoulder dislocation",
       "reduction",
@@ -3136,6 +3157,7 @@
     "lastReviewed": "2026-06-16",
     "version": "0.1.0",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "tags": [
       "fascia iliaca",
       "FICB",
@@ -3319,6 +3341,7 @@
     "lastReviewed": "2026-06-16",
     "version": "0.1.0",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "tags": [
       "thoracotomy",
       "EDT",
@@ -3480,6 +3503,7 @@
       "pediatric"
     ],
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
         "IO is a bridge, not a destination. Transition to definitive IV access when stable.",
@@ -3635,6 +3659,7 @@
       "monoarticular"
     ],
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
         "Superolateral approach is the most common. Medial approach is an alternative.",
@@ -3787,6 +3812,7 @@
       "silver nitrate"
     ],
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
         "Most anterior epistaxis is from Kiesselbach plexus (Little area) on the septum.",
@@ -3923,6 +3949,7 @@
       "defibrillator"
     ],
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
         "Synchronized cardioversion delivers a shock timed to the R wave. Always confirm SYNC mode is on before shocking.",
@@ -4056,6 +4083,7 @@
       "pharyngitis"
     ],
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
         "Needle aspiration is the first-line ED drainage technique. Most PTAs can be aspirated at bedside.",
@@ -4194,6 +4222,7 @@
       "extraction"
     ],
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
         "X-ray detects glass, metal, gravel, and bone. It does not reliably detect wood, plastic, or thorns.",
@@ -4430,6 +4459,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -4570,6 +4600,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -4704,6 +4735,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -4812,6 +4844,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -4916,6 +4949,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -5022,6 +5056,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -5133,6 +5168,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -5247,6 +5283,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -5360,6 +5397,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -5472,6 +5510,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -5583,6 +5622,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -5699,6 +5739,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -5804,6 +5845,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -5909,6 +5951,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -6023,6 +6066,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -6131,6 +6175,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -6238,6 +6283,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -6343,6 +6389,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -6446,6 +6493,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -6550,6 +6598,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -6660,6 +6709,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -6773,6 +6823,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -6884,6 +6935,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -7004,6 +7056,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -7114,6 +7167,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [
@@ -7222,6 +7276,7 @@
     },
     "reviewTime": "standard",
     "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
     "category": "Regional Anesthesia",
     "difficulty": "Advanced",
     "setting": [

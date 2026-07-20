@@ -308,6 +308,7 @@ struct KitDetailView: View {
                     SectionCard(title: "My Review", systemImage: "checkmark.shield") {
                         LocalReviewPanel(
                             sourceStatus: kit.reviewer,
+                            sourceOrigin: kit.source,
                             sourceLastReviewed: kit.lastReviewed,
                             sourceVersion: kit.version,
                             localReviewRecord: userData.localReviewRecord(for: kit),

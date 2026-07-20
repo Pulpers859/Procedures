@@ -82,9 +82,14 @@ struct ProcedureDetailView: View {
                 VStack(alignment: .trailing, spacing: 6) {
                     difficultyBadge
                     if !procedure.reviewer.isClinicallyReviewed {
-                        Label("Needs review", systemImage: "exclamationmark.shield")
-                            .font(.caption.weight(.semibold))
-                            .foregroundStyle(.orange)
+                        Label(
+                            procedure.source == .aiDraft ? "DRAFT — not clinically reviewed" : "Needs review",
+                            systemImage: "exclamationmark.shield"
+                        )
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.orange)
+                        .multilineTextAlignment(.trailing)
+                        .fixedSize(horizontal: false, vertical: true)
                     }
                 }
             }

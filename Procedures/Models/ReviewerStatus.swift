@@ -54,6 +54,30 @@ enum ReviewerStatus: String, Codable, Hashable, CaseIterable {
     }
 }
 
+/// Provenance of a content item: who produced the words the clinician is
+/// reading. Orthogonal to `ReviewerStatus` (review state): an AI draft stays
+/// `ai-draft` until a human takes editorial ownership, and a clinician
+/// sign-off must update this field — the validators treat a "clinically
+/// reviewed" status on an `ai-draft` item as a contradiction.
+enum ContentSource: String, Codable, Hashable, CaseIterable {
+    case aiDraft = "ai-draft"
+    case humanAuthored = "human-authored"
+    case clinicianReviewed = "clinician-reviewed"
+
+    /// Applied when content does not declare a source. Deliberately the least
+    /// trusted answer: undeclared provenance is treated as an AI draft.
+    static let undeclaredDefault: ContentSource = .aiDraft
+
+    /// Plain-language label for governance UI.
+    var displayLabel: String {
+        switch self {
+        case .aiDraft: return "AI draft — not clinically reviewed"
+        case .humanAuthored: return "Human-authored"
+        case .clinicianReviewed: return "Clinician-reviewed"
+        }
+    }
+}
+
 /// Last-reviewed aging logic, shared by the in-app validator and governance UI.
 /// Mirrors the Python validator so a single staleness threshold governs both.
 enum ContentFreshness {

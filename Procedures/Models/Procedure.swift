@@ -23,11 +23,18 @@ struct Procedure: Identifiable, Codable, Hashable {
     /// rest of the metadata.
     let reviewerStatus: ReviewerStatus?
 
+    /// Content provenance. Optional in the wire format; absent provenance is
+    /// treated as an AI draft, never as trusted human work.
+    let contentSource: ContentSource?
+
     let sections: ProcedureSections
 
     /// Never-nil review state for UI and validation: an undeclared status is
     /// reported as needing clinical review rather than silently trusted.
     var reviewer: ReviewerStatus { reviewerStatus ?? .unreviewedDefault }
+
+    /// Never-nil provenance: undeclared content reads as an AI draft.
+    var source: ContentSource { contentSource ?? .undeclaredDefault }
 
     var primaryVisualAsset: ProcedureVisualAsset? { visualAssets?.first }
 }

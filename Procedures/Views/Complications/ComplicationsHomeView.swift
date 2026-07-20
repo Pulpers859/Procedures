@@ -190,6 +190,7 @@ struct RescueCardDetailView: View {
                     SectionCard(title: "My Review", systemImage: "checkmark.shield") {
                         LocalReviewPanel(
                             sourceStatus: card.reviewer,
+                            sourceOrigin: card.source,
                             sourceLastReviewed: card.lastReviewed,
                             sourceVersion: card.version,
                             localReviewRecord: userData.localReviewRecord(for: card),

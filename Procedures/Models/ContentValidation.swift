@@ -99,6 +99,10 @@ enum ContentValidator {
             add(.warning, "content is stale: last reviewed \(days) days ago; schedule re-review.")
         }
         if procedure.version.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.blocker, "missing version metadata.") }
+        issues.append(contentsOf: provenanceIssues(
+            source: procedure.contentSource, reviewer: procedure.reviewer,
+            procedureID: procedure.id, title: procedure.title
+        ))
         if procedure.tags.isEmpty { add(.warning, "missing search tags/synonyms.") }
 
         // The equipment checklist persists checked-state on the item string, so
@@ -248,6 +252,10 @@ enum ContentValidator {
             }
             if card.version.isEmpty { add(.blocker, card.title, "missing version metadata.") }
             if card.references.isEmpty { add(.blocker, card.title, "missing references.") }
+            issues.append(contentsOf: provenanceIssues(
+                source: card.contentSource, reviewer: card.reviewer,
+                procedureID: nil, title: card.title
+            ))
 
             let missingRelations = card.relatedProcedureIDs.filter { !procedureIDs.contains($0) }
             if !missingRelations.isEmpty {
@@ -289,6 +297,10 @@ enum ContentValidator {
                 add(.warning, kit.title, "kit content is stale: last reviewed \(days) days ago; schedule re-review.")
             }
             if kit.version.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { add(.blocker, kit.title, "missing version metadata.") }
+            issues.append(contentsOf: provenanceIssues(
+                source: kit.contentSource, reviewer: kit.reviewer,
+                procedureID: nil, title: kit.title
+            ))
 
             let missingRelations = kit.relatedProcedureIDs.filter { !procedureIDs.contains($0) }
             if !missingRelations.isEmpty {
@@ -303,6 +315,32 @@ enum ContentValidator {
             }
         }
 
+        return issues
+    }
+
+    /// Provenance rules shared by all content types. Missing provenance is a
+    /// warning (the item still reads as an AI draft); a clinically reviewed
+    /// status on an item whose words are still an unowned AI draft is a
+    /// contradiction and always a blocker. Mirrors the Python validator.
+    private static func provenanceIssues(
+        source: ContentSource?,
+        reviewer: ReviewerStatus,
+        procedureID: String?,
+        title: String?
+    ) -> [ContentValidationIssue] {
+        var issues: [ContentValidationIssue] = []
+        if source == nil {
+            issues.append(.init(
+                severity: .warning, procedureID: procedureID, procedureTitle: title,
+                message: "missing contentSource provenance; treated as an AI draft."
+            ))
+        }
+        if (source ?? .undeclaredDefault) == .aiDraft && reviewer.isClinicallyReviewed {
+            issues.append(.init(
+                severity: .blocker, procedureID: procedureID, procedureTitle: title,
+                message: "reviewerStatus claims clinical review but contentSource is still 'ai-draft'; a sign-off must update provenance."
+            ))
+        }
         return issues
     }
 

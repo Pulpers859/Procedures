@@ -138,7 +138,8 @@ final class ValidationTests: XCTestCase {
             lastReviewed: "2026-01-01",
             version: "1.0",
             references: ["Smith et al. 2024"],
-            reviewerStatus: .internallyReviewed
+            reviewerStatus: .internallyReviewed,
+            contentSource: .clinicianReviewed
         )
         let issues = ContentValidator.validate(
             [makeProcedure(category: .regionalAnesthesia, dosing: dosing)],
@@ -147,6 +148,36 @@ final class ValidationTests: XCTestCase {
         XCTAssertTrue(
             issues.contains { $0.severity == .blocker && $0.message.localizedCaseInsensitiveContains("dosing rescue card") },
             "a dosing rescue link that resolves to nothing is a broken relation and must be a blocker"
+        )
+    }
+
+    func testUndeclaredProvenanceReadsAsAIDraft() {
+        // Absent contentSource must read as the least trusted answer.
+        XCTAssertEqual(makeProcedure(contentSource: nil).source, .aiDraft)
+        let issues = ContentValidator.validate([makeProcedure(reviewerStatus: .needsClinicalReview, contentSource: nil)])
+        XCTAssertTrue(
+            issues.contains { $0.severity == .warning && $0.message.localizedCaseInsensitiveContains("contentSource") },
+            "missing provenance should warn"
+        )
+    }
+
+    func testReviewedStatusOnAIDraftIsBlocked() {
+        // A clinician sign-off that leaves provenance at 'ai-draft' is a
+        // contradiction: the words are still an unowned machine draft.
+        for source in [ContentSource.aiDraft, nil] {
+            let issues = ContentValidator.validate([makeProcedure(reviewerStatus: .internallyReviewed, contentSource: source)])
+            XCTAssertTrue(
+                issues.contains { $0.severity == .blocker && $0.message.localizedCaseInsensitiveContains("still 'ai-draft'") },
+                "reviewed status with ai-draft provenance must be a blocker"
+            )
+        }
+    }
+
+    func testHonestAIDraftAwaitingReviewIsNotBlocked() {
+        let issues = ContentValidator.validate([makeProcedure(reviewerStatus: .needsClinicalReview, contentSource: .aiDraft)])
+        XCTAssertFalse(
+            issues.contains { $0.severity == .blocker },
+            "an AI draft honestly awaiting review is a valid authoring state"
         )
     }
 
@@ -162,6 +193,7 @@ final class ValidationTests: XCTestCase {
         id: String = "test",
         references: [String] = ["Smith et al. 2024"],
         reviewerStatus: ReviewerStatus? = .internallyReviewed,
+        contentSource: ContentSource? = .clinicianReviewed,
         equipment: [String] = ["a", "b", "c", "d", "e"],
         category: ProcedureCategory = .other,
         dosing: ProcedureDosing? = nil
@@ -179,6 +211,7 @@ final class ValidationTests: XCTestCase {
             visualAssets: nil,
             dosing: dosing,
             reviewerStatus: reviewerStatus,
+            contentSource: contentSource,
             sections: ProcedureSections(
                 shiftMode: ["a", "b", "c", "d", "e", "f"],
                 indications: ["a"],

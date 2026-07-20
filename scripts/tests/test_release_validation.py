@@ -22,6 +22,7 @@ def item(title="Test", status="Externally Reviewed", references=None):
         "id": "test",
         "title": title,
         "reviewerStatus": status,
+        "contentSource": "clinician-reviewed",
         "references": references or ["Smith et al. 2026."],
     }
 

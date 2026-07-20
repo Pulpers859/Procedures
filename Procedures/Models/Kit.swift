@@ -12,6 +12,10 @@ struct Kit: Identifiable, Codable, Hashable {
     let version: String
     let reviewerStatus: ReviewerStatus?
 
+    /// Content provenance; optional in the wire format. Undeclared provenance
+    /// reads as an AI draft, never as trusted human work.
+    let contentSource: ContentSource?
+
     let inKit: [String]
     let outsideKit: [String]
     let commonlyForgotten: [String]
@@ -21,6 +25,9 @@ struct Kit: Identifiable, Codable, Hashable {
     let references: [String]
 
     var reviewer: ReviewerStatus { reviewerStatus ?? .unreviewedDefault }
+
+    /// Never-nil provenance: undeclared content reads as an AI draft.
+    var source: ContentSource { contentSource ?? .undeclaredDefault }
 
     /// Items eligible for the interactive room-setup checklist.
     var allChecklistItems: [String] { inKit + outsideKit }

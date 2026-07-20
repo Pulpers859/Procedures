@@ -194,6 +194,9 @@ struct ReviewerStatusBadge: View {
 
 struct LocalReviewPanel: View {
     let sourceStatus: ReviewerStatus
+    /// Provenance of the source content. AI drafts relabel the review-date row
+    /// so a machine-stamped date is never presented as a human review date.
+    var sourceOrigin: ContentSource = .undeclaredDefault
     let sourceLastReviewed: String
     let sourceVersion: String
     let localReviewRecord: LocalReviewRecord?
@@ -234,7 +237,12 @@ struct LocalReviewPanel: View {
             if showSourceGovernance {
                 Divider().padding(.vertical, 2)
                 ReviewerStatusBadge(status: sourceStatus)
-                MetadataRow(icon: "calendar", title: "Source last reviewed", value: sourceLastReviewed)
+                MetadataRow(icon: "sparkles", title: "Content source", value: sourceOrigin.displayLabel)
+                MetadataRow(
+                    icon: "calendar",
+                    title: sourceOrigin == .aiDraft ? "Draft stamped (not a human review date)" : "Source last reviewed",
+                    value: sourceLastReviewed
+                )
                 MetadataRow(icon: "number", title: "Source version", value: sourceVersion)
             }
         }

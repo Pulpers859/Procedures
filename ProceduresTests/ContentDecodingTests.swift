@@ -77,6 +77,18 @@ final class ContentDecodingTests: XCTestCase {
         }
     }
 
+    func testShippedContentDeclaresProvenance() {
+        // Every shipped item must carry an explicit contentSource so the app
+        // never presents machine-drafted words with unstated provenance.
+        let repo = ProcedureRepository()
+        for procedure in repo.procedures {
+            XCTAssertNotNil(procedure.contentSource, "\(procedure.id): missing contentSource")
+        }
+        for card in repo.rescueCards {
+            XCTAssertNotNil(card.contentSource, "\(card.id): missing contentSource")
+        }
+    }
+
     func testProcedureIDsAreUnique() {
         let repo = ProcedureRepository()
         let ids = repo.procedures.map(\.id)

@@ -50,6 +50,7 @@ struct DeepReviewContent: View {
                 SectionCard(title: "My Review", systemImage: "checkmark.shield") {
                     LocalReviewPanel(
                         sourceStatus: procedure.reviewer,
+                        sourceOrigin: procedure.source,
                         sourceLastReviewed: procedure.lastReviewed,
                         sourceVersion: procedure.version,
                         localReviewRecord: userData.localReviewRecord(for: procedure),
