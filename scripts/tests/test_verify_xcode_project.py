@@ -48,6 +48,41 @@ class ProjectMembershipTests(unittest.TestCase):
 
         self.assertEqual(MODULE.source_membership_issues(text, [source], []), [])
 
+    def test_detects_resource_missing_from_bundle_phase(self):
+        # An image or JSON on disk but absent from Copy Bundle Resources would
+        # pass every content gate and still ship missing — the exact silent
+        # failure this guard exists for.
+        resource = MODULE.APP_ROOT / "Resources" / "diagram.png"
+        text = f"{MODULE.APP_RESOURCES_PHASE_ID} /* Resources */ = {{ files = (\n); }};"
+
+        issues = MODULE.resource_membership_issues(text, [resource])
+
+        self.assertTrue(any("missing Copy Bundle Resources membership" in issue for issue in issues))
+
+    def test_detects_dangling_resource_membership(self):
+        text = (
+            f"{MODULE.APP_RESOURCES_PHASE_ID} /* Resources */ = {{ files = (\n"
+            "/* Resources/deleted.json in Resources */\n); }};"
+        )
+
+        issues = MODULE.resource_membership_issues(text, [])
+
+        self.assertIn("dangling Resources membership: Resources/deleted.json", issues)
+
+    def test_accepts_bundled_resource(self):
+        resource = MODULE.APP_ROOT / "Resources" / "synonyms.json"
+        text = (
+            f"{MODULE.APP_RESOURCES_PHASE_ID} /* Resources */ = {{ files = (\n"
+            "/* Resources/synonyms.json in Resources */\n"
+            "/* Assets.xcassets in Resources */\n); }};"
+        )
+
+        self.assertEqual(MODULE.resource_membership_issues(text, [resource]), [])
+
+    def test_missing_resources_phase_is_its_own_issue(self):
+        issues = MODULE.resource_membership_issues("no phases here", [])
+        self.assertTrue(any("missing or unreadable" in issue for issue in issues))
+
     def test_counts_declared_xctest_methods(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "ExampleTests.swift"

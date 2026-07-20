@@ -26,6 +26,18 @@ class XCResultSummaryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "no top-level"):
             MODULE.verify_test_count({"suite": {"totalTestCount": 30}}, 30)
 
+    def test_skipped_tests_never_count_as_passing(self):
+        with self.assertRaisesRegex(ValueError, "skippedTests"):
+            MODULE.verify_test_count({"totalTestCount": 30, "skippedTests": 2}, 30)
+
+    def test_failed_tests_fail_the_gate_even_with_full_count(self):
+        with self.assertRaisesRegex(ValueError, "failedTests"):
+            MODULE.verify_test_count({"totalTestCount": 30, "failedTests": 1}, 30)
+
+    def test_clean_full_run_passes(self):
+        summary = {"totalTestCount": 30, "skippedTests": 0, "failedTests": 0}
+        self.assertEqual(MODULE.verify_test_count(summary, 30), 30)
+
 
 if __name__ == "__main__":
     unittest.main()

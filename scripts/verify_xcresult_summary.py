@@ -13,6 +13,17 @@ def verify_test_count(summary: dict, expected: int) -> int:
         raise ValueError("xcresult summary has no top-level integer totalTestCount")
     if actual != expected:
         raise ValueError(f"expected {expected} executed tests, xcresult reported {actual}")
+    # A skipped test is counted in totalTestCount but proved nothing; it must
+    # never satisfy the gate. Failed tests are re-checked here so the gate
+    # cannot pass even if the xcodebuild exit code was swallowed upstream.
+    for field in ("skippedTests", "failedTests"):
+        value = summary.get(field, 0)
+        if not isinstance(value, int):
+            raise ValueError(f"xcresult summary has a non-integer {field}")
+        if value:
+            raise ValueError(
+                f"xcresult reports {value} {field}; every declared test must run and pass"
+            )
     return actual
 
 

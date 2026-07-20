@@ -18,7 +18,10 @@ permissions:
 jobs:
   test:
     name: Build, Run XCTest, and Verify Release Build
-    runs-on: macos-latest
+    # Pinned: macos-latest can silently move to a new macOS/Xcode image and
+    # break the build with zero repo changes. Bump deliberately, with the
+    # toolchain report below as the evidence of what changed.
+    runs-on: macos-15
     timeout-minutes: 35
     env:
       RESULT_BUNDLE: ProceduresTests.xcresult
@@ -119,7 +122,9 @@ jobs:
         with:
           name: procedures-xcode-evidence-${{ github.run_id }}
           if-no-files-found: warn
-          retention-days: 14
+          # Release evidence must outlive the default window; 90 days is the
+          # maximum GitHub allows for this repository.
+          retention-days: 90
           path: |
             ProceduresTests.xcresult
             test-summary.json
