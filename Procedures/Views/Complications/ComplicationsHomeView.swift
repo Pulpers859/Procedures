@@ -2,7 +2,9 @@ import SwiftUI
 
 struct ComplicationsHomeView: View {
     @EnvironmentObject private var repository: ProcedureRepository
+    @ObservedObject private var deepLinkRouter = DeepLinkRouter.shared
     @State private var searchText = ""
+    @State private var navigationPath: [ComplicationRescueCard] = []
 
     private var rescueCards: [ComplicationRescueCard] {
         repository.searchRescueCards(searchText)
@@ -17,7 +19,7 @@ struct ComplicationsHomeView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navigationPath) {
             List {
                 if let error = repository.rescueLoadError {
                     Section {
@@ -80,6 +82,23 @@ struct ComplicationsHomeView: View {
             .navigationDestination(for: ComplicationRescueCard.self) { card in
                 RescueCardDetailView(card: card)
             }
+            .onChange(of: deepLinkRouter.destination) { _, destination in
+                consumeDeepLink(destination)
+            }
+            .onAppear {
+                consumeDeepLink(deepLinkRouter.destination)
+            }
+        }
+    }
+
+    /// Finishes a Spotlight route by pushing the requested card. An id that no
+    /// longer resolves leaves the crash-sorted list showing, which is the
+    /// safest place to land.
+    private func consumeDeepLink(_ destination: DeepLinkRouter.Destination?) {
+        guard case .rescueCard(let id) = destination else { return }
+        deepLinkRouter.destination = nil
+        if let card = repository.rescueCards.first(where: { $0.id == id }) {
+            navigationPath = [card]
         }
     }
 }

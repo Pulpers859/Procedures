@@ -3,7 +3,9 @@ import SwiftUI
 struct ProcedureListView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
+    @ObservedObject private var deepLinkRouter = DeepLinkRouter.shared
     @State private var searchText = ""
+    @State private var navigationPath = NavigationPath()
 
     private var filteredProcedures: [Procedure] {
         repository.search(searchText)
@@ -14,7 +16,7 @@ struct ProcedureListView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navigationPath) {
             Group {
                 if let error = repository.loadError {
                     EmptyStateView(title: "Content failed to load", message: error, systemImage: "exclamationmark.triangle")
@@ -52,6 +54,22 @@ struct ProcedureListView: View {
             .navigationDestination(for: ComplicationRescueCard.self) { card in
                 RescueCardDetailView(card: card)
             }
+            .onChange(of: deepLinkRouter.destination) { _, destination in
+                consumeDeepLink(destination)
+            }
+            .onAppear {
+                consumeDeepLink(deepLinkRouter.destination)
+            }
+        }
+    }
+
+    /// Finishes a Spotlight route by pushing the requested procedure. An id
+    /// that no longer resolves leaves the list showing.
+    private func consumeDeepLink(_ destination: DeepLinkRouter.Destination?) {
+        guard case .procedure(let id) = destination else { return }
+        deepLinkRouter.destination = nil
+        if let procedure = repository.procedure(withID: id) {
+            navigationPath = NavigationPath([procedure])
         }
     }
 

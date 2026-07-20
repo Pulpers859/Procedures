@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreSpotlight
 
 private enum RootTabStorageKey {
     static let disclaimerAccepted = "Procedures.hasAcceptedClinicalDisclaimer"
@@ -16,6 +17,7 @@ private enum RootTab: String, Hashable {
 struct RootTabView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
+    @ObservedObject private var deepLinkRouter = DeepLinkRouter.shared
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
     @SceneStorage("Procedures.selectedRootTab") private var selectedTabRaw = RootTab.guide.rawValue
@@ -76,7 +78,20 @@ struct RootTabView: View {
                 hasAcceptedClinicalDisclaimer = true
             }
         }
+        .onContinueUserActivity(CSSearchableItemActionType) { activity in
+            if let identifier = activity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                deepLinkRouter.openSpotlightItem(identifier: identifier)
+            }
+        }
+        .onChange(of: deepLinkRouter.destination) { _, destination in
+            routeDeepLink(destination)
+        }
         .onAppear {
+            routeDeepLink(deepLinkRouter.destination)
+            SpotlightIndexer.reindex(
+                procedures: repository.procedures,
+                rescueCards: repository.rescueCards
+            )
             let procedureIDs = ContentLoadAuthority.authoritativeIDs(
                 Set(repository.procedures.map(\.id)),
                 loadError: repository.loadError,
@@ -98,6 +113,23 @@ struct RootTabView: View {
                 validRescueCardIDs: rescueCardIDs,
                 validKitIDs: kitIDs
             )
+        }
+    }
+
+    /// Tab-level routing for external activations. The destination stays
+    /// pending on the router so the destination tab's view can finish the
+    /// route (push the card/procedure) and then clear it.
+    private func routeDeepLink(_ destination: DeepLinkRouter.Destination?) {
+        switch destination {
+        case .rescueTab:
+            selectedTabRaw = RootTab.rescue.rawValue
+            deepLinkRouter.destination = nil
+        case .rescueCard:
+            selectedTabRaw = RootTab.rescue.rawValue
+        case .procedure:
+            selectedTabRaw = RootTab.procedures.rawValue
+        case nil:
+            break
         }
     }
 }

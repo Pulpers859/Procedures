@@ -34,11 +34,14 @@ struct GuideHomeView: View {
         NavigationStack {
             List {
                 if searchText.isEmpty {
+                    // Crash content stays above the fold: rescue always renders
+                    // first, before recents, so the crash path never scrolls away.
+                    rescuePreviewSection
+
                     if !recentProcedures.isEmpty {
                         procedureSection(title: "Recently Viewed", procedures: recentProcedures)
                     }
 
-                    rescuePreviewSection
                     clinicalPathwaysSection
 
                     if !crashProcedures.isEmpty {

@@ -29,6 +29,9 @@
 		7E570000000000000000001A /* Models/ReviewerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000001B /* Models/ReviewerStatus.swift */; };
 		7E580000000000000000001A /* Models/Kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E580000000000000000001B /* Models/Kit.swift */; };
 		7E580000000000000000002A /* Resources/kits.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E580000000000000000002B /* Resources/kits.json */; };
+		7E5A0000000000000000001A /* Data/DeepLinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A0000000000000000001B /* Data/DeepLinkRouter.swift */; };
+		7E5A0000000000000000002A /* Data/SpotlightIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A0000000000000000002B /* Data/SpotlightIndexer.swift */; };
+		7E5A0000000000000000003A /* Intents/RescueAppIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A0000000000000000003B /* Intents/RescueAppIntents.swift */; };
 		7E590000000000000000003A /* Resources/synonyms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E590000000000000000003B /* Resources/synonyms.json */; };
 		7E5900000000000000000011 /* SearchRegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5900000000000000000010 /* SearchRegressionTests.swift */; };
 		881D5EC5F8154B77BBCE9542 /* Views/Complications/ComplicationsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF198A70EE348B5AF64D291 /* Views/Complications/ComplicationsHomeView.swift */; };
@@ -88,6 +91,9 @@
 		7E570000000000000000001B /* Models/ReviewerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ReviewerStatus.swift; sourceTree = "<group>"; };
 		7E580000000000000000001B /* Models/Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Kit.swift; sourceTree = "<group>"; };
 		7E580000000000000000002B /* Resources/kits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/kits.json; sourceTree = "<group>"; };
+		7E5A0000000000000000001B /* Data/DeepLinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/DeepLinkRouter.swift; sourceTree = "<group>"; };
+		7E5A0000000000000000002B /* Data/SpotlightIndexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/SpotlightIndexer.swift; sourceTree = "<group>"; };
+		7E5A0000000000000000003B /* Intents/RescueAppIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents/RescueAppIntents.swift; sourceTree = "<group>"; };
 		7E590000000000000000003B /* Resources/synonyms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/synonyms.json; sourceTree = "<group>"; };
 		7E5900000000000000000010 /* SearchRegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRegressionTests.swift; sourceTree = "<group>"; };
 		915119767C5F42828C5B518A /* Resources/procedures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/procedures.json; sourceTree = "<group>"; };
@@ -162,6 +168,9 @@
 				7E580000000000000000001B /* Models/Kit.swift */,
 				7E580000000000000000002B /* Resources/kits.json */,
 				7E590000000000000000003B /* Resources/synonyms.json */,
+				7E5A0000000000000000001B /* Data/DeepLinkRouter.swift */,
+				7E5A0000000000000000002B /* Data/SpotlightIndexer.swift */,
+				7E5A0000000000000000003B /* Intents/RescueAppIntents.swift */,
 			);
 			path = Procedures;
 			sourceTree = "<group>";
@@ -305,6 +314,9 @@
 				A90000000000000000000008 /* ProcedureVisualCard.swift in Sources */,
 				761FD7F437374F90B4F87581 /* Models/Procedure.swift in Sources */,
 				34895A7D84534D8CA7CF6D2C /* Data/ProcedureRepository.swift in Sources */,
+				7E5A0000000000000000001A /* Data/DeepLinkRouter.swift in Sources */,
+				7E5A0000000000000000002A /* Data/SpotlightIndexer.swift in Sources */,
+				7E5A0000000000000000003A /* Intents/RescueAppIntents.swift in Sources */,
 				CB2CA167E0F74C4A8EDE9CA4 /* Data/UserDataStore.swift in Sources */,
 				5A6D4E9C7089450EB8F5B4ED /* Components/ProcedureCard.swift in Sources */,
 				F312BCB2A1354D51B8B76D53 /* Components/SectionCard.swift in Sources */,
