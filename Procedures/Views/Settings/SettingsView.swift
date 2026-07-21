@@ -32,8 +32,6 @@ enum SettingsStorageKey {
     static let disclaimerAccepted = "Procedures.hasAcceptedClinicalDisclaimer"
     static let hideGovernanceCopy = "Procedures.hideGovernanceCopy"
     static let reviewModeEnabled = "Procedures.reviewModeEnabled"
-    static let casePrivacyGuardEnabled = "Procedures.casePrivacyGuardEnabled"
-    static let caseMentorModel = "Procedures.caseMentorModel"
 }
 
 struct SettingsView: View {
@@ -45,11 +43,8 @@ struct SettingsView: View {
     @AppStorage(SettingsStorageKey.disclaimerAccepted) private var hasAcceptedDisclaimer = false
     @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
-    @AppStorage(SettingsStorageKey.casePrivacyGuardEnabled) private var casePrivacyGuardEnabled = false
-    @AppStorage(SettingsStorageKey.caseMentorModel) private var caseMentorModel = CaseMentorDefaults.model
 
     @State private var confirmation: DataAction?
-    @State private var caseMentorAPIKey = ""
 
     private var appearance: Binding<AppAppearance> {
         Binding(
@@ -91,25 +86,6 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Toggle("Privacy Guard", isOn: $casePrivacyGuardEnabled)
-                    NavigationLink {
-                        CaseReviewerView()
-                    } label: {
-                        Label("Open Case Reviewer", systemImage: "brain.head.profile")
-                    }
-                    SecureField("OpenAI API Key", text: $caseMentorAPIKey)
-                        .textInputAutocapitalization(.never)
-                        .autocorrectionDisabled()
-                    TextField("Model", text: $caseMentorModel)
-                        .textInputAutocapitalization(.never)
-                        .autocorrectionDisabled()
-                } header: {
-                    Text("Case Reviewer")
-                } footer: {
-                    Text("Privacy Guard is off by default. Case notes and mentor reviews are stored only on this device.")
-                }
-
-                Section {
                     Button(role: .destructive) { confirmation = .clearRecents } label: {
                         Label("Clear Recently Viewed", systemImage: "clock.arrow.circlepath")
                     }
@@ -128,13 +104,10 @@ struct SettingsView: View {
                     Button(role: .destructive) { confirmation = .clearReviews } label: {
                         Label("Clear My Review Marks", systemImage: "checkmark.seal")
                     }
-                    Button(role: .destructive) { confirmation = .clearCaseReviews } label: {
-                        Label("Delete Case Reviews", systemImage: "brain.head.profile")
-                    }
                 } header: {
                     Text("My Data")
                 } footer: {
-                    Text("Favorites, recents, checklists, notes, review marks, and case reviews are stored only on this device.")
+                    Text("Favorites, recents, checklists, notes, and review marks are stored only on this device.")
                 }
 
                 Section {
@@ -176,15 +149,6 @@ struct SettingsView: View {
             .navigationDestination(for: Kit.self) { kit in
                 KitDetailView(kit: kit)
             }
-            .onChange(of: casePrivacyGuardEnabled) { _, _ in
-                HapticFeedback.selection()
-            }
-            .onChange(of: caseMentorAPIKey) { _, newValue in
-                CaseMentorCredentialStore.saveAPIKey(newValue)
-            }
-            .onAppear {
-                caseMentorAPIKey = CaseMentorCredentialStore.loadAPIKey()
-            }
             .confirmationDialog(
                 confirmation?.title ?? "",
                 isPresented: Binding(
@@ -210,9 +174,7 @@ struct SettingsView: View {
         case .clearKitChecklists: userData.clearAllKitChecklists()
         case .clearNotes: userData.clearAllNotes()
         case .clearReviews: userData.clearAllLocalReviews()
-        case .clearCaseReviews: userData.clearCaseReviews()
         }
-        HapticFeedback.warning()
         confirmation = nil
     }
 }
@@ -224,7 +186,6 @@ private enum DataAction: Identifiable {
     case clearKitChecklists
     case clearNotes
     case clearReviews
-    case clearCaseReviews
 
     var id: String { title }
 
@@ -236,7 +197,6 @@ private enum DataAction: Identifiable {
         case .clearKitChecklists: return "Reset every kit room-setup checklist?"
         case .clearNotes: return "Delete all local notes?"
         case .clearReviews: return "Clear every local review mark?"
-        case .clearCaseReviews: return "Delete every private case review?"
         }
     }
 
@@ -248,7 +208,6 @@ private enum DataAction: Identifiable {
         case .clearKitChecklists: return "Reset Kit Checklists"
         case .clearNotes: return "Delete Notes"
         case .clearReviews: return "Clear Reviews"
-        case .clearCaseReviews: return "Delete Case Reviews"
         }
     }
 }

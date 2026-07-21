@@ -7,7 +7,6 @@ private enum UserDataStoreKey {
     static let checkedEquipment = "Procedures.checkedEquipment"
     static let kitCheckedItems = "Procedures.kitCheckedItems"
     static let locallyReviewedContent = "Procedures.locallyReviewedContent"
-    static let caseReviews = "Procedures.caseReviews"
 
     static let legacyFavorites = "ProcedureSTAT.favoriteIDs"
     static let legacyRecents = "ProcedureSTAT.recentIDs"
@@ -45,7 +44,6 @@ final class UserDataStore: ObservableObject {
     @Published private(set) var checkedEquipment: [String: Set<String>] = [:]
     @Published private(set) var kitCheckedItems: [String: Set<String>] = [:]
     @Published private(set) var locallyReviewedContent: [String: LocalReviewRecord] = [:]
-    @Published private(set) var caseReviews: [CriticalCaseReview] = []
     @Published private(set) var activeEquipmentSessionIDs: Set<String> = []
     @Published private(set) var activeKitSessionIDs: Set<String> = []
 
@@ -221,30 +219,6 @@ final class UserDataStore: ObservableObject {
         saveLocallyReviewedContent()
     }
 
-    // MARK: - Private case reviews
-
-    func saveCaseReview(_ review: CriticalCaseReview) {
-        var reviewToSave = review
-        reviewToSave.updatedAt = Date()
-
-        if let index = caseReviews.firstIndex(where: { $0.id == reviewToSave.id }) {
-            caseReviews[index] = reviewToSave
-        } else {
-            caseReviews.insert(reviewToSave, at: 0)
-        }
-        saveCaseReviews()
-    }
-
-    func deleteCaseReview(id: UUID) {
-        caseReviews.removeAll { $0.id == id }
-        saveCaseReviews()
-    }
-
-    func clearCaseReviews() {
-        caseReviews = []
-        saveCaseReviews()
-    }
-
     func localReviewCount(procedures: [Procedure], rescueCards: [ComplicationRescueCard], kits: [Kit]) -> Int {
         procedures.filter { localReviewRecord(for: $0)?.disposition == .reviewed }.count
             + rescueCards.filter { localReviewRecord(for: $0)?.disposition == .reviewed }.count
@@ -413,11 +387,6 @@ final class UserDataStore: ObservableObject {
             }
             saveLocallyReviewedContent()
         }
-
-        if let data = defaults.data(forKey: UserDataStoreKey.caseReviews),
-           let decoded = try? JSONDecoder().decode([CriticalCaseReview].self, from: data) {
-            caseReviews = decoded
-        }
     }
 
     private func saveFavorites() {
@@ -463,15 +432,6 @@ final class UserDataStore: ObservableObject {
             defaults.set(data, forKey: UserDataStoreKey.locallyReviewedContent)
         } catch {
             print("Failed to encode locallyReviewedContent: \(error)")
-        }
-    }
-
-    private func saveCaseReviews() {
-        do {
-            let data = try JSONEncoder().encode(caseReviews)
-            defaults.set(data, forKey: UserDataStoreKey.caseReviews)
-        } catch {
-            print("Failed to encode caseReviews: \(error)")
         }
     }
 

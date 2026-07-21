@@ -4,7 +4,6 @@ enum ReviewCenterTab: String, CaseIterable, Identifiable {
     case queue = "Queue"
     case fix = "Fix"
     case track = "Track"
-    case cases = "Cases"
 
     var id: String { rawValue }
 }
@@ -37,8 +36,6 @@ struct ReviewCenterView: View {
                 fixContent
             case .track:
                 trackContent
-            case .cases:
-                caseReviewerContent
             }
             }
             .listStyle(.insetGrouped)
@@ -255,31 +252,6 @@ struct ReviewCenterView: View {
                         }
                     }
                 }
-            }
-        }
-    }
-
-    private var caseReviewerContent: some View {
-        Section {
-            NavigationLink {
-                CaseReviewerView()
-            } label: {
-                HStack(spacing: 12) {
-                    Image(systemName: "brain.head.profile")
-                        .font(.title3.weight(.semibold))
-                        .foregroundStyle(.indigo)
-                        .frame(width: 36, height: 36)
-                        .background(.indigo.opacity(0.12), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
-
-                    VStack(alignment: .leading, spacing: 3) {
-                        Text("AI Case Reviewer")
-                            .font(.subheadline.weight(.semibold))
-                        Text("Private debriefs for critical cases and learning opportunities.")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                }
-                .padding(.vertical, 4)
             }
         }
     }

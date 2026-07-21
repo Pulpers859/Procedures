@@ -29,12 +29,7 @@ struct RootTabView: View {
     private var selectedTab: Binding<RootTab> {
         Binding(
             get: { RootTab(rawValue: selectedTabRaw) ?? .guide },
-            set: {
-                if selectedTabRaw != $0.rawValue {
-                    HapticFeedback.selection()
-                }
-                selectedTabRaw = $0.rawValue
-            }
+            set: { selectedTabRaw = $0.rawValue }
         )
     }
 
