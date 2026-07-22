@@ -11,8 +11,12 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 PROCEDURES = ROOT / "Procedures" / "Resources" / "procedures.json"
+RESCUE_CARDS = ROOT / "Procedures" / "Resources" / "rescue_cards.json"
+KITS = ROOT / "Procedures" / "Resources" / "kits.json"
 AUDIT_ROOT = ROOT / "docs" / "audits" / "procedure-verification"
 EXPECTED_SHA256 = "3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1"
+EXPECTED_RESCUE_SHA256 = "4f8e47d0e93dcc95476f4e4bf8af0bcbfa866d6e5dca4fd63e54dd48fba2fc14"
+EXPECTED_KITS_SHA256 = "c4c40950e457eabb3b8830f838140cd43ff1c610a6c84e8abd9358951d39e520"
 REPORTS = [
     "01_AIRWAY_SEDATION.md",
     "02_VASCULAR_ACCESS.md",
@@ -115,11 +119,17 @@ def has_authoritative_source(section: str) -> bool:
 
 def audit_issues(require_synthesis: bool = True) -> list[str]:
     issues = []
-    actual_hash = sha256(PROCEDURES)
-    if actual_hash != EXPECTED_SHA256:
-        issues.append(
-            f"procedures.json fingerprint changed: expected {EXPECTED_SHA256}, found {actual_hash}"
-        )
+    fingerprints = (
+        ("procedures.json", PROCEDURES, EXPECTED_SHA256),
+        ("rescue_cards.json", RESCUE_CARDS, EXPECTED_RESCUE_SHA256),
+        ("kits.json", KITS, EXPECTED_KITS_SHA256),
+    )
+    for label, path, expected_hash in fingerprints:
+        actual_hash = sha256(path)
+        if actual_hash != expected_hash:
+            issues.append(
+                f"{label} fingerprint changed: expected {expected_hash}, found {actual_hash}"
+            )
 
     procedure_ids = {
         item["id"] for item in json.loads(PROCEDURES.read_text(encoding="utf-8"))
@@ -173,12 +183,19 @@ def audit_issues(require_synthesis: bool = True) -> list[str]:
 
     index_path = AUDIT_ROOT / "AUDIT_INDEX.md"
     queue_path = AUDIT_ROOT / "CLINICAL_OWNER_QUEUE.md"
+    protocol_path = AUDIT_ROOT / "AUDIT_PROTOCOL.md"
     if require_synthesis:
-        for required_path in (index_path, queue_path):
+        for required_path in (index_path, queue_path, protocol_path):
             if not required_path.is_file():
                 issues.append(f"missing synthesis artifact: {required_path.name}")
             elif POSITIVE_APPROVAL_CLAIM.search(required_path.read_text(encoding="utf-8")):
                 issues.append(f"{required_path.name}: contains a positive clinical-approval claim")
+
+    if require_synthesis and protocol_path.is_file():
+        protocol_text = protocol_path.read_text(encoding="utf-8")
+        for label, _, expected_hash in fingerprints:
+            if expected_hash not in protocol_text:
+                issues.append(f"AUDIT_PROTOCOL.md: missing audited {label} fingerprint")
 
     if require_synthesis and queue_path.is_file():
         queue_text = queue_path.read_text(encoding="utf-8")

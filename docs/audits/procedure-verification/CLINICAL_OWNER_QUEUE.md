@@ -1,5 +1,11 @@
 # Clinical Owner Adjudication Queue
 
+> **Integrity hold:** provenance metadata, procedure references/search metadata,
+> and four rescue-card medication instructions changed after this queue was
+> assembled. Record an amendment, re-screen clinical changes, and obtain
+> clinician/pharmacy adjudication before relying on this queue as a current
+> whole-corpus assessment. See `AUDIT_PROTOCOL.md`.
+
 ## Status
 
 This queue synthesizes the nine fingerprinted AI discrepancy reports. It is not

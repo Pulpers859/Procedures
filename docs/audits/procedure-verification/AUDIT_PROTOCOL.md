@@ -13,6 +13,19 @@ The procedures and rescue-card fingerprints include uncommitted clinical-content
 work present in the source-of-truth working tree at audit start. Findings are
 invalidated if either fingerprint changes.
 
+## Current Integrity Status
+
+All three source files now differ from this audited snapshot. Post-audit work
+added explicit provenance metadata across the corpus, replaced procedure
+references, changed procedure search metadata, and changed four rescue-card
+medication instructions. Metadata and editorial-reference changes require a
+traceable amendment; clinical instruction changes require a targeted evidence
+screen and clinician/pharmacy adjudication. Therefore this packet is currently
+**invalidated as a whole** under the rule above. Run
+`python scripts/verify_procedure_audit.py` for exact expected and current
+fingerprints. The original audited fingerprints remain unchanged in this
+protocol and must not be rewritten merely to silence the verifier.
+
 ## Clinical Boundary
 
 This is an AI-assisted evidence and discrepancy screen. It is not medical
@@ -66,4 +79,3 @@ Each lane report must include:
 - source links with publisher, guideline title, and publication/update year;
 - explicit questions and proposed disposition for the clinical reviewer;
 - a statement that `reviewerStatus` remains unchanged.
-

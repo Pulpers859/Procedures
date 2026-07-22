@@ -1,5 +1,11 @@
 # Procedure Verification Audit Index
 
+> **Integrity hold:** all three corpus fingerprints changed after this audit.
+> Changes include provenance metadata, procedure references/search metadata, and
+> rescue-card medication text. The findings remain traceable to their exact
+> snapshot, but this packet is not current or clinically approved. See
+> `AUDIT_PROTOCOL.md`.
+
 ## Result
 
 - Audited procedures: **55/55**.

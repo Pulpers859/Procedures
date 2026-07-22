@@ -41,6 +41,29 @@ def queue_text(fingerprint):
     )
 
 
+def audit_patch(procedures, audit_root, expected_fingerprint, reports):
+    rescue_cards = procedures.parent / "rescue_cards.json"
+    kits = procedures.parent / "kits.json"
+    rescue_cards.write_text("[]")
+    kits.write_text("[]")
+    rescue_hash = hashlib.sha256(rescue_cards.read_bytes()).hexdigest()
+    kits_hash = hashlib.sha256(kits.read_bytes()).hexdigest()
+    (audit_root / "AUDIT_PROTOCOL.md").write_text(
+        f"Procedures: {expected_fingerprint}\nRescue: {rescue_hash}\nKits: {kits_hash}\n"
+    )
+    return mock.patch.multiple(
+        MODULE,
+        PROCEDURES=procedures,
+        RESCUE_CARDS=rescue_cards,
+        KITS=kits,
+        AUDIT_ROOT=audit_root,
+        EXPECTED_SHA256=expected_fingerprint,
+        EXPECTED_RESCUE_SHA256=rescue_hash,
+        EXPECTED_KITS_SHA256=kits_hash,
+        REPORTS=reports,
+    )
+
+
 class ProcedureAuditVerifierTests(unittest.TestCase):
     def test_complete_single_procedure_report_passes(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -58,13 +81,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
 
-            with mock.patch.multiple(
-                MODULE,
-                PROCEDURES=procedures,
-                AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=fingerprint,
-                REPORTS=["report.md"],
-            ):
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
                 self.assertEqual(MODULE.audit_issues(), [])
 
     def test_duplicate_procedure_section_fails(self):
@@ -81,13 +98,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
 
-            with mock.patch.multiple(
-                MODULE,
-                PROCEDURES=procedures,
-                AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=fingerprint,
-                REPORTS=["report.md"],
-            ):
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
                 issues = MODULE.audit_issues()
             self.assertTrue(any("more than once" in issue for issue in issues))
 
@@ -106,15 +117,81 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(expected))
 
+            with audit_patch(procedures, audit_root, expected, ["report.md"]):
+                issues = MODULE.audit_issues()
+            self.assertTrue(any(actual in issue for issue in issues))
+
+    def test_changed_rescue_card_hash_fails(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            procedures = root / "procedures.json"
+            rescue_cards = root / "rescue_cards.json"
+            kits = root / "kits.json"
+            audit_root = root / "audit"
+            audit_root.mkdir()
+            procedures.write_text(json.dumps([{"id": "test_procedure", "title": "Test"}]))
+            rescue_cards.write_text("[]")
+            kits.write_text("[]")
+            procedure_hash = hashlib.sha256(procedures.read_bytes()).hexdigest()
+            kit_hash = hashlib.sha256(kits.read_bytes()).hexdigest()
+            (audit_root / "report.md").write_text(report_text(procedure_hash))
+
             with mock.patch.multiple(
                 MODULE,
                 PROCEDURES=procedures,
+                RESCUE_CARDS=rescue_cards,
+                KITS=kits,
                 AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=expected,
+                EXPECTED_SHA256=procedure_hash,
+                EXPECTED_RESCUE_SHA256="0" * 64,
+                EXPECTED_KITS_SHA256=kit_hash,
                 REPORTS=["report.md"],
             ):
-                issues = MODULE.audit_issues()
-            self.assertTrue(any(actual in issue for issue in issues))
+                issues = MODULE.audit_issues(require_synthesis=False)
+
+            actual = hashlib.sha256(rescue_cards.read_bytes()).hexdigest()
+            self.assertTrue(
+                any(
+                    "rescue_cards.json fingerprint changed" in issue and actual in issue
+                    for issue in issues
+                )
+            )
+
+    def test_changed_kit_hash_fails(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            procedures = root / "procedures.json"
+            rescue_cards = root / "rescue_cards.json"
+            kits = root / "kits.json"
+            audit_root = root / "audit"
+            audit_root.mkdir()
+            procedures.write_text(json.dumps([{"id": "test_procedure", "title": "Test"}]))
+            rescue_cards.write_text("[]")
+            kits.write_text("[]")
+            procedure_hash = hashlib.sha256(procedures.read_bytes()).hexdigest()
+            rescue_hash = hashlib.sha256(rescue_cards.read_bytes()).hexdigest()
+            (audit_root / "report.md").write_text(report_text(procedure_hash))
+
+            with mock.patch.multiple(
+                MODULE,
+                PROCEDURES=procedures,
+                RESCUE_CARDS=rescue_cards,
+                KITS=kits,
+                AUDIT_ROOT=audit_root,
+                EXPECTED_SHA256=procedure_hash,
+                EXPECTED_RESCUE_SHA256=rescue_hash,
+                EXPECTED_KITS_SHA256="0" * 64,
+                REPORTS=["report.md"],
+            ):
+                issues = MODULE.audit_issues(require_synthesis=False)
+
+            actual = hashlib.sha256(kits.read_bytes()).hexdigest()
+            self.assertTrue(
+                any(
+                    "kits.json fingerprint changed" in issue and actual in issue
+                    for issue in issues
+                )
+            )
 
     def test_contradictory_incomplete_report_fails(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -136,13 +213,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
 
-            with mock.patch.multiple(
-                MODULE,
-                PROCEDURES=procedures,
-                AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=fingerprint,
-                REPORTS=["report.md"],
-            ):
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
                 issues = MODULE.audit_issues()
             self.assertTrue(any("disposition line" in issue for issue in issues))
             self.assertTrue(any("equipment" in issue for issue in issues))
@@ -161,13 +232,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             fingerprint = hashlib.sha256(procedures.read_bytes()).hexdigest()
             (audit_root / "report.md").write_text(report_text(fingerprint))
 
-            with mock.patch.multiple(
-                MODULE,
-                PROCEDURES=procedures,
-                AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=fingerprint,
-                REPORTS=["report.md"],
-            ):
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
                 self.assertEqual(MODULE.audit_issues(require_synthesis=False), [])
 
     def test_index_disposition_must_match_the_exact_procedure(self):
@@ -184,13 +249,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
 
-            with mock.patch.multiple(
-                MODULE,
-                PROCEDURES=procedures,
-                AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=fingerprint,
-                REPORTS=["report.md"],
-            ):
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
                 issues = MODULE.audit_issues()
             self.assertTrue(any("does not match its lane report" in issue for issue in issues))
 
@@ -208,13 +267,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
 
-            with mock.patch.multiple(
-                MODULE,
-                PROCEDURES=procedures,
-                AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=fingerprint,
-                REPORTS=["report.md"],
-            ):
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
                 issues = MODULE.audit_issues()
             self.assertTrue(any("does not match its lane report" in issue for issue in issues))
 
@@ -236,13 +289,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(misleading_queue)
 
-            with mock.patch.multiple(
-                MODULE,
-                PROCEDURES=procedures,
-                AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=fingerprint,
-                REPORTS=["report.md"],
-            ):
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
                 issues = MODULE.audit_issues()
             self.assertTrue(any("missing evidence link to report.md" in issue for issue in issues))
 
