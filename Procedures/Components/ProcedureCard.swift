@@ -23,26 +23,40 @@ struct ProcedureCard: View {
                 HStack(spacing: 8) {
                     if !procedure.reviewer.isClinicallyReviewed {
                         Image(systemName: "exclamationmark.shield")
-                            .foregroundStyle(.orange)
-                            .accessibilityLabel("Needs clinical review")
+                            .foregroundStyle(AppSemanticColor.warningText)
                     }
                     if isFavorite {
                         Image(systemName: "bookmark.fill")
                             .foregroundStyle(.blue)
-                            .accessibilityLabel("Saved")
                     }
                     if isAdvanced {
                         Image(systemName: "exclamationmark.triangle.fill")
-                            .foregroundStyle(.orange)
-                            .accessibilityLabel(procedure.difficulty.rawValue)
+                            .foregroundStyle(AppSemanticColor.warningText)
                     }
                 }
                 .font(.subheadline)
+                .accessibilityHidden(true)
             }
 
             ProcedureTagRow(procedure: procedure)
         }
         .padding(.vertical, 6)
+        // This is the most-repeated row in the app. Ungrouped it read as 8-9
+        // separate swipes with difficulty announced twice; one curated label
+        // keeps scanning a 55-item list workable under VoiceOver.
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(accessibilityDescription)
+    }
+
+    private var accessibilityDescription: String {
+        var parts = [procedure.title, procedure.category.rawValue, procedure.difficulty.rawValue]
+        parts.append("\(procedure.reviewTime) review")
+        if !procedure.setting.isEmpty {
+            parts.append(procedure.setting.map(\.rawValue).joined(separator: ", "))
+        }
+        if !procedure.reviewer.isClinicallyReviewed { parts.append("Needs clinical review") }
+        if isFavorite { parts.append("Saved") }
+        return parts.joined(separator: ". ")
     }
 }
 
@@ -67,7 +81,10 @@ struct TagView: View {
             .font(.caption.weight(.semibold))
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .foregroundStyle(.secondary)
+            // These tags carry difficulty and review time — the risk signal a
+            // clinician triages on. .secondary over a tinted fill lands under
+            // AA at caption size; the fill alone already reads as a chip.
+            .foregroundStyle(.primary)
             .background(Color(.tertiarySystemFill), in: Capsule())
             .lineLimit(2)
             .multilineTextAlignment(.leading)

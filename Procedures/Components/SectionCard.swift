@@ -4,10 +4,34 @@ enum AppLayout {
     static let cardRadius: CGFloat = 8
     static let controlRadius: CGFloat = 8
     static let mediaRadius: CGFloat = 8
+    static let iconContainerRadius: CGFloat = 10
     static let cardPadding: CGFloat = 14
     static let sectionSpacing: CGFloat = 12
     static let controlMinHeight: CGFloat = 44
     static let readableContentWidth: CGFloat = 760
+}
+
+/// Colors for safety-critical *text*.
+///
+/// `systemOrange` (~2.2:1) and `systemRed` (~3.4:1) on a light background both
+/// fail WCAG AA for the small `.caption`/`.footnote` sizes this app uses, and
+/// the strings carrying the most risk — "not clinically reviewed", content
+/// load failures, danger-zone warnings, review staleness — were the least
+/// legible text on screen in light mode. Icons and fills keep the vivid system
+/// color, where the contrast requirement is lower; text uses these darkened
+/// variants. Dark mode already passed, so it keeps the system color.
+enum AppSemanticColor {
+    static let warningText = Color(uiColor: UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor.systemOrange
+            : UIColor(red: 0.66, green: 0.34, blue: 0.00, alpha: 1)
+    })
+
+    static let dangerText = Color(uiColor: UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor.systemRed
+            : UIColor(red: 0.72, green: 0.09, blue: 0.09, alpha: 1)
+    })
 }
 
 extension View {
@@ -46,6 +70,11 @@ struct SectionCard<Content: View>: View {
                 Text(title)
                     .font(.headline)
                     .accessibilityHeading(.h2)
+                    // accessibilityHeading sets the level but does not add the
+                    // trait, so without this these titles never reach
+                    // VoiceOver's heading rotor and a detail page can only be
+                    // traversed bullet by bullet.
+                    .accessibilityAddTraits(.isHeader)
                 Spacer()
             }
             content
@@ -228,6 +257,8 @@ struct LocalReviewPanel: View {
                     clearReview()
                 }
                 .font(.footnote.weight(.semibold))
+                .frame(minHeight: AppLayout.controlMinHeight)
+                .contentShape(Rectangle())
             } else {
                 Text("Not reviewed in this local workspace.")
                     .font(.subheadline)
@@ -275,7 +306,10 @@ struct LocalReviewPanel: View {
                 }
             } label: {
                 Label("More", systemImage: "ellipsis.circle")
+                    .frame(minHeight: AppLayout.controlMinHeight)
+                    .contentShape(Rectangle())
             }
+            .accessibilityLabel("More review actions")
         }
         .font(.footnote.weight(.semibold))
     }
@@ -303,7 +337,7 @@ struct LocalReviewPanel: View {
     private func reviewStaleLabel(_ message: String) -> some View {
         Label(message, systemImage: "exclamationmark.triangle.fill")
             .font(.caption.weight(.semibold))
-            .foregroundStyle(.orange)
+            .foregroundStyle(AppSemanticColor.warningText)
             .fixedSize(horizontal: false, vertical: true)
             .frame(maxWidth: .infinity, alignment: .leading)
     }

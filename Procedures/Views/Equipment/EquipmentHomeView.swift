@@ -351,7 +351,6 @@ struct KitDetailView: View {
                     Button("Reset") {
                         showingResetConfirmation = true
                     }
-                    .foregroundStyle(.secondary)
                 }
             }
         }

@@ -28,7 +28,7 @@ struct DeepReviewContent: View {
                     if procedure.sections.references.isEmpty {
                         Text("No references entered yet. This should block release-quality content approval.")
                             .font(.footnote.weight(.semibold))
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(AppSemanticColor.warningText)
                     } else {
                         ForEach(Array(procedure.sections.references.enumerated()), id: \.offset) { _, reference in
                             Text(reference)

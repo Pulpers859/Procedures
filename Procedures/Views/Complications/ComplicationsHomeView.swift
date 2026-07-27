@@ -25,13 +25,13 @@ struct ComplicationsHomeView: View {
                     Section {
                         Label(error, systemImage: "exclamationmark.triangle.fill")
                             .font(.subheadline.weight(.semibold))
-                            .foregroundStyle(.red)
+                            .foregroundStyle(AppSemanticColor.dangerText)
                     }
                 } else if let warning = repository.rescueLoadWarning, searchText.isEmpty {
                     Section {
                         Label(warning, systemImage: "exclamationmark.triangle.fill")
                             .font(.footnote.weight(.semibold))
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(AppSemanticColor.warningText)
                     }
                 }
 
@@ -258,7 +258,7 @@ struct RescueCardDetailView: View {
             if !card.reviewer.isClinicallyReviewed {
                 Label("Needs clinical review", systemImage: "exclamationmark.shield")
                     .font(.caption.weight(.semibold))
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AppSemanticColor.warningText)
             }
             Spacer(minLength: 0)
         }

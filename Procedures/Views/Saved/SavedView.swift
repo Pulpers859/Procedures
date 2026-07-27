@@ -12,7 +12,16 @@ struct SavedView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @SceneStorage("Procedures.selectedSavedSection") private var selectedSectionRaw = SavedSection.favorites.rawValue
+
+    private var sectionPicker: some View {
+        Picker("Saved section", selection: selectedSection) {
+            ForEach(SavedSection.allCases) { section in
+                Text(section.rawValue).tag(section)
+            }
+        }
+    }
 
     private var selectedSection: Binding<SavedSection> {
         Binding(
@@ -37,12 +46,15 @@ struct SavedView: View {
         NavigationStack {
             List {
                 Section {
-                    Picker("Saved section", selection: selectedSection) {
-                        ForEach(SavedSection.allCases) { section in
-                            Text(section.rawValue).tag(section)
-                        }
+                    // A segmented picker neither reflows nor scrolls, so at
+                    // accessibility sizes the only navigation control on this
+                    // tab truncates to unreadable stubs. The two picker styles
+                    // are distinct types, so this branches on whole views.
+                    if dynamicTypeSize.isAccessibilitySize {
+                        sectionPicker.pickerStyle(.menu)
+                    } else {
+                        sectionPicker.pickerStyle(.segmented)
                     }
-                    .pickerStyle(.segmented)
                 }
                 .listRowBackground(Color.clear)
 

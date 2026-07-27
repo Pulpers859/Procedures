@@ -32,7 +32,10 @@ struct DocumentationContent: View {
                             } label: {
                                 Label(showCopied ? "Copied" : "Copy All", systemImage: showCopied ? "checkmark" : "doc.on.doc")
                                     .font(.footnote.weight(.semibold))
+                                    .frame(minHeight: AppLayout.controlMinHeight)
+                                    .contentShape(Rectangle())
                             }
+                            .accessibilityLabel("Copy all documentation")
                         }
                         ForEach(Array(procedure.sections.documentation.enumerated()), id: \.offset) { _, line in
                             Text(line)

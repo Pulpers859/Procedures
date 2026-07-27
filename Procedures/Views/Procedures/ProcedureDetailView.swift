@@ -87,7 +87,7 @@ struct ProcedureDetailView: View {
                             systemImage: "exclamationmark.shield"
                         )
                         .font(.caption.weight(.semibold))
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AppSemanticColor.warningText)
                         .multilineTextAlignment(.trailing)
                         .fixedSize(horizontal: false, vertical: true)
                     }
@@ -199,6 +199,16 @@ struct ProcedureDetailView: View {
     private var rescueShortcuts: some View {
         if let card = relatedRescueCards.first, relatedRescueCards.count == 1 {
             rescueButton(card: card)
+        } else if dynamicTypeSize.isAccessibilitySize {
+            // A 220pt-wide card truncates the rescue title at accessibility
+            // sizes — on the crash path, where the title is the thing being
+            // read. Stack full width instead of scrolling horizontally.
+            VStack(spacing: 8) {
+                ForEach(relatedRescueCards) { card in
+                    rescueButton(card: card)
+                }
+            }
+            .accessibilityLabel("Related rescue cards")
         } else {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
@@ -226,7 +236,8 @@ struct ProcedureDetailView: View {
                     Text(card.title)
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.primary)
-                        .lineLimit(2)
+                        .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 2)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 Spacer(minLength: 8)
                 Image(systemName: "chevron.right")

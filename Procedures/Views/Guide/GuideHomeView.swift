@@ -140,6 +140,12 @@ struct GuideHomeView: View {
                         PathwayTile(pathway: pathway, count: pathwayCount(pathway))
                     }
                     .buttonStyle(.plain)
+                    // Ungrouped, VoiceOver read the count as an orphaned
+                    // number separate from the pathway name.
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("\(pathway.title), \(pathwayCount(pathway)) procedures")
+                    .accessibilityHint(pathway.subtitle)
+                    .accessibilityAddTraits(.isButton)
                 }
             }
             .padding(.vertical, 2)
@@ -160,7 +166,7 @@ struct GuideHomeView: View {
             if let error = repository.rescueLoadError {
                 Label(error, systemImage: "exclamationmark.triangle.fill")
                     .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.red)
+                    .foregroundStyle(AppSemanticColor.dangerText)
             } else if repository.rescueCards.isEmpty {
                 Text("Rescue cards are unavailable.")
                     .font(.subheadline)
@@ -199,6 +205,9 @@ struct GuideHomeView: View {
 struct PathwayTile: View {
     let pathway: ClinicalPathway
     let count: Int
+    /// The chip must grow with the glyph, or the SF Symbol renders outside its
+    /// tinted background at accessibility sizes and simply looks broken.
+    @ScaledMetric(relativeTo: .title3) private var iconSize: CGFloat = 32
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -206,8 +215,8 @@ struct PathwayTile: View {
                 Image(systemName: pathway.systemImage)
                     .font(.title3.weight(.semibold))
                     .foregroundStyle(pathway.tint)
-                    .frame(width: 32, height: 32)
-                    .background(pathway.tint.opacity(0.14), in: RoundedRectangle(cornerRadius: 6, style: .continuous))
+                    .frame(width: iconSize, height: iconSize)
+                    .background(pathway.tint.opacity(0.14), in: RoundedRectangle(cornerRadius: AppLayout.iconContainerRadius, style: .continuous))
                 Spacer()
                 Text("\(count)")
                     .font(.caption.weight(.bold))

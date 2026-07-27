@@ -4,6 +4,7 @@ struct ProcedureListView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     @ObservedObject private var deepLinkRouter = DeepLinkRouter.shared
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var searchText = ""
     @State private var navigationPath = NavigationPath()
 
@@ -29,7 +30,7 @@ struct ProcedureListView: View {
                                 Section {
                                     Label(loadWarning, systemImage: "exclamationmark.triangle.fill")
                                         .font(.footnote.weight(.semibold))
-                                        .foregroundStyle(.orange)
+                                        .foregroundStyle(AppSemanticColor.warningText)
                                 }
                             }
                             quickAccessSection
@@ -93,12 +94,17 @@ struct ProcedureListView: View {
                                     .foregroundStyle(.secondary)
                             }
                             .padding(12)
-                            .frame(width: 144, alignment: .leading)
+                            // Fixed 144pt clipped category names like "Cardiac /
+                            // Resuscitation" at accessibility sizes.
+                            .frame(width: dynamicTypeSize.isAccessibilitySize ? nil : 144, alignment: .leading)
                             .frame(minHeight: 92, alignment: .leading)
                             .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
                             .overlay(RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous).stroke(.secondary.opacity(0.12), lineWidth: 1))
                         }
                         .buttonStyle(.plain)
+                        .accessibilityElement(children: .combine)
+                        .accessibilityLabel("\(category.rawValue), \(repository.procedures(in: category).count) procedures")
+                        .accessibilityAddTraits(.isButton)
                     }
                 }
                 .padding(.vertical, 4)
