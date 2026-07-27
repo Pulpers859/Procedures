@@ -1,11 +1,67 @@
 import XCTest
 @testable import Procedures
 
-/// Regression coverage for the rescue-card search bug where synonym expansion
-/// used AND-semantics and made clinical shorthand return zero results. These
-/// lock in the AND-across-typed-words, OR-within-synonyms behavior.
+/// Regression coverage for rescue-card retrieval — the crash path.
+///
+/// Two generations of bug here: synonym expansion once used AND-semantics so
+/// shorthand returned nothing, and matching then required every typed word to
+/// appear in a card, so natural phrasing ("the patient has hypotension")
+/// emptied the rescue screen while "hypotension" returned five cards. These
+/// lock in best-tier ranking: OR within a synonym group, keep the cards
+/// satisfying the most tokens, and never fall off a cliff mid-resuscitation.
 @MainActor
 final class RescueSearchTests: XCTestCase {
+    func testNaturalPhrasingDoesNotCollapseToZeroResults() {
+        let repo = ProcedureRepository()
+        for query in [
+            "the patient has hypotension",
+            "patient is hypotensive after intubation",
+            "loss of capture",
+            "my patient is crashing"
+        ] {
+            XCTAssertFalse(
+                repo.searchRescueCards(query).isEmpty,
+                "'\(query)' emptied the rescue list"
+            )
+        }
+    }
+
+    func testQueryNamesTheCardThatLeads() {
+        let repo = ProcedureRepository()
+        let leading: [(String, String)] = [
+            ("hypotension", "post_intubation_hypotension"),
+            ("the patient has hypotension", "post_intubation_hypotension"),
+            ("laryngospasm", "laryngospasm"),
+            ("last", "local_anesthetic_systemic_toxicity"),
+            ("loss of capture", "failed_transvenous_capture"),
+            ("cant ventilate", "failed_airway")
+        ]
+        for (query, expectedID) in leading {
+            XCTAssertEqual(
+                repo.searchRescueCards(query).first?.id, expectedID,
+                "'\(query)' should lead with \(expectedID)"
+            )
+        }
+    }
+
+    func testPreciseMultiWordQueriesStayPrecise() {
+        // Graceful degradation must not cost precision when every word matches.
+        let repo = ProcedureRepository()
+        XCTAssertEqual(repo.searchRescueCards("lost wire").map(\.id), ["lost_wire"])
+        XCTAssertEqual(repo.searchRescueCards("capture").map(\.id), ["failed_transvenous_capture"])
+        XCTAssertEqual(repo.searchRescueCards("lipid").map(\.id), ["local_anesthetic_systemic_toxicity"])
+    }
+
+    func testEditorialMetadataIsNotSearchable() {
+        // Version/date strings are not clinical search text.
+        let repo = ProcedureRepository()
+        XCTAssertTrue(repo.searchRescueCards("0.2.0").isEmpty)
+    }
+
+    func testStopWordsAreDroppedButAnAllFillerQueryStillTokenizes() {
+        XCTAssertEqual(ClinicalSynonyms.contentTokens(in: "the patient has hypotension"), ["hypotension"])
+        XCTAssertFalse(ClinicalSynonyms.contentTokens(in: "the patient").isEmpty)
+    }
     func testShorthandReturnsRescueCards() {
         let repo = ProcedureRepository()
         XCTAssertFalse(repo.searchRescueCards("ett").isEmpty, "ETT shorthand must return rescue cards")

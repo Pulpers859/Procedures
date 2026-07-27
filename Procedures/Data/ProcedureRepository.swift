@@ -79,6 +79,29 @@ enum ClinicalSynonyms {
         return result.filter { $0.count > 1 }
     }
 
+    /// Filler words that carry no clinical meaning. A stressed clinician types
+    /// sentences ("the patient is hypotensive after intubation"), and every one
+    /// of these words used to count as a required term on the rescue path.
+    /// Dropped before matching so phrasing does not change the answer.
+    static let stopWords: Set<String> = [
+        "the", "and", "for", "with", "has", "have", "had", "was", "were", "are",
+        "this", "that", "then", "than", "from", "into", "onto", "after", "before",
+        "during", "while", "when", "why", "how", "what", "who", "his", "her",
+        "their", "our", "your", "its", "patient", "pt", "still", "just", "very",
+        "really", "some", "any", "all", "not", "but", "out", "off", "over",
+        "under", "about", "also", "been", "being", "does", "did", "get", "got",
+        "now", "new", "can", "cant", "wont", "doesnt"
+    ]
+
+    /// Query tokens with filler removed. If a query is *only* filler the raw
+    /// tokens are kept, so a literal search for such a word still does
+    /// something rather than silently matching everything.
+    static func contentTokens(in query: String) -> [String] {
+        let raw = tokens(in: query)
+        let filtered = raw.filter { !stopWords.contains($0) }
+        return filtered.isEmpty ? raw : filtered
+    }
+
     /// A token together with its synonyms — the OR-group that satisfies that
     /// token. Matching any one member counts the token as present. A token
     /// with no exact expansion falls back to single-edit typo recovery, so
@@ -264,8 +287,40 @@ final class ProcedureRepository: ObservableObject {
             .map(\.0)
     }
 
+    /// Ranked rescue lookup. Returns the best-matching tier — every card that
+    /// satisfies the most query tokens — rather than requiring all of them.
+    /// Strict AND made one unmatched word empty the crash screen; keeping the
+    /// top tier preserves that precision when the words do all match while
+    /// degrading to the nearest cards when they do not.
     func searchRescueCards(_ query: String) -> [ComplicationRescueCard] {
-        rescueCards.filter { $0.matches(query) }
+        struct ScoredCard {
+            let card: ComplicationRescueCard
+            let relevance: ComplicationRescueCard.RescueRelevance
+        }
+
+        let tokens = ClinicalSynonyms.contentTokens(in: query)
+        guard !tokens.isEmpty else { return rescueCards }
+
+        let scored = rescueCards
+            .map { ScoredCard(card: $0, relevance: $0.relevance(forTokens: tokens)) }
+            .filter { $0.relevance.isMatch }
+        guard let bestTier = scored.map({ $0.relevance.matchedTokens }).max() else { return [] }
+
+        return scored
+            .filter { $0.relevance.matchedTokens == bestTier }
+            .sorted { lhs, rhs in
+                if lhs.relevance.exactTitleHits != rhs.relevance.exactTitleHits {
+                    return lhs.relevance.exactTitleHits > rhs.relevance.exactTitleHits
+                }
+                if lhs.relevance.titleHits != rhs.relevance.titleHits {
+                    return lhs.relevance.titleHits > rhs.relevance.titleHits
+                }
+                if lhs.card.acuity.sortOrder != rhs.card.acuity.sortOrder {
+                    return lhs.card.acuity.sortOrder < rhs.card.acuity.sortOrder
+                }
+                return lhs.card.title.localizedCaseInsensitiveCompare(rhs.card.title) == .orderedAscending
+            }
+            .map { $0.card }
     }
 
     private func normalizedSearchTerms(from query: String) -> [String] {

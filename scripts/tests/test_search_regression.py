@@ -120,19 +120,68 @@ def search(query):
     return [procedure["id"] for procedure, _ in scored]
 
 
+STOP_WORDS = {
+    "the", "and", "for", "with", "has", "have", "had", "was", "were", "are",
+    "this", "that", "then", "than", "from", "into", "onto", "after", "before",
+    "during", "while", "when", "why", "how", "what", "who", "his", "her",
+    "their", "our", "your", "its", "patient", "pt", "still", "just", "very",
+    "really", "some", "any", "all", "not", "but", "out", "off", "over",
+    "under", "about", "also", "been", "being", "does", "did", "get", "got",
+    "now", "new", "can", "cant", "wont", "doesnt",
+}
+
+ACUITY_ORDER = {"Crash": 0, "Urgent": 1, "Watch": 2}
+
+
+def content_tokens(query):
+    raw = tokens(query)
+    filtered = [token for token in raw if token not in STOP_WORDS]
+    return filtered or raw
+
+
+def card_haystack(card):
+    # lastReviewed/version are deliberately excluded: editorial metadata is not
+    # clinical search text. Mirrors ComplicationRescueCard.searchFields().
+    return " ".join(
+        [card["title"], card["acuity"]]
+        + card.get("relatedProcedureIDs", []) + card.get("trigger", [])
+        + card.get("immediateMoves", []) + card.get("reassess", [])
+        + card.get("avoid", []) + card.get("tags", []) + card.get("references", [])
+    ).lower()
+
+
 def rescue_matches(query):
-    query_tokens = tokens(query)
-    matched = []
+    """Best-tier rescue ranking. Mirrors ProcedureRepository.searchRescueCards:
+    keep every card satisfying the most query tokens, ordered by title
+    relevance then acuity. Strict AND used to empty the crash screen whenever a
+    single typed word was absent from a card."""
+    query_tokens = content_tokens(query)
+    if not query_tokens:
+        return [card["id"] for card in RESCUE_CARDS]
+
+    scored = []
     for card in RESCUE_CARDS:
-        haystack = " ".join(
-            [card["title"], card["acuity"], card.get("lastReviewed", ""), card.get("version", "")]
-            + card.get("relatedProcedureIDs", []) + card.get("trigger", [])
-            + card.get("immediateMoves", []) + card.get("reassess", [])
-            + card.get("avoid", []) + card.get("tags", []) + card.get("references", [])
-        ).lower()
-        if all(any(term in haystack for term in group(token)) for token in query_tokens):
-            matched.append(card["id"])
-    return matched
+        haystack = card_haystack(card)
+        title = card["title"].lower()
+        matched = exact_title = title_hits = 0
+        for token in query_tokens:
+            expansion = group(token)
+            if any(term in haystack for term in expansion):
+                matched += 1
+            if any(term in title for term in expansion):
+                title_hits += 1
+            if token in title:
+                exact_title += 1
+        if matched:
+            scored.append((matched, exact_title, title_hits, card))
+
+    if not scored:
+        return []
+
+    best = max(entry[0] for entry in scored)
+    top = [entry for entry in scored if entry[0] == best]
+    top.sort(key=lambda e: (-e[1], -e[2], ACUITY_ORDER[e[3]["acuity"]], e[3]["title"].lower()))
+    return [entry[3]["id"] for entry in top]
 
 
 # (query, expected procedure id, max acceptable rank). Rank 3 means "in the
@@ -221,6 +270,46 @@ class RescueSearchRegressionTests(unittest.TestCase):
         for query, expected_id in RESCUE_QUERIES:
             with self.subTest(query=query):
                 self.assertIn(expected_id, rescue_matches(query), f"{query!r} misses {expected_id}")
+
+    def test_natural_phrasing_does_not_collapse_to_zero_results(self):
+        # Strict AND across typed words used to empty the crash screen: one
+        # word a card happened not to contain returned nothing at all.
+        for query in (
+            "the patient has hypotension",
+            "patient is hypotensive after intubation",
+            "loss of capture",
+            "my patient is crashing",
+        ):
+            with self.subTest(query=query):
+                self.assertNotEqual(rescue_matches(query), [], f"{query!r} emptied the rescue list")
+
+    def test_query_names_the_card_that_leads(self):
+        leading = {
+            "hypotension": "post_intubation_hypotension",
+            "the patient has hypotension": "post_intubation_hypotension",
+            "patient is hypotensive after intubation": "post_intubation_hypotension",
+            "laryngospasm": "laryngospasm",
+            "last": "local_anesthetic_systemic_toxicity",
+            "loss of capture": "failed_transvenous_capture",
+            "cant ventilate": "failed_airway",
+        }
+        for query, expected_id in leading.items():
+            with self.subTest(query=query):
+                self.assertEqual(rescue_matches(query)[0], expected_id)
+
+    def test_precise_multiword_queries_stay_precise(self):
+        # Graceful degradation must not cost precision when every word matches.
+        self.assertEqual(rescue_matches("lost wire"), ["lost_wire"])
+        self.assertEqual(rescue_matches("capture"), ["failed_transvenous_capture"])
+        self.assertEqual(rescue_matches("lipid"), ["local_anesthetic_systemic_toxicity"])
+
+    def test_nonsense_stays_empty_and_blank_returns_everything(self):
+        self.assertEqual(rescue_matches("zzzznotaclinicalterm"), [])
+        self.assertEqual(len(rescue_matches("   ")), len(RESCUE_CARDS))
+
+    def test_editorial_metadata_is_not_searchable(self):
+        # Version/date strings are not clinical search text.
+        self.assertEqual(rescue_matches("0.2.0"), [])
 
 
 class FuzzyMatcherTests(unittest.TestCase):

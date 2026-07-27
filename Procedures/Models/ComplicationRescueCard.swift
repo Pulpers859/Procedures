@@ -36,30 +36,57 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
     /// Never-nil provenance: undeclared content reads as an AI draft.
     var source: ContentSource { contentSource ?? .undeclaredDefault }
 
-    func matches(_ query: String) -> Bool {
-        let tokens = ClinicalSynonyms.tokens(in: query)
-        guard !tokens.isEmpty else { return true }
+    /// Relevance of this card to a query, used to rank the rescue list.
+    /// `matchedTokens` drives the match tier; the title counters break ties so
+    /// the card actually named by the query leads.
+    struct RescueRelevance: Hashable {
+        let matchedTokens: Int
+        let exactTitleHits: Int
+        let titleHits: Int
 
-        let haystack = searchFields()
-            .joined(separator: " ")
-            .lowercased()
+        var isMatch: Bool { matchedTokens > 0 }
+    }
 
-        // AND across the words the clinician typed, OR within each word's
-        // synonym group. A token counts as present if the card contains the
-        // token itself or any of its synonyms — so "ETT" matches an airway
-        // card via "intubation" instead of demanding all five expansions.
-        return tokens.allSatisfy { token in
-            ClinicalSynonyms.group(for: token).contains { haystack.contains($0) }
+    /// Scores the card against already-normalized query tokens.
+    ///
+    /// Matching used to be a strict AND across every typed word, which meant
+    /// one word the card happened not to contain collapsed the crash path to
+    /// zero results — "the patient has hypotension" returned nothing while
+    /// "hypotension" returned five cards. Scoring instead lets the caller keep
+    /// the best-matching tier, so a query degrades gracefully rather than
+    /// falling off a cliff mid-resuscitation.
+    func relevance(forTokens tokens: [String]) -> RescueRelevance {
+        guard !tokens.isEmpty else {
+            return RescueRelevance(matchedTokens: 0, exactTitleHits: 0, titleHits: 0)
         }
+
+        let haystack = searchFields().joined(separator: " ").lowercased()
+        let titleText = title.lowercased()
+
+        var matched = 0
+        var exactTitleMatches = 0
+        var titleMatches = 0
+        for token in tokens {
+            let group = ClinicalSynonyms.group(for: token)
+            if group.contains(where: { haystack.contains($0) }) { matched += 1 }
+            if group.contains(where: { titleText.contains($0) }) { titleMatches += 1 }
+            if titleText.contains(token) { exactTitleMatches += 1 }
+        }
+        return RescueRelevance(
+            matchedTokens: matched,
+            exactTitleHits: exactTitleMatches,
+            titleHits: titleMatches
+        )
     }
 
     private func searchFields() -> [RescueCardSearchField] {
         var fields: [RescueCardSearchField] = []
-        fields.reserveCapacity(4 + relatedProcedureIDs.count + trigger.count + immediateMoves.count + reassess.count + avoid.count + tags.count + references.count)
+        fields.reserveCapacity(2 + relatedProcedureIDs.count + trigger.count + immediateMoves.count + reassess.count + avoid.count + tags.count + references.count)
         fields.append(title)
         fields.append(acuity.rawValue)
-        fields.append(lastReviewed)
-        fields.append(version)
+        // `lastReviewed` and `version` are deliberately excluded: editorial
+        // metadata is not clinical search text, and including it let a query
+        // like "0.2.0" match every card.
         fields.append(contentsOf: relatedProcedureIDs)
         fields.append(contentsOf: trigger)
         fields.append(contentsOf: immediateMoves)
