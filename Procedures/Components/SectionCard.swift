@@ -229,6 +229,9 @@ struct LocalReviewPanel: View {
     let sourceLastReviewed: String
     let sourceVersion: String
     let localReviewRecord: LocalReviewRecord?
+    /// Whether the clinically material content moved since this was reviewed.
+    /// Purely informational — it never revokes the review.
+    var materialState: ReviewContentState? = nil
     let markReviewed: () -> Void
     let markNeedsEdits: () -> Void
     let deferReview: () -> Void
@@ -251,7 +254,7 @@ struct LocalReviewPanel: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                versionStateNotice(for: localReviewRecord)
+                materialChangeNotice(for: localReviewRecord)
                 reviewActions
                 Button("Clear Review State") {
                     clearReview()
@@ -314,32 +317,26 @@ struct LocalReviewPanel: View {
         .font(.footnote.weight(.semibold))
     }
 
-    /// A sign-off only ever applies to the content version it was recorded
-    /// against. When bundled content moves on, say so plainly instead of
-    /// letting a green "Reviewed" imply the current words were approved.
+    /// Your review stands. This never revokes it and never asks you to redo
+    /// work — it only mentions it when the clinically material text (steps,
+    /// doses, contraindications, complications) moved since you looked, so you
+    /// can glance and re-confirm. Editorial churn stays silent on purpose: a
+    /// notice that fires on every update is a notice nobody reads.
     @ViewBuilder
-    private func versionStateNotice(for record: LocalReviewRecord) -> some View {
-        let state = record.versionState(currentVersion: sourceVersion)
-        switch state {
-        case .current:
-            EmptyView()
-        case .superseded(let recordedVersion):
-            reviewStaleLabel(
-                "Content changed since this review (signed off on v\(recordedVersion), now v\(sourceVersion)). Re-review before relying on it."
+    private func materialChangeNotice(for record: LocalReviewRecord) -> some View {
+        switch materialState {
+        case .materialChanged:
+            Label(
+                "Still marked reviewed. The steps or doses changed since \(record.date) — worth a glance.",
+                systemImage: "arrow.triangle.2.circlepath"
             )
-        case .unknownBaseline:
-            reviewStaleLabel(
-                "This mark was saved before versions were tracked, so it cannot be tied to the current content. Re-review to confirm."
-            )
-        }
-    }
-
-    private func reviewStaleLabel(_ message: String) -> some View {
-        Label(message, systemImage: "exclamationmark.triangle.fill")
             .font(.caption.weight(.semibold))
             .foregroundStyle(AppSemanticColor.warningText)
             .fixedSize(horizontal: false, vertical: true)
             .frame(maxWidth: .infinity, alignment: .leading)
+        case .unchanged, .unknownBaseline, .none:
+            EmptyView()
+        }
     }
 
     private func tint(for disposition: LocalReviewDisposition) -> Color {

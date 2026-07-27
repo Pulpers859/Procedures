@@ -36,6 +36,12 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
     /// Never-nil provenance: undeclared content reads as an AI draft.
     var source: ContentSource { contentSource ?? .undeclaredDefault }
 
+    /// The parts a clinician vouches for on a rescue card: what to do, when to
+    /// recognize it, and what not to do. Tags and references are excluded.
+    var materialFingerprint: String {
+        ContentFingerprint.make(immediateMoves + trigger + avoid + reassess)
+    }
+
     /// Relevance of this card to a query, used to rank the rescue list.
     /// `matchedTokens` drives the match tier; the title counters break ties so
     /// the card actually named by the query leads.

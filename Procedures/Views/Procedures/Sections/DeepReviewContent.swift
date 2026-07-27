@@ -54,6 +54,7 @@ struct DeepReviewContent: View {
                         sourceLastReviewed: procedure.lastReviewed,
                         sourceVersion: procedure.version,
                         localReviewRecord: userData.localReviewRecord(for: procedure),
+                        materialState: userData.reviewContentState(for: procedure),
                         markReviewed: { userData.markReviewed(procedure) },
                         markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: procedure) },
                         deferReview: { userData.setReviewDisposition(.deferred, for: procedure) },

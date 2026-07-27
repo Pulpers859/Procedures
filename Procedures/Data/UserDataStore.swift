@@ -30,40 +30,41 @@ enum LocalReviewDisposition: String, Codable, CaseIterable, Identifiable {
     }
 }
 
-/// How a stored review mark relates to the content currently bundled. A
-/// disposition only ever applies to the exact content version it was recorded
-/// against; the safety policy requires sign-off per version, so the app must be
-/// able to say when a mark has been outrun by a content update.
-enum ReviewVersionState: Hashable {
-    /// Recorded against the version that is bundled right now.
-    case current
-    /// Content has shipped a new version since this mark was recorded.
-    case superseded(recordedVersion: String)
-    /// Written before review marks captured a version. Honest "unknown"
-    /// rather than an assumption in either direction.
+/// How a stored review relates to the content bundled today.
+///
+/// A review is the clinician's own work and is never revoked: it keeps its
+/// disposition, stays in the reviewed list, and keeps counting toward
+/// progress no matter what ships later. The only thing tracked here is whether
+/// the *clinically material* text — steps, doses, contraindications,
+/// complications — moved since they last looked, so the app can mention it
+/// once instead of quietly implying they approved words they never saw.
+/// Editorial churn (tags, references, formatting, version bumps) is invisible
+/// by design; a warning that fires on every update is a warning nobody reads.
+enum ReviewContentState: Hashable {
+    /// The material content is exactly what was reviewed.
+    case unchanged
+    /// Steps, doses, contraindications, or complications changed since review.
+    case materialChanged
+    /// Written before fingerprints were recorded, so no comparison is possible.
+    /// Not a problem to fix — just an unknown, and reported as nothing at all.
     case unknownBaseline
-
-    /// True when the mark can no longer be trusted to describe bundled content.
-    var needsRecheck: Bool {
-        switch self {
-        case .current: return false
-        case .superseded, .unknownBaseline: return true
-        }
-    }
 }
 
 struct LocalReviewRecord: Codable, Hashable {
     let disposition: LocalReviewDisposition
     let date: String
-    /// Bundled content version this disposition was recorded against. Optional
-    /// so records written before version binding still decode; a nil baseline
-    /// reads as "unknown", which the UI reports rather than silently trusting.
+    /// Bundled content version at review time. Informational only — shown to
+    /// give the date context. It deliberately does NOT drive re-review, because
+    /// a version bump for a typo must not disturb a sign-off.
     var contentVersion: String?
+    /// Fingerprint of the clinically material content at review time. This is
+    /// what re-review keys on. Optional so pre-fingerprint records still decode.
+    var materialFingerprint: String?
 
-    /// Compares the captured baseline against the version bundled today.
-    func versionState(currentVersion: String) -> ReviewVersionState {
-        guard let contentVersion, !contentVersion.isEmpty else { return .unknownBaseline }
-        return contentVersion == currentVersion ? .current : .superseded(recordedVersion: contentVersion)
+    /// Compares the material baseline against the content bundled today.
+    func contentState(currentFingerprint: String) -> ReviewContentState {
+        guard let materialFingerprint, !materialFingerprint.isEmpty else { return .unknownBaseline }
+        return materialFingerprint == currentFingerprint ? .unchanged : .materialChanged
     }
 }
 
@@ -226,7 +227,8 @@ final class UserDataStore: ObservableObject {
         setLocalReviewRecord(
             forKey: reviewKey(kind: "procedure", id: procedure.id),
             disposition: disposition,
-            contentVersion: procedure.version
+            contentVersion: procedure.version,
+            materialFingerprint: procedure.materialFingerprint
         )
     }
 
@@ -234,7 +236,8 @@ final class UserDataStore: ObservableObject {
         setLocalReviewRecord(
             forKey: reviewKey(kind: "rescue", id: card.id),
             disposition: disposition,
-            contentVersion: card.version
+            contentVersion: card.version,
+            materialFingerprint: card.materialFingerprint
         )
     }
 
@@ -242,42 +245,44 @@ final class UserDataStore: ObservableObject {
         setLocalReviewRecord(
             forKey: reviewKey(kind: "kit", id: kit.id),
             disposition: disposition,
-            contentVersion: kit.version
+            contentVersion: kit.version,
+            materialFingerprint: kit.materialFingerprint
         )
     }
 
-    // MARK: - Review version binding
+    // MARK: - Review content state
 
-    /// Review marks are only valid for the content version they were recorded
-    /// against. These report whether the bundled content has moved on, so a
-    /// stale sign-off is never presented as current approval.
-    func reviewVersionState(for procedure: Procedure) -> ReviewVersionState? {
-        localReviewRecord(for: procedure)?.versionState(currentVersion: procedure.version)
+    /// Whether the clinically material content changed since it was reviewed.
+    /// A review is never revoked by this: it is informational so the clinician
+    /// can glance and re-confirm rather than redo work they already did.
+    func reviewContentState(for procedure: Procedure) -> ReviewContentState? {
+        localReviewRecord(for: procedure)?.contentState(currentFingerprint: procedure.materialFingerprint)
     }
 
-    func reviewVersionState(for card: ComplicationRescueCard) -> ReviewVersionState? {
-        localReviewRecord(for: card)?.versionState(currentVersion: card.version)
+    func reviewContentState(for card: ComplicationRescueCard) -> ReviewContentState? {
+        localReviewRecord(for: card)?.contentState(currentFingerprint: card.materialFingerprint)
     }
 
-    func reviewVersionState(for kit: Kit) -> ReviewVersionState? {
-        localReviewRecord(for: kit)?.versionState(currentVersion: kit.version)
+    func reviewContentState(for kit: Kit) -> ReviewContentState? {
+        localReviewRecord(for: kit)?.contentState(currentFingerprint: kit.materialFingerprint)
     }
 
-    /// Items previously marked `Reviewed` whose bundled content has since
-    /// changed. These must return to the review queue.
-    func supersededReviewCount(
+    /// Reviewed items whose material content has changed since sign-off. These
+    /// stay reviewed and keep counting toward progress; the number exists only
+    /// so the Review Center can offer an optional "worth a second look" list.
+    func changedSinceReviewCount(
         procedures: [Procedure],
         rescueCards: [ComplicationRescueCard],
         kits: [Kit]
     ) -> Int {
-        procedures.filter { isSupersededReview(localReviewRecord(for: $0), currentVersion: $0.version) }.count
-            + rescueCards.filter { isSupersededReview(localReviewRecord(for: $0), currentVersion: $0.version) }.count
-            + kits.filter { isSupersededReview(localReviewRecord(for: $0), currentVersion: $0.version) }.count
+        procedures.filter { hasMaterialChange(localReviewRecord(for: $0), fingerprint: $0.materialFingerprint) }.count
+            + rescueCards.filter { hasMaterialChange(localReviewRecord(for: $0), fingerprint: $0.materialFingerprint) }.count
+            + kits.filter { hasMaterialChange(localReviewRecord(for: $0), fingerprint: $0.materialFingerprint) }.count
     }
 
-    private func isSupersededReview(_ record: LocalReviewRecord?, currentVersion: String) -> Bool {
+    func hasMaterialChange(_ record: LocalReviewRecord?, fingerprint: String) -> Bool {
         guard let record, record.disposition == .reviewed else { return false }
-        return record.versionState(currentVersion: currentVersion).needsRecheck
+        return record.contentState(currentFingerprint: fingerprint) == .materialChanged
     }
 
     func clearReview(for procedure: Procedure) {
@@ -516,12 +521,14 @@ final class UserDataStore: ObservableObject {
     private func setLocalReviewRecord(
         forKey key: String,
         disposition: LocalReviewDisposition,
-        contentVersion: String
+        contentVersion: String,
+        materialFingerprint: String
     ) {
         locallyReviewedContent[key] = LocalReviewRecord(
             disposition: disposition,
             date: Self.todayString(),
-            contentVersion: contentVersion
+            contentVersion: contentVersion,
+            materialFingerprint: materialFingerprint
         )
         saveLocallyReviewedContent()
     }

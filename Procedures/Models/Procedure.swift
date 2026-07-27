@@ -37,6 +37,21 @@ struct Procedure: Identifiable, Codable, Hashable {
     var source: ContentSource { contentSource ?? .undeclaredDefault }
 
     var primaryVisualAsset: ProcedureVisualAsset? { visualAssets?.first }
+
+    /// Fingerprint of the parts a clinician is actually vouching for when they
+    /// sign this off. Deliberately excludes tags, references, documentation,
+    /// and visual metadata: those change for editorial reasons and must not
+    /// disturb an existing review.
+    var materialFingerprint: String {
+        var parts = sections.steps + sections.complications + sections.contraindications
+        if let dosing {
+            parts.append(contentsOf: dosing.agents.map {
+                "\($0.agent)|\($0.maxDoseMgPerKg)|\($0.absoluteMaxMg.map(String.init) ?? "-")"
+            })
+            parts.append(dosing.cumulativeWarning)
+        }
+        return ContentFingerprint.make(parts)
+    }
 }
 
 /// Machine-checkable dosing limits for procedures that inject local

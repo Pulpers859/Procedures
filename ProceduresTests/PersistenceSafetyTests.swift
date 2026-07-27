@@ -170,55 +170,74 @@ final class PersistenceSafetyTests: XCTestCase {
         XCTAssertFalse(resetSession.isKitItemChecked("Sterile gown", forKitID: "central-line"))
     }
 
-    // MARK: - Review version binding
+    // MARK: - Review content state
 
-    func testReviewMarkIsBoundToTheContentVersionItWasRecordedAgainst() {
+    func testReviewCapturesTheMaterialFingerprintItWasRecordedAgainst() {
         let store = UserDataStore(defaults: defaults)
         store.markReviewed(procedureFixture)
 
         XCTAssertEqual(store.localReviewRecord(for: procedureFixture)?.contentVersion, "1.0")
-        XCTAssertEqual(store.reviewVersionState(for: procedureFixture), .current)
+        XCTAssertNotNil(store.localReviewRecord(for: procedureFixture)?.materialFingerprint)
+        XCTAssertEqual(store.reviewContentState(for: procedureFixture), .unchanged)
+    }
+
+    func testEditorialChangesNeverDisturbAReview() {
+        // A version bump, new tags, or reworded references must not cost a
+        // clinician their sign-off. Only material clinical text counts.
+        let store = UserDataStore(defaults: defaults)
+        store.markReviewed(procedureFixture)
+
+        let editorialOnly = procedureFixture(version: "9.9", tags: ["new", "tags"])
         XCTAssertEqual(
-            store.supersededReviewCount(procedures: [procedureFixture], rescueCards: [], kits: []),
+            store.reviewContentState(for: editorialOnly), .unchanged,
+            "A version bump alone must not flag a review."
+        )
+        XCTAssertEqual(
+            store.changedSinceReviewCount(procedures: [editorialOnly], rescueCards: [], kits: []),
             0
         )
     }
 
-    func testReviewMarkIsReportedSupersededWhenBundledContentShipsANewVersion() {
+    func testChangedStepsFlagTheReviewWithoutRevokingIt() {
         let store = UserDataStore(defaults: defaults)
         store.markReviewed(procedureFixture)
 
-        let updated = procedureFixture(version: "1.1")
-        XCTAssertEqual(store.reviewVersionState(for: updated), .superseded(recordedVersion: "1.0"))
+        let rewritten = procedureFixture(version: "1.0", steps: ["Completely different step"])
+        XCTAssertEqual(store.reviewContentState(for: rewritten), .materialChanged)
         XCTAssertEqual(
-            store.supersededReviewCount(procedures: [updated], rescueCards: [], kits: []),
+            store.changedSinceReviewCount(procedures: [rewritten], rescueCards: [], kits: []),
+            1
+        )
+        // The review itself survives: still Reviewed, still counted as done.
+        XCTAssertEqual(store.localReviewRecord(for: rewritten)?.disposition, .reviewed)
+        XCTAssertEqual(
+            store.localReviewCount(procedures: [rewritten], rescueCards: [], kits: []),
             1,
-            "A sign-off must not survive a content update as if it still applied."
+            "A content change must never move completed review work backwards."
         )
     }
 
-    func testLegacyReviewRecordWithoutAVersionReadsAsUnknownBaselineNotApproved() throws {
-        try seedReviews(["procedure:central-line": LocalReviewRecord(disposition: .reviewed, date: "2026-07-18")])
+    func testLegacyReviewWithoutAFingerprintIsSilentNotFlagged() {
+        try? seedReviews(["procedure:central-line": LocalReviewRecord(disposition: .reviewed, date: "2026-07-18")])
 
         let store = UserDataStore(defaults: defaults)
-        XCTAssertEqual(store.reviewVersionState(for: procedureFixture), .unknownBaseline)
-        XCTAssertTrue(store.reviewVersionState(for: procedureFixture)?.needsRecheck == true)
+        XCTAssertEqual(store.reviewContentState(for: procedureFixture), .unknownBaseline)
         XCTAssertEqual(
-            store.supersededReviewCount(procedures: [procedureFixture], rescueCards: [], kits: []),
-            1,
-            "A record saved before version tracking cannot be claimed as current approval."
+            store.changedSinceReviewCount(procedures: [procedureFixture], rescueCards: [], kits: []),
+            0,
+            "An unknown baseline is not evidence of a change; it must not nag."
         )
     }
 
-    func testNonReviewedDispositionsAreNotCountedAsSupersededWork() {
+    func testNonReviewedDispositionsAreNotCountedAsChangedWork() {
         let store = UserDataStore(defaults: defaults)
         store.setReviewDisposition(.needsEdits, for: procedureFixture)
 
-        let updated = procedureFixture(version: "2.0")
+        let rewritten = procedureFixture(version: "2.0", steps: ["Different"])
         XCTAssertEqual(
-            store.supersededReviewCount(procedures: [updated], rescueCards: [], kits: []),
+            store.changedSinceReviewCount(procedures: [rewritten], rescueCards: [], kits: []),
             0,
-            "Needs Edits is already queued work; it must not double-count as a stale sign-off."
+            "Needs Edits is already queued work; it must not double-count."
         )
     }
 
@@ -228,7 +247,13 @@ final class PersistenceSafetyTests: XCTestCase {
 
     private var procedureFixture: Procedure { procedureFixture(version: "1.0") }
 
-    private func procedureFixture(version: String) -> Procedure {
+    /// `steps` is material content (it feeds the review fingerprint); `tags`
+    /// and `version` are editorial. The tests below rely on that split.
+    private func procedureFixture(
+        version: String,
+        steps: [String] = ["Prep and drape", "Insert under ultrasound"],
+        tags: [String] = []
+    ) -> Procedure {
         let json = """
         {
           "id": "central-line",
@@ -239,7 +264,7 @@ final class PersistenceSafetyTests: XCTestCase {
           "setting": ["ED"],
           "lastReviewed": "2026-07-18",
           "version": "\(version)",
-          "tags": [],
+          "tags": \(jsonArray(tags)),
           "visualAssets": null,
           "reviewerStatus": null,
           "sections": {
@@ -249,7 +274,7 @@ final class PersistenceSafetyTests: XCTestCase {
             "anatomy": [],
             "equipment": ["Ultrasound"],
             "positioning": [],
-            "steps": [],
+            "steps": \(jsonArray(steps)),
             "ultrasound": [],
             "confirmation": [],
             "troubleshooting": [],
@@ -262,6 +287,11 @@ final class PersistenceSafetyTests: XCTestCase {
         }
         """
         return try! JSONDecoder().decode(Procedure.self, from: Data(json.utf8))
+    }
+
+    private func jsonArray(_ values: [String]) -> String {
+        let encoded = try! JSONEncoder().encode(values)
+        return String(decoding: encoded, as: UTF8.self)
     }
 
     private func seedReviews(_ reviews: [String: LocalReviewRecord]) throws {

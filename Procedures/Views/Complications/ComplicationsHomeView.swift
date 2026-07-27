@@ -214,6 +214,7 @@ struct RescueCardDetailView: View {
                             sourceLastReviewed: card.lastReviewed,
                             sourceVersion: card.version,
                             localReviewRecord: userData.localReviewRecord(for: card),
+                            materialState: userData.reviewContentState(for: card),
                             markReviewed: { userData.markReviewed(card) },
                             markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: card) },
                             deferReview: { userData.setReviewDisposition(.deferred, for: card) },

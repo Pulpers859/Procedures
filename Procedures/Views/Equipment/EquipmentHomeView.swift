@@ -313,6 +313,7 @@ struct KitDetailView: View {
                             sourceLastReviewed: kit.lastReviewed,
                             sourceVersion: kit.version,
                             localReviewRecord: userData.localReviewRecord(for: kit),
+                            materialState: userData.reviewContentState(for: kit),
                             markReviewed: { userData.markReviewed(kit) },
                             markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: kit) },
                             deferReview: { userData.setReviewDisposition(.deferred, for: kit) },

@@ -1,4 +1,29 @@
 import Foundation
+import CryptoKit
+
+/// Stable fingerprint of the *clinically material* part of a content item.
+///
+/// A review belongs to the clinician who made it and does not expire because
+/// the app updated: fixing a typo, adding a tag, or reformatting a reference
+/// must never cost someone their sign-off. But if the steps, the doses, the
+/// contraindications, or the complications change, a prior "Reviewed" is
+/// vouching for words that were never read — so those, and only those, are
+/// fingerprinted here.
+///
+/// Swift's `Hasher` is seeded per process, so `hashValue` cannot be persisted
+/// and compared across launches. SHA-256 is stable forever, which is what a
+/// stored review baseline requires.
+enum ContentFingerprint {
+    /// Unit separator — a character that cannot appear in clinical prose, so
+    /// ["ab", "c"] and ["a", "bc"] cannot collide.
+    private static let separator = "\u{1F}"
+
+    static func make(_ parts: [String]) -> String {
+        let joined = parts.joined(separator: separator)
+        let digest = SHA256.hash(data: Data(joined.utf8))
+        return digest.map { String(format: "%02x", $0) }.joined()
+    }
+}
 
 /// Editorial review state for a piece of clinical content. This is a safety
 /// surface, not decoration: the app must never imply that draft or unreviewed

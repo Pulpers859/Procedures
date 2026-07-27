@@ -32,6 +32,12 @@ struct Kit: Identifiable, Codable, Hashable {
     /// Items eligible for the interactive room-setup checklist.
     var allChecklistItems: [String] { inKit + outsideKit }
 
+    /// What a clinician vouches for on a kit: the physical contents and the
+    /// patient setup. Subtitle, tags, and references are excluded.
+    var materialFingerprint: String {
+        ContentFingerprint.make(inKit + outsideKit + patientSetup + sterileSetup)
+    }
+
     func matches(_ query: String) -> Bool {
         // Stop words are dropped for the same reason as the rescue path: a
         // filler word the kit happens not to contain must not zero the result.
