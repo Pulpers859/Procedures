@@ -14,10 +14,16 @@ struct ReviewCenterView: View {
     @State private var selectedTab: ReviewCenterTab = .queue
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
+    // Presented by pushing onto the Settings navigation stack. It must not
+    // declare its own NavigationStack: a stack nested inside a stack shadows
+    // the parent's navigation destinations and double-stacks the nav bar.
     var body: some View {
-        NavigationStack {
-            List {
+        List {
             heroSection
+
+            if !reviewModeEnabled {
+                reviewToolsDisabledSection
+            }
 
             Section {
                 Picker("Review Center Section", selection: $selectedTab) {
@@ -37,9 +43,33 @@ struct ReviewCenterView: View {
             case .track:
                 trackContent
             }
+        }
+        .listStyle(.insetGrouped)
+        .navigationTitle("Review Center")
+    }
+
+    /// Without review tools the "My Review" panel is hidden on every content
+    /// page, so each queue row would dead-end on a screen with no way to record
+    /// a disposition. Say that here and offer the switch inline.
+    private var reviewToolsDisabledSection: some View {
+        Section {
+            VStack(alignment: .leading, spacing: 10) {
+                Label("Review tools are turned off", systemImage: "exclamationmark.triangle.fill")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.orange)
+                Text("Opening an item below will show the content but no review controls. Turn review tools on to record Reviewed, Needs Edits, or Defer.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                Button {
+                    reviewModeEnabled = true
+                } label: {
+                    Label("Turn On Review Tools", systemImage: "checkmark.shield")
+                        .frame(minHeight: AppLayout.controlMinHeight - 12)
+                }
+                .buttonStyle(.borderedProminent)
             }
-            .listStyle(.insetGrouped)
-            .navigationTitle("Review Center")
+            .padding(.vertical, 4)
         }
     }
 
@@ -64,7 +94,10 @@ struct ReviewCenterView: View {
                 }
 
                 HStack(spacing: 8) {
-                    ReviewMetricPill(value: "\(reviewedCount)", label: "reviewed", tint: .green)
+                    ReviewMetricPill(value: "\(currentReviewedCount)", label: "reviewed", tint: .green)
+                    if supersededCount > 0 {
+                        ReviewMetricPill(value: "\(supersededCount)", label: "re-review", tint: .orange)
+                    }
                     ReviewMetricPill(value: "\(needsEditCount)", label: "needs edits", tint: .orange)
                     ReviewMetricPill(value: "\(issueCount(.warning))", label: "warnings", tint: .red)
                 }
@@ -75,10 +108,24 @@ struct ReviewCenterView: View {
 
     @ViewBuilder
     private var queueContent: some View {
-        if unstartedProcedures.isEmpty && unstartedRescueCards.isEmpty && unstartedKits.isEmpty && needsEditItemsCount == 0 && deferredItemsCount == 0 {
+        if unstartedProcedures.isEmpty && unstartedRescueCards.isEmpty && unstartedKits.isEmpty
+            && needsEditItemsCount == 0 && deferredItemsCount == 0 && supersededCount == 0 {
             Section {
                 Label("No local review work is queued.", systemImage: "checkmark.seal.fill")
                     .foregroundStyle(.green)
+            }
+        }
+
+        // Content that shipped a new version after it was signed off. A prior
+        // "Reviewed" says nothing about the words on screen today, so these
+        // come back to the top of the queue rather than counting as done.
+        if supersededCount > 0 {
+            Section {
+                supersededRows
+            } header: {
+                Text("Re-Review — Content Changed")
+            } footer: {
+                Text("These were marked Reviewed against an earlier version of the bundled content.")
             }
         }
 
@@ -189,11 +236,16 @@ struct ReviewCenterView: View {
                 MetadataRow(icon: "list.bullet.rectangle", title: "Procedures", value: "\(repository.procedures.count)")
                 MetadataRow(icon: "lifepreserver", title: "Rescue Cards", value: "\(repository.rescueCards.count)")
                 MetadataRow(icon: "shippingbox", title: "Kits", value: "\(repository.kits.count)")
-                MetadataRow(icon: "checkmark.seal", title: "Reviewed", value: "\(reviewedCount)")
+                MetadataRow(icon: "checkmark.seal", title: "Reviewed (current version)", value: "\(currentReviewedCount)")
+                if supersededCount > 0 {
+                    MetadataRow(icon: "arrow.triangle.2.circlepath", title: "Re-review (content changed)", value: "\(supersededCount)")
+                }
                 MetadataRow(icon: "square.and.pencil", title: "Needs Edits", value: "\(needsEditCount)")
                 MetadataRow(icon: "clock", title: "Deferred", value: "\(deferredCount)")
                 if totalContentItems > 0 {
-                    ProgressView(value: Double(reviewedCount), total: Double(totalContentItems))
+                    // Progress counts only sign-offs that still match bundled
+                    // content, so a content update honestly moves the bar down.
+                    ProgressView(value: Double(currentReviewedCount), total: Double(totalContentItems))
                 }
             }
 
@@ -274,6 +326,12 @@ struct ReviewCenterView: View {
         )
     }
 
+    /// Sign-offs that still describe the bundled content. Excludes marks the
+    /// content has outrun — those are counted as re-review work instead.
+    private var currentReviewedCount: Int {
+        max(0, reviewedCount - supersededCount)
+    }
+
     private var needsEditCount: Int {
         userData.localReviewCount(disposition: .needsEdits, procedures: repository.procedures, rescueCards: repository.rescueCards, kits: repository.kits)
     }
@@ -308,6 +366,84 @@ struct ReviewCenterView: View {
 
     private var needsEditItemsCount: Int { needsEditCount }
     private var deferredItemsCount: Int { deferredCount }
+
+    private var supersededCount: Int {
+        userData.supersededReviewCount(
+            procedures: repository.procedures,
+            rescueCards: repository.rescueCards,
+            kits: repository.kits
+        )
+    }
+
+    private var supersededProcedures: [Procedure] {
+        repository.procedures.filter { isSuperseded(userData.localReviewRecord(for: $0), version: $0.version) }
+    }
+
+    private var supersededRescueCards: [ComplicationRescueCard] {
+        repository.rescueCards.filter { isSuperseded(userData.localReviewRecord(for: $0), version: $0.version) }
+    }
+
+    private var supersededKits: [Kit] {
+        repository.kits.filter { isSuperseded(userData.localReviewRecord(for: $0), version: $0.version) }
+    }
+
+    private func isSuperseded(_ record: LocalReviewRecord?, version: String) -> Bool {
+        guard let record, record.disposition == .reviewed else { return false }
+        return record.versionState(currentVersion: version).needsRecheck
+    }
+
+    @ViewBuilder
+    private var supersededRows: some View {
+        ForEach(supersededProcedures) { procedure in
+            NavigationLink {
+                ProcedureDetailView(procedure: procedure, initialSection: .deepReview)
+            } label: {
+                ProcedureReviewRow(
+                    title: procedure.title,
+                    subtitle: procedure.category.rawValue,
+                    detail: supersededDetail(userData.localReviewRecord(for: procedure), version: procedure.version),
+                    record: userData.localReviewRecord(for: procedure)
+                )
+            }
+        }
+
+        ForEach(supersededRescueCards) { card in
+            NavigationLink {
+                RescueCardDetailView(card: card)
+            } label: {
+                ProcedureReviewRow(
+                    title: card.title,
+                    subtitle: "Rescue Card",
+                    detail: supersededDetail(userData.localReviewRecord(for: card), version: card.version),
+                    record: userData.localReviewRecord(for: card)
+                )
+            }
+        }
+
+        ForEach(supersededKits) { kit in
+            NavigationLink {
+                KitDetailView(kit: kit)
+            } label: {
+                ProcedureReviewRow(
+                    title: kit.title,
+                    subtitle: "Kit",
+                    detail: supersededDetail(userData.localReviewRecord(for: kit), version: kit.version),
+                    record: userData.localReviewRecord(for: kit)
+                )
+            }
+        }
+    }
+
+    private func supersededDetail(_ record: LocalReviewRecord?, version: String) -> String {
+        switch record?.versionState(currentVersion: version) {
+        case .superseded(let recordedVersion):
+            return "Reviewed v\(recordedVersion) → now v\(version)"
+        case .unknownBaseline:
+            return "Reviewed before versions were tracked"
+        default:
+            return ""
+        }
+    }
 
     private func issueCount(_ severity: ContentValidationIssue.Severity) -> Int {
         repository.contentIssues.filter { $0.severity == severity }.count

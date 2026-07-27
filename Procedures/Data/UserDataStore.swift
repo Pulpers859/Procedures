@@ -30,9 +30,41 @@ enum LocalReviewDisposition: String, Codable, CaseIterable, Identifiable {
     }
 }
 
+/// How a stored review mark relates to the content currently bundled. A
+/// disposition only ever applies to the exact content version it was recorded
+/// against; the safety policy requires sign-off per version, so the app must be
+/// able to say when a mark has been outrun by a content update.
+enum ReviewVersionState: Hashable {
+    /// Recorded against the version that is bundled right now.
+    case current
+    /// Content has shipped a new version since this mark was recorded.
+    case superseded(recordedVersion: String)
+    /// Written before review marks captured a version. Honest "unknown"
+    /// rather than an assumption in either direction.
+    case unknownBaseline
+
+    /// True when the mark can no longer be trusted to describe bundled content.
+    var needsRecheck: Bool {
+        switch self {
+        case .current: return false
+        case .superseded, .unknownBaseline: return true
+        }
+    }
+}
+
 struct LocalReviewRecord: Codable, Hashable {
     let disposition: LocalReviewDisposition
     let date: String
+    /// Bundled content version this disposition was recorded against. Optional
+    /// so records written before version binding still decode; a nil baseline
+    /// reads as "unknown", which the UI reports rather than silently trusting.
+    var contentVersion: String?
+
+    /// Compares the captured baseline against the version bundled today.
+    func versionState(currentVersion: String) -> ReviewVersionState {
+        guard let contentVersion, !contentVersion.isEmpty else { return .unknownBaseline }
+        return contentVersion == currentVersion ? .current : .superseded(recordedVersion: contentVersion)
+    }
 }
 
 @MainActor
@@ -179,27 +211,73 @@ final class UserDataStore: ObservableObject {
     }
 
     func markReviewed(_ procedure: Procedure) {
-        setLocalReviewRecord(forKey: reviewKey(kind: "procedure", id: procedure.id), disposition: .reviewed)
+        setReviewDisposition(.reviewed, for: procedure)
     }
 
     func markReviewed(_ card: ComplicationRescueCard) {
-        setLocalReviewRecord(forKey: reviewKey(kind: "rescue", id: card.id), disposition: .reviewed)
+        setReviewDisposition(.reviewed, for: card)
     }
 
     func markReviewed(_ kit: Kit) {
-        setLocalReviewRecord(forKey: reviewKey(kind: "kit", id: kit.id), disposition: .reviewed)
+        setReviewDisposition(.reviewed, for: kit)
     }
 
     func setReviewDisposition(_ disposition: LocalReviewDisposition, for procedure: Procedure) {
-        setLocalReviewRecord(forKey: reviewKey(kind: "procedure", id: procedure.id), disposition: disposition)
+        setLocalReviewRecord(
+            forKey: reviewKey(kind: "procedure", id: procedure.id),
+            disposition: disposition,
+            contentVersion: procedure.version
+        )
     }
 
     func setReviewDisposition(_ disposition: LocalReviewDisposition, for card: ComplicationRescueCard) {
-        setLocalReviewRecord(forKey: reviewKey(kind: "rescue", id: card.id), disposition: disposition)
+        setLocalReviewRecord(
+            forKey: reviewKey(kind: "rescue", id: card.id),
+            disposition: disposition,
+            contentVersion: card.version
+        )
     }
 
     func setReviewDisposition(_ disposition: LocalReviewDisposition, for kit: Kit) {
-        setLocalReviewRecord(forKey: reviewKey(kind: "kit", id: kit.id), disposition: disposition)
+        setLocalReviewRecord(
+            forKey: reviewKey(kind: "kit", id: kit.id),
+            disposition: disposition,
+            contentVersion: kit.version
+        )
+    }
+
+    // MARK: - Review version binding
+
+    /// Review marks are only valid for the content version they were recorded
+    /// against. These report whether the bundled content has moved on, so a
+    /// stale sign-off is never presented as current approval.
+    func reviewVersionState(for procedure: Procedure) -> ReviewVersionState? {
+        localReviewRecord(for: procedure)?.versionState(currentVersion: procedure.version)
+    }
+
+    func reviewVersionState(for card: ComplicationRescueCard) -> ReviewVersionState? {
+        localReviewRecord(for: card)?.versionState(currentVersion: card.version)
+    }
+
+    func reviewVersionState(for kit: Kit) -> ReviewVersionState? {
+        localReviewRecord(for: kit)?.versionState(currentVersion: kit.version)
+    }
+
+    /// Items previously marked `Reviewed` whose bundled content has since
+    /// changed. These must return to the review queue.
+    func supersededReviewCount(
+        procedures: [Procedure],
+        rescueCards: [ComplicationRescueCard],
+        kits: [Kit]
+    ) -> Int {
+        procedures.filter { isSupersededReview(localReviewRecord(for: $0), currentVersion: $0.version) }.count
+            + rescueCards.filter { isSupersededReview(localReviewRecord(for: $0), currentVersion: $0.version) }.count
+            + kits.filter { isSupersededReview(localReviewRecord(for: $0), currentVersion: $0.version) }.count
+    }
+
+    private func isSupersededReview(_ record: LocalReviewRecord?, currentVersion: String) -> Bool {
+        guard let record, record.disposition == .reviewed else { return false }
+        return record.versionState(currentVersion: currentVersion).needsRecheck
     }
 
     func clearReview(for procedure: Procedure) {
@@ -435,8 +513,16 @@ final class UserDataStore: ObservableObject {
         }
     }
 
-    private func setLocalReviewRecord(forKey key: String, disposition: LocalReviewDisposition) {
-        locallyReviewedContent[key] = LocalReviewRecord(disposition: disposition, date: Self.todayString())
+    private func setLocalReviewRecord(
+        forKey key: String,
+        disposition: LocalReviewDisposition,
+        contentVersion: String
+    ) {
+        locallyReviewedContent[key] = LocalReviewRecord(
+            disposition: disposition,
+            date: Self.todayString(),
+            contentVersion: contentVersion
+        )
         saveLocallyReviewedContent()
     }
 

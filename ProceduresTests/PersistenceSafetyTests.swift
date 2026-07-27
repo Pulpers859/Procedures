@@ -170,11 +170,65 @@ final class PersistenceSafetyTests: XCTestCase {
         XCTAssertFalse(resetSession.isKitItemChecked("Sterile gown", forKitID: "central-line"))
     }
 
+    // MARK: - Review version binding
+
+    func testReviewMarkIsBoundToTheContentVersionItWasRecordedAgainst() {
+        let store = UserDataStore(defaults: defaults)
+        store.markReviewed(procedureFixture)
+
+        XCTAssertEqual(store.localReviewRecord(for: procedureFixture)?.contentVersion, "1.0")
+        XCTAssertEqual(store.reviewVersionState(for: procedureFixture), .current)
+        XCTAssertEqual(
+            store.supersededReviewCount(procedures: [procedureFixture], rescueCards: [], kits: []),
+            0
+        )
+    }
+
+    func testReviewMarkIsReportedSupersededWhenBundledContentShipsANewVersion() {
+        let store = UserDataStore(defaults: defaults)
+        store.markReviewed(procedureFixture)
+
+        let updated = procedureFixture(version: "1.1")
+        XCTAssertEqual(store.reviewVersionState(for: updated), .superseded(recordedVersion: "1.0"))
+        XCTAssertEqual(
+            store.supersededReviewCount(procedures: [updated], rescueCards: [], kits: []),
+            1,
+            "A sign-off must not survive a content update as if it still applied."
+        )
+    }
+
+    func testLegacyReviewRecordWithoutAVersionReadsAsUnknownBaselineNotApproved() throws {
+        try seedReviews(["procedure:central-line": LocalReviewRecord(disposition: .reviewed, date: "2026-07-18")])
+
+        let store = UserDataStore(defaults: defaults)
+        XCTAssertEqual(store.reviewVersionState(for: procedureFixture), .unknownBaseline)
+        XCTAssertTrue(store.reviewVersionState(for: procedureFixture)?.needsRecheck == true)
+        XCTAssertEqual(
+            store.supersededReviewCount(procedures: [procedureFixture], rescueCards: [], kits: []),
+            1,
+            "A record saved before version tracking cannot be claimed as current approval."
+        )
+    }
+
+    func testNonReviewedDispositionsAreNotCountedAsSupersededWork() {
+        let store = UserDataStore(defaults: defaults)
+        store.setReviewDisposition(.needsEdits, for: procedureFixture)
+
+        let updated = procedureFixture(version: "2.0")
+        XCTAssertEqual(
+            store.supersededReviewCount(procedures: [updated], rescueCards: [], kits: []),
+            0,
+            "Needs Edits is already queued work; it must not double-count as a stale sign-off."
+        )
+    }
+
     private var record: LocalReviewRecord {
         LocalReviewRecord(disposition: .reviewed, date: "2026-07-18")
     }
 
-    private var procedureFixture: Procedure {
+    private var procedureFixture: Procedure { procedureFixture(version: "1.0") }
+
+    private func procedureFixture(version: String) -> Procedure {
         let json = """
         {
           "id": "central-line",
@@ -184,7 +238,7 @@ final class PersistenceSafetyTests: XCTestCase {
           "reviewTime": "3 min",
           "setting": ["ED"],
           "lastReviewed": "2026-07-18",
-          "version": "1.0",
+          "version": "\(version)",
           "tags": [],
           "visualAssets": null,
           "reviewerStatus": null,

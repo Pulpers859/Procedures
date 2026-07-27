@@ -222,6 +222,7 @@ struct LocalReviewPanel: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
+                versionStateNotice(for: localReviewRecord)
                 reviewActions
                 Button("Clear Review State") {
                     clearReview()
@@ -277,6 +278,34 @@ struct LocalReviewPanel: View {
             }
         }
         .font(.footnote.weight(.semibold))
+    }
+
+    /// A sign-off only ever applies to the content version it was recorded
+    /// against. When bundled content moves on, say so plainly instead of
+    /// letting a green "Reviewed" imply the current words were approved.
+    @ViewBuilder
+    private func versionStateNotice(for record: LocalReviewRecord) -> some View {
+        let state = record.versionState(currentVersion: sourceVersion)
+        switch state {
+        case .current:
+            EmptyView()
+        case .superseded(let recordedVersion):
+            reviewStaleLabel(
+                "Content changed since this review (signed off on v\(recordedVersion), now v\(sourceVersion)). Re-review before relying on it."
+            )
+        case .unknownBaseline:
+            reviewStaleLabel(
+                "This mark was saved before versions were tracked, so it cannot be tied to the current content. Re-review to confirm."
+            )
+        }
+    }
+
+    private func reviewStaleLabel(_ message: String) -> some View {
+        Label(message, systemImage: "exclamationmark.triangle.fill")
+            .font(.caption.weight(.semibold))
+            .foregroundStyle(.orange)
+            .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     private func tint(for disposition: LocalReviewDisposition) -> Color {

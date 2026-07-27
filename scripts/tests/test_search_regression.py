@@ -172,6 +172,22 @@ PROCEDURE_QUERIES = [
     ("interscalene", "block_interscalene", 3),
     ("peng", "block_peng", 3),
     ("sedation", "procedural_sedation", 3),
+    # Named regional blocks must beat the generic "block" vocabulary. Before
+    # the "block" synonym was narrowed these ranked 9th and 10th.
+    ("tap block", "block_tap", 3),
+    ("esp block", "block_thoracic_esp", 3),
+    ("transversus abdominis", "block_tap", 3),
+    # "tap" is overloaded: drainage taps and the TAP block share the word, and
+    # both must still resolve.
+    ("ascites tap", "paracentesis", 3),
+    ("spinal tap", "lumbar_puncture", 3),
+    ("knee tap", "knee_arthrocentesis", 3),
+    # Bare clinical abbreviations clinicians actually type.
+    ("io", "intraosseous_access", 3),
+    ("cico", "cricothyrotomy", 3),
+    ("surgical airway", "cricothyrotomy", 3),
+    # "pacing" previously typo-corrected into "packing" and surfaced epistaxis.
+    ("pacing", "transvenous_pacemaker", 3),
 ]
 
 RESCUE_QUERIES = [
