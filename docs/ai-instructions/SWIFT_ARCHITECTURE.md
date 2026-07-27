@@ -26,7 +26,7 @@ Important bundled content files:
 
 ## Data flow
 
-- `ProcedureRepository` loads read-only procedures and rescue cards from bundled JSON.
+- `ProcedureRepository` loads procedures and rescue cards from bundled JSON, then overlays local edits from `ProcedureEditStore` before publishing them.
 - `UserDataStore` manages favorites, recents, notes, checklist progress, and local review records.
 - Views receive both through environment objects.
 - `ContentValidator` validates procedures, rescue cards, and visual metadata.
@@ -35,7 +35,11 @@ Important bundled content files:
 
 - Do not hardcode procedure text inside SwiftUI views.
 - Do not hardcode rescue cards in Swift.
-- Do not mutate bundled procedure content.
+- Do not mutate bundled procedure content. The bundle is read-only; clinician
+  corrections live in `ProcedureEditStore` as section overrides in Documents and
+  are merged onto a value copy at load. Every section can be reverted to what
+  shipped, and `scripts/apply_local_edits.py` moves an export back into
+  `procedures.json` as a reviewable diff.
 - Do not treat local review records as bundled clinical approval; they are personal device state.
 - Keep Review Center/editor workflow separate from the default bedside clinical flow.
 - Keep rescue cards editable through `rescue_cards.json`.

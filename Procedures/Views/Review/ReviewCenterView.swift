@@ -11,6 +11,8 @@ enum ReviewCenterTab: String, CaseIterable, Identifiable {
 struct ReviewCenterView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
+    @EnvironmentObject private var editStore: ProcedureEditStore
+    @State private var exportURL: URL?
     @State private var selectedTab: ReviewCenterTab = .queue
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
@@ -43,9 +45,13 @@ struct ReviewCenterView: View {
             case .track:
                 trackContent
             }
+
+            myEditsSection
         }
         .listStyle(.insetGrouped)
         .navigationTitle("Review Center")
+        .onAppear { refreshExport() }
+        .onChange(of: editStore.editsByProcedureID) { _, _ in refreshExport() }
     }
 
     /// Without review tools the "My Review" panel is hidden on every content
@@ -71,6 +77,35 @@ struct ReviewCenterView: View {
             }
             .padding(.vertical, 4)
         }
+    }
+
+    /// Corrections made in the app are only useful if they can get back to the
+    /// repo. Without this the edits would live and die on one device.
+    @ViewBuilder
+    private var myEditsSection: some View {
+        if editStore.editedProcedureCount > 0 {
+            Section {
+                MetadataRow(
+                    icon: "square.and.pencil",
+                    title: "Procedures edited locally",
+                    value: "\(editStore.editedProcedureCount)"
+                )
+                if let exportURL {
+                    ShareLink(item: exportURL) {
+                        Label("Export My Edits", systemImage: "square.and.arrow.up")
+                            .frame(minHeight: AppLayout.controlMinHeight)
+                    }
+                }
+            } header: {
+                Text("My Edits")
+            } footer: {
+                Text("Exports a JSON file of every local correction. Apply it to the repo with scripts/apply_local_edits.py to turn your edits into a reviewable diff.")
+            }
+        }
+    }
+
+    private func refreshExport() {
+        exportURL = editStore.editedProcedureCount > 0 ? editStore.writeExportFile() : nil
     }
 
     private var heroSection: some View {

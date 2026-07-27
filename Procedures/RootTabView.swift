@@ -17,6 +17,7 @@ private enum RootTab: String, Hashable {
 struct RootTabView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
+    @EnvironmentObject private var editStore: ProcedureEditStore
     @ObservedObject private var deepLinkRouter = DeepLinkRouter.shared
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
@@ -87,6 +88,9 @@ struct RootTabView: View {
             routeDeepLink(destination)
         }
         .onAppear {
+            // Overlay local edits before anything reads content, so Spotlight
+            // and the search index publish the corrected text.
+            repository.attachEditStore(editStore)
             routeDeepLink(deepLinkRouter.destination)
             SpotlightIndexer.reindex(
                 procedures: repository.procedures,
@@ -113,6 +117,11 @@ struct RootTabView: View {
                 validRescueCardIDs: rescueCardIDs,
                 validKitIDs: kitIDs
             )
+            // Only prune edits when the bundled load was complete; a transient
+            // failure must never delete a clinician's corrections.
+            if let procedureIDs {
+                editStore.pruneMissingProcedures(validProcedureIDs: procedureIDs)
+            }
         }
     }
 

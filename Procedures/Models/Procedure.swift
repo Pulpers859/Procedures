@@ -27,7 +27,10 @@ struct Procedure: Identifiable, Codable, Hashable {
     /// treated as an AI draft, never as trusted human work.
     let contentSource: ContentSource?
 
-    let sections: ProcedureSections
+    /// `var` so locally authored edits can be overlaid onto a copy. The
+    /// bundled JSON is still never mutated — ProcedureEditStore merges into a
+    /// value copy at load time.
+    var sections: ProcedureSections
 
     /// Never-nil review state for UI and validation: an undeclared status is
     /// reported as needing clinical review rather than silently trusted.
@@ -104,22 +107,24 @@ struct ProcedureVisualAsset: Identifiable, Codable, Hashable {
     let clinicalWarning: String?
 }
 
+/// Properties are `var` so a locally edited section can replace one field on a
+/// value copy. Decoding is unaffected.
 struct ProcedureSections: Codable, Hashable {
-    let shiftMode: [String]
-    let indications: [String]
-    let contraindications: [String]
-    let anatomy: [String]
-    let equipment: [String]
-    let positioning: [String]
-    let steps: [String]
-    let ultrasound: [String]
-    let confirmation: [String]
-    let troubleshooting: [String]
-    let complications: [String]
-    let aftercare: [String]
-    let documentation: [String]
-    let seniorPearls: [String]
-    let references: [String]
+    var shiftMode: [String]
+    var indications: [String]
+    var contraindications: [String]
+    var anatomy: [String]
+    var equipment: [String]
+    var positioning: [String]
+    var steps: [String]
+    var ultrasound: [String]
+    var confirmation: [String]
+    var troubleshooting: [String]
+    var complications: [String]
+    var aftercare: [String]
+    var documentation: [String]
+    var seniorPearls: [String]
+    var references: [String]
 }
 
 enum ProcedureCategory: String, Codable, CaseIterable, Identifiable {

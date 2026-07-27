@@ -19,12 +19,14 @@ enum AppConstants {
 struct ProceduresApp: App {
     @StateObject private var repository = ProcedureRepository()
     @StateObject private var userData = UserDataStore()
+    @StateObject private var editStore = ProcedureEditStore()
 
     var body: some Scene {
         WindowGroup {
             RootTabView()
                 .environmentObject(repository)
                 .environmentObject(userData)
+                .environmentObject(editStore)
         }
     }
 }

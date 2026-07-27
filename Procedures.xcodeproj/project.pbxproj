@@ -45,6 +45,8 @@
 		BA427DAF09B3410CAD39E4DD /* Components/ChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD19908C0EF438BABD37112 /* Components/ChecklistRow.swift */; };
 		C637CD5B4F7C4AE4ADE9E581 /* Views/Equipment/EquipmentHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E9D92490F346AC94F36B69 /* Views/Equipment/EquipmentHomeView.swift */; };
 		CB2CA167E0F74C4A8EDE9CA4 /* Data/UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB17579B3E40EDB201B37B /* Data/UserDataStore.swift */; };
+		806FDFB23931401697D9789A /* Views/Review/ProcedureEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80AC35D0544FFDB64B52AF /* Views/Review/ProcedureEditorView.swift */; };
+		22D4F55CAA5846FB8B4A33C6 /* Data/ProcedureEditStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A35F9CACEC4A6E8BD79884 /* Data/ProcedureEditStore.swift */; };
 		CC94070492474B6EBF6DD38E /* Views/Procedures/ProcedureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA73F6A3DD4C6599CF0094 /* Views/Procedures/ProcedureListView.swift */; };
 		D6B981D555E14D429E0F5A4E /* Resources/procedures.json in Resources */ = {isa = PBXBuildFile; fileRef = 915119767C5F42828C5B518A /* Resources/procedures.json */; };
 		E075E2EF1601425490291385 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9118E397A43DFBAA25820 /* RootTabView.swift */; };
@@ -84,6 +86,8 @@
 		60B819C919EE4D2797D8FBA7 /* Components/EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/EmptyStateView.swift; sourceTree = "<group>"; };
 		6CBD851062FD4CF6B0503C4B /* Components/ProcedureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/ProcedureCard.swift; sourceTree = "<group>"; };
 		6DDB17579B3E40EDB201B37B /* Data/UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/UserDataStore.swift; sourceTree = "<group>"; };
+		CA80AC35D0544FFDB64B52AF /* Views/Review/ProcedureEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Review/ProcedureEditorView.swift; sourceTree = "<group>"; };
+		D8A35F9CACEC4A6E8BD79884 /* Data/ProcedureEditStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/ProcedureEditStore.swift; sourceTree = "<group>"; };
 		7E5700000000000000000008 /* ProceduresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProceduresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E570000000000000000000A /* ContentDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDecodingTests.swift; sourceTree = "<group>"; };
 		7E570000000000000000000B /* RescueSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescueSearchTests.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				EFCEB8DF5BB34D20A3222B6E /* Models/Procedure.swift */,
 				32D9DA74992140609FB5FBCB /* Data/ProcedureRepository.swift */,
 				6DDB17579B3E40EDB201B37B /* Data/UserDataStore.swift */,
+				CA80AC35D0544FFDB64B52AF /* Views/Review/ProcedureEditorView.swift */,
+				D8A35F9CACEC4A6E8BD79884 /* Data/ProcedureEditStore.swift */,
 				6CBD851062FD4CF6B0503C4B /* Components/ProcedureCard.swift */,
 				292B31E7F747418789D2A966 /* Components/SectionCard.swift */,
 				4301701BC4A744288E325DE7 /* Components/CriticalWarningCard.swift */,
@@ -318,6 +324,8 @@
 				7E5A0000000000000000002A /* Data/SpotlightIndexer.swift in Sources */,
 				7E5A0000000000000000003A /* Intents/RescueAppIntents.swift in Sources */,
 				CB2CA167E0F74C4A8EDE9CA4 /* Data/UserDataStore.swift in Sources */,
+				806FDFB23931401697D9789A /* Views/Review/ProcedureEditorView.swift in Sources */,
+				22D4F55CAA5846FB8B4A33C6 /* Data/ProcedureEditStore.swift in Sources */,
 				5A6D4E9C7089450EB8F5B4ED /* Components/ProcedureCard.swift in Sources */,
 				F312BCB2A1354D51B8B76D53 /* Components/SectionCard.swift in Sources */,
 				8FE086BA856F4B1293051E57 /* Components/CriticalWarningCard.swift in Sources */,

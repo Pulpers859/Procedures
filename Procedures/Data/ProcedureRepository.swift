@@ -162,8 +162,40 @@ final class ProcedureRepository: ObservableObject {
     @Published private(set) var contentIssues: [ContentValidationIssue] = []
     var contentWarnings: [String] { contentIssues.map(\.displayMessage) }
 
+    /// Locally authored corrections, overlaid onto bundled content at load.
+    /// Held weakly by reference so the repository can re-merge when edits
+    /// change without owning the store's lifetime.
+    private weak var editStore: ProcedureEditStore?
+
     init() {
         loadContent()
+    }
+
+    /// Connects the local edit layer and immediately re-merges. Called once at
+    /// app start; edits made later call `reapplyEdits()`.
+    func attachEditStore(_ store: ProcedureEditStore) {
+        editStore = store
+        reapplyEdits()
+    }
+
+    /// Re-reads bundled content and re-overlays local edits. Used after an edit
+    /// so every surface — search index, detail views, validator — sees the same
+    /// merged text.
+    func reapplyEdits() {
+        loadProcedures()
+        revalidate()
+    }
+
+    private func revalidate() {
+        contentIssues = ContentValidator.validate(procedures, rescueCards: rescueCards, kits: kits)
+        if ClinicalSynonyms.loadFailed {
+            contentIssues.append(.init(
+                severity: .warning,
+                procedureID: nil,
+                procedureTitle: nil,
+                message: "synonyms.json failed to load from the bundle; shorthand search is degraded to exact matching."
+            ))
+        }
     }
 
     func loadContent() {
@@ -192,7 +224,11 @@ final class ProcedureRepository: ObservableObject {
             let data = try Data(contentsOf: url)
             let wrapped = try JSONDecoder().decode([FailableDecodable<Procedure>].self, from: data)
             let decoded = wrapped.compactMap(\.value)
-            procedures = decoded.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
+            // Local corrections are overlaid before anything else sees the
+            // content, so the search index, the validator, and every view all
+            // read the same merged text.
+            let merged = editStore?.applyEdits(to: decoded) ?? decoded
+            procedures = merged.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
             let dropped = wrapped.count - decoded.count
             if decoded.isEmpty {
                 loadError = "procedures.json was read but no procedures could be decoded. Confirm the structure matches the current schema."

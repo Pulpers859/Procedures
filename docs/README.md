@@ -19,6 +19,7 @@
 - `../Procedures/Resources/procedures.json` - bundled procedure content
 - `../Procedures/Resources/rescue_cards.json` - bundled rescue-card content
 - `ai-instructions/SWIFT_ARCHITECTURE.md` - current runtime structure and data flow
+- `../scripts/apply_local_edits.py` - merges edits exported from the app back into `procedures.json` as a reviewable diff
 - `ai-instructions/TESTING_CHECKLIST.md` - manual verification checklist
 - `AUTOMATED_TESTING_HANDOFF.md` - CI surfaces, evidence boundaries, and required commands
 - `RELEASE_CONSTITUTION.md` - release authority and non-bypassable stop-ship gates

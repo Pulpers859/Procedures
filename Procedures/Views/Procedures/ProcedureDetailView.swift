@@ -3,6 +3,8 @@ import SwiftUI
 struct ProcedureDetailView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
+    @EnvironmentObject private var editStore: ProcedureEditStore
+    @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let procedure: Procedure
@@ -63,6 +65,14 @@ struct ProcedureDetailView: View {
         .navigationTitle(procedure.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            if reviewModeEnabled {
+                NavigationLink {
+                    ProcedureEditorView(procedure: procedure)
+                } label: {
+                    Image(systemName: "square.and.pencil")
+                }
+                .accessibilityLabel("Edit this procedure's content")
+            }
             Button {
                 userData.toggleFavorite(procedure)
             } label: {
