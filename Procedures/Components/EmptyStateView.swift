@@ -21,7 +21,10 @@ struct EmptyStateView: View {
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        // Only the width is expanded. This view is used both as a full-screen
+        // replacement and as a List row; maxHeight: .infinity would stretch
+        // the row case.
+        .frame(maxWidth: .infinity)
         .accessibilityElement(children: .combine)
     }
 }
