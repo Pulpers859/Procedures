@@ -10,7 +10,12 @@ on:
 
 concurrency:
   group: ios-tests-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # Superseding a pull-request run is free; superseding a push to main is not.
+  # Every commit on main is a release candidate whose .xcresult is retained as
+  # evidence, and cancelling unconditionally meant a rapid series of pushes
+  # left only the last commit verified. A build break sat undetected on main
+  # because the run that would have caught it was cancelled by the next push.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read

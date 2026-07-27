@@ -48,12 +48,23 @@ struct Procedure: Identifiable, Codable, Hashable {
     var materialFingerprint: String {
         var parts = sections.steps + sections.complications + sections.contraindications
         if let dosing {
-            parts.append(contentsOf: dosing.agents.map {
-                "\($0.agent)|\($0.maxDoseMgPerKg)|\($0.absoluteMaxMg.map(String.init) ?? "-")"
-            })
+            for agent in dosing.agents {
+                let ceiling = agent.absoluteMaxMg.map(Self.doseString) ?? "-"
+                parts.append("\(agent.agent)|\(Self.doseString(agent.maxDoseMgPerKg))|\(ceiling)")
+            }
             parts.append(dosing.cumulativeWarning)
         }
         return ContentFingerprint.make(parts)
+    }
+
+    /// Fixed-precision, locale-independent dose formatting.
+    ///
+    /// Interpolating a `Double` directly would let a formatting difference read
+    /// as a dose change and flag a review that nothing clinically relevant
+    /// touched. `String.init` is also too overloaded to resolve against an
+    /// optional `Double` here, which is what broke the build.
+    private static func doseString(_ value: Double) -> String {
+        String(format: "%.4f", value)
     }
 }
 

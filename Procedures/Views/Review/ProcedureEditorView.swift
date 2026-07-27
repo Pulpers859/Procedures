@@ -188,7 +188,10 @@ struct SectionEditorView: View {
             Button("Revert", role: .destructive) {
                 editStore.resetSection(section, in: procedure)
                 repository.reapplyEdits()
-                lines = section.lines(in: procedure.sections)
+                // Read the baseline from the store, not from `procedure`: the
+                // repository publishes merged content, so this copy still
+                // carries the edit that was just discarded.
+                lines = editStore.bundledLines(section, in: procedure)
             }
         }
     }

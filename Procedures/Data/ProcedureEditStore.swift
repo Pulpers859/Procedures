@@ -102,6 +102,16 @@ final class ProcedureEditStore: ObservableObject {
 
     private let fileURL: URL?
 
+    /// Bundled section text, captured before any override is applied.
+    ///
+    /// The repository publishes *merged* procedures, so a `Procedure` handed to
+    /// this store by a view already contains the clinician's edits. Comparing
+    /// against that copy made "revert to bundled" restore the edit it was
+    /// supposed to discard. The baseline is recorded here at load time instead,
+    /// and it is deliberately not `@Published`: it is written during
+    /// `applyEdits(to:)`, which runs inside a content load.
+    private var bundledSections: [String: ProcedureSections] = [:]
+
     init(directory: URL? = nil) {
         let base = directory ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         fileURL = base?.appendingPathComponent("procedure_edits.json")
@@ -131,7 +141,16 @@ final class ProcedureEditStore: ObservableObject {
     /// otherwise the bundled content.
     func lines(_ section: EditableSection, in procedure: Procedure) -> [String] {
         editsByProcedureID[procedure.id]?.sections[section.rawValue]
-            ?? section.lines(in: procedure.sections)
+            ?? bundledLines(section, in: procedure)
+    }
+
+    /// The text that shipped, ignoring any override.
+    ///
+    /// Falls back to the passed procedure only when no baseline was recorded —
+    /// a procedure the repository never loaded, which by definition has no
+    /// override to strip.
+    func bundledLines(_ section: EditableSection, in procedure: Procedure) -> [String] {
+        section.lines(in: bundledSections[procedure.id] ?? procedure.sections)
     }
 
     // MARK: - Writing
@@ -144,7 +163,7 @@ final class ProcedureEditStore: ObservableObject {
             .filter { !$0.isEmpty }
 
         var edits = editsByProcedureID[procedure.id] ?? ProcedureSectionEdits()
-        if cleaned == section.lines(in: procedure.sections) {
+        if cleaned == bundledLines(section, in: procedure) {
             // Identical to what shipped: store nothing rather than a no-op
             // override that would mark the procedure as edited forever.
             edits.sections.removeValue(forKey: section.rawValue)
@@ -186,6 +205,11 @@ final class ProcedureEditStore: ObservableObject {
     /// unknown section keys are ignored, so stale overrides left by removed
     /// content can never corrupt what is displayed.
     func applyEdits(to procedures: [Procedure]) -> [Procedure] {
+        // Capture what shipped before overlaying anything. This is the only
+        // point in the app that sees unmerged content.
+        for procedure in procedures {
+            bundledSections[procedure.id] = procedure.sections
+        }
         guard !editsByProcedureID.isEmpty else { return procedures }
         return procedures.map { procedure in
             guard let edits = editsByProcedureID[procedure.id], !edits.isEmpty else { return procedure }

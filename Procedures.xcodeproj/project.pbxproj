@@ -17,6 +17,7 @@
 		A90000000000000000000007 /* VisualGuideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000017 /* VisualGuideContent.swift */; };
 		A90000000000000000000008 /* ProcedureVisualCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000018 /* ProcedureVisualCard.swift */; };
 		A90000000000000000000009 /* PersistenceSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000019 /* PersistenceSafetyTests.swift */; };
+		A90000000000000000000020 /* ContentEditingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000021 /* ContentEditingTests.swift */; };
 		338F8C8BBF1343EB69A78AD0 /* Models/ContentValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8DC468D85E10471B68033F /* Models/ContentValidation.swift */; };
 		34895A7D84534D8CA7CF6D2C /* Data/ProcedureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9DA74992140609FB5FBCB /* Data/ProcedureRepository.swift */; };
 		489861521A8E4EE8B8A92E0F /* Views/Procedures/ProcedureDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44016AEFAE5E48D48C84BAE1 /* Views/Procedures/ProcedureDetailView.swift */; };
@@ -75,6 +76,7 @@
 		A90000000000000000000017 /* VisualGuideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/VisualGuideContent.swift; sourceTree = "<group>"; };
 		A90000000000000000000018 /* ProcedureVisualCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/ProcedureVisualCard.swift; sourceTree = "<group>"; };
 		A90000000000000000000019 /* PersistenceSafetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceSafetyTests.swift; sourceTree = "<group>"; };
+		A90000000000000000000021 /* ContentEditingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEditingTests.swift; sourceTree = "<group>"; };
 		05B9118E397A43DFBAA25820 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		13EEE6E0342FFE24C67FCF75 /* Views/Review/ReviewCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Review/ReviewCenterView.swift; sourceTree = "<group>"; };
 		14AA73F6A3DD4C6599CF0094 /* Views/Procedures/ProcedureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/ProcedureListView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				7E570000000000000000000B /* RescueSearchTests.swift */,
 				7E570000000000000000000C /* ValidationTests.swift */,
 				A90000000000000000000019 /* PersistenceSafetyTests.swift */,
+				A90000000000000000000021 /* ContentEditingTests.swift */,
 				7E5900000000000000000010 /* SearchRegressionTests.swift */,
 			);
 			path = ProceduresTests;
@@ -300,6 +303,7 @@
 				7E570000000000000000000E /* RescueSearchTests.swift in Sources */,
 				7E570000000000000000000F /* ValidationTests.swift in Sources */,
 				A90000000000000000000009 /* PersistenceSafetyTests.swift in Sources */,
+				A90000000000000000000020 /* ContentEditingTests.swift in Sources */,
 				7E5900000000000000000011 /* SearchRegressionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
