@@ -22,6 +22,12 @@ final class ContentDecodingTests: XCTestCase {
         let repo = ProcedureRepository()
         XCTAssertNil(repo.loadWarning, "every shipped procedure must decode cleanly: \(repo.loadWarning ?? "")")
         XCTAssertNil(repo.rescueLoadWarning, "every shipped rescue card must decode cleanly: \(repo.rescueLoadWarning ?? "")")
+        // Kits had no assertion here, so a kit dropped by FailableDecodable
+        // passed the Python validator, passed the project check, and passed
+        // XCTest — it just quietly vanished from the app.
+        XCTAssertNil(repo.kitLoadWarning, "every shipped kit must decode cleanly: \(repo.kitLoadWarning ?? "")")
+        XCTAssertNil(repo.kitLoadError, "kits.json should decode without a fatal load error: \(repo.kitLoadError ?? "")")
+        XCTAssertFalse(repo.kits.isEmpty, "expected at least one kit to decode")
     }
 
     func testShippedContentHasNoValidationBlockers() {

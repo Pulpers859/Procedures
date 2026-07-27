@@ -69,6 +69,7 @@ struct SavedView: View {
                 }
             }
             .navigationTitle("Saved")
+            .settingsToolbar()
             .navigationDestination(for: Procedure.self) { procedure in
                 ProcedureDetailView(procedure: procedure)
             }

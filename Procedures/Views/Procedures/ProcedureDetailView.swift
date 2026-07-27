@@ -9,6 +9,10 @@ struct ProcedureDetailView: View {
     @State private var selectedSection: ProcedureDetailSection
     @State private var noteText = ""
 
+    /// Scroll anchor for the section selector, so switching sections returns
+    /// the reader to the top of the new content.
+    private static let selectorAnchor = "procedure.sectionSelector"
+
     init(procedure: Procedure, initialSection: ProcedureDetailSection? = nil) {
         self.procedure = procedure
         _selectedSection = State(initialValue: initialSection ?? .shiftMode)
@@ -23,26 +27,37 @@ struct ProcedureDetailView: View {
     }
 
     var body: some View {
-        ScrollView {
-            LazyVStack(
-                alignment: .leading,
-                spacing: AppLayout.sectionSpacing,
-                pinnedViews: [.sectionHeaders]
-            ) {
-                header
+        ScrollViewReader { proxy in
+            ScrollView {
+                LazyVStack(
+                    alignment: .leading,
+                    spacing: AppLayout.sectionSpacing,
+                    pinnedViews: [.sectionHeaders]
+                ) {
+                    header
 
-                Section {
-                    if !relatedRescueCards.isEmpty {
-                        rescueShortcuts
+                    Section {
+                        if !relatedRescueCards.isEmpty {
+                            rescueShortcuts
+                        }
+                        selectedContent
+                    } header: {
+                        sectionSelector
+                            .id(Self.selectorAnchor)
                     }
-                    selectedContent
-                } header: {
-                    sectionSelector
                 }
+                .detailContentColumn()
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
             }
-            .detailContentColumn()
-            .padding(.horizontal, 16)
-            .padding(.vertical, 12)
+            .onChange(of: selectedSection) { _, newSection in
+                // Switching sections replaces the content but kept the old
+                // scroll offset, so a clinician scrolled deep into Steps who
+                // tapped Rescue landed mid-card in unrelated content. VoiceOver
+                // additionally got no signal that anything had changed.
+                proxy.scrollTo(Self.selectorAnchor, anchor: .top)
+                AccessibilityNotification.Announcement(shortTitle(for: newSection)).post()
+            }
         }
         .background(Color(.systemGroupedBackground))
         .navigationTitle(procedure.title)

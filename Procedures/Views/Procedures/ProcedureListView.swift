@@ -48,6 +48,7 @@ struct ProcedureListView: View {
                 }
             }
             .navigationTitle("Procedures")
+            .settingsToolbar()
             .searchable(text: $searchText, prompt: "Search ETT, CVC, IJ, finger block…")
             .navigationDestination(for: Procedure.self) { procedure in
                 ProcedureDetailView(procedure: procedure)

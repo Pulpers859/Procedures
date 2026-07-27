@@ -78,6 +78,7 @@ struct ComplicationsHomeView: View {
                 }
             }
             .navigationTitle("Rescue")
+            .settingsToolbar()
             .searchable(text: $searchText, prompt: "Search hypotension, apnea, capture…")
             .navigationDestination(for: ComplicationRescueCard.self) { card in
                 RescueCardDetailView(card: card)

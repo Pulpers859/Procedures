@@ -34,6 +34,34 @@ enum SettingsStorageKey {
     static let reviewModeEnabled = "Procedures.reviewModeEnabled"
 }
 
+/// Settings lived only in the Guide toolbar, so a clinician on any other tab
+/// had to switch tabs to reach appearance, Clinical Mode, or Review Center.
+/// It presents as a sheet, so it costs no navigation-stack complexity.
+struct SettingsToolbarModifier: ViewModifier {
+    @State private var showingSettings = false
+
+    func body(content: Content) -> some View {
+        content
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showingSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                    }
+                    .accessibilityLabel("Settings")
+                }
+            }
+            .sheet(isPresented: $showingSettings) {
+                SettingsView()
+            }
+    }
+}
+
+extension View {
+    func settingsToolbar() -> some View { modifier(SettingsToolbarModifier()) }
+}
+
 struct SettingsView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore

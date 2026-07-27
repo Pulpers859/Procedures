@@ -67,6 +67,12 @@ VALID_CATEGORIES = {
     "Ultrasound-Guided", "Sedation & Analgesia", "Other",
 }
 VALID_DIFFICULTIES = {"Basic", "Intermediate", "Advanced", "Rare-Crash"}
+# Enum cases the Swift models decode. A value outside these sets does not throw
+# in Swift — FailableDecodable turns the whole record into nil and it silently
+# disappears from the app — so the validator must reject them here instead.
+VALID_SETTINGS = {"ED", "ICU", "Trauma", "Peds"}
+VALID_ACUITIES = {"Crash", "Urgent", "Watch"}
+VALID_VISUAL_KINDS = {"Landmark", "Probe Position", "Danger Zone", "Confirmation", "Setup"}
 MINIMUM_TAGS = 5
 RELEASE_REFERENCE_MARKERS = (
     "replace with formal reviewer-approved references before release",
@@ -214,9 +220,24 @@ def validate_procedures(data):
             elif key in MINIMUMS and len(sections[key]) < MINIMUMS[key]:
                 level = "BLOCKER" if key in {"shiftMode", "equipment", "steps", "complications", "references"} and len(sections[key]) == 0 else "WARNING"
                 issues.append((level, title, f"thin section: {key} has {len(sections[key])}, target {MINIMUMS[key]}"))
-        for field in ["lastReviewed", "version", "category", "difficulty"]:
+        # Every field the Swift model declares non-optional must be checked
+        # here. Swift decodes each record through FailableDecodable, so a
+        # missing or misspelled value does not throw — the record is silently
+        # dropped from the app. Without these checks that loss ships green.
+        for field in ["id", "title", "reviewTime", "lastReviewed", "version", "category", "difficulty"]:
             if not item.get(field):
                 issues.append(("BLOCKER", title, f"missing metadata: {field}"))
+
+        setting = item.get("setting")
+        if not isinstance(setting, list) or not setting:
+            issues.append(("BLOCKER", title, "missing or empty 'setting'; Swift drops the record"))
+        else:
+            bad_settings = [s for s in setting if s not in VALID_SETTINGS]
+            if bad_settings:
+                issues.append((
+                    "BLOCKER", title,
+                    f"invalid setting(s) {bad_settings}; expected from: {', '.join(sorted(VALID_SETTINGS))}",
+                ))
 
         category = item.get("category")
         if category and category not in VALID_CATEGORIES:
@@ -247,6 +268,13 @@ def validate_procedures(data):
             for field in ["id", "kind", "title", "subtitle", "caption"]:
                 if not visual.get(field):
                     issues.append(("WARNING", title, f"visual asset missing {field}"))
+            kind = visual.get("kind")
+            if kind and kind not in VALID_VISUAL_KINDS:
+                issues.append((
+                    "BLOCKER", title,
+                    f"invalid visual asset kind '{kind}'; Swift drops the whole procedure. "
+                    f"Expected one of: {', '.join(sorted(VALID_VISUAL_KINDS))}",
+                ))
             asset_name = visual.get("assetName")
             if asset_name:
                 if not visual_asset_exists(asset_name):
@@ -273,6 +301,15 @@ def validate_rescue_cards(cards, procedure_ids):
                 issues.append(("BLOCKER" if field in {"trigger", "immediateMoves", "references"} else "WARNING", title, f"missing or empty list: {field}"))
         if len(item.get("immediateMoves", [])) < 3:
             issues.append(("BLOCKER", title, "rescue card needs at least 3 immediate moves"))
+        acuity = item.get("acuity")
+        if acuity and acuity not in VALID_ACUITIES:
+            issues.append((
+                "BLOCKER", title,
+                f"invalid acuity '{acuity}'; Swift drops the card and the Crash dose rule "
+                f"silently stops applying. Expected one of: {', '.join(sorted(VALID_ACUITIES))}",
+            ))
+        if not isinstance(item.get("relatedProcedureIDs"), list):
+            issues.append(("BLOCKER", title, "missing 'relatedProcedureIDs'; Swift drops the card"))
         missing = [pid for pid in item.get("relatedProcedureIDs", []) if pid not in procedure_ids]
         if missing:
             issues.append(("WARNING", title, f"related procedure IDs not found: {', '.join(missing)}"))
@@ -417,6 +454,19 @@ def validate_kits(kits, procedure_ids):
         for field in KIT_REQUIRED_FIELDS:
             if not item.get(field):
                 issues.append(("BLOCKER", title, f"missing metadata: {field}"))
+
+        kit_category = item.get("category")
+        if kit_category and kit_category not in VALID_CATEGORIES:
+            issues.append((
+                "BLOCKER", title,
+                f"invalid kit category '{kit_category}'; Swift drops the kit. "
+                f"Expected one of: {', '.join(sorted(VALID_CATEGORIES))}",
+            ))
+
+        # Non-optional in the Swift Kit model: absent means the kit is dropped.
+        for field in ["outsideKit", "commonlyForgotten", "sterileSetup", "backupEquipment", "relatedProcedureIDs"]:
+            if not isinstance(item.get(field), list):
+                issues.append(("BLOCKER", title, f"missing list '{field}'; Swift drops the kit"))
 
         for field in KIT_REQUIRED_LISTS:
             val = item.get(field)

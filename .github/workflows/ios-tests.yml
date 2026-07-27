@@ -121,7 +121,9 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: procedures-xcode-evidence-${{ github.run_id }}
-          if-no-files-found: warn
+          # The release constitution requires the .xcresult bundle as
+          # retained evidence; 'warn' let missing evidence pass as green.
+          if-no-files-found: error
           # Release evidence must outlive the default window; 90 days is the
           # maximum GitHub allows for this repository.
           retention-days: 90

@@ -20,20 +20,23 @@ struct ComplicationContent: View {
                             NavigationLink {
                                 RescueCardDetailView(card: card)
                             } label: {
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 2) {
-                                        Text(card.title)
-                                            .font(.subheadline.weight(.semibold))
-                                        Text(card.trigger.first ?? "")
-                                            .font(.caption)
+                                // At accessibility sizes the growing badge used
+                                // to squeeze the rescue title down to a few
+                                // characters. Reflow instead, matching
+                                // RescueCardRow.
+                                ViewThatFits(in: .horizontal) {
+                                    HStack {
+                                        rescueLinkTitle(card)
+                                        Spacer()
+                                        AcuityBadge(acuity: card.acuity)
+                                        Image(systemName: "chevron.right")
+                                            .font(.caption.weight(.semibold))
                                             .foregroundStyle(.secondary)
-                                            .lineLimit(1)
                                     }
-                                    Spacer()
-                                    AcuityBadge(acuity: card.acuity)
-                                    Image(systemName: "chevron.right")
-                                        .font(.caption.weight(.semibold))
-                                        .foregroundStyle(.secondary)
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        rescueLinkTitle(card)
+                                        AcuityBadge(acuity: card.acuity)
+                                    }
                                 }
                             }
                             .buttonStyle(.plain)
@@ -55,6 +58,18 @@ struct ComplicationContent: View {
                     BulletListView(items: procedure.sections.aftercare)
                 }
             }
+        }
+    }
+
+    private func rescueLinkTitle(_ card: ComplicationRescueCard) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(card.title)
+                .font(.subheadline.weight(.semibold))
+                .fixedSize(horizontal: false, vertical: true)
+            Text(card.trigger.first ?? "")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .lineLimit(2)
         }
     }
 }

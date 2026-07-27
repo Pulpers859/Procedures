@@ -99,6 +99,14 @@ def resource_membership_issues(project_text: str, resource_files: list[Path]) ->
         if name not in disk:
             issues.append(f"dangling Resources membership: {name}")
 
+    # The asset catalog was skipped in the dangling check above but never
+    # asserted to be present. Dropping it from the phase removed the only real
+    # bundled artwork — the cricothyrotomy danger-zone and canthotomy
+    # inferior-crus images — while the content validator reported mere
+    # warnings and every other gate stayed green.
+    if (APP_ROOT / "Assets.xcassets").is_dir() and "Assets.xcassets in Resources */" not in phase:
+        issues.append("missing Copy Bundle Resources membership: Procedures/Assets.xcassets")
+
     return sorted(set(issues))
 
 

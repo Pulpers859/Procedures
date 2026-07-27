@@ -49,12 +49,25 @@ enum ContentValidator {
         if !rescueCards.isEmpty {
             let rescueIDs = Set(rescueCards.map(\.id))
             for procedure in procedures {
-                if let rescueCardID = procedure.dosing?.rescueCardID, !rescueIDs.contains(rescueCardID) {
+                guard let dosing = procedure.dosing else { continue }
+                if let rescueCardID = dosing.rescueCardID {
+                    if !rescueIDs.contains(rescueCardID) {
+                        issues.append(.init(
+                            severity: .blocker,
+                            procedureID: procedure.id,
+                            procedureTitle: procedure.title,
+                            message: "dosing rescue card ID '\(rescueCardID)' not found in rescue_cards.json."
+                        ))
+                    }
+                } else {
+                    // Only dangling IDs were checked before, so a dosing block
+                    // with no escalation target at all passed silently — the
+                    // LAST card is the whole point of the max-dose section.
                     issues.append(.init(
-                        severity: .blocker,
+                        severity: .warning,
                         procedureID: procedure.id,
                         procedureTitle: procedure.title,
-                        message: "dosing rescue card ID '\(rescueCardID)' not found in rescue_cards.json."
+                        message: "dosing block has no rescueCardID; local-anesthetic dosing must name an escalation card."
                     ))
                 }
             }
@@ -261,9 +274,39 @@ enum ContentValidator {
             if !missingRelations.isEmpty {
                 add(.warning, card.title, "related procedure IDs not found in procedures.json: \(missingRelations.joined(separator: ", ")).")
             }
+
+            issues.append(contentsOf: crashDoseIssues(for: card))
         }
 
         return issues
+    }
+
+    /// Drug or drug-class words that must never appear in a Crash card's
+    /// immediate moves without a number on the same line. Mirrors
+    /// CRASH_DRUG_KEYWORDS in scripts/validate_procedures.py.
+    private static let crashDrugKeywords = [
+        "vasopressor", "push-dose", "pressor", "lipid", "succinylcholine",
+        "epinephrine", "norepinephrine", "naloxone", "flumazenil",
+        "benzodiazepine", "midazolam", "ketamine", "propofol", "reversal"
+    ]
+
+    /// A Crash card that names a drug without a dose is a reading assignment,
+    /// not a rescue card. This was the most safety-relevant rule in the Python
+    /// validator and had no in-app twin, so the app never surfaced it.
+    private static func crashDoseIssues(for card: ComplicationRescueCard) -> [ContentValidationIssue] {
+        guard card.acuity == .crash else { return [] }
+        return card.immediateMoves.compactMap { line in
+            let lowered = line.lowercased()
+            guard crashDrugKeywords.contains(where: { lowered.contains($0) }),
+                  !line.contains(where: \.isNumber)
+            else { return nil }
+            return ContentValidationIssue(
+                severity: .warning,
+                procedureID: nil,
+                procedureTitle: card.title,
+                message: "Crash card names a drug/class without a dose: '\(line.prefix(70))'."
+            )
+        }
     }
 
     private static func validateKits(_ kits: [Kit], procedureIDs: Set<String>) -> [ContentValidationIssue] {
