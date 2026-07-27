@@ -33,7 +33,9 @@ struct Kit: Identifiable, Codable, Hashable {
     var allChecklistItems: [String] { inKit + outsideKit }
 
     func matches(_ query: String) -> Bool {
-        let tokens = ClinicalSynonyms.tokens(in: query)
+        // Stop words are dropped for the same reason as the rescue path: a
+        // filler word the kit happens not to contain must not zero the result.
+        let tokens = ClinicalSynonyms.contentTokens(in: query)
         guard !tokens.isEmpty else { return true }
         let haystack = searchFields().joined(separator: " ").lowercased()
         return tokens.allSatisfy { token in

@@ -14,6 +14,13 @@ enum SpotlightIndexer {
     static func reindex(procedures: [Procedure], rescueCards: [ComplicationRescueCard]) {
         guard CSSearchableIndex.isIndexingAvailable() else { return }
 
+        // Never let a failed or empty content load wipe a working index. The
+        // reindex below deletes the whole domain first, so publishing "nothing"
+        // would silently delete the lock-screen crash path and leave it dead
+        // until a launch that loads cleanly. Keeping the previous index is
+        // strictly better: it is stale at worst, absent at best.
+        guard !procedures.isEmpty || !rescueCards.isEmpty else { return }
+
         var items: [CSSearchableItem] = []
         items.reserveCapacity(procedures.count + rescueCards.count)
 
