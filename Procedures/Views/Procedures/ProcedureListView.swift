@@ -7,9 +7,19 @@ struct ProcedureListView: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var searchText = ""
     @State private var navigationPath = NavigationPath()
+    @State private var highRiskOnly = false
 
     private var filteredProcedures: [Procedure] {
-        repository.search(searchText)
+        let matches = repository.search(searchText)
+        // The filter control is only shown while browsing. Letting it keep
+        // applying during a search would silently drop matches with nothing
+        // on screen explaining why.
+        guard highRiskOnly, searchText.isEmpty else { return matches }
+        return matches.filter { $0.difficulty == .advanced || $0.difficulty == .rareCrash }
+    }
+
+    private var highRiskCount: Int {
+        repository.procedures.filter { $0.difficulty == .advanced || $0.difficulty == .rareCrash }.count
     }
 
     private var populatedCategories: [ProcedureCategory] {
@@ -34,6 +44,7 @@ struct ProcedureListView: View {
                                 }
                             }
                             quickAccessSection
+                            riskFilterSection
                         }
 
                         Section(searchText.isEmpty ? "All Procedures" : "Search Results") {
@@ -72,6 +83,22 @@ struct ProcedureListView: View {
         deepLinkRouter.destination = nil
         if let procedure = repository.procedure(withID: id) {
             navigationPath = NavigationPath([procedure])
+        }
+    }
+
+    /// The home screen used to render all 37 advanced and rare-crash
+    /// procedures as its fourth section - two thirds of the library, unbounded,
+    /// on the screen you land on. It is a filter of this tab, so it belongs
+    /// here, where filtering is what the screen is for.
+    private var riskFilterSection: some View {
+        Section {
+            Picker("Show", selection: $highRiskOnly) {
+                Text("All (\(repository.procedures.count))").tag(false)
+                Text("High-risk (\(highRiskCount))").tag(true)
+            }
+            .pickerStyle(.segmented)
+            .accessibilityLabel("Filter procedures")
+            .accessibilityHint("High-risk shows advanced and rare-crash procedures only")
         }
     }
 

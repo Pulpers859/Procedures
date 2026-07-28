@@ -48,7 +48,10 @@ struct RootTabView: View {
     var body: some View {
         TabView(selection: selectedTab) {
             GuideHomeView()
-                .tabItem { Label("Guide", systemImage: "sparkles.rectangle.stack") }
+                // "Guide" named the content; the screen is a dispatcher, and
+                // the first complaint about it was that it did not feel like a
+                // home screen.
+                .tabItem { Label("Home", systemImage: "house.fill") }
                 .tag(RootTab.guide)
 
             ProcedureListView()
