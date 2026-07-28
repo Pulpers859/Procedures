@@ -250,6 +250,25 @@ final class UserDataStore: ObservableObject {
         )
     }
 
+    /// Re-baselines an existing review against content the reviewer just edited
+    /// themselves.
+    ///
+    /// Without this, correcting a step in a procedure you had already signed off
+    /// flagged you about your own change — the same cry-wolf behaviour that made
+    /// version-bound sign-offs useless. The material-change notice is for
+    /// content that moved underneath you, not for work you did. The disposition
+    /// and the original review date are both preserved: this re-points the
+    /// baseline, it does not re-date the review.
+    func rebaselineReviewAfterLocalEdit(for procedure: Procedure) {
+        let key = reviewKey(kind: "procedure", id: procedure.id)
+        guard var record = locallyReviewedContent[key] else { return }
+        guard record.materialFingerprint != procedure.materialFingerprint else { return }
+        record.materialFingerprint = procedure.materialFingerprint
+        record.contentVersion = procedure.version
+        locallyReviewedContent[key] = record
+        saveLocallyReviewedContent()
+    }
+
     // MARK: - Review content state
 
     /// Whether the clinically material content changed since it was reviewed.

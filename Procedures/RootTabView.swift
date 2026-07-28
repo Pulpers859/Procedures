@@ -92,10 +92,7 @@ struct RootTabView: View {
             // and the search index publish the corrected text.
             repository.attachEditStore(editStore)
             routeDeepLink(deepLinkRouter.destination)
-            SpotlightIndexer.reindex(
-                procedures: repository.procedures,
-                rescueCards: repository.rescueCards
-            )
+            reindexSpotlight()
             let procedureIDs = ContentLoadAuthority.authoritativeIDs(
                 Set(repository.procedures.map(\.id)),
                 loadError: repository.loadError,
@@ -123,6 +120,20 @@ struct RootTabView: View {
                 editStore.pruneMissingProcedures(validProcedureIDs: procedureIDs)
             }
         }
+        // Spotlight was indexed only at launch, so a correction made on shift
+        // did not reach it until the next cold start. The crash path is exactly
+        // where a clinician searches from outside the app, and serving them the
+        // text they had already fixed is the failure this app exists to avoid.
+        .onChange(of: editStore.editsByProcedureID) { _, _ in
+            reindexSpotlight()
+        }
+    }
+
+    private func reindexSpotlight() {
+        SpotlightIndexer.reindex(
+            procedures: repository.procedures,
+            rescueCards: repository.rescueCards
+        )
     }
 
     /// Tab-level routing for external activations. The destination stays

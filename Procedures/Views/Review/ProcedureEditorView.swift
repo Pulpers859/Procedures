@@ -10,6 +10,7 @@ import SwiftUI
 struct ProcedureEditorView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var editStore: ProcedureEditStore
+    @EnvironmentObject private var userData: UserDataStore
     let procedure: Procedure
 
     @State private var confirmResetAll = false
@@ -56,6 +57,7 @@ struct ProcedureEditorView: View {
             Button("Revert All", role: .destructive) {
                 editStore.resetAllEdits(for: procedure)
                 repository.reapplyEdits()
+                rebaselineOwnReview()
             }
         }
     }
@@ -93,7 +95,7 @@ struct ProcedureEditorView: View {
 struct SectionEditorView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var editStore: ProcedureEditStore
-    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var userData: UserDataStore
     let procedure: Procedure
     let section: EditableSection
 
@@ -107,7 +109,7 @@ struct SectionEditorView: View {
             if section.isClinicallyMaterial {
                 Section {
                     Label(
-                        "This is clinically material content. Changing it will flag anyone who already reviewed this procedure to take another look.",
+                        "This is clinically material content. Your own review stays exactly as it is — you are making the change. Other reviewers will be asked to take another look once your edit reaches them.",
                         systemImage: "exclamationmark.triangle.fill"
                     )
                     .font(.footnote.weight(.semibold))
@@ -188,6 +190,7 @@ struct SectionEditorView: View {
             Button("Revert", role: .destructive) {
                 editStore.resetSection(section, in: procedure)
                 repository.reapplyEdits()
+                rebaselineOwnReview()
                 // Read the baseline from the store, not from `procedure`: the
                 // repository publishes merged content, so this copy still
                 // carries the edit that was just discarded.
@@ -199,5 +202,14 @@ struct SectionEditorView: View {
     private func save() {
         editStore.setLines(lines, for: section, in: procedure)
         repository.reapplyEdits()
+        rebaselineOwnReview()
+    }
+
+    /// Your own correction must not flag you to re-review your own work. Read
+    /// the merged procedure back from the repository so the new baseline is the
+    /// text that is actually being displayed.
+    private func rebaselineOwnReview() {
+        guard let updated = repository.procedures.first(where: { $0.id == procedure.id }) else { return }
+        userData.rebaselineReviewAfterLocalEdit(for: updated)
     }
 }

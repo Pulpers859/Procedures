@@ -20,6 +20,17 @@ struct ProcedureDetailView: View {
         _selectedSection = State(initialValue: initialSection ?? .shiftMode)
     }
 
+    /// The procedure as the repository currently holds it.
+    ///
+    /// `procedure` is the value that was pushed onto the navigation path, and a
+    /// pushed value is frozen: editing a section and tapping Back would leave
+    /// this screen rendering the text the clinician had just replaced, which
+    /// reads as the edit having failed. Everything below draws from `current`
+    /// so an edit is visible the moment it is saved.
+    private var current: Procedure {
+        repository.procedures.first { $0.id == procedure.id } ?? procedure
+    }
+
     private var relatedRescueCards: [ComplicationRescueCard] {
         repository.rescueCards.filter { $0.relatedProcedureIDs.contains(procedure.id) }
     }
@@ -62,12 +73,12 @@ struct ProcedureDetailView: View {
             }
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(procedure.title)
+        .navigationTitle(current.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if reviewModeEnabled {
                 NavigationLink {
-                    ProcedureEditorView(procedure: procedure)
+                    ProcedureEditorView(procedure: current)
                 } label: {
                     Image(systemName: "square.and.pencil")
                 }
@@ -96,19 +107,19 @@ struct ProcedureDetailView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .top, spacing: 12) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(procedure.category.rawValue)
+                    Text(current.category.rawValue)
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.secondary)
-                    Text(procedure.title)
+                    Text(current.title)
                         .font(.title2.weight(.bold))
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 6) {
                     difficultyBadge
-                    if !procedure.reviewer.isClinicallyReviewed {
+                    if !current.reviewer.isClinicallyReviewed {
                         Label(
-                            procedure.source == .aiDraft ? "DRAFT — not clinically reviewed" : "Needs review",
+                            current.source == .aiDraft ? "DRAFT — not clinically reviewed" : "Needs review",
                             systemImage: "exclamationmark.shield"
                         )
                         .font(.caption.weight(.semibold))
@@ -119,13 +130,13 @@ struct ProcedureDetailView: View {
                 }
             }
 
-            FlowTagView(tags: [procedure.reviewTime] + procedure.setting.map(\.rawValue))
+            FlowTagView(tags: [current.reviewTime] + current.setting.map(\.rawValue))
         }
     }
 
     private var difficultyBadge: some View {
-        let isHighRisk = procedure.difficulty == .advanced || procedure.difficulty == .rareCrash
-        return Text(procedure.difficulty.rawValue.uppercased())
+        let isHighRisk = current.difficulty == .advanced || current.difficulty == .rareCrash
+        return Text(current.difficulty.rawValue.uppercased())
             .font(.caption.weight(.heavy))
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
@@ -162,7 +173,7 @@ struct ProcedureDetailView: View {
             }
 
             Menu {
-                if procedure.hasVisualAssets {
+                if current.hasVisualAssets {
                     sectionMenuButton(.visuals)
                 }
                 sectionMenuButton(.documentation)
@@ -285,19 +296,19 @@ struct ProcedureDetailView: View {
         Group {
             switch selectedSection {
             case .shiftMode:
-                ShiftModeProcedureContent(procedure: procedure)
+                ShiftModeProcedureContent(procedure: current)
             case .visuals:
-                VisualGuideContent(procedure: procedure)
+                VisualGuideContent(procedure: current)
             case .equipment:
-                EquipmentChecklistContent(procedure: procedure)
+                EquipmentChecklistContent(procedure: current)
             case .steps:
-                StepByStepContent(procedure: procedure)
+                StepByStepContent(procedure: current)
             case .complications:
-                ComplicationContent(procedure: procedure)
+                ComplicationContent(procedure: current)
             case .documentation:
-                DocumentationContent(procedure: procedure, noteText: $noteText)
+                DocumentationContent(procedure: current, noteText: $noteText)
             case .deepReview:
-                DeepReviewContent(procedure: procedure, noteText: $noteText)
+                DeepReviewContent(procedure: current, noteText: $noteText)
             }
         }
         .id(selectedSection)

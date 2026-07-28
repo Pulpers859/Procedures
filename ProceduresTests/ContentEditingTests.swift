@@ -12,6 +12,7 @@ import XCTest
 @MainActor
 final class ContentEditingTests: XCTestCase {
     private var directory: URL!
+    private var suiteNames: [String] = []
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -23,6 +24,10 @@ final class ContentEditingTests: XCTestCase {
     override func tearDownWithError() throws {
         try? FileManager.default.removeItem(at: directory)
         directory = nil
+        for suiteName in suiteNames {
+            UserDefaults().removePersistentDomain(forName: suiteName)
+        }
+        suiteNames = []
         try super.tearDownWithError()
     }
 
@@ -149,7 +154,60 @@ final class ContentEditingTests: XCTestCase {
         XCTAssertEqual(sections["steps"] as? [String], ["exported"])
     }
 
+    // MARK: - Reviews vs. your own edits
+
+    func testEditingContentYouReviewedDoesNotFlagYourOwnReview() throws {
+        let bundled = makeProcedure()
+        let store = makeStore()
+        _ = store.applyEdits(to: [bundled])
+
+        let userData = makeUserDataStore()
+        userData.markReviewed(bundled)
+        XCTAssertEqual(userData.reviewContentState(for: bundled), .unchanged)
+
+        store.setLines(["a materially different step"], for: .steps, in: bundled)
+        let edited = store.applyEdits(to: [bundled])[0]
+
+        // Before re-baselining this reads as .materialChanged — the clinician
+        // being told to re-review a correction they just wrote themselves.
+        XCTAssertEqual(userData.reviewContentState(for: edited), .materialChanged)
+
+        userData.rebaselineReviewAfterLocalEdit(for: edited)
+
+        XCTAssertEqual(userData.reviewContentState(for: edited), .unchanged)
+        XCTAssertEqual(userData.localReviewRecord(for: edited)?.disposition, .reviewed)
+    }
+
+    func testRebaselineDoesNotCreateAReviewWhereThereWasNone() {
+        let bundled = makeProcedure()
+        let userData = makeUserDataStore()
+
+        userData.rebaselineReviewAfterLocalEdit(for: bundled)
+
+        XCTAssertNil(userData.localReviewRecord(for: bundled))
+    }
+
+    func testUpstreamChangeStillFlagsAReviewedProcedure() {
+        let bundled = makeProcedure()
+        let userData = makeUserDataStore()
+        userData.markReviewed(bundled)
+
+        // Content that moved underneath the reviewer, with no local edit.
+        var shipped = bundled
+        shipped.sections.steps = ["a new step from the repo"]
+
+        XCTAssertEqual(userData.reviewContentState(for: shipped), .materialChanged)
+    }
+
     // MARK: - Fixtures
+
+    private func makeUserDataStore() -> UserDataStore {
+        let suiteName = "ContentEditingTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defaults.removePersistentDomain(forName: suiteName)
+        suiteNames.append(suiteName)
+        return UserDataStore(defaults: defaults)
+    }
 
     private func makeStore() -> ProcedureEditStore {
         ProcedureEditStore(directory: directory)
