@@ -101,6 +101,16 @@ enum ContentSource: String, Codable, Hashable, CaseIterable {
         case .clinicianReviewed: return "Clinician-reviewed"
         }
     }
+
+    /// Compact form for the collapsed provenance summary. Says the same thing
+    /// as `displayLabel` without the clause that only fits on its own row.
+    var shortLabel: String {
+        switch self {
+        case .aiDraft: return "AI draft"
+        case .humanAuthored: return "Human-authored"
+        case .clinicianReviewed: return "Clinician-reviewed"
+        }
+    }
 }
 
 /// Last-reviewed aging logic, shared by the in-app validator and governance UI.

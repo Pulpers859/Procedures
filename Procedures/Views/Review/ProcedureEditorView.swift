@@ -62,6 +62,13 @@ struct ProcedureEditorView: View {
         }
     }
 
+    /// Reverting is still your own change, so it must not flag you to
+    /// re-review your own work either.
+    private func rebaselineOwnReview() {
+        guard let updated = repository.procedures.first(where: { $0.id == procedure.id }) else { return }
+        userData.rebaselineReviewAfterLocalEdit(for: updated)
+    }
+
     private func sectionRow(_ section: EditableSection) -> some View {
         let lines = editStore.lines(section, in: procedure)
         let isEdited = editStore.isEdited(section, procedureID: procedure.id)

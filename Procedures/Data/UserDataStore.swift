@@ -250,6 +250,48 @@ final class UserDataStore: ObservableObject {
         )
     }
 
+    // MARK: - Review export
+
+    static let reviewExportSchema = "procedures.local-reviews.v1"
+
+    private struct ReviewExportPayload: Codable {
+        let schema: String
+        let exportedAt: String
+        let reviews: [String: LocalReviewRecord]
+    }
+
+    /// Serializes local sign-offs for transfer back into the repo.
+    ///
+    /// Without this a review could never become the content's actual status: a
+    /// clinician could work through all 73 items and every page would still
+    /// read "AI draft — not clinically reviewed", because nothing carried the
+    /// sign-off off the device. Paired with `scripts/apply_local_reviews.py`,
+    /// which promotes reviewerStatus and provenance together.
+    func exportReviewData() throws -> Data {
+        let payload = ReviewExportPayload(
+            schema: Self.reviewExportSchema,
+            exportedAt: Self.todayString(),
+            reviews: locallyReviewedContent
+        )
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        return try encoder.encode(payload)
+    }
+
+    /// Writes the review export for sharing. Returns nil rather than trapping.
+    func writeReviewExportFile() -> URL? {
+        do {
+            let data = try exportReviewData()
+            let url = FileManager.default.temporaryDirectory
+                .appendingPathComponent("procedure-reviews-\(Self.todayString()).json")
+            try data.write(to: url, options: .atomic)
+            return url
+        } catch {
+            print("Failed to write review export: \(error)")
+            return nil
+        }
+    }
+
     /// Re-baselines an existing review against content the reviewer just edited
     /// themselves.
     ///

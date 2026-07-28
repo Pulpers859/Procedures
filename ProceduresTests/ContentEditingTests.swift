@@ -199,6 +199,48 @@ final class ContentEditingTests: XCTestCase {
         XCTAssertEqual(userData.reviewContentState(for: shipped), .materialChanged)
     }
 
+    // MARK: - Swift/Python fingerprint mirror
+
+    /// `scripts/apply_local_reviews.py` recomputes the material fingerprint to
+    /// refuse promoting a sign-off onto content that has since changed. That
+    /// check is only worth anything if the Python mirror agrees with Swift
+    /// byte for byte, and nothing else in either suite would notice them
+    /// drifting apart. These digests are produced by the Python implementation.
+    func testMaterialFingerprintMatchesThePythonMirror() {
+        XCTAssertEqual(
+            makeProcedure().materialFingerprint,
+            "4206af11db9e97d0075e96dc97f6553010e4b19e2f21131d500d9d83fb86a18f"
+        )
+    }
+
+    func testDosingFingerprintMatchesThePythonMirror() {
+        let procedure = makeProcedure(dosing: ProcedureDosing(
+            agents: [
+                ProcedureDosing.Agent(
+                    agent: "Lidocaine 1%",
+                    concentrationNote: "1% = 10 mg/mL",
+                    maxDoseMgPerKg: 4.5,
+                    absoluteMaxMg: 300
+                ),
+                ProcedureDosing.Agent(
+                    agent: "Bupivacaine",
+                    concentrationNote: "0.25% = 2.5 mg/mL",
+                    maxDoseMgPerKg: 2.0,
+                    absoluteMaxMg: nil
+                ),
+            ],
+            workedExample: "unused by the fingerprint",
+            cumulativeWarning: "Count every source.",
+            monitoring: ["unused by the fingerprint"],
+            rescueCardID: nil
+        ))
+
+        XCTAssertEqual(
+            procedure.materialFingerprint,
+            "6dd99615dd8f6ba8079c2c1569e9a3e98b57617672e14d25853cdde18cc0a5aa"
+        )
+    }
+
     // MARK: - Fixtures
 
     private func makeUserDataStore() -> UserDataStore {
@@ -213,7 +255,7 @@ final class ContentEditingTests: XCTestCase {
         ProcedureEditStore(directory: directory)
     }
 
-    private func makeProcedure(id: String = "test") -> Procedure {
+    private func makeProcedure(id: String = "test", dosing: ProcedureDosing? = nil) -> Procedure {
         Procedure(
             id: id,
             title: "Test Procedure",
@@ -225,7 +267,7 @@ final class ContentEditingTests: XCTestCase {
             version: "1.0",
             tags: ["test"],
             visualAssets: nil,
-            dosing: nil,
+            dosing: dosing,
             reviewerStatus: .internallyReviewed,
             contentSource: .clinicianReviewed,
             sections: ProcedureSections(

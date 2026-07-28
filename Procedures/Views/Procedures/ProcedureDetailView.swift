@@ -308,7 +308,7 @@ struct ProcedureDetailView: View {
             case .documentation:
                 DocumentationContent(procedure: current, noteText: $noteText)
             case .deepReview:
-                DeepReviewContent(procedure: current, noteText: $noteText)
+                DeepReviewContent(procedure: current)
             }
         }
         .id(selectedSection)

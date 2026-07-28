@@ -42,7 +42,23 @@ def review_age_days(last_reviewed):
         return None
     return (date.today() - reviewed).days
 RESOURCES = ROOT / "Procedures" / "Resources"
-ASSET_CATALOG = ROOT / "Procedures" / "Assets.xcassets"
+
+
+def _locate_asset_catalog():
+    """Find Assets.xcassets wherever Xcode currently keeps it.
+
+    Xcode relocates the catalog on its own — it moved from Procedures/ to the
+    repo root without any source change — and a hardcoded path turns that into
+    three "visual asset file not found" warnings on content nobody touched. The
+    build was fine throughout; only this check was looking in the old place.
+    """
+    for candidate in (ROOT / "Procedures" / "Assets.xcassets", ROOT / "Assets.xcassets"):
+        if candidate.is_dir():
+            return candidate
+    return ROOT / "Procedures" / "Assets.xcassets"
+
+
+ASSET_CATALOG = _locate_asset_catalog()
 PROCEDURES = RESOURCES / "procedures.json"
 RESCUE_CARDS = RESOURCES / "rescue_cards.json"
 KITS = RESOURCES / "kits.json"

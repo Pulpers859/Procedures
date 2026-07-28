@@ -13,6 +13,7 @@ struct ReviewCenterView: View {
     @EnvironmentObject private var userData: UserDataStore
     @EnvironmentObject private var editStore: ProcedureEditStore
     @State private var exportURL: URL?
+    @State private var reviewExportURL: URL?
     @State private var selectedTab: ReviewCenterTab = .queue
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
@@ -47,11 +48,13 @@ struct ReviewCenterView: View {
             }
 
             myEditsSection
+            myReviewsSection
         }
         .listStyle(.insetGrouped)
         .navigationTitle("Review Center")
         .onAppear { refreshExport() }
         .onChange(of: editStore.editsByProcedureID) { _, _ in refreshExport() }
+        .onChange(of: userData.locallyReviewedContent) { _, _ in refreshExport() }
     }
 
     /// Without review tools the "My Review" panel is hidden on every content
@@ -104,8 +107,35 @@ struct ReviewCenterView: View {
         }
     }
 
+    /// Your sign-offs are worth nothing to the content until they can leave the
+    /// device. Without this a clinician could review all 73 items and every
+    /// page would still read "AI draft - not clinically reviewed".
+    @ViewBuilder
+    private var myReviewsSection: some View {
+        if !userData.locallyReviewedContent.isEmpty {
+            Section {
+                MetadataRow(
+                    icon: "checkmark.seal",
+                    title: "Items you have signed off",
+                    value: "\(userData.locallyReviewedContent.values.filter { $0.disposition == .reviewed }.count)"
+                )
+                if let reviewExportURL {
+                    ShareLink(item: reviewExportURL) {
+                        Label("Export My Reviews", systemImage: "square.and.arrow.up")
+                            .frame(minHeight: AppLayout.controlMinHeight)
+                    }
+                }
+            } header: {
+                Text("My Reviews")
+            } footer: {
+                Text("Apply it to the repo with scripts/apply_local_reviews.py to promote these items out of \"AI draft\". Sign-offs recorded against content that has since changed are refused rather than promoted.")
+            }
+        }
+    }
+
     private func refreshExport() {
         exportURL = editStore.editedProcedureCount > 0 ? editStore.writeExportFile() : nil
+        reviewExportURL = userData.locallyReviewedContent.isEmpty ? nil : userData.writeReviewExportFile()
     }
 
     private var heroSection: some View {

@@ -3,11 +3,8 @@ import SwiftUI
 struct DeepReviewContent: View {
     @EnvironmentObject private var userData: UserDataStore
     let procedure: Procedure
-    @Binding var noteText: String
     @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
-    @FocusState private var notesFocused: Bool
-    @State private var saveTask: Task<Void, Never>?
 
     var body: some View {
         VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
@@ -61,39 +58,7 @@ struct DeepReviewContent: View {
                         clearReview: { userData.clearReview(for: procedure) }
                     )
                 }
-
-                SectionCard(title: "My Edit Notes", systemImage: "square.and.pencil") {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Capture corrections, source links, local practice changes, or anything you want folded into the bundled content later. Stored only on this device.")
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                        TextEditor(text: $noteText)
-                            .focused($notesFocused)
-                            .frame(minHeight: 120)
-                            .padding(8)
-                            .scrollContentBackground(.hidden)
-                            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.controlRadius))
-                            .toolbar {
-                                ToolbarItemGroup(placement: .keyboard) {
-                                    Spacer()
-                                    Button("Done") { notesFocused = false }
-                                }
-                            }
-                            .onChange(of: noteText) { _, newValue in
-                                saveTask?.cancel()
-                                saveTask = Task { @MainActor in
-                                    try? await Task.sleep(for: .milliseconds(500))
-                                    guard !Task.isCancelled else { return }
-                                    userData.setNote(newValue, for: procedure)
-                                }
-                            }
-                    }
-                }
             }
-        }
-        .onDisappear {
-            saveTask?.cancel()
-            userData.setNote(noteText, for: procedure)
         }
     }
 

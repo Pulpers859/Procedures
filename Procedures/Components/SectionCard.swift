@@ -239,6 +239,7 @@ struct LocalReviewPanel: View {
 
     @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
+    @State private var showProvenance = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -271,15 +272,49 @@ struct LocalReviewPanel: View {
 
             if showSourceGovernance {
                 Divider().padding(.vertical, 2)
-                ReviewerStatusBadge(status: sourceStatus)
-                MetadataRow(icon: "sparkles", title: "Content source", value: sourceOrigin.displayLabel)
-                MetadataRow(
-                    icon: "calendar",
-                    title: sourceOrigin == .aiDraft ? "Draft stamped (not a human review date)" : "Source last reviewed",
-                    value: sourceLastReviewed
-                )
-                MetadataRow(icon: "number", title: "Source version", value: sourceVersion)
+                if localReviewRecord == nil {
+                    provenanceRows
+                } else {
+                    // Once you have recorded your own review, the four
+                    // provenance rows repeat a warning the page header already
+                    // shows, directly under your own sign-off — which reads as
+                    // the app second-guessing the review you just recorded. It
+                    // collapses to one line here. It is never removed: this is
+                    // where the app discloses that the text is an unreviewed
+                    // draft, and your review of a draft does not stop it being
+                    // one.
+                    DisclosureGroup(isExpanded: $showProvenance) {
+                        provenanceRows.padding(.top, 6)
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: sourceStatus.systemImage)
+                                .foregroundStyle(sourceStatus.isClinicallyReviewed ? Color.secondary : AppSemanticColor.warningText)
+                            Text("Content origin: \(sourceOrigin.shortLabel) · v\(sourceVersion)")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                            Spacer(minLength: 0)
+                        }
+                        .frame(minHeight: AppLayout.controlMinHeight)
+                        .contentShape(Rectangle())
+                    }
+                    .tint(.secondary)
+                    .accessibilityHint("Shows where this content came from and whether it has had formal clinical review")
+                }
             }
+        }
+    }
+
+    @ViewBuilder
+    private var provenanceRows: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            ReviewerStatusBadge(status: sourceStatus)
+            MetadataRow(icon: "sparkles", title: "Content source", value: sourceOrigin.displayLabel)
+            MetadataRow(
+                icon: "calendar",
+                title: sourceOrigin == .aiDraft ? "Draft stamped (not a human review date)" : "Source last reviewed",
+                value: sourceLastReviewed
+            )
+            MetadataRow(icon: "number", title: "Source version", value: sourceVersion)
         }
     }
 
