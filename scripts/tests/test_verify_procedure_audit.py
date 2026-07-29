@@ -14,10 +14,15 @@ assert SPEC.loader is not None
 SPEC.loader.exec_module(MODULE)
 
 
-def report_text(fingerprint, repeated=False):
-    section = """## `test_procedure` - Test Procedure
+# Default to a non-blocking disposition. `MAJOR` here would trip the
+# unresolved-findings check in every fixture and drown the thing under test.
+CLEAN = "NO MATERIAL DISCREPANCY IDENTIFIED"
 
-**Screening disposition: MAJOR**
+
+def report_text(fingerprint, repeated=False, disposition=CLEAN):
+    section = f"""## `test_procedure` - Test Procedure
+
+**Screening disposition: {disposition}**
 
 Equipment and instruments were assessed.
 Reviewer question: what should the clinical owner approve?
@@ -41,15 +46,57 @@ def queue_text(fingerprint):
     )
 
 
-def audit_patch(procedures, audit_root, expected_fingerprint, reports):
+def write_ledger(audit_root, procedures, *, baseline=None, amendments=None, audited_sha256=None):
+    """Write a ledger whose procedure baseline matches `procedures` unless overridden."""
+    items = json.loads(procedures.read_text())
+    records = baseline
+    if records is None:
+        records = {
+            item["id"]: MODULE.audit_fingerprint.audit_fingerprint(item)
+            for item in items
+        }
+    ledger = {
+        "schema": "procedures.audit-ledger.v1",
+        "fingerprintAlgorithm": "audit/v1",
+        "fingerprintVersion": MODULE.audit_fingerprint.AUDIT_FINGERPRINT_VERSION,
+        "corpora": {
+            "procedures.json": {
+                "baselineOrigin": "audited",
+                "auditedFileSha256": audited_sha256
+                or hashlib.sha256(procedures.read_bytes()).hexdigest(),
+                "screening": "per-record",
+                "records": records,
+            },
+            "rescue_cards.json": {
+                "baselineOrigin": "post-audit",
+                "screening": "none",
+                "records": {},
+            },
+            "kits.json": {
+                "baselineOrigin": "audited",
+                "screening": "none",
+                "records": {},
+            },
+        },
+        "amendments": amendments or [],
+    }
+    path = audit_root / "AUDIT_LEDGER.json"
+    path.write_text(json.dumps(ledger, indent=2))
+    return path
+
+
+def audit_patch(procedures, audit_root, expected_fingerprint, reports, ledger_path=None):
     rescue_cards = procedures.parent / "rescue_cards.json"
     kits = procedures.parent / "kits.json"
     rescue_cards.write_text("[]")
     kits.write_text("[]")
-    rescue_hash = hashlib.sha256(rescue_cards.read_bytes()).hexdigest()
-    kits_hash = hashlib.sha256(kits.read_bytes()).hexdigest()
+    if ledger_path is None:
+        ledger_path = write_ledger(audit_root, procedures)
+    audited = json.loads(ledger_path.read_text())["corpora"]["procedures.json"][
+        "auditedFileSha256"
+    ]
     (audit_root / "AUDIT_PROTOCOL.md").write_text(
-        f"Procedures: {expected_fingerprint}\nRescue: {rescue_hash}\nKits: {kits_hash}\n"
+        f"Procedures: {audited}\nRescue: {MODULE.UNRECOVERABLE_RESCUE_SHA256}\n"
     )
     return mock.patch.multiple(
         MODULE,
@@ -57,9 +104,8 @@ def audit_patch(procedures, audit_root, expected_fingerprint, reports):
         RESCUE_CARDS=rescue_cards,
         KITS=kits,
         AUDIT_ROOT=audit_root,
+        LEDGER=ledger_path,
         EXPECTED_SHA256=expected_fingerprint,
-        EXPECTED_RESCUE_SHA256=rescue_hash,
-        EXPECTED_KITS_SHA256=kits_hash,
         REPORTS=reports,
     )
 
@@ -77,7 +123,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             (audit_root / "AUDIT_INDEX.md").write_text(
                 "| Category | Procedure | Disposition | Report |\n"
                 "|---|---|---|---|\n"
-                "| Test | `test_procedure` - Test | `MAJOR` | [report.md](report.md) |\n"
+                "| Test | `test_procedure` - Test | `NO MATERIAL DISCREPANCY IDENTIFIED` | [report.md](report.md) |\n"
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
 
@@ -94,7 +140,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             fingerprint = hashlib.sha256(procedures.read_bytes()).hexdigest()
             (audit_root / "report.md").write_text(report_text(fingerprint, repeated=True))
             (audit_root / "AUDIT_INDEX.md").write_text(
-                "| Test | `test_procedure` - Test | `MAJOR` | [report.md](report.md) |\n"
+                "| Test | `test_procedure` - Test | `NO MATERIAL DISCREPANCY IDENTIFIED` | [report.md](report.md) |\n"
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
 
@@ -102,96 +148,220 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
                 issues = MODULE.audit_issues()
             self.assertTrue(any("more than once" in issue for issue in issues))
 
-    def test_changed_corpus_hash_fails(self):
+    def drift_fixture(self, directory, *, baseline=None, amendments=None, content=None):
+        """A one-procedure audit whose ledger baseline can be made to disagree."""
+        root = Path(directory)
+        procedures = root / "procedures.json"
+        audit_root = root / "audit"
+        audit_root.mkdir()
+        procedures.write_text(json.dumps(content or [{"id": "test_procedure", "title": "Test"}]))
+        fingerprint = hashlib.sha256(procedures.read_bytes()).hexdigest()
+        (audit_root / "report.md").write_text(report_text(fingerprint))
+        ledger = write_ledger(
+            audit_root, procedures, baseline=baseline, amendments=amendments
+        )
+        return procedures, audit_root, fingerprint, ledger
+
+    def test_a_drifted_record_is_named_and_fails(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            procedures = root / "procedures.json"
-            audit_root = root / "audit"
-            audit_root.mkdir()
-            procedures.write_text(json.dumps([{"id": "test_procedure", "title": "Test"}]))
-            actual = hashlib.sha256(procedures.read_bytes()).hexdigest()
-            expected = "0" * 64
-            (audit_root / "report.md").write_text(report_text(expected))
-            (audit_root / "AUDIT_INDEX.md").write_text(
-                "| Test | `test_procedure` - Test | `MAJOR` | [report.md](report.md) |\n"
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(
+                directory, baseline={"test_procedure": "0" * 64}
             )
-            (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(expected))
-
-            with audit_patch(procedures, audit_root, expected, ["report.md"]):
-                issues = MODULE.audit_issues()
-            self.assertTrue(any(actual in issue for issue in issues))
-
-    def test_changed_rescue_card_hash_fails(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            procedures = root / "procedures.json"
-            rescue_cards = root / "rescue_cards.json"
-            kits = root / "kits.json"
-            audit_root = root / "audit"
-            audit_root.mkdir()
-            procedures.write_text(json.dumps([{"id": "test_procedure", "title": "Test"}]))
-            rescue_cards.write_text("[]")
-            kits.write_text("[]")
-            procedure_hash = hashlib.sha256(procedures.read_bytes()).hexdigest()
-            kit_hash = hashlib.sha256(kits.read_bytes()).hexdigest()
-            (audit_root / "report.md").write_text(report_text(procedure_hash))
-
-            with mock.patch.multiple(
-                MODULE,
-                PROCEDURES=procedures,
-                RESCUE_CARDS=rescue_cards,
-                KITS=kits,
-                AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=procedure_hash,
-                EXPECTED_RESCUE_SHA256="0" * 64,
-                EXPECTED_KITS_SHA256=kit_hash,
-                REPORTS=["report.md"],
-            ):
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
                 issues = MODULE.audit_issues(require_synthesis=False)
-
-            actual = hashlib.sha256(rescue_cards.read_bytes()).hexdigest()
             self.assertTrue(
-                any(
-                    "rescue_cards.json fingerprint changed" in issue and actual in issue
-                    for issue in issues
-                )
+                any("test_procedure drifted from the audited baseline" in i for i in issues),
+                issues,
             )
 
-    def test_changed_kit_hash_fails(self):
+    def test_an_unrelated_record_does_not_fail_when_another_drifts(self):
+        """The defect that motivated this design: one edit invalidated all 55."""
+        with tempfile.TemporaryDirectory() as directory:
+            content = [{"id": "drifted", "title": "A"}, {"id": "stable", "title": "B"}]
+            procedures, audit_root, fingerprint, _ = self.drift_fixture(
+                directory, content=content
+            )
+            items = {i["id"]: i for i in content}
+            baseline = {
+                "drifted": "0" * 64,
+                "stable": MODULE.audit_fingerprint.audit_fingerprint(items["stable"]),
+            }
+            ledger = write_ledger(audit_root, procedures, baseline=baseline)
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            drift = [i for i in issues if "drifted from the audited baseline" in i]
+            self.assertEqual(len(drift), 1, drift)
+            self.assertIn("drifted", drift[0])
+            self.assertNotIn("stable", drift[0])
+
+    def test_metadata_only_change_does_not_invalidate_the_audit(self):
+        """`contentSource` was added to all 55 records and nuked the whole gate."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
+            audited = {"id": "test_procedure", "title": "Test", "sections": {"steps": ["cut"]}}
+            shipping = dict(
+                audited,
+                contentSource="ai-draft",
+                reviewerStatus="Needs Clinical Review",
+                lastReviewed="2026-07-29",
+                version="0.2.0",
+            )
             procedures = root / "procedures.json"
-            rescue_cards = root / "rescue_cards.json"
-            kits = root / "kits.json"
             audit_root = root / "audit"
             audit_root.mkdir()
-            procedures.write_text(json.dumps([{"id": "test_procedure", "title": "Test"}]))
-            rescue_cards.write_text("[]")
-            kits.write_text("[]")
-            procedure_hash = hashlib.sha256(procedures.read_bytes()).hexdigest()
-            rescue_hash = hashlib.sha256(rescue_cards.read_bytes()).hexdigest()
-            (audit_root / "report.md").write_text(report_text(procedure_hash))
-
-            with mock.patch.multiple(
-                MODULE,
-                PROCEDURES=procedures,
-                RESCUE_CARDS=rescue_cards,
-                KITS=kits,
-                AUDIT_ROOT=audit_root,
-                EXPECTED_SHA256=procedure_hash,
-                EXPECTED_RESCUE_SHA256=rescue_hash,
-                EXPECTED_KITS_SHA256="0" * 64,
-                REPORTS=["report.md"],
-            ):
-                issues = MODULE.audit_issues(require_synthesis=False)
-
-            actual = hashlib.sha256(kits.read_bytes()).hexdigest()
-            self.assertTrue(
-                any(
-                    "kits.json fingerprint changed" in issue and actual in issue
-                    for issue in issues
-                )
+            procedures.write_text(json.dumps([shipping]))
+            fingerprint = hashlib.sha256(procedures.read_bytes()).hexdigest()
+            (audit_root / "report.md").write_text(report_text(fingerprint))
+            ledger = write_ledger(
+                audit_root,
+                procedures,
+                baseline={
+                    "test_procedure": MODULE.audit_fingerprint.audit_fingerprint(audited)
+                },
             )
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            self.assertEqual(issues, [])
+
+    def test_a_valid_amendment_clears_the_drift(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            item = {"id": "test_procedure", "title": "Test"}
+            current = MODULE.audit_fingerprint.audit_fingerprint(item)
+            amendment = {
+                "corpus": "procedures.json",
+                "recordId": "test_procedure",
+                "auditFingerprint": current,
+                "owner": "Release owner",
+                "rationale": "Re-screened after the dose correction.",
+                "commit": "abc1234",
+                "expires": "2999-01-01",
+                "followUp": "docs/audits/...",
+            }
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(
+                directory, baseline={"test_procedure": "0" * 64}, amendments=[amendment]
+            )
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            self.assertEqual(issues, [])
+
+    def test_an_expired_amendment_is_stop_ship(self):
+        with tempfile.TemporaryDirectory() as directory:
+            item = {"id": "test_procedure", "title": "Test"}
+            amendment = {
+                "corpus": "procedures.json",
+                "recordId": "test_procedure",
+                "auditFingerprint": MODULE.audit_fingerprint.audit_fingerprint(item),
+                "owner": "Release owner",
+                "rationale": "Re-screened.",
+                "commit": "abc1234",
+                "expires": "2000-01-01",
+                "followUp": "docs/audits/...",
+            }
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(
+                directory, baseline={"test_procedure": "0" * 64}, amendments=[amendment]
+            )
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            self.assertTrue(any("expired on 2000-01-01" in i for i in issues), issues)
+            self.assertTrue(any("drifted from the audited baseline" in i for i in issues), issues)
+
+    def test_an_amendment_missing_waiver_fields_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            item = {"id": "test_procedure", "title": "Test"}
+            amendment = {
+                "corpus": "procedures.json",
+                "recordId": "test_procedure",
+                "auditFingerprint": MODULE.audit_fingerprint.audit_fingerprint(item),
+                "owner": "",
+                "rationale": "   ",
+                "commit": "abc1234",
+                "expires": "2999-01-01",
+            }
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(
+                directory, baseline={"test_procedure": "0" * 64}, amendments=[amendment]
+            )
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            missing = [i for i in issues if "missing required waiver fields" in i]
+            self.assertEqual(len(missing), 1, issues)
+            for field in ("owner", "rationale", "followUp"):
+                self.assertIn(field, missing[0])
+
+    def test_an_amendment_is_void_once_the_content_changes_again(self):
+        with tempfile.TemporaryDirectory() as directory:
+            amendment = {
+                "corpus": "procedures.json",
+                "recordId": "test_procedure",
+                "auditFingerprint": "1" * 64,
+                "owner": "Release owner",
+                "rationale": "Re-screened at an older revision.",
+                "commit": "abc1234",
+                "expires": "2999-01-01",
+                "followUp": "docs/audits/...",
+            }
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(
+                directory, baseline={"test_procedure": "0" * 64}, amendments=[amendment]
+            )
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            self.assertTrue(
+                any("changed again after it was written" in i for i in issues), issues
+            )
+
+    def test_a_record_added_after_the_audit_fails_as_unscreened(self):
+        with tempfile.TemporaryDirectory() as directory:
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(
+                directory, baseline={}
+            )
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            self.assertTrue(
+                any("not in the audited baseline" in i for i in issues), issues
+            )
+
+    def test_a_removed_audited_record_fails(self):
+        with tempfile.TemporaryDirectory() as directory:
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(
+                directory, baseline={"test_procedure": "0" * 64, "deleted": "1" * 64}
+            )
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            self.assertTrue(
+                any("deleted was audited but is no longer in the corpus" in i for i in issues),
+                issues,
+            )
+
+    def test_a_stale_fingerprint_version_refuses_to_compare(self):
+        with tempfile.TemporaryDirectory() as directory:
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(directory)
+            payload = json.loads(ledger.read_text())
+            payload["fingerprintVersion"] = MODULE.audit_fingerprint.AUDIT_FINGERPRINT_VERSION - 1
+            ledger.write_text(json.dumps(payload))
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            self.assertTrue(any("must be re-derived" in i for i in issues), issues)
+
+    def test_a_missing_ledger_fails_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(directory)
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                ledger.unlink()
+                issues = MODULE.audit_issues(require_synthesis=False)
+            self.assertTrue(any("missing audit ledger" in i for i in issues), issues)
+
+    def test_unscreened_corpus_drift_is_reported_but_not_blocking(self):
+        """Kits and rescue cards have no per-record evidence to invalidate."""
+        with tempfile.TemporaryDirectory() as directory:
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(directory)
+            payload = json.loads(ledger.read_text())
+            payload["corpora"]["kits.json"]["records"] = {"kit_ghost": "0" * 64}
+            ledger.write_text(json.dumps(payload))
+            notices = []
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                issues = MODULE.audit_issues(require_synthesis=False, notices=notices)
+            self.assertEqual(issues, [])
+            self.assertTrue(any("kit_ghost" in n for n in notices), notices)
 
     def test_contradictory_incomplete_report_fails(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -209,7 +379,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
                 "This is clinical approval. reviewerStatus is not unchanged.\n"
             )
             (audit_root / "AUDIT_INDEX.md").write_text(
-                "| Test | `test_procedure` - Test | `MAJOR` | [report.md](report.md) |\n"
+                "| Test | `test_procedure` - Test | `NO MATERIAL DISCREPANCY IDENTIFIED` | [report.md](report.md) |\n"
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
 
@@ -263,7 +433,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             fingerprint = hashlib.sha256(procedures.read_bytes()).hexdigest()
             (audit_root / "report.md").write_text(report_text(fingerprint))
             (audit_root / "AUDIT_INDEX.md").write_text(
-                "| Test | `test_procedure` - Test | `MAJOR` | [wrong.md](wrong.md) |\n"
+                "| Test | `test_procedure` - Test | `NO MATERIAL DISCREPANCY IDENTIFIED` | [wrong.md](wrong.md) |\n"
             )
             (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
 
@@ -281,7 +451,7 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             fingerprint = hashlib.sha256(procedures.read_bytes()).hexdigest()
             (audit_root / "report.md").write_text(report_text(fingerprint))
             (audit_root / "AUDIT_INDEX.md").write_text(
-                "| Test | `test_procedure` - Test | `MAJOR` | [report.md](report.md) |\n"
+                "| Test | `test_procedure` - Test | `NO MATERIAL DISCREPANCY IDENTIFIED` | [report.md](report.md) |\n"
             )
             misleading_queue = queue_text(fingerprint).replace(
                 "[Evidence](report.md)",
@@ -292,6 +462,40 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
                 issues = MODULE.audit_issues()
             self.assertTrue(any("missing evidence link to report.md" in issue for issue in issues))
+
+    def test_open_release_blocking_findings_prevent_a_pass(self):
+        """The gate used to print "Verified" over 55 open STOP-SHIP findings."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            procedures = root / "procedures.json"
+            audit_root = root / "audit"
+            audit_root.mkdir()
+            procedures.write_text(json.dumps([{"id": "test_procedure", "title": "Test"}]))
+            fingerprint = hashlib.sha256(procedures.read_bytes()).hexdigest()
+            (audit_root / "report.md").write_text(
+                report_text(fingerprint, disposition="STOP-SHIP")
+            )
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
+                issues = MODULE.audit_issues(require_synthesis=False)
+            self.assertTrue(
+                any("unresolved release-blocking screening disposition" in i for i in issues),
+                issues,
+            )
+            self.assertTrue(any("1 STOP-SHIP" in i for i in issues), issues)
+
+    def test_the_index_generator_is_not_blocked_by_drift(self):
+        """Regenerating a derived view must not require silencing the gate."""
+        with tempfile.TemporaryDirectory() as directory:
+            procedures, audit_root, fingerprint, ledger = self.drift_fixture(
+                directory, baseline={"test_procedure": "0" * 64}
+            )
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"], ledger):
+                blocked = MODULE.audit_issues(require_synthesis=False)
+                unblocked = MODULE.audit_issues(
+                    require_synthesis=False, require_current_corpus=False
+                )
+            self.assertTrue(any("drifted" in i for i in blocked), blocked)
+            self.assertEqual(unblocked, [])
 
 
 if __name__ == "__main__":

@@ -15,7 +15,11 @@ jobs:
     # Pinned so the validation environment cannot drift with zero repo changes.
     runs-on: ubuntu-24.04
     steps:
+      # Full history: the audit baselines are derived from the git blobs that
+      # hold the audited bytes, and a shallow clone does not contain them.
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
@@ -32,3 +36,20 @@ jobs:
       # the separate release-readiness workflow.
       - name: Run content validator
         run: python3 scripts/validate_procedures.py
+
+      # The audit baselines must stay derivable from the audited bytes. If
+      # someone edits a fingerprint in AUDIT_LEDGER.json by hand, this fails —
+      # which is the one thing standing between a per-record ledger and a
+      # quieter, more plausible version of the rubber stamp it replaced.
+      - name: Verify audit baselines were not hand-edited
+        run: python3 scripts/generate_audit_ledger.py --check
+
+      # Advisory here, blocking in release-readiness. The audit gate used to run
+      # only on `v*` tag pushes, and this repository has never had a tag — so a
+      # guard added to catch content drift had, at the time this ran, blocked
+      # nothing and reported nothing for the entire time it existed. Reporting
+      # drift on the push that causes it puts it in front of whoever still
+      # remembers what they changed.
+      - name: Report audit drift (advisory)
+        continue-on-error: true
+        run: python3 scripts/verify_procedure_audit.py

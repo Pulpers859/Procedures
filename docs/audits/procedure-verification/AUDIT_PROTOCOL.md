@@ -10,21 +10,68 @@
 - Audit date: 2026-07-18.
 
 The procedures and rescue-card fingerprints include uncommitted clinical-content
-work present in the source-of-truth working tree at audit start. Findings are
-invalidated if either fingerprint changes.
+work present in the source-of-truth working tree at audit start.
+
+## Where The Audited Bytes Are
+
+That uncommitted working tree has consequences, and they are not symmetrical:
+
+- **procedures.json** — recoverable. Git blob
+  `9d17679217cece51047c9d762c5602766aca25b2` hashes to the fingerprint above.
+- **kits.json** — recoverable. Git blob
+  `0976cd8c5caab57435e2ae03cafb296695093688`.
+- **rescue_cards.json** — **unrecoverable.** Every object in this repository was
+  hashed, reachable and unreachable; nothing matches
+  `4f8e47d0e93dcc95476f4e4bf8af0bcbfa866d6e5dca4fd63e54dd48fba2fc14`. Those
+  bytes were never committed and are gone. No rescue-card baseline can be
+  reconstructed, and none is faked: `AUDIT_LEDGER.json` records the rescue-card
+  baseline as `post-audit`, established after the fact, attesting to nothing
+  about the audit.
+
+The commit named above (`81919a1a…`) is where the audit ran, not a commit whose
+files match these fingerprints — at `81919a1a` procedures.json hashed
+`c3211fb9…` and rescue_cards.json `ab0f239c…`. Only the kits fingerprint
+matches its commit. This is recorded because it is the reason a whole-file gate
+built on these three constants could never pass.
 
 ## Current Integrity Status
 
-All three source files now differ from this audited snapshot. Post-audit work
-added explicit provenance metadata across the corpus, replaced procedure
-references, changed procedure search metadata, and changed four rescue-card
-medication instructions. Metadata and editorial-reference changes require a
-traceable amendment; clinical instruction changes require a targeted evidence
-screen and clinician/pharmacy adjudication. Therefore this packet is currently
-**invalidated as a whole** under the rule above. Run
-`python scripts/verify_procedure_audit.py` for exact expected and current
-fingerprints. The original audited fingerprints remain unchanged in this
-protocol and must not be rewritten merely to silence the verifier.
+Drift is now measured **per record**, against per-record baselines derived from
+the audited blobs above, over every field except provenance bookkeeping
+(`contentSource`, `reviewerStatus`, `lastReviewed`, `version`). This replaced a
+whole-file comparison that could not tell a metadata edit from a dose change:
+adding `contentSource` to all 55 records invalidated the entire packet, while
+exactly 27 records had actually changed within audit scope.
+
+Run `python scripts/verify_procedure_audit.py` for the current per-record list.
+As of 2026-07-29 it names 27 drifted procedures — 25 whose `references` were
+replaced post-audit, plus `anterior_nasal_packing` (topical TXA added) and
+`block_raptir` (dose ceiling corrected). The other 28 procedures still match the
+bytes that were screened, and their findings remain live evidence.
+
+Findings themselves remain unresolved: all 55 procedures carry a `STOP-SHIP` or
+`MAJOR` disposition, and the verifier refuses to report success while any is
+open. Satisfying fingerprints alone is not clearance.
+
+The original audited fingerprints remain unchanged in this protocol and must not
+be rewritten merely to silence the verifier. Baselines in `AUDIT_LEDGER.json`
+are derived from the immutable blobs above, and
+`scripts/generate_audit_ledger.py --check` fails if one is edited by hand.
+
+## Amending A Drifted Record
+
+Editing content is *expected* to turn the gate red. The remedy is to re-screen
+the record and record an amendment — never to move a baseline:
+
+```text
+python3 scripts/amend_audit_ledger.py --record <id> \
+    --owner "<who adjudicated>" --rationale "<what changed, what you checked>" \
+    --commit <sha> --expires <YYYY-MM-DD> --follow-up "<where it is tracked>"
+```
+
+These are the five fields `RELEASE_CONSTITUTION.md` already requires of a
+waiver. Amendments expire, so one cannot quietly become permanent, and an
+amendment stops applying the moment the record changes again.
 
 ## Clinical Boundary
 

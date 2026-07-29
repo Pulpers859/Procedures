@@ -1,10 +1,12 @@
 # Procedure Verification Audit Index
 
-> **Integrity hold:** all three corpus fingerprints changed after this audit.
-> Changes include provenance metadata, procedure references/search metadata, and
-> rescue-card medication text. The findings remain traceable to their exact
-> snapshot, but this packet is not current or clinically approved. See
-> `AUDIT_PROTOCOL.md`.
+> **Integrity hold:** 27 of the audited procedures have changed since this audit, so their findings below describe text that is no longer shipping:
+>
+> `anterior_nasal_packing`, `block_auricular`, `block_deep_peroneal`, `block_femoral_nerve`, `block_inferior_alveolar`, `block_infraorbital`, `block_interscalene`, `block_median_nerve`, `block_mental`, `block_pecs`, `block_peng`, `block_popliteal_sciatic`, `block_radial_nerve`, `block_raptir`, `block_saphenous_nerve`, `block_serratus_anterior`, `block_superficial_cervical_plexus`, `block_superficial_peroneal`, `block_superior_alveolar`, `block_supraclavicular`, `block_supraorbital`, `block_sural_nerve`, `block_tap`, `block_thoracic_esp`, `block_tibial_nerve`, `block_transgluteal_sciatic`, `block_ulnar_nerve`
+>
+> Every other record still matches the bytes that were screened. See `AUDIT_LEDGER.json` for per-record baselines and any amendments.
+
+> **Scope:** this packet screened procedures only. No kit and no rescue card has a per-record evidence section in any lane report, and the rescue-card snapshot the protocol names was never committed, so no rescue-card baseline can be recovered. Nothing here attests to either.
 
 ## Result
 
