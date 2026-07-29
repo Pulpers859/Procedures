@@ -92,9 +92,19 @@ final class UserDataStore: ObservableObject {
     @Published private(set) var notes: [String: String] = [:]
     @Published private(set) var checkedEquipment: [String: Set<String>] = [:]
     @Published private(set) var kitCheckedItems: [String: Set<String>] = [:]
-    @Published private(set) var locallyReviewedContent: [String: LocalReviewRecord] = [:]
+    /// Observed rather than invalidated at each call site: relying on every
+    /// mutation remembering to bump the revision is exactly the kind of
+    /// invariant that holds until someone adds a path that forgets.
+    @Published private(set) var locallyReviewedContent: [String: LocalReviewRecord] = [:] {
+        didSet { reviewsRevision &+= 1 }
+    }
     @Published private(set) var activeEquipmentSessionIDs: Set<String> = []
     @Published private(set) var activeKitSessionIDs: Set<String> = []
+
+    /// Bumped by the observer on `locallyReviewedContent`. Keys the
+    /// badge-policy memo; see `badgePolicy(forProcedures:)`.
+    private var reviewsRevision = 0
+    private var cachedProcedureBadgePolicy: (count: Int, revision: Int, policy: ReviewBadgePolicy)?
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
@@ -411,8 +421,31 @@ final class UserDataStore: ObservableObject {
     /// showing: if a filtered list of three could flip the policy, the same
     /// procedure would badge differently on two screens, and the badge would
     /// stop meaning anything.
+    /// Memoized because `ProcedureCard` asks for it once for the badge and
+    /// again for the accessibility label, inside a `ForEach`. Each call walked
+    /// all 55 procedures and SHA-256'd every one, so ten visible rows cost
+    /// roughly 1,100 hashes per render pass — the O(n²)-inside-a-ForEach shape,
+    /// and it got more expensive when the fingerprint widened to cover
+    /// shiftMode, equipment, confirmation and troubleshooting.
+    ///
+    /// The key is sound rather than convenient. The policy depends only on how
+    /// many items are reviewed and how many exist, and `isReviewed` is true for
+    /// both a current and an out-of-date review — so editing content cannot
+    /// move it. Only a review record changing (which always writes, bumping
+    /// the revision) or the library's size changing can, and both are in the
+    /// key.
     func badgePolicy(forProcedures procedures: [Procedure]) -> ReviewBadgePolicy {
-        .make(reviewedCount: effectiveReviewedCount(procedures: procedures), total: procedures.count)
+        if let cached = cachedProcedureBadgePolicy,
+           cached.count == procedures.count,
+           cached.revision == reviewsRevision {
+            return cached.policy
+        }
+        let policy = ReviewBadgePolicy.make(
+            reviewedCount: effectiveReviewedCount(procedures: procedures),
+            total: procedures.count
+        )
+        cachedProcedureBadgePolicy = (procedures.count, reviewsRevision, policy)
+        return policy
     }
 
     func badgePolicy(forRescueCards rescueCards: [ComplicationRescueCard]) -> ReviewBadgePolicy {

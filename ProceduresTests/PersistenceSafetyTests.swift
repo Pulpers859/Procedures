@@ -251,12 +251,13 @@ final class PersistenceSafetyTests: XCTestCase {
     /// and `version` are editorial. The tests below rely on that split.
     private func procedureFixture(
         version: String,
+        id: String = "central-line",
         steps: [String] = ["Prep and drape", "Insert under ultrasound"],
         tags: [String] = []
     ) -> Procedure {
         let json = """
         {
-          "id": "central-line",
+          "id": "\(id)",
           "title": "Central Venous Catheter",
           "category": "Vascular Access",
           "difficulty": "Advanced",
@@ -303,5 +304,91 @@ final class PersistenceSafetyTests: XCTestCase {
 
     private func seedStringSets(_ values: [String: [String]], key: String) throws {
         defaults.set(try JSONEncoder().encode(values), forKey: key)
+    }
+
+    // MARK: - Quarantine
+
+    /// Every persisted collection is one whole-blob key, loaded with `try?` and
+    /// saved by rewriting the blob entirely. So a single undecodable record
+    /// left the collection empty in memory, and the next sign-off wrote one
+    /// record over all of them. Nothing crashed and nothing logged; the Review
+    /// Center simply read 1 of 73 instead of 48.
+
+    func testUndecodableReviewsAreSetAsideInsteadOfOverwritten() {
+        let corrupt = Data("{not json at all".utf8)
+        defaults.set(corrupt, forKey: "Procedures.locallyReviewedContent")
+
+        let store = UserDataStore(defaults: defaults)
+
+        XCTAssertTrue(store.hasUnreadableData, "the failure must be visible, not silent")
+        XCTAssertTrue(store.unreadableDataKeys.contains("Procedures.locallyReviewedContent"))
+        XCTAssertEqual(
+            defaults.data(forKey: "Procedures.locallyReviewedContent.unreadable"), corrupt,
+            "the original bytes must survive so the loss is recoverable"
+        )
+    }
+
+    func testRecordingAReviewAfterAQuarantineStillWorks() {
+        defaults.set(Data("{not json at all".utf8), forKey: "Procedures.locallyReviewedContent")
+        let store = UserDataStore(defaults: defaults)
+
+        // Refusing to write was the other obvious answer and is worse: it
+        // leaves the app unable to record a review for as long as the bad blob
+        // exists. The quarantine preserves the bytes and lets work continue.
+        store.markReviewed(procedureFixture(version: "1.0", id: "cricothyrotomy"))
+
+        XCTAssertEqual(store.localReviewRecord(for: procedureFixture(version: "1.0", id: "cricothyrotomy"))?.disposition, .reviewed)
+        XCTAssertNotNil(defaults.data(forKey: "Procedures.locallyReviewedContent.unreadable"))
+    }
+
+    func testASecondBadLaunchDoesNotDestroyTheFirstQuarantine() {
+        let original = Data("{the original corrupt blob".utf8)
+        defaults.set(original, forKey: "Procedures.locallyReviewedContent")
+        _ = UserDataStore(defaults: defaults)
+
+        // A later launch finds a different bad blob. Overwriting the sidecar
+        // would destroy the only surviving copy, which is the exact case this
+        // mechanism exists to survive.
+        defaults.set(Data("{a later, different corrupt blob".utf8), forKey: "Procedures.locallyReviewedContent")
+        _ = UserDataStore(defaults: defaults)
+
+        XCTAssertEqual(defaults.data(forKey: "Procedures.locallyReviewedContent.unreadable"), original)
+    }
+
+    func testCleanDataReportsNothingUnreadable() {
+        let store = UserDataStore(defaults: defaults)
+        XCTAssertFalse(store.hasUnreadableData)
+        XCTAssertTrue(store.unreadableDataKeys.isEmpty)
+    }
+
+    func testLegacyDateOnlyReviewsStillMigrateRatherThanQuarantine() throws {
+        defaults.set(
+            try JSONEncoder().encode(["procedure:cricothyrotomy": "2026-01-14"]),
+            forKey: "Procedures.locallyReviewedContent"
+        )
+
+        let store = UserDataStore(defaults: defaults)
+
+        XCTAssertFalse(store.hasUnreadableData, "a known older format is not corruption")
+        XCTAssertEqual(store.localReviewRecord(for: procedureFixture(version: "1.0", id: "cricothyrotomy"))?.date, "2026-01-14")
+    }
+
+    // MARK: - Badge policy memo
+
+    /// The memo is keyed on library size and a review-map revision. This is the
+    /// property that makes that key sound: recording a review must move the
+    /// answer, and it only does if every mutation invalidates.
+    func testBadgePolicyReflectsAReviewRecordedAfterItWasFirstComputed() {
+        let store = UserDataStore(defaults: defaults)
+        let library = (0..<4).map { procedureFixture(version: "1.0", id: "p\($0)") }
+
+        XCTAssertEqual(store.badgePolicy(forProcedures: library), .suppressed, "0% reviewed")
+
+        store.markReviewed(library[0])
+
+        XCTAssertEqual(
+            store.badgePolicy(forProcedures: library), .markReviewed,
+            "a stale memo would still report .suppressed here"
+        )
     }
 }
