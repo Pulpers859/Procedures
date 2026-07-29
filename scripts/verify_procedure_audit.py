@@ -208,6 +208,11 @@ def amendment_index(ledger) -> tuple[dict, list[str]]:
     return accepted, issues
 
 
+# How a drifted record is named in output, and how main() recognises one so it
+# only offers the amendment remedy when amending is actually the remedy.
+DRIFT_PHRASE = "drifted from the audited baseline"
+
+
 def corpus_drift_issues(ledger) -> tuple[list[str], list[str]]:
     """Return (blocking issues, non-blocking notices) for content drift.
 
@@ -263,7 +268,7 @@ def corpus_drift_issues(ledger) -> tuple[list[str], list[str]]:
                 else "no amendment covers this change"
             )
             sink.append(
-                f"{filename}: {record_id} drifted from the audited baseline "
+                f"{filename}: {record_id} {DRIFT_PHRASE} "
                 f"({baseline[record_id][:12]} -> {current[record_id][:12]}); {detail}"
             )
     return issues, notices
@@ -542,14 +547,15 @@ def main() -> int:
         print("Procedure audit verification failed:")
         for issue in issues:
             print(f"  - {issue}")
-        print(
-            "\nA drifted record means a lane report now describes text that is not "
-            "shipping.\nResolve each one by re-screening it and recording an "
-            "amendment in\ndocs/audits/procedure-verification/AUDIT_LEDGER.json with "
-            "owner, rationale,\ncommit, expiry, and follow-up. Do not edit a baseline "
-            "fingerprint: baselines\nare derived from the audited bytes and "
-            "generate_audit_ledger.py --check will\nfail if one is changed by hand."
-        )
+        if any(DRIFT_PHRASE in issue for issue in issues):
+            print(
+                "\nA drifted record means a lane report now describes text that is not "
+                "shipping.\nResolve each one by re-screening it and recording an "
+                "amendment in\ndocs/audits/procedure-verification/AUDIT_LEDGER.json with "
+                "owner, rationale,\ncommit, expiry, and follow-up. Do not edit a baseline "
+                "fingerprint: baselines\nare derived from the audited bytes and "
+                "generate_audit_ledger.py --check will\nfail if one is changed by hand."
+            )
         return 1
 
     print(

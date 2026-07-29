@@ -1,5 +1,7 @@
+import contextlib
 import hashlib
 import importlib.util
+import io
 import json
 from pathlib import Path
 import tempfile
@@ -532,6 +534,38 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
                 issues = MODULE.audit_issues()
             self.assertEqual(issues, [])
+
+
+class FailureOutputTests(unittest.TestCase):
+    """What the CI log tells a reader to do must match what went wrong.
+
+    The remedy for drift is an amendment. There is no amendment for an open
+    STOP-SHIP, so printing the amendment instructions under one sends the
+    reader to the wrong tool.
+    """
+
+    def run_main(self, issues):
+        with mock.patch.object(MODULE, "audit_issues", lambda **_: list(issues)):
+            captured = io.StringIO()
+            with contextlib.redirect_stdout(captured):
+                code = MODULE.main()
+        return code, captured.getvalue()
+
+    def test_drift_prints_the_amendment_remedy(self):
+        code, output = self.run_main(
+            [f"procedures.json: block_raptir {MODULE.DRIFT_PHRASE} (aaa -> bbb); x"]
+        )
+        self.assertEqual(code, 1)
+        self.assertIn("recording an amendment", output)
+
+    def test_open_findings_alone_do_not_print_the_amendment_remedy(self):
+        code, output = self.run_main(
+            ["55 of 55 procedures carry an unresolved release-blocking "
+             "screening disposition (28 STOP-SHIP, 27 MAJOR)."]
+        )
+        self.assertEqual(code, 1)
+        self.assertIn("unresolved release-blocking", output)
+        self.assertNotIn("amendment", output)
 
 
 if __name__ == "__main__":
