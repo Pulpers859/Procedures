@@ -90,7 +90,19 @@ enum ClinicalSynonyms {
         "their", "our", "your", "its", "patient", "pt", "still", "just", "very",
         "really", "some", "any", "all", "not", "but", "out", "off", "over",
         "under", "about", "also", "been", "being", "does", "did", "get", "got",
-        "now", "new", "can", "cant", "wont", "doesnt"
+        "now", "new", "can", "cant", "wont", "doesnt",
+        // Two-letter connectives. The tokenizer keeps anything longer than one
+        // character, so these survived and matched as substrings: "do" inside
+        // *ab-do-minal*, "is" inside *ep-is-taxis*. That is enough to outscore
+        // the procedure the sentence actually described.
+        //
+        // Deliberately absent: "or" and "no". The clinical vocabulary's own
+        // two-letter terms are ij, io, iv, and lp, none of which are here —
+        // but in an anaesthesia app "OR" reads as operating room and "NO" as
+        // nitric oxide, and dropping a word the reader meant is worse than
+        // keeping one they didn't.
+        "do", "is", "in", "of", "to", "on", "at", "an", "as", "be", "by",
+        "so", "up", "it", "my", "me", "we", "us", "am"
     ]
 
     /// Query tokens with filler removed. If a query is *only* filler the raw
@@ -114,11 +126,33 @@ enum ClinicalSynonyms {
         return [token]
     }
 
+    /// Every word that literally appears in the shipped content, populated at
+    /// index build. Typo recovery is for words that are *not there*; a word the
+    /// library actually uses is not a misspelling of a different one.
+    ///
+    /// Without this, "lost" was one edit from "last" and got rewritten into the
+    /// LAST group — so "what do I do when the airway is lost" answered with
+    /// local anaesthetic systemic toxicity and ranked nerve blocks above
+    /// intubation. "pacing" → "packing" was the same bug, previously patched by
+    /// narrowing one synonym; this removes the whole class.
+    static private(set) var corpusWords: Set<String> = []
+
+    static func registerCorpusWords(_ words: Set<String>) {
+        corpusWords = words
+    }
+
+    /// Splits indexed text into the bare words used for the guard above.
+    static func words(in text: String) -> [String] {
+        text.lowercased().split { !$0.isLetter && !$0.isNumber }.map(String.init)
+    }
+
     /// Nearest vocabulary word within one edit, or nil. Only engages for
     /// tokens of 4+ characters, so short clinical shorthand ("ij", "lp",
     /// "abg") is never rewritten into something else.
     static func fuzzyMatch(for token: String) -> String? {
         guard token.count >= 4, !vocabulary.contains(token) else { return nil }
+        // A word the content actually contains is a real word, not a typo.
+        guard !corpusWords.contains(token) else { return nil }
         return vocabulary.filter { isWithinOneEdit(token, $0) }.min()
     }
 
@@ -209,6 +243,7 @@ final class ProcedureRepository: ObservableObject {
         loadProcedures()
         loadRescueCards()
         loadKits()
+        registerCorpusVocabulary()
         contentIssues = ContentValidator.validate(procedures, rescueCards: rescueCards, kits: kits)
         if ClinicalSynonyms.loadFailed {
             contentIssues.append(.init(
@@ -256,7 +291,17 @@ final class ProcedureRepository: ObservableObject {
     func loadRescueCards() {
         do {
             let load = try ComplicationRescueCardStore.loadFromBundle()
-            rescueCards = load.cards
+            // Acuity order, not file order. Browsing was showing raw JSON
+            // sequence, which put an Urgent card above four Crash cards —
+            // while the App Intent told Siri and Action-button users the list
+            // was "Crash-acuity problems first". The sort key already existed
+            // and was only ever applied to the search path.
+            rescueCards = load.cards.sorted { lhs, rhs in
+                if lhs.acuity.sortOrder != rhs.acuity.sortOrder {
+                    return lhs.acuity.sortOrder < rhs.acuity.sortOrder
+                }
+                return lhs.title.localizedCaseInsensitiveCompare(rhs.title) == .orderedAscending
+            }
             if load.cards.isEmpty {
                 rescueLoadError = "rescue_cards.json was read but no rescue cards could be decoded. Confirm the structure matches the current schema."
                 rescueLoadWarning = nil
@@ -367,7 +412,14 @@ final class ProcedureRepository: ObservableObject {
     }
 
     private func normalizedSearchTerms(from query: String) -> [String] {
-        let tokens = ClinicalSynonyms.tokens(in: query)
+        // `contentTokens`, not `tokens`: the same filler-word filter the rescue
+        // path uses. Scoring is substring-based, so a kept "the" matches
+        // *ca-the-ter* and "are" matches *prep-are*, which is enough to score
+        // every procedure in the library and bury the one the clinician
+        // described. Typing a sentence is the normal way to use this under
+        // pressure. The filter was written for that and only ever wired to one
+        // of the two search paths.
+        let tokens = ClinicalSynonyms.contentTokens(in: query)
         guard !tokens.isEmpty else { return [] }
 
         // Scoring is OR-based: every token, its synonyms, and any typo-
@@ -390,6 +442,25 @@ final class ProcedureRepository: ObservableObject {
             }
         }
         return total
+    }
+
+    /// Feeds every word in the shipped content to the typo-recovery guard, so
+    /// a real word is never rewritten into a different clinical term. Covers
+    /// all three corpora because all three share one tokenizer.
+    private func registerCorpusVocabulary() {
+        var words: Set<String> = []
+        for procedure in procedures {
+            for field in searchIndex[procedure.id] ?? Self.searchableFields(for: procedure) {
+                words.formUnion(ClinicalSynonyms.words(in: field.text))
+            }
+        }
+        for card in rescueCards {
+            words.formUnion(ClinicalSynonyms.words(in: card.searchCorpusText))
+        }
+        for kit in kits {
+            words.formUnion(ClinicalSynonyms.words(in: kit.searchCorpusText))
+        }
+        ClinicalSynonyms.registerCorpusWords(words)
     }
 
     private func rebuildSearchIndex() {

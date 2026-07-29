@@ -49,6 +49,10 @@ struct Kit: Identifiable, Codable, Hashable {
         }
     }
 
+    /// Flattened searchable text, for the corpus vocabulary that stops typo
+    /// recovery rewriting a word the content actually uses.
+    var searchCorpusText: String { searchFields().joined(separator: " ") }
+
     private func searchFields() -> [String] {
         var fields: [String] = []
         fields.reserveCapacity(6 + tags.count + inKit.count + outsideKit.count + commonlyForgotten.count + patientSetup.count)

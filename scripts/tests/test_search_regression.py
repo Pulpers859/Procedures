@@ -60,8 +60,33 @@ def within_one_edit(first, second):
     return edits + (len(first) - i) + (len(second) - j) <= 1
 
 
+def corpus_words():
+    """Every word the shipped content actually uses.
+
+    Mirrors ClinicalSynonyms.corpusWords. Typo recovery is for words that are
+    not there: "lost" is one edit from "last" and was being rewritten into the
+    LAST group, so a query about a lost airway answered with local anaesthetic
+    systemic toxicity.
+    """
+    words = set()
+    for procedure in PROCEDURES:
+        for text, _ in searchable_fields(procedure):
+            words.update(re.findall(r"[a-z0-9]+", text))
+    for card in RESCUE_CARDS:
+        words.update(re.findall(r"[a-z0-9]+", card_haystack(card)))
+    return words
+
+
+CORPUS_WORDS = None
+
+
 def fuzzy_match(token):
+    global CORPUS_WORDS
+    if CORPUS_WORDS is None:
+        CORPUS_WORDS = corpus_words()
     if len(token) < 4 or token in VOCABULARY:
+        return None
+    if token in CORPUS_WORDS:
         return None
     candidates = [word for word in VOCABULARY if within_one_edit(token, word)]
     return min(candidates) if candidates else None
@@ -103,7 +128,10 @@ def searchable_fields(procedure):
 
 
 def search(query):
-    query_tokens = tokens(query)
+    # content_tokens, mirroring ProcedureRepository.normalizedSearchTerms. Both
+    # search paths drop filler; scoring is substring-based, so a kept "the"
+    # matches ca-the-ter and scores the whole library.
+    query_tokens = content_tokens(query)
     terms = set()
     for token in query_tokens:
         terms.update(group(token))
@@ -128,6 +156,10 @@ STOP_WORDS = {
     "really", "some", "any", "all", "not", "but", "out", "off", "over",
     "under", "about", "also", "been", "being", "does", "did", "get", "got",
     "now", "new", "can", "cant", "wont", "doesnt",
+    # Two-letter connectives; see the note in ProcedureRepository.stopWords.
+    # "or" (operating room) and "no" (nitric oxide) are deliberately absent.
+    "do", "is", "in", "of", "to", "on", "at", "an", "as", "be", "by",
+    "so", "up", "it", "my", "me", "we", "us", "am",
 }
 
 ACUITY_ORDER = {"Crash": 0, "Urgent": 1, "Watch": 2}
@@ -310,6 +342,112 @@ class RescueSearchRegressionTests(unittest.TestCase):
     def test_editorial_metadata_is_not_searchable(self):
         # Version/date strings are not clinical search text.
         self.assertEqual(rescue_matches("0.2.0"), [])
+
+
+class SentenceQueryTests(unittest.TestCase):
+    """A clinician under pressure types sentences, not keywords.
+
+    Every query in PROCEDURE_QUERIES is one or two words, so the suite could
+    not see that the procedure path kept filler words the rescue path dropped.
+    Because scoring is substring-based, a kept "the" matches ca-the-ter and
+    "do" matches ab-do-minal, which was enough to score the entire library and
+    bury the procedure the sentence described.
+    """
+
+    SENTENCES = [
+        ("the patient is hypotensive after intubation", "endotracheal_intubation"),
+        ("how do i put in a chest tube", "thoracostomy_chest_tube"),
+        ("the patient needs a central line", "central_venous_catheter"),
+        ("i need to do a cric now", "cricothyrotomy"),
+        ("how do i drain an abscess", "abscess_incision_drainage"),
+        ("what do i do when the airway is lost", "endotracheal_intubation"),
+    ]
+
+    def test_sentences_rank_the_procedure_they_describe_first(self):
+        for query, expected in self.SENTENCES:
+            with self.subTest(query=query):
+                results = search(query)
+                self.assertTrue(results, f"{query!r} returned nothing")
+                self.assertEqual(results[0], expected)
+
+    def test_filler_words_do_not_change_the_answer(self):
+        """The stop-word list's stated purpose, asserted directly.
+
+        Result *count* is not the invariant — the list is ranked, so matching
+        broadly is harmless. What broke was the ranking: wrapping a precise
+        query in ordinary English used to change which procedure came first.
+        """
+        for bare, sentence in [
+            ("chest tube", "how do i put in a chest tube"),
+            ("cric", "i need to do a cric now"),
+            ("central line", "the patient needs a central line"),
+            ("abscess", "how do i drain an abscess"),
+            ("intubation", "the patient is hypotensive after intubation"),
+        ]:
+            with self.subTest(sentence=sentence):
+                self.assertEqual(search(bare)[0], search(sentence)[0])
+
+
+class TypoRecoveryScopeTests(unittest.TestCase):
+    """Typo recovery is for words that are not there.
+
+    "lost" is one edit from "last", so a query about a lost airway was rewritten
+    into the LAST group and answered with local anaesthetic systemic toxicity,
+    ranking nerve blocks above intubation. "pacing" -> "packing" was the same
+    bug, previously patched by narrowing a single synonym.
+    """
+
+    def test_a_word_the_content_uses_is_never_rewritten(self):
+        for token in ("lost", "pacing", "last", "post"):
+            with self.subTest(token=token):
+                self.assertIn(token, corpus_words())
+                self.assertIsNone(fuzzy_match(token))
+
+    def test_genuine_misspellings_still_recover(self):
+        self.assertNotIn("crich", corpus_words())
+        self.assertEqual(fuzzy_match("crich"), "cric")
+        self.assertNotIn("thoracentsis", corpus_words())
+        self.assertEqual(fuzzy_match("thoracentsis"), "thoracentesis")
+
+    def test_a_lost_airway_does_not_answer_with_local_anesthetic_toxicity(self):
+        top = search("lost airway")[:3]
+        self.assertIn("endotracheal_intubation", top)
+        self.assertNotIn("local_anesthetic_systemic_toxicity", top)
+
+
+class CrashVocabularyTests(unittest.TestCase):
+    """The word a clinician actually says for the situation the Rescue tab exists for."""
+
+    def test_crashing_resolves_to_the_crash_tier(self):
+        for query in ("crashing", "my patient is crashing", "the patient is arresting"):
+            with self.subTest(query=query):
+                matches = rescue_matches(query)
+                self.assertTrue(matches, f"{query!r} emptied the rescue list")
+
+    def test_crashing_returns_only_crash_acuity_cards(self):
+        by_id = {card["id"]: card for card in RESCUE_CARDS}
+        for card_id in rescue_matches("crashing"):
+            self.assertEqual(by_id[card_id]["acuity"], "Crash")
+
+
+class RescueBrowseOrderTests(unittest.TestCase):
+    """Browsing showed raw file order while the App Intent promised Crash first."""
+
+    def test_shipped_file_order_is_not_relied_on(self):
+        acuities = [ACUITY_ORDER[card["acuity"]] for card in RESCUE_CARDS]
+        self.assertNotEqual(
+            acuities, sorted(acuities),
+            "rescue_cards.json now happens to be acuity-ordered, which would let "
+            "the repository's sort regress without this suite noticing",
+        )
+
+    def test_sorting_puts_every_crash_card_first(self):
+        ordered = sorted(
+            RESCUE_CARDS,
+            key=lambda c: (ACUITY_ORDER[c["acuity"]], c["title"].lower()),
+        )
+        acuities = [ACUITY_ORDER[card["acuity"]] for card in ordered]
+        self.assertEqual(acuities, sorted(acuities))
 
 
 class FuzzyMatcherTests(unittest.TestCase):

@@ -116,4 +116,83 @@ final class SearchRegressionTests: XCTestCase {
         let repository = ProcedureRepository()
         XCTAssertTrue(repository.search("zzzzqqqq").isEmpty, "nonsense must not fuzzy-correct into noise")
     }
+
+    // MARK: - Sentence queries
+
+    /// Every query above is one or two words, which is why nothing here
+    /// noticed that the procedure path kept the filler words the rescue path
+    /// dropped. Scoring is substring-based, so a kept "the" matches
+    /// *ca-the-ter* and "do" matches *ab-do-minal* — enough to score the whole
+    /// library and bury the procedure the sentence described.
+    func testFillerWordsDoNotChangeTheAnswer() {
+        let repository = ProcedureRepository()
+        let pairs = [
+            ("chest tube", "how do i put in a chest tube"),
+            ("cric", "i need to do a cric now"),
+            ("central line", "the patient needs a central line"),
+            ("abscess", "how do i drain an abscess"),
+            ("intubation", "the patient is hypotensive after intubation")
+        ]
+        for (bare, sentence) in pairs {
+            let bareTop = repository.search(bare).first?.id
+            let sentenceTop = repository.search(sentence).first?.id
+            XCTAssertNotNil(bareTop, "'\(bare)' returned nothing")
+            XCTAssertEqual(sentenceTop, bareTop, "phrasing changed the answer for '\(sentence)'")
+        }
+    }
+
+    // MARK: - Typo recovery scope
+
+    /// Typo recovery is for words that are *not there*. "lost" is one edit
+    /// from "last", so a query about a lost airway was rewritten into the LAST
+    /// group and answered with local anaesthetic systemic toxicity, ranking
+    /// nerve blocks above intubation. "pacing" → "packing" was the same bug,
+    /// previously patched by narrowing one synonym rather than the class.
+    func testAWordTheContentUsesIsNeverRewritten() {
+        _ = ProcedureRepository()  // populates the corpus vocabulary
+        for token in ["lost", "pacing", "last", "post"] {
+            XCTAssertTrue(ClinicalSynonyms.corpusWords.contains(token), "\(token) should be in the corpus")
+            XCTAssertNil(ClinicalSynonyms.fuzzyMatch(for: token), "\(token) is a real word, not a typo")
+        }
+    }
+
+    func testGenuineMisspellingsStillRecover() {
+        _ = ProcedureRepository()
+        XCTAssertFalse(ClinicalSynonyms.corpusWords.contains("crich"))
+        XCTAssertEqual(ClinicalSynonyms.fuzzyMatch(for: "crich"), "cric")
+        XCTAssertFalse(ClinicalSynonyms.corpusWords.contains("thoracentsis"))
+        XCTAssertEqual(ClinicalSynonyms.fuzzyMatch(for: "thoracentsis"), "thoracentesis")
+    }
+
+    func testALostAirwayDoesNotAnswerWithLocalAnestheticToxicity() {
+        let repository = ProcedureRepository()
+        let top = repository.search("lost airway").prefix(3).map(\.id)
+        XCTAssertTrue(top.contains("endotracheal_intubation"), "top three: \(top)")
+        XCTAssertFalse(top.contains("local_anesthetic_systemic_toxicity"), "top three: \(top)")
+    }
+
+    // MARK: - Crash vocabulary and browse order
+
+    /// "Crashing" is the word actually said for the situation the Rescue tab
+    /// exists for, and it resolved to nothing: it is in no card's text and the
+    /// synonym map had no crash entry. The queries below only appeared to work
+    /// because "my" and "is" were matching *my-ocardial* and *ep-is-taxis*.
+    func testCrashingResolvesToTheCrashTier() {
+        let repository = ProcedureRepository()
+        for query in ["crashing", "my patient is crashing", "the patient is arresting"] {
+            let matches = repository.searchRescueCards(query)
+            XCTAssertFalse(matches.isEmpty, "'\(query)' emptied the rescue list")
+            for card in matches {
+                XCTAssertEqual(card.acuity, .crash, "'\(query)' returned a non-crash card: \(card.id)")
+            }
+        }
+    }
+
+    /// Browsing rendered raw file order while `RescueAppIntents` told Siri and
+    /// Action-button users the list was "Crash-acuity problems first".
+    func testBrowsingRescueCardsPutsEveryCrashCardFirst() {
+        let repository = ProcedureRepository()
+        let order = repository.rescueCards.map(\.acuity.sortOrder)
+        XCTAssertEqual(order, order.sorted(), "rescue cards are not acuity-ordered when browsing")
+    }
 }

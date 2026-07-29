@@ -85,6 +85,10 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
         )
     }
 
+    /// Flattened searchable text, for the corpus vocabulary that stops typo
+    /// recovery rewriting a word the content actually uses.
+    var searchCorpusText: String { searchFields().joined(separator: " ") }
+
     private func searchFields() -> [RescueCardSearchField] {
         var fields: [RescueCardSearchField] = []
         fields.reserveCapacity(2 + relatedProcedureIDs.count + trigger.count + immediateMoves.count + reassess.count + avoid.count + tags.count + references.count)

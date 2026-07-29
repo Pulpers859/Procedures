@@ -74,5 +74,12 @@
   "txa": ["tranexamic", "epistaxis", "nasal", "packing"],
   "tranexamic": ["txa", "epistaxis", "nasal", "packing"],
   "epistaxis": ["nasal", "packing", "nosebleed", "anterior"],
-  "nosebleed": ["epistaxis", "nasal", "packing"]
+  "nosebleed": ["epistaxis", "nasal", "packing"],
+  "crashing": ["crash"],
+  "crash": ["crashing"],
+  "arrest": ["crash"],
+  "arresting": ["crash", "arrest"],
+  "periarrest": ["crash"],
+  "coding": ["crash"],
+  "decompensating": ["crash"]
 }
