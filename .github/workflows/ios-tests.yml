@@ -41,6 +41,23 @@ jobs:
       - name: Verify project source membership
         run: python3 scripts/verify_xcode_project.py
 
+      # Review state has one source of truth, and a single careless line in a
+      # new view can silently restore the old behaviour where a screen knows
+      # only what shipped and not what the reader signed off. Nothing would
+      # fail; the screen would just be quietly wrong. So it fails here.
+      - name: Verify review-state invariants
+        run: python3 scripts/check_review_state_sources.py
+
+      # The Python suite covers the content validator, the export/apply
+      # round-trips, and the repo guards. It was running only on a developer
+      # machine, which meant nothing verified it on the way to main.
+      - name: Run repository test suite
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet --disable-pip-version-check -r scripts/requirements-validation.txt
+          python3 -m unittest discover --start-directory scripts/tests --pattern 'test_*.py' --verbose
+          python3 scripts/validate_procedures.py
+
       - name: Report Xcode toolchain
         run: |
           xcodebuild -version

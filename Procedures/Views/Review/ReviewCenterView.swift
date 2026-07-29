@@ -165,7 +165,7 @@ struct ReviewCenterView: View {
                 // row keep the pill's own appearance rather than taking on a
                 // disclosure chevron.
                 HStack(spacing: 8) {
-                    metricPillLink(value: reviewedCount, label: "reviewed", tint: .green, scope: .disposition(.reviewed))
+                    metricPillLink(value: reviewedCount, label: "reviewed by you", tint: .green, scope: .disposition(.reviewed))
                     if changedSinceReviewCount > 0 {
                         metricPillLink(value: changedSinceReviewCount, label: "changed", tint: .orange, scope: .changedSinceReview)
                     }
@@ -294,7 +294,11 @@ struct ReviewCenterView: View {
                 scopeRow(icon: "list.bullet.rectangle", title: "Procedures", count: repository.procedures.count, scope: .allProcedures)
                 scopeRow(icon: "lifepreserver", title: "Rescue Cards", count: repository.rescueCards.count, scope: .allRescueCards)
                 scopeRow(icon: "shippingbox", title: "Kits", count: repository.kits.count, scope: .allKits)
-                scopeRow(icon: "checkmark.seal", title: "Reviewed", count: reviewedCount, scope: .disposition(.reviewed))
+                // "Reviewed by you", not "Reviewed": this counts your sign-offs
+                // only, and the list it opens filters the same way. Once content
+                // starts shipping pre-reviewed, an unqualified "Reviewed" here
+                // would disagree with the rest of the app for the rest of time.
+                scopeRow(icon: "checkmark.seal", title: "Reviewed by you", count: reviewedCount, scope: .disposition(.reviewed))
                 if changedSinceReviewCount > 0 {
                     scopeRow(icon: "arrow.triangle.2.circlepath", title: "Changed since review", count: changedSinceReviewCount, scope: .changedSinceReview)
                 }

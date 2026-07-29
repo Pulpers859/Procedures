@@ -221,6 +221,110 @@ final class ReviewStateTests: XCTestCase {
         XCTAssertFalse(userData.reviewState(for: edited).isCautionary)
     }
 
+    // MARK: - Nothing forgets
+
+    /// Marking one procedure reviewed has to move every derived answer in the
+    /// app at once. These are the exact predicates the screens use, asserted
+    /// side by side, because the original bug was not that any single one was
+    /// wrong — it was that they disagreed with each other.
+    func testOneSignOffMovesEveryDerivedAnswer() {
+        let target = makeProcedure(id: "cricothyrotomy")
+        let corpus = [target] + (0..<9).map { makeProcedure(id: "other-\($0)") }
+        let userData = makeUserDataStore()
+
+        // Before: every surface says unreviewed.
+        XCTAssertFalse(userData.reviewState(for: target).isReviewed, "detail header / row badge")
+        XCTAssertEqual(userData.effectiveReviewedCount(procedures: corpus), 0, "corpus notice predicate")
+        XCTAssertEqual(userData.badgePolicy(forProcedures: corpus), .suppressed, "row badge policy")
+        XCTAssertNil(userData.localReviewRecord(for: target), "Review Center row")
+        XCTAssertEqual(userData.localReviewCount(procedures: corpus, rescueCards: [], kits: []), 0, "Review Center count")
+
+        userData.markReviewed(target)
+
+        // After: all of them, together.
+        XCTAssertTrue(userData.reviewState(for: target).isReviewed, "detail header / row badge")
+        XCTAssertEqual(userData.effectiveReviewedCount(procedures: corpus), 1, "corpus notice predicate")
+        XCTAssertEqual(userData.badgePolicy(forProcedures: corpus), .markReviewed, "row badge policy")
+        XCTAssertEqual(userData.localReviewRecord(for: target)?.disposition, .reviewed, "Review Center row")
+        XCTAssertEqual(userData.localReviewCount(procedures: corpus, rescueCards: [], kits: []), 1, "Review Center count")
+
+        // Untouched neighbours must not drift with it.
+        for other in corpus.dropFirst() {
+            XCTAssertFalse(userData.reviewState(for: other).isReviewed, other.id)
+        }
+    }
+
+    /// The Review Center's "Reviewed by you" count and the list that row opens
+    /// filter on different expressions. They must never disagree, or a reader
+    /// taps a count of 1 and lands on an empty screen.
+    func testTheReviewedCountMatchesTheListItOpens() {
+        let corpus = (0..<5).map { makeProcedure(id: "p-\($0)") }
+        let userData = makeUserDataStore()
+        userData.markReviewed(corpus[1])
+        userData.setReviewDisposition(.needsEdits, for: corpus[2])
+        userData.setReviewDisposition(.deferred, for: corpus[3])
+
+        let count = userData.localReviewCount(procedures: corpus, rescueCards: [], kits: [])
+        let listed = corpus.filter { userData.localReviewRecord(for: $0)?.disposition == .reviewed }
+
+        XCTAssertEqual(count, listed.count)
+        XCTAssertEqual(listed.map(\.id), ["p-1"])
+    }
+
+    /// Rescue cards and kits carry the same review machinery. Reviewing one must
+    /// behave identically to reviewing a procedure — the earlier bug reached all
+    /// three content kinds because they all read the bundled status.
+    func testRescueCardsAndKitsSignOffTheSameWay() {
+        let card = makeRescueCard()
+        let kit = makeKit()
+        let userData = makeUserDataStore()
+
+        XCTAssertEqual(userData.reviewState(for: card), .unreviewed)
+        XCTAssertEqual(userData.reviewState(for: kit), .unreviewed)
+
+        userData.markReviewed(card)
+        userData.markReviewed(kit)
+
+        XCTAssertTrue(userData.reviewState(for: card).isReviewed)
+        XCTAssertTrue(userData.reviewState(for: kit).isReviewed)
+        XCTAssertEqual(userData.effectiveReviewedCount(rescueCards: [card]), 1)
+        XCTAssertEqual(userData.effectiveReviewedCount(kits: [kit]), 1)
+    }
+
+    /// Clearing every mark from Settings has to walk the app back just as
+    /// completely as signing off walked it forward.
+    func testClearingAllReviewsWalksEverythingBack() {
+        let procedure = makeProcedure()
+        let card = makeRescueCard()
+        let kit = makeKit()
+        let userData = makeUserDataStore()
+        userData.markReviewed(procedure)
+        userData.markReviewed(card)
+        userData.markReviewed(kit)
+
+        userData.clearAllLocalReviews()
+
+        XCTAssertEqual(userData.reviewState(for: procedure), .unreviewed)
+        XCTAssertEqual(userData.reviewState(for: card), .unreviewed)
+        XCTAssertEqual(userData.reviewState(for: kit), .unreviewed)
+        XCTAssertEqual(userData.effectiveReviewedCount(procedures: [procedure]), 0)
+    }
+
+    /// A sign-off has to survive the app being killed. It is written to defaults
+    /// on every mutation; a store rebuilt on the same suite must see it.
+    func testASignOffSurvivesARelaunch() {
+        let procedure = makeProcedure()
+        let suiteName = "ReviewStateTests.\(UUID().uuidString)"
+        suiteNames.append(suiteName)
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defaults.removePersistentDomain(forName: suiteName)
+
+        UserDataStore(defaults: defaults).markReviewed(procedure)
+
+        let relaunched = UserDataStore(defaults: defaults)
+        XCTAssertTrue(relaunched.reviewState(for: procedure).isReviewed)
+    }
+
     // MARK: - Fixtures
 
     private func makeUserDataStore() -> UserDataStore {
@@ -229,6 +333,47 @@ final class ReviewStateTests: XCTestCase {
         defaults.removePersistentDomain(forName: suiteName)
         suiteNames.append(suiteName)
         return UserDataStore(defaults: defaults)
+    }
+
+    private func makeRescueCard(id: String = "rescue-test") -> ComplicationRescueCard {
+        ComplicationRescueCard(
+            id: id,
+            title: "Test Rescue Card",
+            acuity: .crash,
+            relatedProcedureIDs: [],
+            trigger: ["a"],
+            immediateMoves: ["a", "b"],
+            reassess: ["a"],
+            avoid: ["a"],
+            tags: ["test"],
+            lastReviewed: "2026-01-01",
+            version: "1.0",
+            references: ["Smith et al. 2024"],
+            reviewerStatus: .needsClinicalReview,
+            contentSource: .aiDraft
+        )
+    }
+
+    private func makeKit(id: String = "kit-test") -> Kit {
+        Kit(
+            id: id,
+            title: "Test Kit",
+            subtitle: "Test",
+            category: .other,
+            relatedProcedureIDs: [],
+            tags: ["test"],
+            lastReviewed: "2026-01-01",
+            version: "1.0",
+            reviewerStatus: .needsClinicalReview,
+            contentSource: .aiDraft,
+            inKit: ["a"],
+            outsideKit: ["b"],
+            commonlyForgotten: ["c"],
+            patientSetup: ["d"],
+            sterileSetup: ["e"],
+            backupEquipment: ["f"],
+            references: ["Smith et al. 2024"]
+        )
     }
 
     private func makeProcedure(

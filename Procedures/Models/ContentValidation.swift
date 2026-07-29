@@ -84,7 +84,12 @@ enum ContentValidator {
                 severity: .polish,
                 procedureID: nil,
                 procedureTitle: nil,
-                message: "\(unreviewed) of \(totalItems) content items await clinical review; not for unsupervised clinical reliance until reviewed."
+                // Says "in the shipped content" deliberately. This validator
+                // mirrors the Python one and answers only for the repo, so it
+                // cannot see a sign-off recorded on this device — and a reader
+                // who has reviewed something must not read this as the app
+                // having forgotten. Their own progress is in the Review Center.
+                message: "\(unreviewed) of \(totalItems) content items await clinical review in the shipped content; not for unsupervised clinical reliance until reviewed."
             ))
         }
 
