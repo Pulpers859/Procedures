@@ -241,7 +241,10 @@ final class ReviewStateTests: XCTestCase {
 
         var edited = procedure
         edited.sections.steps = ["a corrected step"]
-        userData.rebaselineReviewAfterLocalEdit(for: edited)
+        userData.rebaselineReviewAfterLocalEdit(
+            for: edited,
+            previousFingerprint: procedure.materialFingerprint
+        )
 
         let state = userData.reviewState(for: edited)
         XCTAssertFalse(state.isCautionary, "a deliberate edit must not flag the review that preceded it")

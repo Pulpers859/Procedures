@@ -66,7 +66,29 @@ ATTRIBUTION_PHRASES = (
     "my review",
     "my edits",
     "my reviews",
+    # There is one reader. Copy implying a review workflow with other people in
+    # it does not just waste a line, it misdescribes what an action does: the
+    # editor promised "Other reviewers will be asked to take another look once
+    # the edit reaches them", and there are no other reviewers.
+    "other reviewers",
+    "another reviewer",
+    "other clinicians",
+    "your team",
+    "the team",
+    "reviewers will",
+    "sent for review",
+    "submitted for review",
 )
+
+# Safety-critical text must use the contrast-corrected warning colour. Raw
+# systemOrange is about 2.2:1 on a light background — below the 4.5:1 needed
+# for body text — which is why AppSemanticColor.warningText exists. The danger
+# zone caption on a visual asset was rendering in it at .caption.
+RAW_WARNING_TINT = re.compile(r"foregroundStyle\(\s*\.orange\s*\)|foregroundColor\(\s*\.orange\s*\)")
+TINT_ALLOWLIST = {
+    # Defines the corrected colours and legitimately references the raw one.
+    "Components/SectionCard.swift",
+}
 STRING_LITERAL = re.compile(r'"([^"\\]*(?:\\.[^"\\]*)*)"')
 
 CLINICAL_FLAG = re.compile(r"\bisClinicallyReviewed\b")
@@ -119,6 +141,12 @@ def check(app_root: Path = APP) -> list[str]:
                             f'user; a review reads "Reviewed", not who reviewed it.'
                         )
                         break
+
+            if _is_ui_file(relative) and key not in TINT_ALLOWLIST and RAW_WARNING_TINT.search(line):
+                failures.append(
+                    f"{location}: tints text with raw `.orange`, which is ~2.2:1 on light "
+                    f"backgrounds. Use AppSemanticColor.warningText."
+                )
 
             match = STORED_STORE.match(line)
             if _is_ui_file(relative) and match and not any(w in raw for w in PROPERTY_WRAPPERS):

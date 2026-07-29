@@ -95,10 +95,10 @@ struct VisualAssetCard: View {
                 HStack(alignment: .top, spacing: 8) {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .font(.caption)
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AppSemanticColor.warningText)
                     Text(warning)
                         .font(.caption)
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AppSemanticColor.warningText)
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(.horizontal, 16)

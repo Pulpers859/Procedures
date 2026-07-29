@@ -77,6 +77,8 @@ struct GuideHomeView: View {
             LazyVStack(alignment: .leading, spacing: 28) {
                 rescueHero
 
+                libraryHealthNotice
+
                 pathwaySection
 
                 if !recentProcedures.isEmpty {
@@ -124,6 +126,54 @@ struct GuideHomeView: View {
                 )
             }
             .buttonStyle(.plain)
+        }
+    }
+
+    /// Says so when the library did not load.
+    ///
+    /// This screen read `rescueLoadError` and nothing else. If procedures.json
+    /// failed to decode, Home rendered normally: a working rescue hero and a
+    /// pathway grid where every tile read "0". No error anywhere. Tapping a
+    /// pathway then reassured the reader that the emptiness was deliberate
+    /// ("Content is added before release rather than showing empty
+    /// categories"), and searching blamed the query. Three screens agreeing
+    /// that a failed library was fine.
+    ///
+    /// The rescue hero stays the loud element — it is the crash path, and it
+    /// may still work when the library does not. These sit under it, in the
+    /// warning tone rather than red.
+    @ViewBuilder
+    private var libraryHealthNotice: some View {
+        let notices: [(String, String)] = [
+            repository.loadError.map { ("Procedures unavailable", $0) },
+            repository.loadWarning.map { ("Some procedures were skipped", $0) },
+            repository.kitLoadError.map { ("Kits unavailable", $0) },
+            repository.kitLoadWarning.map { ("Some kits were skipped", $0) },
+            userData.hasUnreadableData
+                ? ("Saved data could not be read",
+                   "Some saved reviews or notes could not be read and were set aside rather than overwritten. Recorded work from this point is saved normally.")
+                : nil
+        ].compactMap { $0 }
+
+        if !notices.isEmpty {
+            VStack(alignment: .leading, spacing: 12) {
+                ForEach(notices, id: \.0) { title, message in
+                    Label {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(title).font(.subheadline.weight(.semibold))
+                            Text(message).font(.footnote).foregroundStyle(.secondary)
+                        }
+                    } icon: {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                    }
+                    .foregroundStyle(AppSemanticColor.warningText)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .accessibilityElement(children: .combine)
+                }
+            }
+            .padding(14)
+            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
         }
     }
 
@@ -211,11 +261,22 @@ struct GuideHomeView: View {
     private var searchResults: some View {
         if filteredRescueCards.isEmpty && filteredProcedures.isEmpty && filteredKits.isEmpty {
             Section {
-                EmptyStateView(
-                    title: "No results",
-                    message: "Try a procedure, clinical problem, abbreviation, or kit name.",
-                    systemImage: "magnifyingglass"
-                )
+                // Blaming the query is only honest when there was something to
+                // search. With a failed load this said "Try a procedure name"
+                // about a library that was not there.
+                if repository.loadError != nil || repository.procedures.isEmpty {
+                    EmptyStateView(
+                        title: "Content unavailable",
+                        message: repository.loadError ?? "The procedure library did not load, so there is nothing to search.",
+                        systemImage: "exclamationmark.triangle"
+                    )
+                } else {
+                    EmptyStateView(
+                        title: "No results",
+                        message: "Try a procedure, clinical problem, abbreviation, or kit name.",
+                        systemImage: "magnifyingglass"
+                    )
+                }
             }
         } else if !filteredRescueCards.isEmpty {
             Section("Rescue Cards") {
@@ -422,9 +483,32 @@ struct PathwayProcedureListView: View {
 
             Section("Procedures") {
                 if procedures.isEmpty {
-                    Text("No procedures in this pathway yet. Content is added before release rather than showing empty categories.")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                    // Only claim the emptiness is deliberate when the library
+                    // actually loaded. This line used to be unconditional, so
+                    // a failed decode produced an affirmative reassurance that
+                    // nothing was wrong — on the one screen where the reader
+                    // had just gone looking for the missing content.
+                    if let error = repository.loadError {
+                        Label {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Procedures unavailable").font(.subheadline.weight(.semibold))
+                                Text(error).font(.footnote).foregroundStyle(.secondary)
+                            }
+                        } icon: {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                        }
+                        .foregroundStyle(AppSemanticColor.warningText)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .accessibilityElement(children: .combine)
+                    } else if repository.procedures.isEmpty {
+                        Text("The procedure library is empty. This is not expected — reinstall the app or restore the bundled content.")
+                            .font(.subheadline)
+                            .foregroundStyle(AppSemanticColor.warningText)
+                    } else {
+                        Text("No procedures in this pathway yet. Content is added before release rather than showing empty categories.")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
                 } else {
                     // This list already lives inside a pushed destination. Keep the
                     // next drill-down explicit so taps cannot be misrouted back to

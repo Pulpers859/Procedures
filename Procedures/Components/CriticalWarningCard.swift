@@ -9,7 +9,7 @@ struct CriticalWarningCard: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Image(systemName: "exclamationmark.triangle.fill")
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AppSemanticColor.warningText)
                 Text(title)
                     .font(.headline)
                     .accessibilityAddTraits(.isHeader)

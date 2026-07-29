@@ -55,18 +55,23 @@ struct ProcedureEditorView: View {
             titleVisibility: .visible
         ) {
             Button("Revert All", role: .destructive) {
+                let previousFingerprint = currentProcedure?.materialFingerprint
                 editStore.resetAllEdits(for: procedure)
                 repository.reapplyEdits()
-                rebaselineOwnReview()
+                rebaselineOwnReview(previousFingerprint: previousFingerprint)
             }
         }
     }
 
+    private var currentProcedure: Procedure? {
+        repository.procedures.first(where: { $0.id == procedure.id })
+    }
+
     /// Reverting is still your own change, so it must not flag you to
     /// re-review your own work either.
-    private func rebaselineOwnReview() {
-        guard let updated = repository.procedures.first(where: { $0.id == procedure.id }) else { return }
-        userData.rebaselineReviewAfterLocalEdit(for: updated)
+    private func rebaselineOwnReview(previousFingerprint: String?) {
+        guard let updated = currentProcedure else { return }
+        userData.rebaselineReviewAfterLocalEdit(for: updated, previousFingerprint: previousFingerprint)
     }
 
     private func sectionRow(_ section: EditableSection) -> some View {
@@ -116,7 +121,7 @@ struct SectionEditorView: View {
             if section.isClinicallyMaterial {
                 Section {
                     Label(
-                        "This is clinically material content. The existing review stays exactly as it is — this change is deliberate. Other reviewers will be asked to take another look once the edit reaches them.",
+                        "This is clinically material content. The existing review stays exactly as it is — this change is deliberate. Exporting it will not promote the sign-off until the edit is applied to the bundled content.",
                         systemImage: "exclamationmark.triangle.fill"
                     )
                     .font(.footnote.weight(.semibold))
@@ -195,9 +200,10 @@ struct SectionEditorView: View {
             titleVisibility: .visible
         ) {
             Button("Revert", role: .destructive) {
+                let previousFingerprint = currentProcedure?.materialFingerprint
                 editStore.resetSection(section, in: procedure)
                 repository.reapplyEdits()
-                rebaselineOwnReview()
+                rebaselineOwnReview(previousFingerprint: previousFingerprint)
                 // Read the baseline from the store, not from `procedure`: the
                 // repository publishes merged content, so this copy still
                 // carries the edit that was just discarded.
@@ -206,17 +212,34 @@ struct SectionEditorView: View {
         }
     }
 
+    /// Normalized the same way `setLines` normalizes, so a trailing blank from
+    /// "Add Line" does not read as a change.
+    private var normalizedLines: [String] {
+        lines.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty }
+    }
+
     private func save() {
+        // `onDisappear` fires whether or not anything was typed. Saving a
+        // no-op used to re-decode and re-validate the whole library, rebuild
+        // the search index, and reindex Spotlight — on the one screen where
+        // the reader is typing.
+        guard normalizedLines != editStore.lines(section, in: procedure) else { return }
+
+        let previousFingerprint = currentProcedure?.materialFingerprint
         editStore.setLines(lines, for: section, in: procedure)
         repository.reapplyEdits()
-        rebaselineOwnReview()
+        rebaselineOwnReview(previousFingerprint: previousFingerprint)
+    }
+
+    private var currentProcedure: Procedure? {
+        repository.procedures.first(where: { $0.id == procedure.id })
     }
 
     /// Your own correction must not flag you to re-review your own work. Read
     /// the merged procedure back from the repository so the new baseline is the
     /// text that is actually being displayed.
-    private func rebaselineOwnReview() {
-        guard let updated = repository.procedures.first(where: { $0.id == procedure.id }) else { return }
-        userData.rebaselineReviewAfterLocalEdit(for: updated)
+    private func rebaselineOwnReview(previousFingerprint: String?) {
+        guard let updated = currentProcedure else { return }
+        userData.rebaselineReviewAfterLocalEdit(for: updated, previousFingerprint: previousFingerprint)
     }
 }

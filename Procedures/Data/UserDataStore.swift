@@ -305,10 +305,26 @@ final class UserDataStore: ObservableObject {
     /// content that moved underneath you, not for work you did. The disposition
     /// and the original review date are both preserved: this re-points the
     /// baseline, it does not re-date the review.
-    func rebaselineReviewAfterLocalEdit(for procedure: Procedure) {
+    /// - Parameter previousFingerprint: the material fingerprint *before* the
+    ///   edit was applied. Required, because after the merge the store cannot
+    ///   tell the reader's own change from one that shipped underneath them.
+    func rebaselineReviewAfterLocalEdit(for procedure: Procedure, previousFingerprint: String?) {
         let key = reviewKey(kind: "procedure", id: procedure.id)
         guard var record = locallyReviewedContent[key] else { return }
         guard record.materialFingerprint != procedure.materialFingerprint else { return }
+
+        // Only adopt the new text when the reader was current with the old
+        // text. Without this, a procedure whose bundled content had changed
+        // since the sign-off — correctly showing "Review out of date" — was
+        // silently returned to "Reviewed" by opening any section editor and
+        // backing out, because the editor saves unconditionally on disappear
+        // and the rebaseline never asked *why* the fingerprint differed.
+        //
+        // The upstream change is still unread, so the notice must survive. A
+        // deliberate edit is not a substitute for reading what moved.
+        guard let previousFingerprint,
+              record.materialFingerprint == previousFingerprint else { return }
+
         record.materialFingerprint = procedure.materialFingerprint
         record.contentVersion = procedure.version
         locallyReviewedContent[key] = record

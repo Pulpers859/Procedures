@@ -413,7 +413,7 @@ struct KitDetailView: View {
                 if requiresSessionDecision {
                     Label("Saved checklist needs confirmation", systemImage: "clock.arrow.circlepath")
                         .font(.caption.weight(.semibold))
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AppSemanticColor.warningText)
                 } else {
                     checklistProgressView
                 }

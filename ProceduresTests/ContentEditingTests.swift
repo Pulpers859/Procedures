@@ -172,7 +172,10 @@ final class ContentEditingTests: XCTestCase {
         // being told to re-review a correction they just wrote themselves.
         XCTAssertEqual(userData.reviewContentState(for: edited), .materialChanged)
 
-        userData.rebaselineReviewAfterLocalEdit(for: edited)
+        userData.rebaselineReviewAfterLocalEdit(
+            for: edited,
+            previousFingerprint: bundled.materialFingerprint
+        )
 
         XCTAssertEqual(userData.reviewContentState(for: edited), .unchanged)
         XCTAssertEqual(userData.localReviewRecord(for: edited)?.disposition, .reviewed)
@@ -182,9 +185,44 @@ final class ContentEditingTests: XCTestCase {
         let bundled = makeProcedure()
         let userData = makeUserDataStore()
 
-        userData.rebaselineReviewAfterLocalEdit(for: bundled)
+        userData.rebaselineReviewAfterLocalEdit(
+            for: bundled,
+            previousFingerprint: bundled.materialFingerprint
+        )
 
         XCTAssertNil(userData.localReviewRecord(for: bundled))
+    }
+
+    /// The bug this guard exists for.
+    ///
+    /// `SectionEditorView.onDisappear` saves whether or not anything was
+    /// typed, and the rebaseline adopted the current fingerprint without
+    /// asking why it differed. So a procedure whose bundled text had changed
+    /// since sign-off — correctly reading "Review out of date" — was returned
+    /// to a plain "Reviewed" by opening any section, reading nothing, and
+    /// tapping Back. The upstream change stayed unread and the notice was gone.
+    func testAnUnrelatedEditDoesNotClearAnExistingOutOfDateNotice() {
+        let bundled = makeProcedure()
+        let userData = makeUserDataStore()
+        userData.markReviewed(bundled)
+
+        // The repo ships a rewritten step the reader has not seen.
+        var shipped = bundled
+        shipped.sections.steps = ["a new step from the repo"]
+        XCTAssertEqual(userData.reviewContentState(for: shipped), .materialChanged)
+
+        // The reader now edits something else entirely, or simply visits a
+        // section editor and backs out. Either way the pre-edit fingerprint is
+        // the shipped one, which is not what they signed off.
+        userData.rebaselineReviewAfterLocalEdit(
+            for: shipped,
+            previousFingerprint: shipped.materialFingerprint
+        )
+
+        XCTAssertEqual(
+            userData.reviewContentState(for: shipped), .materialChanged,
+            "an unrelated edit must not retire an unread upstream change"
+        )
     }
 
     func testUpstreamChangeStillFlagsAReviewedProcedure() {

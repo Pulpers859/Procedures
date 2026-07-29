@@ -65,7 +65,7 @@ struct ReviewCenterView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Label("Review tools are turned off", systemImage: "exclamationmark.triangle.fill")
                     .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AppSemanticColor.warningText)
                 Text("Opening an item below will show the content but no review controls. Turn review tools on to record Reviewed, Needs Edits, or Defer.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)

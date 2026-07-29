@@ -56,7 +56,7 @@ struct DosingLimitsCard: View {
                         .fixedSize(horizontal: false, vertical: true)
                 } icon: {
                     Image(systemName: "plus.forwardslash.minus")
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AppSemanticColor.warningText)
                 }
 
                 if !dosing.monitoring.isEmpty {

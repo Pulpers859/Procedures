@@ -108,6 +108,27 @@ class CheckReviewStateSourcesTests(unittest.TestCase):
         )
         self.assertEqual(check(self.root), [])
 
+    def test_copy_implying_other_reviewers_fails(self):
+        """There is one reader; a multi-reviewer workflow does not exist."""
+        self.write(
+            "Views/Editor.swift",
+            'Text("Other reviewers will be asked to take another look.")\n',
+        )
+        self.assertTrue(check(self.root), "multi-reviewer copy should be rejected")
+
+    def test_raw_orange_text_tint_fails(self):
+        # ~2.2:1 on light backgrounds; AppSemanticColor.warningText exists for this.
+        self.write("Views/Warning.swift", "Text(warning).foregroundStyle(.orange)\n")
+        failures = check(self.root)
+        self.assertTrue(any("raw `.orange`" in f for f in failures), failures)
+
+    def test_semantic_warning_tint_passes(self):
+        self.write(
+            "Views/Warning.swift",
+            "Text(warning).foregroundStyle(AppSemanticColor.warningText)\n",
+        )
+        self.assertEqual(check(self.root), [])
+
     # Allowlist and comment handling.
 
     def test_allowlisted_model_files_may_define_and_reconcile(self):

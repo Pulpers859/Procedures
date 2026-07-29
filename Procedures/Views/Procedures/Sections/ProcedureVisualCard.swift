@@ -37,7 +37,7 @@ struct ProcedureVisualCard: View {
             if let warning = asset.clinicalWarning, !warning.isEmpty {
                 Label(warning, systemImage: "exclamationmark.triangle.fill")
                     .font(.caption)
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AppSemanticColor.warningText)
                     .fixedSize(horizontal: false, vertical: true)
             }
         }
