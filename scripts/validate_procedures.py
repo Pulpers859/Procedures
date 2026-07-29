@@ -486,6 +486,95 @@ def prose_dose_ceiling_issues(procedures, level="WARNING"):
     return issues
 
 
+LOCAL_ANESTHETIC_AGENTS = (
+    "lidocaine", "bupivacaine", "ropivacaine", "articaine",
+    "mepivacaine", "chloroprocaine", "prilocaine", "procaine",
+)
+ANESTHETIC_MENTION = re.compile(r"an[ae]sthetic", re.IGNORECASE)
+
+
+def uncomputable_injectate_issues(procedures, level="WARNING"):
+    """Flags an injectate volume the reader cannot convert to milligrams.
+
+    A line reading "Local anesthetic (20-30 mL)" on a procedure whose dosing
+    table lists two agents with different ceilings is 50-75 mg as 0.25%
+    bupivacaine or 200-300 mg as 1% lidocaine — a fourfold spread the reader
+    has to close from memory, in the section whose entire purpose is not making
+    them do that.
+
+    Structural only: it asks whether the record names an agent beside the
+    volume, not whether the volume is right.
+    """
+    issues = []
+    for item in procedures:
+        if not isinstance(item.get("dosing"), dict):
+            continue
+        sections = item.get("sections") or {}
+        lines = [str(line) for field in ("equipment", "steps") for line in sections.get(field) or []]
+
+        # Reported once per procedure, not once per line. The question is
+        # whether the record ever says what the drug is — a steps line that
+        # omits it is fine when the equipment line names it, and flagging both
+        # turns one answerable question into thirty.
+        offending = [
+            text for text in lines
+            if ANESTHETIC_MENTION.search(text)
+            and _max_volume_ml(text) is not None
+            and not any(agent in text.lower() for agent in LOCAL_ANESTHETIC_AGENTS)
+            and not PERCENT.search(text)
+        ]
+        if not offending:
+            continue
+        names_agent_somewhere = any(
+            any(agent in text.lower() for agent in LOCAL_ANESTHETIC_AGENTS) and PERCENT.search(text)
+            for text in lines
+        )
+        if names_agent_somewhere:
+            continue
+
+        title = item.get("title", item.get("id", "<missing id>"))
+        issues.append((
+            level, title,
+            f"states an injectate volume ({offending[0][:52]}) but never names an agent "
+            f"with a concentration in equipment or steps, so the volume cannot be "
+            f"converted to mg against this procedure's own ceiling"
+        ))
+    return issues
+
+
+def unbounded_agent_issues(procedures, level="WARNING"):
+    """Flags an agent the prose tells you to use that has no stated maximum.
+
+    `block_inferior_alveolar` offers "lidocaine/articaine" and its dosing table
+    has no articaine entry — anywhere in the file. A drug the procedure names
+    with no ceiling is the gap the structured dosing block exists to close.
+    """
+    issues = []
+    for item in procedures:
+        dosing = item.get("dosing")
+        if not isinstance(dosing, dict):
+            continue
+        title = item.get("title", item.get("id", "<missing id>"))
+        listed = " ".join(
+            str(agent.get("agent") or "")
+            for agent in dosing.get("agents") or []
+            if isinstance(agent, dict)
+        ).lower()
+        sections = item.get("sections") or {}
+        prose = " ".join(
+            list(sections.get("equipment") or []) + list(sections.get("steps") or [])
+        ).lower()
+        for agent in LOCAL_ANESTHETIC_AGENTS:
+            if agent in prose and agent not in listed:
+                issues.append((
+                    level, title,
+                    f"names '{agent}' in equipment/steps but has no maxDoseMgPerKg "
+                    f"entry for it, so the procedure states no ceiling for a drug it "
+                    f"tells you to use"
+                ))
+    return issues
+
+
 def crash_card_dose_issues(cards, level="WARNING"):
     """Every Crash-acuity immediate move naming a drug or drug class must carry
     a number on the same line (dose, concentration, mL, rate, or mg/kg)."""
@@ -702,6 +791,8 @@ def collect_issues(procedures, rescue_cards, kits, release=False):
     issues.extend(regional_dosing_issues(procedures, rescue_card_ids, level=dosing_level))
     issues.extend(crash_card_dose_issues(rescue_cards, level=dosing_level))
     issues.extend(prose_dose_ceiling_issues(procedures, level=dosing_level))
+    issues.extend(uncomputable_injectate_issues(procedures, level=dosing_level))
+    issues.extend(unbounded_agent_issues(procedures, level=dosing_level))
 
     if release:
         issues.extend(release_readiness_issues(procedures, rescue_cards, kits))

@@ -196,6 +196,90 @@ class ProseDoseCeilingTests(unittest.TestCase):
         self.assertIsNone(MODULE._max_volume_ml("no volume here"))
 
 
+class UncomputableInjectateTests(unittest.TestCase):
+    """"Local anesthetic (20-30 mL)" on a record listing two agents with
+    different ceilings is 50-75 mg or 200-300 mg depending on which one is in
+    the syringe. Structural only: does the record ever say what the drug is."""
+
+    def procedure(self, equipment, steps=None):
+        return {
+            "id": "block_test",
+            "title": "Test Block",
+            "category": "Regional Anesthesia",
+            "sections": {"equipment": equipment, "steps": steps or []},
+            "dosing": dosing(),
+        }
+
+    def test_volume_with_no_agent_anywhere_is_flagged(self):
+        item = self.procedure(["Local anesthetic (5-10 mL)"], ["Inject 5-10 mL of anesthetic."])
+        issues = MODULE.uncomputable_injectate_issues([item])
+        self.assertEqual(len(issues), 1, issues)
+        self.assertIn("never names an agent", issues[0][2])
+
+    def test_agent_named_in_equipment_excuses_the_steps_line(self):
+        item = self.procedure(
+            ["Local anesthetic (15-20 mL of 0.25% bupivacaine)"],
+            ["Aspirate, then inject 15-20 mL of anesthetic."],
+        )
+        self.assertEqual(MODULE.uncomputable_injectate_issues([item]), [])
+
+    def test_one_issue_per_procedure_not_per_line(self):
+        item = self.procedure(
+            ["Local anesthetic (5-10 mL)"],
+            ["Inject 5-10 mL of anesthetic.", "Inject a further 5 mL of anesthetic."],
+        )
+        self.assertEqual(len(MODULE.uncomputable_injectate_issues([item])), 1)
+
+    def test_equipment_sizing_is_not_an_injectate(self):
+        # "3-5 mL syringe" is a syringe, not a dose.
+        item = self.procedure(["3-5 mL syringe", "Sterile gloves"])
+        self.assertEqual(MODULE.uncomputable_injectate_issues([item]), [])
+
+    def test_procedure_without_structured_dosing_is_not_gated(self):
+        item = self.procedure(["Local anesthetic (5-10 mL)"])
+        del item["dosing"]
+        self.assertEqual(MODULE.uncomputable_injectate_issues([item]), [])
+
+    def test_shipped_content_flags_only_whole_procedures(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        issues = MODULE.uncomputable_injectate_issues(procedures)
+        titles = [issue[1] for issue in issues]
+        self.assertEqual(len(titles), len(set(titles)), "one issue per procedure")
+
+
+class UnboundedAgentTests(unittest.TestCase):
+    """A drug the procedure tells you to use, with no stated maximum."""
+
+    def procedure(self, equipment):
+        return {
+            "id": "block_test",
+            "title": "Test Block",
+            "category": "Regional Anesthesia",
+            "sections": {"equipment": equipment, "steps": []},
+            "dosing": dosing(),  # bupivacaine only
+        }
+
+    def test_agent_named_in_prose_without_a_ceiling_is_flagged(self):
+        issues = MODULE.unbounded_agent_issues([self.procedure(["1% lidocaine or articaine"])])
+        named = " ".join(issue[2] for issue in issues)
+        self.assertIn("articaine", named)
+        self.assertIn("lidocaine", named)
+
+    def test_an_agent_with_a_ceiling_is_clean(self):
+        self.assertEqual(
+            MODULE.unbounded_agent_issues([self.procedure(["0.25% bupivacaine"])]), []
+        )
+
+    def test_shipped_content_has_exactly_the_known_gap(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        issues = MODULE.unbounded_agent_issues(procedures)
+        self.assertEqual(
+            [(issue[1], "articaine" in issue[2]) for issue in issues],
+            [("Inferior Alveolar Nerve Block", True)],
+            "a new unbounded agent appeared, or the known one was resolved",
+        )
+
+
 class CrashCardDoseTests(unittest.TestCase):
     def test_drug_class_without_number_is_flagged(self):
         issues = MODULE.crash_card_dose_issues([crash_card(["Give push-dose vasopressor if crashing."])])
