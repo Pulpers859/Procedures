@@ -130,10 +130,10 @@ struct SettingsView: View {
                         Label("Delete Local Notes", systemImage: "trash")
                     }
                     Button(role: .destructive) { confirmation = .clearReviews } label: {
-                        Label("Clear My Review Marks", systemImage: "checkmark.seal")
+                        Label("Clear Review Marks", systemImage: "checkmark.seal")
                     }
                 } header: {
-                    Text("My Data")
+                    Text("Local Data")
                 } footer: {
                     Text("Favorites, recents, checklists, notes, and review marks are stored only on this device.")
                 }

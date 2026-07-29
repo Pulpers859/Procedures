@@ -211,7 +211,7 @@ struct RescueCardDetailView: View {
                 }
 
                 if reviewModeEnabled {
-                    SectionCard(title: "My Review", systemImage: "checkmark.shield") {
+                    SectionCard(title: "Review", systemImage: "checkmark.shield") {
                         LocalReviewPanel(
                             sourceStatus: card.reviewer,
                             sourceOrigin: card.source,

@@ -40,14 +40,14 @@ enum ReviewScope: Hashable {
         case .disposition(let disposition):
             switch disposition {
             case .reviewed:
-                return "Items you have signed off on this device. Export them from the Review Center to promote them in the repo."
+                return "Signed off on this device. Export from the Review Center to promote them in the repo."
             case .needsEdits:
-                return "Items you flagged as needing changes. Open one to edit the text inline."
+                return "Flagged as needing changes. Open one to edit the text inline."
             case .deferred:
-                return "Items you set aside. Deferring is not a review, so these still read as unreviewed everywhere else."
+                return "Set aside for later. Deferring is not a review, so these still read as unreviewed everywhere else."
             }
         case .changedSinceReview:
-            return "Still reviewed, and still counted as done. Listed only because the steps, doses, contraindications, or complications moved after you signed off."
+            return "Still reviewed, and still counted as done. Listed only because the steps, doses, contraindications, or complications moved after sign-off."
         case .issues(let severity):
             switch severity {
             case .blocker:
@@ -58,7 +58,7 @@ enum ReviewScope: Hashable {
                 return "Non-blocking consistency and style findings."
             }
         case .locallyEdited:
-            return "Procedures whose text you changed on this device. The originals are untouched in the repo until you export."
+            return "Procedures edited on this device. The originals are untouched in the repo until exported."
         }
     }
 }

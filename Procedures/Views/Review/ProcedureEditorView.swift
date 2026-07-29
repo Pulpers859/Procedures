@@ -18,7 +18,7 @@ struct ProcedureEditorView: View {
     var body: some View {
         List {
             Section {
-                Text("Your edits are saved on this device and replace the bundled text everywhere in the app. Nothing that shipped is overwritten — any section can be reverted.")
+                Text("Edits are saved on this device and replace the bundled text everywhere in the app. Nothing that shipped is overwritten — any section can be reverted.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -116,7 +116,7 @@ struct SectionEditorView: View {
             if section.isClinicallyMaterial {
                 Section {
                     Label(
-                        "This is clinically material content. Your own review stays exactly as it is — you are making the change. Other reviewers will be asked to take another look once your edit reaches them.",
+                        "This is clinically material content. The existing review stays exactly as it is — this change is deliberate. Other reviewers will be asked to take another look once the edit reaches them.",
                         systemImage: "exclamationmark.triangle.fill"
                     )
                     .font(.footnote.weight(.semibold))

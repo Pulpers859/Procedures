@@ -14,8 +14,9 @@ import SwiftUI
 /// This type is the only place the two records are reconciled. Nothing in the UI
 /// should branch on `reviewer.isClinicallyReviewed` directly.
 ///
-/// It never overstates: a local sign-off is attributed to the reader ("Reviewed
-/// by you"), never promoted into a claim of formal clinical review. Turning a
+/// This is a single-user app, so the UI never attributes a review back to the
+/// reader — a sign-off simply reads "Reviewed". The local/upstream distinction
+/// is kept in the case names because it still drives real behaviour: promoting a
 /// local review into the content's actual status is a repo operation
 /// (`scripts/apply_local_reviews.py`), not something the app can do to itself.
 enum ReviewState: Hashable {
@@ -24,12 +25,12 @@ enum ReviewState: Hashable {
     case unreviewed
     /// The reader marked this as needing edits. Their own flag outranks
     /// everything else, including an upstream sign-off.
-    case flaggedByYou
+    case flaggedForEdits
     /// The reader signed this off and the material content is what they read.
-    case reviewedByYou(date: String)
+    case reviewedLocally(date: String)
     /// The reader signed this off, but steps/doses/contraindications have moved
     /// since. The review still stands — this only says it is worth a second look.
-    case reviewedByYouOutdated(date: String)
+    case reviewedLocallyOutdated(date: String)
     /// The bundled content carries a clinical sign-off.
     case clinicallyReviewed
 
@@ -44,15 +45,15 @@ enum ReviewState: Hashable {
         contentState: ReviewContentState?
     ) -> ReviewState {
         if record?.disposition == .needsEdits {
-            return .flaggedByYou
+            return .flaggedForEdits
         }
         if sourceStatus.isClinicallyReviewed {
             return .clinicallyReviewed
         }
         if let record, record.disposition == .reviewed {
             return contentState == .materialChanged
-                ? .reviewedByYouOutdated(date: record.date)
-                : .reviewedByYou(date: record.date)
+                ? .reviewedLocallyOutdated(date: record.date)
+                : .reviewedLocally(date: record.date)
         }
         return .unreviewed
     }
@@ -62,9 +63,9 @@ enum ReviewState: Hashable {
     /// revoked by a later content change.
     var isReviewed: Bool {
         switch self {
-        case .reviewedByYou, .reviewedByYouOutdated, .clinicallyReviewed:
+        case .reviewedLocally, .reviewedLocallyOutdated, .clinicallyReviewed:
             return true
-        case .unreviewed, .flaggedByYou:
+        case .unreviewed, .flaggedForEdits:
             return false
         }
     }
@@ -73,9 +74,9 @@ enum ReviewState: Hashable {
     /// on the content.
     var isCautionary: Bool {
         switch self {
-        case .unreviewed, .flaggedByYou, .reviewedByYouOutdated:
+        case .unreviewed, .flaggedForEdits, .reviewedLocallyOutdated:
             return true
-        case .reviewedByYou, .clinicallyReviewed:
+        case .reviewedLocally, .clinicallyReviewed:
             return false
         }
     }
@@ -83,9 +84,9 @@ enum ReviewState: Hashable {
     var systemImage: String {
         switch self {
         case .unreviewed: return "exclamationmark.shield"
-        case .flaggedByYou: return "square.and.pencil"
-        case .reviewedByYou: return "checkmark.seal.fill"
-        case .reviewedByYouOutdated: return "arrow.triangle.2.circlepath"
+        case .flaggedForEdits: return "square.and.pencil"
+        case .reviewedLocally: return "checkmark.seal.fill"
+        case .reviewedLocallyOutdated: return "arrow.triangle.2.circlepath"
         case .clinicallyReviewed: return "checkmark.seal.fill"
         }
     }
@@ -94,35 +95,35 @@ enum ReviewState: Hashable {
     var shortLabel: String {
         switch self {
         case .unreviewed: return "Not reviewed"
-        case .flaggedByYou: return "Needs edits"
-        case .reviewedByYou: return "Reviewed by you"
-        case .reviewedByYouOutdated: return "Review out of date"
-        case .clinicallyReviewed: return "Clinically reviewed"
+        case .flaggedForEdits: return "Needs edits"
+        case .reviewedLocally: return "Reviewed"
+        case .reviewedLocallyOutdated: return "Review out of date"
+        case .clinicallyReviewed: return "Reviewed"
         }
     }
 
-    /// Header text for a detail page, where the extra clause fits and the reader
-    /// has committed to this one item.
+    /// Header text for a detail page, where a date fits and there is one item to
+    /// describe rather than fifty.
     func detailLabel(source: ContentSource) -> String {
         switch self {
         case .unreviewed:
-            return source == .aiDraft ? "DRAFT — not clinically reviewed" : "Not reviewed"
-        case .flaggedByYou:
-            return "You flagged this for edits"
-        case .reviewedByYou(let date):
-            return "Reviewed by you · \(date)"
-        case .reviewedByYouOutdated(let date):
-            return "Your review (\(date)) predates a content change"
+            return source == .aiDraft ? "DRAFT — not reviewed" : "Not reviewed"
+        case .flaggedForEdits:
+            return "Needs edits"
+        case .reviewedLocally(let date):
+            return "Reviewed · \(date)"
+        case .reviewedLocallyOutdated(let date):
+            return "Review out of date · reviewed \(date)"
         case .clinicallyReviewed:
-            return "Clinically reviewed"
+            return "Reviewed"
         }
     }
 
     var tint: Color {
         switch self {
-        case .unreviewed, .flaggedByYou, .reviewedByYouOutdated:
+        case .unreviewed, .flaggedForEdits, .reviewedLocallyOutdated:
             return AppSemanticColor.warningText
-        case .reviewedByYou, .clinicallyReviewed:
+        case .reviewedLocally, .clinicallyReviewed:
             return .green
         }
     }
@@ -150,13 +151,13 @@ enum ReviewBadgePolicy: Hashable {
     }
 
     /// Whether this particular row earns a badge under the policy. States the
-    /// reader created themselves (`flaggedByYou`, an out-of-date review) always
+    /// reader created themselves (`flaggedForEdits`, an out-of-date review) always
     /// show: they are personal, always a minority, and always actionable.
     func shouldBadge(_ state: ReviewState) -> Bool {
         switch state {
-        case .flaggedByYou, .reviewedByYouOutdated:
+        case .flaggedForEdits, .reviewedLocallyOutdated:
             return true
-        case .reviewedByYou, .clinicallyReviewed:
+        case .reviewedLocally, .clinicallyReviewed:
             return self == .markReviewed
         case .unreviewed:
             return self == .markUnreviewed

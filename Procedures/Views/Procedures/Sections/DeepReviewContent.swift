@@ -44,7 +44,7 @@ struct DeepReviewContent: View {
             }
 
             if reviewModeEnabled {
-                SectionCard(title: "My Review", systemImage: "checkmark.shield") {
+                SectionCard(title: "Review", systemImage: "checkmark.shield") {
                     LocalReviewPanel(
                         sourceStatus: procedure.reviewer,
                         sourceOrigin: procedure.source,

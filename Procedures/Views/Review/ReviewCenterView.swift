@@ -57,7 +57,7 @@ struct ReviewCenterView: View {
         .onChange(of: userData.locallyReviewedContent) { _, _ in refreshExport() }
     }
 
-    /// Without review tools the "My Review" panel is hidden on every content
+    /// Without review tools the "Review" panel is hidden on every content
     /// page, so each queue row would dead-end on a screen with no way to record
     /// a disposition. Say that here and offer the switch inline.
     private var reviewToolsDisabledSection: some View {
@@ -96,14 +96,14 @@ struct ReviewCenterView: View {
                 )
                 if let exportURL {
                     ShareLink(item: exportURL) {
-                        Label("Export My Edits", systemImage: "square.and.arrow.up")
+                        Label("Export Edits", systemImage: "square.and.arrow.up")
                             .frame(minHeight: AppLayout.controlMinHeight)
                     }
                 }
             } header: {
-                Text("My Edits")
+                Text("Edits")
             } footer: {
-                Text("Exports a JSON file of every local correction. Apply it to the repo with scripts/apply_local_edits.py to turn your edits into a reviewable diff.")
+                Text("Exports a JSON file of every local correction. Apply it to the repo with scripts/apply_local_edits.py to turn local edits into a reviewable diff.")
             }
         }
     }
@@ -117,18 +117,18 @@ struct ReviewCenterView: View {
             Section {
                 scopeRow(
                     icon: "checkmark.seal",
-                    title: "Items you have signed off",
+                    title: "Signed off",
                     count: reviewedCount,
                     scope: .disposition(.reviewed)
                 )
                 if let reviewExportURL {
                     ShareLink(item: reviewExportURL) {
-                        Label("Export My Reviews", systemImage: "square.and.arrow.up")
+                        Label("Export Reviews", systemImage: "square.and.arrow.up")
                             .frame(minHeight: AppLayout.controlMinHeight)
                     }
                 }
             } header: {
-                Text("My Reviews")
+                Text("Reviews")
             } footer: {
                 Text("Apply it to the repo with scripts/apply_local_reviews.py to promote these items out of \"AI draft\". Sign-offs recorded against content that has since changed are refused rather than promoted.")
             }
@@ -153,7 +153,7 @@ struct ReviewCenterView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Review Workspace")
                             .font(.title3.weight(.bold))
-                        Text("Separate from bedside use. Review content, capture fixes, and track what you have personally signed off on this device.")
+                        Text("Separate from bedside use. Review content, capture fixes, and track what has been signed off on this device.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .fixedSize(horizontal: false, vertical: true)
@@ -165,7 +165,7 @@ struct ReviewCenterView: View {
                 // row keep the pill's own appearance rather than taking on a
                 // disclosure chevron.
                 HStack(spacing: 8) {
-                    metricPillLink(value: reviewedCount, label: "reviewed by you", tint: .green, scope: .disposition(.reviewed))
+                    metricPillLink(value: reviewedCount, label: "reviewed", tint: .green, scope: .disposition(.reviewed))
                     if changedSinceReviewCount > 0 {
                         metricPillLink(value: changedSinceReviewCount, label: "changed", tint: .orange, scope: .changedSinceReview)
                     }
@@ -294,11 +294,9 @@ struct ReviewCenterView: View {
                 scopeRow(icon: "list.bullet.rectangle", title: "Procedures", count: repository.procedures.count, scope: .allProcedures)
                 scopeRow(icon: "lifepreserver", title: "Rescue Cards", count: repository.rescueCards.count, scope: .allRescueCards)
                 scopeRow(icon: "shippingbox", title: "Kits", count: repository.kits.count, scope: .allKits)
-                // "Reviewed by you", not "Reviewed": this counts your sign-offs
-                // only, and the list it opens filters the same way. Once content
-                // starts shipping pre-reviewed, an unqualified "Reviewed" here
-                // would disagree with the rest of the app for the rest of time.
-                scopeRow(icon: "checkmark.seal", title: "Reviewed by you", count: reviewedCount, scope: .disposition(.reviewed))
+                // Counts local sign-offs only, and the list it opens filters the
+                // same way, so the number and its destination cannot disagree.
+                scopeRow(icon: "checkmark.seal", title: "Reviewed", count: reviewedCount, scope: .disposition(.reviewed))
                 if changedSinceReviewCount > 0 {
                     scopeRow(icon: "arrow.triangle.2.circlepath", title: "Changed since review", count: changedSinceReviewCount, scope: .changedSinceReview)
                 }
@@ -321,9 +319,9 @@ struct ReviewCenterView: View {
                 Section {
                     changedSinceReviewRows
                 } header: {
-                    Text("Changed Since Your Review")
+                    Text("Changed Since Review")
                 } footer: {
-                    Text("These stay reviewed and still count as done. Listed only because the clinically material text moved — open one if you want to re-confirm.")
+                    Text("These stay reviewed and still count as done. Listed only because the clinically material text moved — open one to re-confirm.")
                 }
             }
 
@@ -473,7 +471,7 @@ struct ReviewCenterView: View {
                 ProcedureReviewRow(
                     title: procedure.title,
                     subtitle: procedure.category.rawValue,
-                    detail: "Steps or doses changed since your review",
+                    detail: "Steps or doses changed since review",
                     record: userData.localReviewRecord(for: procedure)
                 )
             }
@@ -486,7 +484,7 @@ struct ReviewCenterView: View {
                 ProcedureReviewRow(
                     title: card.title,
                     subtitle: "Rescue Card",
-                    detail: "Immediate moves changed since your review",
+                    detail: "Immediate moves changed since review",
                     record: userData.localReviewRecord(for: card)
                 )
             }
@@ -499,7 +497,7 @@ struct ReviewCenterView: View {
                 ProcedureReviewRow(
                     title: kit.title,
                     subtitle: "Kit",
-                    detail: "Contents or setup changed since your review",
+                    detail: "Contents or setup changed since review",
                     record: userData.localReviewRecord(for: kit)
                 )
             }

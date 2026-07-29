@@ -91,21 +91,21 @@ struct ProcedureListView: View {
     /// Said once, here, instead of as an orange badge on every row.
     ///
     /// While nothing in the library has been reviewed the per-row badge marks
-    /// 100% of rows and distinguishes nothing, so it is suppressed and the
-    /// state is disclosed in one place. Detail pages still carry their own
-    /// banner, so no procedure can be opened without the reader being told.
-    /// Counts the reader's own sign-offs, not just what shipped. The old version
-    /// asked the bundled content only, so it went on insisting that "no procedure
-    /// has been reviewed" to a clinician looking at procedures they had reviewed
-    /// themselves. Once even one is reviewed this disappears and the per-row
-    /// badge takes over, marking the reviewed minority.
+    /// 100% of rows and distinguishes nothing, so it is suppressed and the state
+    /// is disclosed in one place. Detail pages still carry their own banner, so
+    /// no procedure can be opened without the reader being told.
+    ///
+    /// Counts local sign-offs, not just what shipped. Asking the bundled content
+    /// alone meant this went on insisting nothing had been reviewed to a reader
+    /// looking at procedures they had reviewed. Once even one is reviewed it
+    /// disappears and the per-row badge takes over, marking the reviewed minority.
     @ViewBuilder
     private var unreviewedCorpusNotice: some View {
         if !repository.procedures.isEmpty,
            userData.effectiveReviewedCount(procedures: repository.procedures) == 0 {
             Section {
                 Label(
-                    "No procedure in this library has been reviewed yet — not by the content team, and not by you. Verify against a trusted source before bedside use.",
+                    "Nothing in this library has been reviewed yet. Verify against a trusted source before bedside use.",
                     systemImage: "exclamationmark.shield"
                 )
                 .font(.footnote.weight(.semibold))

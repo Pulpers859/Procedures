@@ -30,7 +30,7 @@ final class ReviewStateTests: XCTestCase {
             contentState: .unchanged
         )
 
-        XCTAssertEqual(state, .reviewedByYou(date: "2026-07-29"))
+        XCTAssertEqual(state, .reviewedLocally(date: "2026-07-29"))
         XCTAssertTrue(state.isReviewed)
         XCTAssertFalse(state.isCautionary)
     }
@@ -42,7 +42,7 @@ final class ReviewStateTests: XCTestCase {
             record: nil,
             contentState: nil
         )
-        XCTAssertEqual(unreviewed.detailLabel(source: .aiDraft), "DRAFT — not clinically reviewed")
+        XCTAssertEqual(unreviewed.detailLabel(source: .aiDraft), "DRAFT — not reviewed")
 
         let reviewed = ReviewState.resolve(
             sourceStatus: .needsClinicalReview,
@@ -50,20 +50,38 @@ final class ReviewStateTests: XCTestCase {
             contentState: .unchanged
         )
         XCTAssertFalse(reviewed.detailLabel(source: .aiDraft).contains("DRAFT"))
-        XCTAssertEqual(reviewed.detailLabel(source: .aiDraft), "Reviewed by you · 2026-07-29")
+        XCTAssertEqual(reviewed.detailLabel(source: .aiDraft), "Reviewed · 2026-07-29")
     }
 
-    /// A local sign-off is attributed to the reader and never promoted into a
-    /// claim of formal clinical review. Only the repo can do that.
-    func testLocalSignOffNeverClaimsClinicalReview() {
-        let state = ReviewState.resolve(
+    /// Single-user app: a review reads "Reviewed" with no attribution, and
+    /// reviewed content reads identically whoever signed it off.
+    func testReviewedContentReadsTheSameFromEitherSource() {
+        let local = ReviewState.resolve(
+            sourceStatus: .needsClinicalReview,
+            record: LocalReviewRecord(disposition: .reviewed, date: "2026-07-29"),
+            contentState: .unchanged
+        )
+        let upstream = ReviewState.resolve(sourceStatus: .externallyReviewed, record: nil, contentState: nil)
+
+        XCTAssertEqual(local.shortLabel, "Reviewed")
+        XCTAssertEqual(upstream.shortLabel, "Reviewed")
+        for label in [local.shortLabel, upstream.shortLabel, local.detailLabel(source: .aiDraft)] {
+            XCTAssertFalse(label.lowercased().contains("you"), label)
+        }
+    }
+
+    /// The labels collapse, but the states must not. Export refuses to promote a
+    /// sign-off the repo already carries, and the validator treats the two
+    /// differently, so the distinction has to survive underneath the copy.
+    func testLocalAndUpstreamRemainDistinctStatesDespiteIdenticalCopy() {
+        let local = ReviewState.resolve(
             sourceStatus: .needsClinicalReview,
             record: LocalReviewRecord(disposition: .reviewed, date: "2026-07-29"),
             contentState: .unchanged
         )
 
-        XCTAssertNotEqual(state, .clinicallyReviewed)
-        XCTAssertFalse(state.shortLabel.lowercased().contains("clinically"))
+        XCTAssertNotEqual(local, .clinicallyReviewed)
+        XCTAssertEqual(local, .reviewedLocally(date: "2026-07-29"))
     }
 
     func testChangedContentMarksTheReviewOutOfDateWithoutRevokingIt() {
@@ -73,7 +91,7 @@ final class ReviewStateTests: XCTestCase {
             contentState: .materialChanged
         )
 
-        XCTAssertEqual(state, .reviewedByYouOutdated(date: "2026-01-01"))
+        XCTAssertEqual(state, .reviewedLocallyOutdated(date: "2026-01-01"))
         XCTAssertTrue(state.isReviewed, "a review is the reader's work and is not revoked by a later edit")
         XCTAssertTrue(state.isCautionary)
     }
@@ -87,7 +105,7 @@ final class ReviewStateTests: XCTestCase {
             contentState: .unknownBaseline
         )
 
-        XCTAssertEqual(state, .reviewedByYou(date: "2025-05-01"))
+        XCTAssertEqual(state, .reviewedLocally(date: "2025-05-01"))
     }
 
     func testReaderFlagOutranksAnUpstreamSignOff() {
@@ -97,7 +115,7 @@ final class ReviewStateTests: XCTestCase {
             contentState: .unchanged
         )
 
-        XCTAssertEqual(state, .flaggedByYou)
+        XCTAssertEqual(state, .flaggedForEdits)
         XCTAssertFalse(state.isReviewed)
     }
 
@@ -151,15 +169,15 @@ final class ReviewStateTests: XCTestCase {
     /// regardless of which way the corpus-wide policy is pointing.
     func testPersonalStatesAlwaysBadge() {
         for policy in [ReviewBadgePolicy.suppressed, .markReviewed, .markUnreviewed] {
-            XCTAssertTrue(policy.shouldBadge(.flaggedByYou), "\(policy)")
-            XCTAssertTrue(policy.shouldBadge(.reviewedByYouOutdated(date: "2026-01-01")), "\(policy)")
+            XCTAssertTrue(policy.shouldBadge(.flaggedForEdits), "\(policy)")
+            XCTAssertTrue(policy.shouldBadge(.reviewedLocallyOutdated(date: "2026-01-01")), "\(policy)")
         }
     }
 
     func testSuppressedPolicyBadgesNeitherBulkState() {
         XCTAssertFalse(ReviewBadgePolicy.suppressed.shouldBadge(.unreviewed))
         XCTAssertFalse(ReviewBadgePolicy.suppressed.shouldBadge(.clinicallyReviewed))
-        XCTAssertFalse(ReviewBadgePolicy.suppressed.shouldBadge(.reviewedByYou(date: "2026-01-01")))
+        XCTAssertFalse(ReviewBadgePolicy.suppressed.shouldBadge(.reviewedLocally(date: "2026-01-01")))
     }
 
     // MARK: - End to end through the store
@@ -205,20 +223,30 @@ final class ReviewStateTests: XCTestCase {
         XCTAssertEqual(userData.effectiveReviewedCount(procedures: [procedure]), 1)
     }
 
-    /// Editing a procedure you already signed off re-baselines the review, so
-    /// the state must stay clean rather than flipping to "out of date" over your
-    /// own correction.
-    func testYourOwnEditDoesNotAgeYourReview() {
+    /// Editing an already-reviewed procedure re-baselines the review, so it must
+    /// stay clean rather than flipping to "out of date" over a deliberate local
+    /// correction — and the original review date must survive, because this
+    /// re-points the baseline rather than re-dating the work.
+    ///
+    /// Note what is deliberately *not* asserted: that the edited copy and the
+    /// pre-edit copy read the same. After a re-baseline they correctly differ,
+    /// because the stale copy no longer matches the recorded fingerprint. An
+    /// earlier version of this test asserted that equality and CI caught it.
+    func testALocalEditDoesNotAgeTheReviewOfIt() {
         let procedure = makeProcedure()
         let userData = makeUserDataStore()
         userData.markReviewed(procedure)
+        let originalDate = userData.localReviewRecord(for: procedure)?.date
+        XCTAssertNotNil(originalDate)
 
         var edited = procedure
-        edited.sections.steps = ["a step I just corrected"]
+        edited.sections.steps = ["a corrected step"]
         userData.rebaselineReviewAfterLocalEdit(for: edited)
 
-        XCTAssertEqual(userData.reviewState(for: edited), userData.reviewState(for: procedure))
-        XCTAssertFalse(userData.reviewState(for: edited).isCautionary)
+        let state = userData.reviewState(for: edited)
+        XCTAssertFalse(state.isCautionary, "a deliberate edit must not flag the review that preceded it")
+        XCTAssertEqual(state, .reviewedLocally(date: originalDate ?? ""))
+        XCTAssertEqual(userData.localReviewRecord(for: edited)?.date, originalDate)
     }
 
     // MARK: - Nothing forgets
@@ -254,7 +282,7 @@ final class ReviewStateTests: XCTestCase {
         }
     }
 
-    /// The Review Center's "Reviewed by you" count and the list that row opens
+    /// The Review Center's "Reviewed" count and the list that row opens
     /// filter on different expressions. They must never disagree, or a reader
     /// taps a count of 1 and lands on an empty screen.
     func testTheReviewedCountMatchesTheListItOpens() {

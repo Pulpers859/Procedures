@@ -308,7 +308,7 @@ struct KitDetailView: View {
                 }
 
                 if reviewModeEnabled {
-                    SectionCard(title: "My Review", systemImage: "checkmark.shield") {
+                    SectionCard(title: "Review", systemImage: "checkmark.shield") {
                         LocalReviewPanel(
                             sourceStatus: kit.reviewer,
                             sourceOrigin: kit.source,

@@ -4,6 +4,22 @@
 
 This app should feel like a fast clinical tool, not a course module.
 
+## Audience: one user
+
+There is exactly one reader, and it is the person who owns the repo. Write copy
+accordingly.
+
+- Never attribute an action back to the reader. `Reviewed`, not `Reviewed by you`.
+  `Edits`, not `My Edits`. `Changed Since Review`, not `Changed Since Your Review`.
+- Do not narrate what the reader already knows they did. They recorded the
+  sign-off; restating whose it is costs a line and adds nothing.
+- Second person is still fine when it is genuinely instructional
+  (`Before You Start`, `Calculate Before You Draw Up`). The rule is about
+  attribution, not about the word "you".
+- `scripts/check_review_state_sources.py` fails the build on the banned phrasing.
+- The local-versus-upstream review distinction stays in the code because it drives
+  export and validation. Only the visible text collapses to one word.
+
 ## Main tabs
 
 1. Guide — command center, pathway routing, search, rescue preview

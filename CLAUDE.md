@@ -14,6 +14,13 @@
 4. Accessible, calm, native iOS UX
 5. Maintainable validation and content architecture
 
+## Audience
+- This app has exactly one user: the repo owner. It is not a multi-user or team product.
+- Never attribute anything in the UI back to the reader. A sign-off reads `Reviewed`, never `Reviewed by you`. Same for `My Reviews`, `My Edits`, `your review`, `you flagged`.
+- The reader already knows what they did. Attribution is text they must read to learn nothing.
+- Enforced by `scripts/check_review_state_sources.py`, which fails the build on that phrasing. Explaining the rule in a comment is fine; shipping it in a string is not.
+- Keep the local-versus-upstream distinction in code (`ReviewState.reviewedLocally` vs `.clinicallyReviewed`) — it still drives export and validation. Only the copy collapses.
+
 ## Core Rules
 - Keep procedure content in `Procedures/Resources/procedures.json`.
 - Keep rescue cards in `Procedures/Resources/rescue_cards.json`.

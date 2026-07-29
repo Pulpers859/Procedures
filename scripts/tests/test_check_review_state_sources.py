@@ -84,6 +84,30 @@ class CheckReviewStateSourcesTests(unittest.TestCase):
         self.write("Data/SomeService.swift", "let userData: UserDataStore\n")
         self.assertEqual(check(self.root), [])
 
+    # Single-user app: no attribution in user-facing copy.
+
+    def test_attribution_in_user_facing_text_fails(self):
+        self.write("Views/Detail.swift", 'Text("Reviewed by you · \\(date)")\n')
+        failures = check(self.root)
+        self.assertTrue(any("one \nuser" in f or "one user" in f for f in failures), failures)
+
+    def test_possessive_section_titles_fail(self):
+        self.write("Views/Center.swift", 'SectionCard(title: "My Reviews")\n')
+        self.assertTrue(check(self.root), "\"My Reviews\" should be rejected")
+
+    def test_plain_reviewed_passes(self):
+        self.write("Views/Detail.swift", 'Text("Reviewed · \\(date)")\n')
+        self.assertEqual(check(self.root), [])
+
+    def test_attribution_inside_a_comment_is_allowed(self):
+        # Explaining the rule, or the history behind it, is not UI text.
+        self.write(
+            "Views/Detail.swift",
+            '// Used to read "Reviewed by you"; my reviews were attributed pointlessly.\n'
+            'Text("Reviewed")\n',
+        )
+        self.assertEqual(check(self.root), [])
+
     # Allowlist and comment handling.
 
     def test_allowlisted_model_files_may_define_and_reconcile(self):

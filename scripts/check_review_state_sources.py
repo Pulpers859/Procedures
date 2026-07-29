@@ -49,6 +49,26 @@ PROPERTY_WRAPPERS = ("@EnvironmentObject", "@ObservedObject", "@StateObject", "@
 
 UI_DIRECTORIES = ("Views", "Components")
 
+# This app has one user. Telling them a review was theirs is text they have to
+# read to learn nothing — "Reviewed by you" where "Reviewed" says the same
+# thing. The phrasing is easy to reintroduce without noticing, so it is caught
+# here rather than left to review.
+ATTRIBUTION_PHRASES = (
+    "by you",
+    "your review",
+    "your edits",
+    "your own review",
+    "you have signed",
+    "you flagged",
+    "you signed off",
+    "you set aside",
+    "you reviewed",
+    "my review",
+    "my edits",
+    "my reviews",
+)
+STRING_LITERAL = re.compile(r'"([^"\\]*(?:\\.[^"\\]*)*)"')
+
 CLINICAL_FLAG = re.compile(r"\bisClinicallyReviewed\b")
 BUNDLED_REVIEWER = re.compile(r"\.reviewer\b")
 STORED_STORE = re.compile(
@@ -89,6 +109,16 @@ def check(app_root: Path = APP) -> list[str]:
                     f"{location}: reads the bundled `.reviewer` directly. Only the governance "
                     f"panel may do that, by passing it as `sourceStatus:`."
                 )
+
+            for literal in STRING_LITERAL.findall(line):
+                lowered = literal.lower()
+                for phrase in ATTRIBUTION_PHRASES:
+                    if phrase in lowered:
+                        failures.append(
+                            f'{location}: user-facing text says "{literal}". This app has one '
+                            f'user; a review reads "Reviewed", not who reviewed it.'
+                        )
+                        break
 
             match = STORED_STORE.match(line)
             if _is_ui_file(relative) and match and not any(w in raw for w in PROPERTY_WRAPPERS):
