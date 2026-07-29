@@ -368,7 +368,12 @@ struct ClinicalPathway: Identifiable, Hashable {
         ClinicalPathway(id: "airway", title: "Airway", subtitle: "ETT, RSI, cric, failed airway", systemImage: "lungs.fill", tint: .cyan, categories: [.airway]),
         ClinicalPathway(id: "lines", title: "Lines", subtitle: "CVC, IJ, access, dialysis", systemImage: "drop.fill", tint: .blue, categories: [.vascularAccess, .ultrasoundGuided]),
         ClinicalPathway(id: "thoracic", title: "Thoracic", subtitle: "Chest tube, pigtail, needle", systemImage: "stethoscope", tint: .indigo, categories: [.thoracic]),
-        ClinicalPathway(id: "resus", title: "Resus", subtitle: "Pacer, pericardiocentesis, crash", systemImage: "heart.fill", tint: .red, categories: [.cardiacResuscitation]),
+        // Green, not red. Red is reserved for the rescue signpost and appears
+        // exactly once on this screen; a red tile sitting in the grid directly
+        // beneath it spends the signal the signpost depends on. This costs the
+        // familiar heart-is-red association, which is the right trade: the tile
+        // is wayfinding, and urgency here belongs to one element only.
+        ClinicalPathway(id: "resus", title: "Resus", subtitle: "Pacer, pericardiocentesis, crash", systemImage: "heart.fill", tint: .green, categories: [.cardiacResuscitation]),
         ClinicalPathway(id: "blocks", title: "Blocks", subtitle: "Digital and regional anesthesia", systemImage: "syringe", tint: .purple, categories: [.regionalAnesthesia]),
         ClinicalPathway(id: "neuro", title: "Neuro", subtitle: "LP, CSF, meningitis workup", systemImage: "brain.head.profile", tint: .orange, categories: [.neuro]),
         ClinicalPathway(id: "sedation", title: "Sedation", subtitle: "Procedural sedation and analgesia", systemImage: "moon.zzz.fill", tint: .teal, categories: [.sedationAnalgesia]),
