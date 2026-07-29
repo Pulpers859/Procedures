@@ -9,12 +9,21 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: ios-tests-${{ github.workflow }}-${{ github.ref }}
-  # Superseding a pull-request run is free; superseding a push to main is not.
+  # Keyed by SHA on push, by ref on pull request.
+  #
+  # `cancel-in-progress: false` was already set for pushes, and it was not
+  # enough: it only governs runs that have *started*. GitHub separately evicts
+  # an already-queued run when a newer one joins the same concurrency group, and
+  # with the group keyed by ref every commit on main shared one group. So a
+  # rapid series of pushes left the intermediate commits cancelled while queued
+  # — which is the exact failure the comment here previously claimed to have
+  # fixed. Six consecutive pushes produced four cancelled runs.
+  #
   # Every commit on main is a release candidate whose .xcresult is retained as
-  # evidence, and cancelling unconditionally meant a rapid series of pushes
-  # left only the last commit verified. A build break sat undetected on main
-  # because the run that would have caught it was cancelled by the next push.
+  # evidence, so each SHA gets its own group and nothing supersedes anything.
+  # Pull requests still collapse to the latest push on the branch, where
+  # superseding is free.
+  group: ios-tests-${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
