@@ -106,5 +106,281 @@
       }
     }
   },
-  "amendments": []
+  "amendments": [
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_auricular",
+      "auditFingerprint": "558ff89d1d9009bdbaf65cc522b9edfb5a22a200483b5bea8d8399c3e5e2d90c",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_deep_peroneal",
+      "auditFingerprint": "ba406dd5e6ea7becdf95a8eda1c19668df3f82b58c1b98892bc7220f948576f1",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_femoral_nerve",
+      "auditFingerprint": "eb0afc4a56fc7c532f564e8666fc7d02c331ec013846d8116847b4955e5223a0",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_inferior_alveolar",
+      "auditFingerprint": "6a89c1b7d132b6be2db64cc172879871b0756eb8ea3f4842e3c220b173308de1",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_infraorbital",
+      "auditFingerprint": "9fd501f73eff19450b7a2e009613b6427f7c982fb8e4f5f5efd0bcdf6def9ba8",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_interscalene",
+      "auditFingerprint": "66e59449419929cf6457959162337ff9cb57830731bdaf5c15f8c37e45c4366c",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_median_nerve",
+      "auditFingerprint": "e6070821045aa19318ee7c3d6ea2c1dd154cc80d1909b1b300df1f045e6f775c",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_mental",
+      "auditFingerprint": "930b1f213afc4ba34b78fda1ed8f499efdde92e7bfdee5f86902d46d03c9be3e",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_pecs",
+      "auditFingerprint": "711209b4f5cc7881187808ac26d75ed9eb9bba472ccafc3e2cd2f183e94f6eaf",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_peng",
+      "auditFingerprint": "a14ca2adb6de98ff4dd86186f8f8e390cb0a5e1802c1e606079a1c98e28eb9a5",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_popliteal_sciatic",
+      "auditFingerprint": "7339bd10a08afd7cf6f56b1897a073420f466930a758d662359ef3306720b2fd",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_radial_nerve",
+      "auditFingerprint": "d3bed1d074ade457e22f1a943446692fbe6f4786181a25e0e38639e0456ef31e",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_saphenous_nerve",
+      "auditFingerprint": "b0ee1a00e8cdc237d25e598616efa9bba9cd2f5a50d399c1da699e872610f6b1",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_serratus_anterior",
+      "auditFingerprint": "cf8d0685a9452e147cb88c1df6753b117f3de8572f6bb2b6049f45b516ad73d3",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_superficial_cervical_plexus",
+      "auditFingerprint": "764b0415b1fe993aeef35f23235fc4390ab56404ab8d121eafac303609c62fe5",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_superficial_peroneal",
+      "auditFingerprint": "481a0d21217544943ad767dd6c6f5fe7526bc8922ed0221466c97be3ddfe62e2",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_superior_alveolar",
+      "auditFingerprint": "f071b801c61be6b4a1561069eae54b8cbb56ebade9abfdb784161870a30d78cf",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_supraclavicular",
+      "auditFingerprint": "63a2e3e772c12749c7441a685de7077521e12612cec6a34ebdcea9da407f658e",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_supraorbital",
+      "auditFingerprint": "235294c475615c8960c69739bfd1045e3ca6bc7e015a20f801ab966dc992e40b",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_sural_nerve",
+      "auditFingerprint": "c9772c4745cf4b93cb2ef9e0cb9a46812c039af670ba605660b8529c881eb5fa",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_tap",
+      "auditFingerprint": "1e9b9bb4395db416c62b74ec56f94d5beaedf9780c33aef3601d7fb9301c3d61",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_thoracic_esp",
+      "auditFingerprint": "452e8ad73f7967d4c42cce0a4fb7ef9fbefe45f4d3feb39fe53d8ec7911f0909",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_tibial_nerve",
+      "auditFingerprint": "05ee05ae81a729c14072ead0c8eae7f5800398819f4d0f013e5123cf449b4fd4",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_transgluteal_sciatic",
+      "auditFingerprint": "c67cae8172a912325bd072d847d216f2670ca0231223cb1abf51b0015bc6764c",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_ulnar_nerve",
+      "auditFingerprint": "55967fbefae7df4d2cca308f4bc17247a08c910a6b50ce34ec54b8b6c7fd3a9d",
+      "owner": "Patrick",
+      "rationale": "Post-audit change confined to the references section: the recycled placeholder line was replaced with named citations in be31f17. Machine-verified that no dosing, equipment, step, contraindication, confirmation, troubleshooting or complication text changed in these records, so each lane report's clinical findings still describe the shipping text exactly. Reference adequacy itself remains open under P3 Device, Visual, and Reference Control.",
+      "commit": "be31f17",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    }
+  ]
 }

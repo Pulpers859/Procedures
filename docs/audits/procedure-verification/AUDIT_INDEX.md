@@ -1,8 +1,8 @@
 # Procedure Verification Audit Index
 
-> **Integrity hold:** 27 of the audited procedures have changed since this audit, so their findings below describe text that is no longer shipping:
+> **Integrity hold:** 2 of the audited procedures have changed since this audit, so their findings below describe text that is no longer shipping:
 >
-> `anterior_nasal_packing`, `block_auricular`, `block_deep_peroneal`, `block_femoral_nerve`, `block_inferior_alveolar`, `block_infraorbital`, `block_interscalene`, `block_median_nerve`, `block_mental`, `block_pecs`, `block_peng`, `block_popliteal_sciatic`, `block_radial_nerve`, `block_raptir`, `block_saphenous_nerve`, `block_serratus_anterior`, `block_superficial_cervical_plexus`, `block_superficial_peroneal`, `block_superior_alveolar`, `block_supraclavicular`, `block_supraorbital`, `block_sural_nerve`, `block_tap`, `block_thoracic_esp`, `block_tibial_nerve`, `block_transgluteal_sciatic`, `block_ulnar_nerve`
+> `anterior_nasal_packing`, `block_raptir`
 >
 > Every other record still matches the bytes that were screened. See `AUDIT_LEDGER.json` for per-record baselines and any amendments.
 
