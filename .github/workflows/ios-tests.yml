@@ -48,16 +48,6 @@ jobs:
       - name: Verify review-state invariants
         run: python3 scripts/check_review_state_sources.py
 
-      # The Python suite covers the content validator, the export/apply
-      # round-trips, and the repo guards. It was running only on a developer
-      # machine, which meant nothing verified it on the way to main.
-      - name: Run repository test suite
-        run: |
-          set -euo pipefail
-          python3 -m pip install --quiet --disable-pip-version-check -r scripts/requirements-validation.txt
-          python3 -m unittest discover --start-directory scripts/tests --pattern 'test_*.py' --verbose
-          python3 scripts/validate_procedures.py
-
       - name: Report Xcode toolchain
         run: |
           xcodebuild -version
@@ -137,6 +127,30 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
             | tee "$RELEASE_LOG"
+
+      # The Python suite covers the content validator, the export/apply
+      # round-trips, and the repo guards. It ran only on a developer machine, so
+      # nothing verified it on the way to main.
+      #
+      # Placed after the Xcode work on purpose. An earlier attempt put it first
+      # and a pip failure skipped every Swift step, so a run that should have
+      # verified the build verified nothing and uploaded no evidence. Anything
+      # that can fail for environmental reasons goes after the thing it must not
+      # be able to mask.
+      #
+      # A virtualenv because the runner's Python is Homebrew-managed and rejects
+      # `pip install` outright under PEP 668. --break-system-packages would work
+      # and would also let a dependency quietly alter the runner's Python.
+      - name: Run repository test suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m venv .ci-venv
+          .ci-venv/bin/python -m pip install --quiet --disable-pip-version-check \
+            -r scripts/requirements-validation.txt
+          .ci-venv/bin/python -m unittest discover \
+            --start-directory scripts/tests --pattern 'test_*.py' --verbose
+          .ci-venv/bin/python scripts/validate_procedures.py
 
       - name: Upload Xcode evidence
         if: always()

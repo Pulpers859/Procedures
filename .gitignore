@@ -39,3 +39,6 @@ Secrets.xcconfig
 # Editor settings
 .idea/
 .vscode/
+
+# Throwaway virtualenv used by the CI repository-test step
+.ci-venv/
