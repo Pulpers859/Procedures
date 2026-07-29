@@ -430,6 +430,49 @@ class CrashVocabularyTests(unittest.TestCase):
             self.assertEqual(by_id[card_id]["acuity"], "Crash")
 
 
+class LastProdromeTests(unittest.TestCase):
+    """The LAST card could not be found by its own early warning signs.
+
+    Its trigger named only seizure, altered mental status, dysrhythmia and
+    arrest, so "ringing in ears numb lips" — the classic prodrome, and the
+    moment stopping the injection still changes the outcome — surfaced
+    everything except the card that treats it. Corrected on the clinical
+    owner's adjudication.
+    """
+
+    PRODROME_QUERIES = [
+        "ringing in ears numb lips",
+        "tinnitus",
+        "metallic taste",
+        "numb lips",
+        "perioral numbness",
+        "funny taste in mouth after injection",
+    ]
+
+    def test_prodrome_queries_lead_to_the_last_card(self):
+        for query in self.PRODROME_QUERIES:
+            with self.subTest(query=query):
+                matches = rescue_matches(query)
+                self.assertTrue(matches, f"{query!r} returned nothing")
+                self.assertEqual(matches[0], "local_anesthetic_systemic_toxicity")
+
+    def test_the_card_still_names_the_established_presentation(self):
+        card = next(c for c in RESCUE_CARDS if c["id"] == "local_anesthetic_systemic_toxicity")
+        trigger = " ".join(card["trigger"]).lower()
+        for late in ("seizure", "cardiac arrest", "dysrhythmia"):
+            self.assertIn(late, trigger, "adding the prodrome must not displace late signs")
+
+    def test_the_card_says_the_prodrome_can_be_absent(self):
+        """Early signs without this caveat would read as a gate.
+
+        Under sedation or general anaesthesia the prodrome may never be
+        observable, so absence of it must not be taken to exclude LAST.
+        """
+        card = next(c for c in RESCUE_CARDS if c["id"] == "local_anesthetic_systemic_toxicity")
+        trigger = " ".join(card["trigger"]).lower()
+        self.assertIn("does not exclude", trigger)
+
+
 class RescueBrowseOrderTests(unittest.TestCase):
     """Browsing showed raw file order while the App Intent promised Crash first."""
 

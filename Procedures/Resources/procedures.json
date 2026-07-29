@@ -4679,7 +4679,8 @@
         "Sterile ultrasound gel and probe cover",
         "Chlorhexidine skin prep",
         "Regional block needle (echogenic, longer needle required, e.g., 21G 80-100mm)",
-        "Local anesthetic (e.g., 20-30 mL of 0.25% or 0.5% bupivacaine or ropivacaine)"
+        "Local anesthetic, standard volume: 20-30 mL of 0.25% bupivacaine (30 mL = 75 mg) or 0.2% ropivacaine (30 mL = 60 mg)",
+        "Local anesthetic, higher concentration: at 0.5%, cap the volume at 20 mL (= 100 mg) and confirm the total against the weight-based maximum below before drawing up"
       ],
       "positioning": [
         "Patient supine, head neutral or turned slightly away.",
@@ -4694,7 +4695,8 @@
         "Advance the needle under the clavicle, visualizing the tip as it enters the ultrasound beam in the infraclavicular space.",
         "Aim for the posterior aspect of the axillary artery (approx. 6 o'clock position).",
         "Aspirate and inject a small test dose of saline.",
-        "Inject 20-30 mL of anesthetic, aiming to create a U-shaped spread around the artery.",
+        "Inject 20-30 mL of 0.25% bupivacaine or 0.2% ropivacaine, aiming to create a U-shaped spread around the artery.",
+        "If using 0.5%, cap the volume at 20 mL and confirm the total against the weight-based maximum before injecting.",
         "Withdraw the needle and apply a dressing."
       ],
       "ultrasound": [
@@ -4750,7 +4752,7 @@
       "Trauma"
     ],
     "lastReviewed": "2026-07-14",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "tags": [
       "regional",
       "nerve block",
@@ -4774,7 +4776,7 @@
           "absoluteMaxMg": 200
         }
       ],
-      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
+      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. The same 30 mL at 0.5% would be 150 mg, above the 70 kg maximum, which is why 0.5% is capped at 20 mL (= 100 mg). Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",

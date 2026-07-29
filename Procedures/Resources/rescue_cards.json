@@ -301,7 +301,9 @@
       "block_auricular"
     ],
     "trigger": [
-      "Neurological or cardiac symptoms during or after local anesthetic injection \u2014 including seizure, altered mental status, dysrhythmia, or cardiac arrest. May occur immediately or up to 60 minutes after injection."
+      "Early warning \u2014 stop injecting and reassess: numbness or tingling of the lips, mouth or tongue (perioral), ringing in the ears or tinnitus, metallic taste, light-headedness, blurred or double vision, drowsiness, agitation or confusion. This prodrome is the point at which stopping changes the outcome.",
+      "Established toxicity: seizure, altered mental status, dysrhythmia, or cardiac arrest. May occur immediately or up to 60 minutes after injection.",
+      "The prodrome may be absent or unobservable under sedation or general anaesthesia, where a dysrhythmia or sudden hypotension can be the first sign. Absence of early symptoms does not exclude LAST."
     ],
     "immediateMoves": [
       "Stop local anesthetic injection immediately.",
@@ -332,7 +334,12 @@
       "seizure",
       "cardiac arrest",
       "regional block",
-      "toxicity"
+      "toxicity",
+      "tinnitus",
+      "perioral numbness",
+      "metallic taste",
+      "prodrome",
+      "early signs"
     ],
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",

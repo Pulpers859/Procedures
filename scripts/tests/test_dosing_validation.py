@@ -189,6 +189,18 @@ class ProseDoseCeilingTests(unittest.TestCase):
         issues = MODULE.prose_dose_ceiling_issues([item], level="BLOCKER")
         self.assertTrue(all(issue[0] == "BLOCKER" for issue in issues))
 
+    def test_shipped_content_has_no_ceiling_contradictions(self):
+        """Locks the RAPTIR correction.
+
+        RAPTIR offered "20-30 mL of 0.25% or 0.5% bupivacaine or ropivacaine".
+        At the 0.5% its own concentrationNote defines as 5 mg/mL, 30 mL is
+        150 mg against the 2 mg/kg ceiling the same record states — 140 mg at
+        70 kg. The clinical owner adjudicated it: 0.5% is now capped at 20 mL
+        (100 mg), with the arithmetic shown in the worked example.
+        """
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        self.assertEqual(MODULE.prose_dose_ceiling_issues(procedures), [])
+
     def test_volume_range_parsing(self):
         self.assertEqual(MODULE._max_volume_ml("20-30 mL of 0.5%"), 30)
         self.assertEqual(MODULE._max_volume_ml("inject 5 mL slowly"), 5)

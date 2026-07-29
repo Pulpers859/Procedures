@@ -90,11 +90,33 @@ the state that preceded it.
 
 ---
 
-## For clinical adjudication — not actioned
+## For clinical adjudication
 
-I did not change any clinical text. These need the clinical owner.
+C1 and C4 were adjudicated by the clinical owner on 2026-07-29 and are
+corrected; both are marked RESOLVED below with the original finding retained.
+Everything else here is unactioned and still needs a decision.
 
-### C1. A procedure's own recommendation exceeds its own ceiling
+Note on provenance: the two corrected records keep
+`reviewerStatus: Needs Clinical Review` and `contentSource: ai-draft`. A
+directed correction is not a sign-off — recording that belongs in the app's
+review flow, which is what carries it back through
+`scripts/apply_local_reviews.py`. Both edits change the material fingerprint,
+so any existing local review of them will correctly read "Review out of date".
+
+### C1. RESOLVED — a procedure's own recommendation exceeded its own ceiling
+
+**Adjudicated by the clinical owner on 2026-07-29 and corrected.** The chosen
+fix caps volume by concentration rather than removing an option: the 20-30 mL
+range now names 0.25% bupivacaine or 0.2% ropivacaine, and 0.5% is capped at
+20 mL (100 mg) with an explicit weight check. The worked example now shows the
+0.5% arithmetic that made the contradiction invisible. `block_raptir` moved to
+version 0.2.0; its `reviewerStatus` remains `Needs Clinical Review` because the
+sign-off belongs in the app's review flow, not in an edit.
+
+`prose_dose_ceiling_issues` now returns nothing across all 55, and a test locks
+that. The original finding is kept below for the record.
+
+### C1 (original finding). A procedure's own recommendation exceeds its own ceiling
 
 `block_raptir` (RAPTIR / Infraclavicular Block) states, in equipment and again
 in steps, **"20-30 mL of 0.25% or 0.5% bupivacaine"**. Its own
@@ -130,7 +152,22 @@ peroneal, sural, tibial, transgluteal sciatic, ulnar.
 entry in its dosing table — or anywhere in `procedures.json`. Caught by
 `unbounded_agent_issues`.
 
-### C4. The LAST card does not describe the LAST prodrome
+### C4. RESOLVED — the LAST card did not describe the LAST prodrome
+
+**Adjudicated by the clinical owner on 2026-07-29 and corrected.** The trigger
+now leads with the early warning signs — perioral/lip/tongue numbness or
+tingling, tinnitus, metallic taste, light-headedness, visual disturbance,
+agitation or confusion — before the established presentation, which is
+unchanged. A third line states that the prodrome may be absent under sedation
+or general anaesthesia and that its absence does not exclude LAST; without it,
+adding early signs would have created a new hazard by reading as a gate. Tags
+gained the prodrome terms.
+
+No dose, immediate move, avoid item or reassess line was touched. Six prodrome
+queries now return the card first, and tests lock both the retrieval and the
+caveat. The original finding is kept below for the record.
+
+### C4 (original finding). The LAST card does not describe the LAST prodrome
 
 Found by stress-testing the rescue path: typing **"ringing in ears numb lips"**
 does not surface the LAST card. Its `trigger` names only seizure, altered
@@ -190,6 +227,17 @@ nothing rejects it, and the chip renders "standard" beside "2 min". All 26 are
 the bulk-added `block_*` records.
 
 ---
+
+## Audit baseline
+
+`verify_procedure_audit.py` fails on all three content files. It was already
+failing on all three before this session — including `kits.json`, which nothing
+here touched — which matches the integrity hold already recorded at the top of
+`procedure-verification/CLINICAL_OWNER_QUEUE.md`. The C1 and C4 corrections
+moved two of those hashes further. Re-baselining the audit is a clinical-owner
+decision, not an engineering one, so the expected values are left alone. The
+script runs only on tag pushes (`release-readiness.yml`), so `main` CI is
+unaffected.
 
 ## Known and deliberately not done
 
