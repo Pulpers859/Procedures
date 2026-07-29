@@ -241,6 +241,26 @@ final class ContentEditingTests: XCTestCase {
         )
     }
 
+    /// Rescue cards and kits promote through the same refusal check, and until
+    /// now neither had a locked digest on either side. The field *order* is the
+    /// fragile part: `immediateMoves + trigger + avoid + reassess` reads
+    /// naturally in neither language, so the fixtures name their own field to
+    /// make a reordered mirror fail loudly instead of quietly refusing every
+    /// sign-off the clinician exports.
+    func testRescueCardFingerprintMatchesThePythonMirror() {
+        XCTAssertEqual(
+            makeRescueCard().materialFingerprint,
+            "679bde1ca9110945cd513a1a0b80c5761b014292836db1bd2fe95eb666aa7ce7"
+        )
+    }
+
+    func testKitFingerprintMatchesThePythonMirror() {
+        XCTAssertEqual(
+            makeKit().materialFingerprint,
+            "203d4cb4f91363d1c7dcecc30e0287340d69338b3f8e98f3b591fcb123d934d0"
+        )
+    }
+
     // MARK: - Fixtures
 
     private func makeUserDataStore() -> UserDataStore {
@@ -253,6 +273,49 @@ final class ContentEditingTests: XCTestCase {
 
     private func makeStore() -> ProcedureEditStore {
         ProcedureEditStore(directory: directory)
+    }
+
+    /// Field-naming strings, not "a"/"b"/"c": the point of this fixture is to
+    /// catch a mirror that concatenates the same fields in a different order.
+    private func makeRescueCard() -> ComplicationRescueCard {
+        ComplicationRescueCard(
+            id: "test-card",
+            title: "Test Card",
+            acuity: .crash,
+            relatedProcedureIDs: ["test"],
+            trigger: ["tr1"],
+            immediateMoves: ["im1", "im2"],
+            reassess: ["re1"],
+            avoid: ["av1"],
+            tags: ["excluded from the fingerprint"],
+            lastReviewed: "2026-01-01",
+            version: "1.0",
+            references: ["excluded from the fingerprint"],
+            reviewerStatus: .internallyReviewed,
+            contentSource: .clinicianReviewed
+        )
+    }
+
+    private func makeKit() -> Kit {
+        Kit(
+            id: "test-kit",
+            title: "Test Kit",
+            subtitle: "excluded from the fingerprint",
+            category: .other,
+            relatedProcedureIDs: ["test"],
+            tags: ["excluded from the fingerprint"],
+            lastReviewed: "2026-01-01",
+            version: "1.0",
+            reviewerStatus: .internallyReviewed,
+            contentSource: .clinicianReviewed,
+            inKit: ["ik1", "ik2"],
+            outsideKit: ["ok1"],
+            commonlyForgotten: ["excluded from the fingerprint"],
+            patientSetup: ["ps1"],
+            sterileSetup: ["ss1"],
+            backupEquipment: ["excluded from the fingerprint"],
+            references: ["excluded from the fingerprint"]
+        )
     }
 
     private func makeProcedure(id: String = "test", dosing: ProcedureDosing? = nil) -> Procedure {
