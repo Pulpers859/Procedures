@@ -492,20 +492,31 @@ def audit_issues(
     if require_synthesis and index_path.is_file():
         index_text = index_path.read_text(encoding="utf-8")
         indexed_rows = {}
+        row_counts = {}
         for procedure_id in procedure_ids:
-            row_match = re.search(
+            # Counted over coverage rows, not over every backticked mention.
+            # Counting mentions made the invariant break the moment the index
+            # said anything *else* about a record — which the integrity hold
+            # now does, naming each drifted record. One coverage row per
+            # procedure is the property worth holding; "the id appears once in
+            # the whole document" was only ever a proxy for it.
+            matches = re.findall(
                 rf"(?m)^\|[^\n]*\| `{re.escape(procedure_id)}`[^\n]*?\| `"
                 rf"({'|'.join(re.escape(value) for value in DISPOSITIONS)})` \| "
                 rf"\[[^]]+\]\(([^)]+)\) \|$",
                 index_text,
             )
-            if row_match:
-                indexed_rows[procedure_id] = (row_match.group(1).upper(), row_match.group(2))
+            row_counts[procedure_id] = len(matches)
+            if matches:
+                indexed_rows[procedure_id] = (matches[0][0].upper(), matches[0][1])
 
         expected_dispositions = lane_dispositions(procedure_ids)
         for procedure_id in procedure_ids:
-            if len(re.findall(rf"`{re.escape(procedure_id)}`", index_text)) != 1:
-                issues.append(f"AUDIT_INDEX.md must list {procedure_id} exactly once")
+            if row_counts.get(procedure_id) != 1:
+                issues.append(
+                    f"AUDIT_INDEX.md must have exactly one coverage row for "
+                    f"{procedure_id} (found {row_counts.get(procedure_id, 0)})"
+                )
             elif indexed_rows.get(procedure_id) != expected_dispositions.get(procedure_id):
                 issues.append(
                     f"AUDIT_INDEX.md disposition for {procedure_id} does not match its lane report"

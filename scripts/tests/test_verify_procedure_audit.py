@@ -497,6 +497,42 @@ class ProcedureAuditVerifierTests(unittest.TestCase):
             self.assertTrue(any("drifted" in i for i in blocked), blocked)
             self.assertEqual(unblocked, [])
 
+    def test_a_duplicate_coverage_row_still_fails(self):
+        """The exactly-one-row invariant must survive being scoped to rows."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            procedures = root / "procedures.json"
+            audit_root = root / "audit"
+            audit_root.mkdir()
+            procedures.write_text(json.dumps([{"id": "test_procedure", "title": "Test"}]))
+            fingerprint = hashlib.sha256(procedures.read_bytes()).hexdigest()
+            (audit_root / "report.md").write_text(report_text(fingerprint))
+            row = "| Test | `test_procedure` - Test | `NO MATERIAL DISCREPANCY IDENTIFIED` | [report.md](report.md) |\n"
+            (audit_root / "AUDIT_INDEX.md").write_text(row + row)
+            (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
+                issues = MODULE.audit_issues()
+            self.assertTrue(any("exactly one coverage row" in i for i in issues), issues)
+
+    def test_naming_a_record_outside_the_table_is_allowed(self):
+        """The integrity hold names drifted records; that must not trip it."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            procedures = root / "procedures.json"
+            audit_root = root / "audit"
+            audit_root.mkdir()
+            procedures.write_text(json.dumps([{"id": "test_procedure", "title": "Test"}]))
+            fingerprint = hashlib.sha256(procedures.read_bytes()).hexdigest()
+            (audit_root / "report.md").write_text(report_text(fingerprint))
+            (audit_root / "AUDIT_INDEX.md").write_text(
+                "> **Integrity hold:** `test_procedure` has changed.\n\n"
+                "| Test | `test_procedure` - Test | `NO MATERIAL DISCREPANCY IDENTIFIED` | [report.md](report.md) |\n"
+            )
+            (audit_root / "CLINICAL_OWNER_QUEUE.md").write_text(queue_text(fingerprint))
+            with audit_patch(procedures, audit_root, fingerprint, ["report.md"]):
+                issues = MODULE.audit_issues()
+            self.assertEqual(issues, [])
+
 
 if __name__ == "__main__":
     unittest.main()
