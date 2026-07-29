@@ -10,6 +10,10 @@ struct CriticalWarningCard: View {
             HStack {
                 Image(systemName: "exclamationmark.triangle.fill")
                     .foregroundStyle(AppSemanticColor.warningText)
+                    // The title already says what this is. Unhidden, every
+                    // warning card in the app opens with "exclamation mark
+                    // triangle" before the reader reaches the warning.
+                    .accessibilityHidden(true)
                 Text(title)
                     .font(.headline)
                     .accessibilityAddTraits(.isHeader)

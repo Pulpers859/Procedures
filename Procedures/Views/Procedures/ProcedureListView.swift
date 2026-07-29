@@ -32,7 +32,24 @@ struct ProcedureListView: View {
                 if let error = repository.loadError {
                     EmptyStateView(title: "Content failed to load", message: error, systemImage: "exclamationmark.triangle")
                 } else if filteredProcedures.isEmpty {
-                    EmptyStateView(title: "No procedures found", message: "Try a procedure name, abbreviation, or category.", systemImage: "magnifyingglass")
+                    // The empty state replaces the whole List, including the
+                    // risk filter that may be causing it — and the filter is
+                    // @State, so it survives tab switches. Without naming it,
+                    // the only way out is to relaunch the app.
+                    if highRiskOnly {
+                        VStack(spacing: 12) {
+                            EmptyStateView(
+                                title: "No high-risk matches",
+                                message: "The high-risk filter is on. Turn it off to search the whole library.",
+                                systemImage: "line.3.horizontal.decrease.circle"
+                            )
+                            Button("Show All Procedures") { highRiskOnly = false }
+                                .buttonStyle(.borderedProminent)
+                                .frame(minHeight: AppLayout.controlMinHeight)
+                        }
+                    } else {
+                        EmptyStateView(title: "No procedures found", message: "Try a procedure name, abbreviation, or category.", systemImage: "magnifyingglass")
+                    }
                 } else {
                     List {
                         if searchText.isEmpty {
@@ -121,14 +138,25 @@ struct ProcedureListView: View {
     /// here, where filtering is what the screen is for.
     private var riskFilterSection: some View {
         Section {
-            Picker("Show", selection: $highRiskOnly) {
-                Text("All (\(repository.procedures.count))").tag(false)
-                Text("High-risk (\(highRiskCount))").tag(true)
+            // A segmented picker neither reflows nor scrolls, so at
+            // accessibility sizes "All (55)" and "High-risk (37)" truncate to
+            // unreadable stubs. Same branch as SavedView; the two picker
+            // styles are distinct types, so it branches on whole views.
+            if dynamicTypeSize.isAccessibilitySize {
+                riskPicker.pickerStyle(.menu)
+            } else {
+                riskPicker.pickerStyle(.segmented)
             }
-            .pickerStyle(.segmented)
-            .accessibilityLabel("Filter procedures")
-            .accessibilityHint("High-risk shows advanced and rare-crash procedures only")
         }
+    }
+
+    private var riskPicker: some View {
+        Picker("Show", selection: $highRiskOnly) {
+            Text("All (\(repository.procedures.count))").tag(false)
+            Text("High-risk (\(highRiskCount))").tag(true)
+        }
+        .accessibilityLabel("Filter procedures")
+        .accessibilityHint("High-risk shows advanced and rare-crash procedures only")
     }
 
     private var quickAccessSection: some View {

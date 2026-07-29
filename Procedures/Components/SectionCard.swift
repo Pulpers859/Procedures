@@ -330,7 +330,13 @@ struct LocalReviewPanel: View {
             Button {
                 markReviewed()
             } label: {
+                // The row sets .footnote, which left this around 32pt — the one
+                // control in the app under the 44pt minimum, and the one the
+                // whole review workflow exists to reach. Its sibling menu and
+                // the clear-review button both already set this.
                 Label("Reviewed", systemImage: "checkmark.seal")
+                    .frame(minHeight: AppLayout.controlMinHeight)
+                    .contentShape(Rectangle())
             }
             .buttonStyle(.borderedProminent)
 

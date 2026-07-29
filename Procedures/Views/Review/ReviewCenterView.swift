@@ -12,6 +12,7 @@ struct ReviewCenterView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     @EnvironmentObject private var editStore: ProcedureEditStore
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var exportURL: URL?
     @State private var reviewExportURL: URL?
     @State private var selectedTab: ReviewCenterTab = .queue
@@ -29,13 +30,14 @@ struct ReviewCenterView: View {
             }
 
             Section {
-                Picker("Review Center Section", selection: $selectedTab) {
-                    ForEach(ReviewCenterTab.allCases) { tab in
-                        Text(tab.rawValue).tag(tab)
-                    }
+                // Segmented pickers neither reflow nor scroll, so at
+                // accessibility sizes Queue/Fix/Track truncate to stubs.
+                // Same branch as SavedView and the Procedures risk filter.
+                if dynamicTypeSize.isAccessibilitySize {
+                    sectionPicker.pickerStyle(.menu)
+                } else {
+                    sectionPicker.pickerStyle(.segmented)
                 }
-                .pickerStyle(.segmented)
-                .accessibilityLabel("Review Center section")
             }
 
             switch selectedTab {
@@ -60,6 +62,15 @@ struct ReviewCenterView: View {
     /// Without review tools the "Review" panel is hidden on every content
     /// page, so each queue row would dead-end on a screen with no way to record
     /// a disposition. Say that here and offer the switch inline.
+    private var sectionPicker: some View {
+        Picker("Review Center Section", selection: $selectedTab) {
+            ForEach(ReviewCenterTab.allCases) { tab in
+                Text(tab.rawValue).tag(tab)
+            }
+        }
+        .accessibilityLabel("Review Center section")
+    }
+
     private var reviewToolsDisabledSection: some View {
         Section {
             VStack(alignment: .leading, spacing: 10) {

@@ -127,6 +127,23 @@ struct RescueCardRow: View {
             FlowTagView(tags: card.tags.prefix(3).map { String($0) })
         }
         .padding(.vertical, 6)
+        // Same shape as ProcedureCard, and the same reason: ungrouped this is
+        // title, trigger, review badge, acuity badge and three tag chips —
+        // roughly seven swipes per card, on the crash path.
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(accessibilityDescription)
+    }
+
+    private var accessibilityDescription: String {
+        var parts = [card.title, "\(card.acuity.rawValue) acuity"]
+        if let trigger = card.trigger.first, !trigger.isEmpty {
+            parts.append(trigger)
+        }
+        let state = userData.reviewState(for: card)
+        if userData.badgePolicy(forRescueCards: repository.rescueCards).shouldBadge(state) {
+            parts.append(state.shortLabel)
+        }
+        return parts.joined(separator: ". ")
     }
 
     private var titleBlock: some View {
