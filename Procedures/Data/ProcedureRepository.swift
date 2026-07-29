@@ -198,6 +198,25 @@ final class ProcedureRepository: ObservableObject {
         }
     }
 
+    /// Whether a per-row "needs clinical review" badge tells the reader
+    /// anything.
+    ///
+    /// Every procedure currently ships as Needs Clinical Review, so that badge
+    /// rendered on 100% of rows: 55 identical orange marks that cost a great
+    /// deal of visual weight and carried no information, because nothing was
+    /// being distinguished from anything. The state is disclosed once, in the
+    /// list header and on every detail page, instead. The badge earns its place
+    /// back automatically the moment any item is reviewed.
+    var needsReviewBadgeIsInformative: Bool {
+        procedures.contains { $0.reviewer.isClinicallyReviewed }
+    }
+
+    /// Same question for rescue cards, which have the same badge on the same
+    /// all-or-nothing basis.
+    var rescueNeedsReviewBadgeIsInformative: Bool {
+        rescueCards.contains { $0.reviewer.isClinicallyReviewed }
+    }
+
     func loadContent() {
         loadProcedures()
         loadRescueCards()

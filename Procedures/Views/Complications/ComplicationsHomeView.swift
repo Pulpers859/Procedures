@@ -80,6 +80,7 @@ struct ComplicationsHomeView: View {
             .navigationTitle("Rescue")
             .settingsToolbar()
             .searchable(text: $searchText, prompt: "Search hypotension, apnea, capture…")
+            .scrollDismissesKeyboard(.immediately)
             .navigationDestination(for: ComplicationRescueCard.self) { card in
                 RescueCardDetailView(card: card)
             }
@@ -105,6 +106,7 @@ struct ComplicationsHomeView: View {
 }
 
 struct RescueCardRow: View {
+    @EnvironmentObject private var repository: ProcedureRepository
     let card: ComplicationRescueCard
 
     var body: some View {
@@ -139,7 +141,10 @@ struct RescueCardRow: View {
 
     private var badges: some View {
         HStack(spacing: 8) {
-            if !card.reviewer.isClinicallyReviewed {
+            // Suppressed while every card carries it and it therefore
+            // distinguishes none of them. The detail page still discloses it,
+            // and the badge returns as soon as any card is reviewed.
+            if !card.reviewer.isClinicallyReviewed, repository.rescueNeedsReviewBadgeIsInformative {
                 Image(systemName: "exclamationmark.shield")
                     .foregroundStyle(.orange)
                     .accessibilityLabel("Needs clinical review")

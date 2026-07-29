@@ -1,12 +1,9 @@
 import SwiftUI
 
 struct ProcedureCard: View {
+    @EnvironmentObject private var repository: ProcedureRepository
     let procedure: Procedure
     let isFavorite: Bool
-
-    private var isAdvanced: Bool {
-        procedure.difficulty == .advanced || procedure.difficulty == .rareCrash
-    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -21,7 +18,9 @@ struct ProcedureCard: View {
                 }
                 Spacer(minLength: 8)
                 HStack(spacing: 8) {
-                    if !procedure.reviewer.isClinicallyReviewed {
+                    // Shown only while it distinguishes this row from its
+                    // neighbours. See ProcedureRepository.needsReviewBadgeIsInformative.
+                    if !procedure.reviewer.isClinicallyReviewed, repository.needsReviewBadgeIsInformative {
                         Image(systemName: "exclamationmark.shield")
                             .foregroundStyle(AppSemanticColor.warningText)
                     }
@@ -29,10 +28,9 @@ struct ProcedureCard: View {
                         Image(systemName: "bookmark.fill")
                             .foregroundStyle(.blue)
                     }
-                    if isAdvanced {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .foregroundStyle(AppSemanticColor.warningText)
-                    }
+                    // The risk triangle said the same thing as the difficulty
+                    // chip directly beneath it, in a louder voice, on two rows
+                    // out of every three. The chip carries it alone now.
                 }
                 .font(.subheadline)
                 .accessibilityHidden(true)
@@ -60,12 +58,17 @@ struct ProcedureCard: View {
     }
 }
 
-/// Standard tag row for a procedure: difficulty, review time, and settings.
+/// Compact tag row for a procedure: difficulty and review time.
+///
+/// Settings used to be appended here too, which put four chips on every row
+/// and produced runs of consecutive rows reading "Advanced / standard / ED /
+/// Trauma" identically - weight without information. Settings remain on the
+/// detail page, where there is one procedure to describe rather than fifty.
 struct ProcedureTagRow: View {
     let procedure: Procedure
 
     private var tags: [String] {
-        [procedure.difficulty.rawValue, procedure.reviewTime] + procedure.setting.map(\.rawValue)
+        [procedure.difficulty.rawValue, procedure.reviewTime]
     }
 
     var body: some View {

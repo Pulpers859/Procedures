@@ -1,10 +1,13 @@
 import SwiftUI
 
 enum AppLayout {
-    static let cardRadius: CGFloat = 8
-    static let controlRadius: CGFloat = 8
-    static let mediaRadius: CGFloat = 8
-    static let iconContainerRadius: CGFloat = 10
+    // 8pt corners read flat and dated against current iOS surfaces. These are
+    // the single highest-leverage visual change in the app: every card, chip
+    // container and media well inherits them.
+    static let cardRadius: CGFloat = 14
+    static let controlRadius: CGFloat = 12
+    static let mediaRadius: CGFloat = 14
+    static let iconContainerRadius: CGFloat = 12
     static let cardPadding: CGFloat = 14
     static let sectionSpacing: CGFloat = 12
     static let controlMinHeight: CGFloat = 44

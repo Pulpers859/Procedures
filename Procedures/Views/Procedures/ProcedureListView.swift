@@ -43,6 +43,7 @@ struct ProcedureListView: View {
                                         .foregroundStyle(AppSemanticColor.warningText)
                                 }
                             }
+                            unreviewedCorpusNotice
                             quickAccessSection
                             riskFilterSection
                         }
@@ -61,6 +62,7 @@ struct ProcedureListView: View {
             .navigationTitle("Procedures")
             .settingsToolbar()
             .searchable(text: $searchText, prompt: "Search ETT, CVC, IJ, finger block…")
+            .scrollDismissesKeyboard(.immediately)
             .navigationDestination(for: Procedure.self) { procedure in
                 ProcedureDetailView(procedure: procedure)
             }
@@ -83,6 +85,27 @@ struct ProcedureListView: View {
         deepLinkRouter.destination = nil
         if let procedure = repository.procedure(withID: id) {
             navigationPath = NavigationPath([procedure])
+        }
+    }
+
+    /// Said once, here, instead of as an orange badge on every row.
+    ///
+    /// While nothing in the library has been reviewed the per-row badge marks
+    /// 100% of rows and distinguishes nothing, so it is suppressed and the
+    /// state is disclosed in one place. Detail pages still carry their own
+    /// banner, so no procedure can be opened without the reader being told.
+    @ViewBuilder
+    private var unreviewedCorpusNotice: some View {
+        if !repository.needsReviewBadgeIsInformative && !repository.procedures.isEmpty {
+            Section {
+                Label(
+                    "No procedure in this library has been clinically reviewed yet. Verify against a trusted source before bedside use.",
+                    systemImage: "exclamationmark.shield"
+                )
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(AppSemanticColor.warningText)
+                .fixedSize(horizontal: false, vertical: true)
+            }
         }
     }
 

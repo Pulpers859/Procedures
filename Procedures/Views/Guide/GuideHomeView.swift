@@ -49,15 +49,12 @@ struct GuideHomeView: View {
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle("Home")
-            .navigationBarTitleDisplayMode(.inline)
             .settingsToolbar()
-            // Searching by name reaches the target far faster than browsing to
-            // it, so the field is pinned rather than hidden behind a scroll.
-            .searchable(
-                text: $searchText,
-                placement: .navigationBarDrawer(displayMode: .always),
-                prompt: "Search procedure, problem, or kit…"
-            )
+            // Placement matches every other tab. A pinned drawer kept the field
+            // on screen permanently with no way to push it away, which is worse
+            // than the scroll it was meant to save.
+            .searchable(text: $searchText, prompt: "Search procedure, problem, or kit…")
+            .scrollDismissesKeyboard(.immediately)
             .navigationDestination(for: Procedure.self) { procedure in
                 ProcedureDetailView(procedure: procedure)
             }
@@ -77,7 +74,7 @@ struct GuideHomeView: View {
 
     private var browseHome: some View {
         ScrollView {
-            LazyVStack(alignment: .leading, spacing: 24) {
+            LazyVStack(alignment: .leading, spacing: 28) {
                 rescueHero
 
                 pathwaySection
@@ -139,7 +136,7 @@ struct GuideHomeView: View {
                     Button {
                         selectedPathway = pathway
                     } label: {
-                        PathwayTile(pathway: pathway)
+                        PathwayTile(pathway: pathway, count: pathwayCount(pathway))
                     }
                     .buttonStyle(.plain)
                     // Leaving List costs the free accessibility grouping it
@@ -192,8 +189,8 @@ struct GuideHomeView: View {
 
     private func sectionHeading(_ title: String) -> some View {
         Text(title)
-            .font(.subheadline.weight(.semibold))
-            .foregroundStyle(.secondary)
+            .font(.title3.weight(.bold))
+            .foregroundStyle(.primary)
             .accessibilityAddTraits(.isHeader)
     }
 
@@ -325,6 +322,7 @@ struct RescueHeroCard: View {
 
 struct PathwayTile: View {
     let pathway: ClinicalPathway
+    let count: Int
     /// The chip must grow with the glyph, or the SF Symbol renders outside its
     /// tinted background at accessibility sizes and simply looks broken.
     @ScaledMetric(relativeTo: .title3) private var iconSize: CGFloat = 34
@@ -337,13 +335,19 @@ struct PathwayTile: View {
                 .frame(width: iconSize, height: iconSize)
                 .background(pathway.tint.opacity(0.14), in: RoundedRectangle(cornerRadius: AppLayout.iconContainerRadius, style: .continuous))
 
-            // The procedure count lived here as a badge. It carried no bedside
-            // meaning and competed with the one word the tile exists to show,
-            // so it moved to the pathway's own screen.
-            Text(pathway.title)
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.primary)
-                .fixedSize(horizontal: false, vertical: true)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(pathway.title)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.primary)
+                    .fixedSize(horizontal: false, vertical: true)
+                // The count was a capsule badge fighting the title for the
+                // corner. It is quiet now, but it stays: these pathways hold
+                // anywhere from 1 to 28 procedures, so the number is the
+                // honest shape of the library rather than decoration.
+                Text("\(count)")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
         }
         .frame(maxWidth: .infinity, minHeight: 92, alignment: .topLeading)
         .padding(14)

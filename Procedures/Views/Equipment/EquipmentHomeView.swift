@@ -61,6 +61,7 @@ struct KitsHomeView: View {
             .navigationTitle("Kits")
             .settingsToolbar()
             .searchable(text: $searchText, prompt: "Search kit, catheter, airway, setup…")
+            .scrollDismissesKeyboard(.immediately)
             .navigationDestination(for: Kit.self) { kit in
                 KitDetailView(kit: kit)
             }
