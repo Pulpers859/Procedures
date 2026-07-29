@@ -39,7 +39,12 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
     /// The parts a clinician vouches for on a rescue card: what to do, when to
     /// recognize it, and what not to do. Tags and references are excluded.
     var materialFingerprint: String {
-        ContentFingerprint.make(immediateMoves + trigger + avoid + reassess)
+        ContentFingerprint.make(sections: [
+            ("immediateMoves", immediateMoves),
+            ("trigger", trigger),
+            ("avoid", avoid),
+            ("reassess", reassess)
+        ])
     }
 
     /// Relevance of this card to a query, used to rank the rescue list.

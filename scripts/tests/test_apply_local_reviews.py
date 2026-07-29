@@ -61,6 +61,7 @@ class ApplyLocalReviewsTests(unittest.TestCase):
             "date": "2026-07-28",
             "contentVersion": "0.2.0",
             "materialFingerprint": promote.procedure_fingerprint(self.procedure),
+            "fingerprintVersion": promote.FINGERPRINT_VERSION,
         }
         record.update(overrides)
         payload = {
@@ -105,6 +106,23 @@ class ApplyLocalReviewsTests(unittest.TestCase):
 
         promote.main([self._export(materialFingerprint=None), "--allow-unfingerprinted"])
         self.assertEqual(self._read()["reviewerStatus"], "Internally Reviewed")
+
+    def test_refuses_a_signoff_recorded_against_an_older_field_set(self):
+        """Version 1 hashed steps + complications + contraindications. Version 2
+        adds shiftMode, equipment, confirmation and troubleshooting.
+
+        A v1 digest cannot be compared against a v2 one: treating it as a match
+        would promote a sign-off that never covered the added sections, and
+        treating it as a mismatch would claim the content changed when only the
+        question did. Neither is true, so it refuses and says which.
+        """
+        promote.main([self._export(fingerprintVersion=1)])
+        self.assertEqual(self._read()["reviewerStatus"], "Needs Clinical Review")
+
+    def test_a_record_with_no_version_reads_as_version_one(self):
+        # Records written before versioning carry no field at all.
+        promote.main([self._export(fingerprintVersion=None)])
+        self.assertEqual(self._read()["reviewerStatus"], "Needs Clinical Review")
 
     def test_needs_edits_and_deferred_are_not_signoffs(self):
         for disposition in ("Needs Edits", "Deferred"):

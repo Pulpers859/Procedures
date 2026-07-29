@@ -18,10 +18,39 @@ enum ContentFingerprint {
     /// ["ab", "c"] and ["a", "bc"] cannot collide.
     private static let separator = "\u{1F}"
 
+    /// Record separator, marking where one section ends and the next begins.
+    ///
+    /// The unit separator solves collisions *within* a list but not *between*
+    /// them: concatenating steps + complications meant a line moving from the
+    /// end of one to the start of the other produced a byte-identical digest.
+    /// Kits were the likeliest case — moving an item from "in the kit" to
+    /// "outside the kit" is a meaningful correction that changed nothing.
+    private static let sectionSeparator = "\u{1E}"
+
+    /// Incremented whenever the *set* of fields hashed changes.
+    ///
+    /// Records written under an older version cannot be compared against a
+    /// newer digest — the two answer different questions. Without this, adding
+    /// a section would have flipped every existing sign-off to "Review out of
+    /// date" and told the reader their content had changed when nothing had.
+    /// A version mismatch reads as `.unknownBaseline` instead, which is the
+    /// truth: no comparison is possible, and nothing is reported.
+    static let version = 2
+
     static func make(_ parts: [String]) -> String {
         let joined = parts.joined(separator: separator)
         let digest = SHA256.hash(data: Data(joined.utf8))
         return digest.map { String(format: "%02x", $0) }.joined()
+    }
+
+    /// Fingerprints named sections, keeping their boundaries significant.
+    static func make(sections: [(name: String, lines: [String])]) -> String {
+        var parts: [String] = []
+        for section in sections {
+            parts.append(sectionSeparator + section.name)
+            parts.append(contentsOf: section.lines)
+        }
+        return make(parts)
     }
 }
 

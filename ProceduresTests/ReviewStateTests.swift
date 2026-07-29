@@ -108,6 +108,91 @@ final class ReviewStateTests: XCTestCase {
         XCTAssertEqual(state, .reviewedLocally(date: "2025-05-01"))
     }
 
+    // MARK: - Fingerprint versioning
+
+    /// Version 1 hashed steps + complications + contraindications. Version 2
+    /// adds shiftMode — the default landing section, whose bundled rewrite
+    /// used to leave every sign-off reading a plain "Reviewed" — plus
+    /// equipment, confirmation and troubleshooting.
+    ///
+    /// Widening the field set changes every digest. Without versioning that
+    /// would have flipped every existing review to "Review out of date" on
+    /// first launch after the update, telling the reader their content had
+    /// changed when all that changed was which sections get hashed. A version
+    /// mismatch is an unknown, not a change, and an unknown reports nothing.
+    func testAReviewFromAnOlderFieldSetIsAnUnknownNotAChange() {
+        let record = LocalReviewRecord(
+            disposition: .reviewed,
+            date: "2026-01-14",
+            contentVersion: "1.0",
+            materialFingerprint: "a digest from the version 1 field set",
+            fingerprintVersion: 1
+        )
+
+        XCTAssertEqual(
+            record.contentState(currentFingerprint: "any current digest"),
+            .unknownBaseline,
+            "an incomparable baseline must not read as a content change"
+        )
+        XCTAssertFalse(
+            ReviewState.resolve(
+                sourceStatus: .needsClinicalReview,
+                record: record,
+                contentState: record.contentState(currentFingerprint: "any current digest")
+            ).isCautionary
+        )
+    }
+
+    func testARecordWithNoVersionReadsAsVersionOne() {
+        let record = LocalReviewRecord(
+            disposition: .reviewed,
+            date: "2026-01-14",
+            contentVersion: "1.0",
+            materialFingerprint: "a digest written before versioning existed"
+        )
+        XCTAssertEqual(record.contentState(currentFingerprint: "anything"), .unknownBaseline)
+    }
+
+    func testACurrentVersionStillDetectsARealChange() {
+        let record = LocalReviewRecord(
+            disposition: .reviewed,
+            date: "2026-07-29",
+            contentVersion: "1.0",
+            materialFingerprint: "recorded",
+            fingerprintVersion: ContentFingerprint.version
+        )
+        XCTAssertEqual(record.contentState(currentFingerprint: "recorded"), .unchanged)
+        XCTAssertEqual(record.contentState(currentFingerprint: "something else"), .materialChanged)
+    }
+
+    /// The gap that made this necessary: Shift Mode is where the detail page
+    /// opens, and it was not part of what a sign-off covered.
+    func testRewritingShiftModeNowAgesTheReview() {
+        let procedure = makeProcedure()
+        let userData = makeUserDataStore()
+        userData.markReviewed(procedure)
+        XCTAssertEqual(userData.reviewContentState(for: procedure), .unchanged)
+
+        var shipped = procedure
+        shipped.sections.shiftMode = ["an entirely rewritten crash-path summary"]
+
+        XCTAssertEqual(userData.reviewContentState(for: shipped), .materialChanged)
+    }
+
+    /// Section boundaries are significant, so a line moving between two
+    /// sections is a change. A flat concatenation left it byte-identical.
+    func testMovingALineAcrossASectionBoundaryChangesTheFingerprint() {
+        var before = makeProcedure()
+        before.sections.steps = ["one", "two"]
+        before.sections.complications = ["three"]
+
+        var after = before
+        after.sections.steps = ["one"]
+        after.sections.complications = ["two", "three"]
+
+        XCTAssertNotEqual(before.materialFingerprint, after.materialFingerprint)
+    }
+
     func testReaderFlagOutranksAnUpstreamSignOff() {
         let state = ReviewState.resolve(
             sourceStatus: .externallyReviewed,

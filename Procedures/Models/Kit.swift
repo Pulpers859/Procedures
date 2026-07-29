@@ -34,8 +34,20 @@ struct Kit: Identifiable, Codable, Hashable {
 
     /// What a clinician vouches for on a kit: the physical contents and the
     /// patient setup. Subtitle, tags, and references are excluded.
+    ///
+    /// `commonlyForgotten` is included because it is the highest-value list on
+    /// a room-setup card — the whole point of one — and it was invisible to
+    /// reviews. The named boundaries matter more here than anywhere else:
+    /// moving an item from `inKit` to `outsideKit` is a real correction that
+    /// left a flat concatenation byte-identical.
     var materialFingerprint: String {
-        ContentFingerprint.make(inKit + outsideKit + patientSetup + sterileSetup)
+        ContentFingerprint.make(sections: [
+            ("inKit", inKit),
+            ("outsideKit", outsideKit),
+            ("commonlyForgotten", commonlyForgotten),
+            ("patientSetup", patientSetup),
+            ("sterileSetup", sterileSetup)
+        ])
     }
 
     func matches(_ query: String) -> Bool {

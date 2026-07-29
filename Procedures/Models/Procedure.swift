@@ -45,16 +45,43 @@ struct Procedure: Identifiable, Codable, Hashable {
     /// sign this off. Deliberately excludes tags, references, documentation,
     /// and visual metadata: those change for editorial reasons and must not
     /// disturb an existing review.
+    /// Sections the reader is clinically vouching for. `shiftMode` is the
+    /// default landing section and the condensed crash-path text — the
+    /// highest-traffic clinical content in the app — and it was not covered,
+    /// so a bundled rewrite of it left every sign-off reading "Reviewed".
+    /// `equipment`, `confirmation` and `troubleshooting` are material for the
+    /// same reason: the wrong kit, an unverified placement, or a missing
+    /// bailout all change what the reader endorsed.
+    ///
+    /// Still excluded, deliberately: anatomy, indications, positioning,
+    /// ultrasound, aftercare, documentation, seniorPearls, references, tags
+    /// and visual metadata. Those move for editorial reasons, and a notice
+    /// that fires on every update is a notice nobody reads.
+    static let materialSectionNames = [
+        "shiftMode", "contraindications", "equipment",
+        "steps", "confirmation", "troubleshooting", "complications"
+    ]
+
     var materialFingerprint: String {
-        var parts = sections.steps + sections.complications + sections.contraindications
+        var grouped: [(name: String, lines: [String])] = [
+            ("shiftMode", sections.shiftMode),
+            ("contraindications", sections.contraindications),
+            ("equipment", sections.equipment),
+            ("steps", sections.steps),
+            ("confirmation", sections.confirmation),
+            ("troubleshooting", sections.troubleshooting),
+            ("complications", sections.complications)
+        ]
         if let dosing {
+            var doseParts: [String] = []
             for agent in dosing.agents {
                 let ceiling = agent.absoluteMaxMg.map(Self.doseString) ?? "-"
-                parts.append("\(agent.agent)|\(Self.doseString(agent.maxDoseMgPerKg))|\(ceiling)")
+                doseParts.append("\(agent.agent)|\(Self.doseString(agent.maxDoseMgPerKg))|\(ceiling)")
             }
-            parts.append(dosing.cumulativeWarning)
+            doseParts.append(dosing.cumulativeWarning)
+            grouped.append(("dosing", doseParts))
         }
-        return ContentFingerprint.make(parts)
+        return ContentFingerprint.make(sections: grouped)
     }
 
     /// Fixed-precision, locale-independent dose formatting.

@@ -65,9 +65,21 @@ struct LocalReviewRecord: Codable, Hashable {
     /// what re-review keys on. Optional so pre-fingerprint records still decode.
     var materialFingerprint: String?
 
+    /// Which set of fields the stored fingerprint covers. Optional so records
+    /// written before versioning still decode; those read as version 1.
+    var fingerprintVersion: Int?
+
     /// Compares the material baseline against the content bundled today.
-    func contentState(currentFingerprint: String) -> ReviewContentState {
+    ///
+    /// A digest from an older field set cannot be compared against a newer
+    /// one — they answer different questions, and treating a mismatch as a
+    /// content change would have told the reader their content moved when all
+    /// that moved was which sections get hashed. That reads as
+    /// `.unknownBaseline`, which reports nothing at all, and the next sign-off
+    /// records a current baseline.
+    func contentState(currentFingerprint: String, currentVersion: Int = ContentFingerprint.version) -> ReviewContentState {
         guard let materialFingerprint, !materialFingerprint.isEmpty else { return .unknownBaseline }
+        guard (fingerprintVersion ?? 1) == currentVersion else { return .unknownBaseline }
         return materialFingerprint == currentFingerprint ? .unchanged : .materialChanged
     }
 }
@@ -326,6 +338,7 @@ final class UserDataStore: ObservableObject {
               record.materialFingerprint == previousFingerprint else { return }
 
         record.materialFingerprint = procedure.materialFingerprint
+        record.fingerprintVersion = ContentFingerprint.version
         record.contentVersion = procedure.version
         locallyReviewedContent[key] = record
         saveLocallyReviewedContent()
@@ -718,7 +731,8 @@ final class UserDataStore: ObservableObject {
             disposition: disposition,
             date: Self.todayString(),
             contentVersion: contentVersion,
-            materialFingerprint: materialFingerprint
+            materialFingerprint: materialFingerprint,
+            fingerprintVersion: ContentFingerprint.version
         )
         saveLocallyReviewedContent()
     }

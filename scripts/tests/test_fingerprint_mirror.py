@@ -41,9 +41,13 @@ SWIFT_TESTS = REPO_ROOT / "ProceduresTests" / "ContentEditingTests.swift"
 # same content are what makes the comparison meaningful.
 PROCEDURE = {
     "sections": {
-        "steps": ["a", "b", "c", "d", "e"],
-        "complications": ["a", "b", "c", "d"],
+        "shiftMode": ["a", "b", "c", "d", "e", "f"],
         "contraindications": ["a"],
+        "equipment": ["a", "b", "c", "d", "e"],
+        "steps": ["a", "b", "c", "d", "e"],
+        "confirmation": ["a"],
+        "troubleshooting": ["a", "b", "c"],
+        "complications": ["a", "b", "c", "d"],
     }
 }
 
@@ -68,6 +72,7 @@ RESCUE_CARD = {
 KIT = {
     "inKit": ["ik1", "ik2"],
     "outsideKit": ["ok1"],
+    "commonlyForgotten": ["cf1"],
     "patientSetup": ["ps1"],
     "sterileSetup": ["ss1"],
 }

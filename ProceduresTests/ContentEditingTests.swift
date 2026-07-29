@@ -247,7 +247,7 @@ final class ContentEditingTests: XCTestCase {
     func testMaterialFingerprintMatchesThePythonMirror() {
         XCTAssertEqual(
             makeProcedure().materialFingerprint,
-            "4206af11db9e97d0075e96dc97f6553010e4b19e2f21131d500d9d83fb86a18f"
+            "4c52bd50d9863784bbbca02fc13ca52d47e56218894f5bae6bab8339cb431ca9"
         )
     }
 
@@ -275,7 +275,7 @@ final class ContentEditingTests: XCTestCase {
 
         XCTAssertEqual(
             procedure.materialFingerprint,
-            "6dd99615dd8f6ba8079c2c1569e9a3e98b57617672e14d25853cdde18cc0a5aa"
+            "497fe883e33fe6f568e1ba25aa09f7873b3bfed35f7b520bcaa6a26fec91191a"
         )
     }
 
@@ -288,14 +288,14 @@ final class ContentEditingTests: XCTestCase {
     func testRescueCardFingerprintMatchesThePythonMirror() {
         XCTAssertEqual(
             makeRescueCard().materialFingerprint,
-            "679bde1ca9110945cd513a1a0b80c5761b014292836db1bd2fe95eb666aa7ce7"
+            "2cd50e72af4bc51bff2c24b3fbda37fccfafc46249e5d3c7b75fc807d1d39321"
         )
     }
 
     func testKitFingerprintMatchesThePythonMirror() {
         XCTAssertEqual(
             makeKit().materialFingerprint,
-            "203d4cb4f91363d1c7dcecc30e0287340d69338b3f8e98f3b591fcb123d934d0"
+            "ebeceacf2b5a456d02f5481f103887fa3f5e63ea8305eeaa6d2c1ae0b8f50b67"
         )
     }
 
@@ -348,7 +348,7 @@ final class ContentEditingTests: XCTestCase {
             contentSource: .clinicianReviewed,
             inKit: ["ik1", "ik2"],
             outsideKit: ["ok1"],
-            commonlyForgotten: ["excluded from the fingerprint"],
+            commonlyForgotten: ["cf1"],
             patientSetup: ["ps1"],
             sterileSetup: ["ss1"],
             backupEquipment: ["excluded from the fingerprint"],

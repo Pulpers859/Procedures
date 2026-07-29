@@ -38,6 +38,15 @@ EXPORT_SCHEMA = "procedures.local-reviews.v1"
 
 # Mirror of ContentFingerprint in Procedures/Models/ReviewerStatus.swift.
 SEPARATOR = "\x1f"
+# Record separator. The unit separator above stops collisions *within* a list;
+# this keeps the boundary *between* lists significant, so a line moving from
+# the end of one section to the start of the next changes the digest.
+SECTION_SEPARATOR = "\x1e"
+
+# Bumped whenever the set of hashed fields changes. A digest written under an
+# older version answers a different question and must not be compared; see
+# LocalReviewRecord.contentState in UserDataStore.swift.
+FINGERPRINT_VERSION = 2
 
 REVIEWED_DISPOSITION = "Reviewed"
 DEFAULT_STATUS = "Internally Reviewed"
@@ -48,13 +57,29 @@ PROMOTED_SOURCE = "clinician-reviewed"
 KINDS = {
     "procedure": ("procedures.json", None),
     "rescue": ("rescue_cards.json", ["immediateMoves", "trigger", "avoid", "reassess"]),
-    "kit": ("kits.json", ["inKit", "outsideKit", "patientSetup", "sterileSetup"]),
+    "kit": ("kits.json", ["inKit", "outsideKit", "commonlyForgotten", "patientSetup", "sterileSetup"]),
 }
+
+# Mirror of Procedure.materialSectionNames, in Swift order.
+PROCEDURE_MATERIAL_SECTIONS = [
+    "shiftMode", "contraindications", "equipment",
+    "steps", "confirmation", "troubleshooting", "complications",
+]
 
 
 def fingerprint(parts):
     joined = SEPARATOR.join(parts)
     return hashlib.sha256(joined.encode("utf-8")).hexdigest()
+
+
+def sectioned_fingerprint(sections):
+    """Mirror of ContentFingerprint.make(sections:). `sections` is an ordered
+    sequence of (name, lines)."""
+    parts = []
+    for name, lines in sections:
+        parts.append(SECTION_SEPARATOR + name)
+        parts.extend(lines)
+    return fingerprint(parts)
 
 
 def dose_string(value):
@@ -64,26 +89,23 @@ def dose_string(value):
 
 def procedure_fingerprint(item):
     sections = item.get("sections") or {}
-    parts = list(sections.get("steps") or [])
-    parts += list(sections.get("complications") or [])
-    parts += list(sections.get("contraindications") or [])
+    grouped = [(name, list(sections.get(name) or [])) for name in PROCEDURE_MATERIAL_SECTIONS]
     dosing = item.get("dosing")
     if dosing:
+        dose_parts = []
         for agent in dosing.get("agents") or []:
             absolute = agent.get("absoluteMaxMg")
             ceiling = dose_string(absolute) if absolute is not None else "-"
-            parts.append(
+            dose_parts.append(
                 f"{agent.get('agent')}|{dose_string(agent.get('maxDoseMgPerKg'))}|{ceiling}"
             )
-        parts.append(dosing.get("cumulativeWarning", ""))
-    return fingerprint(parts)
+        dose_parts.append(dosing.get("cumulativeWarning", ""))
+        grouped.append(("dosing", dose_parts))
+    return sectioned_fingerprint(grouped)
 
 
 def listed_fingerprint(item, fields):
-    parts = []
-    for field in fields:
-        parts += list(item.get(field) or [])
-    return fingerprint(parts)
+    return sectioned_fingerprint([(field, list(item.get(field) or [])) for field in fields])
 
 
 def current_fingerprint(kind, item):
@@ -157,10 +179,26 @@ def main(argv=None):
             continue
 
         recorded = record.get("materialFingerprint")
+        # `or 1`, not a .get default: a record can carry the key with a null
+        # value, and both that and an absent key mean "written before
+        # versioning". Mirrors `fingerprintVersion ?? 1` in Swift.
+        recorded_version = record.get("fingerprintVersion") or 1
         if not recorded:
             if not args.allow_unfingerprinted:
                 refused.append(f"{key}: review carries no fingerprint; rerun with --allow-unfingerprinted to accept it")
                 continue
+        elif recorded_version != FINGERPRINT_VERSION:
+            # A digest over a different field set cannot be compared. Treating
+            # it as a match would promote a sign-off that never covered the
+            # sections since added; treating it as a mismatch would claim the
+            # content changed when only the question did. Neither is true, so
+            # this refuses and says why.
+            refused.append(
+                f"{key}: review was recorded against fingerprint v{recorded_version}, "
+                f"but the material field set is now v{FINGERPRINT_VERSION}. Re-review it in "
+                f"the app so the sign-off covers the sections that were added."
+            )
+            continue
         elif recorded != current_fingerprint(kind, item):
             refused.append(
                 f"{key}: content changed since this review; re-review it in the app rather than promoting a stale sign-off"

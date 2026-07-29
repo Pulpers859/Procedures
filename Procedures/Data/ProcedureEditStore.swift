@@ -30,11 +30,13 @@ enum EditableSection: String, Codable, CaseIterable, Identifiable {
 
     /// True for the sections that feed the review fingerprint, so the editor
     /// can warn that a change here is clinically material.
+    ///
+    /// Derived from `Procedure.materialSectionNames` rather than restated, so
+    /// the editor's warning cannot drift out of step with what is actually
+    /// hashed — they were separately maintained lists of the same three
+    /// sections, and both were missing shiftMode.
     var isClinicallyMaterial: Bool {
-        switch self {
-        case .steps, .complications, .contraindications: return true
-        default: return false
-        }
+        Procedure.materialSectionNames.contains(rawValue)
     }
 
     func lines(in sections: ProcedureSections) -> [String] {
