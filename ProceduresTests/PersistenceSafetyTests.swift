@@ -170,6 +170,35 @@ final class PersistenceSafetyTests: XCTestCase {
         XCTAssertFalse(resetSession.isKitItemChecked("Sterile gown", forKitID: "central-line"))
     }
 
+    /// The session gate was only ever reset by constructing the store — a cold
+    /// launch. iOS keeps an app resident for days, so ticking off eight items
+    /// mid-case, backgrounding, and reopening the same procedure two days later
+    /// skipped the "may be from a prior patient or room" confirmation entirely
+    /// and rendered the old ticks as the current room's state.
+    func testLeavingTheAppEndsAnInProgressChecklistSession() {
+        let store = UserDataStore(defaults: defaults)
+        store.toggleEquipment("Ultrasound", for: procedureFixture)
+        store.toggleKitItem("Sterile gown", forKitID: "central-line")
+
+        // Mid-case, the session is live and must not nag.
+        XCTAssertFalse(store.requiresEquipmentSessionDecision(for: procedureFixture))
+        XCTAssertFalse(store.requiresKitSessionDecision(forKitID: "central-line"))
+
+        store.endActiveChecklistSessions()
+
+        XCTAssertTrue(store.requiresEquipmentSessionDecision(for: procedureFixture))
+        XCTAssertTrue(store.requiresKitSessionDecision(forKitID: "central-line"))
+        // The ticks themselves survive — the reader is asked, not overruled.
+        XCTAssertTrue(store.isEquipmentChecked("Ultrasound", for: procedureFixture))
+        XCTAssertTrue(store.isKitItemChecked("Sterile gown", forKitID: "central-line"))
+    }
+
+    func testEndingSessionsWithNothingCheckedAsksNothing() {
+        let store = UserDataStore(defaults: defaults)
+        store.endActiveChecklistSessions()
+        XCTAssertFalse(store.requiresEquipmentSessionDecision(for: procedureFixture))
+    }
+
     // MARK: - Review content state
 
     func testReviewCapturesTheMaterialFingerprintItWasRecordedAgainst() {

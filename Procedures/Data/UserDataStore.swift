@@ -178,6 +178,24 @@ final class UserDataStore: ObservableObject {
         activeEquipmentSessionIDs.insert(procedure.id)
     }
 
+    /// Ends every in-progress checklist session, so returning to the app asks
+    /// again before showing saved ticks as the current room's state.
+    ///
+    /// These sets were only ever cleared by constructing the store — a cold
+    /// launch. iOS routinely keeps an app resident for days, so checking off
+    /// eight items mid-case on Monday and reopening the same procedure on
+    /// Wednesday skipped the "may be from a prior patient or room" gate
+    /// entirely and rendered Monday's ticks as this patient's setup.
+    ///
+    /// Backgrounding is the honest trigger rather than an elapsed-time
+    /// threshold: any interval picked here would be a clinical guess, and
+    /// leaving the app — including locking the phone — is exactly the moment
+    /// the reader stopped watching the checklist.
+    func endActiveChecklistSessions() {
+        activeEquipmentSessionIDs = []
+        activeKitSessionIDs = []
+    }
+
     // MARK: - Kit checklist
 
     func isKitItemChecked(_ item: String, forKitID kitID: String) -> Bool {
@@ -225,17 +243,10 @@ final class UserDataStore: ObservableObject {
         locallyReviewedContent[reviewKey(kind: "kit", id: kit.id)]
     }
 
-    func localReviewDate(for procedure: Procedure) -> String? {
-        localReviewRecord(for: procedure)?.date
-    }
-
-    func localReviewDate(for card: ComplicationRescueCard) -> String? {
-        localReviewRecord(for: card)?.date
-    }
-
-    func localReviewDate(for kit: Kit) -> String? {
-        localReviewRecord(for: kit)?.date
-    }
+    // `localReviewDate(for:)` in three overloads used to live here with no
+    // callers anywhere, including tests. Every surface reads the date through
+    // ReviewState.detailLabel now, which is the point of routing review state
+    // through one type — a second accessor is a second place for it to drift.
 
     func markReviewed(_ procedure: Procedure) {
         setReviewDisposition(.reviewed, for: procedure)

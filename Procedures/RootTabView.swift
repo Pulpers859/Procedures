@@ -19,6 +19,7 @@ struct RootTabView: View {
     @EnvironmentObject private var userData: UserDataStore
     @EnvironmentObject private var editStore: ProcedureEditStore
     @ObservedObject private var deepLinkRouter = DeepLinkRouter.shared
+    @Environment(\.scenePhase) private var scenePhase
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
     @SceneStorage("Procedures.selectedRootTab") private var selectedTabRaw = RootTab.guide.rawValue
@@ -129,6 +130,14 @@ struct RootTabView: View {
         // text they had already fixed is the failure this app exists to avoid.
         .onChange(of: editStore.editsByProcedureID) { _, _ in
             reindexSpotlight()
+        }
+        // A checklist session belongs to the case in front of the reader. The
+        // active-session sets used to be cleared only by constructing the
+        // store — a cold launch — and iOS keeps an app resident for days, so
+        // ticks from a previous case could reappear as the current room's
+        // state with no confirmation.
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .background { userData.endActiveChecklistSessions() }
         }
     }
 

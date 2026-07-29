@@ -65,10 +65,10 @@ extension View {
 struct SettingsView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
+    @EnvironmentObject private var editStore: ProcedureEditStore
     @Environment(\.dismiss) private var dismiss
 
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
-    @AppStorage(SettingsStorageKey.disclaimerAccepted) private var hasAcceptedDisclaimer = false
     @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
@@ -132,10 +132,19 @@ struct SettingsView: View {
                     Button(role: .destructive) { confirmation = .clearReviews } label: {
                         Label("Clear Review Marks", systemImage: "checkmark.seal")
                     }
+                    // The only local data that overrides *clinical text*, and
+                    // the only kind this screen could not clear. The store had
+                    // a resetEverything() with no call sites; the sole removal
+                    // path was per-procedure, inside Review Mode.
+                    if editStore.editedProcedureCount > 0 {
+                        Button(role: .destructive) { confirmation = .clearEdits } label: {
+                            Label("Discard All Content Edits", systemImage: "arrow.uturn.backward")
+                        }
+                    }
                 } header: {
                     Text("Local Data")
                 } footer: {
-                    Text("Favorites, recents, checklists, notes, and review marks are stored only on this device.")
+                    Text("Favorites, recents, checklists, notes, review marks, and content edits are stored only on this device.")
                 }
 
                 Section {
@@ -143,8 +152,18 @@ struct SettingsView: View {
                         Label("Governance copy is hidden", systemImage: "eye.slash")
                     } else {
                         Button {
-                            hasAcceptedDisclaimer = false
+                            // Order matters, and so does the delay. The
+                            // disclaimer is a fullScreenCover on RootTabView;
+                            // asking the parent to present it in the same frame
+                            // this sheet starts dismissing drops the
+                            // presentation, so the sheet closed, nothing
+                            // appeared, and the flag was left false — which
+                            // ambushed the reader with the disclaimer at the
+                            // next cold launch instead of showing it now.
                             dismiss()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
+                                UserDefaults.standard.set(false, forKey: SettingsStorageKey.disclaimerAccepted)
+                            }
                         } label: {
                             Label("Show Disclaimer Again", systemImage: "exclamationmark.shield")
                         }
@@ -202,6 +221,9 @@ struct SettingsView: View {
         case .clearKitChecklists: userData.clearAllKitChecklists()
         case .clearNotes: userData.clearAllNotes()
         case .clearReviews: userData.clearAllLocalReviews()
+        case .clearEdits:
+            editStore.resetEverything()
+            repository.reapplyEdits()
         }
         confirmation = nil
     }
@@ -214,6 +236,7 @@ private enum DataAction: Identifiable {
     case clearKitChecklists
     case clearNotes
     case clearReviews
+    case clearEdits
 
     var id: String { title }
 
@@ -225,6 +248,7 @@ private enum DataAction: Identifiable {
         case .clearKitChecklists: return "Reset every kit room-setup checklist?"
         case .clearNotes: return "Delete all local notes?"
         case .clearReviews: return "Clear every local review mark?"
+        case .clearEdits: return "Discard every local content edit and restore the bundled text?"
         }
     }
 
@@ -236,6 +260,7 @@ private enum DataAction: Identifiable {
         case .clearKitChecklists: return "Reset Kit Checklists"
         case .clearNotes: return "Delete Notes"
         case .clearReviews: return "Clear Reviews"
+        case .clearEdits: return "Discard Edits"
         }
     }
 }
