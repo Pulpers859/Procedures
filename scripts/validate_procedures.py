@@ -6,6 +6,7 @@ Run from the project root:
 """
 import argparse
 import json
+import re
 import sys
 from datetime import date, datetime
 from pathlib import Path
@@ -380,6 +381,111 @@ def regional_dosing_issues(procedures, rescue_card_ids, level="WARNING"):
     return issues
 
 
+# Weights the ceiling is checked against. Not clinical guidance — just the two
+# reference bodyweights the corpus's own worked examples already use, so the
+# comparison is against a number the record itself states.
+REFERENCE_WEIGHTS_KG = (70, 50)
+
+VOLUME_RANGE = re.compile(r"(\d+(?:\.\d+)?)\s*(?:-|–|\s+to\s+)\s*(\d+(?:\.\d+)?)\s*mL\b", re.IGNORECASE)
+SINGLE_VOLUME = re.compile(r"(?<![-–\d.])(\d+(?:\.\d+)?)\s*mL\b", re.IGNORECASE)
+PERCENT = re.compile(r"(\d+(?:\.\d+)?)\s*%")
+# "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL"
+CONCENTRATION_NOTE = re.compile(r"(\d+(?:\.\d+)?)\s*%\s*=\s*(\d+(?:\.\d+)?)\s*mg/mL", re.IGNORECASE)
+
+
+def _stated_concentrations(agents):
+    """Maps percent strength -> mg/mL, using only what the record declares."""
+    table = {}
+    for agent in agents or []:
+        if not isinstance(agent, dict):
+            continue
+        for percent, mg_per_ml in CONCENTRATION_NOTE.findall(str(agent.get("concentrationNote") or "")):
+            table[float(percent)] = float(mg_per_ml)
+    return table
+
+
+def _max_volume_ml(text):
+    """Top of the largest volume the line recommends, or None."""
+    volumes = [float(high) for _, high in VOLUME_RANGE.findall(text)]
+    if not volumes:
+        # Avoid double-counting the halves of a range already matched above.
+        without_ranges = VOLUME_RANGE.sub(" ", text)
+        volumes = [float(value) for value in SINGLE_VOLUME.findall(without_ranges)]
+    return max(volumes) if volumes else None
+
+
+def prose_dose_ceiling_issues(procedures, level="WARNING"):
+    """Multiplies the volumes stated in prose by the concentrations the same
+    record offers, and compares the result against that record's own ceiling.
+
+    The structured `dosing` block is validated rigorously; the free-text
+    `equipment` and `steps` beside it were validated only for length. Nothing
+    connected the two, so a procedure could recommend a volume that, at the
+    higher concentration named on the same line, exceeded the maximum stated a
+    few fields away — and pass clean in both authoring and release mode.
+
+    This invents no clinical guidance. Every number comes from the record:
+    the volume from its prose, the mg/mL from its own concentrationNote, the
+    ceiling from its own maxDoseMgPerKg and absoluteMaxMg. It reports an
+    internal contradiction, which is a question for the clinical owner rather
+    than something to auto-correct.
+    """
+    issues = []
+    for item in procedures:
+        dosing = item.get("dosing")
+        if not isinstance(dosing, dict):
+            continue
+        agents = dosing.get("agents")
+        if not isinstance(agents, list) or not agents:
+            continue
+        concentrations = _stated_concentrations(agents)
+        if not concentrations:
+            continue
+        title = item.get("title", item.get("id", "<missing id>"))
+        sections = item.get("sections") or {}
+
+        for field in ("equipment", "steps"):
+            for line in sections.get(field) or []:
+                text = str(line)
+                percents = [float(value) for value in PERCENT.findall(text)]
+                volume = _max_volume_ml(text)
+                if volume is None or not percents:
+                    continue
+                # The strongest concentration the line itself offers.
+                usable = [p for p in percents if p in concentrations]
+                if not usable:
+                    continue
+                strength = max(usable)
+                milligrams = volume * concentrations[strength]
+
+                for agent in agents:
+                    if not isinstance(agent, dict):
+                        continue
+                    per_kg = agent.get("maxDoseMgPerKg")
+                    if not isinstance(per_kg, (int, float)) or isinstance(per_kg, bool):
+                        continue
+                    name = agent.get("agent", "<unnamed>")
+                    # Only compare against an agent the line actually names.
+                    stem = str(name).split()[0].lower()
+                    if stem and stem not in text.lower():
+                        continue
+                    for weight in REFERENCE_WEIGHTS_KG:
+                        ceiling = per_kg * weight
+                        absolute = agent.get("absoluteMaxMg")
+                        if isinstance(absolute, (int, float)) and not isinstance(absolute, bool):
+                            ceiling = min(ceiling, float(absolute))
+                        if milligrams > ceiling:
+                            issues.append((
+                                level, title,
+                                f"{field}: '{text[:70]}' — {volume:g} mL at {strength:g}% is "
+                                f"{milligrams:g} mg, above this procedure's own ceiling for "
+                                f"{name} ({per_kg:g} mg/kg = {ceiling:g} mg at {weight} kg). "
+                                f"Internal contradiction; needs clinician review."
+                            ))
+                            break
+    return issues
+
+
 def crash_card_dose_issues(cards, level="WARNING"):
     """Every Crash-acuity immediate move naming a drug or drug class must carry
     a number on the same line (dose, concentration, mL, rate, or mg/kg)."""
@@ -595,6 +701,7 @@ def collect_issues(procedures, rescue_cards, kits, release=False):
     rescue_card_ids = {item.get("id") for item in rescue_cards}
     issues.extend(regional_dosing_issues(procedures, rescue_card_ids, level=dosing_level))
     issues.extend(crash_card_dose_issues(rescue_cards, level=dosing_level))
+    issues.extend(prose_dose_ceiling_issues(procedures, level=dosing_level))
 
     if release:
         issues.extend(release_readiness_issues(procedures, rescue_cards, kits))

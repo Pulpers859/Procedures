@@ -112,6 +112,90 @@ class RegionalDosingTests(unittest.TestCase):
         self.assertEqual(issues, [], f"shipped regional blocks must carry release-grade dosing: {issues}")
 
 
+class ProseDoseCeilingTests(unittest.TestCase):
+    """The structured dosing block was validated rigorously; the free-text
+    equipment/steps beside it were validated only for length. Nothing connected
+    the two, so a procedure could recommend a volume that, at the higher
+    concentration named on the same line, exceeded the ceiling stated a few
+    fields away — and pass clean in both modes.
+
+    Every number in the check comes from the record itself. These tests assert
+    the arithmetic and the negative controls, not clinical correctness.
+    """
+
+    def procedure(self, lines, agents=None):
+        return {
+            "id": "block_test",
+            "title": "Test Block",
+            "category": "Regional Anesthesia",
+            "sections": {"equipment": lines, "steps": []},
+            "dosing": dosing(agents=agents) if agents else dosing(
+                agents=[{
+                    "agent": "Bupivacaine (plain)",
+                    "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+                    "maxDoseMgPerKg": 2.0,
+                }]
+            ),
+        }
+
+    def test_volume_at_the_stronger_concentration_breaching_the_ceiling_is_flagged(self):
+        # 30 mL x 5 mg/mL = 150 mg, against 2 mg/kg x 70 kg = 140 mg.
+        item = self.procedure(["Local anesthetic (e.g., 20-30 mL of 0.25% or 0.5% bupivacaine)"])
+        issues = MODULE.prose_dose_ceiling_issues([item])
+        self.assertTrue(issues, "150 mg against a 140 mg ceiling should be reported")
+        self.assertIn("150 mg", issues[0][2])
+
+    def test_volume_within_the_ceiling_is_clean(self):
+        # 20 mL x 2.5 mg/mL = 50 mg, well under.
+        item = self.procedure(["Local anesthetic (20 mL of 0.25% bupivacaine)"])
+        self.assertEqual(MODULE.prose_dose_ceiling_issues([item]), [])
+
+    def test_exactly_at_the_ceiling_is_not_reported(self):
+        """Strict `>` only. Zero-margin dosing is a clinical judgement, not an
+        internal contradiction, and this rule reports contradictions."""
+        # 20 mL x 5 mg/mL = 100 mg == 2 mg/kg x 50 kg.
+        item = self.procedure(["Local anesthetic (20 mL of 0.5% bupivacaine)"])
+        self.assertEqual(MODULE.prose_dose_ceiling_issues([item]), [])
+
+    def test_absolute_ceiling_is_honoured_when_lower(self):
+        item = self.procedure(
+            ["Local anesthetic (40 mL of 0.5% bupivacaine)"],
+            agents=[{
+                "agent": "Bupivacaine (plain)",
+                "concentrationNote": "0.5% = 5 mg/mL",
+                "maxDoseMgPerKg": 3.0,      # 210 mg at 70 kg
+                "absoluteMaxMg": 175,       # but capped here
+            }],
+        )
+        issues = MODULE.prose_dose_ceiling_issues([item])
+        self.assertTrue(issues)
+        self.assertIn("175 mg", issues[0][2])
+
+    def test_a_line_naming_a_different_agent_is_not_cross_checked(self):
+        item = self.procedure(["Local anesthetic (40 mL of 0.5% ropivacaine)"])
+        self.assertEqual(MODULE.prose_dose_ceiling_issues([item]), [])
+
+    def test_a_concentration_the_record_does_not_define_is_skipped(self):
+        # 2% is not in the concentrationNote, so there is no mg/mL to multiply.
+        item = self.procedure(["Local anesthetic (40 mL of 2% bupivacaine)"])
+        self.assertEqual(MODULE.prose_dose_ceiling_issues([item]), [])
+
+    def test_prose_without_a_volume_or_percent_is_ignored(self):
+        item = self.procedure(["Local anesthetic", "Sterile gloves and drape"])
+        self.assertEqual(MODULE.prose_dose_ceiling_issues([item]), [])
+
+    def test_release_level_promotes_to_blocker(self):
+        item = self.procedure(["Local anesthetic (e.g., 20-30 mL of 0.25% or 0.5% bupivacaine)"])
+        issues = MODULE.prose_dose_ceiling_issues([item], level="BLOCKER")
+        self.assertTrue(all(issue[0] == "BLOCKER" for issue in issues))
+
+    def test_volume_range_parsing(self):
+        self.assertEqual(MODULE._max_volume_ml("20-30 mL of 0.5%"), 30)
+        self.assertEqual(MODULE._max_volume_ml("inject 5 mL slowly"), 5)
+        self.assertEqual(MODULE._max_volume_ml("3-5 mL then 10 mL"), 5)
+        self.assertIsNone(MODULE._max_volume_ml("no volume here"))
+
+
 class CrashCardDoseTests(unittest.TestCase):
     def test_drug_class_without_number_is_flagged(self):
         issues = MODULE.crash_card_dose_issues([crash_card(["Give push-dose vasopressor if crashing."])])
