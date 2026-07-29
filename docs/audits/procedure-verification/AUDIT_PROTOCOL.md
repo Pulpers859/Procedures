@@ -44,10 +44,12 @@ adding `contentSource` to all 55 records invalidated the entire packet, while
 exactly 27 records had actually changed within audit scope.
 
 Run `python scripts/verify_procedure_audit.py` for the current per-record list.
-As of 2026-07-29 it names 27 drifted procedures — 25 whose `references` were
-replaced post-audit, plus `anterior_nasal_packing` (topical TXA added) and
-`block_raptir` (dose ceiling corrected). The other 28 procedures still match the
-bytes that were screened, and their findings remain live evidence.
+As of 2026-07-29 **no procedure is drifted**: 28 still match the audited bytes
+byte-for-byte, and 27 carry a re-screened amendment recorded by the release
+owner — 25 whose `references` were replaced post-audit, plus
+`anterior_nasal_packing` (topical TXA added) and `block_raptir` (dose ceiling
+corrected). Those amendments expire 2026-10-31, at which point each record is
+asked about again.
 
 Findings themselves remain unresolved: all 55 procedures carry a `STOP-SHIP` or
 `MAJOR` disposition, and the verifier refuses to report success while any is

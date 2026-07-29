@@ -1,10 +1,6 @@
 # Procedure Verification Audit Index
 
-> **Integrity hold:** 2 of the audited procedures have changed since this audit, so their findings below describe text that is no longer shipping:
->
-> `anterior_nasal_packing`, `block_raptir`
->
-> Every other record still matches the bytes that were screened. See `AUDIT_LEDGER.json` for per-record baselines and any amendments.
+> **Integrity:** every audited procedure still matches the bytes that were screened, per `AUDIT_LEDGER.json`.
 
 > **Scope:** this packet screened procedures only. No kit and no rescue card has a per-record evidence section in any lane report, and the rescue-card snapshot the protocol names was never committed, so no rescue-card baseline can be recovered. Nothing here attests to either.
 

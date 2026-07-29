@@ -109,6 +109,17 @@
   "amendments": [
     {
       "corpus": "procedures.json",
+      "recordId": "anterior_nasal_packing",
+      "auditFingerprint": "af9b463db25bea9985a3afe2906185d12ccd79d2037a22f44f15545f90281362",
+      "owner": "Patrick",
+      "rationale": "Re-screened and accepted by the clinical owner. Post-audit change in 9425966 added topical tranexamic acid to equipment (500 mg/5 mL injectable solution on a pledget or soaking the pack, per local policy), the Zahed 2013 randomised trial supporting it, and matching search tags. No existing step, dose ceiling, contraindication or complication text was altered; the addition is an adjunct alongside the audited packing technique. The lane report's findings for this record stand.",
+      "commit": "9425966",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p2-resolve-scope-monitoring-and-failure-plans",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
       "recordId": "block_auricular",
       "auditFingerprint": "558ff89d1d9009bdbaf65cc522b9edfb5a22a200483b5bea8d8399c3e5e2d90c",
       "owner": "Patrick",
@@ -237,6 +248,17 @@
       "commit": "be31f17",
       "expires": "2026-10-31",
       "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
+      "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_raptir",
+      "auditFingerprint": "08a9ea4a3688d3ce69fafac911ebc3ea42718a0d9a6da695c74d067aa80e3639",
+      "owner": "Patrick",
+      "rationale": "Re-screened and accepted by the clinical owner. Post-audit change in fcd718f resolved a dose contradiction the audit did not catch: 30 mL of 0.5% bupivacaine is 150 mg, above the record's own weight-based ceiling. Volume is now capped by concentration in both equipment and steps, and the worked example shows the arithmetic. This tightens a stated maximum rather than widening one, so no audit finding is loosened by it.",
+      "commit": "fcd718f",
+      "expires": "2026-10-31",
+      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p1-replace-the-dosing-governance-model",
       "recordedAt": "2026-07-29"
     },
     {
