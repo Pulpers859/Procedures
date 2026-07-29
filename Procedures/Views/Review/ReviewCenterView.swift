@@ -88,10 +88,11 @@ struct ReviewCenterView: View {
     private var myEditsSection: some View {
         if editStore.editedProcedureCount > 0 {
             Section {
-                MetadataRow(
+                scopeRow(
                     icon: "square.and.pencil",
                     title: "Procedures edited locally",
-                    value: "\(editStore.editedProcedureCount)"
+                    count: editStore.editedProcedureCount,
+                    scope: .locallyEdited
                 )
                 if let exportURL {
                     ShareLink(item: exportURL) {
@@ -114,10 +115,11 @@ struct ReviewCenterView: View {
     private var myReviewsSection: some View {
         if !userData.locallyReviewedContent.isEmpty {
             Section {
-                MetadataRow(
+                scopeRow(
                     icon: "checkmark.seal",
                     title: "Items you have signed off",
-                    value: "\(userData.locallyReviewedContent.values.filter { $0.disposition == .reviewed }.count)"
+                    count: reviewedCount,
+                    scope: .disposition(.reviewed)
                 )
                 if let reviewExportURL {
                     ShareLink(item: reviewExportURL) {
@@ -158,13 +160,17 @@ struct ReviewCenterView: View {
                     }
                 }
 
+                // The pills are the first thing read on this screen and were the
+                // one place a number could not be opened. Nested links inside a
+                // row keep the pill's own appearance rather than taking on a
+                // disclosure chevron.
                 HStack(spacing: 8) {
-                    ReviewMetricPill(value: "\(reviewedCount)", label: "reviewed", tint: .green)
+                    metricPillLink(value: reviewedCount, label: "reviewed", tint: .green, scope: .disposition(.reviewed))
                     if changedSinceReviewCount > 0 {
-                        ReviewMetricPill(value: "\(changedSinceReviewCount)", label: "changed", tint: .orange)
+                        metricPillLink(value: changedSinceReviewCount, label: "changed", tint: .orange, scope: .changedSinceReview)
                     }
-                    ReviewMetricPill(value: "\(needsEditCount)", label: "needs edits", tint: .orange)
-                    ReviewMetricPill(value: "\(issueCount(.warning))", label: "warnings", tint: .red)
+                    metricPillLink(value: needsEditCount, label: "needs edits", tint: .orange, scope: .disposition(.needsEdits))
+                    metricPillLink(value: issueCount(.warning), label: "warnings", tint: .red, scope: .issues(.warning))
                 }
             }
             .padding(.vertical, 4)
@@ -285,15 +291,15 @@ struct ReviewCenterView: View {
     private var trackContent: some View {
         Group {
             Section("Progress") {
-                MetadataRow(icon: "list.bullet.rectangle", title: "Procedures", value: "\(repository.procedures.count)")
-                MetadataRow(icon: "lifepreserver", title: "Rescue Cards", value: "\(repository.rescueCards.count)")
-                MetadataRow(icon: "shippingbox", title: "Kits", value: "\(repository.kits.count)")
-                MetadataRow(icon: "checkmark.seal", title: "Reviewed", value: "\(reviewedCount)")
+                scopeRow(icon: "list.bullet.rectangle", title: "Procedures", count: repository.procedures.count, scope: .allProcedures)
+                scopeRow(icon: "lifepreserver", title: "Rescue Cards", count: repository.rescueCards.count, scope: .allRescueCards)
+                scopeRow(icon: "shippingbox", title: "Kits", count: repository.kits.count, scope: .allKits)
+                scopeRow(icon: "checkmark.seal", title: "Reviewed", count: reviewedCount, scope: .disposition(.reviewed))
                 if changedSinceReviewCount > 0 {
-                    MetadataRow(icon: "arrow.triangle.2.circlepath", title: "Changed since review", value: "\(changedSinceReviewCount)")
+                    scopeRow(icon: "arrow.triangle.2.circlepath", title: "Changed since review", count: changedSinceReviewCount, scope: .changedSinceReview)
                 }
-                MetadataRow(icon: "square.and.pencil", title: "Needs Edits", value: "\(needsEditCount)")
-                MetadataRow(icon: "clock", title: "Deferred", value: "\(deferredCount)")
+                scopeRow(icon: "square.and.pencil", title: "Needs Edits", count: needsEditCount, scope: .disposition(.needsEdits))
+                scopeRow(icon: "clock", title: "Deferred", count: deferredCount, scope: .disposition(.deferred))
                 if totalContentItems > 0 {
                     // Every review counts, permanently. A content update must
                     // never move a clinician's completed work backwards.
@@ -302,9 +308,9 @@ struct ReviewCenterView: View {
             }
 
             Section("Validation") {
-                MetadataRow(icon: "exclamationmark.octagon", title: "Blockers", value: "\(issueCount(.blocker))")
-                MetadataRow(icon: "exclamationmark.triangle", title: "Warnings", value: "\(issueCount(.warning))")
-                MetadataRow(icon: "sparkles", title: "Polish", value: "\(issueCount(.polish))")
+                scopeRow(icon: "exclamationmark.octagon", title: "Blockers", count: issueCount(.blocker), scope: .issues(.blocker))
+                scopeRow(icon: "exclamationmark.triangle", title: "Warnings", count: issueCount(.warning), scope: .issues(.warning))
+                scopeRow(icon: "sparkles", title: "Polish", count: issueCount(.polish), scope: .issues(.polish))
             }
 
             if changedSinceReviewCount > 0 {
@@ -493,6 +499,40 @@ struct ReviewCenterView: View {
                     record: userData.localReviewRecord(for: kit)
                 )
             }
+        }
+    }
+
+    @ViewBuilder
+    private func metricPillLink(value: Int, label: String, tint: Color, scope: ReviewScope) -> some View {
+        if value > 0 {
+            NavigationLink {
+                ReviewScopeListView(scope: scope)
+            } label: {
+                ReviewMetricPill(value: "\(value)", label: label, tint: tint)
+            }
+            .buttonStyle(.plain)
+            .accessibilityHint("Opens the \(label) list")
+        } else {
+            ReviewMetricPill(value: "\(value)", label: label, tint: tint)
+        }
+    }
+
+    /// A count the reader can open.
+    ///
+    /// Tapping is offered only when there is something behind the number: a
+    /// zero that pushes an empty screen teaches the reader that these rows are
+    /// not worth tapping, which costs more than it gains. A zero row therefore
+    /// renders as plain text, with no chevron promising a destination.
+    @ViewBuilder
+    private func scopeRow(icon: String, title: String, count: Int, scope: ReviewScope) -> some View {
+        if count > 0 {
+            NavigationLink {
+                ReviewScopeListView(scope: scope)
+            } label: {
+                MetadataRow(icon: icon, title: title, value: "\(count)")
+            }
+        } else {
+            MetadataRow(icon: icon, title: title, value: "\(count)")
         }
     }
 

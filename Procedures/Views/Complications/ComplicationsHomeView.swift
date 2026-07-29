@@ -107,6 +107,7 @@ struct ComplicationsHomeView: View {
 
 struct RescueCardRow: View {
     @EnvironmentObject private var repository: ProcedureRepository
+    @EnvironmentObject private var userData: UserDataStore
     let card: ComplicationRescueCard
 
     var body: some View {
@@ -141,14 +142,12 @@ struct RescueCardRow: View {
 
     private var badges: some View {
         HStack(spacing: 8) {
-            // Suppressed while every card carries it and it therefore
-            // distinguishes none of them. The detail page still discloses it,
-            // and the badge returns as soon as any card is reviewed.
-            if !card.reviewer.isClinicallyReviewed, repository.rescueNeedsReviewBadgeIsInformative {
-                Image(systemName: "exclamationmark.shield")
-                    .foregroundStyle(.orange)
-                    .accessibilityLabel("Needs clinical review")
-            }
+            // Marks whichever review state is the minority across the rescue
+            // library, counting the reader's own sign-offs. See ReviewBadgePolicy.
+            ReviewStateBadge(
+                state: userData.reviewState(for: card),
+                policy: userData.badgePolicy(forRescueCards: repository.rescueCards)
+            )
             AcuityBadge(acuity: card.acuity)
         }
     }
@@ -262,11 +261,11 @@ struct RescueCardDetailView: View {
     private var statusStrip: some View {
         HStack(spacing: 10) {
             AcuityBadge(acuity: card.acuity)
-            if !card.reviewer.isClinicallyReviewed {
-                Label("Needs clinical review", systemImage: "exclamationmark.shield")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(AppSemanticColor.warningText)
-            }
+            ReviewStateChip(
+                state: userData.reviewState(for: card),
+                source: card.source,
+                alignment: .leading
+            )
             Spacer(minLength: 0)
         }
         .frame(maxWidth: .infinity, minHeight: AppLayout.controlMinHeight, alignment: .leading)

@@ -94,12 +94,18 @@ struct ProcedureListView: View {
     /// 100% of rows and distinguishes nothing, so it is suppressed and the
     /// state is disclosed in one place. Detail pages still carry their own
     /// banner, so no procedure can be opened without the reader being told.
+    /// Counts the reader's own sign-offs, not just what shipped. The old version
+    /// asked the bundled content only, so it went on insisting that "no procedure
+    /// has been reviewed" to a clinician looking at procedures they had reviewed
+    /// themselves. Once even one is reviewed this disappears and the per-row
+    /// badge takes over, marking the reviewed minority.
     @ViewBuilder
     private var unreviewedCorpusNotice: some View {
-        if !repository.needsReviewBadgeIsInformative && !repository.procedures.isEmpty {
+        if !repository.procedures.isEmpty,
+           userData.effectiveReviewedCount(procedures: repository.procedures) == 0 {
             Section {
                 Label(
-                    "No procedure in this library has been clinically reviewed yet. Verify against a trusted source before bedside use.",
+                    "No procedure in this library has been reviewed yet — not by the content team, and not by you. Verify against a trusted source before bedside use.",
                     systemImage: "exclamationmark.shield"
                 )
                 .font(.footnote.weight(.semibold))

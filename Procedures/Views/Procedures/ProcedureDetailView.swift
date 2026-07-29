@@ -117,16 +117,14 @@ struct ProcedureDetailView: View {
                 Spacer()
                 VStack(alignment: .trailing, spacing: 6) {
                     difficultyBadge
-                    if !current.reviewer.isClinicallyReviewed {
-                        Label(
-                            current.source == .aiDraft ? "DRAFT — not clinically reviewed" : "Needs review",
-                            systemImage: "exclamationmark.shield"
-                        )
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(AppSemanticColor.warningText)
-                        .multilineTextAlignment(.trailing)
-                        .fixedSize(horizontal: false, vertical: true)
-                    }
+                    // Always shown, in every state. This page used to read
+                    // "DRAFT — not clinically reviewed" even to the clinician who
+                    // had signed the procedure off, because it asked the bundled
+                    // content and never the reader's own record.
+                    ReviewStateChip(
+                        state: userData.reviewState(for: current),
+                        source: current.source
+                    )
                 }
             }
 

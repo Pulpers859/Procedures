@@ -18,6 +18,8 @@
 		7E570000000000000000000D /* ContentDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000000A /* ContentDecodingTests.swift */; };
 		7E570000000000000000000E /* RescueSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000000B /* RescueSearchTests.swift */; };
 		7E570000000000000000000F /* ValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000000C /* ValidationTests.swift */; };
+		7E57000000000000000000A1 /* Models/ReviewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E57000000000000000000A2 /* Models/ReviewState.swift */; };
+		7E57000000000000000000A3 /* Views/Review/ReviewScopeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E57000000000000000000A4 /* Views/Review/ReviewScopeListView.swift */; };
 		7E570000000000000000001A /* Models/ReviewerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E570000000000000000001B /* Models/ReviewerStatus.swift */; };
 		7E580000000000000000001A /* Models/Kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E580000000000000000001B /* Models/Kit.swift */; };
 		7E580000000000000000002A /* Resources/kits.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E580000000000000000002B /* Resources/kits.json */; };
@@ -42,6 +44,7 @@
 		A90000000000000000000007 /* Views/Procedures/Sections/VisualGuideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000017 /* Views/Procedures/Sections/VisualGuideContent.swift */; };
 		A90000000000000000000008 /* Views/Procedures/Sections/ProcedureVisualCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000018 /* Views/Procedures/Sections/ProcedureVisualCard.swift */; };
 		A90000000000000000000009 /* PersistenceSafetyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000019 /* PersistenceSafetyTests.swift */; };
+		A90000000000000000000030 /* ReviewStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000031 /* ReviewStateTests.swift */; };
 		A90000000000000000000020 /* ContentEditingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000021 /* ContentEditingTests.swift */; };
 		AABBCCDD0000000000005E71 /* Views/Settings/SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */; };
 		B1C2D3E4F5A60718293A4B5C /* Resources/rescue_cards.json in Resources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60718293A4B5C /* Resources/rescue_cards.json */; };
@@ -82,6 +85,8 @@
 		7E570000000000000000000A /* ContentDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDecodingTests.swift; sourceTree = "<group>"; };
 		7E570000000000000000000B /* RescueSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RescueSearchTests.swift; sourceTree = "<group>"; };
 		7E570000000000000000000C /* ValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTests.swift; sourceTree = "<group>"; };
+		7E57000000000000000000A2 /* Models/ReviewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ReviewState.swift; sourceTree = "<group>"; };
+		7E57000000000000000000A4 /* Views/Review/ReviewScopeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Review/ReviewScopeListView.swift; sourceTree = "<group>"; };
 		7E570000000000000000001B /* Models/ReviewerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ReviewerStatus.swift; sourceTree = "<group>"; };
 		7E580000000000000000001B /* Models/Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Kit.swift; sourceTree = "<group>"; };
 		7E580000000000000000002B /* Resources/kits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/kits.json; sourceTree = "<group>"; };
@@ -101,6 +106,7 @@
 		A90000000000000000000017 /* Views/Procedures/Sections/VisualGuideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/VisualGuideContent.swift; sourceTree = "<group>"; };
 		A90000000000000000000018 /* Views/Procedures/Sections/ProcedureVisualCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/ProcedureVisualCard.swift; sourceTree = "<group>"; };
 		A90000000000000000000019 /* PersistenceSafetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceSafetyTests.swift; sourceTree = "<group>"; };
+		A90000000000000000000031 /* ReviewStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStateTests.swift; sourceTree = "<group>"; };
 		A90000000000000000000021 /* ContentEditingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEditingTests.swift; sourceTree = "<group>"; };
 		AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
 		AD38FED1DEFEFB62F3922F4C /* Models/ComplicationRescueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ComplicationRescueCard.swift; sourceTree = "<group>"; };
@@ -170,6 +176,8 @@
 				C1D2E3F4A5B60718293A4B5C /* Resources/rescue_cards.json */,
 				CA8DC468D85E10471B68033F /* Models/ContentValidation.swift */,
 				AD38FED1DEFEFB62F3922F4C /* Models/ComplicationRescueCard.swift */,
+				7E57000000000000000000A2 /* Models/ReviewState.swift */,
+				7E57000000000000000000A4 /* Views/Review/ReviewScopeListView.swift */,
 				7E570000000000000000001B /* Models/ReviewerStatus.swift */,
 				13EEE6E0342FFE24C67FCF75 /* Views/Review/ReviewCenterView.swift */,
 				AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */,
@@ -190,6 +198,7 @@
 				7E570000000000000000000B /* RescueSearchTests.swift */,
 				7E570000000000000000000C /* ValidationTests.swift */,
 				A90000000000000000000019 /* PersistenceSafetyTests.swift */,
+				A90000000000000000000031 /* ReviewStateTests.swift */,
 				A90000000000000000000021 /* ContentEditingTests.swift */,
 				7E5900000000000000000010 /* SearchRegressionTests.swift */,
 			);
@@ -303,6 +312,7 @@
 				7E570000000000000000000E /* RescueSearchTests.swift in Sources */,
 				7E570000000000000000000F /* ValidationTests.swift in Sources */,
 				A90000000000000000000009 /* PersistenceSafetyTests.swift in Sources */,
+				A90000000000000000000030 /* ReviewStateTests.swift in Sources */,
 				A90000000000000000000020 /* ContentEditingTests.swift in Sources */,
 				7E5900000000000000000011 /* SearchRegressionTests.swift in Sources */,
 			);
@@ -345,6 +355,8 @@
 				88F9C923C93A43E6A2E14BFF /* Models/ComplicationRescueCard.swift in Sources */,
 				92AACC753D3533D81A9532F1 /* Views/Review/ReviewCenterView.swift in Sources */,
 				AABBCCDD0000000000005E71 /* Views/Settings/SettingsView.swift in Sources */,
+				7E57000000000000000000A1 /* Models/ReviewState.swift in Sources */,
+				7E57000000000000000000A3 /* Views/Review/ReviewScopeListView.swift in Sources */,
 				7E570000000000000000001A /* Models/ReviewerStatus.swift in Sources */,
 				7E580000000000000000001A /* Models/Kit.swift in Sources */,
 			);

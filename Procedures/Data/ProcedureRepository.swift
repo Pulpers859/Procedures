@@ -198,24 +198,12 @@ final class ProcedureRepository: ObservableObject {
         }
     }
 
-    /// Whether a per-row "needs clinical review" badge tells the reader
-    /// anything.
-    ///
-    /// Every procedure currently ships as Needs Clinical Review, so that badge
-    /// rendered on 100% of rows: 55 identical orange marks that cost a great
-    /// deal of visual weight and carried no information, because nothing was
-    /// being distinguished from anything. The state is disclosed once, in the
-    /// list header and on every detail page, instead. The badge earns its place
-    /// back automatically the moment any item is reviewed.
-    var needsReviewBadgeIsInformative: Bool {
-        procedures.contains { $0.reviewer.isClinicallyReviewed }
-    }
-
-    /// Same question for rescue cards, which have the same badge on the same
-    /// all-or-nothing basis.
-    var rescueNeedsReviewBadgeIsInformative: Bool {
-        rescueCards.contains { $0.reviewer.isClinicallyReviewed }
-    }
+    // Badge informativeness used to be answered here, from the bundled
+    // reviewer status alone. That made it structurally blind to the reader's
+    // own sign-offs: reviewing a procedure changed nothing anywhere outside the
+    // Review Center. The question now belongs to UserDataStore.badgePolicy(for:),
+    // which can see both records. Nothing in the UI should ask the repository
+    // about review state again.
 
     func loadContent() {
         loadProcedures()

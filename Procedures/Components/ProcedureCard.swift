@@ -2,8 +2,17 @@ import SwiftUI
 
 struct ProcedureCard: View {
     @EnvironmentObject private var repository: ProcedureRepository
+    @EnvironmentObject private var userData: UserDataStore
     let procedure: Procedure
     let isFavorite: Bool
+
+    private var reviewState: ReviewState {
+        userData.reviewState(for: procedure)
+    }
+
+    private var badgePolicy: ReviewBadgePolicy {
+        userData.badgePolicy(forProcedures: repository.procedures)
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -18,12 +27,10 @@ struct ProcedureCard: View {
                 }
                 Spacer(minLength: 8)
                 HStack(spacing: 8) {
-                    // Shown only while it distinguishes this row from its
-                    // neighbours. See ProcedureRepository.needsReviewBadgeIsInformative.
-                    if !procedure.reviewer.isClinicallyReviewed, repository.needsReviewBadgeIsInformative {
-                        Image(systemName: "exclamationmark.shield")
-                            .foregroundStyle(AppSemanticColor.warningText)
-                    }
+                    // Marks whichever review state is the minority, so the badge
+                    // stays informative instead of appearing on every row. See
+                    // ReviewBadgePolicy.
+                    ReviewStateBadge(state: reviewState, policy: badgePolicy)
                     if isFavorite {
                         Image(systemName: "bookmark.fill")
                             .foregroundStyle(.blue)
@@ -52,7 +59,11 @@ struct ProcedureCard: View {
         if !procedure.setting.isEmpty {
             parts.append(procedure.setting.map(\.rawValue).joined(separator: ", "))
         }
-        if !procedure.reviewer.isClinicallyReviewed { parts.append("Needs clinical review") }
+        // Mirrors the badge exactly. When the badge is suppressed the state is
+        // identical on every row and is disclosed once in the list header, which
+        // VoiceOver reads on the way in — repeating it 55 times would bury the
+        // titles the reader is actually scanning for.
+        if badgePolicy.shouldBadge(reviewState) { parts.append(reviewState.shortLabel) }
         if isFavorite { parts.append("Saved") }
         return parts.joined(separator: ". ")
     }

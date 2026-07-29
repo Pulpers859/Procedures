@@ -145,6 +145,8 @@ struct KitsHomeView: View {
 // MARK: - Kit Row
 
 struct KitRow: View {
+    @EnvironmentObject private var repository: ProcedureRepository
+    @EnvironmentObject private var userData: UserDataStore
     let kit: Kit
     let checkedCount: Int
     let totalCount: Int
@@ -171,11 +173,10 @@ struct KitRow: View {
 
             Spacer(minLength: 8)
 
-            if !kit.reviewer.isClinicallyReviewed {
-                Image(systemName: "exclamationmark.shield")
-                    .foregroundStyle(.orange)
-                    .accessibilityLabel("Needs clinical review")
-            }
+            ReviewStateBadge(
+                state: userData.reviewState(for: kit),
+                policy: userData.badgePolicy(forKits: repository.kits)
+            )
 
             if isComplete {
                 Image(systemName: "checkmark.seal.fill")
@@ -394,6 +395,15 @@ struct KitDetailView: View {
             Text(kit.subtitle)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
+
+            // Kits were the one detail page that disclosed nothing about review
+            // state, so a kit signed off on this device looked identical to one
+            // nobody had ever opened.
+            ReviewStateChip(
+                state: userData.reviewState(for: kit),
+                source: kit.source,
+                alignment: .leading
+            )
 
             if !kit.tags.isEmpty {
                 FlowTagView(tags: Array(kit.tags.prefix(6)))

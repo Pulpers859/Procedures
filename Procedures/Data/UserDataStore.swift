@@ -328,6 +328,68 @@ final class UserDataStore: ObservableObject {
         localReviewRecord(for: kit)?.contentState(currentFingerprint: kit.materialFingerprint)
     }
 
+    // MARK: - Effective review state
+
+    /// The reconciled answer for one item. Every review surface in the app must
+    /// route through here rather than reading `reviewer.isClinicallyReviewed`,
+    /// which knows only what shipped and nothing about what the reader signed
+    /// off on this device.
+    func reviewState(for procedure: Procedure) -> ReviewState {
+        ReviewState.resolve(
+            sourceStatus: procedure.reviewer,
+            record: localReviewRecord(for: procedure),
+            contentState: reviewContentState(for: procedure)
+        )
+    }
+
+    func reviewState(for card: ComplicationRescueCard) -> ReviewState {
+        ReviewState.resolve(
+            sourceStatus: card.reviewer,
+            record: localReviewRecord(for: card),
+            contentState: reviewContentState(for: card)
+        )
+    }
+
+    func reviewState(for kit: Kit) -> ReviewState {
+        ReviewState.resolve(
+            sourceStatus: kit.reviewer,
+            record: localReviewRecord(for: kit),
+            contentState: reviewContentState(for: kit)
+        )
+    }
+
+    /// Effective reviewed totals, counting bundled sign-offs and local ones
+    /// without double-counting an item that has both.
+    func effectiveReviewedCount(procedures: [Procedure]) -> Int {
+        procedures.reduce(into: 0) { $0 += reviewState(for: $1).isReviewed ? 1 : 0 }
+    }
+
+    func effectiveReviewedCount(rescueCards: [ComplicationRescueCard]) -> Int {
+        rescueCards.reduce(into: 0) { $0 += reviewState(for: $1).isReviewed ? 1 : 0 }
+    }
+
+    func effectiveReviewedCount(kits: [Kit]) -> Int {
+        kits.reduce(into: 0) { $0 += reviewState(for: $1).isReviewed ? 1 : 0 }
+    }
+
+    /// Badge policy for a content kind, computed over the whole library.
+    ///
+    /// Deliberately not scoped to whatever subset a screen happens to be
+    /// showing: if a filtered list of three could flip the policy, the same
+    /// procedure would badge differently on two screens, and the badge would
+    /// stop meaning anything.
+    func badgePolicy(forProcedures procedures: [Procedure]) -> ReviewBadgePolicy {
+        .make(reviewedCount: effectiveReviewedCount(procedures: procedures), total: procedures.count)
+    }
+
+    func badgePolicy(forRescueCards rescueCards: [ComplicationRescueCard]) -> ReviewBadgePolicy {
+        .make(reviewedCount: effectiveReviewedCount(rescueCards: rescueCards), total: rescueCards.count)
+    }
+
+    func badgePolicy(forKits kits: [Kit]) -> ReviewBadgePolicy {
+        .make(reviewedCount: effectiveReviewedCount(kits: kits), total: kits.count)
+    }
+
     /// Reviewed items whose material content has changed since sign-off. These
     /// stay reviewed and keep counting toward progress; the number exists only
     /// so the Review Center can offer an optional "worth a second look" list.
