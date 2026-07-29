@@ -124,6 +124,51 @@ def discover_resource_files() -> list[Path]:
     )
 
 
+def configuration_consistency_issues(project_text: str) -> list[str]:
+    """Settings that must not differ between Debug and Release.
+
+    The app shipped with two bundle identifiers — Debug on one, Release on
+    another. A bundle identifier *is* the app's identity to iOS: UserDefaults
+    and the Documents directory both live in a per-identifier container. So
+    moving from an Xcode install to a TestFlight build presented as a
+    factory-fresh app, stranding every sign-off, note, favourite and local
+    edit, with no error and no way back.
+
+    Nothing caught it: CI runs the tests against Debug and only *builds*
+    Release, so the two configurations were never compared. This compares them.
+    """
+    issues: list[str] = []
+    settings: dict[str, dict[str, set[str]]] = {}
+    for match in re.finditer(
+        r"isa = XCBuildConfiguration;(.*?)name = (\w+);",
+        project_text,
+        re.DOTALL,
+    ):
+        body, configuration = match.group(1), match.group(2)
+        identifier = re.search(r"PRODUCT_BUNDLE_IDENTIFIER = ([^;]+);", body)
+        if not identifier:
+            continue
+        # Group by target, using the identifier's own suffix to tell the app
+        # target from the test target without parsing the whole target graph.
+        value = identifier.group(1).strip().strip('"')
+        target = "tests" if value.endswith("Tests") else "app"
+        settings.setdefault(target, {}).setdefault(configuration, set()).add(value)
+
+    for target, configurations in sorted(settings.items()):
+        values = {value for group in configurations.values() for value in group}
+        if len(values) > 1:
+            detail = ", ".join(
+                f"{configuration}={sorted(group)[0]}"
+                for configuration, group in sorted(configurations.items())
+            )
+            issues.append(
+                f"the {target} target's PRODUCT_BUNDLE_IDENTIFIER differs across configurations "
+                f"({detail}). A differing identifier is a different app to iOS, so local reviews, "
+                f"notes and edits do not survive the switch."
+            )
+    return issues
+
+
 def declared_xctest_count(test_files: list[Path]) -> int:
     pattern = re.compile(r"^\s*func\s+(test[A-Za-z0-9_]*)\s*\(", re.MULTILINE)
     return sum(len(pattern.findall(path.read_text(encoding="utf-8"))) for path in test_files)
@@ -152,6 +197,7 @@ def main(argv=None) -> int:
     resource_files = discover_resource_files()
     issues = source_membership_issues(project_text, app_files, test_files)
     issues.extend(resource_membership_issues(project_text, resource_files))
+    issues.extend(configuration_consistency_issues(project_text))
     if issues:
         print("Xcode project verification failed:")
         for issue in issues:

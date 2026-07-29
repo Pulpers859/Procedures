@@ -83,6 +83,41 @@ class ProjectMembershipTests(unittest.TestCase):
         issues = MODULE.resource_membership_issues("no phases here", [])
         self.assertTrue(any("missing or unreadable" in issue for issue in issues))
 
+    # A bundle identifier is the app's identity to iOS: UserDefaults and the
+    # Documents directory both live in a per-identifier container. The app
+    # shipped with one identifier on Debug and another on Release, so moving
+    # to a TestFlight build presented as a factory-fresh app and stranded every
+    # sign-off, note and local edit. CI never compared the two configurations.
+
+    def test_bundle_identifier_differing_across_configurations_is_an_issue(self):
+        text = (
+            'isa = XCBuildConfiguration; PRODUCT_BUNDLE_IDENTIFIER = "Some-App.Thing"; name = Debug;\n'
+            "isa = XCBuildConfiguration; PRODUCT_BUNDLE_IDENTIFIER = com.other.Thing; name = Release;\n"
+        )
+        issues = MODULE.configuration_consistency_issues(text)
+        self.assertTrue(any("differs across configurations" in issue for issue in issues), issues)
+
+    def test_matching_bundle_identifiers_are_clean(self):
+        text = (
+            "isa = XCBuildConfiguration; PRODUCT_BUNDLE_IDENTIFIER = com.example.App; name = Debug;\n"
+            "isa = XCBuildConfiguration; PRODUCT_BUNDLE_IDENTIFIER = com.example.App; name = Release;\n"
+        )
+        self.assertEqual(MODULE.configuration_consistency_issues(text), [])
+
+    def test_app_and_test_targets_are_compared_separately(self):
+        """The test bundle legitimately has its own identifier."""
+        text = (
+            "isa = XCBuildConfiguration; PRODUCT_BUNDLE_IDENTIFIER = com.example.App; name = Debug;\n"
+            "isa = XCBuildConfiguration; PRODUCT_BUNDLE_IDENTIFIER = com.example.App; name = Release;\n"
+            "isa = XCBuildConfiguration; PRODUCT_BUNDLE_IDENTIFIER = com.example.AppTests; name = Debug;\n"
+            "isa = XCBuildConfiguration; PRODUCT_BUNDLE_IDENTIFIER = com.example.AppTests; name = Release;\n"
+        )
+        self.assertEqual(MODULE.configuration_consistency_issues(text), [])
+
+    def test_the_shipping_project_has_consistent_configurations(self):
+        text = MODULE.PROJECT_FILE.read_text(encoding="utf-8")
+        self.assertEqual(MODULE.configuration_consistency_issues(text), [])
+
     def test_counts_declared_xctest_methods(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "ExampleTests.swift"

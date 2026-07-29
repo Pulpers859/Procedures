@@ -8,6 +8,10 @@ private enum UserDataStoreKey {
     static let kitCheckedItems = "Procedures.kitCheckedItems"
     static let locallyReviewedContent = "Procedures.locallyReviewedContent"
 
+    /// Appended to a key to hold bytes that failed to decode. See
+    /// `UserDataStore.quarantine(_:forKey:)`.
+    static let unreadableSuffix = ".unreadable"
+
     static let legacyFavorites = "ProcedureSTAT.favoriteIDs"
     static let legacyRecents = "ProcedureSTAT.recentIDs"
     static let legacyNotes = "ProcedureSTAT.notes"
@@ -545,6 +549,38 @@ final class UserDataStore: ObservableObject {
         saveKitCheckedItems()
     }
 
+    /// Blobs that could not be decoded this launch. Their bytes are preserved
+    /// under a `.unreadable` sidecar key, and this drives the notice that says
+    /// so — because the alternative is that the loss is never mentioned.
+    @Published private(set) var unreadableDataKeys: Set<String> = []
+
+    /// Preserves a blob we could not decode, before anything overwrites it.
+    ///
+    /// Every collection here is stored as one whole-blob key and saved by
+    /// rewriting that blob entirely. So a single undecodable record — a
+    /// renamed disposition raw value, a field that stopped being optional,
+    /// a truncated write — left the collection empty in memory, and the very
+    /// next sign-off wrote one record over all of them. Nothing crashed and
+    /// nothing logged; the Review Center just read 1 of 73 instead of 48.
+    ///
+    /// Refusing to write at all would have been the other obvious answer, and
+    /// it is worse: it makes the app unable to record a review for as long as
+    /// the bad blob exists. Keeping the original bytes makes the loss
+    /// recoverable, and `unreadableDataKeys` makes it visible.
+    private func quarantine(_ data: Data, forKey key: String) {
+        let sidecar = key + UserDataStoreKey.unreadableSuffix
+        // Never overwrite an existing quarantine — that would destroy the
+        // original copy on the second bad launch, which is the one case this
+        // whole mechanism exists to survive.
+        if defaults.data(forKey: sidecar) == nil {
+            defaults.set(data, forKey: sidecar)
+        }
+        unreadableDataKeys.insert(key)
+    }
+
+    /// Whether any saved data failed to load and was set aside.
+    var hasUnreadableData: Bool { !unreadableDataKeys.isEmpty }
+
     private func load() {
         if let favoriteArray = defaults.array(forKey: UserDataStoreKey.favorites) as? [String] {
             favoriteIDs = Set(favoriteArray)
@@ -560,38 +596,53 @@ final class UserDataStore: ObservableObject {
             saveRecents()
         }
 
-        if let data = defaults.data(forKey: UserDataStoreKey.notes),
-           let decoded = try? JSONDecoder().decode([String: String].self, from: data) {
-            notes = decoded
+        if let data = defaults.data(forKey: UserDataStoreKey.notes) {
+            if let decoded = try? JSONDecoder().decode([String: String].self, from: data) {
+                notes = decoded
+            } else {
+                quarantine(data, forKey: UserDataStoreKey.notes)
+            }
         } else if let data = defaults.data(forKey: UserDataStoreKey.legacyNotes),
                   let decoded = try? JSONDecoder().decode([String: String].self, from: data) {
             notes = decoded
             saveNotes()
         }
 
-        if let data = defaults.data(forKey: UserDataStoreKey.checkedEquipment),
-           let decoded = try? JSONDecoder().decode([String: [String]].self, from: data) {
-            checkedEquipment = decoded.mapValues { Set($0) }
+        if let data = defaults.data(forKey: UserDataStoreKey.checkedEquipment) {
+            if let decoded = try? JSONDecoder().decode([String: [String]].self, from: data) {
+                checkedEquipment = decoded.mapValues { Set($0) }
+            } else {
+                quarantine(data, forKey: UserDataStoreKey.checkedEquipment)
+            }
         } else if let data = defaults.data(forKey: UserDataStoreKey.legacyCheckedEquipment),
                   let decoded = try? JSONDecoder().decode([String: [String]].self, from: data) {
             checkedEquipment = decoded.mapValues { Set($0) }
             saveCheckedEquipment()
         }
 
-        if let data = defaults.data(forKey: UserDataStoreKey.kitCheckedItems),
-           let decoded = try? JSONDecoder().decode([String: [String]].self, from: data) {
-            kitCheckedItems = decoded.mapValues { Set($0) }
+        if let data = defaults.data(forKey: UserDataStoreKey.kitCheckedItems) {
+            if let decoded = try? JSONDecoder().decode([String: [String]].self, from: data) {
+                kitCheckedItems = decoded.mapValues { Set($0) }
+            } else {
+                quarantine(data, forKey: UserDataStoreKey.kitCheckedItems)
+            }
         }
 
-        if let data = defaults.data(forKey: UserDataStoreKey.locallyReviewedContent),
-           let decoded = try? JSONDecoder().decode([String: LocalReviewRecord].self, from: data) {
-            locallyReviewedContent = decoded
-        } else if let data = defaults.data(forKey: UserDataStoreKey.locallyReviewedContent),
-                  let legacy = try? JSONDecoder().decode([String: String].self, from: data) {
-            locallyReviewedContent = legacy.mapValues {
-                LocalReviewRecord(disposition: .reviewed, date: $0)
+        if let data = defaults.data(forKey: UserDataStoreKey.locallyReviewedContent) {
+            if let decoded = try? JSONDecoder().decode([String: LocalReviewRecord].self, from: data) {
+                locallyReviewedContent = decoded
+            } else if let legacy = try? JSONDecoder().decode([String: String].self, from: data) {
+                // Pre-record format: a bare date string per key.
+                locallyReviewedContent = legacy.mapValues {
+                    LocalReviewRecord(disposition: .reviewed, date: $0)
+                }
+                saveLocallyReviewedContent()
+            } else {
+                // The sign-offs are the one collection that cannot be
+                // reconstructed by using the app normally, so losing this blob
+                // silently is the worst case the quarantine exists for.
+                quarantine(data, forKey: UserDataStoreKey.locallyReviewedContent)
             }
-            saveLocallyReviewedContent()
         }
     }
 
