@@ -378,6 +378,29 @@ class ShippedPreparationTableTests(unittest.TestCase):
         self.assertEqual(len(ropivacaine), 1)
         self.assertIn("pinephrine", ropivacaine[0]["note"] or "")
 
+    def test_the_long_acting_agents_carry_their_relative_cardiotoxicity(self):
+        """Choosing between bupivacaine and ropivacaine is the decision this
+        card is consulted for. Stating the ceilings without the difference in
+        cardiotoxicity answers the arithmetic and not the question."""
+        notes = {
+            (a["agent"], a["withEpinephrine"]): a["note"] or ""
+            for a in self.tables[0]
+        }
+        self.assertIn("cardiotox", notes[("Ropivacaine", False)])
+        self.assertIn("cardiotox", notes[("Bupivacaine", False)])
+        self.assertIn("cardiotox", notes[("Bupivacaine", True)])
+
+    def test_every_block_gives_the_same_incremental_injection_rule(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        rules = {
+            line
+            for p in procedures if p.get("dosing")
+            for line in p["dosing"]["monitoring"]
+            if "increments" in line
+        }
+        self.assertEqual(len(rules), 1, rules)
+        self.assertIn("3 mL increments", rules.pop())
+
     def test_the_source_published_volumes_reproduce(self):
         """The reference states its own maximum volumes. If the card computes
         different ones, the card is wrong - this is the arithmetic check that
