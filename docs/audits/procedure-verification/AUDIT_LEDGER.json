@@ -403,6 +403,39 @@
       "expires": "2026-10-31",
       "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p3-device-visual-and-reference-control",
       "recordedAt": "2026-07-29"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "cricothyrotomy",
+      "auditFingerprint": "0209d0df26f1ef75e085f90d37a3947200df10f5f5c1f4df7a69da596ddf4d39",
+      "owner": "Patrick",
+      "rationale": "Re-screened after the owner directed that unapproved artwork be withheld. The cric_danger_zone visual is removed because the bundled image drew the thyroid isthmus across the cricothyroid membrane while its own subtitle placed the isthmus inferior, which the lane report graded STOP-SHIP. The cric_membrane visual is retained unchanged. No step, equipment or contraindication text was altered.",
+      "commit": "2b1580d",
+      "expires": "2026-10-31",
+      "followUp": "01_AIRWAY_SEDATION.md - MAJOR technique, equipment, scope and reference findings remain open",
+      "recordedAt": "2026-07-30"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "endotracheal_intubation",
+      "auditFingerprint": "c3444cb5f996635e1612fef88d4fca53ebcce8c41494a973763a7b6d9762ff44",
+      "owner": "Patrick",
+      "rationale": "Re-screened after the owner directed that unapproved artwork be withheld and the paediatric scope dropped. Both declared visuals were assetName-null placeholders and are removed, which also removes one of the two grade 3-4 bougie prompts the lane report flagged against DAS 2025. The Peds setting tag is removed because the record held adult-only content. No clinical instruction text was authored or altered; every change is a removal, so no finding is loosened.",
+      "commit": "2b1580d",
+      "expires": "2026-10-31",
+      "followUp": "01_AIRWAY_SEDATION.md - MAJOR attempt-limit, dosing, cervical-spine and reference findings remain open",
+      "recordedAt": "2026-07-30"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "procedural_sedation",
+      "auditFingerprint": "cc589a468f9e5818cf2a177412a48128786c2dc74e80bcad86991d4d394eb6dd",
+      "owner": "Patrick",
+      "rationale": "Re-screened after the owner directed that unapproved artwork be withheld and the paediatric scope dropped. The sedation_room_setup visual was an assetName-null placeholder and is removed. The Peds setting tag is removed because the record supplied no paediatric equipment, dosing or recovery pathway. No clinical instruction text was authored or altered; every change is a removal.",
+      "commit": "2b1580d",
+      "expires": "2026-10-31",
+      "followUp": "01_AIRWAY_SEDATION.md - MAJOR staffing, capnography, dosing, rescue and recovery findings remain open",
+      "recordedAt": "2026-07-30"
     }
   ]
 }
