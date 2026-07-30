@@ -809,23 +809,28 @@
     "sections": {
       "shiftMode": [
         "Confirm side and indication before incision.",
+        "This card is the large-bore tube. For a simple pneumothorax or an uncomplicated effusion, a small-bore pigtail is the better device - see the pigtail catheter card.",
+        "Size by indication: 28-32 Fr for significant hemothorax, unstable trauma, or a large air leak; 20-24 Fr or larger for a ventilated patient with a significant leak.",
         "Have suction/water seal system set up before the tube goes in.",
         "Use safe triangle when possible; go over the rib, not under.",
         "Finger sweep before tube advancement; do not blindly shove a tube through soft tissue.",
         "Direct tube apically for pneumothorax and posterior/basilar for fluid when feasible.",
+        "Massive hemothorax is a call, not a number to wait for: 1,500 mL out, 200 mL/h for 3 hours, or instability with ongoing output.",
         "Secure with strong suture and occlusive dressing; reassess breath sounds and imaging."
       ],
       "indications": [
-        "Pneumothorax requiring drainage",
-        "Hemothorax",
-        "Empyema or complicated effusion when appropriate",
-        "Traumatic arrest/trauma decompression pathway per local protocol"
+        "Significant hemothorax, including traumatic",
+        "Unstable trauma requiring decompression per local protocol",
+        "Pneumothorax with a large air leak, or in a mechanically ventilated patient",
+        "Pneumothorax or empyema where a small-bore drain has failed or is unsuitable",
+        "Simple pneumothorax and uncomplicated effusion are small-bore indications - use the pigtail catheter card"
       ],
       "contraindications": [
         "Uncorrected coagulopathy is a caution when non-emergent",
         "Adhesions/prior surgery may increase risk",
         "Diaphragm/liver/spleen injury risk with low placement",
-        "Small stable pneumothorax may not require tube"
+        "Small stable pneumothorax may not require tube",
+        "Adult scope only. Paediatric site selection, device size, and dosing differ materially and are not covered by this card."
       ],
       "anatomy": [
         "Classic safe triangle: lateral border pectoralis major, anterior border latissimus dorsi, line above nipple/5th intercostal space, apex axilla.",
@@ -834,9 +839,9 @@
       ],
       "equipment": [
         "Chest tube tray",
-        "Appropriate tube size or pigtail if selected",
+        "Large-bore tube sized to indication: 28-32 Fr for significant hemothorax, unstable trauma, or large air leak; 20-24 Fr or larger for a ventilated patient with a significant leak",
         "Sterile prep/drape/gown/gloves",
-        "Local anesthetic",
+        "Lidocaine 1% for infiltration",
         "Scalpel",
         "Kelly clamp",
         "Suture",
@@ -844,7 +849,9 @@
         "Suction/water seal device",
         "Suction tubing connected",
         "Analgesia/sedation plan",
-        "Ultrasound if fluid or anatomy uncertain"
+        "Ultrasound if fluid or anatomy uncertain",
+        "Blood products available before draining a large hemothorax in a hypotensive patient",
+        "Single-dose antibiotic prophylaxis for adult trauma tube thoracostomy per local protocol, typically a first-generation cephalosporin"
       ],
       "positioning": [
         "Arm abducted or hand behind head if tolerated",
@@ -853,13 +860,15 @@
       ],
       "steps": [
         "Confirm side, indication, consent/emergency rationale.",
+        "For adult trauma, give the single prophylactic antibiotic dose at insertion. Do not continue it for the life of the tube.",
         "Mark site and prep/drape widely.",
-        "Anesthetize skin, periosteum, and pleura generously.",
+        "Anesthetize skin, periosteum, and pleura to the weight-based ceiling on the max-dose card; the parietal pleura is where the pain is.",
         "Incise parallel to rib.",
         "Bluntly dissect with Kelly over rib into pleural space.",
         "Perform finger sweep to confirm intrapleural entry and adhesions.",
         "Advance tube with clamp/finger guidance.",
         "Connect to drainage system and suction/water seal as indicated.",
+        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary oedema. General ceiling is 1.5 L in one session.",
         "Suture, dress, obtain imaging, and reassess patient."
       ],
       "ultrasound": [
@@ -876,8 +885,12 @@
       "troubleshooting": [
         "No rush of air/fluid: confirm pleural entry, tube holes in chest, and system connection.",
         "Persistent pneumothorax: check for dislodgement, kink, insufficient depth, bronchopleural fistula, or need second tube.",
-        "Bleeding: quantify output, notify surgery/trauma if high-volume or ongoing.",
-        "Pain: reassess analgesia; chest tubes hurt."
+        "Bleeding: 1,500 mL on initial drainage, more than 200 mL/h for 3 consecutive hours, or instability with ongoing output activates surgery or trauma now. These are triggers to call, not thresholds to wait for - an unstable patient at 800 mL and climbing needs the surgeon already.",
+        "Pain: reassess analgesia; chest tubes hurt.",
+        "Keep the drainage unit upright and below the insertion site at all times; raising it above the chest siphons fluid back into the pleural space.",
+        "Never clamp a bubbling drain except under specialist direction. Clamping an air leak creates a tension pneumothorax.",
+        "Disconnection: do not clamp. Reconnect, or hold the end under sterile water as an improvised seal.",
+        "Drain pulled out: occlusive dressing taped on three sides so it vents, never sealed on four, and reassess immediately."
       ],
       "complications": [
         "Bleeding/intercostal vessel injury",
@@ -892,8 +905,9 @@
         "Post-procedure imaging.",
         "Trend output and air leak.",
         "Analgesia plan.",
-        "Suction/water seal management per indication and local policy.",
-        "Escalate early for massive hemothorax or persistent instability."
+        "Prescribe and document suction if it is used. Avoid routine early suction, which is associated with re-expansion pulmonary oedema.",
+        "Escalate on the stated massive-hemothorax triggers rather than on impression. Consider autotransfusion where available.",
+        "Do not continue antibiotic prophylaxis beyond the insertion dose in trauma."
       ],
       "documentation": [
         "Tube thoracostomy performed for documented indication and side.",
@@ -906,12 +920,16 @@
       "seniorPearls": [
         "The most preventable disaster is being too low.",
         "Finger sweep is the safety check; skipping it is how tubes end up in soft tissue.",
-        "Have the drainage system ready before pleura is entered."
+        "Have the drainage system ready before pleura is entered.",
+        "Do not drain a large hemothorax in a hypotensive patient until blood is at the bedside and a surgeon knows. You may be releasing a tamponade.",
+        "Pus does not need a big tube. Small-bore plus flushes is the standard for empyema; blockage is managed by flushing, not by upsizing in advance."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
-        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+        "British Thoracic Society. Clinical Statement on pleural procedures. Thorax. 2023;78(Suppl 3):s43-s68. https://thorax.bmj.com/content/78/Suppl_3/s43",
+        "Western Trauma Association. Evaluation and management of traumatic pneumothorax: a critical decisions algorithm. 2022. https://www.westerntrauma.org/wp-content/uploads/2024/02/32-Evaluation-and-management-of-traumatic-pneumothorax_-A-Western-Trauma-Association-critical-decisions-algorithm.pdf",
+        "World Society of Emergency Surgery / AAST. Thoracic trauma guidelines. World J Emerg Surg. 2025. https://link.springer.com/article/10.1186/s13017-025-00651-1",
+        "Eastern Association for the Surgery of Trauma. Antibiotic prophylaxis for tube thoracostomy placement in trauma: a practice management guideline. 2022. https://www.east.org/education-resources/practice-management-guidelines/details/antibiotic-prophylaxis-for-tube-thoracostomy-placement-in-trauma-a-practice-management-guideline-from-the-eastern-association-for-the-surgery-of-trauma",
+        "Fresenius Kabi / FDA DailyMed. Lidocaine Hydrochloride Injection prescribing information, revised 2025. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=cddb2b22-fce3-8967-6e54-dca3df5ac4b3"
       ]
     },
     "visualAssets": [
@@ -937,7 +955,33 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft"
+    "contentSource": "ai-draft",
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 250,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Pleural procedures use a more conservative ceiling than infiltration elsewhere: BTS gives 3 mg/kg to a 250 mg maximum, against the 4.5 mg/kg and 300 mg on the FDA label. A wide infiltration of skin, periosteum and pleura in a patient who may already be hypoxic is the reason to take the lower figure."
+        }
+      ],
+      "cumulativeWarning": "One maximum covers the whole encounter. Count skin, periosteum, pleural infiltration, and anything given for a separate procedure on the same patient.",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ],
+      "monitoring": [
+        "Aspirate before each injection; the intercostal vessels sit right where the needle goes.",
+        "Know where the lipid emulsion is before you start.",
+        "Watch for perioral numbness, tinnitus, metallic taste, or agitation while infiltrating."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "pigtail_catheter",
@@ -960,23 +1004,28 @@
     ],
     "sections": {
       "shiftMode": [
-        "Best for selected pneumothorax/effusion scenarios, not every bloody trauma chest.",
+        "This card is the small-bore drain: simple pneumothorax, uncomplicated effusion, and pleural infection. Significant hemothorax and unstable trauma belong on the chest tube card.",
+        "Size by indication: 8-14 Fr for pneumothorax, 12-14 Fr for effusion, 14 Fr or smaller for initial pleural infection drainage.",
         "Use ultrasound for fluid; confirm anatomy before puncture.",
+        "Measure the chest wall on ultrasound and dilate only that far. A dilator driven to the hub is how the lung or heart gets lacerated.",
         "Seldinger discipline matters: never lose wire control and do not force dilation.",
         "Confirm all side holes are intrathoracic before connecting drainage.",
         "Secure well; small catheters dislodge easily.",
-        "If the patient is unstable or draining blood, escalate early rather than treating the pigtail as definitive."
+        "Haemodynamic instability or suspected major ongoing bleeding excludes a bedside pigtail. Place a large-bore tube and involve surgery."
       ],
       "indications": [
-        "Selected pneumothorax",
+        "Simple or selected pneumothorax in a stable patient",
         "Pleural effusion requiring drainage",
-        "Empyema/complicated fluid when appropriate and within local practice"
+        "Pleural infection or empyema - 14 Fr or smaller for initial drainage, managed with flushes rather than a larger tube",
+        "Traumatic hemothorax only when the patient is haemodynamically stable"
       ],
       "contraindications": [
-        "Massive hemothorax or unstable trauma may need large-bore tube/surgical approach",
+        "Haemodynamic instability, or suspected major ongoing intrathoracic bleeding - place a large-bore tube and involve surgery rather than a bedside pigtail",
+        "Significant hemothorax or unstable trauma; use the chest tube card",
         "Unclear anatomy or unsafe window",
         "Coagulopathy is a caution for non-emergent drainage",
-        "Loculated fluid may require image guidance or specialty input"
+        "Loculated fluid may require image guidance or specialty input",
+        "Adult scope only. Paediatric site selection, device size, and dosing differ materially and are not covered by this card."
       ],
       "anatomy": [
         "Enter over rib to avoid neurovascular bundle.",
@@ -984,11 +1033,11 @@
         "For pneumothorax, anterior/superior location may be selected depending patient position and local practice."
       ],
       "equipment": [
-        "Pigtail kit",
+        "Pigtail kit sized to indication: 8-14 Fr pneumothorax, 12-14 Fr effusion, 14 Fr or smaller for initial pleural infection drainage",
         "Ultrasound with sterile cover/gel if fluid or anatomy uncertain",
         "Sterile prep/drape/gloves",
-        "Local anesthetic",
-        "Needle, guidewire, dilator",
+        "Lidocaine 1% for infiltration",
+        "Needle, guidewire, and dilator from the same kit; a guarded dilator where the kit offers one",
         "Drainage tubing/device",
         "Suture/securement device",
         "Occlusive dressing",
@@ -1001,13 +1050,15 @@
       ],
       "steps": [
         "Confirm target and mark site.",
-        "Prep/drape and anesthetize tract to pleura.",
+        "Prep/drape and anesthetize the tract to the pleura, to the weight-based ceiling on the max-dose card.",
+        "Measure the chest-wall thickness on ultrasound before puncture; that measurement is the depth limit for the needle and the dilator.",
         "Enter pleural space with needle; confirm air/fluid return.",
-        "Advance guidewire while maintaining control.",
-        "Nick skin and dilate gently over wire.",
+        "Advance the guidewire while maintaining control. It must pass without impedance - resistance means stop and reassess, never push - and must extend beyond the catheter tip at all times.",
+        "Nick the skin and dilate over the wire only to the measured chest-wall depth. Over-insertion of the needle, wire, or dilator can cause life-threatening injury.",
         "Advance catheter over wire; remove wire while maintaining catheter position.",
         "Confirm pigtail formed and side holes intrathoracic.",
         "Connect to drainage system and secure/dress.",
+        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary oedema. General ceiling is 1.5 L in one session.",
         "Obtain imaging and reassess."
       ],
       "ultrasound": [
@@ -1021,9 +1072,14 @@
         "No expanding subcutaneous emphysema or bleeding"
       ],
       "troubleshooting": [
+        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary oedema. General ceiling is 1.5 L in one session.",
         "Wire will not pass: stop; do not force; reassess needle position.",
         "Poor drainage: check kink, stopcock, clot/debris, catheter depth, and whether side holes are outside chest.",
-        "Worsening dyspnea: reassess pneumothorax, malposition, bleeding, and re-expansion risk."
+        "Worsening dyspnea: reassess pneumothorax, malposition, bleeding, and re-expansion risk.",
+        "Keep the drainage unit upright and below the insertion site at all times; raising it above the chest siphons fluid back into the pleural space.",
+        "Never clamp a bubbling drain except under specialist direction. Clamping an air leak creates a tension pneumothorax.",
+        "Disconnection: do not clamp. Reconnect, or hold the end under sterile water as an improvised seal.",
+        "Drain pulled out: occlusive dressing taped on three sides so it vents, never sealed on four, and reassess immediately."
       ],
       "complications": [
         "Malposition",
@@ -1038,7 +1094,8 @@
         "Secure and label drain.",
         "Track output and air leak.",
         "Flush only per local protocol.",
-        "Repeat imaging based on indication and clinical course."
+        "Repeat imaging based on indication and clinical course.",
+        "Pleural infection: keep the small-bore drain patent with scheduled flushes per local protocol rather than replacing it with a larger tube."
       ],
       "documentation": [
         "Pigtail pleural catheter placed for documented indication and side.",
@@ -1054,9 +1111,11 @@
         "Small catheter plus bad securement equals accidental removal."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
-        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+        "British Thoracic Society. Clinical Statement on pleural procedures. Thorax. 2023;78(Suppl 3):s43-s68. https://thorax.bmj.com/content/78/Suppl_3/s43",
+        "British Thoracic Society. Guideline for pleural disease. Thorax. 2023;78(11):1143-1156. https://thorax.bmj.com/content/78/11/1143",
+        "Eastern Association for the Surgery of Trauma. Management of simple and retained hemothorax: practice management guideline. J Trauma Acute Care Surg. 2021. https://pubmed.ncbi.nlm.nih.gov/33487403/",
+        "Cook Medical. Fuhrman Pleural Drainage Set instructions for use; kit-specific revision must be confirmed locally. https://ifu.cookmedical.com/data/IFU_PDF/C_T_PPD-M_REV0.PDF",
+        "Fresenius Kabi / FDA DailyMed. Lidocaine Hydrochloride Injection prescribing information, revised 2025. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=cddb2b22-fce3-8967-6e54-dca3df5ac4b3"
       ]
     },
     "visualAssets": [
@@ -1082,7 +1141,33 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft"
+    "contentSource": "ai-draft",
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 250,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Pleural procedures use a more conservative ceiling than infiltration elsewhere: BTS gives 3 mg/kg to a 250 mg maximum, against the 4.5 mg/kg and 300 mg on the FDA label. A wide infiltration of skin, periosteum and pleura in a patient who may already be hypoxic is the reason to take the lower figure."
+        }
+      ],
+      "cumulativeWarning": "One maximum covers the whole encounter. Count skin, periosteum, pleural infiltration, and anything given for a separate procedure on the same patient.",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ],
+      "monitoring": [
+        "Aspirate before each injection; the intercostal vessels sit right where the needle goes.",
+        "Know where the lipid emulsion is before you start.",
+        "Watch for perioral numbness, tinnitus, metallic taste, or agitation while infiltrating."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "needle_decompression",
@@ -1109,10 +1194,12 @@
       "shiftMode": [
         "This is a temporizing maneuver for suspected tension physiology.",
         "Do not wait for imaging in a crashing patient with compatible findings.",
-        "Use appropriate site and catheter length; short catheters fail.",
-        "Preferred sites vary; know your local protocol: 4th/5th anterior or mid-axillary, or 2nd ICS midclavicular.",
-        "Definitive tube thoracostomy usually follows if tension pneumothorax is likely.",
-        "If one decompression attempt fails and tension remains plausible, execute the backup plan immediately: finger/tube thoracostomy or alternate decompression site per protocol."
+        "Use a 14 gauge or larger catheter with at least 8 cm (3.25 in) of usable length. A 5 cm catheter does not reach the pleural space in a large share of adults.",
+        "Primary site is the 4th or 5th intercostal space, anterior axillary line. Alternate is the 2nd intercostal space, midclavicular line.",
+        "Failure to decompress is common and expected. Have the next step ready before you start.",
+        "If you can perform a finger thoracostomy, that is the answer to a failed needle - not another needle.",
+        "A tube follows. Assume it, and justify the exception rather than the rule.",
+        "Adult scope only. Paediatric site selection, device size, and dosing differ materially and are not covered by this card."
       ],
       "indications": [
         "Suspected tension pneumothorax with hemodynamic or respiratory compromise",
@@ -1121,15 +1208,16 @@
       ],
       "contraindications": [
         "No true contraindication in life-threatening suspected tension physiology",
-        "Stable patient with uncertain diagnosis should get better diagnostic confirmation when possible"
+        "Stable patient with uncertain diagnosis should get better diagnostic confirmation when possible",
+        "Adult scope only. Paediatric site selection, device size, and dosing differ materially and are not covered by this card."
       ],
       "anatomy": [
         "Enter over the rib to avoid the neurovascular bundle.",
-        "Lateral sites need attention to breast tissue, body habitus, and tube length.",
-        "2nd ICS MCL can fail in thick chest walls and risks malposition if too medial."
+        "The lateral chest wall is thinner than the anterior in most adults, which is why the 4th-5th anterior axillary site is primary. Mind breast tissue and do not go below the nipple line - that is abdomen.",
+        "2nd ICS midclavicular can fail in thick chest walls and risks the internal mammary and great vessels if placed too medially; stay at or lateral to the midclavicular line."
       ],
       "equipment": [
-        "Long large-bore angiocath or decompression device per local protocol",
+        "Decompression catheter, 14 gauge or larger with at least 8 cm (3.25 in) usable length, per the stocked device",
         "Chlorhexidine/alcohol if time allows",
         "Gloves",
         "Tape/securement",
@@ -1142,11 +1230,11 @@
       ],
       "steps": [
         "Identify correct side based on clinical scenario.",
-        "Choose site per local protocol and anatomy.",
+        "Site: 4th or 5th intercostal space at the anterior axillary line; 2nd intercostal space midclavicular as the alternate.",
         "Prep quickly if time allows.",
         "Insert catheter over rib perpendicular to chest wall until pleural entry/air release.",
         "Advance catheter, remove needle, secure.",
-        "Immediately reassess and prepare definitive thoracostomy if indicated."
+        "Reassess immediately, then again within two minutes - a decompressed tension can re-tension on a kinked or occluded catheter - and prepare the definitive thoracostomy."
       ],
       "ultrasound": [
         "POCUS can rapidly support diagnosis if it does not delay decompression in a crashing patient."
@@ -1154,13 +1242,13 @@
       "confirmation": [
         "Immediate clinical improvement may occur but is not required for diagnosis to have been reasonable.",
         "Reassess BP, oxygenation, breath sounds, ventilator pressures, and chest rise.",
-        "Follow with chest tube when indicated."
+        "A tube follows. The exception is narrow: the original diagnosis was uncertain, the patient is now stable, and ultrasound or chest x-ray shows no or minimal pneumothorax. A rush of air with clinical improvement means there was a pneumothorax under pressure - that patient gets a tube."
       ],
       "troubleshooting": [
         "No improvement: wrong side/site, catheter too short, kinked catheter, hemothorax, tamponade, tube problem, or non-thoracic shock.",
         "Catheter occludes: proceed to definitive thoracostomy.",
         "Persistent instability: reassess whole resuscitation, not just the chest.",
-        "Rescue: if initial decompression fails and clinical picture still supports tension, proceed directly to finger or tube thoracostomy rather than repeating needle attempts."
+        "Failed decompression, tension still plausible - decide by capability. If finger thoracostomy is available to you, do that: it is not length-limited and works where the needle did not. If it is not available, a second needle at the alternate site is reasonable while definitive decompression is arranged."
       ],
       "complications": [
         "Failure to decompress",
@@ -1171,7 +1259,7 @@
         "Delayed definitive management"
       ],
       "aftercare": [
-        "Definitive chest tube if tension pneumothorax remains likely.",
+        "Definitive chest tube, unless the narrow stable-and-imaged exception applies.",
         "Imaging once stabilized.",
         "Document rationale for emergent decompression."
       ],
@@ -1188,9 +1276,9 @@
         "Failure is common enough that you must reassess immediately."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
-        "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
+        "Joint Trauma System. Wartime Thoracic Injury clinical practice guideline, ID 74. 2018. https://jts.health.mil/assets/docs/cpgs/Wartime_Thoracic_Injury_26_Dec_2018_ID74.pdf",
+        "Western Trauma Association. Evaluation and management of traumatic pneumothorax: a critical decisions algorithm. 2022. https://www.westerntrauma.org/wp-content/uploads/2024/02/32-Evaluation-and-management-of-traumatic-pneumothorax_-A-Western-Trauma-Association-critical-decisions-algorithm.pdf",
+        "World Society of Emergency Surgery / AAST. Thoracic trauma guidelines. World J Emerg Surg. 2025. https://link.springer.com/article/10.1186/s13017-025-00651-1"
       ]
     },
     "visualAssets": [
@@ -1957,11 +2045,12 @@
       "shiftMode": [
         "Confirm indication (diagnostic vs. therapeutic) and laterality; verify effusion is free-flowing on ultrasound \u2014 not loculated.",
         "Mark the site with the patient in the procedure position; fluid pockets shift significantly when patients change position.",
-        "Puncture over the superior margin of the lower rib to avoid the intercostal neurovascular bundle (nerve-artery-vein runs inferior to each rib).",
+        "Puncture over the superior margin of the lower rib. The intercostal bundle runs vein-artery-nerve from superior to inferior in the costal groove, and it is not reliably tucked under the rib - collateral branches can sit mid-space.",
         "Anesthetize all the way to the pleural surface \u2014 the parietal pleura is where the pain is.",
-        "For therapeutic: connect drainage before advancing catheter; preventing air entry is critical.",
-        "Stop at 1\u20131.5 L per session unless monitoring closely; cough and chest tightness are early warnings of re-expansion risk.",
-        "Post-procedure ultrasound or CXR to confirm adequate drainage and screen for pneumothorax."
+        "For therapeutic: connect drainage before advancing the catheter; preventing air entry is critical. Manual syringe aspiration or gravity to a bag below the patient - never a vacuum bottle or wall suction.",
+        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary oedema. General ceiling is 1.5 L in one session.",
+        "Check lung sliding on ultrasound immediately in everyone. Chest x-ray only if symptomatic, air was aspirated, the procedure was difficult, sliding is absent or uncertain, or the patient is ventilated or cannot report symptoms.",
+        "Adult scope only. Paediatric site selection, device size, and dosing differ materially and are not covered by this card."
       ],
       "indications": [
         "Diagnostic evaluation of a new, undiagnosed pleural effusion",
@@ -1972,12 +2061,13 @@
         "Uncooperative patient unable to remain still during procedure (relative; consider procedural sedation)",
         "Uncorrected coagulopathy with significant bleeding risk \u2014 weigh urgency and available reversal",
         "Effusion too small or clearly loculated with no safe accessible pocket on ultrasound",
-        "Active ipsilateral pneumothorax \u2014 decompress first",
-        "Known lung adherence to chest wall at the planned site"
+        "Pneumothorax with effusion, or hydropneumothorax, is a chest-tube problem rather than a thoracentesis problem",
+        "Known lung adherence to chest wall at the planned site",
+        "Adult scope only. Paediatric site selection, device size, and dosing differ materially and are not covered by this card."
       ],
       "anatomy": [
         "Pleural space lies between parietal and visceral pleura; fluid accumulates in dependent regions (posterior on upright imaging).",
-        "Intercostal neurovascular bundle runs in the inferior groove of each rib: nerve, artery, vein (NAV superior-to-inferior); puncture over the superior margin of the lower rib.",
+        "Intercostal neurovascular bundle runs in the costal groove of each rib in the order vein, artery, nerve from superior to inferior; puncture over the superior margin of the lower rib. The bundle is not reliably protected by the rib - it varies in position, particularly posteriorly, and collateral branches can lie mid-space, so stay as lateral or anterior as the target allows.",
         "Diaphragm rises during expiration and varies with body habitus; ultrasound confirms safe distance before puncture.",
         "Right-sided approach: liver is at risk below the 9th rib posteriorly.",
         "Left-sided approach: spleen is at risk; confirm upper boundary of effusion before each approach."
@@ -1988,9 +2078,10 @@
         "Chlorhexidine prep",
         "Sterile drape, sterile gloves, mask",
         "Local anesthetic (1% lidocaine), syringe, and 22-25 gauge anesthesia needle",
-        "Large-bore drainage tubing and vacuum drainage bottles for therapeutic drainage",
-        "Specimen collection tubes (LDH, protein, glucose, pH, cell count with differential, culture, cytology as appropriate)",
-        "Blood culture bottles for inoculation at bedside (highest yield for SBP/empyema detection)",
+        "Drainage tubing with a three-way stopcock for manual syringe aspiration, or a gravity bag hung below the patient. Vacuum bottles and wall suction are not used for therapeutic aspiration.",
+        "Plain specimen containers for LDH, protein, glucose, cell count with differential, Gram stain, culture, and cytology as appropriate",
+        "Blood culture bottles inoculated at the bedside in addition to plain containers when pleural infection is suspected - both, not blood cultures alone",
+        "Heparinised blood-gas syringe for pleural pH, analysed immediately on a gas analyser",
         "Occlusive dressing",
         "Drainage measurement container"
       ],
@@ -2004,14 +2095,14 @@
         "Obtain consent when feasible; document emergent need if not possible.",
         "Perform real-time ultrasound with patient in procedure position; identify the optimal fluid pocket and mark the entry site.",
         "Prep and drape the posterior-lateral chest at the marked site.",
-        "Anesthetize skin, subcutaneous tissue, rib periosteum, and pleural surface with local anesthetic, aspirating to confirm proximity to fluid as you advance.",
+        "Anesthetize skin, subcutaneous tissue, rib periosteum, and pleural surface to the weight-based ceiling on the max-dose card, aspirating as you advance. Keep lidocaine out of any sample destined for pH.",
         "Insert the procedure needle along the superior margin of the lower rib with continuous aspiration.",
         "On pleural fluid return, lock needle position; for diagnostic aspiration, collect 30-60 mL directly.",
         "For therapeutic: advance catheter over needle or via Seldinger technique, then connect drainage tubing to prevent air entry.",
-        "Drain fluid via syringe aspiration or gravity to vacuum bottle; monitor symptoms continuously.",
-        "For therapeutic drainage: stop at 1-1.5 L per session; stop earlier if patient develops cough, chest pain, or dyspnea.",
+        "Drain by manual syringe aspiration through the stopcock, or by gravity to a bag below the patient. Monitor symptoms continuously.",
+        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary oedema. General ceiling is 1.5 L in one session.",
         "Withdraw catheter/needle at end of expiration or with patient performing Valsalva; apply occlusive dressing immediately.",
-        "Obtain confirmatory imaging (CXR or lung ultrasound) within 1-2 hours."
+        "Check lung sliding on ultrasound immediately. Obtain a chest x-ray only on the selective criteria, not routinely."
       ],
       "ultrasound": [
         "Use a low-frequency curvilinear or phased-array probe in the posterior-lateral chest to identify the effusion in coronal plane.",
@@ -2024,18 +2115,18 @@
         "Pleural fluid aspirated freely and consistent with expected character (serous, serosanguineous, or purulent)",
         "No sudden air return (would indicate lung puncture or pneumothorax development)",
         "Respiratory symptoms improved for therapeutic indication",
-        "Post-procedure lung ultrasound or CXR: lung expanded, no pneumothorax",
+        "Lung sliding present on immediate post-procedure ultrasound; chest x-ray reserved for the selective criteria",
         "Specimens labeled and sent promptly"
       ],
       "troubleshooting": [
         "No fluid on aspiration: confirm with real-time ultrasound \u2014 pocket may have shifted; use live guidance for next attempt.",
         "Air return: withdraw immediately; the needle may be in lung parenchyma; assess urgently for pneumothorax.",
         "Bloody return: distinguish hemorrhagic effusion from hemothorax vs. vessel injury \u2014 non-clotting blood suggests pleural; rapidly clotting suggests vascular.",
-        "Cough or chest tightness after 1 L: stop drainage; may indicate re-expansion risk or pleural irritation; observe and reassess.",
+        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary oedema. General ceiling is 1.5 L in one session.",
         "Loculated pocket: scan multiple windows; if truly inaccessible, consult interventional radiology or thoracics."
       ],
       "complications": [
-        "Pneumothorax (5-10% without ultrasound; <1-3% with ultrasound guidance)",
+        "Pneumothorax - uncommon, and substantially less likely with ultrasound guidance than without",
         "Hemothorax",
         "Intercostal vessel injury or hematoma",
         "Diaphragm or subdiaphragmatic organ puncture",
@@ -2045,8 +2136,8 @@
       ],
       "aftercare": [
         "Monitor O2 saturation, respiratory rate, and breath sounds for \u22651 hour after procedure.",
-        "Obtain CXR or lung ultrasound to evaluate for pneumothorax and residual effusion.",
-        "Send pleural fluid samples promptly; pH degrades quickly if not capped.",
+        "Immediate lung ultrasound for sliding in everyone; chest x-ray only on the selective criteria.",
+        "Send samples promptly. Pleural pH goes in a heparinised blood-gas syringe and is analysed immediately: lidocaine contamination and excess heparin both falsely lower it, and pH below 7.2 is what drives the decision to drain. Do not send pH on frank pus - drain it regardless, and it fouls the analyser. A dipstick or benchtop meter is not accurate enough for this decision.",
         "Record total volume drained and fluid character; document in procedure note."
       ],
       "documentation": [
@@ -2060,13 +2151,15 @@
       ],
       "seniorPearls": [
         "Mark the site with the patient in the procedure position \u2014 the fluid pocket moves when they lie down and you will miss it.",
-        "Most missed pneumothoraces occur in ventilated or obtunded patients who cannot report symptoms; get post-procedure ultrasound routinely.",
+        "Most missed pneumothoraces are in ventilated or obtunded patients who cannot report symptoms. That is exactly the group to image liberally, and the reason the awake asymptomatic patient with good sliding does not need a film.",
         "Stop before 1.5 L unless you have a compelling reason and are monitoring closely; re-expansion pulmonary edema is rare but underappreciated."
       ],
       "references": [
-        "Light RW. Pleural Diseases, 6th ed. Lippincott Williams & Wilkins.",
-        "Havelock T et al. Pleural procedures and thoracic ultrasound: British Thoracic Society guideline 2010. Thorax.",
-        "ACEP and SCCM clinical guidelines on ultrasound-guided thoracentesis."
+        "British Thoracic Society. Clinical Statement on pleural procedures. Thorax. 2023;78(Suppl 3):s43-s68. https://thorax.bmj.com/content/78/Suppl_3/s43",
+        "British Thoracic Society. Guideline for pleural disease. Thorax. 2023;78(11):1143-1156. https://thorax.bmj.com/content/78/11/1143",
+        "Society of Hospital Medicine. Recommendations on the use of ultrasound guidance for adult thoracentesis. J Hosp Med. 2018;13(2):126-135. https://cdn.mdedge.com/files/s3fs-public/Document/January-2018/jhm013020126.pdf",
+        "Wraight WM, Tweedie DJ, Parkin IG. Neurovascular anatomy and variation in the fourth, fifth, and sixth intercostal spaces in the mid-axillary line: a cadaveric study. Clin Anat. 2005;18(5):346-349. https://pubmed.ncbi.nlm.nih.gov/15971216/",
+        "Fresenius Kabi / FDA DailyMed. Lidocaine Hydrochloride Injection prescribing information, revised 2025. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=cddb2b22-fce3-8967-6e54-dca3df5ac4b3"
       ]
     },
     "visualAssets": [
@@ -2082,7 +2175,33 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft"
+    "contentSource": "ai-draft",
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 250,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Pleural procedures use a more conservative ceiling than infiltration elsewhere: BTS gives 3 mg/kg to a 250 mg maximum, against the 4.5 mg/kg and 300 mg on the FDA label. A wide infiltration of skin, periosteum and pleura in a patient who may already be hypoxic is the reason to take the lower figure."
+        }
+      ],
+      "cumulativeWarning": "One maximum covers the whole encounter. Count skin, periosteum, pleural infiltration, and anything given for a separate procedure on the same patient.",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ],
+      "monitoring": [
+        "Aspirate before each injection; the intercostal vessels sit right where the needle goes.",
+        "Know where the lipid emulsion is before you start.",
+        "Watch for perioral numbness, tinnitus, metallic taste, or agitation while infiltrating."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "paracentesis",

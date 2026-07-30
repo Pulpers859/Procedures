@@ -705,5 +705,209 @@ class PeripheralIVLengthTests(unittest.TestCase):
         self.assertIn("unwitnessed", joined)
 
 
+class PleuralProcedureTests(unittest.TestCase):
+    """The thoracic lane, after the owner adjudicated its seventeen questions
+    on 2026-07-30."""
+
+    PLEURAL = ("thoracostomy_chest_tube", "pigtail_catheter", "thoracentesis")
+
+    def setUp(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        self.records = {p["id"]: p for p in procedures}
+        self.all_procedures = procedures
+
+    def sections(self, pid, *names):
+        return " ".join(
+            line for name in names for line in self.records[pid]["sections"].get(name) or []
+        )
+
+    # ---- shared across the three pleural records
+
+    def test_the_pleural_ceiling_is_the_conservative_bts_figure(self):
+        """Owner decision: 3 mg/kg to 250 mg, not the label's 4.5 and 300. A
+        wide infiltration of skin, periosteum and pleura in a patient who may
+        already be hypoxic is the reason to take the lower number."""
+        for pid in self.PLEURAL:
+            with self.subTest(pid):
+                agents = self.records[pid]["dosing"]["agents"]
+                self.assertEqual(len(agents), 1)
+                self.assertEqual(agents[0]["agent"], "Lidocaine")
+                self.assertEqual(agents[0]["maxDoseMgPerKg"], 3.0)
+                self.assertEqual(agents[0]["absoluteMaxMg"], 250)
+                self.assertEqual(
+                    self.records[pid]["dosing"]["rescueCardID"],
+                    "local_anesthetic_systemic_toxicity",
+                )
+
+    def test_the_pleural_ceiling_deliberately_differs_from_the_regional_table(self):
+        """A divergence this size reads as an error unless the record says why."""
+        regional = next(
+            p for p in self.all_procedures
+            if p.get("category") == MODULE.REGIONAL_CATEGORY and p.get("dosing")
+        )
+        plain = next(
+            a for a in regional["dosing"]["agents"]
+            if a["agent"] == "Lidocaine" and not a["withEpinephrine"]
+        )
+        pleural = self.records["thoracentesis"]["dosing"]["agents"][0]
+        self.assertNotEqual(plain["maxDoseMgPerKg"], pleural["maxDoseMgPerKg"])
+        note = pleural["note"] or ""
+        self.assertIn("BTS", note)
+        self.assertIn("3 mg/kg", note)
+        self.assertIn("4.5 mg/kg", note)
+
+    def test_the_controlled_drainage_rule_is_word_for_word_the_same(self):
+        found = []
+        for pid in self.PLEURAL:
+            lines = [
+                line
+                for name in ("steps", "troubleshooting", "shiftMode")
+                for line in self.records[pid]["sections"].get(name) or []
+                if "Drain to symptoms" in line
+            ]
+            self.assertTrue(lines, pid)
+            found.extend(lines)
+        self.assertEqual(len(set(found)), 1, "the controlled-drainage rule has diverged")
+        rule = found[0]
+        for phrase in ("clamp", "repetitive cough", "re-expansion", "1.5 L"):
+            self.assertIn(phrase, rule)
+
+    def test_re_expansion_oedema_has_a_rescue_card_reachable_from_each(self):
+        cards = {c["id"]: c for c in MODULE.load_json(MODULE.RESCUE_CARDS)}
+        card = cards["re_expansion_pulmonary_edema"]
+        for pid in self.PLEURAL:
+            self.assertIn(pid, card["relatedProcedureIDs"])
+        avoid = " ".join(card["avoid"]).lower()
+        self.assertIn("diuretic", avoid)
+
+    def test_every_thoracic_record_states_adult_scope(self):
+        for pid in self.PLEURAL + ("needle_decompression",):
+            with self.subTest(pid):
+                self.assertIn(
+                    "Adult scope only",
+                    self.sections(pid, "contraindications", "shiftMode"),
+                )
+
+    # ---- thoracentesis
+
+    def test_vacuum_drainage_is_gone(self):
+        """BTS advises against vacuum bottles and wall suction for therapeutic
+        aspiration; the card both stocked them and instructed their use."""
+        joined = self.sections("thoracentesis", "equipment", "steps", "shiftMode").lower()
+        # The word still appears, as a prohibition. What must be gone is the
+        # instruction to use one, and the bottle sitting in the kit list.
+        self.assertNotIn("gravity to vacuum bottle", joined)
+        self.assertNotIn("and vacuum drainage bottles for therapeutic", joined)
+        self.assertIn("vacuum bottles and wall suction are not used", joined)
+        self.assertIn("never a vacuum bottle or wall suction", joined)
+        self.assertIn("gravity", joined)
+        self.assertIn("syringe aspiration", joined)
+
+    def test_the_intercostal_bundle_order_is_corrected_everywhere(self):
+        """It was stated wrong in two places: anatomy and shiftMode."""
+        joined = self.sections("thoracentesis", "anatomy", "shiftMode")
+        self.assertNotIn("NAV", joined)
+        self.assertNotIn("nerve-artery-vein", joined)
+        self.assertIn("vein-artery-nerve", joined + " " + joined)
+        self.assertIn("vein, artery,", joined)
+        # The bundle is not reliably under the rib; saying so is the point.
+        self.assertIn("not reliably", joined)
+
+    def test_specimen_handling_is_corrected(self):
+        joined = self.sections("thoracentesis", "equipment", "aftercare")
+        self.assertNotIn("SBP", joined, "spontaneous bacterial peritonitis is not a pleural diagnosis")
+        self.assertIn("in addition to plain containers", joined)
+        self.assertIn("blood-gas syringe", joined)
+        self.assertIn("7.2", joined)
+        self.assertIn("lidocaine", joined.lower())
+
+    def test_post_procedure_imaging_is_selective_not_routine(self):
+        joined = self.sections(
+            "thoracentesis", "shiftMode", "steps", "confirmation", "aftercare"
+        )
+        self.assertIn("only on the selective criteria", joined)
+        self.assertIn("lung sliding", joined)
+
+    def test_the_unsourced_pneumothorax_rates_are_gone(self):
+        joined = self.sections("thoracentesis", "complications")
+        self.assertNotIn("5-10%", joined)
+        self.assertNotIn("<1-3%", joined)
+
+    # ---- needle decompression
+
+    def test_the_decompression_device_is_numerically_specified(self):
+        """"Long large-bore angiocath" is not a specification, and a 5 cm
+        catheter does not reach pleura in a large share of adults."""
+        joined = self.sections("needle_decompression", "equipment", "shiftMode")
+        self.assertIn("14 gauge or larger", joined)
+        self.assertIn("8 cm", joined)
+        self.assertNotIn("Long large-bore angiocath", joined)
+
+    def test_the_landmarks_are_reconciled_to_one_standard(self):
+        joined = self.sections("needle_decompression", "shiftMode", "steps", "anatomy")
+        self.assertIn("anterior axillary line", joined)
+        self.assertIn("2nd intercostal space, midclavicular", joined + joined)
+        self.assertNotIn("mid-axillary", joined, "not the cited standard and posterior to the intent")
+
+    def test_the_failed_needle_pathway_no_longer_contradicts_itself(self):
+        """shiftMode allowed another needle while troubleshooting forbade it."""
+        joined = self.sections("needle_decompression", "shiftMode", "troubleshooting")
+        self.assertIn("decide by capability", joined)
+        self.assertIn("finger thoracostomy", joined)
+
+    def test_a_tube_is_the_default_rather_than_the_exception(self):
+        joined = self.sections("needle_decompression", "confirmation", "aftercare", "shiftMode")
+        self.assertIn("A tube follows", joined)
+        self.assertNotIn("Definitive tube thoracostomy usually follows", joined)
+
+    # ---- chest tube and pigtail split
+
+    def test_the_chest_tube_card_is_the_large_bore_card(self):
+        joined = self.sections("thoracostomy_chest_tube", "shiftMode", "equipment", "indications")
+        self.assertIn("28-32 Fr", joined)
+        self.assertIn("pigtail catheter card", joined)
+        self.assertNotIn("Appropriate tube size or pigtail if selected", joined)
+
+    def test_the_pigtail_card_is_the_small_bore_card(self):
+        joined = self.sections("pigtail_catheter", "shiftMode", "equipment", "indications")
+        self.assertIn("8-14 Fr", joined)
+        self.assertIn("14 Fr or smaller", joined)
+        self.assertIn("chest tube card", joined)
+
+    def test_instability_excludes_a_bedside_pigtail(self):
+        """EAST confines its conditional recommendation to stable patients;
+        "may need" was not a decision."""
+        joined = self.sections("pigtail_catheter", "contraindications", "shiftMode")
+        self.assertIn("excludes a bedside pigtail", joined)
+        self.assertNotIn("may need large-bore tube", joined)
+
+    def test_dilation_is_limited_to_the_measured_chest_wall(self):
+        joined = self.sections("pigtail_catheter", "steps", "shiftMode")
+        self.assertIn("measured chest-wall depth", joined)
+        self.assertIn("without impedance", joined)
+        self.assertIn("beyond the catheter tip", joined)
+
+    def test_the_massive_hemothorax_trigger_is_numeric_and_framed_as_a_call(self):
+        joined = self.sections("thoracostomy_chest_tube", "troubleshooting", "shiftMode")
+        self.assertIn("1,500 mL", joined)
+        self.assertIn("200 mL/h", joined)
+        self.assertIn("triggers to call, not thresholds to wait for", joined)
+
+    def test_the_drain_system_safety_rules_are_present_on_both_drains(self):
+        for pid in ("thoracostomy_chest_tube", "pigtail_catheter"):
+            with self.subTest(pid):
+                joined = self.sections(pid, "troubleshooting")
+                self.assertIn("Never clamp a bubbling drain", joined)
+                self.assertIn("below the insertion site", joined)
+                self.assertIn("three sides", joined)
+
+    def test_antibiotic_prophylaxis_states_the_duration_rule(self):
+        """The agent is local policy; the duration is the part people get
+        wrong, and it is the part that is well supported."""
+        joined = self.sections("thoracostomy_chest_tube", "equipment", "steps", "aftercare")
+        self.assertIn("Do not continue", joined)
+        self.assertIn("at insertion", joined)
+
+
 if __name__ == "__main__":
     unittest.main()

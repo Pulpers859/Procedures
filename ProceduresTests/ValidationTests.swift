@@ -350,4 +350,27 @@ final class MaxDoseCalculatorTests: XCTestCase {
         XCTAssertTrue(regional.contains { $0.contains("25%") })
         XCTAssertFalse(intraosseous.contains { $0.contains("25%") })
     }
+
+    /// Owner decision, 2026-07-30: pleural procedures take the conservative BTS
+    /// ceiling rather than the label's. The calculator must therefore return a
+    /// different number for the same drug and weight depending on the card,
+    /// which is the whole reason the ceiling is per-record data.
+    func testPleuralProceduresCarryTheConservativeCeiling() {
+        let repo = ProcedureRepository()
+        let pleural = ["thoracostomy_chest_tube", "pigtail_catheter", "thoracentesis"]
+        for id in pleural {
+            guard let agent = repo.procedures.first(where: { $0.id == id })?.dosing?.agents.first else {
+                return XCTFail("\(id) must carry a pleural lidocaine ceiling")
+            }
+            XCTAssertEqual(agent.maxDoseMgPerKg, 3.0, id)
+            XCTAssertEqual(agent.absoluteMaxMg, 250, id)
+            // 70 kg: 210 mg here, against 300 mg capped on a regional block.
+            XCTAssertEqual(agent.maxMilligrams(forWeightKg: 70), 210, id)
+        }
+
+        let regionalPlain = repo.procedures
+            .first { $0.category == .regionalAnesthesia }?
+            .dosing?.agents.first { $0.agent == "Lidocaine" && !$0.withEpinephrine }
+        XCTAssertEqual(regionalPlain?.maxMilligrams(forWeightKg: 70), 300)
+    }
 }

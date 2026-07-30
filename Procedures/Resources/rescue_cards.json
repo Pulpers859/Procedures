@@ -553,5 +553,59 @@
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
+  },
+  {
+    "id": "re_expansion_pulmonary_edema",
+    "title": "Re-expansion pulmonary oedema after pleural drainage",
+    "acuity": "Urgent",
+    "relatedProcedureIDs": [
+      "thoracentesis",
+      "pigtail_catheter",
+      "thoracostomy_chest_tube"
+    ],
+    "trigger": [
+      "Repetitive cough, chest tightness or pain, or worsening breathlessness during or shortly after pleural drainage - usually after a large or rapid volume, but it can follow a small one."
+    ],
+    "immediateMoves": [
+      "Stop draining and clamp the drain. Slowing it is not enough.",
+      "Sit the patient up and give high-flow oxygen; titrate to saturation.",
+      "Do not resume drainage in this session. If more must come off later, drain slowly and stop at the first symptom.",
+      "Escalate respiratory support early: CPAP or non-invasive ventilation for hypoxia that does not correct, and intubation with lung-protective settings if it progresses.",
+      "Support the circulation with fluids and, if needed, norepinephrine 0.05-0.1 mcg/kg/min titrated to MAP. This is a permeability oedema, so diuretics are not the treatment and may worsen hypovolaemia.",
+      "Chest x-ray to confirm unilateral oedema on the drained side and exclude pneumothorax as the cause of deterioration."
+    ],
+    "reassess": [
+      "SpO2 and work of breathing every 5 minutes until stable",
+      "Whether the drain is clamped and stays clamped",
+      "Blood pressure - hypotension is common and is not a reason to diurese",
+      "Chest x-ray for unilateral oedema on the drained side",
+      "Total volume already removed this session"
+    ],
+    "avoid": [
+      "Do not keep draining to 'finish the job' once symptoms start; the symptoms are the warning, not a nuisance.",
+      "Do not give diuretics reflexively - this is not volume overload.",
+      "Do not attribute new hypoxia after drainage to the effusion itself without excluding pneumothorax.",
+      "Do not use vacuum bottles or wall suction for therapeutic aspiration; suction increases this risk."
+    ],
+    "tags": [
+      "re-expansion",
+      "reexpansion",
+      "pulmonary oedema",
+      "pulmonary edema",
+      "RPE",
+      "REPE",
+      "thoracentesis",
+      "chest tube",
+      "pigtail",
+      "pleural",
+      "drainage"
+    ],
+    "lastReviewed": "2026-07-30",
+    "version": "0.1.0",
+    "references": [
+      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   }
 ]
