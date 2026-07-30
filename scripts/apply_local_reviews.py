@@ -112,6 +112,7 @@ def procedure_fingerprint(item):
                 f"|{dose_string(med.get('doseLowPerKg'))}|{high_text}"
                 f"|{med.get('unit')}|{med.get('caution') or '-'}"
             )
+        med_parts.extend(medication_dosing.get("selectionGuidance") or [])
         med_parts.append(medication_dosing.get("inductionRequirement", ""))
         grouped.append(("medicationDosing", med_parts))
     return sectioned_fingerprint(grouped)

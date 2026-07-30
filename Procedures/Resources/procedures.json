@@ -19,7 +19,14 @@
       "tube",
       "ventilator",
       "laryngoscopy",
-      "bougie"
+      "bougie",
+      "etomidate",
+      "ketamine",
+      "propofol",
+      "midazolam",
+      "rocuronium",
+      "succinylcholine",
+      "suxamethonium"
     ],
     "sections": {
       "shiftMode": [
@@ -145,7 +152,7 @@
     "contentSource": "ai-draft",
     "medicationDosing": {
       "indication": "Rapid sequence induction and intubation, adult. Doses are targets, not ceilings.",
-      "inductionRequirement": "Give an induction agent with the paralytic - never a paralytic alone. The source names etomidate and ketamine as first-line and midazolam and propofol as second-line, but states no doses for any of them: use your local RSI protocol for the induction dose.",
+      "inductionRequirement": "Give an induction agent with the paralytic - never a paralytic alone. Choose the agent by physiology, not habit; see agent of choice below.",
       "medications": [
         {
           "medication": "Fentanyl",
@@ -178,6 +185,46 @@
           "caution": "Only to prevent fasciculations before suxamethonium."
         },
         {
+          "medication": "Etomidate",
+          "role": "Induction",
+          "doseLowPerKg": 0.3,
+          "doseHighPerKg": null,
+          "unit": "mg/kg",
+          "onset": null,
+          "durationNote": null,
+          "caution": "No analgesia. Brief myoclonus. Cortisol suppression may carry a negative prognostic implication in sepsis."
+        },
+        {
+          "medication": "Ketamine",
+          "role": "Induction",
+          "doseLowPerKg": 1.0,
+          "doseHighPerKg": 2.0,
+          "unit": "mg/kg",
+          "onset": null,
+          "durationNote": null,
+          "caution": "May induce cardiac ischaemia or arrhythmias, and increases salivation. Use in raised intracranial pressure remains controversial."
+        },
+        {
+          "medication": "Midazolam",
+          "role": "Induction",
+          "doseLowPerKg": 0.1,
+          "doseHighPerKg": 0.3,
+          "unit": "mg/kg",
+          "onset": null,
+          "durationNote": null,
+          "caution": "Hypotension, bradycardia and negative inotropy. Slower onset than the other RSI sedatives."
+        },
+        {
+          "medication": "Propofol",
+          "role": "Induction",
+          "doseLowPerKg": 1.5,
+          "doseHighPerKg": 3.0,
+          "unit": "mg/kg",
+          "onset": null,
+          "durationNote": null,
+          "caution": "Potent vasodilation and significant hypotension. Contraindicated with egg or soybean allergy."
+        },
+        {
           "medication": "Rocuronium",
           "role": "Neuromuscular blocker",
           "doseLowPerKg": 0.6,
@@ -188,7 +235,7 @@
           "caution": "DAS 2025 specifies 1.2 mg/kg for RSI; the lower end of this range gives slower onset and may not give RSI-grade conditions."
         },
         {
-          "medication": "Suxamethonium",
+          "medication": "Succinylcholine",
           "role": "Neuromuscular blocker",
           "doseLowPerKg": 1.0,
           "doseHighPerKg": 1.5,
@@ -198,7 +245,14 @@
           "caution": "Hyperkalaemia risk. Avoid in malignant hyperthermia, neuromuscular disease, rhabdomyolysis, and stroke or burns more than 72 h old."
         }
       ],
-      "sourceNote": "Doses from tl;dr pharmacy, 'The Pharmacist's Do's and Don'ts of Rapid Sequence Intubation' (2023), accepted by the clinical owner. That source cites no primary references and gives no induction-agent doses. Paediatric atropine is omitted because this record is adult-scoped."
+      "sourceNote": "Doses from tl;dr pharmacy, 'The Pharmacist's Do's and Don'ts of Rapid Sequence Intubation' (2023), accepted by the clinical owner. That source cites no primary references. Paediatric atropine is omitted because this record is adult-scoped.",
+      "selectionGuidance": [
+        "Raised intracranial pressure: etomidate.",
+        "Status epilepticus: etomidate, propofol, or midazolam.",
+        "Haemodynamic instability or distributive shock: etomidate or ketamine.",
+        "Severe bronchospasm: etomidate, ketamine, or propofol.",
+        "Cardiovascular compromise: etomidate."
+      ]
     }
   },
   {

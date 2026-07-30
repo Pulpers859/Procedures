@@ -152,6 +152,50 @@ class MedicationDosingFingerprintTests(unittest.TestCase):
             promote.procedure_fingerprint({"sections": {}, "medicationDosing": None}),
         )
 
+    def test_changing_selection_guidance_moves_the_fingerprint(self):
+        """Which agent to reach for in shock is clinical content, not prose."""
+        before = promote.procedure_fingerprint(self.base(block()))
+        after = promote.procedure_fingerprint(
+            self.base(block(selectionGuidance=["Shock: ketamine."]))
+        )
+        self.assertNotEqual(before, after)
+
+    def test_absent_selection_guidance_is_stable(self):
+        self.assertEqual(
+            promote.procedure_fingerprint(self.base(block())),
+            promote.procedure_fingerprint(self.base(block(selectionGuidance=None))),
+        )
+
+
+class ShippedRSIBlockTests(unittest.TestCase):
+    """Guards on the one record that carries this block today."""
+
+    def setUp(self):
+        import json
+        items = json.loads(
+            (SCRIPTS.parent / "Procedures" / "Resources" / "procedures.json").read_text(encoding="utf-8")
+        )
+        self.record = next(i for i in items if i["id"] == "endotracheal_intubation")
+        self.block = self.record["medicationDosing"]
+
+    def test_the_shipped_block_validates(self):
+        self.assertEqual(
+            MODULE.medication_dosing_issues([{"title": "T", "medicationDosing": self.block}]), []
+        )
+
+    def test_an_induction_agent_is_present_with_a_dose(self):
+        """A paralytic dose with no induction dose is the hazard this guards."""
+        induction = [m for m in self.block["medications"] if m["role"] == "Induction"]
+        self.assertTrue(induction)
+        for med in induction:
+            self.assertGreater(med["doseLowPerKg"], 0, med["medication"])
+
+    def test_the_depolarising_blocker_uses_the_name_the_reader_uses(self):
+        """One reader. 'Suxamethonium' is correct and unfamiliar to them."""
+        names = [m["medication"] for m in self.block["medications"]]
+        self.assertIn("Succinylcholine", names)
+        self.assertNotIn("Suxamethonium", names)
+
 
 if __name__ == "__main__":
     unittest.main()

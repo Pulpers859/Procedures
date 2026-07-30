@@ -126,6 +126,14 @@ struct MedicationDosingCard: View {
                     }
                 }
 
+                if let guidance = dosing.selectionGuidance, !guidance.isEmpty {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Agent of choice")
+                            .font(.subheadline.weight(.semibold))
+                        BulletListView(items: guidance)
+                    }
+                }
+
                 Text(dosing.sourceNote)
                     .font(.footnote)
                     .foregroundStyle(.secondary)

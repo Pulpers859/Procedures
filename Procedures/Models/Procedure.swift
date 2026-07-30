@@ -101,6 +101,7 @@ struct Procedure: Identifiable, Codable, Hashable {
                     + "|\(high)|\(med.unit)|\(med.caution ?? "-")"
                 )
             }
+            medParts.append(contentsOf: medicationDosing.selectionGuidance ?? [])
             medParts.append(medicationDosing.inductionRequirement)
             grouped.append(("medicationDosing", medParts))
         }
@@ -181,6 +182,10 @@ struct ProcedureMedicationDosing: Codable, Hashable {
 
     let indication: String
     let medications: [Medication]
+    /// Which agent to reach for in a given physiology, e.g.
+    /// "Haemodynamic instability or distributive shock: etomidate, ketamine".
+    /// Optional: a block may carry doses without a selection table.
+    let selectionGuidance: [String]?
     /// Guards the hazard this block would otherwise create: a card that names a
     /// paralytic dose and says nothing about induction invites paralysis
     /// without anaesthesia. Non-optional for that reason.
