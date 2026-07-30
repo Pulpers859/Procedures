@@ -418,12 +418,12 @@
     {
       "corpus": "procedures.json",
       "recordId": "endotracheal_intubation",
-      "auditFingerprint": "354569b9523b7409ddd2492efd19a467b66e5b310d4cc232b4e148c729f748bc",
+      "auditFingerprint": "96704a6f1878001da7e39543e5ed7354e8711aeb39ef7c8984652785a9f0d9ff",
       "owner": "Patrick",
-      "rationale": "Re-screened after adding the structured RSI medication dosing block the owner directed, using the dose source the owner supplied and accepted. This addresses the lane report's MAJOR finding that no structured induction or NMBA dose existed and the record could not be dose-checked. Doses are stored as explicit ranges and validated for unit, ordering and positivity; the block refuses to ship without an induction requirement, so no paralytic dose appears without an anaesthesia instruction. No induction-agent dose is asserted because the source states none. Supersedes the DAS re-screen amendment for this record.",
-      "commit": "9f5d59b",
+      "rationale": "Re-screened after correcting the RSI block against the dose table the owner supplied directly as a screenshot. The four induction agents and their doses were present in the owner's source and had been wrongly recorded as absent because a page fetch flattened the table; they are now transcribed with the source's own cautions and its agent-of-choice mapping. The depolarising blocker is renamed from suxamethonium to succinylcholine for the single reader who does not use the former name; the drug and dose are unchanged. This adds dosing where the lane report found none and loosens no finding.",
+      "commit": "87aa42b",
       "expires": "2026-10-31",
-      "followUp": "01_AIRWAY_SEDATION.md - induction-agent doses, cervical-spine pathway, paediatric branch and textbook references remain open",
+      "followUp": "01_AIRWAY_SEDATION.md - cervical-spine pathway, paediatric branch and textbook references remain open",
       "recordedAt": "2026-07-30"
     },
     {
