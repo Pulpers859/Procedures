@@ -93,7 +93,7 @@ struct Procedure: Identifiable, Codable, Hashable {
                 let epinephrine = agent.withEpinephrine ? "epi" : "plain"
                 doseParts.append(
                     "\(agent.agent)|\(epinephrine)|\(Self.doseString(agent.maxDoseMgPerKg))"
-                    + "|\(ceiling)|\(strengths)"
+                    + "|\(ceiling)|\(strengths)|\(agent.note ?? "-")"
                 )
             }
             doseParts.append(dosing.cumulativeWarning)
@@ -155,6 +155,11 @@ struct ProcedureDosing: Codable, Hashable {
         /// because the vial is labelled in percent and the conversion is
         /// exact, so deriving it removes a number that could disagree.
         let concentrationsPercent: [Double]
+        /// Optional caveat shown beside the ceiling. Carries the reason an
+        /// entry is missing as much as anything else: without it, a reader
+        /// hunting for ropivacaine with epinephrine finds no row and no
+        /// explanation, and cannot tell an omission from an oversight.
+        let note: String?
 
         var displayName: String {
             withEpinephrine ? "\(agent) with epinephrine" : agent

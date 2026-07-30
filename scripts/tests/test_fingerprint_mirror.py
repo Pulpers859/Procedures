@@ -64,6 +64,7 @@ PROCEDURE_WITH_DOSING = {
                 "maxDoseMgPerKg": 4.5,
                 "absoluteMaxMg": 300,
                 "concentrationsPercent": [1.0, 2.0],
+                "note": None,
             },
             {
                 "agent": "Lidocaine",
@@ -71,6 +72,7 @@ PROCEDURE_WITH_DOSING = {
                 "maxDoseMgPerKg": 7.0,
                 "absoluteMaxMg": None,
                 "concentrationsPercent": [1.0],
+                "note": "Hashed: it is clinical content on the card.",
             },
         ],
         "cumulativeWarning": "Count every source.",

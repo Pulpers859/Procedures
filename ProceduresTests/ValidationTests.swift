@@ -103,7 +103,7 @@ final class ValidationTests: XCTestCase {
 
     func testWellFormedDosingProducesNoDosingIssues() {
         let dosing = ProcedureDosing(
-            agents: [.init(agent: "Bupivacaine", withEpinephrine: false, maxDoseMgPerKg: 2.0, absoluteMaxMg: 175, concentrationsPercent: [0.25, 0.5])],
+            agents: [.init(agent: "Bupivacaine", withEpinephrine: false, maxDoseMgPerKg: 2.0, absoluteMaxMg: 175, concentrationsPercent: [0.25, 0.5], note: nil)],
             cumulativeWarning: "All local anesthetic this encounter shares one maximum.",
             monitoring: ["Continuous cardiac monitoring", "Confirm lipid emulsion location"],
             rescueCardID: nil
@@ -117,7 +117,7 @@ final class ValidationTests: XCTestCase {
 
     func testDanglingDosingRescueCardIDIsBlocked() {
         let dosing = ProcedureDosing(
-            agents: [.init(agent: "Bupivacaine", withEpinephrine: false, maxDoseMgPerKg: 2.0, absoluteMaxMg: 175, concentrationsPercent: [0.25])],
+            agents: [.init(agent: "Bupivacaine", withEpinephrine: false, maxDoseMgPerKg: 2.0, absoluteMaxMg: 175, concentrationsPercent: [0.25], note: nil)],
             cumulativeWarning: "warning",
             monitoring: ["a", "b"],
             rescueCardID: "does_not_exist"
@@ -247,7 +247,8 @@ final class MaxDoseCalculatorTests: XCTestCase {
             withEpinephrine: withEpinephrine,
             maxDoseMgPerKg: maxDoseMgPerKg,
             absoluteMaxMg: absoluteMaxMg,
-            concentrationsPercent: [1.0, 2.0]
+            concentrationsPercent: [1.0, 2.0],
+            note: nil
         )
     }
 

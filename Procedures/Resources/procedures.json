@@ -575,7 +575,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -585,17 +586,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -604,18 +608,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -3421,7 +3428,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -3431,17 +3439,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -3450,18 +3461,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -4637,7 +4651,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -4647,17 +4662,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -4666,18 +4684,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -4816,7 +4837,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -4826,17 +4848,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -4845,18 +4870,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -4991,7 +5019,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -5001,17 +5030,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -5020,18 +5052,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -5137,7 +5172,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -5147,17 +5183,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -5166,18 +5205,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -5281,7 +5323,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -5291,17 +5334,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -5310,18 +5356,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -5425,7 +5474,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -5435,17 +5485,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -5454,18 +5507,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -5576,7 +5632,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -5586,17 +5643,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -5605,18 +5665,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -5729,7 +5792,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -5739,17 +5803,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -5758,18 +5825,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -5881,7 +5951,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -5891,17 +5962,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -5910,18 +5984,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -6032,7 +6109,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -6042,17 +6120,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -6061,18 +6142,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -6182,7 +6266,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -6192,17 +6277,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -6211,18 +6299,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -6337,7 +6428,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -6347,17 +6439,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -6366,18 +6461,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -6487,7 +6585,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -6497,17 +6596,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -6516,18 +6618,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -6637,7 +6742,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -6647,17 +6753,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -6666,18 +6775,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -6790,7 +6902,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -6800,17 +6913,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -6819,18 +6935,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -6937,7 +7056,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -6947,17 +7067,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -6966,18 +7089,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -7083,7 +7209,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -7093,17 +7220,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -7112,18 +7242,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -7227,7 +7360,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -7237,17 +7371,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -7256,18 +7393,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -7369,7 +7509,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -7379,17 +7520,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -7398,18 +7542,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -7512,7 +7659,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -7522,17 +7670,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -7541,18 +7692,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -7661,7 +7815,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -7671,17 +7826,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -7690,18 +7848,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -7813,7 +7974,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -7823,17 +7985,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -7842,18 +8007,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -7963,7 +8131,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -7973,17 +8142,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -7992,18 +8164,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -8122,7 +8297,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -8132,17 +8308,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -8151,18 +8330,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -8271,7 +8453,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -8281,17 +8464,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -8300,18 +8486,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
@@ -8417,7 +8606,8 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Lidocaine",
@@ -8427,17 +8617,20 @@
           "concentrationsPercent": [
             1.0,
             2.0
-          ]
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
           "withEpinephrine": false,
-          "maxDoseMgPerKg": 2.0,
+          "maxDoseMgPerKg": 2.5,
           "absoluteMaxMg": 175,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Bupivacaine",
@@ -8446,18 +8639,21 @@
           "absoluteMaxMg": 225,
           "concentrationsPercent": [
             0.25,
-            0.5
-          ]
+            0.5,
+            0.75
+          ],
+          "note": null
         },
         {
           "agent": "Ropivacaine",
           "withEpinephrine": false,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200,
+          "absoluteMaxMg": null,
           "concentrationsPercent": [
             0.2,
             0.5
-          ]
+          ],
+          "note": "Epinephrine is not needed to reduce systemic absorption of ropivacaine."
         }
       ],
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",

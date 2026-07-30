@@ -105,6 +105,7 @@ def procedure_fingerprint(item):
             dose_parts.append(
                 f"{agent.get('agent')}|{epinephrine}"
                 f"|{dose_string(agent.get('maxDoseMgPerKg'))}|{ceiling}|{strengths}"
+                f"|{agent.get('note') or '-'}"
             )
         dose_parts.append(dosing.get("cumulativeWarning", ""))
         grouped.append(("dosing", dose_parts))

@@ -259,14 +259,16 @@ final class ContentEditingTests: XCTestCase {
                     withEpinephrine: false,
                     maxDoseMgPerKg: 4.5,
                     absoluteMaxMg: 300,
-                    concentrationsPercent: [1.0, 2.0]
+                    concentrationsPercent: [1.0, 2.0],
+                    note: nil
                 ),
                 ProcedureDosing.Agent(
                     agent: "Lidocaine",
                     withEpinephrine: true,
                     maxDoseMgPerKg: 7.0,
                     absoluteMaxMg: nil,
-                    concentrationsPercent: [1.0]
+                    concentrationsPercent: [1.0],
+                    note: "Hashed: it is clinical content on the card."
                 ),
             ],
             cumulativeWarning: "Count every source.",
@@ -276,7 +278,7 @@ final class ContentEditingTests: XCTestCase {
 
         XCTAssertEqual(
             procedure.materialFingerprint,
-            "380113dd41c18cf859ef7995625b78a25fa98bcf912d5a60e2ae9fb85034b6f2"
+            "e46acd5afffc7eeae223221358b3c5487b9a38f5fdca3d896f4860268d6d3826"
         )
     }
 

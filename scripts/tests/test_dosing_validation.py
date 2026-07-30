@@ -22,6 +22,7 @@ def dosing(**overrides):
                 "maxDoseMgPerKg": 2.0,
                 "absoluteMaxMg": 175,
                 "concentrationsPercent": [0.25, 0.5],
+                "note": None,
             }
         ],
         "cumulativeWarning": "All local anesthetic this encounter shares one maximum.",
@@ -333,6 +334,73 @@ class UnboundedAgentTests(unittest.TestCase):
             [("Inferior Alveolar Nerve Block", True)],
             "a new unbounded agent appeared, or the known one was resolved",
         )
+
+
+class ShippedPreparationTableTests(unittest.TestCase):
+    """Locks the ceilings the clinical owner designated on 2026-07-30.
+
+    Bupivacaine and ropivacaine come from the reference the owner nominated;
+    lidocaine with epinephrine at 7 mg/kg was confirmed separately against the
+    calculator he uses. Ropivacaine carries no absolute ceiling because that
+    source states none - it is purely weight-based, and inventing a cap here
+    would silently withhold dose from a large patient.
+
+    These are exact-value assertions on purpose. Everything else in this file
+    checks that the *shape* is safe; nothing checked that the numbers were the
+    ones anybody chose.
+    """
+
+    EXPECTED = [
+        ("Lidocaine", False, 4.5, 300, [1.0, 2.0]),
+        ("Lidocaine", True, 7.0, 500, [1.0, 2.0]),
+        ("Bupivacaine", False, 2.5, 175, [0.25, 0.5, 0.75]),
+        ("Bupivacaine", True, 3.0, 225, [0.25, 0.5, 0.75]),
+        ("Ropivacaine", False, 3.0, None, [0.2, 0.5]),
+    ]
+
+    def setUp(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        self.tables = [p["dosing"]["agents"] for p in procedures if p.get("dosing")]
+        self.assertTrue(self.tables)
+
+    def test_every_block_ships_the_designated_table(self):
+        for table in self.tables:
+            actual = [
+                (a["agent"], a["withEpinephrine"], a["maxDoseMgPerKg"],
+                 a["absoluteMaxMg"], a["concentrationsPercent"])
+                for a in table
+            ]
+            self.assertEqual(actual, self.EXPECTED)
+
+    def test_ropivacaine_says_why_it_has_no_epinephrine_variant(self):
+        """An absent row with no explanation reads as an oversight."""
+        ropivacaine = [a for a in self.tables[0] if a["agent"] == "Ropivacaine"]
+        self.assertEqual(len(ropivacaine), 1)
+        self.assertIn("pinephrine", ropivacaine[0]["note"] or "")
+
+    def test_the_source_published_volumes_reproduce(self):
+        """The reference states its own maximum volumes. If the card computes
+        different ones, the card is wrong - this is the arithmetic check that
+        catches a transcription error in the ceilings themselves."""
+        bupivacaine = next(
+            a for a in self.tables[0]
+            if a["agent"] == "Bupivacaine" and not a["withEpinephrine"]
+        )
+        # 175 mg plain, at each stocked strength.
+        for percent, expected_ml in ((0.25, 70), (0.5, 35), (0.75, 23)):
+            volume = bupivacaine["absoluteMaxMg"] / MODULE.mg_per_ml(percent)
+            self.assertEqual(int(volume), expected_ml, f"{percent}%")
+
+        # Ropivacaine is quoted per kilogram: 3 mg/kg is 1.5 mL/kg at 0.2%
+        # and 0.6 mL/kg at 0.5%.
+        ropivacaine = next(a for a in self.tables[0] if a["agent"] == "Ropivacaine")
+        for percent, expected_ml_per_kg in ((0.2, 1.5), (0.5, 0.6)):
+            self.assertAlmostEqual(
+                ropivacaine["maxDoseMgPerKg"] / MODULE.mg_per_ml(percent),
+                expected_ml_per_kg,
+                places=6,
+                msg=f"{percent}%",
+            )
 
 
 class CrashCardDoseTests(unittest.TestCase):

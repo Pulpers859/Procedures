@@ -155,6 +155,13 @@ struct MaxDoseCalculatorCard: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
 
+            if let note = agent.note {
+                Text(note)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
             Text("Reduce by about 25% at the extremes of age or with severe comorbidity.")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
@@ -171,11 +178,20 @@ struct MaxDoseCalculatorCard: View {
             Text("Ceilings")
                 .font(.subheadline.weight(.semibold))
             ForEach(dosing.agents) { option in
-                Text("\(option.displayName): \(Self.number(option.maxDoseMgPerKg)) mg/kg"
-                     + (option.absoluteMaxMg.map { ", absolute max \(Self.milligramLabel($0))" } ?? ""))
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("\(option.displayName): \(Self.number(option.maxDoseMgPerKg)) mg/kg"
+                         + (option.absoluteMaxMg.map { ", absolute max \(Self.milligramLabel($0))" }
+                            ?? ", no absolute ceiling"))
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    if let note = option.note {
+                        Text(note)
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
             }
         }
     }
