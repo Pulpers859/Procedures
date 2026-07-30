@@ -7,9 +7,9 @@
 ## Result
 
 - Audited procedures: **55/55**.
-- Proposed `STOP-SHIP`: **20** (28 at audit; 8 re-screened to `MINOR` on 2026-07-30).
+- Proposed `STOP-SHIP`: **17** (28 at audit; 11 re-screened to `MINOR` on 2026-07-30).
 - Proposed `MAJOR`: **25** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30).
-- Re-screened `MINOR` after owner adjudication: **10** (vascular access and thoracic lanes).
+- Re-screened `MINOR` after owner adjudication: **13** (vascular access, thoracic, and airway/sedation lanes).
 - Corpus SHA-256: `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1`.
 - Audit date: 2026-07-18.
 
@@ -35,8 +35,8 @@ report before assigning remediation priority.
 
 | Category | Procedure | Disposition | Report |
 |---|---|---|---|
-| Airway | `cricothyrotomy` - Cricothyrotomy | `STOP-SHIP` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
-| Airway | `endotracheal_intubation` - Endotracheal Intubation | `STOP-SHIP` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
+| Airway | `cricothyrotomy` - Cricothyrotomy | `MINOR` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
+| Airway | `endotracheal_intubation` - Endotracheal Intubation | `MINOR` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
 | Cardiac / Resuscitation | `pericardiocentesis` - Pericardiocentesis | `STOP-SHIP` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
 | Cardiac / Resuscitation | `resuscitative_thoracotomy` - Resuscitative Thoracotomy | `STOP-SHIP` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
 | Cardiac / Resuscitation | `synchronized_cardioversion` - Synchronized Cardioversion | `MAJOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
@@ -76,7 +76,7 @@ report before assigning remediation priority.
 | Regional Anesthesia | `block_transgluteal_sciatic` - Transgluteal / Proximal Sciatic Nerve Block | `MAJOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
 | Regional Anesthesia | `block_tap` - Transversus Abdominis Plane (TAP) Block | `STOP-SHIP` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
 | Regional Anesthesia | `block_ulnar_nerve` - Ulnar Nerve Block | `MAJOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
-| Sedation & Analgesia | `procedural_sedation` - Procedural Sedation | `STOP-SHIP` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
+| Sedation & Analgesia | `procedural_sedation` - Procedural Sedation | `MINOR` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
 | Thoracic | `needle_decompression` - Needle Decompression | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |
 | Thoracic | `pigtail_catheter` - Pigtail Pleural Catheter | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |
 | Thoracic | `thoracentesis` - Thoracentesis | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |

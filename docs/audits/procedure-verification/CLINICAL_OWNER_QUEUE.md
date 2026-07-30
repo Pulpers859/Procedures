@@ -24,11 +24,11 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
 
 ## P0: Remove Direct Harm Pathways Before Broader Editing
 
-> Items 1, 2, and 3 were adjudicated by the clinical owner on 2026-07-30 and
+> Items 1, 2, 3, and 5 were adjudicated by the clinical owner on 2026-07-30 and
 > the content changed; their original text is struck through with the
-> resolution beneath it. Items 4, 5, and 6 are still open. Adjudication here
+> resolution beneath it. Items 4 and 6 are still open. Adjudication here
 > resolves the clinical finding only - the reference gate in P3.3 is
-> independent, though it has now been satisfied for the ten records
+> independent, though it has now been satisfied for the thirteen records
 > re-screened so far. Pending artwork stopped being a release gate on
 > 2026-07-30; see P3.2.
 
@@ -70,11 +70,18 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
    advancement. See [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md),
    [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md), and
    [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md).
-5. **Airway assets and rescue:** The bundled cricothyrotomy danger-zone image
+5. ~~**Airway assets and rescue:** The bundled cricothyrotomy danger-zone image
    conflicts with its own thyroid-isthmus description, while the intubation
    visual/text needs an explicit prohibition on blind grade 3/4 bougie
-   insertion under the reviewed difficult-airway standard. See
-   [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md).
+   insertion under the reviewed difficult-airway standard.~~ **Closed
+   2026-07-30.** Both halves were already resolved by `2b1580d` before this
+   adjudication: the contradictory image is deleted and the blind-bougie
+   prohibition is stated in steps and troubleshooting citing DAS 2025. The
+   surviving `cric_membrane` image is anatomically correct and unchanged.
+   Adjudication of the wider lane landed in `88d8d21`, adding the two depth
+   limits the cricothyrotomy sequence lacked - bougie to 10-15 cm, tube stopped
+   once the cuff clears the membrane. See
+   [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md#owner-adjudication---2026-07-30).
 6. **Time-critical decisions:** Shoulder neurovascular compromise can be read as
    a contraindication to urgent reduction; lumbar puncture omits the rule that
    LP/imaging must not materially delay empiric meningitis treatment; and
@@ -112,10 +119,17 @@ The full evidence is in reports 06 through 09.
 - Decide whether records tagged `Peds` retain that scope; several have no
   age/weight-specific equipment, dosing, monitoring, interpretation, or rescue
   path.
-- Replace procedural-sedation "when possible" staffing and optional capnography
-  language with depth-, venue-, and pediatric-specific requirements.
+- ~~Replace procedural-sedation "when possible" staffing and optional capnography
+  language with depth-, venue-, and pediatric-specific requirements.~~
+  **Addressed 2026-07-30 in `88d8d21`:** the record is scoped to adult
+  moderate-to-deep sedation in the ED or ICU, the monitor is dedicated and does
+  nothing else, and capnography is required. Paediatric scope is deferred rather
+  than specified.
 - Update 2025 AHA synchronized-cardioversion energy and anticoagulation pathways.
-- Define attempt ceilings and Plan A-D transitions for intubation.
+- ~~Define attempt ceilings and Plan A-D transitions for intubation.~~
+  **Addressed 2026-07-30.** The DAS 2025 3+1 ceiling predates this cycle;
+  `88d8d21` defines each plan letter alongside its action and states that the
+  plus-one is a handover rather than a fourth attempt by the same operator.
 - Define device/site/indication selection for chest tubes, pigtails, central
   access, pacing catheters, and dialysis catheters.
 - Add explicit partial/failed block reassessment and rescue paths rather than

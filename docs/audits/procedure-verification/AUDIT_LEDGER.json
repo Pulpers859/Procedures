@@ -429,12 +429,12 @@
     {
       "corpus": "procedures.json",
       "recordId": "cricothyrotomy",
-      "auditFingerprint": "0209d0df26f1ef75e085f90d37a3947200df10f5f5c1f4df7a69da596ddf4d39",
-      "owner": "Patrick",
-      "rationale": "Re-screened after the owner directed that unapproved artwork be withheld. The cric_danger_zone visual is removed because the bundled image drew the thyroid isthmus across the cricothyroid membrane while its own subtitle placed the isthmus inferior, which the lane report graded STOP-SHIP. The cric_membrane visual is retained unchanged. No step, equipment or contraindication text was altered.",
-      "commit": "2b1580d",
+      "auditFingerprint": "53451083cc32ea20ef3b1c8353332bc5a38d185fdfd3908a30eb4da84f7fbc72",
+      "owner": "clinical owner",
+      "rationale": "Owner adjudication 2026-07-30 of all thirteen reviewer questions in 01_AIRWAY_SEDATION.md. The three STOP-SHIP dispositions rested on placeholder or anatomically wrong visuals and a Peds tag, all removed in 2b1580d. Remaining MAJOR findings on scope, technique, dosing, monitoring, staffing, recovery, and references were implemented in 88d8d21.",
+      "commit": "88d8d21",
       "expires": "2026-10-31",
-      "followUp": "01_AIRWAY_SEDATION.md - MAJOR technique, equipment, scope and reference findings remain open",
+      "followUp": "reviewerStatus sign-off in the app for all three records, plus re-review after any change to the RSI or sedation dosing blocks",
       "recordedAt": "2026-07-30"
     },
     {
@@ -462,12 +462,12 @@
     {
       "corpus": "procedures.json",
       "recordId": "endotracheal_intubation",
-      "auditFingerprint": "96704a6f1878001da7e39543e5ed7354e8711aeb39ef7c8984652785a9f0d9ff",
-      "owner": "Patrick",
-      "rationale": "Re-screened after correcting the RSI block against the dose table the owner supplied directly as a screenshot. The four induction agents and their doses were present in the owner's source and had been wrongly recorded as absent because a page fetch flattened the table; they are now transcribed with the source's own cautions and its agent-of-choice mapping. The depolarising blocker is renamed from suxamethonium to succinylcholine for the single reader who does not use the former name; the drug and dose are unchanged. This adds dosing where the lane report found none and loosens no finding.",
-      "commit": "87aa42b",
+      "auditFingerprint": "1b1333ddb67a0fe5fee5e3ddca0201a885e501c32f3ea21095253b6c4a44aebc",
+      "owner": "clinical owner",
+      "rationale": "Owner adjudication 2026-07-30 of all thirteen reviewer questions in 01_AIRWAY_SEDATION.md. The three STOP-SHIP dispositions rested on placeholder or anatomically wrong visuals and a Peds tag, all removed in 2b1580d. Remaining MAJOR findings on scope, technique, dosing, monitoring, staffing, recovery, and references were implemented in 88d8d21.",
+      "commit": "88d8d21",
       "expires": "2026-10-31",
-      "followUp": "01_AIRWAY_SEDATION.md - cervical-spine pathway, paediatric branch and textbook references remain open",
+      "followUp": "reviewerStatus sign-off in the app for all three records, plus re-review after any change to the RSI or sedation dosing blocks",
       "recordedAt": "2026-07-30"
     },
     {
@@ -528,12 +528,12 @@
     {
       "corpus": "procedures.json",
       "recordId": "procedural_sedation",
-      "auditFingerprint": "cc589a468f9e5818cf2a177412a48128786c2dc74e80bcad86991d4d394eb6dd",
-      "owner": "Patrick",
-      "rationale": "Re-screened after the owner directed that unapproved artwork be withheld and the paediatric scope dropped. The sedation_room_setup visual was an assetName-null placeholder and is removed. The Peds setting tag is removed because the record supplied no paediatric equipment, dosing or recovery pathway. No clinical instruction text was authored or altered; every change is a removal.",
-      "commit": "2b1580d",
+      "auditFingerprint": "ba81464547a608cc79edff933bde6b20fa672ae74b67ca766ba30919092853b8",
+      "owner": "clinical owner",
+      "rationale": "Owner adjudication 2026-07-30 of all thirteen reviewer questions in 01_AIRWAY_SEDATION.md. The three STOP-SHIP dispositions rested on placeholder or anatomically wrong visuals and a Peds tag, all removed in 2b1580d. Remaining MAJOR findings on scope, technique, dosing, monitoring, staffing, recovery, and references were implemented in 88d8d21.",
+      "commit": "88d8d21",
       "expires": "2026-10-31",
-      "followUp": "01_AIRWAY_SEDATION.md - MAJOR staffing, capnography, dosing, rescue and recovery findings remain open",
+      "followUp": "reviewerStatus sign-off in the app for all three records, plus re-review after any change to the RSI or sedation dosing blocks",
       "recordedAt": "2026-07-30"
     },
     {

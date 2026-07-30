@@ -5,9 +5,177 @@
 - Audited procedures SHA-256: `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1`
 - Boundary: AI-assisted discrepancy screening only. This report is not clinical approval, credentialing, or an institutional protocol.
 
+## Owner adjudication - 2026-07-30
+
+The clinical owner reviewed all thirteen reviewer questions in this report and
+approved the answers recorded here. Content changed in `88d8d21`; the ledger was
+amended in the same cycle.
+
+**How to read the rest of this file.** The findings below describe the audited
+snapshot and are retained unedited as evidence. They are not a description of
+what ships today. Each per-record disposition line carries the re-screened state
+above its original rationale.
+
+**All three STOP-SHIP findings were already stale when this adjudication began.**
+Commit `2b1580d` withheld the unapproved airway visuals and dropped the `Peds`
+tag after the audit date. By 2026-07-30 `endotracheal_intubation` and
+`procedural_sedation` declared no visual assets at all, the anatomically
+contradictory `cric_danger_zone` image was deleted, the blind-bougie instruction
+had been replaced by an explicit DAS 2025 prohibition, the 3+1 attempt ceiling
+was in place, and the RSI record carried a structured `medicationDosing` block.
+The dispositions were still `STOP-SHIP` because nothing had re-screened them.
+Recording that here matters more than the disposition change itself: a stale
+report is indistinguishable from a live one to the gate that reads it.
+
+**Owner decisions taken alongside the thirteen.**
+
+1. **Remove intravenous lidocaine and defasciculating vecuronium** from RSI
+   pretreatment. Neither is supported by current evidence. The lidocaine entry
+   carried a second problem specific to this app: 1.5 mg/kg IV consumed the same
+   patient's local-anaesthetic ceiling if they went on to receive a block in the
+   same encounter, and nothing connected the two numbers.
+2. **Leave the remaining RSI dose figures unchanged.** They are re-affirmed as
+   they stand rather than re-derived from primary sources. The `sourceNote`
+   continues to state plainly that the originating source cites no primary
+   references; onset, weight basis, and shock qualifiers were added around the
+   figures without moving them.
+3. **Adopt DAS 2025 scalpel-bougie-tube** as the single cricothyrotomy
+   technique, with commercial Seldinger kits relegated to a separate
+   IFU-governed pathway rather than substitutable items inside the same list.
+4. **Add a structured sedation dosing block.** The record was already tagged
+   `ketamine`, `propofol`, and `etomidate`, so it was reachable by drug name and
+   answered with no dose.
+
+Adult scope is stated in prose on all three records, consistent with the
+standing owner decision of 2026-07-30. The `Peds` tags were already absent; the
+change here is that a reader can now see the boundary without inspecting
+metadata.
+
+### The thirteen answers
+
+**Endotracheal intubation**
+
+1. *Adult-only or a paediatric branch?* **Adult-only, stated in words.**
+   Paediatric RSI is not adult RSI with smaller numbers - blade geometry, the
+   cuffed-versus-uncuffed decision, tube sizing by formula, desaturation in a
+   third of the time, weight estimation under pressure, and different per-kg
+   dosing. Half a paediatric branch is more dangerous than none because it looks
+   complete.
+2. *Which attempt-limit and failed-airway algorithm?* **DAS 2025, which was
+   already implemented.** Two additions: the plan letters are now defined
+   alongside their actions, because "move to Plan B" points at a document the
+   reader does not have open; and the ceiling now states that the plus-one is a
+   handover rather than a fourth turn for the same operator, because DAS assumes
+   a more experienced colleague who does not exist in a solo department at
+   03:00.
+3. *Dosing here or in an institutional protocol?* **Here.** This is an offline
+   single-user bedside app; a protocol link is worthless mid-resuscitation. The
+   block gained the shock asymmetry it was missing - halve the induction dose,
+   give the full paralytic dose - along with onset times, weight basis where it
+   differs between agents, and per-agent shock qualifiers.
+4. *Withhold visual copy and artwork?* **Already withheld; no action.** Under
+   the 2026-07-30 artwork policy, absent artwork is a warning rather than a
+   blocker. Recorded here so a later pass does not helpfully restore a
+   placeholder.
+
+**Cricothyrotomy**
+
+5. *DAS 2025 adult CICO eFONA or an institutional technique?* **DAS 2025, named
+   explicitly.** The failure mode in this procedure has never been choosing the
+   wrong technique; it is hesitating and improvising. The prior text offered a
+   menu with an institutional escape hatch.
+6. *Which exact scalpel, bougie, tube, and kit alternatives?* **Number 10 blade,
+   bougie, 6.0 cuffed tracheal tube,** each with its reason stated, because each
+   is non-obvious. A commercial kit is a separate pathway: a Seldinger kit fails
+   by wire kinking and dilator false passage, a scalpel technique fails by
+   losing the tract, and the troubleshooting for one is wrong for the other.
+7. *Adult-only, and where is the paediatric pathway?* **Adult-only with a stated
+   age boundary.** "Young children require special consideration" is worse than
+   silence: "young" can mean fourteen at 03:00, and "special consideration"
+   implies the same procedure done carefully when in fact the technique changes
+   below roughly 8-10 years. The exact cutoff is genuinely contested in the
+   literature, so the text says "roughly 8-10" rather than manufacturing a
+   precision that does not exist.
+8. *Who approves replacement artwork?* **Moot.** The contradictory image is
+   deleted. The surviving `cric_membrane` asset is bundled and its anatomy and
+   incision guidance are correct; it is unchanged.
+
+**Procedural sedation**
+
+9. *Which depths and venues?* **Adult moderate-to-deep sedation in the ED or
+   ICU.** Naming the venue is what makes the remaining fixes possible: the
+   hedges existed because the text was trying to be true in settings where a
+   dedicated monitor and capnography are not stocked.
+10. *Minimum monitor and capnography policy?* **A dedicated clinician who does
+    nothing else, and capnography as a requirement.** The proceduralist cannot
+    monitor - during a reduction the hands are committed and the eyes are on the
+    joint. Pulse oximetry on supplemental oxygen lags by minutes, which is the
+    whole reason preoxygenation works.
+11. *Adult and paediatric dosing here or elsewhere?* **Adult dosing here;
+    paediatric out of scope.** See owner decision 4 above.
+12. *Split paediatric sedation?* **Yes, and it already is by tag.** The change is
+    the explicit sentence. Paediatric sedation differs more than paediatric
+    intubation does: different agents, intranasal routes, different monitoring
+    intervals, different discharge rules.
+13. *Which laryngospasm, aspiration, and recovery algorithms?* **The existing
+    `laryngospasm` rescue card, an added emesis pathway, and enumerated
+    discharge criteria rather than a named score.** A scoring system is a form,
+    not a decision, for a single-user bedside app. The substance is what was
+    written: baseline mental status, airway protection, vitals at baseline, pain
+    controlled, moving at their usual level.
+
+### Adopted beyond the thirteen
+
+- **Cuff pressure, not syringe volume.** The equipment list offered a 10 mL
+  syringe, which reads as an instruction to instil 10 mL. It now names 20-30
+  cmH2O and a manometer.
+- **Tube depth numbers.** Right mainstem intubation was in the complications
+  list with no depth offered to prevent it.
+- **The cervical-spine line was a straw man.** It argued against "paralysis
+  avoidance", a position nobody holds. Replaced with the operationally useful
+  and counterintuitive half of the 2024 guidance: take the front of the collar
+  off for laryngoscopy, because the collar worsens the view and the repeated
+  attempts that follow move the neck more than removing it does.
+- **Sugammadex ruled out as a CICO rescue.** 16 mg/kg takes about three minutes
+  and the patient was apnoeic before the paralytic. It is reached for as a
+  fantasy escape, so it is closed off explicitly rather than omitted.
+- **Awareness under paralysis** stated as a duration gap rather than a reminder.
+- **A tube stop point on the cricothyrotomy card.** The commonest error after a
+  successful cricothyrotomy, and it was absent entirely: a 6.0 railroaded to its
+  usual 21 cm mark is endobronchial.
+- **A bougie depth limit** of 10-15 cm, and **the scalpel staying in the hole**
+  as the bougie guide - the prior sequence permitted removing it and then
+  hunting for the tract in a bleeding neck.
+- **Full neuromuscular block and continued oxygen from above**, both with their
+  reasons, because both are counterintuitive in a patient who is already not
+  breathing.
+- **Flat capnography reframed** as a circulation finding rather than grounds for
+  removing what may be the only airway.
+- **GLP-1 receptor agonists** named among the aspiration-risk modifiers.
+- **Post-reversal observation.** Naloxone and flumazenil wear off before the
+  drugs they reverse. The intuition runs the other way, so the card states that
+  reversal lengthens the watch rather than ending it.
+- **Local-anaesthetic ceiling cross-referenced from sedation**, since the two
+  share one encounter and a sedated patient cannot report early toxicity.
+- **References replaced on all three records** with locatable primary sources.
+  All three previously passed the release reference gate while citing undated
+  textbooks, because that gate only matches two specific placeholder phrases.
+
+### Known residual gaps
+
+- `reviewerStatus` is unchanged on all three records and is now the only
+  validator blocker on them. Per `AUDIT_PROTOCOL.md`, an agent does not set it.
+- The RSI dose figures remain sourced to a publication that cites no primary
+  references. This is an accepted, documented state rather than a resolved one.
+- The sedation dose figures are conventional practice accepted by the owner, not
+  independently verified against a primary pharmacology source; the `sourceNote`
+  says so.
+- Paediatric pathways for all three procedures are deferred by owner decision.
+- Airway artwork remains outstanding and is no longer release-gating.
+
 ## `endotracheal_intubation` - Endotracheal Intubation
 
-**Screening disposition: `STOP-SHIP`** because a declared visual is both a release-blocking placeholder and contains a bougie instruction that conflicts with current difficult-airway guidance. Additional `MAJOR` gaps require clinician review.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-30 after owner adjudication of all thirteen reviewer questions; originally STOP-SHIP against the audited snapshot, for the reason recorded next. The stop-ship reason had already been resolved by `2b1580d` before this adjudication began. Remaining findings are addressed in `88d8d21`, and pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because the RSI dose figures remain sourced to a publication that cites no primary references, and the paediatric pathway is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP** because a declared visual is both a release-blocking placeholder and contains a bougie instruction that conflicts with current difficult-airway guidance. Additional `MAJOR` gaps require clinician review.
 
 ### Source-standard summary
 
@@ -38,7 +206,7 @@ No additional material discrepancy was identified in the reviewed indications, c
 3. Should medication dosing live here or in a separately governed institutional RSI protocol?
 4. Can the visual copy and artwork be withheld until an airway expert approves it?
 
-**Proposed reviewer disposition:** withhold from release until the stop-ship visual/bougie issue is removed and the major scope, dosing, failure-plan, and reference decisions are resolved. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
+**Proposed reviewer disposition (superseded 2026-07-30; see the re-screened disposition above):** withhold from release until the stop-ship visual/bougie issue is removed and the major scope, dosing, failure-plan, and reference decisions are resolved. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
 
 ### Primary/authoritative sources
 
@@ -50,7 +218,7 @@ No additional material discrepancy was identified in the reviewed indications, c
 
 ## `cricothyrotomy` - Cricothyrotomy
 
-**Screening disposition: `STOP-SHIP`** because a bundled clinical visual presents internally contradictory and potentially wrong-site anatomy. The text also has `MAJOR` equipment and sequence gaps against current eFONA guidance.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-30 after owner adjudication of all thirteen reviewer questions; originally STOP-SHIP against the audited snapshot, for the reason recorded next. The stop-ship reason had already been resolved by `2b1580d` before this adjudication began. Remaining findings are addressed in `88d8d21`, and pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because the age boundary is stated as a range the literature does not agree on, any stocked commercial kit is named as a pathway rather than bound to an IFU revision, artwork beyond the membrane image is outstanding, and the paediatric pathway is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP** because a bundled clinical visual presents internally contradictory and potentially wrong-site anatomy. The text also has `MAJOR` equipment and sequence gaps against current eFONA guidance.
 
 ### Source-standard summary
 
@@ -82,7 +250,7 @@ No additional material discrepancy was identified in the core indications, landm
 3. Is the card explicitly adult-only, and where is the pediatric pathway?
 4. Who will anatomically approve replacement artwork?
 
-**Proposed reviewer disposition:** withhold from release until the danger-zone image is replaced or removed and an airway owner resolves the technique, equipment, scope, and reference gaps. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
+**Proposed reviewer disposition (superseded 2026-07-30; see the re-screened disposition above):** withhold from release until the danger-zone image is replaced or removed and an airway owner resolves the technique, equipment, scope, and reference gaps. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
 
 ### Primary/authoritative sources
 
@@ -93,7 +261,7 @@ No additional material discrepancy was identified in the core indications, landm
 
 ## `procedural_sedation` - Procedural Sedation
 
-**Screening disposition: `STOP-SHIP`** because its only declared visual is a release-blocking placeholder. The clinical text has multiple `MAJOR` scope, monitoring, staffing, dosing, pediatric, and rescue gaps.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-30 after owner adjudication of all thirteen reviewer questions; originally STOP-SHIP against the audited snapshot, for the reason recorded next. The stop-ship reason had already been resolved by `2b1580d` before this adjudication began. Remaining findings are addressed in `88d8d21`, and pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because the dose figures are conventional practice accepted by the owner rather than verified against a primary pharmacology source, and the paediatric pathway is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP** because its only declared visual is a release-blocking placeholder. The clinical text has multiple `MAJOR` scope, monitoring, staffing, dosing, pediatric, and rescue gaps.
 
 ### Source-standard summary
 
@@ -128,7 +296,7 @@ No additional material discrepancy was identified in the broad indications, airw
 4. Should pediatric sedation be split into a separate record?
 5. Which laryngospasm, aspiration, and recovery algorithms are locally approved?
 
-**Proposed reviewer disposition:** withhold from release until the placeholder visual is removed and the staffing, depth/monitoring, dosing, pediatric, rescue, and recovery policies are explicitly resolved. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
+**Proposed reviewer disposition (superseded 2026-07-30; see the re-screened disposition above):** withhold from release until the placeholder visual is removed and the staffing, depth/monitoring, dosing, pediatric, rescue, and recovery policies are explicitly resolved. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
 
 ### Primary/authoritative sources
 
