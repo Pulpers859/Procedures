@@ -418,12 +418,12 @@
     {
       "corpus": "procedures.json",
       "recordId": "endotracheal_intubation",
-      "auditFingerprint": "c3444cb5f996635e1612fef88d4fca53ebcce8c41494a973763a7b6d9762ff44",
+      "auditFingerprint": "39780f1ec004a6dabce05a7d163a4159127c6a72a5822c619e92b9e5c5fc53e0",
       "owner": "Patrick",
-      "rationale": "Re-screened after the owner directed that unapproved artwork be withheld and the paediatric scope dropped. Both declared visuals were assetName-null placeholders and are removed, which also removes one of the two grade 3-4 bougie prompts the lane report flagged against DAS 2025. The Peds setting tag is removed because the record held adult-only content. No clinical instruction text was authored or altered; every change is a removal, so no finding is loosened.",
-      "commit": "2b1580d",
+      "rationale": "Re-screened against the DAS 2025 guideline supplied by the owner, read directly rather than via the lane report's summary. The guideline's own wording was verified for each change: the 3+1 attempt ceiling and its recommendation bullet, the change-between-attempts list, the abandon-on-hypoxaemia rule, the blind grade 3-4 bougie prohibition alongside its positive hyperangulated-blade instruction, and the two-point confirmation check. This tightens Plan A discipline and removes a step that inverted the guideline; no maximum is widened and no finding is loosened. Supersedes the withheld-artwork amendment for this record.",
+      "commit": "53ac2ee",
       "expires": "2026-10-31",
-      "followUp": "01_AIRWAY_SEDATION.md - MAJOR attempt-limit, dosing, cervical-spine and reference findings remain open",
+      "followUp": "01_AIRWAY_SEDATION.md - RSI dosing, cervical-spine pathway, paediatric branch and textbook references remain open",
       "recordedAt": "2026-07-30"
     },
     {
