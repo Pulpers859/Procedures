@@ -26,7 +26,9 @@
         "Call for help early; assign airway, meds, monitor, suction, backup airway, and post-intubation sedation roles.",
         "Preoxygenate aggressively; consider NC apneic oxygenation, flush-rate NRB, NIV, or BVM with PEEP depending physiology.",
         "Have suction in hand or immediately reachable before first attempt.",
-        "Choose first-pass plan and backup plan before pushing meds: bougie, video/direct, supraglottic, cricothyrotomy.",
+        "Choose first-pass plan and backup plan before pushing meds: video/direct laryngoscopy, introducer, supraglottic, cricothyrotomy. Make the first attempt the best attempt.",
+        "Maximum 3+1 attempts (DAS 2025): three attempts, plus one final attempt only by a more experienced colleague. Change something material between attempts - a suboptimal attempt is a wasted attempt.",
+        "If hypoxaemia occurs at any point, abandon the attempt and prioritise oxygenation with facemask ventilation. Oxygenate between attempts and maintain anaesthesia.",
         "Physiology kills before anatomy: optimize hypotension, hypoxemia, severe acidosis, RV failure, and hyperkalemia when possible.",
         "Confirm with continuous waveform capnography; auscultation alone is not enough.",
         "Do not forget post-intubation analgesia/sedation and ventilator reassessment."
@@ -77,7 +79,9 @@
         "Prepare equipment, suction, capnography, tube securement, and post-intubation medications.",
         "Administer induction and paralytic medications when ready.",
         "Perform laryngoscopy with deliberate epiglottis and glottic identification.",
-        "Pass tube under direct or video visualization; use bougie early if view is limited.",
+        "Pass the tube under continuous direct or video visualisation. With a hyperangulated videolaryngoscope blade use a stylet, bougie, or flexible bronchoscope. Do not advance a bougie blind at a Cormack-Lehane grade 3-4 view: DAS 2025 advises against it because of trauma and misplacement risk - improve the view first.",
+        "Between attempts, change something informed by the last one: position, laryngoscope or blade, introducer, operator, external laryngeal manipulation, suction, removal of cricoid force, or optimised neuromuscular block.",
+        "After 3+1 unsuccessful attempts declare 'failed intubation', move to Plan B, summon assistance, and make the eFONA kit immediately accessible.",
         "Inflate cuff and connect BVM or ventilator.",
         "Confirm continuous waveform capnography and bilateral chest rise; check for right mainstem.",
         "Secure tube, document depth, obtain chest x-ray when appropriate, and reassess ventilator/sedation."
@@ -86,7 +90,7 @@
         "Ultrasound can be used as an adjunct for tube confirmation in some settings, but continuous waveform capnography remains the practical standard when available."
       ],
       "confirmation": [
-        "Continuous waveform capnography with persistent waveform",
+        "Two-point check (DAS 2025): the tube seen passing through the vocal cords AND sustained exhaled carbon dioxide on waveform capnography. Sustained capnography excludes oesophageal placement but cannot by itself exclude bronchial or pharyngeal position.",
         "Bilateral chest rise and breath sounds",
         "Absent gastric insufflation sounds",
         "Appropriate oxygenation/ventilation response",
@@ -94,7 +98,7 @@
       ],
       "troubleshooting": [
         "Desaturation: stop, oxygenate with BVM/PEEP, improve mask seal, use oral/nasal airway, recruit help.",
-        "Poor view: optimize position, suction, external laryngeal manipulation, change blade, use bougie early.",
+        "Poor view: optimise position, suction, external laryngeal manipulation (BURP on the thyroid cartilage), change blade or laryngoscope, optimise neuromuscular block. Do not insert a bougie blind at a grade 3-4 view.",
         "Cannot intubate/cannot oxygenate: supraglottic airway or surgical airway pathway immediately.",
         "Post-intubation hypotension: check tube depth, breath stacking/auto-PEEP, tension pneumothorax, sedation effect, occult shock; start fluids/pressors as appropriate.",
         "High peak pressures: consider bronchospasm, tube obstruction, mainstem, pneumothorax, or ventilator mismatch."
@@ -130,6 +134,7 @@
         "Have the post-intubation plan ready before induction; the tube is not the finish line."
       ],
       "references": [
+        "Ahmad I, El-Boghdadly K, Iliff H, et al. Difficult Airway Society 2025 guidelines for management of unanticipated difficult tracheal intubation in adults. Br J Anaesth. https://doi.org/10.1016/j.bja.2025.10.006",
         "Walls RM, Murphy MF. Manual of Emergency Airway Management.",
         "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
         "ACEP and critical care airway education resources; verify local airway policy and medication protocols."
