@@ -8,8 +8,7 @@
     "setting": [
       "ED",
       "ICU",
-      "Trauma",
-      "Peds"
+      "Trauma"
     ],
     "lastReviewed": "2026-06-14",
     "version": "0.1.0",
@@ -136,28 +135,7 @@
         "ACEP and critical care airway education resources; verify local airway policy and medication protocols."
       ]
     },
-    "visualAssets": [
-      {
-        "id": "airway_alignment",
-        "kind": "Landmark",
-        "title": "Airway alignment axes",
-        "subtitle": "Oral, pharyngeal, and tracheal axes aligned via sniffing/ramped position. Ear-to-sternal-notch alignment optimizes the view.",
-        "assetName": null,
-        "systemImage": "scope",
-        "caption": "Replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "Obese patients require ramping, not just a pillow under the head."
-      },
-      {
-        "id": "laryngoscope_view",
-        "kind": "Confirmation",
-        "title": "Laryngoscopic view grades",
-        "subtitle": "Cormack-Lehane grades I\u2013IV. Grade I: full cords visible. Grade IV: no glottic structures seen. Bougie or video laryngoscopy for grade III\u2013IV.",
-        "assetName": null,
-        "systemImage": "eye",
-        "caption": "Replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "Grade III\u2013IV views require immediate backup plan. Do not persist with direct laryngoscopy."
-      }
-    ],
+    "visualAssets": [],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
   },
@@ -627,16 +605,6 @@
         "systemImage": "scalpel",
         "caption": "Target: cricothyroid membrane between the thyroid and cricoid cartilage.",
         "clinicalWarning": "Vertical skin incision reduces risk of vessel injury. Horizontal membrane incision."
-      },
-      {
-        "id": "cric_danger_zone",
-        "kind": "Danger Zone",
-        "title": "Anterior neck danger zones",
-        "subtitle": "Anterior jugular veins run laterally. Thyroid isthmus sits inferior to the cricothyroid membrane. Superior and inferior laryngeal arteries course near the membrane edges.",
-        "assetName": "cric_danger_zone",
-        "systemImage": "exclamationmark.triangle",
-        "caption": "Stay midline: vessels and thyroid isthmus lie lateral and inferior to the membrane.",
-        "clinicalWarning": "Stay midline. Lateral deviation risks vascular injury."
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
@@ -1358,8 +1326,7 @@
     "reviewTime": "2 min",
     "setting": [
       "ED",
-      "ICU",
-      "Peds"
+      "ICU"
     ],
     "lastReviewed": "2026-06-14",
     "version": "0.2.0",
@@ -1471,18 +1438,7 @@
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
     },
-    "visualAssets": [
-      {
-        "id": "sedation_room_setup",
-        "kind": "Setup",
-        "title": "Sedation room setup",
-        "subtitle": "Visual slot for airway/resuscitation setup before medication delivery.",
-        "assetName": null,
-        "systemImage": "bed.double",
-        "caption": "Placeholder metadata now; replace assetName with a bundled image when final reviewed artwork is added.",
-        "clinicalWarning": "Premium version should show the room before drugs go in."
-      }
-    ],
+    "visualAssets": [],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
   },
