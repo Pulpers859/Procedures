@@ -89,10 +89,6 @@ struct MaxDoseCalculatorCard: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                Text("Use lean body weight in obese patients.")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
             }
 
             if dosing.agents.count > 1 {
@@ -162,10 +158,12 @@ struct MaxDoseCalculatorCard: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
 
-            Text("Reduce by about 25% at the extremes of age or with severe comorbidity.")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
+            ForEach(dosing.caveats ?? [], id: \.self) { caveat in
+                Text(caveat)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
         .accessibilityElement(children: .combine)
     }

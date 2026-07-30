@@ -501,5 +501,57 @@
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
+  },
+  {
+    "id": "air_embolism_vascular_access",
+    "title": "Air embolism during central or large-bore access",
+    "acuity": "Crash",
+    "relatedProcedureIDs": [
+      "central_venous_catheter",
+      "introducer_sheath_cordis",
+      "dialysis_catheter_vascath"
+    ],
+    "trigger": [
+      "Sudden hypoxia, hypotension, chest pain, altered consciousness, or cardiovascular collapse around an open hub - during insertion, while a line is disconnected, or at removal."
+    ],
+    "immediateMoves": [
+      "Occlude the hub or the open lumen immediately; clamp, cap, or cover the site.",
+      "Left lateral decubitus, head down, to trap air at the right ventricular apex and away from the outflow tract.",
+      "100% oxygen to speed nitrogen washout from the bubble.",
+      "Aspirate from a central lumen if one is already in place and the tip is central.",
+      "Support the circulation: IV fluid bolus, and norepinephrine 0.05-0.1 mcg/kg/min titrated to MAP or push-dose epinephrine 5-20 mcg IV every 2-5 minutes.",
+      "Start CPR if arrested - chest compressions can also break up a large air lock.",
+      "Call for help and consider hyperbaric referral for suspected cerebral arterial gas embolism."
+    ],
+    "reassess": [
+      "SpO2 and end-tidal CO2 (a sudden fall in ETCO2 fits a large embolism)",
+      "Blood pressure and rhythm",
+      "Neurological status, including focal deficit suggesting arterial gas embolism",
+      "Whether every hub and lumen is now closed"
+    ],
+    "avoid": [
+      "Do not leave a large-bore sheath or catheter hub open to air at any point, including during removal.",
+      "Do not sit the patient up.",
+      "Do not delay occluding the hub in order to obtain imaging."
+    ],
+    "tags": [
+      "air embolism",
+      "VAE",
+      "gas embolism",
+      "central line",
+      "CVC",
+      "Cordis",
+      "introducer",
+      "sheath",
+      "Vas Cath",
+      "removal"
+    ],
+    "lastReviewed": "2026-07-30",
+    "version": "0.1.0",
+    "references": [
+      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   }
 ]

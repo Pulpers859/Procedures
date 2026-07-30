@@ -76,6 +76,9 @@ PROCEDURE_WITH_DOSING = {
             },
         ],
         "cumulativeWarning": "Count every source.",
+        # Hashed: a caveat is the qualifier on the number the card prints, and
+        # editing one silently would leave a sign-off reading "Reviewed".
+        "caveats": ["Lean body weight.", "Reduce at the extremes of age."],
     },
 }
 

@@ -46,7 +46,7 @@ SECTION_SEPARATOR = "\x1e"
 # Bumped whenever the set of hashed fields changes. A digest written under an
 # older version answers a different question and must not be compared; see
 # LocalReviewRecord.contentState in UserDataStore.swift.
-FINGERPRINT_VERSION = 3
+FINGERPRINT_VERSION = 4
 
 REVIEWED_DISPOSITION = "Reviewed"
 DEFAULT_STATUS = "Internally Reviewed"
@@ -108,6 +108,7 @@ def procedure_fingerprint(item):
                 f"|{agent.get('note') or '-'}"
             )
         dose_parts.append(dosing.get("cumulativeWarning", ""))
+        dose_parts.extend(dosing.get("caveats") or [])
         grouped.append(("dosing", dose_parts))
     medication_dosing = item.get("medicationDosing")
     if medication_dosing:

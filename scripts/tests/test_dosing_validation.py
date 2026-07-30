@@ -360,8 +360,16 @@ class ShippedPreparationTableTests(unittest.TestCase):
 
     def setUp(self):
         procedures = MODULE.load_json(MODULE.PROCEDURES)
-        self.tables = [p["dosing"]["agents"] for p in procedures if p.get("dosing")]
-        self.assertTrue(self.tables)
+        # Regional only, matching testEveryRegionalBlockShipsTheSamePreparationTable
+        # on the Swift side. The selector used to be "any block with dosing",
+        # which was the same set at the time and stopped being so when the
+        # intraosseous card took a lidocaine ceiling of its own. That table is
+        # locked by IntraosseousDosingTests below rather than left unguarded.
+        self.tables = [
+            p["dosing"]["agents"] for p in procedures
+            if p.get("dosing") and p.get("category") == MODULE.REGIONAL_CATEGORY
+        ]
+        self.assertEqual(len(self.tables), 28)
 
     def test_every_block_ships_the_designated_table(self):
         for table in self.tables:
@@ -457,6 +465,244 @@ class CrashCardDoseTests(unittest.TestCase):
         self.assertIsNotNone(rescue_cards)
         issues = MODULE.crash_card_dose_issues(rescue_cards)
         self.assertEqual(issues, [], f"shipped Crash cards must dose every named drug: {issues}")
+
+
+class IntraosseousDosingTests(unittest.TestCase):
+    """The intraosseous card used to instruct a flat "20-40 mg lidocaine 2%"
+    on a procedure tagged for paediatrics. At 0.5 mg/kg a 6 kg infant is owed
+    3 mg, so the card as written was a sixfold overdose that a reader following
+    it exactly would have given.
+
+    It is structured data now for the same reason the regional blocks are: a
+    frozen sentence with a number in it cannot recalculate itself, and this one
+    had already drifted from the source it came from.
+    """
+
+    def setUp(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        self.io = next(p for p in procedures if p["id"] == "intraosseous_access")
+        self.dosing = self.io["dosing"]
+        self.agent = self.dosing["agents"][0]
+
+    def test_the_ceiling_is_weight_based_with_a_hard_cap(self):
+        self.assertEqual(len(self.dosing["agents"]), 1)
+        self.assertEqual(self.agent["agent"], "Lidocaine")
+        self.assertFalse(self.agent["withEpinephrine"])
+        self.assertEqual(self.agent["maxDoseMgPerKg"], 0.5)
+        self.assertEqual(self.agent["absoluteMaxMg"], 40)
+        self.assertEqual(self.agent["concentrationsPercent"], [2.0])
+
+    def test_an_infant_dose_is_nothing_like_the_adult_dose(self):
+        """The exact arithmetic the old fixed dose got wrong."""
+        for weight, expected_mg in ((6, 3.0), (20, 10.0), (70, 35.0), (100, 40.0)):
+            computed = min(self.agent["maxDoseMgPerKg"] * weight, self.agent["absoluteMaxMg"])
+            self.assertEqual(computed, expected_mg, f"{weight} kg")
+        # 0.15 mL of 2% for that infant - a volume nobody reliably works out
+        # from a fixed-dose sentence at three in the morning.
+        self.assertAlmostEqual(3.0 / MODULE.mg_per_ml(2.0), 0.15)
+
+    def test_the_preparation_is_named_as_preservative_and_epinephrine_free(self):
+        note = self.agent["note"] or ""
+        self.assertIn("reservative-free", note)
+        self.assertIn("pinephrine-free", note)
+
+    def test_the_adult_flat_dose_is_not_silently_dropped(self):
+        """The calculator returns 35 mg at 70 kg where the manufacturer gives
+        adults 40 mg. Erring low on an analgesic is the safe direction, but the
+        reader has to be told, not left to find the discrepancy."""
+        self.assertIn("40 mg", self.agent["note"] or "")
+
+    def test_the_sequence_puts_lidocaine_before_the_flush(self):
+        """Flushing an un-anaesthetised marrow is the painful step. The card
+        used to flush 10 mL first and then offer the lidocaine, which defeats
+        the entire purpose of carrying it."""
+        steps = self.io["sections"]["steps"]
+        lidocaine = next(i for i, s in enumerate(steps) if "lidocaine" in s.lower())
+        flush = next(i for i, s in enumerate(steps) if "then flush" in s.lower())
+        self.assertLess(lidocaine, flush)
+        self.assertIn("120 seconds", steps[lidocaine])
+        self.assertIn("60 seconds", steps[flush])
+
+    def test_the_flush_volume_is_age_specific(self):
+        joined = " ".join(self.io["sections"]["steps"] + self.dosing["monitoring"])
+        self.assertIn("5-10 mL", joined)
+        self.assertIn("2-5 mL", joined)
+        self.assertNotIn("Flush with 10 mL normal saline", joined)
+
+    def test_the_humerus_is_not_drilled_at_ninety_degrees(self):
+        joined = " ".join(self.io["sections"]["steps"] + self.io["sections"]["anatomy"])
+        self.assertIn("45 degrees", joined)
+        self.assertIn("posteromedial", joined)
+
+    def test_needle_choice_is_anchored_to_the_five_millimetre_mark(self):
+        steps = " ".join(self.io["sections"]["steps"])
+        self.assertIn("5 mm mark", steps)
+
+
+class VascularAccessRescueTests(unittest.TestCase):
+    """Three records need the same two paragraphs: the pre-dilation gate and
+    the arterial-injury rescue. If the wording diverges the reader meets two
+    versions of one doctrine at the worst possible moment, so it is asserted
+    identical rather than merely present.
+    """
+
+    LARGE_BORE = ("central_venous_catheter", "introducer_sheath_cordis", "dialysis_catheter_vascath")
+
+    def setUp(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        self.records = {p["id"]: p for p in procedures if p["id"] in self.LARGE_BORE}
+        self.assertEqual(len(self.records), 3)
+
+    def _matching(self, section, fragment):
+        found = []
+        for pid in self.LARGE_BORE:
+            lines = [l for l in self.records[pid]["sections"][section] if fragment in l]
+            self.assertEqual(len(lines), 1, f"{pid}.{section}: {fragment!r}")
+            found.append(lines[0])
+        return found
+
+    def test_the_pre_dilation_gate_is_word_for_word_the_same(self):
+        gates = self._matching("steps", "before dilating")
+        self.assertEqual(len(set(gates)), 1, "the confirmation gate has diverged")
+        self.assertIn("two planes", gates[0])
+        self.assertIn("transduce", gates[0])
+
+    def test_colour_and_pulsatility_are_explicitly_rejected(self):
+        for gate in self._matching("steps", "before dilating"):
+            self.assertIn("do not confirm venous placement", gate)
+
+    def test_no_record_still_makes_wire_confirmation_conditional(self):
+        for pid, record in self.records.items():
+            for section in ("steps", "shiftMode", "ultrasound"):
+                for line in record["sections"][section]:
+                    if "wire" not in line.lower():
+                        continue
+                    for hedge in ("when possible", "when feasible"):
+                        self.assertNotIn(hedge, line, f"{pid}.{section}: {line}")
+
+    def test_the_large_bore_rescue_is_word_for_word_the_same(self):
+        rescues = self._matching("troubleshooting", "leave it in place")
+        self.assertEqual(len(set(rescues)), 1, "the arterial rescue has diverged")
+        for phrase in ("Do not remove", "do not compress", "vascular surgery", "interventional radiology"):
+            self.assertIn(phrase, rescues[0])
+
+    def test_the_needle_only_branch_is_stated_separately(self):
+        """Without the distinction the reader applies leave-in-place to a
+        finder needle, or pull-and-pressure to a dilated artery."""
+        branches = self._matching("troubleshooting", "needle only")
+        self.assertEqual(len(set(branches)), 1)
+        self.assertIn("hold firm pressure", branches[0])
+
+    def test_every_record_says_to_transduce_when_unsure(self):
+        # Deliberately not "transduce it": the leave-in-place rescue says that
+        # too, about a different device in a different situation.
+        answers = self._matching("troubleshooting", "Unsure whether you are in the artery")
+        self.assertEqual(len(set(answers)), 1)
+
+    def test_air_embolism_has_a_rescue_card_reachable_from_each_record(self):
+        cards = {c["id"]: c for c in MODULE.load_json(MODULE.RESCUE_CARDS)}
+        card = cards["air_embolism_vascular_access"]
+        for pid in self.LARGE_BORE:
+            self.assertIn(pid, card["relatedProcedureIDs"])
+        moves = " ".join(card["immediateMoves"])
+        self.assertIn("Occlude", moves)
+        self.assertIn("left lateral", moves.lower())
+
+
+class ArterialLineTraceTests(unittest.TestCase):
+    def setUp(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        self.record = next(p for p in procedures if p["id"] == "arterial_line")
+        self.sections = self.record["sections"]
+
+    def test_both_damping_directions_are_covered(self):
+        """Underdamping is the dangerous direction and the card described only
+        the other one: a resonant trace reads systolic high and hides the
+        hypotension you are titrating against."""
+        joined = " ".join(self.sections["troubleshooting"]).lower()
+        self.assertIn("overdamped", joined)
+        self.assertIn("underdamped", joined)
+
+    def test_the_square_wave_test_is_required_before_treating_a_number(self):
+        joined = " ".join(self.sections["steps"] + self.sections["confirmation"]).lower()
+        self.assertIn("square-wave", joined)
+
+    def test_titration_falls_back_to_map_until_the_trace_is_validated(self):
+        joined = " ".join(self.sections["steps"] + self.sections["shiftMode"])
+        self.assertIn("MAP", joined)
+
+    def test_the_time_based_resite_rule_is_gone(self):
+        """A scheduled arterial-line change does not lower infection and buys
+        the patient another puncture."""
+        joined = " ".join(
+            self.sections["complications"] + self.sections["aftercare"]
+        )
+        self.assertNotIn("72-96", joined)
+        self.assertIn("Do not resite on a schedule", joined)
+
+    def test_the_single_lumen_catheter_is_not_described_as_having_ports(self):
+        self.assertNotIn("All ports flush", " ".join(self.sections["confirmation"]))
+
+
+class DialysisCatheterLengthTests(unittest.TestCase):
+    def setUp(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        self.sections = next(
+            p for p in procedures if p["id"] == "dialysis_catheter_vascath"
+        )["sections"]
+
+    def test_length_is_specified_per_site(self):
+        """"Advance to the planned depth" is not a specification. A short
+        femoral catheter recirculates and dialyses nothing."""
+        joined = " ".join(
+            self.sections["anatomy"] + self.sections["steps"] + self.sections["shiftMode"]
+        )
+        for length in ("12-15 cm", "15-20 cm", "19-24 cm"):
+            self.assertIn(length, joined)
+
+    def test_the_lock_is_aspirated_before_use(self):
+        """The card told the reader to instil a lock and never to withdraw it."""
+        joined = " ".join(self.sections["aftercare"] + self.sections["shiftMode"])
+        self.assertIn("aspirated and discarded before every use", joined)
+
+    def test_the_priming_volume_is_read_off_the_device(self):
+        joined = " ".join(self.sections["steps"])
+        self.assertIn("printed on that lumen", joined)
+
+    def test_heparin_induced_thrombocytopenia_is_called_out(self):
+        joined = " ".join(self.sections["equipment"])
+        self.assertIn("thrombocytopenia", joined)
+
+
+class PeripheralIVLengthTests(unittest.TestCase):
+    def setUp(self):
+        procedures = MODULE.load_json(MODULE.PROCEDURES)
+        self.sections = next(
+            p for p in procedures if p["id"] == "ultrasound_guided_piv"
+        )["sections"]
+
+    def test_gel_must_be_labelled_sterile(self):
+        """"Sterile or single-use ... per local policy" reads as though
+        non-sterile single-use gel is an acceptable branch. It is not, for a
+        percutaneous procedure."""
+        joined = " ".join(self.sections["equipment"])
+        self.assertIn("labelled sterile", joined)
+        self.assertNotIn("Sterile or single-use", joined)
+
+    def test_the_intraluminal_length_target_replaced_the_fixed_minimum(self):
+        joined = " ".join(
+            self.sections["shiftMode"] + self.sections["anatomy"] + self.sections["steps"]
+        )
+        self.assertIn("2.75 cm", joined)
+        self.assertNotIn("one third of the catheter", joined)
+
+    def test_contrast_is_conditioned_rather_than_implied(self):
+        joined = " ".join(self.sections["indications"] + self.sections["confirmation"])
+        self.assertIn("power-rated catheter", joined)
+
+    def test_the_deep_extravasation_is_described_as_unwitnessed(self):
+        joined = " ".join(self.sections["complications"])
+        self.assertIn("unwitnessed", joined)
 
 
 if __name__ == "__main__":

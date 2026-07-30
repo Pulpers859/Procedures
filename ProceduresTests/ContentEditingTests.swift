@@ -272,13 +272,14 @@ final class ContentEditingTests: XCTestCase {
                 ),
             ],
             cumulativeWarning: "Count every source.",
+            caveats: ["Lean body weight.", "Reduce at the extremes of age."],
             monitoring: ["unused by the fingerprint"],
             rescueCardID: nil
         ))
 
         XCTAssertEqual(
             procedure.materialFingerprint,
-            "e46acd5afffc7eeae223221358b3c5487b9a38f5fdca3d896f4860268d6d3826"
+            "0ac5574e02fb93799fb791bab9017301ec01cd810072c31db6177caea40faf59"
         )
     }
 

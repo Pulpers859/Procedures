@@ -283,7 +283,7 @@
         "Use full sterile barrier: cap, mask, sterile gown/gloves, wide chlorhexidine prep, large drape.",
         "Ultrasound before puncture: identify vein, artery, thrombus, depth, compressibility, and safest trajectory.",
         "Needle tip visualization matters. Do not just watch tissue move.",
-        "Never dilate unless the wire passes smoothly and you are confident it is venous.",
+        "Never dilate on blood return alone. Ultrasound the wire in two planes, or transduce, every time - there is no emergency exception to this step.",
         "Keep control of the wire at all times.",
         "Confirm placement and evaluate for complications per site and institutional practice."
       ],
@@ -310,10 +310,11 @@
       "equipment": [
         "Central line kit with catheter, wire, needle, scalpel, dilator, and caps",
         "Sterile gown, gloves, mask, cap, and large sterile drape",
-        "Chlorhexidine prep",
+        "Alcoholic chlorhexidine over 0.5% (alternative agent if contraindicated)",
         "Ultrasound machine",
         "Sterile probe cover and sterile gel",
         "Local anesthetic, syringe, and small needle",
+        "Sterile pressure tubing or manometry setup to confirm venous placement before dilation",
         "Flushes for all ports",
         "Suture or securement device",
         "Biopatch or antimicrobial dressing per local policy",
@@ -332,12 +333,14 @@
         "Perform ultrasound survey before opening the kit.",
         "Prep and drape using full sterile barrier technique.",
         "Anesthetize skin and deeper tissue along planned tract.",
+        "Position head-down for IJ, subclavian, or axillary access so the vein fills and air cannot be entrained.",
         "Cannulate vein under ultrasound guidance, maintaining needle tip awareness.",
-        "Confirm venous blood return and pass guidewire smoothly without force.",
-        "Use ultrasound or other method to confirm wire in vessel when possible.",
+        "Pass the guidewire smoothly without force, keeping a hand on it at all times.",
+        "Confirm the wire is venous before dilating: ultrasound in two planes - short axis showing the wire inside the vein and not the artery, long axis showing it tracking centrally. If the wire is not clearly seen, transduce or manometer before dilating. Blood colour and non-pulsatile flow do not confirm venous placement.",
         "Make small skin nick while controlling wire.",
         "Dilate over wire without force; stop if resistance or uncertainty.",
-        "Advance catheter over wire, remove wire while maintaining catheter control, and confirm wire is out intact.",
+        "Advance catheter over wire, remove wire while maintaining catheter control, and state aloud that the wire is out and intact while looking at it.",
+        "Occlude every hub the moment the wire is out - cap, clamp, or connected tubing - so the catheter is never open to air.",
         "Aspirate and flush all ports.",
         "Secure catheter and apply sterile dressing.",
         "Confirm position and assess for complications per site and local policy."
@@ -345,21 +348,26 @@
       "ultrasound": [
         "Use short-axis for vessel identification; consider long-axis for needle tip tracking if skilled.",
         "Compress vein before sterile prep to evaluate patency and thrombus.",
-        "Confirm guidewire in the vein before dilation when feasible.",
+        "Confirm the guidewire in the vein in two planes before dilation - short axis to exclude the artery, long axis to show it tracking centrally.",
         "For IJ, check lung sliding afterward as a rapid pneumothorax screen when skilled, but follow local confirmation standards."
       ],
       "confirmation": [
         "All ports aspirate and flush easily",
-        "Guidewire removed intact",
+        "Guidewire removed intact and confirmed aloud",
         "Catheter secured with sterile dressing",
         "Appropriate imaging/confirmation obtained based on site",
+        "Tip at the superior vena cava/right atrial junction on chest x-ray - at or just above the carina; a catheter tracking up the neck or across the midline is malpositioned",
+        "A normal chest x-ray does not exclude arterial placement; transduce the catheter if there is any doubt",
         "No immediate evidence of arterial placement, pneumothorax, hematoma, or malposition"
       ],
       "troubleshooting": [
         "Wire will not pass: stop, do not force; check needle position and angle, aspirate, use ultrasound, or repuncture.",
-        "Bright pulsatile blood or arterial waveform: stop and manage as arterial puncture/cannulation based on catheter size and site.",
+        "Unsure whether you are in the artery or the vein: transduce it. Waveform and pressure answer in seconds; colour, non-pulsatile flow, and a blood gas do not.",
+        "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid haematoma can obstruct late.",
+        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, haemothorax, and uncontrolled bleeding.",
         "Resistance with dilator: stop; confirm wire path and vessel location before proceeding.",
         "No blood return from one port: check clamp/cap, flush gently, reposition; do not force against resistance.",
+        "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism - occlude the hub, left lateral decubitus head-down, 100% oxygen, and aspirate from a central lumen if one is in place.",
         "Unstable after line: consider pneumothorax, bleeding, arrhythmia, air embolism, or unrelated shock progression."
       ],
       "complications": [
@@ -391,7 +399,9 @@
       "seniorPearls": [
         "Most catastrophic central line errors happen after venous puncture, not before it: wire control, dilation, and confirmation are where discipline matters.",
         "If the wire does not pass smoothly, the answer is almost never more force.",
-        "Open the exact catheter you need. A triple lumen is not a Cordis and not a dialysis catheter."
+        "Open the exact catheter you need. A triple lumen is not a Cordis and not a dialysis catheter.",
+        "After two failed passes, change something: the site, the operator, or the plan. The best predictor of a bad line is someone past their limit.",
+        "If a large-bore device ends up in an artery, the instinctive action is the lethal one. Leave it in and make the call."
       ],
       "references": [
         "Miller's Anesthesia and major critical care procedural texts for central venous access principles.",
@@ -632,7 +642,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -1778,7 +1792,8 @@
         "Anesthetize even in awake patients \u2014 arterial puncture without local anesthetic causes involuntary movement and failed placement.",
         "Advance catheter-over-needle with bevel up at 30-45\u00b0; on flashback, flatten and advance catheter. Use Seldinger for deep or small vessels.",
         "Arterial waveform on the transducer is definitive confirmation \u2014 a flat or venous tracing means reposition or replace.",
-        "Label, zero, and document waveform quality before relying on readings."
+        "Label, zero at the phlebostatic axis, and square-wave test before relying on readings. Re-level after every bed height change.",
+        "MAP is relatively protected when the trace is damped or resonant; the systolic is not. Titrate to MAP."
       ],
       "indications": [
         "Continuous beat-to-beat blood pressure monitoring in hemodynamic instability or vasopressor titration",
@@ -1802,8 +1817,8 @@
       ],
       "equipment": [
         "Arterial catheter kit or 20-gauge catheter-over-needle with Seldinger wire",
-        "Chlorhexidine prep",
-        "Sterile drape and sterile gloves",
+        "Alcoholic chlorhexidine over 0.5% (alternative agent if contraindicated)",
+        "Cap, mask, sterile gloves, and a sterile fenestrated drape; full maximal barriers for femoral or axillary placement",
         "Local anesthetic (1% lidocaine), syringe, and small-gauge needle",
         "Arm board or rolled towel for wrist positioning",
         "Tape for securement",
@@ -1829,7 +1844,8 @@
         "On flash: for catheter-over-needle, flatten slightly, advance catheter off needle, remove needle; for Seldinger, flatten, pass wire without force, remove needle, thread catheter over wire, remove wire.",
         "Connect arterial tubing; confirm arterial waveform on monitor.",
         "Secure catheter, apply clear dressing, and label with site and date.",
-        "Zero transducer at appropriate reference point; document waveform quality."
+        "Perform a square-wave (fast-flush) test before treating any displayed number: one to two oscillations back to baseline is adequate; more than two with sharp overshoot is underdamped and reads systolic too high; a slurred return with no oscillation is overdamped and reads systolic too low.",
+        "Until the trace passes that test, titrate vasoactives to MAP rather than systolic and correlate against a cuff."
       ],
       "ultrasound": [
         "Short-axis approach: confirm artery is pulsatile and non-compressible; distinguish from adjacent vein.",
@@ -1840,21 +1856,24 @@
       "confirmation": [
         "Pulsatile arterial waveform visible on bedside monitor",
         "Bright red flash at time of needle entry",
-        "All ports flush smoothly; no resistance",
+        "Catheter flushes smoothly with no resistance",
         "Catheter secured and labeled; transducer zeroed",
+        "Square-wave test performed and the trace judged adequately damped",
         "Flush system continuously pressurized at ~300 mmHg"
       ],
       "troubleshooting": [
         "Flash without waveform: check transducer connections, tubing, and zero; re-advance catheter slightly or retry Seldinger.",
         "Catheter will not advance over needle: do not force; switch to Seldinger technique or resite.",
-        "Dampened waveform: check for clot at catheter tip, kink in tubing, or transducer below heart level.",
+        "Overdamped (slurred square-wave return, systolic reads low): hunt air bubbles in the tubing and transducer first, then tip clot, kink, loose connection, flush bag below 300 mmHg, or over-long compliant tubing.",
+        "Underdamped or resonant (more than two oscillations, systolic reads high by 20-30 mmHg): shorten the circuit, remove unnecessary stopcocks, consider a damping device. Expect it in tachycardic, hyperdynamic patients.",
+        "Displayed pressure does not fit the patient: re-level at the phlebostatic axis, repeat the square-wave test, and compare with a cuff. A transducer 10 cm off is about 7.5 mmHg of error.",
         "Loss of signal with movement: improve limb securement and confirm catheter is not kinked.",
         "Hematoma: remove catheter, hold firm pressure \u22655 min (longer if anticoagulated), and check distal perfusion."
       ],
       "complications": [
         "Thrombosis with distal ischemia \u2014 remove catheter immediately if suspected",
         "Hematoma",
-        "Infection, especially after 72-96 hours",
+        "Infection - risk rises with femoral site, longer dwell, and emergent insertion, not with a fixed number of hours",
         "Pseudoaneurysm",
         "Air embolism with line flushing",
         "Transient vasospasm",
@@ -1864,7 +1883,7 @@
         "Remove catheter as soon as hemodynamic monitoring is no longer required.",
         "Hold firm pressure 5-10 minutes after removal (longer if anticoagulated).",
         "Assess distal perfusion and capillary refill after removal.",
-        "Change site or remove per institutional infection-prevention policy."
+        "Do not resite on a schedule. Replace only for a clinical indication - local or systemic infection, malfunction, or distal ischemia. Prompt removal when monitoring is no longer needed is the only measure that reliably lowers infection."
       ],
       "documentation": [
         "Arterial line placed at [radial/femoral/dorsalis pedis] for [indication].",
@@ -1878,7 +1897,7 @@
       "seniorPearls": [
         "The wrist roll is often underdone \u2014 a firm, secure 20-30\u00b0 extension dramatically improves first-pass success.",
         "Seldinger technique outperforms catheter-over-needle in patients with deep, small, or difficult vessels.",
-        "A persistently dampened waveform is a reason to replace the line, not to accept inaccurate readings."
+        "A persistently dampened waveform is a reason to fix or replace the line, not to accept inaccurate readings - and underdamping is the more dangerous direction, because it hides hypotension behind a falsely reassuring systolic."
       ],
       "references": [
         "Roberts JR, Custalow CB. Roberts and Hedges' Clinical Procedures in Emergency Medicine. Arterial Catheterization chapter.",
@@ -2427,9 +2446,9 @@
         "For IJ, note proximity of the carotid and the pleural dome at the base of the neck."
       ],
       "equipment": [
-        "Introducer/Cordis kit with sheath, integrated dilator, guidewire, needle, and scalpel",
+        "Introducer/Cordis kit with sheath, integrated dilator, guidewire, needle, and scalpel. This card matches the 8.5-9 Fr, 10 cm percutaneous sheath introducers with a hemostasis valve and side arm. If the kit in your hands is a different design, read its insert - assembly and removal sequences vary.",
         "Sterile gown, gloves, mask, cap, and large sterile drape",
-        "Chlorhexidine prep",
+        "Alcoholic chlorhexidine over 0.5% (alternative agent if contraindicated)",
         "Ultrasound machine with sterile probe cover and sterile gel",
         "Local anesthetic, syringe, and small needle",
         "Sterile saline flush for the side port",
@@ -2448,19 +2467,20 @@
         "Ultrasound survey before opening the kit: confirm vein caliber, patency, and trajectory.",
         "Prep and drape with full sterile barrier technique.",
         "Anesthetize skin and deeper tissue along the planned tract.",
-        "Cannulate the vein under ultrasound guidance, maintaining needle-tip awareness; confirm venous blood return.",
-        "Pass the guidewire smoothly without force; confirm wire is venous with ultrasound when feasible.",
-        "Make an adequate skin nick at the wire with the scalpel, controlling the wire at all times.",
+        "Cannulate the vein under ultrasound guidance, maintaining needle-tip awareness.",
+        "Confirm the wire is venous before dilating: ultrasound in two planes - short axis showing the wire inside the vein and not the artery, long axis showing it tracking centrally. If the wire is not clearly seen, transduce or manometer before dilating. Blood colour and non-pulsatile flow do not confirm venous placement.",
+        "If any doubt remains, pass a small dilator or an 18 G catheter over the wire and transduce that before committing the 8.5 Fr dilator. In a peri-arrest patient there is no waveform to read, so ultrasound is the answer that still works.",
+        "Nick the skin through the dermis into subcutaneous tissue, blade flat against the wire and cutting away from it. An 8.5 Fr sheath needs a real nick or the tip accordions on the way in.",
         "Advance the assembled dilator-and-sheath over the wire as a unit, using gentle rotation; do not force.",
         "Remove the dilator and wire together while holding the sheath in place; confirm the wire is out intact.",
-        "Aspirate and flush the side port; cap or connect infusion.",
+        "Aspirate and flush the side port and cap or connect it immediately. The hub is never left open - an uncapped 8.5 Fr sheath is a large-bore conduit for air.",
         "Secure the sheath and apply a sterile dressing.",
         "Confirm position and assess for complications per site and local policy."
       ],
       "ultrasound": [
         "Confirm the vein is large enough for the sheath and compresses fully before puncture.",
         "Use short-axis for vessel ID; long-axis helps track needle and wire if skilled.",
-        "Confirm guidewire within the vein before dilating \u2014 this is the highest-stakes confirmation given the dilator size.",
+        "Confirm the guidewire in the vein in two planes before dilating - the highest-stakes confirmation in the app given the dilator size. If the wire is not clearly seen, transduce before dilating.",
         "For IJ, check lung sliding afterward as a rapid pneumothorax screen, but follow local confirmation standards."
       ],
       "confirmation": [
@@ -2473,8 +2493,11 @@
       "troubleshooting": [
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Sheath tip peels back or kinks on advancement: the skin/tract nick is too small \u2014 withdraw, enlarge the nick, and re-advance over a controlled wire.",
-        "Bright pulsatile blood or arterial waveform before dilation: stop; do not dilate; manage as arterial puncture.",
+        "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid haematoma can obstruct late.",
+        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, haemothorax, and uncontrolled bleeding.",
+        "Unsure whether you are in the artery or the vein: transduce it. Waveform and pressure answer in seconds; colour, non-pulsatile flow, and a blood gas do not.",
         "Brisk bleeding around the sheath: apply pressure, assess coagulopathy, and confirm intraluminal placement.",
+        "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism - occlude the hub, left lateral decubitus head-down, 100% oxygen, and aspirate from a central lumen if one is in place.",
         "Unstable after placement: consider pneumothorax, bleeding, arrhythmia, air embolism, or progression of underlying shock."
       ],
       "complications": [
@@ -2490,6 +2513,7 @@
         "Keep the side port capped or connected at all times to prevent air embolism.",
         "Label the sheath and date the dressing per local policy.",
         "Review confirmation imaging before high-risk use if required by site/policy.",
+        "Removal is a procedure: patient supine or head-down, Valsalva or an expiratory hold as the sheath comes out, immediate occlusive dressing, and the patient stays flat afterwards. Most large-bore air embolism happens at removal, not insertion.",
         "Remove the introducer as soon as large-bore access is no longer required.",
         "Reassess the site for bleeding or hematoma after placement."
       ],
@@ -2557,9 +2581,10 @@
         "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis) \u2014 a triple lumen will not deliver it.",
         "Site choice matters: right IJ is preferred for function and lower complication; avoid subclavian to preserve future fistula options.",
         "Full sterile barrier and ultrasound, identical discipline to any central line.",
+        "Pick the length before you open the kit: right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm.",
         "Confirm the wire is venous before dilating; dialysis catheters use serial dilators and a large stiff catheter.",
         "Dilate sequentially without force; the tract must be developed enough to pass the catheter but not over-dilated.",
-        "Both lumens (arterial and venous ports) must aspirate and flush; lock with the prescribed catheter lock volume.",
+        "Both lumens must aspirate and flush; lock each to the priming volume printed on the lumen, and aspirate that lock before the next use.",
         "Confirm tip position and screen for complications before the line is used for dialysis."
       ],
       "indications": [
@@ -2579,15 +2604,18 @@
         "Right IJ offers the straightest path to the SVC/RA junction and is the preferred site for catheter function.",
         "Femoral is acceptable for short-term or emergent access, with higher infection risk and flow limitations.",
         "Avoid subclavian when possible to preserve the vasculature for future arteriovenous access.",
+        "Length by site: right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm.",
+        "A femoral catheter that is too short leaves the tip in the iliac vein - poor flows, high recirculation, and a dialysis run that clears nothing.",
+        "A non-tunnelled IJ catheter is stiff. The tip belongs at the superior vena cava/right atrial junction, not in the atrium, where a stiff tip can perforate.",
         "The vein must accommodate a large, stiff dual-lumen catheter \u2014 confirm caliber and compressibility on ultrasound."
       ],
       "equipment": [
-        "Dialysis catheter kit (dual-lumen catheter, guidewire, needle, scalpel, serial dilators)",
+        "Dialysis catheter kit (dual-lumen catheter, guidewire, needle, scalpel, serial dilators). Adult acute catheters are typically 12-14 Fr; pick the length by site before opening the kit.",
         "Sterile gown, gloves, mask, cap, and large sterile drape",
-        "Chlorhexidine prep",
+        "Alcoholic chlorhexidine over 0.5% (alternative agent if contraindicated)",
         "Ultrasound machine with sterile probe cover and sterile gel",
         "Local anesthetic, syringe, and small needle",
-        "Heparin or citrate catheter lock solution per local protocol",
+        "Heparin or citrate catheter lock solution per local protocol. Citrate if heparin-induced thrombocytopenia is known or suspected.",
         "Sterile saline flushes for both lumens",
         "Suture/securement device and sterile dressing",
         "Confirmation workflow (chest x-ray) for IJ/subclavian placement"
@@ -2603,19 +2631,20 @@
         "Ultrasound survey before opening the kit: confirm vein caliber, patency, and trajectory.",
         "Prep and drape with full sterile barrier technique.",
         "Anesthetize skin and deeper tissue along the planned tract.",
-        "Cannulate the vein under ultrasound guidance with needle-tip awareness; confirm venous blood return.",
-        "Pass the guidewire smoothly without force; confirm venous position with ultrasound when feasible.",
+        "Cannulate the vein under ultrasound guidance with needle-tip awareness.",
+        "Confirm the wire is venous before dilating: ultrasound in two planes - short axis showing the wire inside the vein and not the artery, long axis showing it tracking centrally. If the wire is not clearly seen, transduce or manometer before dilating. Blood colour and non-pulsatile flow do not confirm venous placement.",
         "Make an adequate skin nick at the wire, controlling the wire at all times.",
         "Pass serial dilators over the wire to develop the tract; advance gently with rotation, never forcing.",
-        "Advance the dual-lumen catheter over the wire to the planned depth for the site.",
+        "Advance the dual-lumen catheter over the wire to the depth planned for that site and catheter length (right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm).",
         "Remove the wire while holding the catheter; confirm the wire is out intact.",
-        "Aspirate and flush both lumens; lock each with the prescribed lock solution and volume.",
+        "Aspirate and flush both lumens, then lock each with the prescribed solution to the priming volume printed on that lumen - read it off the catheter, never from memory. Overfilling pushes lock into the patient; underfilling lets blood in and it clots.",
+        "Label both lumens as locked so nobody flushes them.",
         "Secure the catheter, apply a sterile dressing, and confirm tip position before dialysis use."
       ],
       "ultrasound": [
         "Confirm the vein is large enough and compresses fully before puncture.",
         "Use short-axis for vessel ID; long-axis to track the needle and wire if skilled.",
-        "Confirm guidewire within the vein before serial dilation.",
+        "Confirm the guidewire in the vein in two planes before serial dilation. If the wire is not clearly seen, transduce first.",
         "For IJ, check lung sliding afterward as a rapid pneumothorax screen, but follow local confirmation standards."
       ],
       "confirmation": [
@@ -2628,7 +2657,9 @@
       "troubleshooting": [
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Catheter will not advance despite dilation: the tract is under-developed or the wire has kinked; re-dilate over a controlled wire and recheck.",
-        "Bright pulsatile blood or arterial waveform before dilation: stop; do not dilate; manage as arterial puncture.",
+        "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid haematoma can obstruct late.",
+        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, haemothorax, and uncontrolled bleeding.",
+        "Unsure whether you are in the artery or the vein: transduce it. Waveform and pressure answer in seconds; colour, non-pulsatile flow, and a blood gas do not.",
         "Poor flow from one lumen after placement: reposition the patient, confirm depth and tip position, and avoid forcing against resistance.",
         "Unstable after placement: consider pneumothorax, bleeding, arrhythmia, air embolism, or progression of underlying illness."
       ],
@@ -2641,8 +2672,8 @@
         "Air embolism, guidewire loss, arrhythmia, infection, or thrombosis"
       ],
       "aftercare": [
-        "Lock both lumens with the prescribed solution; label volumes so they are withdrawn before next use.",
-        "Reserve the catheter for dialysis use per local policy to reduce infection and dysfunction.",
+        "Lock both lumens with the prescribed solution to the printed priming volume, and label them. The lock is aspirated and discarded before every use - never flushed into the patient.",
+        "Reserve the catheter for dialysis per local policy. Every extra access is another chance to clot or infect the line dialysis depends on.",
         "Confirm tip position on imaging before first dialysis run for IJ/subclavian lines.",
         "Remove the catheter as soon as dialysis access is no longer required.",
         "Reassess the site for bleeding, hematoma, or signs of infection."
@@ -2709,17 +2740,18 @@
     "sections": {
       "shiftMode": [
         "Reserve for difficult access; do not default to it when a visible/palpable vein is available.",
-        "Pick a target 0.3-1.5 cm deep with a straight segment; deeper than the catheter is too short to stay in.",
-        "Use an adequately long catheter (4.8 cm or longer) \u2014 at least one third of the catheter should sit inside the vein, or it will infiltrate.",
+        "Measure the depth before you pick the catheter. Deeper than the catheter can seat means it will not stay in.",
+        "Aim for at least 2.75 cm of catheter inside the vein - about 4.8 cm of catheter at 1 cm depth, 6.3 cm at 1.5 cm. Past roughly 1.5-2 cm depth, ask whether this patient needs a midline instead.",
         "Avoid the brachial artery and median nerve in the medial upper arm; confirm the structure is a compressible vein.",
         "Track the needle tip, not just tissue movement, in short or long axis as you advance.",
         "Confirm flash, then lower the angle and advance several more millimeters before threading the catheter.",
-        "Confirm intraluminal position by flushing while imaging; watch for tissue bulging that signals infiltration."
+        "Confirm intraluminal position by flushing while imaging; watch for tissue bulging that signals infiltration.",
+        "Depth over 1.2 cm predicts failure. If the patient needs reliable access for days, a deep PIV is the wrong device and the problem lands on the night shift."
       ],
       "indications": [
         "Difficult intravenous access where surface veins are unavailable or repeatedly fail",
         "Need for reliable peripheral access before escalating to central access",
-        "Patients requiring contrast, medications, or resuscitation without an existing line"
+        "Patients requiring contrast, medications, or resuscitation without an existing line - contrast additionally requires a power-rated catheter at an approved gauge, site, and flow rate"
       ],
       "contraindications": [
         "An easily visible or palpable suitable vein (use standard technique first)",
@@ -2731,12 +2763,12 @@
         "Common forearm and upper-arm targets include the basilic, brachial, and cephalic veins.",
         "In the medial upper arm, the brachial veins flank the brachial artery and lie near the median nerve \u2014 identify all three before puncture.",
         "Veins are compressible and lack a pulsatile, thick wall; arteries are pulsatile and noncompressible.",
-        "Deeper veins need a longer catheter so that enough length remains seated within the lumen."
+        "Deeper veins need a longer catheter. Aim for at least 2.75 cm of catheter inside the vein; depth over 1.2 cm independently predicts early failure."
       ],
       "equipment": [
         "Ultrasound machine with high-frequency linear probe",
-        "Long peripheral IV catheter (4.8 cm / 1.88 in or longer)",
-        "Sterile or single-use probe cover and gel per local policy",
+        "Long peripheral IV catheter chosen from the measured depth: about 4.8 cm at 1 cm deep, about 6.3 cm at 1.5 cm deep. Beyond roughly 1.5-2 cm, use an ultralong PIV or a midline.",
+        "Single-use gel explicitly labelled sterile - 'single use' and 'bacteriostatic' are not equivalent - with a sterile probe cover; field discipline per local policy, and the deeper the catheter the more it should look like a central line",
         "Skin antiseptic (chlorhexidine)",
         "Tourniquet",
         "Saline flush and extension set",
@@ -2750,8 +2782,9 @@
         "Sit or stand so your hand, the probe, and the screen form a comfortable straight line."
       ],
       "steps": [
-        "Survey the extremity with ultrasound; select a compressible vein 0.3-1.5 cm deep with a straight segment.",
+        "Survey the extremity with ultrasound; find a compressible vein with a straight segment and measure its depth before choosing the catheter.",
         "Distinguish the vein from adjacent artery (pulsatile, noncompressible) and nerve.",
+        "Pick the catheter from that measurement: enough length for the angled skin-to-vein path plus at least 2.75 cm sitting inside the vein.",
         "Clean the skin and prepare a long catheter and flush.",
         "Center the vein on the screen in short axis (or align it in long axis if skilled).",
         "Insert the catheter at roughly 30-45 degrees, advancing while keeping the needle tip in view.",
@@ -2772,7 +2805,8 @@
         "Catheter visualized within the vein lumen on ultrasound",
         "Flushes easily without resistance or tissue bulging",
         "No pulsatile bleeding (would suggest arterial puncture)",
-        "Secured with a clear dressing and dated"
+        "Secured with a clear dressing and dated",
+        "A long ultrasound-guided PIV is not automatically approved for power injection; that needs a power-rated catheter at an approved gauge, site, and flow rate, with position re-confirmed immediately before injection"
       ],
       "troubleshooting": [
         "Flash but catheter will not thread: the tip is against a wall or only the needle entered \u2014 lower the angle, advance slightly, and re-confirm tip position.",
@@ -2782,7 +2816,7 @@
         "Bright pulsatile blood: arterial puncture \u2014 remove, hold firm pressure, and reassess."
       ],
       "complications": [
-        "Infiltration or extravasation, especially with short catheters in deep veins",
+        "Infiltration or extravasation, especially with short catheters in deep veins. A deep upper-arm extravasation is unwitnessed - the arm is under a drape or in the scanner bore and a large volume can be delivered before anyone notices.",
         "Arterial puncture",
         "Nerve irritation or injury near the brachial bundle",
         "Hematoma",
@@ -3485,7 +3519,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -3667,38 +3705,39 @@
     "sections": {
       "shiftMode": [
         "IO is a bridge, not a destination. Transition to definitive IV access when stable.",
-        "Proximal tibia is the default site in adults. Proximal humerus is an alternative.",
-        "Flush with 10 mL saline after insertion to clear marrow and confirm flow.",
-        "Lidocaine 2% (preservative-free) through the IO before infusion reduces pain in conscious patients.",
+        "Tibia is the easiest site and the default when unsure. The humerus flows faster and delivers drug to the central circulation sooner in arrest, but it is mis-sited more often and dislodges during CPR.",
+        "In a responsive patient the lidocaine comes first, then the flush. Flushing an un-anaesthetised marrow is the painful step, and doing it first wastes the lidocaine.",
+        "Lidocaine 2%, preservative-free and epinephrine-free: 0.5 mg/kg to a 40 mg ceiling. Use the calculator - a flat adult dose can be many times the correct dose for an infant.",
         "Nearly all IV medications and fluids can be given IO. Pressure bag or push-pull syringe for rapid infusion.",
-        "Remove within 24 hours. Document site, time in, and reason for IO."
+        "Aim to remove within 24 hours. Document site, time in, and reason for IO."
       ],
       "indications": [
         "Failed or impossible peripheral IV access in emergent setting",
-        "Cardiac arrest",
+        "Cardiac arrest when IV access has failed or is not feasible - current adult guidance attempts IV first",
         "Critically ill or injured patient requiring immediate vascular access",
         "Pediatric resuscitation when IV access not rapidly obtained",
         "Severe dehydration with vascular collapse"
       ],
       "contraindications": [
         "Fracture in the target bone",
-        "Prior IO attempt in the same bone within 24\u201348 hours",
+        "Attempted or established IO access in the target bone within the past 48 hours",
         "Overlying infection or burn at insertion site",
         "Prosthetic joint or hardware at target site",
-        "Conditions with fragile bone (relative: osteogenesis imperfecta, severe osteoporosis)"
+        "Conditions with fragile bone (relative: osteogenesis imperfecta, severe osteoporosis)",
+        "Excessive tissue over the site, or landmarks that cannot be identified"
       ],
       "anatomy": [
         "Proximal tibia: flat anteromedial surface, 1\u20132 cm distal and medial to the tibial tuberosity.",
-        "Proximal humerus: greater tubercle, with arm adducted and internally rotated (hand resting on abdomen).",
+        "Proximal humerus: greater tubercle, arm adducted and internally rotated with the hand on the abdomen. Insert at 45 degrees to the anterior plane aimed posteromedially - not 90 degrees.",
         "Distal tibia: medial malleolus, 1\u20132 cm proximal to the most prominent point.",
         "In pediatrics the proximal tibia is preferred; the flat medial tibial surface is more accessible."
       ],
       "equipment": [
-        "IO drill device (EZ-IO or equivalent) with appropriate needle size",
+        "EZ-IO driver with needle sets: 15 mm (3-39 kg), 25 mm (40 kg and above), 45 mm (excess tissue, and the proximal humerus in most adults)",
         "Antiseptic prep (chlorhexidine or povidone-iodine)",
         "Gloves, eye protection",
-        "10 mL normal saline flush syringes (at least two)",
-        "Lidocaine 2% preservative-free (for conscious patients)",
+        "Normal saline flush syringes sized to the patient: 5-10 mL adult, 2-5 mL infant or child",
+        "Lidocaine 2%, preservative-free and epinephrine-free, for responsive patients",
         "Extension tubing and IV setup",
         "Pressure bag for fluid infusion",
         "Stabilizer/dressing to secure IO needle",
@@ -3713,11 +3752,13 @@
         "Identify the insertion site and confirm no contraindications at that limb.",
         "Clean the site with antiseptic.",
         "Stabilize the limb without placing your hand behind the target bone.",
-        "Attach the appropriate needle to the drill driver.",
-        "Insert at 90 degrees to the bone surface. Drill until loss of resistance (a subtle give or pop).",
+        "Select the needle by tissue depth rather than age: 15 mm for 3-39 kg, 25 mm for 40 kg and above, 45 mm for excess tissue and for the proximal humerus in most adults.",
+        "Attach the needle to the driver and touch the tip to bone. At least the 5 mm mark must be visible above the skin before you drill; if it is not, change to a longer needle.",
+        "Trajectory is site-specific: 90 degrees to bone at the tibia and distal femur; 45 degrees to the anterior plane, aimed posteromedially, at the proximal humerus.",
+        "Drill until loss of resistance (a subtle give or pop).",
         "Remove the trocar, attach a syringe, and aspirate (marrow aspirate confirms placement but is not always obtained).",
-        "Flush with 10 mL normal saline. Observe for swelling or extravasation.",
-        "In conscious patients, slowly inject 20\u201340 mg lidocaine 2% (preservative-free) IO and allow 60 seconds before flushing.",
+        "In a responsive patient give preservative-free, epinephrine-free lidocaine 2% at the weight-based dose on the max-dose card, slowly over about 120 seconds. Do not flush first - the marrow distension caused by the flush is the pain the lidocaine exists to prevent.",
+        "Allow about 60 seconds of dwell, then flush: 5-10 mL normal saline in adults, 2-5 mL in infants and children.",
         "Connect IV tubing with extension set. Use pressure bag for rapid infusion.",
         "Secure the needle and apply stabilizer dressing.",
         "Document time of insertion, site, confirmation method, and complications."
@@ -3733,8 +3774,9 @@
       "troubleshooting": [
         "No flow after insertion: ensure trocar removed, recheck position, attempt gentle flush. If extravasation seen, remove and attempt different bone.",
         "Needle loose or wobbly: likely through-and-through cortex penetration. Remove and use a different site.",
-        "Significant pain in conscious patient: slow lidocaine injection through IO before infusion, allow dwell time.",
-        "Swelling at site: extravasation indicates malposition. Remove needle, compress, reassess compartment."
+        "Significant pain in a responsive patient: give the weight-based lidocaine dose over 120 seconds and allow the 60-second dwell before flushing. About half the initial dose can be repeated if pain recurs.",
+        "Swelling at site: extravasation indicates malposition. Remove needle, compress, reassess compartment.",
+        "Lidocaine given but no effect in a small child: check the extension set. At paediatric volumes the set's dead space can hold most of the dose - prime it, or follow with the age-appropriate flush."
       ],
       "complications": [
         "Extravasation and soft tissue swelling",
@@ -3747,7 +3789,7 @@
       ],
       "aftercare": [
         "Transition to peripheral or central IV access as soon as feasible.",
-        "Remove IO within 24 hours.",
+        "Aim to remove the IO within 24 hours. Labelling permits up to 48 hours in selected patients aged 12 and over when no alternative access exists - do not pull a patient's only access to meet a deadline.",
         "Document insertion time, site, removal time, and any complications.",
         "Monitor insertion site for signs of infection, swelling, or compartment syndrome."
       ],
@@ -3762,8 +3804,9 @@
       "seniorPearls": [
         "IO is not a last resort. If you cannot get a peripheral line in a crashing patient in 90 seconds, drill.",
         "The proximal humerus flows faster than the tibia in adults. Know both sites.",
-        "Lidocaine through the IO before infusion is a kindness that takes 60 seconds. Do it for conscious patients.",
-        "Through-and-through is a real risk in peds. Use the correct needle length and stop at loss of resistance."
+        "Lidocaine before the flush, not after. It takes three minutes including the dwell and it is the difference between a tolerable IO and one the patient fights.",
+        "Through-and-through is a real risk in peds. Use the correct needle length and stop at loss of resistance.",
+        "The 5 mm mark is worth more than any weight chart: it measures the thing that actually matters, which is how much needle is left after the tissue."
       ],
       "references": [
         "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
@@ -3793,7 +3836,32 @@
         "caption": "Replace assetName with reviewed artwork when available.",
         "clinicalWarning": "Humeral IO flows faster than tibial in adults. Secure well \u2014 humeral IOs dislodge more easily."
       }
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 0.5,
+          "absoluteMaxMg": 40,
+          "concentrationsPercent": [
+            2.0
+          ],
+          "note": "Preservative-free and epinephrine-free only. Adults are given 40 mg initially regardless of weight; infants and children get 0.5 mg/kg to a 40 mg maximum, which is the figure computed here."
+        }
+      ],
+      "cumulativeWarning": "Count this against any other local anaesthetic the patient has had. A repeat dose for recurrent pain is about half the initial dose.",
+      "caveats": [
+        "This is the dose to give, not a range to stay under.",
+        "At paediatric volumes the extension set's dead space can hold most of the dose. Prime the set or follow with the age-appropriate flush."
+      ],
+      "monitoring": [
+        "Infuse slowly over about 120 seconds, then allow a 60-second dwell before flushing.",
+        "Flush volume is age-specific: 5-10 mL adult, 2-5 mL infant or child.",
+        "Reassess the site and the whole limb for extravasation before every infusion."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity"
+    }
   },
   {
     "id": "knee_arthrocentesis",
@@ -4708,7 +4776,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -4894,7 +4966,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -5076,7 +5152,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -5229,7 +5309,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -5380,7 +5464,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -5531,7 +5619,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -5689,7 +5781,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -5849,7 +5945,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -6008,7 +6108,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -6166,7 +6270,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -6323,7 +6431,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -6485,7 +6597,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -6642,7 +6758,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -6799,7 +6919,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -6959,7 +7083,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -7113,7 +7241,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -7266,7 +7398,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -7417,7 +7553,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -7566,7 +7706,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -7716,7 +7860,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -7872,7 +8020,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -8031,7 +8183,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -8188,7 +8344,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -8354,7 +8514,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -8510,7 +8674,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   },
   {
@@ -8663,7 +8831,11 @@
         "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
-      "rescueCardID": "local_anesthetic_systemic_toxicity"
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity."
+      ]
     }
   }
 ]

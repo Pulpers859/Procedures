@@ -97,6 +97,7 @@ struct Procedure: Identifiable, Codable, Hashable {
                 )
             }
             doseParts.append(dosing.cumulativeWarning)
+            doseParts.append(contentsOf: dosing.caveats ?? [])
             grouped.append(("dosing", doseParts))
         }
         if let medicationDosing {
@@ -188,6 +189,14 @@ struct ProcedureDosing: Codable, Hashable {
     /// Cumulative-dose rule covering bilateral blocks, prior infiltration,
     /// and repeat dosing in the same encounter.
     let cumulativeWarning: String
+    /// Qualifiers on the computed number — lean body weight, reduction at the
+    /// extremes of age, dead space in the giving set.
+    ///
+    /// Data rather than text in the view because they are not universal. "Reduce
+    /// by about 25% at the extremes of age" is right for an infiltration ceiling
+    /// and wrong for the fixed 0.5 mg/kg intraosseous analgesic dose, so a card
+    /// shared by both cannot state either from inside the view.
+    let caveats: [String]?
     /// Non-negotiable monitoring and preparation actions (lipid location,
     /// incremental injection, monitoring window).
     let monitoring: [String]

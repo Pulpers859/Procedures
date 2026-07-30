@@ -91,6 +91,7 @@ final class ValidationTests: XCTestCase {
         let dosing = ProcedureDosing(
             agents: [],
             cumulativeWarning: "warning",
+            caveats: nil,
             monitoring: ["a", "b"],
             rescueCardID: nil
         )
@@ -105,6 +106,7 @@ final class ValidationTests: XCTestCase {
         let dosing = ProcedureDosing(
             agents: [.init(agent: "Bupivacaine", withEpinephrine: false, maxDoseMgPerKg: 2.0, absoluteMaxMg: 175, concentrationsPercent: [0.25, 0.5], note: nil)],
             cumulativeWarning: "All local anesthetic this encounter shares one maximum.",
+            caveats: ["Use lean body weight in obese patients."],
             monitoring: ["Continuous cardiac monitoring", "Confirm lipid emulsion location"],
             rescueCardID: nil
         )
@@ -119,6 +121,7 @@ final class ValidationTests: XCTestCase {
         let dosing = ProcedureDosing(
             agents: [.init(agent: "Bupivacaine", withEpinephrine: false, maxDoseMgPerKg: 2.0, absoluteMaxMg: 175, concentrationsPercent: [0.25], note: nil)],
             cumulativeWarning: "warning",
+            caveats: nil,
             monitoring: ["a", "b"],
             rescueCardID: "does_not_exist"
         )
@@ -310,5 +313,41 @@ final class MaxDoseCalculatorTests: XCTestCase {
         for table in tables {
             XCTAssertEqual(table, tables[0], "regional dosing tables have diverged")
         }
+    }
+
+    /// The intraosseous card shipped a flat "20-40 mg lidocaine 2%" on a
+    /// procedure tagged for paediatrics. A 6 kg infant is owed 3 mg, so a
+    /// reader following it exactly gave more than six times the dose.
+    func testIntraosseousLidocaineScalesWithWeightAndCapsAtFortyMilligrams() {
+        let repo = ProcedureRepository()
+        guard let dosing = repo.procedures.first(where: { $0.id == "intraosseous_access" })?.dosing,
+              let lidocaine = dosing.agents.first else {
+            return XCTFail("the intraosseous card must carry structured lidocaine dosing")
+        }
+        XCTAssertEqual(dosing.agents.count, 1)
+        XCTAssertEqual(lidocaine.maxDoseMgPerKg, 0.5)
+        XCTAssertEqual(lidocaine.absoluteMaxMg, 40)
+        XCTAssertEqual(lidocaine.maxMilligrams(forWeightKg: 6), 3)
+        XCTAssertEqual(lidocaine.maxMilligrams(forWeightKg: 100), 40)
+        XCTAssertFalse(lidocaine.isCapped(atWeightKg: 6))
+        XCTAssertTrue(lidocaine.isCapped(atWeightKg: 100))
+        // 0.15 mL of 2% for that infant.
+        XCTAssertEqual(3 / ProcedureDosing.Agent.mgPerML(percent: 2), 0.15, accuracy: 0.0001)
+    }
+
+    /// "Reduce by about 25% at the extremes of age" was hardcoded in the card.
+    /// It is right for an infiltration ceiling and wrong for the intraosseous
+    /// analgesic dose, so it cannot be stated from inside a shared view.
+    func testCaveatsComeFromTheRecordRatherThanTheView() {
+        let repo = ProcedureRepository()
+        let regional = repo.procedures
+            .first { $0.category == .regionalAnesthesia }?.dosing?.caveats ?? []
+        let intraosseous = repo.procedures
+            .first { $0.id == "intraosseous_access" }?.dosing?.caveats ?? []
+        XCTAssertFalse(regional.isEmpty)
+        XCTAssertFalse(intraosseous.isEmpty)
+        XCTAssertNotEqual(regional, intraosseous)
+        XCTAssertTrue(regional.contains { $0.contains("25%") })
+        XCTAssertFalse(intraosseous.contains { $0.contains("25%") })
     }
 }
