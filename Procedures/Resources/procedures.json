@@ -34,7 +34,9 @@
         "Preoxygenate aggressively; consider NC apneic oxygenation, flush-rate NRB, NIV, or BVM with PEEP depending physiology.",
         "Have suction in hand or immediately reachable before first attempt.",
         "Choose first-pass plan and backup plan before pushing meds: video/direct laryngoscopy, introducer, supraglottic, cricothyrotomy. Make the first attempt the best attempt.",
+        "Name the plan and the action together: Plan A tracheal intubation, Plan B a supraglottic airway, Plan C a final facemask attempt and the wake-up-or-proceed decision, Plan D front-of-neck access. The letter alone means nothing to a room that has not read the guideline.",
         "Maximum 3+1 attempts (DAS 2025): three attempts, plus one final attempt only by a more experienced colleague. Change something material between attempts - a suboptimal attempt is a wasted attempt.",
+        "The plus-one is a handover, not an extra turn for the same operator. If nobody more experienced is available, the ceiling is three.",
         "If hypoxaemia occurs at any point, abandon the attempt and prioritise oxygenation with facemask ventilation. Oxygenate between attempts and maintain anaesthesia.",
         "Physiology kills before anatomy: optimize hypotension, hypoxemia, severe acidosis, RV failure, and hyperkalemia when possible.",
         "Confirm with continuous waveform capnography; auscultation alone is not enough.",
@@ -51,7 +53,8 @@
         "No absolute contraindication in a true airway emergency",
         "Anticipated impossible oral intubation should trigger alternate plan early",
         "Severe physiologic instability may require resuscitation before induction when time allows",
-        "High cervical spine concern requires manual in-line stabilization rather than paralysis avoidance alone"
+        "Suspected cervical spine injury changes how you intubate, not whether you intubate or whether you paralyse. See positioning.",
+        "Adult scope only. Paediatric tube sizing, blade choice, the cuffed-versus-uncuffed decision, per-kilogram drug dosing, and a far shorter safe apnoea time are not covered by this card."
       ],
       "anatomy": [
         "Align oral, pharyngeal, and laryngeal axes when using direct laryngoscopy; ear-to-sternal-notch positioning helps many adults.",
@@ -65,7 +68,7 @@
         "Video laryngoscope and/or direct laryngoscope with working light",
         "ET tubes: planned size plus one size smaller",
         "Stylet and bougie",
-        "10 mL syringe for cuff inflation",
+        "10 mL syringe for cuff inflation and a cuff manometer",
         "ETCO2 detector / continuous waveform capnography",
         "Tube holder or tape",
         "Backup supraglottic airway",
@@ -77,7 +80,8 @@
         "Place patient ear-to-sternal-notch when possible.",
         "Ramped position for obesity, pregnancy, or poor neck mobility.",
         "Head elevated when tolerated to prolong safe apnea time.",
-        "Manual in-line stabilization if cervical spine injury is a concern."
+        "Suspected cervical spine injury: minimise movement rather than immobilise rigidly. Manual in-line stabilisation, jaw thrust rather than head tilt and chin lift, and videolaryngoscopy where available.",
+        "Take the front of the collar off for laryngoscopy and have the assistant hold the head. A collar left on worsens the view, and the repeated attempts that follow move the neck more than removing it ever did."
       ],
       "steps": [
         "Assess airway difficulty and physiologic risk.",
@@ -89,9 +93,9 @@
         "Pass the tube under continuous direct or video visualisation. With a hyperangulated videolaryngoscope blade use a stylet, bougie, or flexible bronchoscope. Do not advance a bougie blind at a Cormack-Lehane grade 3-4 view: DAS 2025 advises against it because of trauma and misplacement risk - improve the view first.",
         "Between attempts, change something informed by the last one: position, laryngoscope or blade, introducer, operator, external laryngeal manipulation, suction, removal of cricoid force, or optimised neuromuscular block.",
         "After 3+1 unsuccessful attempts declare 'failed intubation', move to Plan B, summon assistance, and make the eFONA kit immediately accessible.",
-        "Inflate cuff and connect BVM or ventilator.",
+        "Inflate the cuff to the minimum that stops the leak and measure it: 20-30 cmH2O. Millilitres are not a pressure - a 10 mL syringe emptied into the cuff overshoots.",
         "Confirm continuous waveform capnography and bilateral chest rise; check for right mainstem.",
-        "Secure tube, document depth, obtain chest x-ray when appropriate, and reassess ventilator/sedation."
+        "Secure the tube at a documented depth - about 21 cm at the incisors in women and 23 cm in men, or three times the tube size - then obtain a chest x-ray when appropriate and reassess ventilator and sedation."
       ],
       "ultrasound": [
         "Ultrasound can be used as an adjunct for tube confirmation in some settings, but continuous waveform capnography remains the practical standard when available."
@@ -107,6 +111,7 @@
         "Desaturation: stop, oxygenate with BVM/PEEP, improve mask seal, use oral/nasal airway, recruit help.",
         "Poor view: optimise position, suction, external laryngeal manipulation (BURP on the thyroid cartilage), change blade or laryngoscope, optimise neuromuscular block. Do not insert a bougie blind at a grade 3-4 view.",
         "Cannot intubate/cannot oxygenate: supraglottic airway or surgical airway pathway immediately.",
+        "Sugammadex does not rescue a cannot-intubate cannot-oxygenate patient. 16 mg/kg reverses rocuronium in about three minutes, and the patient was apnoeic before the paralytic went in. Oxygenate and go to the front of the neck; reversal is for the airway you can still wake up.",
         "Post-intubation hypotension: check tube depth, breath stacking/auto-PEEP, tension pneumothorax, sedation effect, occult shock; start fluids/pressors as appropriate.",
         "High peak pressures: consider bronchospasm, tube obstruction, mainstem, pneumothorax, or ventilator mismatch."
       ],
@@ -121,7 +126,7 @@
         "Failed airway requiring supraglottic or surgical airway"
       ],
       "aftercare": [
-        "Start analgesia/sedation immediately unless intentionally held for neurologic assessment.",
+        "Start analgesia and sedation immediately unless deliberately held for neurological assessment, and if held, say so out loud to the team. Rocuronium outlasts a single induction dose by roughly 35 minutes: a patient who looks settled may be awake, paralysed, and unable to tell you.",
         "Set ventilator based on disease state; reassess plateau pressure, oxygenation, ventilation, and hemodynamics.",
         "Obtain chest x-ray when appropriate to confirm depth and evaluate complications.",
         "Reassess tube depth after transport or major position changes."
@@ -132,6 +137,9 @@
         "Patient preoxygenated and monitored with cardiac monitor, pulse oximetry, blood pressure, and capnography.",
         "Medications administered as documented in MAR.",
         "Endotracheal tube placed under visualization and secured at documented depth.",
+        "Devices used: laryngoscope and blade type, tube size, introducer, and any adjunct.",
+        "Number of attempts, what was changed between them, and the view obtained.",
+        "Difficulty encountered and how it was resolved. A difficult airway is communicated verbally to the ongoing team and recorded on the chart, not left in the procedure note.",
         "Placement confirmed with continuous waveform capnography and clinical assessment.",
         "Patient tolerated procedure; complications, if any, documented separately."
       ],
@@ -142,9 +150,10 @@
       ],
       "references": [
         "Ahmad I, El-Boghdadly K, Iliff H, et al. Difficult Airway Society 2025 guidelines for management of unanticipated difficult tracheal intubation in adults. Br J Anaesth. https://doi.org/10.1016/j.bja.2025.10.006",
-        "Walls RM, Murphy MF. Manual of Emergency Airway Management.",
-        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
-        "ACEP and critical care airway education resources; verify local airway policy and medication protocols."
+        "American College of Emergency Physicians. Clinical Policy: Critical Issues in the Management of Adult Patients Requiring Endotracheal Intubation in the Emergency Department. 2025. https://www.acep.org/siteassets/sites/acep/media/clinical-policies/final-cp-pdfs/endotracheal-intubation-cp.pdf",
+        "Society of Critical Care Medicine. Clinical Practice Guidelines for Rapid Sequence Intubation in the Critically Ill Adult Patient. 2023. https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-rapid-sequence-intubation",
+        "Difficult Airway Society, Association of Anaesthetists, British Society of Oral and Maxillofacial Surgeons, Intensive Care Society, NACCS, Faculty of Prehospital Care, Royal College of Emergency Medicine. Airway management in patients with suspected or confirmed cervical spine injury. 2024. https://das.uk.com/guidelines/cervical-spine-injury/",
+        "Verify local airway policy, kit contents, and medication protocols before use."
       ]
     },
     "visualAssets": [],
@@ -152,7 +161,7 @@
     "contentSource": "ai-draft",
     "medicationDosing": {
       "indication": "Rapid sequence induction and intubation, adult. Doses are targets, not ceilings.",
-      "inductionRequirement": "Give an induction agent with the paralytic - never a paralytic alone. Choose the agent by physiology, not habit; see agent of choice below.",
+      "inductionRequirement": "Give an induction agent with the paralytic - never a paralytic alone. Choose the agent by physiology, not habit; see agent of choice below. In shock the two move in opposite directions: halve the induction dose and give the full paralytic dose, because a slow circulation delays onset and an underdosed paralytic leaves you a straining patient at the worst possible moment.",
       "medications": [
         {
           "medication": "Fentanyl",
@@ -160,29 +169,9 @@
           "doseLowPerKg": 1.0,
           "doseHighPerKg": 2.0,
           "unit": "mcg/kg",
-          "onset": null,
-          "durationNote": null,
-          "caution": "For raised ICP, pain, or tachycardia."
-        },
-        {
-          "medication": "Lidocaine",
-          "role": "Pretreatment",
-          "doseLowPerKg": 1.5,
-          "doseHighPerKg": null,
-          "unit": "mg/kg",
-          "onset": null,
-          "durationNote": null,
-          "caution": "For raised ICP or bronchospasm."
-        },
-        {
-          "medication": "Vecuronium (defasciculating)",
-          "role": "Pretreatment",
-          "doseLowPerKg": 0.01,
-          "doseHighPerKg": null,
-          "unit": "mg/kg",
-          "onset": null,
-          "durationNote": null,
-          "caution": "Only to prevent fasciculations before suxamethonium."
+          "onset": "60-90 s",
+          "durationNote": "lasts 30-60 min",
+          "caution": "For raised ICP, pain, or tachycardia. Will drop the blood pressure in a patient who is already compensating: omit it or halve it in shock."
         },
         {
           "medication": "Etomidate",
@@ -190,9 +179,9 @@
           "doseLowPerKg": 0.3,
           "doseHighPerKg": null,
           "unit": "mg/kg",
-          "onset": null,
-          "durationNote": null,
-          "caution": "No analgesia. Brief myoclonus. Cortisol suppression may carry a negative prognostic implication in sepsis."
+          "onset": "15-45 s",
+          "durationNote": "lasts 5-10 min",
+          "caution": "No analgesia. Brief myoclonus. Cortisol suppression may carry a negative prognostic implication in sepsis. Halve the dose in shock."
         },
         {
           "medication": "Ketamine",
@@ -200,9 +189,9 @@
           "doseLowPerKg": 1.0,
           "doseHighPerKg": 2.0,
           "unit": "mg/kg",
-          "onset": null,
-          "durationNote": null,
-          "caution": "May induce cardiac ischaemia or arrhythmias, and increases salivation. Use in raised intracranial pressure remains controversial."
+          "onset": "45-60 s",
+          "durationNote": "lasts 10-15 min",
+          "caution": "May induce cardiac ischaemia or arrhythmias, and increases salivation. Use in raised intracranial pressure remains controversial. Not haemodynamically neutral in a catecholamine-depleted patient - the direct myocardial depression is unmasked once the sympathetic reserve is gone, so halve the dose in shock."
         },
         {
           "medication": "Midazolam",
@@ -210,9 +199,9 @@
           "doseLowPerKg": 0.1,
           "doseHighPerKg": 0.3,
           "unit": "mg/kg",
-          "onset": null,
-          "durationNote": null,
-          "caution": "Hypotension, bradycardia and negative inotropy. Slower onset than the other RSI sedatives."
+          "onset": "2-5 min",
+          "durationNote": "lasts 30-60 min",
+          "caution": "Hypotension, bradycardia, negative inotropy, and 2-5 minutes to peak. A last resort for induction when nothing else is available, not an equal alternative to the agents above."
         },
         {
           "medication": "Propofol",
@@ -220,9 +209,9 @@
           "doseLowPerKg": 1.5,
           "doseHighPerKg": 3.0,
           "unit": "mg/kg",
-          "onset": null,
-          "durationNote": null,
-          "caution": "Potent vasodilation and significant hypotension. Contraindicated with egg or soybean allergy."
+          "onset": "15-45 s",
+          "durationNote": "lasts 5-10 min",
+          "caution": "Potent vasodilation and significant hypotension. Contraindicated with egg or soybean allergy. Dose on lean body weight, and halve it in shock."
         },
         {
           "medication": "Rocuronium",
@@ -230,9 +219,9 @@
           "doseLowPerKg": 0.6,
           "doseHighPerKg": 1.2,
           "unit": "mg/kg",
-          "onset": null,
+          "onset": "45-60 s at 1.2 mg/kg",
           "durationNote": "lasts about 45 min",
-          "caution": "DAS 2025 specifies 1.2 mg/kg for RSI; the lower end of this range gives slower onset and may not give RSI-grade conditions."
+          "caution": "DAS 2025 specifies 1.2 mg/kg for RSI; the lower end of this range gives slower onset and may not give RSI-grade conditions. Dose on ideal body weight. Outlasts a single induction dose by about 35 minutes - sedation afterwards is not optional."
         },
         {
           "medication": "Succinylcholine",
@@ -240,12 +229,12 @@
           "doseLowPerKg": 1.0,
           "doseHighPerKg": 1.5,
           "unit": "mg/kg",
-          "onset": null,
+          "onset": "45 s",
           "durationNote": "lasts about 10 min",
-          "caution": "Hyperkalaemia risk. Avoid in malignant hyperthermia, neuromuscular disease, rhabdomyolysis, and stroke or burns more than 72 h old."
+          "caution": "Hyperkalaemia risk. Avoid in malignant hyperthermia, neuromuscular disease, rhabdomyolysis, and stroke or burns more than 72 h old. Dose on total body weight."
         }
       ],
-      "sourceNote": "Doses from tl;dr pharmacy, 'The Pharmacist's Do's and Don'ts of Rapid Sequence Intubation' (2023), accepted by the clinical owner. That source cites no primary references. Paediatric atropine is omitted because this record is adult-scoped.",
+      "sourceNote": "Doses from tl;dr pharmacy, 'The Pharmacist's Do's and Don'ts of Rapid Sequence Intubation' (2023), accepted by the clinical owner and re-affirmed unchanged on 2026-07-30. That source cites no primary references. Intravenous lidocaine and defasciculating vecuronium were removed from pretreatment on 2026-07-30: neither is supported by current evidence. Paediatric atropine is omitted because this record is adult-scoped.",
       "selectionGuidance": [
         "Raised intracranial pressure: etomidate.",
         "Status epilepticus: etomidate, propofol, or midazolam.",
@@ -676,19 +665,22 @@
       "shiftMode": [
         "This is an oxygenation rescue, not a perfect cosmetic airway.",
         "Call failed airway out loud and assign someone to continue oxygenation attempts while you prep the neck.",
+        "Oxygen from above continues throughout. Leave the facemask or supraglottic device in place and keep delivering; do not stop because you have started cutting.",
+        "Ensure full neuromuscular block before you cut. This is counterintuitive in a patient who is already not breathing, but a straining patient or a closed glottis makes the procedure harder and the oxygenation worse.",
         "Landmark before the airway is lost if the airway looks high risk.",
         "Prep wide if time allows; do not let sterile perfection delay oxygenation in a true cannot-oxygenate crisis.",
-        "Use a simple scalpel-finger-bougie/tube workflow unless your institution has a specific kit/process.",
+        "One technique: scalpel, bougie, tube (DAS 2025). A number 10 blade, a bougie, and a 6.0 cuffed tracheal tube. A commercial Seldinger kit is a different procedure with a different failure profile - if that is what is stocked, follow its instructions for use rather than these steps.",
         "Confirm with ETCO2 and chest rise; secure aggressively."
       ],
       "indications": [
-        "Cannot intubate/cannot oxygenate scenario",
+        "Cannot intubate, cannot oxygenate after failed tracheal intubation, supraglottic rescue, and facemask oxygenation. This is the pathway the card is built for.",
         "Failed airway with rapidly worsening hypoxemia",
         "Upper airway obstruction where oral/nasal approach is not feasible",
-        "Massive facial trauma or airway contamination when standard approaches fail"
+        "Massive facial trauma or airway contamination when standard approaches fail",
+        "The last three reach the same incision by a different route. The sequence below assumes oxygenation from above has failed and the patient is fully paralysed; confirm both still apply before using it."
       ],
       "contraindications": [
-        "Young children require special consideration; needle/surgical approach varies by age and institutional policy",
+        "Adult scope only. This is not the paediatric procedure: below roughly 8-10 years the cricothyroid membrane is small, high, and soft, and guidance moves to a cannula-based technique. Follow the institutional paediatric difficult-airway policy instead.",
         "Laryngeal fracture or distorted neck anatomy may make landmarks unreliable",
         "Coagulopathy is a caution but not a reason to allow death from hypoxemia"
       ],
@@ -698,35 +690,39 @@
         "In obesity or edema, make a generous vertical skin incision first to find the membrane."
       ],
       "equipment": [
-        "Scalpel",
+        "Number 10 scalpel blade. The curved belly makes the incision in one pass; a pointed 11 or 15 blade invites repeated stabs and posterior wall injury.",
         "Bougie",
-        "Cuffed tube, often 6.0 adult ETT or trach/cric tube per kit",
-        "Hook or tracheal dilator if available",
+        "6.0 cuffed tracheal tube. Larger will not reliably pass the membrane; smaller leaks and resists ventilation.",
+        "Tracheal hook or dilator if available",
         "Suction",
         "BVM with oxygen",
         "Capnography",
         "Securing device/tape",
-        "Backup commercial cric kit if available"
+        "Any stocked commercial cricothyrotomy kit is a separate pathway governed by its own instructions for use, not a substitute item in this list."
       ],
       "positioning": [
         "Supine when possible",
-        "Neck extended unless contraindicated; neutral if cervical spine concern",
+        "Extend the neck fully unless contraindicated; neutral with manual in-line stabilisation if cervical spine injury is a concern",
         "Stand at head or side based on training and access",
         "Expose neck widely"
       ],
       "steps": [
-        "Identify and stabilize larynx.",
-        "Make vertical skin incision if landmarks are difficult or time allows.",
-        "Make horizontal incision through cricothyroid membrane.",
-        "Open tract with finger, scalpel handle, or dilator depending technique.",
-        "Pass bougie toward feet/trachea.",
-        "Railroad cuffed tube over bougie.",
-        "Inflate cuff, ventilate, confirm ETCO2 and chest rise.",
-        "Secure tube and reassess oxygenation/ventilation."
+        "Identify and stabilise the larynx with the non-dominant hand, and do not let go until the tube is in.",
+        "Palpable membrane: transverse stab incision straight through it. Impalpable membrane - assume this in obesity, oedema, or neck haematoma - make an 8-10 cm vertical midline skin incision first, dissect bluntly with a finger down to the larynx, then stab.",
+        "Keep the scalpel in the hole and rotate the blade 90 degrees so the sharp edge points towards the feet. It is now the guide for the bougie. The commonest failure in this procedure is removing the scalpel and then being unable to find the tract again in a bleeding neck.",
+        "Slide the bougie along the blade, angled towards the feet, into the trachea. Advance 10-15 cm and no further; deeper risks the carina and the posterior tracheal wall.",
+        "Remove the scalpel and railroad the 6.0 cuffed tube over the bougie with a gentle twist.",
+        "Advance only until the cuff has passed the membrane, then about 1-2 cm more. A 6.0 tube pushed to its usual 21 cm mark sits in the right main bronchus.",
+        "Remove the bougie, inflate the cuff, ventilate, and confirm ETCO2 and chest rise.",
+        "Secure the tube and reassess oxygenation and ventilation."
       ],
-      "ultrasound": [],
+      "ultrasound": [
+        "Assess membrane palpability before induction whenever a difficult airway is anticipated, and if it is impalpable, locate and mark the membrane with ultrasound before you start.",
+        "Do not scan during an established cannot-oxygenate crisis. Once the decision is made this is a palpation-and-incision problem, not an imaging one."
+      ],
       "confirmation": [
         "Continuous waveform ETCO2",
+        "Capnography can be flat in a correctly sited tube when cardiac output is very low or the patient has been hypoxic long enough to arrest. Absent ETCO2 in that setting is a circulation finding: confirm position by chest rise, tube misting, and direct inspection before removing what may be the only airway.",
         "Bilateral chest rise",
         "Improving oxygen saturation if circulation intact",
         "Ability to ventilate without massive leak",
@@ -734,6 +730,7 @@
       ],
       "troubleshooting": [
         "Cannot find membrane: vertical incision, bluntly dissect with finger, re-landmark.",
+        "Lost the tract: do not hunt with the bougie. Re-stabilise the larynx, extend the skin incision vertically, and find the hole again with a finger.",
         "Tube will not pass: rotate, use smaller tube, confirm bougie is intratracheal.",
         "No ETCO2: reassess placement, obstruction, circuit, and circulation.",
         "Bleeding: suction aggressively; oxygenation remains priority."
@@ -748,7 +745,8 @@
       ],
       "aftercare": [
         "Secure extremely well; accidental dislodgement can be catastrophic.",
-        "Arrange definitive airway/ENT/trauma/ICU follow-up.",
+        "Once stabilised, exclude bronchial intubation and pneumothorax: chest rise, breath sounds, tube depth, and chest x-ray.",
+        "Arrange early surgical or ENT review and a definitive airway plan. A cricothyrotomy is a bridge, not a destination.",
         "Obtain imaging after stabilization.",
         "Document failed airway context and rescue rationale."
       ],
@@ -766,8 +764,9 @@
         "Once oxygenation is failing, this is not the moment for committee discussion."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "Ahmad I, El-Boghdadly K, Iliff H, et al. Difficult Airway Society 2025 guidelines for management of unanticipated difficult tracheal intubation in adults. Br J Anaesth. https://doi.org/10.1016/j.bja.2025.10.006",
+        "Difficult Airway Society. 2025 intubation guidelines and algorithms, including Plan D front-of-neck access. https://das.uk.com/guidelines/das_intubation_guidelines/",
+        "Difficult Airway Society and Association of Paediatric Anaesthetists. Paediatric difficult airway guidelines (children aged 1-8 years). https://das.uk.com/guidelines/paediatric-difficult-airway-guidelines/",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
     },
@@ -1606,9 +1605,11 @@
     "sections": {
       "shiftMode": [
         "This is an airway procedure wearing a comfort-procedure costume.",
-        "Separate proceduralist from sedation/monitoring clinician when possible.",
+        "Adult moderate-to-deep sedation in the ED or ICU. Not general anaesthesia, not elective or outpatient sedation, and not paediatric sedation - each carries different staffing, monitoring, fasting, and recovery rules.",
+        "Sedation is a continuum and you get the depth you get, not the depth you intended. Be staffed and equipped to rescue a patient one level deeper than you are aiming for.",
+        "A dedicated clinician monitors the patient and does nothing else. The proceduralist cannot do it: during a reduction your hands are committed and your eyes are on the joint.",
         "Pre-brief airway risk, hemodynamics, meds, dose plan, and rescue plan.",
-        "Use continuous pulse ox, cardiac monitor, frequent BP, and ideally ETCO2.",
+        "Continuous pulse oximetry, cardiac monitoring, blood pressure cycling, and continuous waveform capnography. Capnography is required, not optional: on supplemental oxygen the saturation is a lagging indicator by minutes, which is the whole reason you preoxygenated.",
         "Have suction, BVM, airway adjuncts, and reversal/rescue meds physically in the room.",
         "Do not give more medication because the room is impatient; dose to patient response."
       ],
@@ -1620,7 +1621,9 @@
       "contraindications": [
         "High aspiration risk, difficult airway, severe physiologic instability, or inadequate staffing/equipment are major cautions",
         "Agent-specific contraindications depend on medication and patient physiology",
-        "Recent oral intake is contextual, not an automatic absolute contraindication in emergencies"
+        "Urgent sedation is not delayed for fasting time. The evidence that fasting reduces aspiration in procedural sedation is essentially absent, and delaying a reduction or a cardioversion for a clock carries its own harms.",
+        "Elective sedation is a different decision, and so is a patient with a real reason for a full stomach: bowel obstruction, active vomiting, upper gastrointestinal bleeding, late pregnancy, obtundation, gastroparesis, or a GLP-1 receptor agonist. Those change the depth, the agent, the airway plan, or whether you sedate at all - not the number of hours you wait.",
+        "Adult scope only. Paediatric sedation uses different agents and routes, different monitoring intervals, and different discharge rules, and is not covered by this card."
       ],
       "anatomy": [
         "Airway patency, respiratory drive, and hemodynamic reserve are the real anatomy here.",
@@ -1628,14 +1631,14 @@
       ],
       "equipment": [
         "Cardiac monitor, pulse oximeter, BP cycling",
-        "ETCO2 if available",
+        "Continuous waveform capnography",
         "Oxygen source and nasal cannula/NRB",
         "BVM with mask and PEEP valve if available",
         "Suction connected",
         "Oral/nasal airways",
         "Advanced airway equipment immediately available",
         "Sedative/analgesic medications labeled",
-        "Reversal/rescue meds as appropriate",
+        "Naloxone and flumazenil available. See the procedural sedation apnoea rescue card for doses, and for why reversal never replaces ventilation.",
         "IV access",
         "Procedure equipment ready before sedation"
       ],
@@ -1645,11 +1648,12 @@
         "Remove loose dentures/foreign bodies if appropriate"
       ],
       "steps": [
-        "Assess indication, airway risk, fasting/context, comorbidities, allergies, and ASA-style risk.",
+        "Assess the indication, comorbidities, allergies, and ASA-style risk, and assess the airway specifically: mouth opening, thyromental distance, neck movement, obesity, beard, obstructive sleep apnoea, and any previous difficult airway. Airway risk is an examination, not a box to tick.",
         "Obtain consent and perform time-out.",
         "Assign sedation monitor and proceduralist roles.",
         "Prepare airway/rescue equipment before medications.",
-        "Administer medication incrementally according to agent and patient physiology.",
+        "If the procedure also involves infiltration or a block, calculate the maximum local anaesthetic dose before you start. Sedation does not change the ceiling, and a sedated patient cannot report the early symptoms of toxicity.",
+        "Administer medication incrementally and wait for peak effect before redosing. Stacking doses because nothing has happened yet is the commonest way to overshoot.",
         "Continuously monitor ventilation, oxygenation, perfusion, and procedural conditions.",
         "Treat airway obstruction/apnea immediately.",
         "Observe until patient returns to appropriate baseline and discharge/admission criteria met."
@@ -1664,6 +1668,8 @@
       ],
       "troubleshooting": [
         "Apnea: stop dosing, jaw thrust, suction, airway adjunct, BVM/PEEP, prepare intubation.",
+        "Laryngospasm: stridor, or silent obstruction with paradoxical chest movement. Remove the stimulus, 100% oxygen by tight-fitting mask with jaw thrust and CPAP-level pressure, then subparalysing succinylcholine if it does not break. See the laryngospasm rescue card for doses.",
+        "Vomiting: head down and turned to the side, suction under direct vision, stop the procedure. Do not blindly instrument the airway - the reflexes that would normally protect this patient are the ones you have just suppressed.",
         "Hypotension: stop sedative, fluids/pressors, reassess bleeding/sepsis/agent effect.",
         "Emergence/agitation: reduce stimulation, protect patient, consider agent-specific management.",
         "Inadequate sedation: pause procedure, reassess analgesia vs sedation, redose deliberately."
@@ -1679,14 +1685,16 @@
         "Emergence reaction or agitation"
       ],
       "aftercare": [
-        "Observe until stable and appropriately awake.",
+        "Recover in a monitored area with the monitoring that was used during sedation, and reassess at defined intervals rather than by impression.",
+        "Discharge criteria, all of them: back to baseline mental status, protecting their own airway, vital signs at baseline, pain controlled, and moving at their usual level. Not 'awake enough'.",
+        "A patient given naloxone or flumazenil needs a longer watch, not a shorter one. Both wear off before the drug they reversed, leaving roughly a two-hour window in which resedation can occur - and the patient looks well for most of it.",
         "Document pre/post assessment, meds/doses/times, monitoring, complications, and recovery status.",
-        "Give discharge precautions if outpatient."
+        "Written discharge precautions and a responsible adult if outpatient: no driving, machinery, alcohol, or important decisions for 24 hours."
       ],
       "documentation": [
         "Procedural sedation performed to facilitate documented procedure.",
         "Consent obtained; risks/benefits discussed when feasible.",
-        "Patient monitored with cardiac monitor, pulse oximetry, blood pressure, and capnography when available.",
+        "Patient monitored with cardiac monitor, pulse oximetry, blood pressure, and continuous waveform capnography.",
         "Sedation medications/doses/times documented in MAR/procedure record.",
         "Patient tolerated sedation; airway/hemodynamic events and interventions documented.",
         "Recovered to appropriate baseline prior to disposition."
@@ -1697,14 +1705,79 @@
         "The safest sedative is the one you know how to rescue from."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "American Society of Anesthesiologists and partner societies. Practice Guidelines for Moderate Procedural Sedation and Analgesia. Anesthesiology. 2018. https://doi.org/10.1097/ALN.0000000000002043",
+        "American College of Emergency Physicians. Clinical Policy: Procedural Sedation and Analgesia in the Emergency Department. 2014. https://www.acep.org/siteassets/uploads/uploaded-files/acep/clinical-and-practice-management/clinical-policies/clinical-policy-procedural-sedation-and-analgesia-in-the-emergency-department.pdf",
+        "American Society of Anesthesiologists. 2023 Practice Guidelines for Preoperative Fasting: Modular Update. Anesthesiology. 2023. https://doi.org/10.1097/ALN.0000000000004381",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
     },
     "visualAssets": [],
     "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft"
+    "contentSource": "ai-draft",
+    "medicationDosing": {
+      "indication": "Adult procedural sedation. Doses are targets titrated to effect, not ceilings, and are lower than the induction doses on the intubation card.",
+      "inductionRequirement": "Be able to rescue a patient one level deeper than you intend. Propofol and dissociative-dose ketamine can both produce general anaesthesia, so the room must be staffed and equipped to manage an apnoeic, unprotected airway before the first millilitre goes in.",
+      "medications": [
+        {
+          "medication": "Ketamine",
+          "role": "Dissociative sedation",
+          "doseLowPerKg": 1.0,
+          "doseHighPerKg": 1.5,
+          "unit": "mg/kg",
+          "onset": "30-60 s",
+          "durationNote": "lasts 10-20 min; redose 0.5 mg/kg",
+          "caution": "Give over 1-2 minutes; a rapid push causes apnoea. Dissociation is all or nothing, so an underdose does not give light sedation - it gives an agitated, undissociated patient. Increases secretions and is the agent most associated with laryngospasm: have suction in hand. No reversal agent exists. Intramuscular 4-5 mg/kg is an option without IV access, with slower onset and longer recovery."
+        },
+        {
+          "medication": "Propofol",
+          "role": "Sedation",
+          "doseLowPerKg": 0.5,
+          "doseHighPerKg": 1.0,
+          "unit": "mg/kg",
+          "onset": "15-45 s",
+          "durationNote": "lasts 5-10 min; redose 0.25-0.5 mg/kg every 1-3 min",
+          "caution": "Apnoea and hypotension are expected effects at these doses, not complications. No analgesia - pair it with an analgesic for a painful procedure. Dose on lean body weight and reduce it in the elderly or hypovolaemic."
+        },
+        {
+          "medication": "Etomidate",
+          "role": "Sedation",
+          "doseLowPerKg": 0.1,
+          "doseHighPerKg": 0.15,
+          "unit": "mg/kg",
+          "onset": "15-45 s",
+          "durationNote": "lasts 5-10 min",
+          "caution": "This is roughly half the intubation induction dose in this app - check which card you are reading. Myoclonus is common and can be mistaken for a seizure or for inadequate sedation; treating it with more etomidate is the wrong move."
+        },
+        {
+          "medication": "Midazolam",
+          "role": "Anxiolysis and sedation",
+          "doseLowPerKg": 0.02,
+          "doseHighPerKg": 0.05,
+          "unit": "mg/kg",
+          "onset": "2-5 min",
+          "durationNote": "lasts 30-60 min",
+          "caution": "Slow to peak. Wait the full 2-5 minutes before redosing or you will stack doses. Synergistic with opioids for apnoea: reduce both when they are combined."
+        },
+        {
+          "medication": "Fentanyl",
+          "role": "Analgesia",
+          "doseLowPerKg": 0.5,
+          "doseHighPerKg": 1.0,
+          "unit": "mcg/kg",
+          "onset": "2-3 min",
+          "durationNote": "lasts 30-60 min",
+          "caution": "Analgesia, not sedation. Combined with any sedative the risk of apnoea is more than additive, so reduce both. Chest wall rigidity is rare but occurs with rapid high-dose administration."
+        }
+      ],
+      "selectionGuidance": [
+        "Brief and painful, haemodynamics uncertain: ketamine.",
+        "Brief and not painful, patient stable: propofol.",
+        "Painful, and you want analgesia separate from sedation: an opioid plus a reduced dose of a sedative.",
+        "Haemodynamically fragile and sedation is unavoidable: etomidate at the sedation dose above.",
+        "Anxiolysis only, with no procedural pain: midazolam alone."
+      ],
+      "sourceNote": "Conventional adult emergency-department sedation doses, accepted by the clinical owner on 2026-07-30. The ASA and ACEP guidelines in this record's references govern staffing, monitoring, depth, and fasting rather than specific doses; the figures here are widely used starting points for titration in a monitored patient, not a protocol, and are not independently verified against a primary pharmacology source. Paediatric sedation is out of scope for this card."
+    }
   },
   {
     "id": "lumbar_puncture",

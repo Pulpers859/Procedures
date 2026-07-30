@@ -373,4 +373,70 @@ final class MaxDoseCalculatorTests: XCTestCase {
             .dosing?.agents.first { $0.agent == "Lidocaine" && !$0.withEpinephrine }
         XCTAssertEqual(regionalPlain?.maxMilligrams(forWeightKg: 70), 300)
     }
+
+    /// Owner decision, 2026-07-30. Two records now name etomidate, and the doses
+    /// differ by a factor of two or three. A reader who reaches the wrong card
+    /// gets a number that is wrong in the more dangerous direction, so the
+    /// relationship between them is asserted rather than assumed.
+    func testSedationDosesSitBelowTheInductionDoses() {
+        let repo = ProcedureRepository()
+        guard let sedation = repo.procedures
+                .first(where: { $0.id == "procedural_sedation" })?.medicationDosing,
+              let induction = repo.procedures
+                .first(where: { $0.id == "endotracheal_intubation" })?.medicationDosing else {
+            return XCTFail("both airway records must carry structured medication dosing")
+        }
+
+        func etomidate(_ block: ProcedureMedicationDosing) -> ProcedureMedicationDosing.Medication? {
+            block.medications.first { $0.medication == "Etomidate" }
+        }
+        guard let sedationDose = etomidate(sedation), let inductionDose = etomidate(induction) else {
+            return XCTFail("etomidate must appear on both cards")
+        }
+        XCTAssertLessThan(
+            sedationDose.doseHighPerKg ?? sedationDose.doseLowPerKg,
+            inductionDose.doseLowPerKg
+        )
+        XCTAssertTrue(sedationDose.isRange)
+        // A single-value dose renders without the "(range)" suffix, and 0.3
+        // mg/kg is a single value rather than a range the reader may titrate.
+        XCTAssertFalse(inductionDose.isRange)
+    }
+
+    /// The sedation block reaches the view through the field named for RSI. Its
+    /// job is the same in both: the one sentence that must render before any
+    /// dose does. An empty string would pass the schema and lose the guard.
+    func testEveryMedicationBlockCarriesItsHazardGuard() {
+        let repo = ProcedureRepository()
+        let blocks = repo.procedures.compactMap { $0.medicationDosing }
+        XCTAssertEqual(blocks.count, 2)
+        for block in blocks {
+            XCTAssertFalse(block.inductionRequirement.trimmingCharacters(
+                in: .whitespacesAndNewlines
+            ).isEmpty)
+            XCTAssertFalse(block.sourceNote.trimmingCharacters(
+                in: .whitespacesAndNewlines
+            ).isEmpty)
+        }
+    }
+
+    /// Owner decision, 2026-07-30: intravenous lidocaine and defasciculating
+    /// vecuronium leave the RSI card. The lidocaine entry mattered beyond its
+    /// own evidence base, because 1.5 mg/kg IV silently consumed the same
+    /// patient's local-anaesthetic ceiling if they went on to have a block.
+    func testTheWithdrawnPretreatmentsAreNotInTheShippedBlock() {
+        let repo = ProcedureRepository()
+        guard let block = repo.procedures
+            .first(where: { $0.id == "endotracheal_intubation" })?.medicationDosing else {
+            return XCTFail("the intubation card must carry structured RSI dosing")
+        }
+        let names = Set(block.medications.map(\.medication))
+        XCTAssertFalse(names.contains("Lidocaine"))
+        XCTAssertFalse(names.contains("Vecuronium (defasciculating)"))
+        XCTAssertTrue(names.contains("Fentanyl"))
+        // Every remaining agent answers "when do I look?".
+        for medication in block.medications {
+            XCTAssertNotNil(medication.onset, medication.medication)
+        }
+    }
 }
