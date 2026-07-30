@@ -418,12 +418,12 @@
     {
       "corpus": "procedures.json",
       "recordId": "endotracheal_intubation",
-      "auditFingerprint": "39780f1ec004a6dabce05a7d163a4159127c6a72a5822c619e92b9e5c5fc53e0",
+      "auditFingerprint": "354569b9523b7409ddd2492efd19a467b66e5b310d4cc232b4e148c729f748bc",
       "owner": "Patrick",
-      "rationale": "Re-screened against the DAS 2025 guideline supplied by the owner, read directly rather than via the lane report's summary. The guideline's own wording was verified for each change: the 3+1 attempt ceiling and its recommendation bullet, the change-between-attempts list, the abandon-on-hypoxaemia rule, the blind grade 3-4 bougie prohibition alongside its positive hyperangulated-blade instruction, and the two-point confirmation check. This tightens Plan A discipline and removes a step that inverted the guideline; no maximum is widened and no finding is loosened. Supersedes the withheld-artwork amendment for this record.",
-      "commit": "53ac2ee",
+      "rationale": "Re-screened after adding the structured RSI medication dosing block the owner directed, using the dose source the owner supplied and accepted. This addresses the lane report's MAJOR finding that no structured induction or NMBA dose existed and the record could not be dose-checked. Doses are stored as explicit ranges and validated for unit, ordering and positivity; the block refuses to ship without an induction requirement, so no paralytic dose appears without an anaesthesia instruction. No induction-agent dose is asserted because the source states none. Supersedes the DAS re-screen amendment for this record.",
+      "commit": "9f5d59b",
       "expires": "2026-10-31",
-      "followUp": "01_AIRWAY_SEDATION.md - RSI dosing, cervical-spine pathway, paediatric branch and textbook references remain open",
+      "followUp": "01_AIRWAY_SEDATION.md - induction-agent doses, cervical-spine pathway, paediatric branch and textbook references remain open",
       "recordedAt": "2026-07-30"
     },
     {
