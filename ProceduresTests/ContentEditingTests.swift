@@ -255,19 +255,20 @@ final class ContentEditingTests: XCTestCase {
         let procedure = makeProcedure(dosing: ProcedureDosing(
             agents: [
                 ProcedureDosing.Agent(
-                    agent: "Lidocaine 1%",
-                    concentrationNote: "1% = 10 mg/mL",
+                    agent: "Lidocaine",
+                    withEpinephrine: false,
                     maxDoseMgPerKg: 4.5,
-                    absoluteMaxMg: 300
+                    absoluteMaxMg: 300,
+                    concentrationsPercent: [1.0, 2.0]
                 ),
                 ProcedureDosing.Agent(
-                    agent: "Bupivacaine",
-                    concentrationNote: "0.25% = 2.5 mg/mL",
-                    maxDoseMgPerKg: 2.0,
-                    absoluteMaxMg: nil
+                    agent: "Lidocaine",
+                    withEpinephrine: true,
+                    maxDoseMgPerKg: 7.0,
+                    absoluteMaxMg: nil,
+                    concentrationsPercent: [1.0]
                 ),
             ],
-            workedExample: "unused by the fingerprint",
             cumulativeWarning: "Count every source.",
             monitoring: ["unused by the fingerprint"],
             rescueCardID: nil
@@ -275,7 +276,7 @@ final class ContentEditingTests: XCTestCase {
 
         XCTAssertEqual(
             procedure.materialFingerprint,
-            "497fe883e33fe6f568e1ba25aa09f7873b3bfed35f7b520bcaa6a26fec91191a"
+            "380113dd41c18cf859ef7995625b78a25fa98bcf912d5a60e2ae9fb85034b6f2"
         )
     }
 

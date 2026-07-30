@@ -568,19 +568,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 4 mL of 1% lidocaine = 40 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -3377,19 +3414,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 40 mL of 0.25% ropivacaine = 100 mg. Maximum at 3 mg/kg: 70 kg = 210 mg; 50 kg = 150 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -4556,19 +4630,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 15 mL of 0.25% bupivacaine = 37.5 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -4698,19 +4809,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 20 mL of 0.25% bupivacaine = 50 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -4836,19 +4984,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. The same 30 mL at 0.5% would be 150 mg, above the 70 kg maximum, which is why 0.5% is capped at 20 mL (= 100 mg). Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -4945,19 +5130,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -5052,19 +5274,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -5159,19 +5418,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -5273,19 +5569,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -5389,19 +5722,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg. Bilateral at the same volume = 150 mg total, which EXCEEDS the maximum for patients under 75 kg \u2014 dilute or reduce volume.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -5504,19 +5874,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg. Bilateral at the same volume = 150 mg total, which EXCEEDS the maximum for patients under 75 kg \u2014 dilute or reduce volume.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -5618,19 +6025,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg. Bilateral at the same volume = 150 mg total, which EXCEEDS the maximum for patients under 75 kg \u2014 dilute or reduce volume.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -5731,19 +6175,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg. Bilateral at the same volume = 150 mg total, which EXCEEDS the maximum for patients under 75 kg \u2014 dilute or reduce volume.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -5849,13 +6330,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 20 mL of 0.25% bupivacaine = 50 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -5956,13 +6480,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -6063,19 +6630,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 15 mL of 1% lidocaine = 150 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -6179,19 +6783,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -6289,19 +6930,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Ropivacaine (plain)",
-          "concentrationNote": "0.2% = 2 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
           "maxDoseMgPerKg": 3.0,
-          "absoluteMaxMg": 200
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 30 mL of 0.25% bupivacaine = 75 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -6398,19 +7076,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -6505,19 +7220,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 5 mL of 1% lidocaine = 50 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -6610,19 +7362,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -6716,19 +7505,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 5 mL of 1% lidocaine = 50 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -6828,19 +7654,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine with epinephrine",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
-          "maxDoseMgPerKg": 7.0,
-          "absoluteMaxMg": 500
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
-          "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 5 mL of 1% lidocaine = 50 mg. Maximum at 7 mg/kg: 70 kg = 490 mg; 50 kg = 350 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -6943,19 +7806,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine with epinephrine",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
-          "maxDoseMgPerKg": 7.0,
-          "absoluteMaxMg": 500
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
-          "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 3 mL of 1% lidocaine = 30 mg. Maximum at 7 mg/kg: 70 kg = 490 mg; 50 kg = 350 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -7056,19 +7956,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine with epinephrine",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
-          "maxDoseMgPerKg": 7.0,
-          "absoluteMaxMg": 500
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
-          "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 3 mL of 1% lidocaine = 30 mg. Maximum at 7 mg/kg: 70 kg = 490 mg; 50 kg = 350 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -7178,19 +8115,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
-          "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 3 mL of 0.25% bupivacaine = 7.5 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -7290,19 +8264,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
-          "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
-          "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.0,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 2 mL of 0.25% bupivacaine = 5 mg. Maximum at 2 mg/kg: 70 kg = 140 mg; 50 kg = 100 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
@@ -7399,19 +8410,56 @@
     "dosing": {
       "agents": [
         {
-          "agent": "Lidocaine (plain)",
-          "concentrationNote": "1% = 10 mg/mL; 2% = 20 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 4.5,
-          "absoluteMaxMg": 300
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
         },
         {
-          "agent": "Bupivacaine (plain)",
-          "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
           "maxDoseMgPerKg": 2.0,
-          "absoluteMaxMg": 175
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 200,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ]
         }
       ],
-      "workedExample": "Worked example: 10 mL of 1% lidocaine = 100 mg. Maximum at 4.5 mg/kg: 70 kg = 315 mg; 50 kg = 225 mg.",
       "cumulativeWarning": "All local anesthetic given this encounter shares one maximum: skin wheals, wound infiltration, prior blocks, and both sides of a bilateral block count together. Recalculate the remaining allowance before every additional dose.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",

@@ -54,9 +54,24 @@ PROCEDURE = {
 PROCEDURE_WITH_DOSING = {
     **PROCEDURE,
     "dosing": {
+        # The two entries differ in every field the digest reads, including the
+        # epinephrine flag and the absent absolute ceiling, so a mirror that
+        # drops one of them fails here rather than at a clinician's export.
         "agents": [
-            {"agent": "Lidocaine 1%", "maxDoseMgPerKg": 4.5, "absoluteMaxMg": 300},
-            {"agent": "Bupivacaine", "maxDoseMgPerKg": 2.0, "absoluteMaxMg": None},
+            {
+                "agent": "Lidocaine",
+                "withEpinephrine": False,
+                "maxDoseMgPerKg": 4.5,
+                "absoluteMaxMg": 300,
+                "concentrationsPercent": [1.0, 2.0],
+            },
+            {
+                "agent": "Lidocaine",
+                "withEpinephrine": True,
+                "maxDoseMgPerKg": 7.0,
+                "absoluteMaxMg": None,
+                "concentrationsPercent": [1.0],
+            },
         ],
         "cumulativeWarning": "Count every source.",
     },

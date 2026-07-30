@@ -36,6 +36,7 @@
 		958492D1300C4EEC9CE1FAEA /* Views/Saved/SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5529C4505C4F41A4A01806 /* Views/Saved/SavedView.swift */; };
 		A11111111111111111111111 /* Views/Guide/GuideHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22222222222222222222222 /* Views/Guide/GuideHomeView.swift */; };
 		A90000000000000000000001 /* Views/Procedures/Sections/ShiftModeProcedureContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000011 /* Views/Procedures/Sections/ShiftModeProcedureContent.swift */; };
+		A90000000000000000000032 /* Views/Procedures/Sections/MaxDoseCalculatorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000033 /* Views/Procedures/Sections/MaxDoseCalculatorCard.swift */; };
 		A90000000000000000000002 /* Views/Procedures/Sections/StepByStepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000012 /* Views/Procedures/Sections/StepByStepContent.swift */; };
 		A90000000000000000000003 /* Views/Procedures/Sections/EquipmentChecklistContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000013 /* Views/Procedures/Sections/EquipmentChecklistContent.swift */; };
 		A90000000000000000000004 /* Views/Procedures/Sections/DocumentationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90000000000000000000014 /* Views/Procedures/Sections/DocumentationContent.swift */; };
@@ -98,6 +99,7 @@
 		915119767C5F42828C5B518A /* Resources/procedures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources/procedures.json; sourceTree = "<group>"; };
 		A22222222222222222222222 /* Views/Guide/GuideHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Guide/GuideHomeView.swift; sourceTree = "<group>"; };
 		A90000000000000000000011 /* Views/Procedures/Sections/ShiftModeProcedureContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/ShiftModeProcedureContent.swift; sourceTree = "<group>"; };
+		A90000000000000000000033 /* Views/Procedures/Sections/MaxDoseCalculatorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/MaxDoseCalculatorCard.swift; sourceTree = "<group>"; };
 		A90000000000000000000012 /* Views/Procedures/Sections/StepByStepContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/StepByStepContent.swift; sourceTree = "<group>"; };
 		A90000000000000000000013 /* Views/Procedures/Sections/EquipmentChecklistContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/EquipmentChecklistContent.swift; sourceTree = "<group>"; };
 		A90000000000000000000014 /* Views/Procedures/Sections/DocumentationContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/Sections/DocumentationContent.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				160FBDD0DD9E41C9906384DF /* ProceduresApp.swift */,
 				05B9118E397A43DFBAA25820 /* RootTabView.swift */,
 				A90000000000000000000011 /* Views/Procedures/Sections/ShiftModeProcedureContent.swift */,
+				A90000000000000000000033 /* Views/Procedures/Sections/MaxDoseCalculatorCard.swift */,
 				A90000000000000000000012 /* Views/Procedures/Sections/StepByStepContent.swift */,
 				A90000000000000000000013 /* Views/Procedures/Sections/EquipmentChecklistContent.swift */,
 				A90000000000000000000014 /* Views/Procedures/Sections/DocumentationContent.swift */,
@@ -325,6 +328,7 @@
 				69BFFF9DEFEE45C18A32A93F /* ProceduresApp.swift in Sources */,
 				E075E2EF1601425490291385 /* RootTabView.swift in Sources */,
 				A90000000000000000000001 /* Views/Procedures/Sections/ShiftModeProcedureContent.swift in Sources */,
+				A90000000000000000000032 /* Views/Procedures/Sections/MaxDoseCalculatorCard.swift in Sources */,
 				A90000000000000000000002 /* Views/Procedures/Sections/StepByStepContent.swift in Sources */,
 				A90000000000000000000003 /* Views/Procedures/Sections/EquipmentChecklistContent.swift in Sources */,
 				A90000000000000000000004 /* Views/Procedures/Sections/DocumentationContent.swift in Sources */,

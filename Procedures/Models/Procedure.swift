@@ -83,7 +83,18 @@ struct Procedure: Identifiable, Codable, Hashable {
             var doseParts: [String] = []
             for agent in dosing.agents {
                 let ceiling = agent.absoluteMaxMg.map(Self.doseString) ?? "-"
-                doseParts.append("\(agent.agent)|\(Self.doseString(agent.maxDoseMgPerKg))|\(ceiling)")
+                // Strengths are hashed because the calculator divides by them:
+                // a percentage edited alone changes every millilitre the card
+                // prints while the milligram ceiling stays put.
+                let strengths = agent.concentrationsPercent.map(Self.doseString).joined(separator: ",")
+                // Spelled out rather than interpolating the Bool, whose Swift
+                // and Python spellings differ ("true" vs "True") and would
+                // silently desynchronise the two implementations.
+                let epinephrine = agent.withEpinephrine ? "epi" : "plain"
+                doseParts.append(
+                    "\(agent.agent)|\(epinephrine)|\(Self.doseString(agent.maxDoseMgPerKg))"
+                    + "|\(ceiling)|\(strengths)"
+                )
             }
             doseParts.append(dosing.cumulativeWarning)
             grouped.append(("dosing", doseParts))
@@ -122,24 +133,53 @@ struct Procedure: Identifiable, Codable, Hashable {
 /// Machine-checkable dosing limits for procedures that inject local
 /// anesthetic. This is first-class data — not prose — so the validator can
 /// refuse content that names a volume without a weight-based ceiling, and the
-/// UI can render the ceiling before the operator draws up.
+/// UI can compute the ceiling before the operator draws up.
 struct ProcedureDosing: Codable, Hashable {
     struct Agent: Codable, Hashable, Identifiable {
-        var id: String { agent }
-        /// Agent name including plain/with-epinephrine qualifier.
+        /// Plain and with-epinephrine are separate entries for the same drug,
+        /// so the drug name alone is not unique.
+        var id: String { displayName }
+        /// Drug name only — no strength, no epinephrine qualifier. Both are
+        /// held as data below so the calculator can compute with them.
         let agent: String
-        /// Concentration-to-mg conversion the operator needs at the bedside,
-        /// e.g. "0.25% = 2.5 mg/mL".
-        let concentrationNote: String
+        /// Epinephrine raises the ceiling by slowing systemic absorption, so
+        /// it selects a different `maxDoseMgPerKg`. A flag rather than a
+        /// suffix on the name: the arithmetic depends on it.
+        let withEpinephrine: Bool
         /// Conventional weight-based maximum in mg/kg.
         let maxDoseMgPerKg: Double
         /// Conventional absolute ceiling in mg regardless of weight.
         let absoluteMaxMg: Double?
+        /// Stocked strengths, strongest-selling first — element 0 is what the
+        /// calculator preselects. Held as percentages rather than mg/mL
+        /// because the vial is labelled in percent and the conversion is
+        /// exact, so deriving it removes a number that could disagree.
+        let concentrationsPercent: [Double]
+
+        var displayName: String {
+            withEpinephrine ? "\(agent) with epinephrine" : agent
+        }
+
+        /// Exact by definition: 1% is 1 g per 100 mL, which is 10 mg/mL.
+        static func mgPerML(percent: Double) -> Double { percent * 10 }
+
+        /// Ceiling in mg for a given body weight, already capped.
+        func maxMilligrams(forWeightKg weight: Double) -> Double {
+            let weightBased = maxDoseMgPerKg * weight
+            guard let absoluteMaxMg else { return weightBased }
+            return min(weightBased, absoluteMaxMg)
+        }
+
+        /// True when the absolute ceiling — not the patient's weight — is what
+        /// limits the dose. The UI marks this, because a reader who does not
+        /// notice will scale the number up for a bigger patient.
+        func isCapped(atWeightKg weight: Double) -> Bool {
+            guard let absoluteMaxMg else { return false }
+            return maxDoseMgPerKg * weight > absoluteMaxMg
+        }
     }
 
     let agents: [Agent]
-    /// A worked mg/mL calculation at this block's typical volume.
-    let workedExample: String
     /// Cumulative-dose rule covering bilateral blocks, prior infiltration,
     /// and repeat dosing in the same encounter.
     let cumulativeWarning: String

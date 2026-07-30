@@ -75,7 +75,20 @@ final class ContentDecodingTests: XCTestCase {
             for agent in dosing.agents {
                 XCTAssertGreaterThan(agent.maxDoseMgPerKg, 0, "\(procedure.id): \(agent.agent) has a nonpositive mg/kg max")
             }
-            XCTAssertFalse(dosing.workedExample.isEmpty, "\(procedure.id): missing worked example")
+            // The calculator divides by these, so an empty or impossible
+            // strength is a wrong volume rather than a missing sentence.
+            for agent in dosing.agents {
+                XCTAssertFalse(
+                    agent.concentrationsPercent.isEmpty,
+                    "\(procedure.id): \(agent.displayName) states no concentration, so mg cannot be converted to mL"
+                )
+                for percent in agent.concentrationsPercent {
+                    XCTAssertTrue(
+                        percent > 0 && percent <= 100,
+                        "\(procedure.id): \(agent.displayName) has an impossible concentration \(percent)%"
+                    )
+                }
+            }
             XCTAssertFalse(dosing.cumulativeWarning.isEmpty, "\(procedure.id): missing cumulative-dose warning")
             if let rescueCardID = dosing.rescueCardID {
                 XCTAssertTrue(rescueIDs.contains(rescueCardID), "\(procedure.id): dosing rescue card \(rescueCardID) does not exist")

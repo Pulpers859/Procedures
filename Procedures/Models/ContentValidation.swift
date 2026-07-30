@@ -191,11 +191,17 @@ enum ContentValidator {
                 for agent in dosing.agents where agent.maxDoseMgPerKg <= 0 {
                     add(.blocker, "dosing agent \(agent.agent) has a nonpositive mg/kg maximum.")
                 }
-                for agent in dosing.agents where agent.concentrationNote.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    add(.warning, "dosing agent \(agent.agent) is missing a concentration-to-mg conversion note.")
+                // Blockers, not warnings: the calculator divides the milligram
+                // ceiling by the strength, so a missing or impossible
+                // percentage prints a wrong volume rather than an incomplete
+                // one.
+                for agent in dosing.agents where agent.concentrationsPercent.isEmpty {
+                    add(.blocker, "dosing agent \(agent.displayName) has no concentrations; mg cannot be converted to mL.")
                 }
-                if dosing.workedExample.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    add(.warning, "dosing block is missing a worked max-dose example.")
+                for agent in dosing.agents {
+                    for percent in agent.concentrationsPercent where percent <= 0 || percent > 100 {
+                        add(.blocker, "dosing agent \(agent.displayName) has an impossible concentration: \(percent)%.")
+                    }
                 }
                 if dosing.cumulativeWarning.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                     add(.warning, "dosing block is missing a cumulative-dose warning.")

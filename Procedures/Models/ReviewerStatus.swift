@@ -35,7 +35,7 @@ enum ContentFingerprint {
     /// date" and told the reader their content had changed when nothing had.
     /// A version mismatch reads as `.unknownBaseline` instead, which is the
     /// truth: no comparison is possible, and nothing is reported.
-    static let version = 2
+    static let version = 3
 
     static func make(_ parts: [String]) -> String {
         let joined = parts.joined(separator: separator)

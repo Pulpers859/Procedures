@@ -8,14 +8,24 @@ All numbers are conventional maximums as published in the cited sources
 and every touched item remains reviewerStatus "Needs Clinical Review" —
 nothing here is clinically approved until a qualified reviewer signs off.
 
-Run from the repo root:
-    python scripts/add_regional_dosing.py
-The script is idempotent and fails loudly if an expected text target is
-missing, so silent drift cannot masquerade as success.
+SUPERSEDED. The schema this writes no longer decodes: `concentrationNote` and
+`workedExample` are gone, and `withEpinephrine` and `concentrationsPercent`
+are required. Running it would produce records the validator blocks and
+`FailableDecodable` would drop from the shipped app without an error.
+
+It is kept, unrunnable, because it is the provenance record for where the
+original ceilings came from. The refusal below is deliberate: a script that
+still runs is a script someone runs.
 """
 import json
 import sys
 from pathlib import Path
+
+sys.exit(
+    "add_regional_dosing.py is superseded: it writes the pre-calculator dosing "
+    "schema. The shared preparation table now lives in procedures.json and is "
+    "edited there directly. See the module docstring."
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 PROCEDURES = ROOT / "Procedures" / "Resources" / "procedures.json"

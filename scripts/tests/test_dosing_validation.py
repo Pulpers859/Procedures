@@ -17,13 +17,13 @@ def dosing(**overrides):
     value = {
         "agents": [
             {
-                "agent": "Bupivacaine (plain)",
-                "concentrationNote": "0.25% = 2.5 mg/mL",
+                "agent": "Bupivacaine",
+                "withEpinephrine": False,
                 "maxDoseMgPerKg": 2.0,
                 "absoluteMaxMg": 175,
+                "concentrationsPercent": [0.25, 0.5],
             }
         ],
-        "workedExample": "70 kg adult: 2 mg/kg = 140 mg = 56 mL of 0.25%.",
         "cumulativeWarning": "All local anesthetic this encounter shares one maximum.",
         "monitoring": [
             "Continuous cardiac monitoring and pulse oximetry through 30 min after injection.",
@@ -81,9 +81,41 @@ class RegionalDosingTests(unittest.TestCase):
     def test_nonpositive_or_missing_mg_per_kg_is_a_blocker(self):
         for bad in (0, -1, None, "2", True):
             with self.subTest(max_dose=bad):
-                agent = {"agent": "Bupivacaine", "concentrationNote": "x", "maxDoseMgPerKg": bad}
+                agent = {"agent": "Bupivacaine", "maxDoseMgPerKg": bad}
                 issues = MODULE.regional_dosing_issues([block(dosing_value=dosing(agents=[agent]))], RESCUE_IDS)
                 self.assertTrue(any(issue[0] == "BLOCKER" and "maxDoseMgPerKg" in issue[2] for issue in issues))
+
+    def test_a_missing_or_impossible_concentration_is_a_blocker(self):
+        """The calculator divides the mg ceiling by this to print millilitres,
+        so a bad percentage is a wrong volume in a syringe, not a doc gap."""
+        for bad in (None, [], "1%", [0], [-1], [101], [True], ["1"]):
+            with self.subTest(concentrations=bad):
+                agent = {
+                    "agent": "Bupivacaine",
+                    "withEpinephrine": False,
+                    "maxDoseMgPerKg": 2.0,
+                    "concentrationsPercent": bad,
+                }
+                issues = MODULE.regional_dosing_issues(
+                    [block(dosing_value=dosing(agents=[agent]))], RESCUE_IDS
+                )
+                self.assertTrue(
+                    any(issue[0] == "BLOCKER" and "concentration" in issue[2] for issue in issues),
+                    issues,
+                )
+
+    def test_a_missing_epinephrine_flag_is_a_blocker(self):
+        """Plain and with-epinephrine are different ceilings for one drug. An
+        absent flag makes the entry ambiguous about which one it states."""
+        agent = {
+            "agent": "Bupivacaine",
+            "maxDoseMgPerKg": 2.0,
+            "concentrationsPercent": [0.25],
+        }
+        issues = MODULE.regional_dosing_issues(
+            [block(dosing_value=dosing(agents=[agent]))], RESCUE_IDS
+        )
+        self.assertTrue(any(issue[0] == "BLOCKER" and "withEpinephrine" in issue[2] for issue in issues))
 
     def test_dangling_rescue_card_id_is_a_blocker(self):
         issues = MODULE.regional_dosing_issues(
@@ -94,7 +126,6 @@ class RegionalDosingTests(unittest.TestCase):
     def test_thin_monitoring_and_missing_prose_fields_are_flagged(self):
         cases = (
             dosing(monitoring=["only one action"]),
-            dosing(workedExample=" "),
             dosing(cumulativeWarning=""),
             dosing(rescueCardID=None),
         )
@@ -131,9 +162,10 @@ class ProseDoseCeilingTests(unittest.TestCase):
             "sections": {"equipment": lines, "steps": []},
             "dosing": dosing(agents=agents) if agents else dosing(
                 agents=[{
-                    "agent": "Bupivacaine (plain)",
-                    "concentrationNote": "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL",
+                    "agent": "Bupivacaine",
+                    "withEpinephrine": False,
                     "maxDoseMgPerKg": 2.0,
+                    "concentrationsPercent": [0.25, 0.5],
                 }]
             ),
         }
@@ -161,10 +193,11 @@ class ProseDoseCeilingTests(unittest.TestCase):
         item = self.procedure(
             ["Local anesthetic (40 mL of 0.5% bupivacaine)"],
             agents=[{
-                "agent": "Bupivacaine (plain)",
-                "concentrationNote": "0.5% = 5 mg/mL",
+                "agent": "Bupivacaine",
+                "withEpinephrine": False,
                 "maxDoseMgPerKg": 3.0,      # 210 mg at 70 kg
                 "absoluteMaxMg": 175,       # but capped here
+                "concentrationsPercent": [0.5],
             }],
         )
         issues = MODULE.prose_dose_ceiling_issues([item])
@@ -175,10 +208,20 @@ class ProseDoseCeilingTests(unittest.TestCase):
         item = self.procedure(["Local anesthetic (40 mL of 0.5% ropivacaine)"])
         self.assertEqual(MODULE.prose_dose_ceiling_issues([item]), [])
 
-    def test_a_concentration_the_record_does_not_define_is_skipped(self):
-        # 2% is not in the concentrationNote, so there is no mg/mL to multiply.
+    def test_a_strength_the_record_does_not_stock_is_still_converted(self):
+        """This used to be skipped, because the mg/mL came from a prose note
+        listing the strengths someone had written down and 2% was not on it.
+        A strength the record fails to mention is exactly the one worth
+        checking: 40 mL at 2% is 800 mg against a 140 mg ceiling."""
         item = self.procedure(["Local anesthetic (40 mL of 2% bupivacaine)"])
-        self.assertEqual(MODULE.prose_dose_ceiling_issues([item]), [])
+        issues = MODULE.prose_dose_ceiling_issues([item])
+        self.assertTrue(issues)
+        self.assertIn("800 mg", issues[0][2])
+
+    def test_percent_to_mg_per_ml_is_the_definition(self):
+        self.assertEqual(MODULE.mg_per_ml(1), 10)
+        self.assertEqual(MODULE.mg_per_ml(0.25), 2.5)
+        self.assertEqual(MODULE.mg_per_ml(2), 20)
 
     def test_prose_without_a_volume_or_percent_is_ignored(self):
         item = self.procedure(["Local anesthetic", "Sterile gloves and drape"])

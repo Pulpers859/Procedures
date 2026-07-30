@@ -46,7 +46,7 @@ SECTION_SEPARATOR = "\x1e"
 # Bumped whenever the set of hashed fields changes. A digest written under an
 # older version answers a different question and must not be compared; see
 # LocalReviewRecord.contentState in UserDataStore.swift.
-FINGERPRINT_VERSION = 2
+FINGERPRINT_VERSION = 3
 
 REVIEWED_DISPOSITION = "Reviewed"
 DEFAULT_STATUS = "Internally Reviewed"
@@ -96,8 +96,15 @@ def procedure_fingerprint(item):
         for agent in dosing.get("agents") or []:
             absolute = agent.get("absoluteMaxMg")
             ceiling = dose_string(absolute) if absolute is not None else "-"
+            strengths = ",".join(
+                dose_string(percent) for percent in agent.get("concentrationsPercent") or []
+            )
+            # "epi"/"plain" rather than the bool: Python prints True, Swift
+            # prints true, and the digests would never match again.
+            epinephrine = "epi" if agent.get("withEpinephrine") else "plain"
             dose_parts.append(
-                f"{agent.get('agent')}|{dose_string(agent.get('maxDoseMgPerKg'))}|{ceiling}"
+                f"{agent.get('agent')}|{epinephrine}"
+                f"|{dose_string(agent.get('maxDoseMgPerKg'))}|{ceiling}|{strengths}"
             )
         dose_parts.append(dosing.get("cumulativeWarning", ""))
         grouped.append(("dosing", dose_parts))

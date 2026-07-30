@@ -90,7 +90,6 @@ final class ValidationTests: XCTestCase {
     func testDosingWithNoAgentsIsBlocked() {
         let dosing = ProcedureDosing(
             agents: [],
-            workedExample: "example",
             cumulativeWarning: "warning",
             monitoring: ["a", "b"],
             rescueCardID: nil
@@ -104,8 +103,7 @@ final class ValidationTests: XCTestCase {
 
     func testWellFormedDosingProducesNoDosingIssues() {
         let dosing = ProcedureDosing(
-            agents: [.init(agent: "Bupivacaine (plain)", concentrationNote: "0.25% = 2.5 mg/mL", maxDoseMgPerKg: 2.0, absoluteMaxMg: 175)],
-            workedExample: "70 kg: 2 mg/kg = 140 mg = 56 mL of 0.25%.",
+            agents: [.init(agent: "Bupivacaine", withEpinephrine: false, maxDoseMgPerKg: 2.0, absoluteMaxMg: 175, concentrationsPercent: [0.25, 0.5])],
             cumulativeWarning: "All local anesthetic this encounter shares one maximum.",
             monitoring: ["Continuous cardiac monitoring", "Confirm lipid emulsion location"],
             rescueCardID: nil
@@ -119,8 +117,7 @@ final class ValidationTests: XCTestCase {
 
     func testDanglingDosingRescueCardIDIsBlocked() {
         let dosing = ProcedureDosing(
-            agents: [.init(agent: "Bupivacaine (plain)", concentrationNote: "0.25% = 2.5 mg/mL", maxDoseMgPerKg: 2.0, absoluteMaxMg: 175)],
-            workedExample: "example",
+            agents: [.init(agent: "Bupivacaine", withEpinephrine: false, maxDoseMgPerKg: 2.0, absoluteMaxMg: 175, concentrationsPercent: [0.25])],
             cumulativeWarning: "warning",
             monitoring: ["a", "b"],
             rescueCardID: "does_not_exist"
@@ -230,5 +227,87 @@ final class ValidationTests: XCTestCase {
                 references: references
             )
         )
+    }
+}
+
+/// The arithmetic behind the max-dose card.
+///
+/// This replaced a frozen sentence — "70 kg = 315 mg" printed directly beneath
+/// "absolute max 300 mg" on the digital block, because a worked example cannot
+/// recalculate itself when a ceiling is added later. These tests exist so the
+/// computed version cannot acquire the same defect quietly.
+final class MaxDoseCalculatorTests: XCTestCase {
+    private func agent(
+        maxDoseMgPerKg: Double = 4.5,
+        absoluteMaxMg: Double? = 300,
+        withEpinephrine: Bool = false
+    ) -> ProcedureDosing.Agent {
+        ProcedureDosing.Agent(
+            agent: "Lidocaine",
+            withEpinephrine: withEpinephrine,
+            maxDoseMgPerKg: maxDoseMgPerKg,
+            absoluteMaxMg: absoluteMaxMg,
+            concentrationsPercent: [1.0, 2.0]
+        )
+    }
+
+    func testPercentToMilligramsPerMillilitreIsTheDefinition() {
+        XCTAssertEqual(ProcedureDosing.Agent.mgPerML(percent: 1), 10)
+        XCTAssertEqual(ProcedureDosing.Agent.mgPerML(percent: 0.25), 2.5)
+        XCTAssertEqual(ProcedureDosing.Agent.mgPerML(percent: 2), 20)
+    }
+
+    func testBelowTheAbsoluteCeilingTheDoseScalesWithWeight() {
+        XCTAssertEqual(agent().maxMilligrams(forWeightKg: 50), 225)
+        XCTAssertFalse(agent().isCapped(atWeightKg: 50))
+    }
+
+    /// The exact case the old card got wrong: 4.5 mg/kg x 70 kg is 315 mg, and
+    /// the answer is 300.
+    func testAboveTheAbsoluteCeilingTheDoseIsHeldAndMarked() {
+        XCTAssertEqual(agent().maxMilligrams(forWeightKg: 70), 300)
+        XCTAssertTrue(agent().isCapped(atWeightKg: 70))
+    }
+
+    func testExactlyAtTheCeilingIsNotMarkedAsCapped() {
+        // 4.5 mg/kg x 66.667 kg is 300 mg; nothing was withheld.
+        let weight = 300.0 / 4.5
+        XCTAssertEqual(agent().maxMilligrams(forWeightKg: weight), 300, accuracy: 0.0001)
+        XCTAssertFalse(agent().isCapped(atWeightKg: weight))
+    }
+
+    func testAnAgentWithoutAnAbsoluteCeilingNeverCaps() {
+        let unbounded = agent(absoluteMaxMg: nil)
+        XCTAssertEqual(unbounded.maxMilligrams(forWeightKg: 200), 900)
+        XCTAssertFalse(unbounded.isCapped(atWeightKg: 200))
+    }
+
+    /// A maximum rounded up is a maximum exceeded.
+    func testVolumeAndDoseLabelsRoundDownNeverUp() {
+        XCTAssertEqual(MaxDoseCalculatorCard.millilitreLabel(12.349), "12.3 mL")
+        XCTAssertEqual(MaxDoseCalculatorCard.millilitreLabel(12.399), "12.3 mL")
+        XCTAssertEqual(MaxDoseCalculatorCard.millilitreLabel(12.0), "12.0 mL")
+        XCTAssertEqual(MaxDoseCalculatorCard.milligramLabel(315.9), "315 mg")
+        XCTAssertEqual(MaxDoseCalculatorCard.milligramLabel(300), "300 mg")
+    }
+
+    func testEpinephrineIsPartOfTheAgentIdentity() {
+        XCTAssertEqual(agent(withEpinephrine: false).displayName, "Lidocaine")
+        XCTAssertEqual(agent(withEpinephrine: true).displayName, "Lidocaine with epinephrine")
+        // Both variants coexist in one picker, so the ids must differ.
+        XCTAssertNotEqual(agent(withEpinephrine: false).id, agent(withEpinephrine: true).id)
+    }
+
+    /// The ceilings are properties of the drug, not of the block. They used to
+    /// be copied into 28 records, which is 28 places to fix a number.
+    func testEveryRegionalBlockShipsTheSamePreparationTable() {
+        let repo = ProcedureRepository()
+        let tables = repo.procedures
+            .filter { $0.category == .regionalAnesthesia }
+            .compactMap { $0.dosing?.agents }
+        XCTAssertFalse(tables.isEmpty)
+        for table in tables {
+            XCTAssertEqual(table, tables[0], "regional dosing tables have diverged")
+        }
     }
 }

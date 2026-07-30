@@ -435,11 +435,20 @@ def regional_dosing_issues(procedures, rescue_card_ids, level="WARNING"):
                 max_dose = agent.get("maxDoseMgPerKg")
                 if not isinstance(max_dose, (int, float)) or isinstance(max_dose, bool) or max_dose <= 0:
                     issues.append(("BLOCKER", title, f"dosing agent '{name}' has an invalid maxDoseMgPerKg: {max_dose!r}"))
-                if not str(agent.get("concentrationNote") or "").strip():
-                    issues.append((level, title, f"dosing agent '{name}' is missing a concentration-to-mg conversion note"))
+                # The calculator divides the milligram ceiling by the strength
+                # to print a volume, so a missing or nonsense percentage is not
+                # a documentation gap — it is a wrong number of millilitres
+                # drawn into a syringe. Blockers, all of them.
+                if not isinstance(agent.get("withEpinephrine"), bool):
+                    issues.append(("BLOCKER", title, f"dosing agent '{name}' is missing the withEpinephrine flag; the ceiling depends on it"))
+                strengths = agent.get("concentrationsPercent")
+                if not isinstance(strengths, list) or not strengths:
+                    issues.append(("BLOCKER", title, f"dosing agent '{name}' has no concentrationsPercent; the card cannot convert mg to mL"))
+                else:
+                    for percent in strengths:
+                        if not isinstance(percent, (int, float)) or isinstance(percent, bool) or not 0 < percent <= 100:
+                            issues.append(("BLOCKER", title, f"dosing agent '{name}' has an invalid concentration percentage: {percent!r}"))
 
-        if not str(dosing.get("workedExample") or "").strip():
-            issues.append((level, title, "dosing block is missing a worked max-dose example"))
         if not str(dosing.get("cumulativeWarning") or "").strip():
             issues.append((level, title, "dosing block is missing a cumulative-dose warning"))
         monitoring = dosing.get("monitoring")
@@ -462,19 +471,17 @@ REFERENCE_WEIGHTS_KG = (70, 50)
 VOLUME_RANGE = re.compile(r"(\d+(?:\.\d+)?)\s*(?:-|–|\s+to\s+)\s*(\d+(?:\.\d+)?)\s*mL\b", re.IGNORECASE)
 SINGLE_VOLUME = re.compile(r"(?<![-–\d.])(\d+(?:\.\d+)?)\s*mL\b", re.IGNORECASE)
 PERCENT = re.compile(r"(\d+(?:\.\d+)?)\s*%")
-# "0.25% = 2.5 mg/mL; 0.5% = 5 mg/mL"
-CONCENTRATION_NOTE = re.compile(r"(\d+(?:\.\d+)?)\s*%\s*=\s*(\d+(?:\.\d+)?)\s*mg/mL", re.IGNORECASE)
 
 
-def _stated_concentrations(agents):
-    """Maps percent strength -> mg/mL, using only what the record declares."""
-    table = {}
-    for agent in agents or []:
-        if not isinstance(agent, dict):
-            continue
-        for percent, mg_per_ml in CONCENTRATION_NOTE.findall(str(agent.get("concentrationNote") or "")):
-            table[float(percent)] = float(mg_per_ml)
-    return table
+def mg_per_ml(percent):
+    """1% is 1 g per 100 mL, so 10 mg/mL. An identity, not a clinical claim.
+
+    This used to be looked up in a per-record prose note listing the strengths
+    someone remembered to write down. A strength the prose mentioned but the
+    note omitted was silently skipped, which is the wrong direction to fail in
+    a check that exists to catch overdoses.
+    """
+    return percent * 10
 
 
 def _max_volume_ml(text):
@@ -497,11 +504,16 @@ def prose_dose_ceiling_issues(procedures, level="WARNING"):
     higher concentration named on the same line, exceeded the maximum stated a
     few fields away — and pass clean in both authoring and release mode.
 
-    This invents no clinical guidance. Every number comes from the record:
-    the volume from its prose, the mg/mL from its own concentrationNote, the
-    ceiling from its own maxDoseMgPerKg and absoluteMaxMg. It reports an
-    internal contradiction, which is a question for the clinical owner rather
-    than something to auto-correct.
+    This invents no clinical guidance. Every number comes from the record: the
+    volume and the strength from its prose, the ceiling from its own
+    maxDoseMgPerKg and absoluteMaxMg. It reports an internal contradiction,
+    which is a question for the clinical owner rather than something to
+    auto-correct.
+
+    A percentage on a line naming a non-anesthetic — a chlorhexidine prep, say
+    — would be converted too. Nothing in the corpus does that today, and the
+    result would be a warning for a human to dismiss rather than a number
+    anyone acts on, which is the safe direction for this check to be wrong in.
     """
     issues = []
     for item in procedures:
@@ -510,9 +522,6 @@ def prose_dose_ceiling_issues(procedures, level="WARNING"):
             continue
         agents = dosing.get("agents")
         if not isinstance(agents, list) or not agents:
-            continue
-        concentrations = _stated_concentrations(agents)
-        if not concentrations:
             continue
         title = item.get("title", item.get("id", "<missing id>"))
         sections = item.get("sections") or {}
@@ -525,11 +534,8 @@ def prose_dose_ceiling_issues(procedures, level="WARNING"):
                 if volume is None or not percents:
                     continue
                 # The strongest concentration the line itself offers.
-                usable = [p for p in percents if p in concentrations]
-                if not usable:
-                    continue
-                strength = max(usable)
-                milligrams = volume * concentrations[strength]
+                strength = max(percents)
+                milligrams = volume * mg_per_ml(strength)
 
                 for agent in agents:
                     if not isinstance(agent, dict):
