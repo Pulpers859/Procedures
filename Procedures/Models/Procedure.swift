@@ -17,6 +17,13 @@ struct Procedure: Identifiable, Codable, Hashable {
     /// categories where a max-dose block does not apply.
     let dosing: ProcedureDosing?
 
+    /// Structured medication dosing for procedures that give systemic drugs
+    /// (currently RSI). Separate from `dosing`, which is a local-anaesthetic
+    /// *ceiling* model: its `maxDoseMgPerKg` means "never exceed", while an
+    /// induction or paralytic dose is a target to hit. Rendering one as the
+    /// other would put a target dose under a "Max Dose" heading.
+    let medicationDosing: ProcedureMedicationDosing?
+
     /// Editorial review state. Optional in the wire format for decode
     /// resilience; absent content is treated as the conservative default.
     /// Declared before `sections` so the memberwise initializer reads with the
@@ -81,6 +88,22 @@ struct Procedure: Identifiable, Codable, Hashable {
             doseParts.append(dosing.cumulativeWarning)
             grouped.append(("dosing", doseParts))
         }
+        if let medicationDosing {
+            // A drug dose is the most material content in the app. Omitting it
+            // here would let a rocuronium dose change while every sign-off
+            // still read "Reviewed" — the same blind spot that let references
+            // move unnoticed under the audit fingerprint.
+            var medParts: [String] = [medicationDosing.indication]
+            for med in medicationDosing.medications {
+                let high = med.doseHighPerKg.map(Self.doseString) ?? "-"
+                medParts.append(
+                    "\(med.medication)|\(med.role)|\(Self.doseString(med.doseLowPerKg))"
+                    + "|\(high)|\(med.unit)|\(med.caution ?? "-")"
+                )
+            }
+            medParts.append(medicationDosing.inductionRequirement)
+            grouped.append(("medicationDosing", medParts))
+        }
         return ContentFingerprint.make(sections: grouped)
     }
 
@@ -124,6 +147,45 @@ struct ProcedureDosing: Codable, Hashable {
     let monitoring: [String]
     /// Rescue card the operator escalates to, typically LAST.
     let rescueCardID: String?
+}
+
+/// Systemic medication doses given as part of a procedure, as first-class data
+/// rather than prose so the validator can check them and the UI can show a
+/// range as a range.
+///
+/// Doses here are *targets*, not ceilings — the opposite of `ProcedureDosing`.
+/// A dose may be a single value (`doseHighPerKg == nil`) or a range, and the UI
+/// labels a range as such so it cannot be misread as a maximum.
+struct ProcedureMedicationDosing: Codable, Hashable {
+    struct Medication: Codable, Hashable, Identifiable {
+        var id: String { medication }
+        let medication: String
+        /// Where the drug sits in the sequence, e.g. "Pretreatment",
+        /// "Induction", "Neuromuscular blocker".
+        let role: String
+        let doseLowPerKg: Double
+        /// nil for a single-value dose; set for a range.
+        let doseHighPerKg: Double?
+        /// "mg/kg" or "mcg/kg". Held as data because RSI mixes both and a
+        /// hardcoded unit is how a microgram dose becomes a milligram dose.
+        let unit: String
+        let onset: String?
+        let durationNote: String?
+        let caution: String?
+
+        var isRange: Bool {
+            guard let doseHighPerKg else { return false }
+            return doseHighPerKg > doseLowPerKg
+        }
+    }
+
+    let indication: String
+    let medications: [Medication]
+    /// Guards the hazard this block would otherwise create: a card that names a
+    /// paralytic dose and says nothing about induction invites paralysis
+    /// without anaesthesia. Non-optional for that reason.
+    let inductionRequirement: String
+    let sourceNote: String
 }
 
 struct ProcedureVisualAsset: Identifiable, Codable, Hashable {

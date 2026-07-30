@@ -101,6 +101,19 @@ def procedure_fingerprint(item):
             )
         dose_parts.append(dosing.get("cumulativeWarning", ""))
         grouped.append(("dosing", dose_parts))
+    medication_dosing = item.get("medicationDosing")
+    if medication_dosing:
+        med_parts = [medication_dosing.get("indication", "")]
+        for med in medication_dosing.get("medications") or []:
+            high = med.get("doseHighPerKg")
+            high_text = dose_string(high) if high is not None else "-"
+            med_parts.append(
+                f"{med.get('medication')}|{med.get('role')}"
+                f"|{dose_string(med.get('doseLowPerKg'))}|{high_text}"
+                f"|{med.get('unit')}|{med.get('caution') or '-'}"
+            )
+        med_parts.append(medication_dosing.get("inductionRequirement", ""))
+        grouped.append(("medicationDosing", med_parts))
     return sectioned_fingerprint(grouped)
 
 

@@ -334,6 +334,79 @@ def validate_rescue_cards(cards, procedure_ids):
     return issues
 
 
+MEDICATION_DOSE_UNITS = ("mg/kg", "mcg/kg")
+
+
+def medication_dosing_issues(procedures):
+    """Systemic medication doses (`medicationDosing`), as opposed to the local
+    anesthetic ceilings in `dosing`.
+
+    Everything here is a BLOCKER. These are target doses of induction agents
+    and paralytics: a wrong unit is a 1000-fold error, an inverted range is
+    unreadable at speed, and a block that names a paralytic without requiring
+    an induction agent invites paralysis without anesthesia."""
+    issues = []
+    for item in procedures:
+        block = item.get("medicationDosing")
+        if block is None:
+            continue
+        title = item.get("title", item.get("id", "<missing id>"))
+        if not isinstance(block, dict) or not block:
+            issues.append(("BLOCKER", title, "medicationDosing is present but not a populated object"))
+            continue
+
+        for field in ("indication", "inductionRequirement", "sourceNote"):
+            if not str(block.get(field) or "").strip():
+                issues.append(("BLOCKER", title, f"medicationDosing is missing {field}"))
+
+        medications = block.get("medications")
+        if not isinstance(medications, list) or not medications:
+            issues.append(("BLOCKER", title, "medicationDosing has no medications"))
+            continue
+
+        for entry in medications:
+            if not isinstance(entry, dict):
+                issues.append(("BLOCKER", title, "medicationDosing entry is malformed"))
+                continue
+            name = str(entry.get("medication") or "").strip()
+            if not name:
+                issues.append(("BLOCKER", title, "medicationDosing entry is missing a medication name"))
+                continue
+            if not str(entry.get("role") or "").strip():
+                issues.append(("BLOCKER", title, f"medicationDosing '{name}' is missing a role"))
+
+            unit = entry.get("unit")
+            if unit not in MEDICATION_DOSE_UNITS:
+                issues.append((
+                    "BLOCKER", title,
+                    f"medicationDosing '{name}' has unit {unit!r}; expected one of "
+                    f"{', '.join(MEDICATION_DOSE_UNITS)}",
+                ))
+
+            low = entry.get("doseLowPerKg")
+            if not isinstance(low, (int, float)) or isinstance(low, bool) or low <= 0:
+                issues.append((
+                    "BLOCKER", title,
+                    f"medicationDosing '{name}' has an invalid doseLowPerKg: {low!r}",
+                ))
+                continue
+
+            high = entry.get("doseHighPerKg")
+            if high is None:
+                continue
+            if not isinstance(high, (int, float)) or isinstance(high, bool):
+                issues.append((
+                    "BLOCKER", title,
+                    f"medicationDosing '{name}' has an invalid doseHighPerKg: {high!r}",
+                ))
+            elif high < low:
+                issues.append((
+                    "BLOCKER", title,
+                    f"medicationDosing '{name}' range is inverted: {low} to {high} {unit}",
+                ))
+    return issues
+
+
 def regional_dosing_issues(procedures, rescue_card_ids, level="WARNING"):
     """Structured max-dose data is mandatory for regional anesthesia: a block
     that states an injectate volume without a weight-based ceiling is a
@@ -788,6 +861,7 @@ def collect_issues(procedures, rescue_cards, kits, release=False):
     # release mode; structural corruption inside them is always a blocker.
     dosing_level = "BLOCKER" if release else "WARNING"
     rescue_card_ids = {item.get("id") for item in rescue_cards}
+    issues.extend(medication_dosing_issues(procedures))
     issues.extend(regional_dosing_issues(procedures, rescue_card_ids, level=dosing_level))
     issues.extend(crash_card_dose_issues(rescue_cards, level=dosing_level))
     issues.extend(prose_dose_ceiling_issues(procedures, level=dosing_level))
