@@ -116,9 +116,13 @@ The full evidence is in reports 06 through 09.
 1. Bind device-specific procedures to the exact stocked manufacturer IFU and
    revision: IO, nasal packing, pleural pigtail, introducer, dialysis catheter,
    pacing catheter/generator, defibrillator, and pericardiocentesis kit.
-2. Quarantine declared placeholder visuals from release. Independently re-review
-   existing artwork; the cricothyrotomy image already has a substantive anatomy
-   concern.
+2. ~~Quarantine declared placeholder visuals from release.~~ **Owner decision
+   2026-07-30: pending artwork is no longer release-gating.** A declared asset
+   with no artwork falls back to an SF Symbol and the card reads correctly, so
+   it is a warning. Artwork declared but absent from the bundle is still a
+   blocker, and artwork that does ship still needs review of what it depicts —
+   the cricothyrotomy image already has a substantive anatomy concern, which is
+   unaffected by this change.
 3. Replace generic textbook and "standard literature" references with named,
    dated, claim-matched primary guidance and stable locators.
 4. Require the clinical owner to sign the exact JSON and asset fingerprints;

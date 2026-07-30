@@ -6,7 +6,7 @@
 - Snapshot checked before review: `Procedures/Resources/procedures.json` SHA-256 `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1` (match).
 - This is an AI-assisted discrepancy screen, not clinical approval. Dispositions identify content requiring qualified clinician decisions.
 - Every named section, equipment/instruments, visual-asset declaration, and structured-dosing field was screened. None of the six objects contains a structured-dosing field.
-- Independent release gate: every assigned procedure declares one or more `visualAssets` with `assetName: null`. Per `docs/ai-instructions/SAFETY_AND_REVIEW_POLICY.md`, placeholders are stop-ship for release even where the clinical screening disposition below is `MAJOR`.
+- Independent release gate (**superseded 2026-07-30**): at audit, every assigned procedure declared one or more `visualAssets` with `assetName: null`, which the policy then treated as stop-ship. Pending artwork is a warning as of 2026-07-30 by owner decision - the placeholders fall back to an SF Symbol and the card reads correctly without them. See `docs/ai-instructions/SAFETY_AND_REVIEW_POLICY.md`. Artwork declared but missing from the bundle is still a blocker.
 
 ## Owner adjudication - 2026-07-30
 
@@ -21,10 +21,16 @@ marked addressed here, the shipping text has changed and the audit fingerprint
 moved with it; the per-record amendment in `AUDIT_LEDGER.json` is what attests
 to the current bytes.
 
-**What this does not clear.** Two independent release gates are untouched on
-all six records: references are still non-traceable, and every `visualAssets`
-entry is still a placeholder. Neither is a clinical question and neither was
-adjudicated here.
+**What this does not clear.** `reviewerStatus` on all six is still
+`Needs Clinical Review`, which is the remaining release blocker. It is
+deliberately untouched: `AUDIT_PROTOCOL.md` forbids an agent from setting it,
+and the owner promotes a sign-off through the app's export and
+`scripts/apply_local_reviews.py`, which binds the sign-off to a fingerprint of
+the exact bytes reviewed. Nothing here is clinical approval.
+
+The other two gates named at audit are closed. References were replaced with
+traceable primary sources in `81c8030` and `f4241c7`; pending artwork stopped
+being release-gating on 2026-07-30 by owner decision.
 
 ### `central_venous_catheter`
 
@@ -197,9 +203,9 @@ adjudicated here.
 
 ### Known residual gaps
 
-- References remain non-traceable on all six records; the `MAJOR` reference
-  findings below are unaddressed.
-- All `visualAssets` remain placeholders, which is an independent stop-ship.
+- Artwork is still pending on all six. No longer release-gating, and each
+  card falls back to an SF Symbol, but the illustrations the report expected
+  do not exist yet.
 - Introducer and dialysis IFU binding is scoped to the products the owner
   stocks and is not named per-product.
 - The new rescue card is an AI draft awaiting clinical review, like the other
