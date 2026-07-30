@@ -5,9 +5,158 @@
 **Corpus fingerprint:** `procedures.json` SHA-256 `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1` (matched before review)  
 **Boundary:** AI-assisted discrepancy screen only. This report is not clinical approval, credentialing, or an institutional protocol.
 
+## Owner adjudication - 2026-07-30
+
+The clinical owner reviewed all seventeen reviewer questions in this report and
+approved the answers recorded here. Content changed in `3c07009`; the ledger was
+amended in the same cycle.
+
+**How to read the rest of this file.** The findings below describe the audited
+snapshot and are retained unedited as evidence. They are not a description of
+what ships today. Each per-record disposition line carries the re-screened state
+above its original rationale.
+
+**Owner decisions taken alongside the seventeen.** Pleural lidocaine takes the
+conservative BTS ceiling; the chest tube and pigtail records split by caliber;
+adult scope only, with paediatric pathways deferred; antibiotic prophylaxis
+stated as standard of care with the agent left to local protocol.
+
+**What this does not clear.** `reviewerStatus` is `Needs Clinical Review` on all
+four procedures and on the chest-tube and thoracentesis kits. That is the
+remaining release blocker and it is deliberately untouched: `AUDIT_PROTOCOL.md`
+forbids an agent from setting it, and the owner promotes a sign-off through the
+app export and `scripts/apply_local_reviews.py`, which binds it to a fingerprint
+of the exact bytes reviewed. Nothing here is clinical approval.
+
+### thoracostomy_chest_tube
+
+1. *Drain caliber by indication.* **Encoded as a table**, and the record is now
+   the large-bore card: 28-32 Fr for significant hemothorax, unstable trauma or
+   large air leak; 20-24 Fr or larger for a ventilated patient with a
+   significant leak. Small-bore indications point at the pigtail card. The dead
+   dogma killed explicitly: pus does not need a big tube - 14 Fr or smaller with
+   flushes is the standard for pleural infection, and blockage is managed by
+   flushing rather than pre-emptive upsizing.
+2. *Massive hemothorax activation criteria.* **1,500 mL initial, 200 mL/h for
+   3 consecutive hours, or instability with ongoing output** - framed as
+   triggers to call rather than thresholds to reach, because the failure mode is
+   watching the canister fill toward 1,500 before phoning. Two additions the
+   report did not raise: consider autotransfusion, and do not drain a large
+   hemothorax in a hypotensive patient before blood is at the bedside and a
+   surgeon knows, since the clot may be tamponading.
+3. *Antibiotics and local-anesthetic limits: card or linked?* **Split.**
+   Antibiotics state the well-supported part that is commonly got wrong - single
+   dose at insertion, not continued for the life of the tube - and leave the
+   agent to local protocol rather than inventing one. Local anesthetic is
+   structured data at the BTS ceiling.
+4. *Drain-system and controlled-drainage rescue.* **Added**: unit upright and
+   below the insertion site; never clamp a bubbling drain except under
+   specialist direction, because clamping an air leak makes a tension
+   pneumothorax; disconnection is reconnected or held under sterile water, not
+   clamped; a drain pulled out gets a dressing taped on three sides so it vents;
+   suction prescribed and documented, with routine early suction avoided.
+
+### pigtail_catheter
+
+5. *Kits, sizes, depth control.* Sizes by indication (8-14 Fr pneumothorax,
+   12-14 Fr effusion, 14 Fr or smaller for initial pleural infection). The
+   substantive gap was **depth, not size**: the chest wall is measured on
+   ultrasound and that measurement is the limit for needle and dilator, with a
+   guarded dilator where the kit offers one, the wire extending beyond the
+   catheter tip, and advancement without impedance. A dilator driven to the hub
+   is how the lung or heart gets lacerated.
+6. *Is instability an exclusion?* **Yes - an exclusion, not a caution.** EAST
+   2021 confines its conditional recommendation to haemodynamically stable
+   traumatic hemothorax. "May need a large-bore tube" decided nothing; the
+   failure mode is choosing the pigtail because it is faster, watching it clot,
+   and losing twenty minutes.
+7. *Controlled drainage and symptom response.* **Added, and shared word for word
+   with the other two pleural records** - three versions of one rule is how a
+   reader ends up unsure which is right.
+8. *Local-anesthetic ceiling and LAST readiness.* Structured dosing block with
+   `rescueCardID` pointing at the existing LAST card. The linkage mechanism
+   already existed; these records simply were not using it.
+
+### needle_decompression
+
+9. *Device specification.* **14 gauge or larger, at least 8 cm usable length.**
+   "Long large-bore angiocath" is not a specification and a 5 cm catheter does
+   not reach pleura in a large share of adults, which is why the guidance
+   changed. The card also states plainly that failure is common and expected -
+   not a reason to skip it, a reason to have the next step ready first.
+10. *Landmarks.* **Primary 4th-5th intercostal space, anterior axillary line;
+    alternate 2nd intercostal space, midclavicular.** The lateral wall is
+    thinner in most adults, which is why 8 cm actually reaches. "Mid-axillary"
+    is dropped: it is neither the cited standard nor the intent.
+11. *Failed-needle pathway and definitive management.* **Resolved by
+    capability**, which is the honest answer: finger thoracostomy where it is
+    available, because it is not length-limited and works where the needle did
+    not; a second needle at the alternate site only where it is not. Immediate
+    reassessment plus a second look within two minutes, since a decompressed
+    tension can re-tension on a kinked catheter. The definitive-tube default is
+    inverted - a tube follows, with a narrow stated exception - because a rush
+    of air with clinical improvement means there was a pneumothorax under
+    pressure.
+12. *Paediatric scope.* **Adult-only, stated.** Paediatric technique differs
+    materially - 2nd intercostal space midclavicular is the primary site in
+    children and needle length is much shorter - so an explicit scope line
+    prevents this card being used for a child.
+
+### thoracentesis
+
+13. *Vacuum bottles.* **Removed.** The card stocked them and instructed "drain
+    by gravity to vacuum bottle", which is incoherent before reaching the safety
+    problem. BTS advises against vacuum bottles and wall suction after a trial
+    found more pneumothorax, haemothorax and re-expansion oedema. Manual syringe
+    aspiration through the stopcock, or gravity to a bag below the patient.
+14. *Intercostal anatomy.* **Corrected in both places it was stated.** The order
+    is vein, artery, nerve from superior to inferior; the card said "nerve,
+    artery, vein". The operational advice was right, which is why the error
+    survived. The record now also states that the bundle is not reliably tucked
+    under the rib and that collateral branches can sit mid-space, because that
+    changes where you aim.
+15. *Specimens and pH.* "SBP" removed - spontaneous bacterial peritonitis is a
+    peritoneal diagnosis that arrived by paste. Plain containers **and** blood
+    culture bottles when infection is suspected, not blood cultures alone. pH is
+    the decision-changing one: heparinised blood-gas syringe, analysed
+    immediately, lidocaine kept out of the sample because it falsely lowers the
+    result and can push you to drain someone who does not need it, no pH on
+    frank pus, and no dipstick or benchtop meter.
+16. *Local-anesthetic ceiling and post-procedure imaging.* Ceiling as above.
+    Imaging goes **selective**: immediate ultrasound for lung sliding in
+    everyone, chest x-ray only for symptoms, aspirated air, a difficult
+    procedure, absent or uncertain sliding, or a patient who is ventilated or
+    cannot report symptoms. The card's own senior pearl already knew the
+    exception; the recommendation now matches it.
+17. *Complication rates and the ipsilateral-pneumothorax contraindication.* The
+    unsourced percentages are replaced with a qualitative statement - the number
+    that matters at consent is "uncommon, and less likely with ultrasound". The
+    contraindication was a sequencing statement wearing the wrong label, and now
+    reads as one: a hydropneumothorax is a chest-tube problem, not a
+    thoracentesis problem.
+
+### Adopted beyond the seventeen
+
+- A re-expansion pulmonary oedema rescue card, linked from all three pleural
+  records. Three records named it as a complication and nothing anywhere said
+  what to do - the same gap air embolism had in the vascular lane. It states
+  the two things clinicians get wrong: stop and clamp rather than slow, and
+  diuretics are not the treatment because this is permeability oedema.
+- The controlled-drainage stop rule as one shared block across all three
+  pleural records rather than three drifting copies.
+
+### Known residual gaps
+
+- Kit binding for the chest tube and pigtail is scoped to stocked products
+  rather than a named IFU revision.
+- Paediatric pathways are deferred by owner decision across all four.
+- Artwork is still pending on all four. No longer release-gating, and each card
+  falls back to an SF Symbol, but the illustrations do not exist yet.
+- The re-expansion rescue card is an AI draft awaiting clinical review.
+
 ## thoracostomy_chest_tube - Thoracostomy / Chest Tube
 
-**Screening disposition: STOP-SHIP.** The release-blocking disposition is driven by unreviewed placeholder visual assets under the repository safety policy. The clinical text also has several `MAJOR` omissions requiring clinician adjudication.
+**Screening disposition: MINOR.** Re-screened 2026-07-30 after owner adjudication of all seventeen reviewer questions; originally STOP-SHIP against the audited snapshot, for the reason recorded next. Findings are addressed in `3c07009`, and pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because kit binding is scoped to stocked products rather than a named IFU revision, paediatric pathways are deferred, and artwork is outstanding. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** The release-blocking disposition is driven by unreviewed placeholder visual assets under the repository safety policy. The clinical text also has several `MAJOR` omissions requiring clinician adjudication.
 
 ### Source-standard summary
 
@@ -34,11 +183,11 @@ The tray, scalpel, Kelly clamp, suture, occlusive dressing, connected underwater
 3. Decide whether trauma antibiotic prophylaxis and pleural local-anesthetic limits belong in this card or in mandatory linked protocols.
 4. Add the drain-system and controlled-effusion rescue actions, then commission and approve the two visual assets.
 
-**Proposed clinician disposition:** Keep out of release pending correction and qualified thoracic/trauma review. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
+**Proposed clinician disposition (superseded 2026-07-30; see the re-screened disposition above):** Keep out of release pending correction and qualified thoracic/trauma review. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
 
 ## pigtail_catheter - Pigtail Pleural Catheter
 
-**Screening disposition: STOP-SHIP.** Placeholder clinical visuals and a missing immediate stop/clamp response for symptomatic effusion drainage are release-blocking; equipment and dosing details also require review.
+**Screening disposition: MINOR.** Re-screened 2026-07-30 after owner adjudication of all seventeen reviewer questions; originally STOP-SHIP against the audited snapshot, for the reason recorded next. Findings are addressed in `3c07009`, and pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because kit binding is scoped to stocked products rather than a named IFU revision, paediatric pathways are deferred, and artwork is outstanding. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** Placeholder clinical visuals and a missing immediate stop/clamp response for symptomatic effusion drainage are release-blocking; equipment and dosing details also require review.
 
 ### Source-standard summary
 
@@ -64,11 +213,11 @@ Ultrasound, sterile cover/gel, drainage connection, securement, occlusive dressi
 3. Add the controlled-effusion drainage prescription and immediate symptom response.
 4. Decide how local-anesthetic dose ceilings and LAST readiness will be surfaced, then commission and approve both visuals.
 
-**Proposed clinician disposition:** Keep out of release pending correction and qualified pulmonary/thoracic/trauma review. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
+**Proposed clinician disposition (superseded 2026-07-30; see the re-screened disposition above):** Keep out of release pending correction and qualified pulmonary/thoracic/trauma review. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
 
 ## needle_decompression - Needle Decompression
 
-**Screening disposition: STOP-SHIP.** The life-saving device is not numerically specified, creating a plausible failed-decompression risk; both visuals are also unreviewed placeholders.
+**Screening disposition: MINOR.** Re-screened 2026-07-30 after owner adjudication of all seventeen reviewer questions; originally STOP-SHIP against the audited snapshot, for the reason recorded next. Findings are addressed in `3c07009`, and pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because kit binding is scoped to stocked products rather than a named IFU revision, paediatric pathways are deferred, and artwork is outstanding. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** The life-saving device is not numerically specified, creating a plausible failed-decompression risk; both visuals are also unreviewed placeholders.
 
 ### Source-standard summary
 
@@ -94,11 +243,11 @@ Rapid exposure, side confirmation, over-the-rib entry, immediate reassessment, c
 3. Define the immediate failed-needle pathway according to operator capability and the definitive thoracostomy/stable-imaging exception.
 4. State adult-only scope or commission a separately sourced pediatric pathway, then approve both visuals.
 
-**Proposed clinician disposition:** Keep out of release pending device, landmark, fallback, and visual correction with qualified trauma/emergency review. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
+**Proposed clinician disposition (superseded 2026-07-30; see the re-screened disposition above):** Keep out of release pending device, landmark, fallback, and visual correction with qualified trauma/emergency review. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
 
 ## thoracentesis - Thoracentesis
 
-**Screening disposition: STOP-SHIP.** The procedure explicitly permits vacuum-bottle therapeutic drainage, contradicting the current BTS safety statement; its only visual is also an unreviewed placeholder.
+**Screening disposition: MINOR.** Re-screened 2026-07-30 after owner adjudication of all seventeen reviewer questions; originally STOP-SHIP against the audited snapshot, for the reason recorded next. Findings are addressed in `3c07009`, and pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because kit binding is scoped to stocked products rather than a named IFU revision, paediatric pathways are deferred, and artwork is outstanding. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** The procedure explicitly permits vacuum-bottle therapeutic drainage, contradicting the current BTS safety statement; its only visual is also an unreviewed placeholder.
 
 ### Source-standard summary
 
@@ -127,7 +276,7 @@ The kit, catheter/stopcock/syringe, ultrasound, sterile barriers, local-anesthet
 4. Select the local-anesthetic ceiling/monitoring pathway and selective post-procedure imaging criteria.
 5. Replace the reference list with current named primary guidance and adjudicate the unsupported complication-rate numbers and ipsilateral-pneumothorax contraindication.
 
-**Proposed clinician disposition:** Keep out of release pending correction and qualified pulmonary/critical-care review. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
+**Proposed clinician disposition (superseded 2026-07-30; see the re-screened disposition above):** Keep out of release pending correction and qualified pulmonary/critical-care review. `reviewerStatus` remains unchanged (`Needs Clinical Review`).
 
 ## Changed File and Sources / Limitations
 

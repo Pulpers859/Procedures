@@ -24,16 +24,26 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
 
 ## P0: Remove Direct Harm Pathways Before Broader Editing
 
-> Items 2 and 3 were adjudicated by the clinical owner on 2026-07-30 and the
-> content changed; their original text is struck through with the resolution
-> beneath it. Items 1, 4, 5, and 6 are still open. Adjudication here resolves
-> the clinical finding only - the reference and visual-asset gates in P3 are
-> independent and still apply to every record named above.
+> Items 1, 2, and 3 were adjudicated by the clinical owner on 2026-07-30 and
+> the content changed; their original text is struck through with the
+> resolution beneath it. Items 4, 5, and 6 are still open. Adjudication here
+> resolves the clinical finding only - the reference gate in P3.3 is
+> independent, though it has now been satisfied for the ten records
+> re-screened so far. Pending artwork stopped being a release gate on
+> 2026-07-30; see P3.2.
 
-1. **Pleural procedures:** Thoracentesis currently permits vacuum-bottle
+1. **Pleural procedures:** ~~Thoracentesis currently permits vacuum-bottle
    therapeutic drainage despite the 2023 BTS safety statement, and it teaches
    the intercostal bundle order incorrectly. Needle decompression omits a
-   numeric adult device length/gauge. See [03_THORACIC.md](03_THORACIC.md).
+   numeric adult device length/gauge.~~ **Adjudicated 2026-07-30, addressed in
+   `3c07009`.** Vacuum bottles and wall suction are removed in favour of manual
+   syringe or gravity drainage; the intercostal bundle is corrected to
+   vein-artery-nerve in both places it was stated, with the caveat that it is
+   not reliably tucked under the rib; needle decompression specifies 14 gauge or
+   larger at 8 cm or longer. A re-expansion pulmonary oedema rescue card was
+   added and linked from all three pleural records. Residual: kit binding stays
+   under P3.1. See
+   [03_THORACIC.md](03_THORACIC.md#owner-adjudication---2026-07-30).
 2. **IO access:** ~~The pediatric-tagged record uses a fixed 20-40 mg lidocaine
    instruction, a universal 10 mL flush before medication, and a universal
    90-degree trajectory that conflicts with current device-specific pediatric

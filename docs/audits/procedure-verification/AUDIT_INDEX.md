@@ -7,9 +7,9 @@
 ## Result
 
 - Audited procedures: **55/55**.
-- Proposed `STOP-SHIP`: **24** (28 at audit; 4 re-screened to `MINOR` on 2026-07-30).
+- Proposed `STOP-SHIP`: **20** (28 at audit; 8 re-screened to `MINOR` on 2026-07-30).
 - Proposed `MAJOR`: **25** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30).
-- Re-screened `MINOR` after owner adjudication: **6** (vascular access lane).
+- Re-screened `MINOR` after owner adjudication: **10** (vascular access and thoracic lanes).
 - Corpus SHA-256: `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1`.
 - Audit date: 2026-07-18.
 
@@ -77,10 +77,10 @@ report before assigning remediation priority.
 | Regional Anesthesia | `block_tap` - Transversus Abdominis Plane (TAP) Block | `STOP-SHIP` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
 | Regional Anesthesia | `block_ulnar_nerve` - Ulnar Nerve Block | `MAJOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
 | Sedation & Analgesia | `procedural_sedation` - Procedural Sedation | `STOP-SHIP` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
-| Thoracic | `needle_decompression` - Needle Decompression | `STOP-SHIP` | [03_THORACIC.md](03_THORACIC.md) |
-| Thoracic | `pigtail_catheter` - Pigtail Pleural Catheter | `STOP-SHIP` | [03_THORACIC.md](03_THORACIC.md) |
-| Thoracic | `thoracentesis` - Thoracentesis | `STOP-SHIP` | [03_THORACIC.md](03_THORACIC.md) |
-| Thoracic | `thoracostomy_chest_tube` - Thoracostomy / Chest Tube | `STOP-SHIP` | [03_THORACIC.md](03_THORACIC.md) |
+| Thoracic | `needle_decompression` - Needle Decompression | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |
+| Thoracic | `pigtail_catheter` - Pigtail Pleural Catheter | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |
+| Thoracic | `thoracentesis` - Thoracentesis | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |
+| Thoracic | `thoracostomy_chest_tube` - Thoracostomy / Chest Tube | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |
 | Ultrasound-Guided | `ultrasound_guided_piv` - Ultrasound-Guided Peripheral IV | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
 | Vascular Access | `arterial_line` - Arterial Line | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
 | Vascular Access | `central_venous_catheter` - Central Venous Catheter | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
