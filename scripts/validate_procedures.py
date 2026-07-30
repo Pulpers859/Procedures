@@ -840,10 +840,15 @@ def release_readiness_issues(procedures, rescue_cards, kits):
             visual_id = visual.get("id", "<missing visual id>")
             asset_name = visual.get("assetName")
             if not isinstance(asset_name, str) or not asset_name.strip():
+                # Not a blocker since 2026-07-30, by owner decision. A
+                # placeholder falls back to the asset's SF Symbol and the card
+                # still reads correctly, so pending artwork is a feature in
+                # progress rather than a defect in the text. See
+                # docs/ai-instructions/SAFETY_AND_REVIEW_POLICY.md.
                 issues.append((
-                    "BLOCKER",
+                    "WARNING",
                     title,
-                    f"release requires bundled artwork for declared visual asset '{visual_id}'",
+                    f"visual asset '{visual_id}' has no bundled artwork yet; the card falls back to its SF Symbol",
                 ))
             elif not visual_asset_exists(asset_name):
                 issues.append((

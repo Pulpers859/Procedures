@@ -209,7 +209,7 @@ adjudicated here.
 
 ## `central_venous_catheter` - Central Venous Catheter
 
-**Screening disposition: `STOP-SHIP`**
+**Screening disposition: `MINOR`** - re-screened 2026-07-30 after owner adjudication; originally `STOP-SHIP` against the audited snapshot. Every finding below is addressed in `dc58371` (clinical text) or `81c8030` (references), and pending artwork stopped being release-gating on 2026-07-30 by owner decision. `MINOR` rather than no-material-discrepancy because residual items remain, listed under [Owner adjudication](#owner-adjudication---2026-07-30). This is a discrepancy-screen result, not clinical approval, and `reviewerStatus` is unchanged.
 
 **Source-standard summary.** ASA requires confirmation that the needle/catheter is venous without relying on blood color or nonpulsatile flow, and requires venous guidewire confirmation after a thin-wall-needle technique before dilation. If a dilator or large-bore catheter enters an adult artery, it should remain in place while surgical or interventional removal is arranged. Current CDC guidance supports real-time ultrasound, maximal sterile barrier, alcoholic chlorhexidine greater than 0.5% (or an alternative when contraindicated), and prompt removal when no longer needed.
 
@@ -231,7 +231,7 @@ adjudicated here.
 
 ## `arterial_line` - Arterial Line
 
-**Screening disposition: `MAJOR`**
+**Screening disposition: `MINOR`** - re-screened 2026-07-30 after owner adjudication; originally `MAJOR` against the audited snapshot. Every finding below is addressed in `dc58371` (clinical text) or `81c8030` (references), and pending artwork stopped being release-gating on 2026-07-30 by owner decision. `MINOR` rather than no-material-discrepancy because residual items remain, listed under [Owner adjudication](#owner-adjudication---2026-07-30). This is a discrepancy-screen result, not clinical approval, and `reviewerStatus` is unchanged.
 
 **Source-standard summary.** CDC recommends at least cap, mask, sterile gloves, and a small sterile fenestrated drape for peripheral arterial catheter insertion; maximal barriers for femoral/axillary sites; alcoholic chlorhexidine greater than 0.5%; a sterile closed pressure-monitoring system; clinically indicated rather than routine catheter replacement; and prompt removal when no longer required. Accurate invasive pressure use also requires leveling/zeroing and assessment for over- or underdamping, commonly by a fast-flush dynamic-response test.
 
@@ -254,7 +254,7 @@ adjudicated here.
 
 ## `introducer_sheath_cordis` - Introducer Sheath (Cordis)
 
-**Screening disposition: `STOP-SHIP`**
+**Screening disposition: `MINOR`** - re-screened 2026-07-30 after owner adjudication; originally `STOP-SHIP` against the audited snapshot. Every finding below is addressed in `dc58371` (clinical text) or `81c8030` (references), and pending artwork stopped being release-gating on 2026-07-30 by owner decision. `MINOR` rather than no-material-discrepancy because residual items remain, listed under [Owner adjudication](#owner-adjudication---2026-07-30). This is a discrepancy-screen result, not clinical approval, and `reviewerStatus` is unchanged.
 
 **Source-standard summary.** Large introducers magnify the consequences of arterial injury. ASA and the 2025 multi-society vascular-access guideline require an adult dilator/large catheter inadvertently placed in an artery to be left in place while urgent surgical/interventional removal is planned. Device selection, French size, wire compatibility, sheath/hemostasis-valve design, and insertion/removal sequence must follow the exact manufacturer IFU.
 
@@ -277,7 +277,7 @@ adjudicated here.
 
 ## `dialysis_catheter_vascath` - Dialysis Catheter (Vas-Cath)
 
-**Screening disposition: `STOP-SHIP`**
+**Screening disposition: `MINOR`** - re-screened 2026-07-30 after owner adjudication; originally `STOP-SHIP` against the audited snapshot. Every finding below is addressed in `dc58371` (clinical text) or `81c8030` (references), and pending artwork stopped being release-gating on 2026-07-30 by owner decision. `MINOR` rather than no-material-discrepancy because residual items remain, listed under [Owner adjudication](#owner-adjudication---2026-07-30). This is a discrepancy-screen result, not clinical approval, and `reviewerStatus` is unchanged.
 
 **Source-standard summary.** KDIGO recommends a nontunneled uncuffed catheter for acute RRT, site order of right IJ, femoral, left IJ, then subclavian, ultrasound guidance, and chest radiograph before first use of IJ/subclavian acute dialysis catheters. Catheter length and tip location are site-specific: KDIGO describes 12-15 cm right IJ, 15-20 cm left IJ, and 19-24 cm femoral lengths, with a semirigid nontunneled IJ tip at the SVC-right atrial junction rather than in the heart. Large-bore arterial cannulation requires the same leave-in-place urgent-consult rescue as other central dilators/catheters.
 
@@ -300,7 +300,7 @@ adjudicated here.
 
 ## `intraosseous_access` - Intraosseous (IO) Access
 
-**Screening disposition: `STOP-SHIP`**
+**Screening disposition: `MINOR`** - re-screened 2026-07-30 after owner adjudication; originally `STOP-SHIP` against the audited snapshot. Every finding below is addressed in `dc58371` (clinical text) or `81c8030` (references), and pending artwork stopped being release-gating on 2026-07-30 by owner decision. `MINOR` rather than no-material-discrepancy because residual items remain, listed under [Owner adjudication](#owner-adjudication---2026-07-30). This is a discrepancy-screen result, not clinical approval, and `reviewerStatus` is unchanged.
 
 **Source-standard summary.** The current Teleflex EZ-IO materials distinguish adults from infants/children: typical initial 2% preservative-free, epinephrine-free lidocaine is 40 mg in adults but 0.5 mg/kg in infants/children (maximum 40 mg), infused over 120 seconds, followed by a 60-second dwell and then saline flush; flush is 5-10 mL adult and 2-5 mL infant/child. Needle length must be selected by weight, anatomy, tissue depth, and visibility of the 5 mm mark. The proximal humerus uses a device-specific 45-degree-to-anterior-plane/posteromedial trajectory, while tibial sites use 90 degrees to bone. AHA 2025 recommends adult IV first in cardiac arrest, with IO reasonable when IV attempts fail or are not feasible.
 
@@ -325,7 +325,7 @@ adjudicated here.
 
 ## `ultrasound_guided_piv` - Ultrasound-Guided Peripheral IV
 
-**Screening disposition: `MAJOR`**
+**Screening disposition: `MINOR`** - re-screened 2026-07-30 after owner adjudication; originally `MAJOR` against the audited snapshot. Every finding below is addressed in `dc58371` (clinical text) or `81c8030` (references), and pending artwork stopped being release-gating on 2026-07-30 by owner decision. `MINOR` rather than no-material-discrepancy because residual items remain, listed under [Owner adjudication](#owner-adjudication---2026-07-30). This is a discrepancy-screen result, not clinical approval, and `reviewerStatus` is unchanged.
 
 **Source-standard summary.** The 2019 Society of Hospital Medicine statement supports ultrasound for difficult peripheral access, real-time needle-tip visualization, vessel/nerve identification, and catheter length appropriate to depth. The 2025 multi-society vascular-access guideline recommends long peripheral or midline devices when ultrasound is required and at least one-third of the catheter intraluminal. CDC's 2025 safety alert requires single-use gel explicitly labeled sterile for central and peripheral IV placement. Contrast injection additionally depends on catheter verification, securement, location/gauge/flow, and device/radiology policy.
 

@@ -404,9 +404,11 @@
         "If a large-bore device ends up in an artery, the instinctive action is the lethal one. Leave it in and make the call."
       ],
       "references": [
-        "Miller's Anesthesia and major critical care procedural texts for central venous access principles.",
-        "CDC guidance for prevention of intravascular catheter-related infections.",
-        "Society and institutional ultrasound-guided vascular access policies; verify local central line bundle requirements."
+        "American Society of Anesthesiologists. Practice Guidelines for Central Venous Access 2020. Anesthesiology. 2020;132(1):8-43. https://journals.lww.com/anesthesiology/fulltext/2020/01000/practice_guidelines_for_central_venous_access.9.aspx",
+        "Association of Anaesthetists. Safe Vascular Access 2025. Anaesthesia. 2025. https://associationofanaesthetists-publications.onlinelibrary.wiley.com/doi/full/10.1111/anae.16727",
+        "CDC. Guidelines for the Prevention of Intravascular Catheter-Related Infections: summary of recommendations. 2011 guideline, page updated 2024. https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infections/summary-recommendations.html",
+        "Guilbert MC et al. Arterial trauma during central venous catheter insertion: case series, review and proposed algorithm. J Vasc Surg. 2008;48(4):918-925. https://pubmed.ncbi.nlm.nih.gov/18703308/",
+        "DailyMed/FDA label, Lidocaine Hydrochloride Injection. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=cddb2b22-fce3-8967-6e54-dca3df5ac4b3"
       ]
     },
     "visualAssets": [
@@ -1900,8 +1902,9 @@
         "A persistently dampened waveform is a reason to fix or replace the line, not to accept inaccurate readings - and underdamping is the more dangerous direction, because it hides hypotension behind a falsely reassuring systolic."
       ],
       "references": [
-        "Roberts JR, Custalow CB. Roberts and Hedges' Clinical Procedures in Emergency Medicine. Arterial Catheterization chapter.",
-        "Society of Critical Care Medicine and ACEP guidelines on arterial line placement, hemodynamic monitoring, and infection prevention."
+        "CDC. Guidelines for the Prevention of Intravascular Catheter-Related Infections: arterial catheters and pressure-monitoring systems. 2011 guideline, page updated 2024. https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infections/summary-recommendations.html",
+        "Saugel B, Kouz K, Meidert AS, Schulte-Uentrop L, Romagnoli S. How to measure blood pressure using an arterial catheter: a systematic 5-step approach. Crit Care. 2020;24(1):172. https://pubmed.ncbi.nlm.nih.gov/32331527/",
+        "Romagnoli S et al. Accuracy of invasive arterial pressure monitoring in cardiovascular patients: an observational study. Crit Care. 2014;18(6):644. https://pubmed.ncbi.nlm.nih.gov/25433536/"
       ]
     },
     "visualAssets": [
@@ -2532,9 +2535,10 @@
         "An uncapped large-bore sheath is an open conduit for air; cap or connect it the moment the dilator and wire come out."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, central venous access and introducer sheath technique.",
-        "Major critical care and trauma resuscitation texts on large-bore venous access.",
-        "Institutional central line bundle and ultrasound-guided vascular access policies; verify local requirements."
+        "American Society of Anesthesiologists. Practice Guidelines for Central Venous Access 2020. Anesthesiology. 2020;132(1):8-43. https://journals.lww.com/anesthesiology/fulltext/2020/01000/practice_guidelines_for_central_venous_access.9.aspx",
+        "Association of Anaesthetists. Safe Vascular Access 2025. Anaesthesia. 2025. https://associationofanaesthetists-publications.onlinelibrary.wiley.com/doi/full/10.1111/anae.16727",
+        "Teleflex. Arrow percutaneous sheath introducer product and instructions-for-use reference. https://www.teleflex.com/usa/en/product-areas/vascular-access/central-access/percutaneous-sheath-introducer/index.html",
+        "CDC. Guidelines for the Prevention of Intravascular Catheter-Related Infections: summary of recommendations. 2011 guideline, page updated 2024. https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infections/summary-recommendations.html"
       ]
     },
     "visualAssets": [
@@ -2693,9 +2697,11 @@
         "If a lumen will not aspirate, do not flush it under pressure; reposition and reconfirm tip position first."
       ],
       "references": [
-        "KDOQI clinical practice guidelines for vascular access.",
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, central venous and dialysis catheter access.",
-        "Institutional dialysis catheter and central line bundle policies; verify local lock-solution protocol."
+        "KDIGO. Clinical Practice Guideline for Acute Kidney Injury, section 5.4: vascular access for renal replacement therapy. Kidney Int Suppl. 2012;2(1). https://kdigo.org/wp-content/uploads/2019/01/KDIGO-2012-AKI-Guideline-English.pdf",
+        "National Kidney Foundation. KDOQI Clinical Practice Guideline for Vascular Access: 2019 update. https://www.kidney.org/professionals/kdoqi/guidelines-and-commentaries/vascular-access",
+        "American Society of Anesthesiologists. Practice Guidelines for Central Venous Access 2020. Anesthesiology. 2020;132(1):8-43. https://journals.lww.com/anesthesiology/fulltext/2020/01000/practice_guidelines_for_central_venous_access.9.aspx",
+        "Teleflex. Arrow acute hemodialysis catheter specifications and instructions-for-use reference. https://www.teleflex.com/usa/en/product-areas/vascular-access/central-access/acute-hemodialysis-catheters/",
+        "FDA. DefenCath (taurolidine and heparin) prescribing information, illustrating lock-volume and aspiration requirements. 2023. https://www.fda.gov/media/179230/download"
       ]
     },
     "visualAssets": [
@@ -2842,9 +2848,12 @@
         "The medial upper arm is rich in arteries and nerves; one extra moment confirming the structure is a vein prevents the worst complications."
       ],
       "references": [
-        "ACEP policy and emergency ultrasound guidelines on ultrasound-guided vascular access.",
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, peripheral venous access.",
-        "Society and institutional ultrasound-guided peripheral access protocols; verify local catheter and dwell-time policy."
+        "CDC. Use Only Sterile Ultrasound Gel for Percutaneous Procedures. 2025. https://www.cdc.gov/healthcare-associated-infections/bulletins/outbreak-ultrasound-gel.html",
+        "Society of Hospital Medicine. Recommendations on the Use of Ultrasound Guidance for Central and Peripheral Vascular Access in Adults. J Hosp Med. 2019;14:E1-E22. https://pmc.ncbi.nlm.nih.gov/articles/PMC10193861/",
+        "Association of Anaesthetists. Safe Vascular Access 2025. Anaesthesia. 2025. https://associationofanaesthetists-publications.onlinelibrary.wiley.com/doi/full/10.1111/anae.16727",
+        "Pandurangadu AV et al. Ultrasound-guided intravenous catheter survival impacted by amount of catheter residing in the vein. Emerg Med J. 2018;35(9):550-555. https://pubmed.ncbi.nlm.nih.gov/30021833/",
+        "Fields JM et al. Predictors of ultrasound-guided peripheral intravenous catheter failure. Am J Emerg Med. 2022;60:1-6. https://pubmed.ncbi.nlm.nih.gov/36113061/",
+        "American College of Radiology. ACR Manual on Contrast Media. 2024 edition with 2025 chapter updates. https://cs.acr.org/-/media/ACR/Files/Clinical-Resources/Contrast_Media.pdf"
       ]
     },
     "visualAssets": [
@@ -3809,10 +3818,10 @@
         "The 5 mm mark is worth more than any weight chart: it measures the thing that actually matters, which is how much needle is left after the tissue."
       ],
       "references": [
-        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
-        "ACLS/PALS guidelines on vascular access.",
-        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
-        "Verify device-specific instructions and institutional IO protocols."
+        "Teleflex. Arrow EZ-IO intraosseous vascular access procedure template, document MCI-2019-0395. https://www.teleflex.com/global/clinical-resources/documents/MCI-2019-0395_Arrow_EZ-IO_Intraosseous_Procedure_Template_LR.pdf",
+        "Teleflex. Arrow EZ-IO procedure competency template, MC-000270 rev 2c. 2021. https://www.teleflex.com/usa/en/clinical-resources/ez-io/documents/EM_IOS_EZIO%20Procedure-Competency-Template_MC-000270_rev2c.pdf",
+        "Teleflex. Arrow EZ-IO indications and contraindications data sheet. https://go.teleflex.com/EZUI-Procedure-Tray-Data-Sheet.html",
+        "American Heart Association. 2025 Guidelines for CPR and ECC: Adult Advanced Life Support, vascular access. 2025. https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support"
       ]
     },
     "visualAssets": [

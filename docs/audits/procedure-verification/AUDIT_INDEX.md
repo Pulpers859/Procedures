@@ -7,15 +7,17 @@
 ## Result
 
 - Audited procedures: **55/55**.
-- Proposed `STOP-SHIP`: **28**.
-- Proposed `MAJOR`: **27**.
+- Proposed `STOP-SHIP`: **24** (28 at audit; 4 re-screened to `MINOR` on 2026-07-30).
+- Proposed `MAJOR`: **25** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30).
+- Re-screened `MINOR` after owner adjudication: **6** (vascular access lane).
 - Corpus SHA-256: `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1`.
 - Audit date: 2026-07-18.
 
 Every disposition is an AI-assisted discrepancy-screen result, not a
-clinical approval. Some `STOP-SHIP` dispositions arise from an unapproved
-declared visual while the clinical-text findings are `MAJOR`; consult the
-individual report before assigning remediation priority.
+clinical approval. Declared visuals without artwork stopped being a release
+gate on 2026-07-30 by owner decision, so a disposition driven by a pending
+visual alone no longer reflects a release blocker; consult the individual
+report before assigning remediation priority.
 
 ## Lane Reports
 
@@ -79,12 +81,12 @@ individual report before assigning remediation priority.
 | Thoracic | `pigtail_catheter` - Pigtail Pleural Catheter | `STOP-SHIP` | [03_THORACIC.md](03_THORACIC.md) |
 | Thoracic | `thoracentesis` - Thoracentesis | `STOP-SHIP` | [03_THORACIC.md](03_THORACIC.md) |
 | Thoracic | `thoracostomy_chest_tube` - Thoracostomy / Chest Tube | `STOP-SHIP` | [03_THORACIC.md](03_THORACIC.md) |
-| Ultrasound-Guided | `ultrasound_guided_piv` - Ultrasound-Guided Peripheral IV | `MAJOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
-| Vascular Access | `arterial_line` - Arterial Line | `MAJOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
-| Vascular Access | `central_venous_catheter` - Central Venous Catheter | `STOP-SHIP` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
-| Vascular Access | `dialysis_catheter_vascath` - Dialysis Catheter (Vas-Cath) | `STOP-SHIP` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
-| Vascular Access | `intraosseous_access` - Intraosseous (IO) Access | `STOP-SHIP` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
-| Vascular Access | `introducer_sheath_cordis` - Introducer Sheath (Cordis) | `STOP-SHIP` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
+| Ultrasound-Guided | `ultrasound_guided_piv` - Ultrasound-Guided Peripheral IV | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
+| Vascular Access | `arterial_line` - Arterial Line | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
+| Vascular Access | `central_venous_catheter` - Central Venous Catheter | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
+| Vascular Access | `dialysis_catheter_vascath` - Dialysis Catheter (Vas-Cath) | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
+| Vascular Access | `intraosseous_access` - Intraosseous (IO) Access | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
+| Vascular Access | `introducer_sheath_cordis` - Introducer Sheath (Cordis) | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
 | Wound / Soft Tissue | `abscess_incision_drainage` - Abscess Incision & Drainage | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
 | Wound / Soft Tissue | `foreign_body_removal_soft_tissue` - Foreign Body Removal (Soft Tissue) | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
 | Wound / Soft Tissue | `laceration_repair` - Laceration Repair (Suturing) | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
