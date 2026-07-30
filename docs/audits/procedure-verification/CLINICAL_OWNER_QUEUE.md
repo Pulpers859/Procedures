@@ -24,20 +24,36 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
 
 ## P0: Remove Direct Harm Pathways Before Broader Editing
 
+> Items 2 and 3 were adjudicated by the clinical owner on 2026-07-30 and the
+> content changed; their original text is struck through with the resolution
+> beneath it. Items 1, 4, 5, and 6 are still open. Adjudication here resolves
+> the clinical finding only - the reference and visual-asset gates in P3 are
+> independent and still apply to every record named above.
+
 1. **Pleural procedures:** Thoracentesis currently permits vacuum-bottle
    therapeutic drainage despite the 2023 BTS safety statement, and it teaches
    the intercostal bundle order incorrectly. Needle decompression omits a
    numeric adult device length/gauge. See [03_THORACIC.md](03_THORACIC.md).
-2. **IO access:** The pediatric-tagged record uses a fixed 20-40 mg lidocaine
+2. **IO access:** ~~The pediatric-tagged record uses a fixed 20-40 mg lidocaine
    instruction, a universal 10 mL flush before medication, and a universal
    90-degree trajectory that conflicts with current device-specific pediatric
-   dosing/flush and proximal-humerus instructions. See
-   [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md).
-3. **Central and large-bore access:** CVC, introducer, and dialysis-catheter
+   dosing/flush and proximal-humerus instructions.~~ **Adjudicated 2026-07-30,
+   addressed in `dc58371`.** Lidocaine is structured data at 0.5 mg/kg capped
+   at 40 mg; the sequence is lidocaine, 120-second infusion, 60-second dwell,
+   then an age-specific flush; the humerus is 45 degrees posteromedial and
+   needle choice is anchored to the 5 mm mark. Residual: EZ-IO is named but not
+   bound to a stocked revision, which stays under P3.1. See
+   [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md#owner-adjudication---2026-07-30).
+3. **Central and large-bore access:** ~~CVC, introducer, and dialysis-catheter
    pathways do not state the immediate leave-in-place/urgent-specialist response
    after adult dilator or large catheter arterial cannulation, and their
-   pre-dilation venous/wire confirmation is too conditional. See
-   [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md).
+   pre-dilation venous/wire confirmation is too conditional.~~ **Adjudicated
+   2026-07-30, addressed in `dc58371`.** All three carry a word-for-word
+   identical pre-dilation gate with no emergency exception, and a leave-in-place
+   arterial rescue separated from the needle-only branch; both are asserted
+   identical by test. An air-embolism rescue card was added and linked from all
+   three. Residual: introducer and dialysis IFU binding stays under P3.1. See
+   [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md#owner-adjudication---2026-07-30).
 4. **Needle targets:** Popliteal sciatic directs entry into an "epineural
    sheath"; serratus says to slide off the rib; PECS II permits an "or ribs"
    endpoint; and infraorbital lacks a bounded trajectory that prevents orbital

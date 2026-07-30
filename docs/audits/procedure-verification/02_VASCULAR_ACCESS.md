@@ -8,6 +8,205 @@
 - Every named section, equipment/instruments, visual-asset declaration, and structured-dosing field was screened. None of the six objects contains a structured-dosing field.
 - Independent release gate: every assigned procedure declares one or more `visualAssets` with `assetName: null`. Per `docs/ai-instructions/SAFETY_AND_REVIEW_POLICY.md`, placeholders are stop-ship for release even where the clinical screening disposition below is `MAJOR`.
 
+## Owner adjudication - 2026-07-30
+
+The clinical owner reviewed all sixteen reviewer questions below and directed
+the answers recorded here. Content was changed accordingly in commit `dc58371`
+and the ledger amended in `30693da`.
+
+**How to read the rest of this file.** The findings and dispositions below
+describe the audited snapshot (`3b642c17...`) and are retained unedited as
+evidence. They are not a description of what ships today. Where a finding is
+marked addressed here, the shipping text has changed and the audit fingerprint
+moved with it; the per-record amendment in `AUDIT_LEDGER.json` is what attests
+to the current bytes.
+
+**What this does not clear.** Two independent release gates are untouched on
+all six records: references are still non-traceable, and every `visualAssets`
+entry is still a placeholder. Neither is a clinical question and neither was
+adjudicated here.
+
+### `central_venous_catheter`
+
+1. *Must venous/wire position be confirmed before dilation in every non-exempt
+   scenario, with the emergency exception defined?* **Yes, mandatory - and no
+   emergency exception is defined.** Blood return confirms a vessel, not which
+   one; colour is meaningless in a hypoxic patient and non-pulsatile flow is
+   meaningless in shock. An exception would apply precisely when the operator
+   is most rushed and most likely to have hit the carotid, and it buys nothing:
+   ultrasound of the wire costs about five seconds. The method is flexible
+   (two-plane ultrasound, or transduction/manometry when the wire is not
+   clearly seen); the gate is absolute. Recorded as a limitation: ultrasound
+   answers artery-versus-vein, not a wire heading cephalad or across the
+   midline - that is what the post-placement film is for.
+2. *Should the arterial rescue state leave-in-place and distinguish needle from
+   dilator/catheter?* **Yes, and this was the highest-value edit in the lane.**
+   The previous text named a decision ("based on catheter size and site") and
+   then declined to make it. Two branches now: needle only (18 G or smaller,
+   not dilated) comes out under pressure with prolonged airway watch after a
+   neck puncture; a dilator, any catheter, or *anything* in a non-compressible
+   site stays in while vascular surgery and IR are called. The trigger is size
+   *and* compressibility, not French size alone. A third line was added that
+   the audit did not ask for: if unsure whether the line is arterial,
+   transduce it - waveform answers in seconds where colour and a blood gas do
+   not.
+
+### `arterial_line`
+
+3. *Require CDC barrier elements and maximal barriers for femoral/axillary?*
+   **Yes, with the honest caveat that this is the lowest patient-outcome yield
+   item in the lane.** Radial arterial line infection rates are low. The
+   operative reason is that the equipment list is a pick list: cap and mask
+   absent from it means arriving at the bedside without them. The
+   femoral/axillary distinction is the substantive half - those behave like
+   central lines, especially the axillary that stays in for days.
+4. *What dynamic-response validation and cadence?* **Square-wave testing at
+   setup, at handover, after any position or transducer change, and whenever
+   the number does not fit the patient.** The card covered damping in one
+   direction only, and the omitted direction is the dangerous one: an
+   underdamped trace reads systolic 20-30 mmHg high and hides the hypotension
+   being titrated against. Reading and remediation are stated for both
+   directions, and the governing rule is that MAP is relatively protected where
+   systolic is not - so titration falls back to MAP until the trace validates.
+   Levelling at the phlebostatic axis after every bed height change was added
+   for the same reason.
+5. *Remove or replace the 72-96 hour phrase?* **Delete outright.** It is a
+   fossil of scheduled line changes; routine resiting does not lower infection
+   and costs the patient another puncture and another chance at radial
+   thrombosis. Replaced with clinically-indicated replacement and prompt
+   removal. Infection stays in the complications list without the number.
+
+### `introducer_sheath_cordis`
+
+6. *Which products, sizes, and IFUs?* **The stocked 8.5-9 Fr, 10 cm sheath
+   introducers with hemostasis valve and side arm are named, with one line
+   deferring any other design to its insert.** This departs from the report's
+   framing, deliberately: "defer to the IFU" is right for a manual serving many
+   hospitals and wrong for a bedside card, where the kit is already open. The
+   report's implication that "dilator and sheath advance together" is unsafe as
+   a general instruction was **not** accepted - that is the technique for the
+   kits in use, and the commoner real error is the opposite, which is the
+   sheath-accordion failure the card's own troubleshooting already names.
+   Three additions the report did not raise: a concrete skin-nick instruction,
+   an explicit never-leave-the-hub-open rule, and a removal sequence, since
+   most large-bore air embolism happens at removal rather than insertion.
+7. *Exact rescue wording after arterial dilation?* **Identical wording to the
+   CVC, verbatim**, so the reader cannot meet two versions of one doctrine.
+   Enforced by test rather than convention.
+8. *What confirmation before the large dilator?* **The same gate, with a
+   stricter escape.** Two-plane ultrasound is the floor; any hesitation and a
+   small dilator or 18 G catheter goes over the wire to be transduced first.
+   Noted in the card: a peri-arrest patient has no waveform to read, which is
+   exactly the patient who gets a cordis, so ultrasound has to be the primary
+   answer.
+
+### `dialysis_catheter_vascath`
+
+9. / 10. *Which sizes and lengths, and should KDIGO distinctions be encoded?*
+   **Encode them.** Right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm, with
+   12-14 Fr as the typical adult size and the tip at the SVC/RA junction rather
+   than in the atrium, where a stiff non-tunnelled tip can perforate. The
+   functional argument is stated because it changes behaviour and is the
+   failure most likely to actually occur: a short femoral catheter leaves the
+   tip in the iliac vein, recirculates, and dialyses nothing. Priming volume is
+   handled by telling the reader where to look - printed on the lumen - rather
+   than by publishing a number that would be wrong for some device.
+11. *Rescue wording and lock safeguards?* **Rescue verbatim identical to the
+    other two.** Lock safeguards, ordered by likelihood of harm: aspirate and
+    discard the lock before every use (the card previously said to instil a
+    lock and never to withdraw it - the actual gap); fill to the printed volume,
+    since overfilling pushes lock into the patient and underfilling clots the
+    line; citrate where heparin-induced thrombocytopenia is known or suspected;
+    label the lumens as locked; and reserve the catheter for dialysis, because
+    every extra access risks the line dialysis depends on.
+
+### `intraosseous_access`
+
+12. *Encode product-specific age/weight dosing, or delete the recipe?*
+    **Encode it, as structured data.** This was the only record in the lane
+    where following the card as written harmed the patient rather than merely
+    omitting something: a flat 20-40 mg on a paediatric-tagged procedure is
+    more than six times the 3 mg a 6 kg infant is owed. Deferring to an
+    institutional order set is the worse answer for a bedside card - the reader
+    is standing over a screaming patient with a needle in their tibia. The
+    ceiling shape (0.5 mg/kg capped at 40 mg, at 2%) matches the existing
+    calculator exactly and yields the 0.15 mL nobody computes reliably under
+    pressure. Three further corrections beyond the number: the sequence was
+    backwards and is now lidocaine, 120-second infusion, 60-second dwell, then
+    flush - flushing an un-anaesthetised marrow is the painful step and doing
+    it first wasted the drug; flush volume is age-specific (5-10 mL adult,
+    2-5 mL infant/child); and the extension set's dead space can hold most of a
+    paediatric dose. Recorded honestly: the calculator returns 35 mg at 70 kg
+    where the manufacturer gives adults a flat 40 mg. Erring low on an
+    analgesic is the safe direction, and the agent note states the adult figure
+    rather than leaving the reader to find the discrepancy.
+13. *Which devices, and site-specific trajectory and needle rules?* **EZ-IO
+    named; trajectory and needle rules encoded.** Humerus at 45 degrees to the
+    anterior plane aimed posteromedially, tibia and distal femur at 90; the
+    universal-90 instruction was a genuine safety defect, not a paperwork one.
+    Needle selection is taught by tissue depth rather than age, with the 5 mm
+    mark as the override, because that is a direct measurement of the thing
+    that matters. Two related items adopted without being asked: adult guidance
+    now attempts IV before IO in arrest, and the 24-hour removal instruction is
+    phrased as a goal rather than a limit so nobody pulls a patient's only
+    access at hour 24. The card's claim that the tibia is the adult default was
+    softened rather than reversed - the humerus flows better and reaches the
+    central circulation faster in arrest, but is mis-sited more often and
+    dislodges during CPR.
+
+### `ultrasound_guided_piv`
+
+14. *Change the gel language?* **Yes - single-use gel explicitly labelled
+    sterile.** "Sterile or single-use ... per local policy" reads as though
+    non-sterile single-use is an acceptable branch, and it is not for a
+    percutaneous procedure. Probe cover and field discipline were left to local
+    policy, which is a genuine practice variation, with the principle stated
+    that the deeper the catheter the more it should look like a central line.
+15. *What replaces the fixed 4.8 cm minimum?* **Measure depth first, then
+    choose the catheter, targeting at least 2.75 cm of catheter inside the
+    vein.** The previous rule was internally inconsistent: one third of 4.8 cm
+    is 1.6 cm intraluminal, below what predicts survival, and unachievable at
+    the 1.5 cm depth the same card permitted. Escalation stated: roughly
+    4.8 cm at 1 cm depth, 6.3 cm at 1.5 cm, and past 1.5-2 cm the question is
+    whether the patient needs a midline instead. Depth over 1.2 cm is flagged
+    as predicting failure, so the line is known to be fragile rather than
+    silently handed to the night shift. The 0.3 cm lower bound was dropped as a
+    target; shallower is easier and fine.
+16. *Remove contrast as an indication, or condition it?* **Condition it.**
+    Deleting it would be dishonest - needing contrast is one of the commonest
+    reasons this procedure is requested. Conditioned on a power-rated catheter
+    at an approved gauge, site, and flow rate with position re-confirmed
+    immediately before injection. The clinically important point the report's
+    policy framing missed is stated in complications: a deep upper-arm
+    extravasation is *unwitnessed* - the arm is under a drape or in the bore
+    and a large volume arrives before anyone sees it.
+
+### Adopted beyond the sixteen questions
+
+- An air-embolism rescue card (`air_embolism_vascular_access`), linked from all
+  three large-bore records. Three records named air embolism as a complication
+  and none said what to do about it; prevention steps (head-down positioning,
+  hub occlusion, removal sequence) were also absent.
+- Wire-control discipline stated at step level and confirmed aloud, rather than
+  only as an endpoint in `confirmation`.
+- Tip-position criteria on the CVC, including that a normal chest film does not
+  exclude arterial placement - the film is widely treated as a safety net it
+  is not.
+- A senior pearl that after two failed passes something changes: site,
+  operator, or plan.
+
+### Known residual gaps
+
+- References remain non-traceable on all six records; the `MAJOR` reference
+  findings below are unaddressed.
+- All `visualAssets` remain placeholders, which is an independent stop-ship.
+- Introducer and dialysis IFU binding is scoped to the products the owner
+  stocks and is not named per-product.
+- The new rescue card is an AI draft awaiting clinical review, like the other
+  ten.
+- Paediatric, pregnancy, and institution-specific coagulation thresholds
+  remain out of scope for these adult-oriented records.
+
 ## `central_venous_catheter` - Central Venous Catheter
 
 **Screening disposition: `STOP-SHIP`**
@@ -24,7 +223,7 @@
 
 **Dosing/monitoring.** No structured dosing is present. Local anesthetic is named without concentration, amount, patient-specific maximum, toxicity precautions, or monitoring; the current FDA label for plain lidocaine gives a normal-healthy-adult ceiling of 4.5 mg/kg and generally 300 mg, but a clinician must decide whether and how procedural local-anesthetic dosing belongs here. Post-placement monitoring names major complications but does not provide explicit immediate reassessment triggers beyond instability.
 
-**Reviewer questions and proposed disposition.** Must venous access and wire position be confirmed with an accepted method before dilation in every non-exempt scenario, with the emergency exception defined? Should the arterial-cannulation rescue state the adult leave-in-place/urgent-consult action and distinguish small-needle puncture from dilator/large catheter injury? Proposed disposition remains `STOP-SHIP` until those decisions are made by a qualified clinician. `reviewerStatus` remains unchanged.
+**Reviewer questions and proposed disposition.** Must venous access and wire position be confirmed with an accepted method before dilation in every non-exempt scenario, with the emergency exception defined? Should the arterial-cannulation rescue state the adult leave-in-place/urgent-consult action and distinguish small-needle puncture from dilator/large catheter injury? Proposed disposition remains `STOP-SHIP` until those decisions are made by a qualified clinician. `reviewerStatus` remains unchanged. **Adjudicated 2026-07-30** - the questions above were answered by the clinical owner and the content changed in `dc58371`; see [Owner adjudication](#owner-adjudication---2026-07-30). The disposition and `reviewerStatus` statements in this section describe the audited snapshot and are retained as evidence, not as a description of what ships now.
 
 **Primary/authoritative sources:** [American Society of Anesthesiologists, *Practice Guidelines for Central Venous Access 2020* (2020)](https://journals.lww.com/anesthesiology/fulltext/2020/01000/practice_guidelines_for_central_venous_access.9.aspx); [Association of Anaesthetists, *Safe Vascular Access 2025* (2025)](https://associationofanaesthetists-publications.onlinelibrary.wiley.com/doi/full/10.1111/anae.16727); [CDC, *Guidelines for Prevention of Intravascular Catheter-Related Infections* summary (2011 guideline; page updated 2024)](https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infections/summary-recommendations.html); [DailyMed/FDA label, Lidocaine Hydrochloride Injection (current label accessed 2026)](https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=cddb2b22-fce3-8967-6e54-dca3df5ac4b3).
 
@@ -47,7 +246,7 @@
 
 **Dosing/monitoring.** No structured dosing is present. The only drug detail is 1% lidocaine without dose/maximum or toxicity monitoring. Continuous pressure monitoring is central to this procedure, but the quality-control sequence is incomplete as above. Distal perfusion checks are appropriately included.
 
-**Reviewer questions and proposed disposition.** Should the procedure explicitly require CDC barrier elements and maximal barriers for femoral/axillary placement? What dynamic-response validation and repeat-check cadence should be required before titrating treatment to the displayed pressure? Should the 72-96-hour phrase be removed or replaced with clinically indicated removal language? Proposed disposition is `MAJOR` pending clinician revision. `reviewerStatus` remains unchanged.
+**Reviewer questions and proposed disposition.** Should the procedure explicitly require CDC barrier elements and maximal barriers for femoral/axillary placement? What dynamic-response validation and repeat-check cadence should be required before titrating treatment to the displayed pressure? Should the 72-96-hour phrase be removed or replaced with clinically indicated removal language? Proposed disposition is `MAJOR` pending clinician revision. `reviewerStatus` remains unchanged. **Adjudicated 2026-07-30** - the questions above were answered by the clinical owner and the content changed in `dc58371`; see [Owner adjudication](#owner-adjudication---2026-07-30). The disposition and `reviewerStatus` statements in this section describe the audited snapshot and are retained as evidence, not as a description of what ships now.
 
 **Primary/authoritative sources:** [CDC, intravascular-catheter recommendations, sections on arterial catheters and pressure systems (2011 guideline; page updated 2024)](https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infections/summary-recommendations.html); [Saugel et al., *How to Measure Blood Pressure Using an Arterial Catheter: A Systematic 5-Step Approach* (2020)](https://pubmed.ncbi.nlm.nih.gov/32331527/); [Romagnoli et al., original observational study of invasive-pressure monitoring accuracy (2014)](https://pubmed.ncbi.nlm.nih.gov/25433536/).
 
@@ -70,7 +269,7 @@
 
 **Dosing/monitoring.** No structured dosing is present. Local anesthetic lacks concentration/dose/maximum. Monitoring for bleeding, air embolism, arrhythmia, and pneumothorax is named, but no explicit continuous occlusion/hemostasis-valve check is given while the central lumen is not occupied by another catheter.
 
-**Reviewer questions and proposed disposition.** Which introducer product(s), sizes, and IFUs is this object intended to cover? What exact rescue wording is required after an artery has been dilated or cannulated? What accepted venous/wire confirmation is mandatory before the large dilator advances? Proposed disposition remains `STOP-SHIP` until a qualified clinician resolves these points. `reviewerStatus` remains unchanged.
+**Reviewer questions and proposed disposition.** Which introducer product(s), sizes, and IFUs is this object intended to cover? What exact rescue wording is required after an artery has been dilated or cannulated? What accepted venous/wire confirmation is mandatory before the large dilator advances? Proposed disposition remains `STOP-SHIP` until a qualified clinician resolves these points. `reviewerStatus` remains unchanged. **Adjudicated 2026-07-30** - the questions above were answered by the clinical owner and the content changed in `dc58371`; see [Owner adjudication](#owner-adjudication---2026-07-30). The disposition and `reviewerStatus` statements in this section describe the audited snapshot and are retained as evidence, not as a description of what ships now.
 
 **Primary/authoritative sources:** [American Society of Anesthesiologists, *Practice Guidelines for Central Venous Access 2020* (2020)](https://journals.lww.com/anesthesiology/fulltext/2020/01000/practice_guidelines_for_central_venous_access.9.aspx); [Association of Anaesthetists, *Safe Vascular Access 2025* (2025)](https://associationofanaesthetists-publications.onlinelibrary.wiley.com/doi/full/10.1111/anae.16727); [Teleflex, Arrowg+ard Blue Percutaneous Sheath Introducer product/IFU reference (current page accessed 2026)](https://www.teleflex.com/usa/en/product-areas/vascular-access/central-access/percutaneous-sheath-introducer/index.html); [CDC, intravascular-catheter recommendations (2011 guideline; page updated 2024)](https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infections/summary-recommendations.html).
 
@@ -93,7 +292,7 @@
 
 **Dosing/monitoring.** No structured dosing is present. "Heparin or citrate ... per local protocol" and "prescribed catheter lock volume" appropriately defer a product- and patient-specific order, but the content should require the exact labeled lumen priming volume, lock agent/concentration, contraindications (including HIT for heparin), and aspiration/disposal behavior required by that product/policy. This is a clinician/pharmacy decision; a universal replacement dose should not be inferred. Dialysis flow/recirculation monitoring after connection is not described.
 
-**Reviewer questions and proposed disposition.** Which acute dialysis catheter sizes/lengths and IFUs are supported for each site? Should the KDIGO length/tip distinctions be encoded or should the procedure require product/site selection through a reviewed table? What immediate large-bore arterial rescue wording and lock-solution safeguards are required? Proposed disposition remains `STOP-SHIP`. `reviewerStatus` remains unchanged.
+**Reviewer questions and proposed disposition.** Which acute dialysis catheter sizes/lengths and IFUs are supported for each site? Should the KDIGO length/tip distinctions be encoded or should the procedure require product/site selection through a reviewed table? What immediate large-bore arterial rescue wording and lock-solution safeguards are required? Proposed disposition remains `STOP-SHIP`. `reviewerStatus` remains unchanged. **Adjudicated 2026-07-30** - the questions above were answered by the clinical owner and the content changed in `dc58371`; see [Owner adjudication](#owner-adjudication---2026-07-30). The disposition and `reviewerStatus` statements in this section describe the audited snapshot and are retained as evidence, not as a description of what ships now.
 
 **Primary/authoritative sources:** [KDIGO, *Clinical Practice Guideline for Acute Kidney Injury*, vascular access for RRT (2012, recommendations 5.4.1-5.4.4)](https://kdigo.org/wp-content/uploads/2019/01/KDIGO-2012-AKI-Guideline-English.pdf); [National Kidney Foundation, KDOQI *Vascular Access Guideline* (2019)](https://www.kidney.org/professionals/kdoqi/guidelines-and-commentaries/vascular-access); [American Society of Anesthesiologists, *Practice Guidelines for Central Venous Access 2020* (2020)](https://journals.lww.com/anesthesiology/fulltext/2020/01000/practice_guidelines_for_central_venous_access.9.aspx); [Teleflex, Arrow acute hemodialysis catheter specifications/IFU reference (current page accessed 2026)](https://www.teleflex.com/usa/en/product-areas/vascular-access/central-access/acute-hemodialysis-catheters/); [FDA, DefenCath prescribing information illustrating lock-volume/aspiration requirements (2023)](https://www.fda.gov/media/179230/download).
 
@@ -118,7 +317,7 @@
 
 **Dosing/monitoring.** No structured dosing object exists despite explicit lidocaine instructions. The free-text fixed pediatric dose, flush volume, timing, repeat-dose plan, contraindications, and toxicity monitoring are materially incomplete. Placement/extravasation monitoring is otherwise present, but the text should also require patency/site-and-limb reassessment before every infusion as the manufacturer does.
 
-**Reviewer questions and proposed disposition.** A qualified clinician/pharmacist must choose whether to encode product-specific age/weight dosing and monitoring or remove the drug recipe in favor of a verified institutional order set. Which IO device(s) are supported, and should site-specific trajectories and needle-selection rules be tied to each IFU? Proposed disposition remains `STOP-SHIP` until pediatric dosing/sequence is corrected and independently reviewed. `reviewerStatus` remains unchanged.
+**Reviewer questions and proposed disposition.** A qualified clinician/pharmacist must choose whether to encode product-specific age/weight dosing and monitoring or remove the drug recipe in favor of a verified institutional order set. Which IO device(s) are supported, and should site-specific trajectories and needle-selection rules be tied to each IFU? Proposed disposition remains `STOP-SHIP` until pediatric dosing/sequence is corrected and independently reviewed. `reviewerStatus` remains unchanged. **Adjudicated 2026-07-30** - the questions above were answered by the clinical owner and the content changed in `dc58371`; see [Owner adjudication](#owner-adjudication---2026-07-30). The disposition and `reviewerStatus` statements in this section describe the audited snapshot and are retained as evidence, not as a description of what ships now.
 
 **Primary/authoritative sources:** [Teleflex, Arrow EZ-IO Procedure Competency Template (2021)](https://www.teleflex.com/usa/en/clinical-resources/ez-io/documents/EM_IOS_EZIO%20Procedure-Competency-Template_MC-000270_rev2c.pdf); [Teleflex, current Arrow EZ-IO procedure template, document MCI-2019-0395 (accessed 2026)](https://www.teleflex.com/global/clinical-resources/documents/MCI-2019-0395_Arrow_EZ-IO_Intraosseous_Procedure_Template_LR.pdf); [Teleflex, current EZ-IO indication/contraindication page, Rev 1 dated March 2026](https://go.teleflex.com/EZUI-Procedure-Tray-Data-Sheet.html); [American Heart Association, *2025 Guidelines: Adult Advanced Life Support*, vascular access section (2025)](https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support).
 
@@ -141,7 +340,7 @@
 
 **Dosing/monitoring.** No structured dosing is present and no medication dose is instructed. Monitoring appropriately mentions infiltration, arterial puncture, nerve symptoms, and repeated site checks, but contrast-specific extravasation response and vesicant/irritant compatibility remain outside the procedure and must be governed by a reviewed institutional policy.
 
-**Reviewer questions and proposed disposition.** Should the gel language be changed to the CDC's exact sterile single-use requirement? What measured-depth/intravascular-length rule and escalation threshold should replace the fixed 4.8 cm minimum? Should contrast be removed as a generic indication or explicitly conditioned on catheter and radiology/manufacturer authorization? Proposed disposition is `MAJOR`. `reviewerStatus` remains unchanged.
+**Reviewer questions and proposed disposition.** Should the gel language be changed to the CDC's exact sterile single-use requirement? What measured-depth/intravascular-length rule and escalation threshold should replace the fixed 4.8 cm minimum? Should contrast be removed as a generic indication or explicitly conditioned on catheter and radiology/manufacturer authorization? Proposed disposition is `MAJOR`. `reviewerStatus` remains unchanged. **Adjudicated 2026-07-30** - the questions above were answered by the clinical owner and the content changed in `dc58371`; see [Owner adjudication](#owner-adjudication---2026-07-30). The disposition and `reviewerStatus` statements in this section describe the audited snapshot and are retained as evidence, not as a description of what ships now.
 
 **Primary/authoritative sources:** [CDC, *Use Only Sterile Ultrasound Gel for Percutaneous Procedures* (2025)](https://www.cdc.gov/healthcare-associated-infections/bulletins/outbreak-ultrasound-gel.html); [Society of Hospital Medicine, *Recommendations on Ultrasound Guidance for Central and Peripheral Vascular Access in Adults* (2019)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10193861/); [Association of Anaesthetists, *Safe Vascular Access 2025* (2025)](https://associationofanaesthetists-publications.onlinelibrary.wiley.com/doi/full/10.1111/anae.16727); [Pandurangadu et al., original catheter-survival study (2018)](https://pubmed.ncbi.nlm.nih.gov/30021833/); [Fields et al., predictors of ultrasound-guided PIV failure (2022)](https://pubmed.ncbi.nlm.nih.gov/36113061/); [American College of Radiology, *Manual on Contrast Media* (2024 edition with 2025 chapter updates)](https://cs.acr.org/-/media/ACR/Files/Clinical-Resources/Contrast_Media.pdf).
 
