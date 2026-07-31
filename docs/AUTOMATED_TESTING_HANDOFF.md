@@ -70,9 +70,17 @@ responses are used by deterministic CI. There are no live-AI test surfaces.
 
 ## Latest Automated Evidence
 
-- Commit: `4a731bc`.
-- Content validation: GitHub run `29632640552`, passed.
-- Xcode build, exact XCTest count, and Release build: GitHub run
-  `29632640535`, passed.
-- Retained artifact: `procedures-xcode-evidence-29632640535`, expires
-  2026-08-01.
+- Commit: `9be9b4b`.
+- Content validation: GitHub run
+  [`30595952541`](https://github.com/Pulpers859/Procedures/actions/runs/30595952541),
+  passed.
+- Xcode build, exact XCTest count (132), and Release build: GitHub run
+  [`30595952553`](https://github.com/Pulpers859/Procedures/actions/runs/30595952553),
+  passed.
+- This run is green after fixing two build breaks that had been silently
+  failing every run since #58 (2026-07-30): three test call sites missing
+  the `medicationDosing` argument added to `Procedure.init`, and
+  `MaxDoseCalculatorTests` (the second `XCTestCase` class in
+  `ValidationTests.swift`) not marked `@MainActor` despite calling the
+  `@MainActor`-isolated `ProcedureRepository`. See commits `1760c0e`,
+  `88f8080`, `9be9b4b`.
