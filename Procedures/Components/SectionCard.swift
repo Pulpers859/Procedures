@@ -92,6 +92,57 @@ struct SectionCard<Content: View>: View {
     }
 }
 
+/// A card whose supporting material should not compete with the bedside path
+/// on first render. It starts closed and keeps the full source content local,
+/// searchable, and available without changing the underlying clinical text.
+struct DisclosureSectionCard<Content: View>: View {
+    let title: String
+    var systemImage: String? = nil
+    var miniHeight: CGFloat? = nil
+    let content: Content
+    @State private var isExpanded = false
+
+    init(
+        title: String,
+        systemImage: String? = nil,
+        miniHeight: CGFloat? = nil,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.title = title
+        self.systemImage = systemImage
+        self.miniHeight = miniHeight
+        self.content = content()
+    }
+
+    var body: some View {
+        DisclosureGroup(isExpanded: $isExpanded) {
+            content
+                .padding(.top, 4)
+        } label: {
+            HStack(spacing: 8) {
+                if let systemImage {
+                    Image(systemName: systemImage)
+                        .foregroundStyle(.blue)
+                        .accessibilityHidden(true)
+                }
+                Text(title)
+                    .font(.headline)
+                    .accessibilityHeading(.h2)
+                    .accessibilityAddTraits(.isHeader)
+                Spacer(minLength: 0)
+            }
+        }
+        .padding(AppLayout.cardPadding)
+        .frame(maxWidth: .infinity, minHeight: miniHeight, alignment: .topLeading)
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous)
+                .stroke(.secondary.opacity(0.12), lineWidth: 1)
+        )
+        .accessibilityHint(isExpanded ? "Collapse section" : "Expand section")
+    }
+}
+
 struct BulletListView: View {
     let items: [String]
     var markerTint: Color = .blue
@@ -112,6 +163,83 @@ struct BulletListView: View {
                 .accessibilityElement(children: .combine)
             }
         }
+    }
+}
+
+/// Troubleshooting is authored as `failure: response` whenever possible.
+/// Keeping those two parts visually distinct makes the failure state scannable
+/// while preserving the complete response text and its clinical wording.
+struct TroubleshootingListView: View {
+    let items: [String]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            ForEach(Array(items.enumerated()), id: \.offset) { index, item in
+                if index > 0 {
+                    Divider()
+                        .padding(.leading, 28)
+                }
+                TroubleshootingRow(item: item)
+            }
+        }
+    }
+}
+
+private struct TroubleshootingRow: View {
+    let item: String
+
+    private var parsed: (failure: String, response: String)? {
+        guard let separator = item.firstIndex(of: ":") else { return nil }
+        let failure = item[..<separator].trimmingCharacters(in: .whitespacesAndNewlines)
+        let response = item[item.index(after: separator)...].trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !failure.isEmpty, !response.isEmpty else { return nil }
+        return (String(failure), String(response))
+    }
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 10) {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.caption.weight(.bold))
+                .foregroundStyle(AppSemanticColor.warningText)
+                .frame(width: 18, height: 22, alignment: .top)
+                .accessibilityHidden(true)
+
+            VStack(alignment: .leading, spacing: 5) {
+                if let parsed {
+                    HStack(spacing: 7) {
+                        Text("FAIL")
+                            .font(.caption2.weight(.heavy))
+                            .foregroundStyle(AppSemanticColor.warningText)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 3)
+                            .background(AppSemanticColor.warningText.opacity(0.14), in: Capsule())
+                        Text(parsed.failure)
+                            .font(.subheadline.weight(.semibold))
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    Text(parsed.response)
+                        .font(.subheadline)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .textSelection(.enabled)
+                } else {
+                    Text("GUIDANCE")
+                        .font(.caption2.weight(.heavy))
+                        .foregroundStyle(AppSemanticColor.warningText)
+                    Text(item)
+                        .font(.subheadline)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .textSelection(.enabled)
+                }
+            }
+        }
+        .padding(.vertical, 9)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(accessibilityText)
+    }
+
+    private var accessibilityText: String {
+        guard let parsed else { return "Troubleshooting guidance. \(item)" }
+        return "Failure: \(parsed.failure). Response: \(parsed.response)"
     }
 }
 

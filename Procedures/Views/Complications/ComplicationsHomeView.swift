@@ -245,7 +245,7 @@ struct RescueCardDetailView: View {
                 }
 
                 if !card.references.isEmpty {
-                    SectionCard(title: "References", systemImage: "books.vertical") {
+                    DisclosureSectionCard(title: "References", systemImage: "books.vertical") {
                         VStack(alignment: .leading, spacing: 6) {
                             ForEach(Array(card.references.enumerated()), id: \.offset) { _, reference in
                                 Text(reference)

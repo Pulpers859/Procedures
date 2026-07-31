@@ -49,7 +49,7 @@ struct ComplicationContent: View {
 
             if !procedure.sections.troubleshooting.isEmpty {
                 SectionCard(title: "If It Fails", systemImage: "wrench.and.screwdriver") {
-                    BulletListView(items: procedure.sections.troubleshooting)
+                    TroubleshootingListView(items: procedure.sections.troubleshooting)
                 }
             }
 

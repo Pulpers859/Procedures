@@ -325,7 +325,7 @@ struct KitDetailView: View {
                 }
 
                 if !kit.references.isEmpty {
-                    SectionCard(title: "References", systemImage: "books.vertical") {
+                    DisclosureSectionCard(title: "References", systemImage: "books.vertical") {
                         VStack(alignment: .leading, spacing: 6) {
                             ForEach(Array(kit.references.enumerated()), id: \.offset) { _, ref in
                                 Text(ref)

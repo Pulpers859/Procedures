@@ -20,7 +20,7 @@ struct DeepReviewContent: View {
             if !procedure.sections.ultrasound.isEmpty {
                 SectionCard(title: "Ultrasound Guidance", systemImage: "waveform.path.ecg.rectangle") { BulletListView(items: procedure.sections.ultrasound) }
             }
-            SectionCard(title: showGovernanceCopy ? "References + Disclaimer" : "References", systemImage: "books.vertical") {
+            DisclosureSectionCard(title: showGovernanceCopy ? "References + Disclaimer" : "References", systemImage: "books.vertical") {
                 VStack(alignment: .leading, spacing: 8) {
                     if procedure.sections.references.isEmpty {
                         Text("No references entered yet. This should block release-quality content approval.")
