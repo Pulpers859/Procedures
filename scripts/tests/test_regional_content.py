@@ -138,6 +138,32 @@ class SafetySpineTests(unittest.TestCase):
                     self.assertIn("can the site be compressed", text)
 
 
+    def test_every_block_documents_side_agent_and_total_milligrams(self):
+        """Three lane reports named this one: documentation omitted side,
+        approach, concentration, total mg, cumulative prior dose, and the
+        antithrombotic decision. Twenty-three of the 28 had a single line."""
+        for block in self.blocks:
+            with self.subTest(block["id"]):
+                doc = " ".join(block["sections"]["documentation"]).lower()
+                self.assertIn("side and level", doc)
+                self.assertIn("total in milligrams", doc)
+                self.assertIn("running total", doc)
+                self.assertIn("bleeding-risk assessment", doc)
+                self.assertIn("recorded as pre-existing", doc)
+
+    def test_every_block_calculates_before_it_draws_up(self):
+        for block in self.blocks:
+            with self.subTest(block["id"]):
+                self.assertIn(
+                    "before you draw up, and say it out loud", joined(block)
+                )
+
+    def test_every_block_plans_for_failure_before_starting(self):
+        for block in self.blocks:
+            with self.subTest(block["id"]):
+                self.assertIn("before you start - not afterwards", joined(block))
+
+
 class MetadataTests(unittest.TestCase):
     def test_no_record_carries_an_out_of_schema_review_time(self):
         """26 blocks shipped `reviewTime: "standard"`. The validator checked
@@ -175,11 +201,25 @@ class DosingGovernanceTests(unittest.TestCase):
         self.assertIn("fraction of its own ceiling", warning)
         self.assertNotIn("share one maximum", warning)
 
+    def test_the_intraosseous_card_is_excluded_from_the_ceiling_framing(self):
+        """Its lidocaine figure is the dose to give, not a maximum to stay
+        under - the card's own first caveat says so. Two caveats written about
+        ceilings contradict that, and a contradiction on a paediatric analgesic
+        dose is exactly the kind this model exists to prevent."""
+        caveats = " ".join(
+            next(p for p in load() if p["id"] == "intraosseous_access")["dosing"]["caveats"]
+        ).lower()
+        self.assertIn("the dose to give, not a range to stay under", caveats)
+        self.assertNotIn("the ceiling is a limit rather than a target", caveats)
+        self.assertNotIn("governed policy", caveats)
+
     def test_every_block_says_the_ceiling_is_a_policy_not_a_fact(self):
         """The labels publish no universal mg/kg figure - they require
         individualisation. Presenting the number without that reads as
         pharmacology rather than as this app's governed choice."""
         for record in self.with_dosing:
+            if record["id"] == "intraosseous_access":
+                continue  # a target dose, not a ceiling; see the test above
             with self.subTest(record["id"]):
                 caveats = " ".join(record["dosing"]["caveats"]).lower()
                 self.assertIn("this app's governed policy", caveats)

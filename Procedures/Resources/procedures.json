@@ -461,7 +461,10 @@
         "Avoid injecting directly through infected tissue when possible.",
         "Aspirate before injection.",
         "Give the block time to work before starting repair.",
-        "Reassess anesthesia and distal perfusion before procedure."
+        "Reassess anesthesia and distal perfusion before procedure.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Laceration repair",
@@ -559,7 +562,14 @@
         "Pre-procedure neurovascular status documented.",
         "Skin prepped and local anesthetic injected using clean/sterile technique after aspiration.",
         "Adequate anesthesia achieved prior to procedure.",
-        "Patient tolerated block without immediate complication."
+        "Patient tolerated block without immediate complication.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Slow injection is the difference between a tolerable block and a patient who never trusts you again.",
@@ -3908,7 +3918,10 @@
         "Calculate a weight-based maximum local anesthetic dose and stay under it \u2014 these are large-volume blocks.",
         "Aspirate before and during injection to avoid intravascular delivery; watch for LAST.",
         "Confirm spread under the fascia (a lens of fluid lifting the fascia) rather than within muscle.",
-        "Have LAST rescue (lipid emulsion) and resuscitation equipment available before you start."
+        "Have LAST rescue (lipid emulsion) and resuscitation equipment available before you start.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Analgesia for hip fracture (femoral neck, intertrochanteric) and proximal femur fractures",
@@ -4021,7 +4034,14 @@
         "Local anesthetic agent, concentration, and total weight-based dose recorded (below maximum).",
         "Ultrasound-guided subfascial spread confirmed; aspiration negative for blood.",
         "No signs of LAST during or after the procedure.",
-        "Post-block analgesia and neurovascular status documented; block communicated to admitting team."
+        "Post-block analgesia and neurovascular status documented; block communicated to admitting team.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "This block shines in elderly hip fractures precisely because it spares the opioids that cause their delirium and respiratory trouble.",
@@ -4483,9 +4503,7 @@
       "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "caveats": [
         "This is the dose to give, not a range to stay under.",
-        "At paediatric volumes the extension set's dead space can hold most of the dose. Prime the set or follow with the age-appropriate flush.",
-        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "At paediatric volumes the extension set's dead space can hold most of the dose. Prime the set or follow with the age-appropriate flush."
       ],
       "monitoring": [
         "Infuse slowly over about 120 seconds, then allow a 60-second dwell before flushing.",
@@ -5419,7 +5437,10 @@
       "shiftMode": [
         "Target: C5-C7 nerve roots between anterior and middle scalene muscles.",
         "Hemidiaphragmatic paresis is volume-dependent, not universal: 20 mL produced it in 100% of patients in the randomised trial that figure comes from, and 5 mL in 45%. At the 10-15 mL on this card, expect it often and not always - and avoid the block in severe COPD or respiratory failure regardless.",
-        "Use low volume (10-15 mL) and always visualize needle tip to avoid intravascular/intraneural injection."
+        "Use low volume (10-15 mL) and always visualize needle tip to avoid intravascular/intraneural injection.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Shoulder dislocation (pre-reduction)",
@@ -5523,7 +5544,14 @@
         "Anesthetic used (type, volume, concentration).",
         "Ultrasound guidance confirming spread in the interscalene groove.",
         "No vascular puncture or intraneural injection.",
-        "Post-block neurovascular exam and absence of immediate complications."
+        "Post-block neurovascular exam and absence of immediate complications.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Tracing the plexus up from the supraclavicular fossa is often easier than starting directly at the neck.",
@@ -5644,7 +5672,10 @@
       "shiftMode": [
         "The 'spinal of the arm' - covers distal humerus, elbow, forearm, wrist, and hand.",
         "Target: Brachial plexus trunks/divisions ('bunch of grapes') lateral and superficial to the subclavian artery.",
-        "High risk for pneumothorax (pleura is just deep to the artery) - always visualize the needle tip!"
+        "High risk for pneumothorax (pleura is just deep to the artery) - always visualize the needle tip!",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Fractures of the distal humerus, elbow, forearm, wrist, or hand",
@@ -5745,7 +5776,14 @@
         "Anesthetic used.",
         "Ultrasound guidance confirming spread in the corner pocket and around the plexus.",
         "First rib visualized and pleura avoided.",
-        "No vascular puncture or intraneural injection."
+        "No vascular puncture or intraneural injection.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Aim for the first rib. If you hit the rib, you know you are safe from the pleura. Then slide up into the corner pocket.",
@@ -5866,7 +5904,10 @@
       "shiftMode": [
         "Retroclavicular Approach to the Infraclavicular Region (RAPTIR).",
         "Good for forearm and hand trauma, with less phrenic and pleural risk than a supraclavicular block - less, not none. The needle crosses the clavicle's acoustic shadow where the tip cannot be seen, and haemothorax has been reported.",
-        "Target: Axillary artery posterior to the pectoralis minor. The cords surround the artery."
+        "Target: Axillary artery posterior to the pectoralis minor. The cords surround the artery.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Fractures of the forearm, wrist, or hand",
@@ -5965,7 +6006,14 @@
         "Anesthetic used.",
         "Ultrasound guidance confirming spread around the axillary artery.",
         "No vascular puncture.",
-        "Post-block neurovascular exam."
+        "Post-block neurovascular exam.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "The RAPTIR approach provides a fantastic in-plane view of the needle approaching the artery, unlike traditional infraclavicular approaches.",
@@ -6085,7 +6133,10 @@
       "shiftMode": [
         "Target: Radial nerve in the spiral groove of the humerus or at the elbow joint.",
         "Provides anesthesia to the dorsal thumb, index, and lateral middle finger.",
-        "Combine with Median/Ulnar for complete hand anesthesia."
+        "Combine with Median/Ulnar for complete hand anesthesia.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Lacerations or fractures of the dorsal hand (radial aspect)",
@@ -6153,7 +6204,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post neurovascular exam, volume and type of anesthetic."
+        "Pre/post neurovascular exam, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Blocking at the elbow covers more branches than blocking at the wrist."
@@ -6269,7 +6327,10 @@
     "sections": {
       "shiftMode": [
         "Target: Median nerve in the mid-forearm, between FDS and FDP.",
-        "Provides anesthesia to the palmar thumb, index, middle, and radial half of ring finger."
+        "Provides anesthesia to the palmar thumb, index, middle, and radial half of ring finger.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Palmar lacerations",
@@ -6335,7 +6396,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post neurovascular exam, volume and type of anesthetic."
+        "Pre/post neurovascular exam, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Avoid blocking at the wrist (carpal tunnel) due to limited space and higher risk of nerve injury. The mid-forearm is much safer."
@@ -6452,7 +6520,10 @@
     "sections": {
       "shiftMode": [
         "Target: Ulnar nerve in the mid-to-distal forearm, medial to the ulnar artery.",
-        "Provides anesthesia to the 5th digit and medial half of the 4th digit."
+        "Provides anesthesia to the 5th digit and medial half of the 4th digit.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Boxer's fractures",
@@ -6519,7 +6590,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post neurovascular exam, volume and type of anesthetic."
+        "Pre/post neurovascular exam, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Block higher up in the forearm to ensure you catch the dorsal cutaneous branch of the ulnar nerve, which branches off proximal to the wrist."
@@ -6635,7 +6713,10 @@
     "sections": {
       "shiftMode": [
         "Target: Superficial cervical plexus as it emerges behind the posterior border of the sternocleidomastoid (SCM) muscle.",
-        "Provides anesthesia to the anterior/lateral neck, clavicle, and skin over the shoulder."
+        "Provides anesthesia to the anterior/lateral neck, clavicle, and skin over the shoulder.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Clavicle fractures",
@@ -6710,7 +6791,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Consent, indications, anesthetic volume/type, absence of complications."
+        "Consent, indications, anesthetic volume/type, absence of complications.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "This is an extremely superficial block. Do not plunge the needle deep to the SCM."
@@ -6828,7 +6916,10 @@
       "shiftMode": [
         "Target: Fascial plane superficial OR deep to the serratus anterior muscle.",
         "Provides analgesia to the lateral chest wall (T3-T9).",
-        "An analgesic adjunct within a rib-fracture care bundle, not a substitute for one. The SABRE trial found 41% met its four-hour composite endpoint, with no change in pneumonia or length of stay and no benefit in the anterior-fracture subgroup - useful, and not essential."
+        "An analgesic adjunct within a rib-fracture care bundle, not a substitute for one. The SABRE trial found 41% met its four-hour composite endpoint, with no change in pneumonia or length of stay and no benefit in the anterior-fracture subgroup - useful, and not essential.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Multiple rib fractures (lateral/anterior)",
@@ -6905,7 +6996,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Consent, indications, large volume anesthetic, confirmation of fascial spread, absence of pneumothorax."
+        "Consent, indications, large volume anesthetic, confirmation of fascial spread, absence of pneumothorax.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "The deep plane sits between serratus and the rib periosteum, and the rib is the endpoint rather than a waypoint. Contact the rib and inject there. Do not slide off it: off the rib is the intercostal space, and the pleura is immediately behind that."
@@ -7026,7 +7124,10 @@
       "shiftMode": [
         "Target: Fascial plane deep to the erector spinae muscle, resting on the transverse processes.",
         "Provides somatic and visceral analgesia for posterior/lateral/anterior chest wall.",
-        "Coverage is variable rather than dermatomally predictable. Cadaver studies have repeatedly failed to show paravertebral, epidural, or ventral-ramus spread, so do not promise anterior or visceral analgesia - test the territory and have a fallback."
+        "Coverage is variable rather than dermatomally predictable. Cadaver studies have repeatedly failed to show paravertebral, epidural, or ventral-ramus spread, so do not promise anterior or visceral analgesia - test the territory and have a fallback.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Posterior or multiple rib fractures",
@@ -7102,7 +7203,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Consent, volume of anesthetic, confirmation of spread over transverse process, absence of pneumothorax."
+        "Consent, volume of anesthetic, confirmation of spread over transverse process, absence of pneumothorax.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "A bony endpoint at the transverse process reduces pleural risk; it does not remove it, and the reduction depends entirely on the bone under the needle being a transverse process rather than a rib. Slide medially until the shadow squares off and the pleura disappears behind it - a rib keeps the pleura in view beside it."
@@ -7222,7 +7330,10 @@
     "sections": {
       "shiftMode": [
         "Target: Fascial plane between the internal oblique and transversus abdominis muscles.",
-        "Provides analgesia to the anterior abdominal wall (parietal peritoneum and skin)."
+        "Provides analgesia to the anterior abdominal wall (parietal peritoneum and skin).",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Appendicitis pain (pre-op)",
@@ -7297,7 +7408,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Consent, confirmation of the three muscle layers, visualization of spread in the correct plane, absence of intraperitoneal injection."
+        "Consent, confirmation of the three muscle layers, visualization of spread in the correct plane, absence of intraperitoneal injection.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "This block only covers somatic pain (abdominal wall), not visceral pain (the inflamed organ itself). Patients will still have some deep pain."
@@ -7417,7 +7535,10 @@
     "sections": {
       "shiftMode": [
         "Target: Fascial planes between the pectoralis major and minor (PECS I), and between the pectoralis minor and serratus anterior (PECS II).",
-        "Expect upper anterolateral and lateral chest wall and the axilla. A randomised trial found no anterior-chest sensory block from PECS II alone, so do not rely on it for a medial or anterior procedure without mapping the territory first and having a fallback."
+        "Expect upper anterolateral and lateral chest wall and the axilla. A randomised trial found no anterior-chest sensory block from PECS II alone, so do not rely on it for a medial or anterior procedure without mapping the territory first and having a fallback.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Anterior chest wall trauma (anterior rib fractures)",
@@ -7491,7 +7612,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Consent, volume injected in each plane, absence of pneumothorax."
+        "Consent, volume injected in each plane, absence of pneumothorax.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Always keep the needle tip in view when passing through the pectoralis minor, as the pleura is just beneath the next muscle layer."
@@ -7611,7 +7739,10 @@
       "shiftMode": [
         "Target: Femoral nerve lateral to the femoral artery, deep to the fascia iliaca.",
         "Provides anesthesia to the anterior thigh, femur, and knee.",
-        "Mnemonic: NAVEL (from lateral to medial: Nerve, Artery, Vein, Empty space, Lymphatics)."
+        "Mnemonic: NAVEL (from lateral to medial: Nerve, Artery, Vein, Empty space, Lymphatics).",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Femur fractures (mid-shaft)",
@@ -7689,7 +7820,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Consent, volume of anesthetic, confirmation of spread below fascia iliaca, warnings given regarding fall risk."
+        "Consent, volume of anesthetic, confirmation of spread below fascia iliaca, warnings given regarding fall risk.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Always document that you told the patient they cannot walk on that leg. The quad weakness is profound."
@@ -7806,7 +7944,10 @@
       "shiftMode": [
         "Target: Fascial plane between the psoas tendon and the pubic ramus.",
         "Provides excellent analgesia for the hip joint (articular branches of femoral and obturator nerves).",
-        "Motor-sparing alternative to the fascia iliaca or femoral nerve block."
+        "Motor-sparing alternative to the fascia iliaca or femoral nerve block.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Hip fractures (neck of femur, intertrochanteric)",
@@ -7879,7 +8020,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Consent, volume of anesthetic, confirmation of spread deep to psoas tendon."
+        "Consent, volume of anesthetic, confirmation of spread deep to psoas tendon.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "The PENG block is fantastic for hip fractures because it is largely motor-sparing, unlike a femoral or fascia iliaca block which paralyzes the quad."
@@ -7996,7 +8144,10 @@
       "shiftMode": [
         "Target: Saphenous nerve in the adductor canal.",
         "Provides sensory analgesia to the medial lower leg and ankle.",
-        "Purely sensory branch of the femoral nerve (motor-sparing)."
+        "Purely sensory branch of the femoral nerve (motor-sparing).",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Lacerations or fractures of the medial lower leg",
@@ -8070,7 +8221,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post neurovascular exam, volume and type of anesthetic."
+        "Pre/post neurovascular exam, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Because it's a sensory block, patients can still walk (unlike a femoral nerve block), making it ideal for medial leg/ankle injuries in patients who need to ambulate."
@@ -8186,7 +8344,10 @@
     "sections": {
       "shiftMode": [
         "Target: Sciatic nerve in the popliteal fossa before it bifurcates.",
-        "Provides anesthesia to the entire lower leg and foot, EXCEPT the medial strip (covered by the saphenous nerve)."
+        "Provides anesthesia to the entire lower leg and foot, EXCEPT the medial strip (covered by the saphenous nerve).",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Achilles tendon ruptures",
@@ -8265,7 +8426,14 @@
         "Lower-leg trauma with this block running needs a named compartment-syndrome plan: who is reassessing, how often, and how pressure gets measured if the question is raised. Agree it with the surgical team before the block, not after."
       ],
       "documentation": [
-        "Consent, volume of anesthetic, warning about foot drop and fall risk."
+        "Consent, volume of anesthetic, warning about foot drop and fall risk.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Always combine this with a saphenous nerve block if you need complete anesthesia of the ankle/foot (e.g., for an ankle fracture reduction)."
@@ -8382,7 +8550,10 @@
     "sections": {
       "shiftMode": [
         "Target: Sciatic nerve deep in the posterior thigh/gluteal region.",
-        "Provides anesthesia to the posterior thigh and the entire lower leg (except medial strip)."
+        "Provides anesthesia to the posterior thigh and the entire lower leg (except medial strip).",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Posterior thigh lacerations or hamstring tears",
@@ -8454,7 +8625,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post neurovascular exam, volume of anesthetic, warning about foot drop."
+        "Pre/post neurovascular exam, volume of anesthetic, warning about foot drop.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "The sciatic nerve at this level is the largest nerve in the body. It takes a significant volume (20-30 mL) and time (up to 30 mins) to fully block."
@@ -8570,7 +8748,10 @@
     "sections": {
       "shiftMode": [
         "Target: Posterior tibial nerve posterior to the medial malleolus.",
-        "Provides anesthesia to the heel and sole (plantar aspect) of the foot."
+        "Provides anesthesia to the heel and sole (plantar aspect) of the foot.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Plantar lacerations",
@@ -8638,7 +8819,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post exam, volume and type of anesthetic."
+        "Pre/post exam, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "For a purely plantar laceration, this block is vastly superior to injecting local anesthetic directly into the exquisitely sensitive sole of the foot."
@@ -8754,7 +8942,10 @@
     "sections": {
       "shiftMode": [
         "Target: Sural nerve posterior to the lateral malleolus.",
-        "Provides anesthesia to the lateral/posterior aspect of the foot."
+        "Provides anesthesia to the lateral/posterior aspect of the foot.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Lacerations on the lateral aspect of the foot"
@@ -8820,7 +9011,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post exam, volume and type of anesthetic."
+        "Pre/post exam, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "The landmark 'subcutaneous wheal' technique is often faster and just as effective as ultrasound for this specific small nerve."
@@ -8936,7 +9134,10 @@
     "sections": {
       "shiftMode": [
         "Target: Superficial peroneal nerve on the anterior/lateral aspect of the distal leg.",
-        "Provides anesthesia to the dorsum of the foot (except the first web space)."
+        "Provides anesthesia to the dorsum of the foot (except the first web space).",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Lacerations or procedures on the dorsum of the foot"
@@ -9000,7 +9201,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post exam, volume and type of anesthetic."
+        "Pre/post exam, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "This nerve branches extensively. A wide subcutaneous band of anesthetic is often needed if using landmarks."
@@ -9116,7 +9324,10 @@
     "sections": {
       "shiftMode": [
         "Target: Deep peroneal nerve anterior to the ankle joint.",
-        "Provides anesthesia to the first web space (between big toe and second toe)."
+        "Provides anesthesia to the first web space (between big toe and second toe).",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Lacerations or procedures in the first web space of the foot"
@@ -9181,7 +9392,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post exam, volume and type of anesthetic."
+        "Pre/post exam, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "This nerve is very small. Perivascular spread around the anterior tibial artery is usually sufficient."
@@ -9298,7 +9516,10 @@
       "shiftMode": [
         "Target: Supraorbital and supratrochlear nerves as they exit the supraorbital rim.",
         "Provides anesthesia to the forehead and anterior scalp.",
-        "Landmark-guided injection along the superior orbital rim."
+        "Landmark-guided injection along the superior orbital rim.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Forehead lacerations",
@@ -9368,7 +9589,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post neurovascular exam, volume and type of anesthetic."
+        "Pre/post neurovascular exam, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Adding epinephrine helps reduce bleeding for forehead lacerations and prolongs the block.",
@@ -9487,7 +9715,10 @@
       "shiftMode": [
         "Target: Infraorbital nerve as it exits the infraorbital foramen on the maxilla.",
         "Provides anesthesia to the lower eyelid, cheek, lateral nose, and upper lip.",
-        "Can be performed via an intraoral (preferred) or extraoral approach."
+        "Can be performed via an intraoral (preferred) or extraoral approach.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Upper lip lacerations (especially those crossing the vermilion border)",
@@ -9562,7 +9793,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post exam, approach used (intraoral vs extraoral), volume and type of anesthetic."
+        "Pre/post exam, approach used (intraoral vs extraoral), volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "The intraoral approach is much less painful for the patient than going through the facial skin.",
@@ -9681,7 +9919,10 @@
       "shiftMode": [
         "Target: Mental nerve as it exits the mental foramen on the mandible.",
         "Provides anesthesia to the lower lip and chin.",
-        "Intraoral approach is preferred."
+        "Intraoral approach is preferred.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Lower lip lacerations (especially crossing the vermilion border)",
@@ -9752,7 +9993,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post exam, approach used, volume and type of anesthetic."
+        "Pre/post exam, approach used, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "This is the fastest, easiest, and least painful way to repair a complex lower lip laceration."
@@ -9869,7 +10117,10 @@
       "shiftMode": [
         "Target: Inferior alveolar nerve before it enters the mandibular foramen on the medial aspect of the mandibular ramus.",
         "Provides profound anesthesia to all mandibular teeth to the midline, the lower lip, and the chin.",
-        "The 'gold standard' for lower jaw dental pain in the ED."
+        "The 'gold standard' for lower jaw dental pain in the ED.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Severe dental pain of the lower teeth (caries, abscess, fracture)",
@@ -9948,7 +10199,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Pre/post exam, volume and type of anesthetic, confirmation of bone contact prior to injection."
+        "Pre/post exam, volume and type of anesthetic, confirmation of bone contact prior to injection.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Using long-acting bupivacaine gives the patient 12-24 hours of profound pain relief, allowing them to sleep and find a dentist the next day.",
@@ -10068,7 +10326,10 @@
       "shiftMode": [
         "Target: The small nerve branches entering the apex of the maxillary tooth roots.",
         "Unlike the dense mandible, the maxillary bone is porous, allowing anesthetic to diffuse directly through the bone to the tooth root (Supraperiosteal infiltration).",
-        "Provides anesthesia to individual upper teeth."
+        "Provides anesthesia to individual upper teeth.",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Maxillary dental pain (caries, abscess, fracture)",
@@ -10138,7 +10399,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Specific tooth targeted, volume and type of anesthetic."
+        "Specific tooth targeted, volume and type of anesthetic.",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Because the maxilla is porous, you don't need a complex nerve block for upper teeth. Local infiltration above the tooth root works beautifully 95% of the time."
@@ -10254,7 +10522,10 @@
     "sections": {
       "shiftMode": [
         "Target: A 'ring block' around the base of the ear to hit the greater auricular, lesser occipital, and auriculotemporal nerves.",
-        "Provides complete anesthesia of the auricle (except the external auditory canal and concha)."
+        "Provides complete anesthesia of the auricle (except the external auditory canal and concha).",
+        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
+        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
         "Complex ear lacerations",
@@ -10323,7 +10594,14 @@
         "Return precautions: numbness or weakness lasting longer than you told them to expect, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Volume and type of anesthetic (note NO epinephrine used)."
+        "Volume and type of anesthetic (note NO epinephrine used).",
+        "Side and level, named unambiguously. Wrong-side blocks happen to careful people, and the note is where the side gets fixed in writing before the needle moves.",
+        "Agent, concentration, volume, and the total in milligrams - plus any local anaesthetic this patient already had this encounter, and the running total.",
+        "Needle type and gauge, the approach, and whether ultrasound guidance was used in-plane or out-of-plane.",
+        "Aspiration before each increment, and that the dose was given incrementally rather than as one push.",
+        "The neurological examination before the block and again after it, with any pre-existing deficit recorded as pre-existing.",
+        "The bleeding-risk assessment and what it concluded, including any antithrombotic the patient is taking.",
+        "Whether the block worked. If it did not, what was done instead, and how much of the ceiling that used."
       ],
       "seniorPearls": [
         "Use a long needle so you only have to poke the patient twice (once at the bottom, once at the top) to complete the entire ring."

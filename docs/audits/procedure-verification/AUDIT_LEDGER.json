@@ -506,12 +506,12 @@
     {
       "corpus": "procedures.json",
       "recordId": "intraosseous_access",
-      "auditFingerprint": "695f14a67424fc9c4a0a4e18fd5c15e324399e340f835886f9cef7a374980c8a",
+      "auditFingerprint": "e4af3c2d57fbc5aacad5cca89fd4944b8c03d4c838fe936bffb20b182d1c4829",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
+      "rationale": "Regional/P1 pass 2026-07-31: ceiling-framing caveats removed from a card whose lidocaine figure is a target dose.",
       "commit": "4ea632d",
       "expires": "2026-10-31",
-      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "followUp": "Re-screen and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
     },
     {
