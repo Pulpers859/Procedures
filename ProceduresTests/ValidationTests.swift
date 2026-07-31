@@ -210,6 +210,7 @@ final class ValidationTests: XCTestCase {
             tags: ["test"],
             visualAssets: nil,
             dosing: dosing,
+            medicationDosing: nil,
             reviewerStatus: reviewerStatus,
             contentSource: contentSource,
             sections: ProcedureSections(

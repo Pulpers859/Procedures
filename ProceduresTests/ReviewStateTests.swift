@@ -508,6 +508,7 @@ final class ReviewStateTests: XCTestCase {
             tags: ["test"],
             visualAssets: nil,
             dosing: nil,
+            medicationDosing: nil,
             reviewerStatus: reviewerStatus,
             contentSource: .aiDraft,
             sections: ProcedureSections(

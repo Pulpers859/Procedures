@@ -373,6 +373,7 @@ final class ContentEditingTests: XCTestCase {
             tags: ["test"],
             visualAssets: nil,
             dosing: dosing,
+            medicationDosing: nil,
             reviewerStatus: .internallyReviewed,
             contentSource: .clinicianReviewed,
             sections: ProcedureSections(
