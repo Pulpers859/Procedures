@@ -196,19 +196,15 @@ struct SettingsView: View {
             .navigationDestination(for: Kit.self) { kit in
                 KitDetailView(kit: kit)
             }
-            .confirmationDialog(
-                confirmation?.title ?? "",
-                isPresented: Binding(
-                    get: { confirmation != nil },
-                    set: { if !$0 { confirmation = nil } }
-                ),
-                titleVisibility: .visible
-            ) {
-                if let action = confirmation {
-                    Button(action.confirmLabel, role: .destructive) {
+            .alert(item: $confirmation) { action in
+                Alert(
+                    title: Text(action.title),
+                    message: Text("This action cannot be undone."),
+                    primaryButton: .destructive(Text(action.confirmLabel)) {
                         perform(action)
-                    }
-                }
+                    },
+                    secondaryButton: .cancel()
+                )
             }
         }
     }

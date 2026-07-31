@@ -49,17 +49,16 @@ struct ProcedureEditorView: View {
         }
         .navigationTitle("Edit Content")
         .navigationBarTitleDisplayMode(.inline)
-        .confirmationDialog(
-            "Revert every section of \(procedure.title) to the bundled text?",
-            isPresented: $confirmResetAll,
-            titleVisibility: .visible
-        ) {
+        .alert("Revert every section of \(procedure.title) to the bundled text?", isPresented: $confirmResetAll) {
             Button("Revert All", role: .destructive) {
                 let previousFingerprint = currentProcedure?.materialFingerprint
                 editStore.resetAllEdits(for: procedure)
                 repository.reapplyEdits()
                 rebaselineOwnReview(previousFingerprint: previousFingerprint)
             }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This removes the local content edits for this procedure.")
         }
     }
 
@@ -145,10 +144,12 @@ struct SectionEditorView: View {
                     .accessibilityLabel("\(section.displayName) line \(index + 1)")
                 }
                 .onDelete { offsets in
+                    focusedLine = nil
                     lines.remove(atOffsets: offsets)
                     save()
                 }
                 .onMove { source, destination in
+                    focusedLine = nil
                     lines.move(fromOffsets: source, toOffset: destination)
                     save()
                 }
@@ -194,11 +195,8 @@ struct SectionEditorView: View {
             loaded = true
         }
         .onDisappear { save() }
-        .confirmationDialog(
-            "Revert \(section.displayName) to the bundled text?",
-            isPresented: $confirmRevert,
-            titleVisibility: .visible
-        ) {
+        .scrollDismissesKeyboard(.interactively)
+        .alert("Revert \(section.displayName) to the bundled text?", isPresented: $confirmRevert) {
             Button("Revert", role: .destructive) {
                 let previousFingerprint = currentProcedure?.materialFingerprint
                 editStore.resetSection(section, in: procedure)
@@ -209,6 +207,9 @@ struct SectionEditorView: View {
                 // carries the edit that was just discarded.
                 lines = editStore.bundledLines(section, in: procedure)
             }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This removes the local edit for this section.")
         }
     }
 

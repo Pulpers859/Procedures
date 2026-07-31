@@ -358,14 +358,13 @@ struct KitDetailView: View {
                 }
             }
         }
-        .confirmationDialog(
-            "Reset all kit checklist items?",
-            isPresented: $showingResetConfirmation,
-            titleVisibility: .visible
-        ) {
+        .alert("Reset all kit checklist items?", isPresented: $showingResetConfirmation) {
             Button("Reset Checklist", role: .destructive) {
                 userData.resetKit(withID: kit.id)
             }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This clears the current room-setup checks for this kit.")
         }
     }
 

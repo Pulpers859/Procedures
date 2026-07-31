@@ -63,6 +63,7 @@ struct ProcedureDetailView: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
             }
+            .scrollDismissesKeyboard(.interactively)
             .onChange(of: selectedSection) { _, newSection in
                 // Switching sections replaces the content but kept the old
                 // scroll offset, so a clinician scrolled deep into Steps who

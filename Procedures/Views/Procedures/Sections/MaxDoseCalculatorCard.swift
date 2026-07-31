@@ -17,6 +17,10 @@ struct MaxDoseCalculatorCard: View {
     @State private var weightText = ""
     @State private var selectedAgentID: String?
     @State private var selectedPercent: Double?
+    @State private var showCeilingDetails = false
+    @State private var showSafetyDetails = false
+    @State private var showCalculationDetails = false
+    @FocusState private var weightFocused: Bool
 
     private var weightKg: Double? {
         // Locale matters: a comma decimal separator is a real keyboard on a
@@ -53,18 +57,49 @@ struct MaxDoseCalculatorCard: View {
                         .foregroundStyle(.secondary)
                 }
                 Divider()
-                reference
-                Label {
-                    Text(dosing.cumulativeWarning)
-                        .font(.subheadline.weight(.medium))
-                        .fixedSize(horizontal: false, vertical: true)
-                } icon: {
-                    Image(systemName: "plus.forwardslash.minus")
-                        .foregroundStyle(AppSemanticColor.warningText)
+                if let warningSummary {
+                    Label {
+                        Text(warningSummary)
+                            .font(.subheadline.weight(.semibold))
+                            .fixedSize(horizontal: false, vertical: true)
+                    } icon: {
+                        Image(systemName: "plus.forwardslash.minus")
+                            .foregroundStyle(AppSemanticColor.warningText)
+                    }
                 }
-                if !dosing.monitoring.isEmpty {
-                    BulletListView(items: dosing.monitoring)
+                DisclosureGroup(isExpanded: $showCeilingDetails) {
+                    reference
+                        .padding(.top, 4)
+                } label: {
+                    Label("Dose ceilings and agent notes", systemImage: "list.bullet.rectangle")
+                        .font(.subheadline.weight(.semibold))
                 }
+                if !dosing.cumulativeWarning.isEmpty || !dosing.monitoring.isEmpty {
+                    DisclosureGroup(isExpanded: $showSafetyDetails) {
+                        VStack(alignment: .leading, spacing: 10) {
+                            if !dosing.cumulativeWarning.isEmpty {
+                                Text(dosing.cumulativeWarning)
+                                    .font(.subheadline)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                            if !dosing.monitoring.isEmpty {
+                                BulletListView(items: dosing.monitoring)
+                            }
+                        }
+                        .padding(.top, 4)
+                    } label: {
+                        Label("Full safety guidance", systemImage: "exclamationmark.triangle")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(AppSemanticColor.warningText)
+                    }
+                }
+            }
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") { weightFocused = false }
+                    .accessibilityLabel("Done editing patient weight")
             }
         }
     }
@@ -81,6 +116,9 @@ struct MaxDoseCalculatorCard: View {
                     Spacer()
                     TextField("0", text: $weightText)
                         .keyboardType(.decimalPad)
+                        .focused($weightFocused)
+                        .submitLabel(.done)
+                        .onSubmit { weightFocused = false }
                         .multilineTextAlignment(.trailing)
                         .frame(maxWidth: 110)
                         .textFieldStyle(.roundedBorder)
@@ -151,21 +189,40 @@ struct MaxDoseCalculatorCard: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
 
-            if let note = agent.note {
-                Text(note)
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
+            if agent.note != nil || !(dosing.caveats ?? []).isEmpty {
+                DisclosureGroup(isExpanded: $showCalculationDetails) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        if let note = agent.note {
+                            Text(note)
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
 
-            ForEach(dosing.caveats ?? [], id: \.self) { caveat in
-                Text(caveat)
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                        ForEach(dosing.caveats ?? [], id: \.self) { caveat in
+                            Text(caveat)
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+                    .padding(.top, 4)
+                } label: {
+                    Label("Calculation notes", systemImage: "info.circle")
+                        .font(.footnote.weight(.semibold))
+                }
             }
         }
         .accessibilityElement(children: .combine)
+    }
+
+    /// Keeps the first source sentence visible while the complete warning
+    /// remains available in the expanded safety guidance disclosure.
+    private var warningSummary: String? {
+        guard let firstSentence = dosing.cumulativeWarning
+            .split(separator: ".", maxSplits: 1, omittingEmptySubsequences: true)
+            .first else { return nil }
+        return String(firstSentence).trimmingCharacters(in: .whitespacesAndNewlines) + "."
     }
 
     // MARK: - Reference table

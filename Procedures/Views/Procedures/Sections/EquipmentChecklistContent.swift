@@ -37,10 +37,13 @@ struct EquipmentChecklistContent: View {
                 }
             }
         }
-        .confirmationDialog("Reset all equipment items?", isPresented: $showingResetConfirmation, titleVisibility: .visible) {
+        .alert("Reset all equipment items?", isPresented: $showingResetConfirmation) {
             Button("Reset Checklist", role: .destructive) {
                 userData.resetEquipment(for: procedure)
             }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This clears the current equipment checks for this procedure.")
         }
     }
 
