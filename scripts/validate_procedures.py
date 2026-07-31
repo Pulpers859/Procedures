@@ -95,6 +95,7 @@ RELEASE_REFERENCE_MARKERS = (
     "replace with formal reviewer-approved references before release",
     "standard emergency medicine regional anesthesia literature",
 )
+VALID_REVIEW_TIMES = ("60 sec", "2 min", "3 min", "4 min", "5 min", "Deep")
 REGIONAL_CATEGORY = "Regional Anesthesia"
 # Drug or drug-class words that must never appear in a Crash card's immediate
 # moves without a number (dose, concentration, or rate) on the same line. A
@@ -244,6 +245,19 @@ def validate_procedures(data):
         for field in ["id", "title", "reviewTime", "lastReviewed", "version", "category", "difficulty"]:
             if not item.get(field):
                 issues.append(("BLOCKER", title, f"missing metadata: {field}"))
+
+        # `reviewTime` renders as a badge on the card. Its presence was
+        # checked and its value was not, so 26 nerve blocks shipped
+        # `reviewTime: "standard"` - a value the schema does not list and the
+        # badge cannot mean anything by. A warning rather than a blocker: the
+        # record still decodes and still reads.
+        review_time = item.get("reviewTime")
+        if review_time and review_time not in VALID_REVIEW_TIMES:
+            issues.append((
+                "WARNING", title,
+                f"reviewTime '{review_time}' is not one of the schema values: "
+                f"{', '.join(VALID_REVIEW_TIMES)}",
+            ))
 
         setting = item.get("setting")
         if not isinstance(setting, list) or not setting:

@@ -39,7 +39,10 @@
     "lastReviewed": "2026-06-14",
     "version": "0.2.0",
     "references": [
-      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+      "Heffner AC, et al. Incidence and factors associated with cardiac arrest complicating emergency airway management. Resuscitation. 2013;84(11):1500-1504. https://doi.org/10.1016/j.resuscitation.2013.07.022",
+      "Russotto V, et al. Intubation Practices and Adverse Peri-intubation Events in Critically Ill Patients (INTUBE). JAMA. 2021;325(12):1164-1172. https://doi.org/10.1001/jama.2021.1727",
+      "Society of Critical Care Medicine. Guidelines for the Management of Critically Ill Adults with Airway Management. Crit Care Med. 2023. https://doi.org/10.1097/CCM.0000000000005819",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -84,7 +87,9 @@
     "lastReviewed": "2026-06-14",
     "version": "0.2.0",
     "references": [
-      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+      "Difficult Airway Society. Guidelines for the management of unanticipated difficult intubation in adults. 2025. https://doi.org/10.1016/j.bja.2025.02.001",
+      "Difficult Airway Society. DAS airway algorithms. https://das.uk.com/guidelines/das_intubation_guidelines",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -130,7 +135,9 @@
     "lastReviewed": "2026-06-14",
     "version": "0.2.0",
     "references": [
-      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+      "Bowdle A. Vascular complications of central venous catheter placement: evidence-based methods for prevention and treatment. J Cardiothorac Vasc Anesth. 2014;28(2):358-368. https://doi.org/10.1053/j.jvca.2013.02.027",
+      "Guilbert MC, et al. Arterial trauma during central venous catheter insertion: case series, review and proposed algorithm. J Vasc Surg. 2008;48(4):918-925. https://doi.org/10.1016/j.jvs.2008.04.046",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -175,7 +182,9 @@
     "lastReviewed": "2026-06-14",
     "version": "0.2.0",
     "references": [
-      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+      "Vannucci A, et al. Retained guidewires after intraoperative placement of central venous catheters. Anesth Analg. 2013;117(1):102-108. https://doi.org/10.1213/ANE.0b013e3182599179",
+      "The Joint Commission. Sentinel Event Alert: preventing unintended retained foreign objects. https://www.jointcommission.org/resources/sentinel-event/sentinel-event-alert-newsletters/sentinel-event-alert-issue-51-preventing-unintended-retained-foreign-objects/",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -217,7 +226,9 @@
     "lastReviewed": "2026-06-14",
     "version": "0.2.0",
     "references": [
-      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+      "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J. 2021;42(35):3427-3520. https://doi.org/10.1093/eurheartj/ehab364",
+      "American Heart Association. Part 9: Adult Advanced Life Support, 2025 CPR and ECC Guidelines. https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -260,7 +271,9 @@
     "lastReviewed": "2026-06-14",
     "version": "0.2.0",
     "references": [
-      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+      "American Society of Anesthesiologists. Practice Guidelines for Moderate Procedural Sedation and Analgesia. Anesthesiology. 2018;128(3):437-479. https://doi.org/10.1097/ALN.0000000000002043",
+      "American College of Emergency Physicians. Clinical Policy: Procedural Sedation and Analgesia in the Emergency Department. Ann Emerg Med. 2014;63(2):247-258. https://doi.org/10.1016/j.annemergmed.2013.10.015",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -344,8 +357,10 @@
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",
     "references": [
-      "Neal JM et al. ASRA Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018.",
-      "Di Gregorio G et al. Clinical presentation of local anesthetic systemic toxicity. Reg Anesth Pain Med. 2010."
+      "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+      "Di Gregorio G, et al. Clinical presentation of local anesthetic systemic toxicity: a review of published cases, 1979 to 2009. Reg Anesth Pain Med. 2010;35(2):181-187. https://doi.org/10.1097/AAP.0b013e3181d2310b",
+      "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -397,8 +412,9 @@
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",
     "references": [
-      "Hind D et al. Ultrasonic locating devices for central venous cannulation. BMJ. 2003.",
-      "ACEP Clinical Policies on emergency management of pneumothorax."
+      "Hind D, et al. Ultrasonic locating devices for central venous cannulation: meta-analysis. BMJ. 2003;327(7411):361. https://doi.org/10.1136/bmj.327.7411.361",
+      "Roberts ME, et al. British Thoracic Society Guideline for pleural disease. Thorax. 2023;78(Suppl 3):s1-s42. https://doi.org/10.1136/thorax-2022-219784",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -446,8 +462,9 @@
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",
     "references": [
-      "ATLS Advanced Trauma Life Support guidelines on chest tube management.",
-      "Bosman A et al. Complications and malposition of thoracic drains. Eur J Cardiothorac Surg. 2010."
+      "Bosman A, et al. Malpositions of thoracic drains: a retrospective analysis. Eur J Cardiothorac Surg. 2010. https://pubmed.ncbi.nlm.nih.gov/22349999/",
+      "Roberts ME, et al. British Thoracic Society Guideline for pleural disease. Thorax. 2023;78(Suppl 3):s1-s42. https://doi.org/10.1136/thorax-2022-219784",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -496,8 +513,9 @@
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",
     "references": [
-      "Gavel G, Walker RWM. Laryngospasm in anaesthesia. Continuing Education in Anaesthesia, Critical Care & Pain. 2014.",
-      "Larson CP. Laryngospasm \u2014 the best treatment. Anesthesiology. 1998;89:1293-1294."
+      "Gavel G, Walker RWM. Laryngospasm in anaesthesia. Contin Educ Anaesth Crit Care Pain. 2014;14(2):47-51. https://doi.org/10.1093/bjaceaccp/mkt031",
+      "Larson CP. Laryngospasm - the best treatment. Anesthesiology. 1998;89(5):1293-1294. https://doi.org/10.1097/00000542-199811000-00056",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -549,7 +567,9 @@
     "lastReviewed": "2026-07-30",
     "version": "0.1.0",
     "references": [
-      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+      "Mirski MA, et al. Diagnosis and treatment of vascular air embolism. Anesthesiology. 2007;106(1):164-177. https://doi.org/10.1097/00000542-200701000-00026",
+      "McCarthy CJ, et al. Air embolism: practical tips for prevention and treatment. J Clin Med. 2016;5(11):93. https://doi.org/10.3390/jcm5110093",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
@@ -603,7 +623,9 @@
     "lastReviewed": "2026-07-30",
     "version": "0.1.0",
     "references": [
-      "Procedures starter clinical review content. Replace with formal reviewer-approved references before release."
+      "Roberts ME, et al. British Thoracic Society Guideline for pleural disease. Thorax. 2023;78(Suppl 3):s1-s42. https://doi.org/10.1136/thorax-2022-219784",
+      "Sohara Y. Reexpansion pulmonary edema. Ann Thorac Cardiovasc Surg. 2008;14(4):205-209. https://pubmed.ncbi.nlm.nih.gov/18818568/",
+      "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"

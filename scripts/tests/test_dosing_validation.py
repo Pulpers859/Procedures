@@ -326,14 +326,15 @@ class UnboundedAgentTests(unittest.TestCase):
             MODULE.unbounded_agent_issues([self.procedure(["0.25% bupivacaine"])]), []
         )
 
-    def test_shipped_content_has_exactly_the_known_gap(self):
+    def test_no_shipped_record_names_an_agent_it_cannot_bound(self):
+        """The known gap - articaine on the inferior alveolar block - was closed
+        on 2026-07-31 by removing the agent rather than by inventing a ceiling
+        for it. That block now offers lidocaine and bupivacaine, and the reason
+        the 4% dental alternative is absent lives in seniorPearls, which this
+        rule does not scan and should not: it reads equipment and steps, and
+        cannot tell a drug being recommended from one being ruled out."""
         procedures = MODULE.load_json(MODULE.PROCEDURES)
-        issues = MODULE.unbounded_agent_issues(procedures)
-        self.assertEqual(
-            [(issue[1], "articaine" in issue[2]) for issue in issues],
-            [("Inferior Alveolar Nerve Block", True)],
-            "a new unbounded agent appeared, or the known one was resolved",
-        )
+        self.assertEqual(MODULE.unbounded_agent_issues(procedures), [])
 
 
 class ShippedPreparationTableTests(unittest.TestCase):
