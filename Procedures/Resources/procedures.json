@@ -1328,10 +1328,11 @@
     "sections": {
       "shiftMode": [
         "This is for tamponade physiology, not just an effusion on ultrasound.",
-        "Use ultrasound to identify the safest fluid pocket and needle path whenever possible.",
+        "Ultrasound picks the pocket and the path. The subxiphoid landmark route is the fallback for when there is no machine, not the default.",
+        "Two situations are surgical rather than needle problems: aortic dissection and post-infarction free-wall rupture. Read contraindications before putting a needle in either.",
         "Have resuscitation, pressors, blood, and surgical backup moving in parallel when indicated.",
         "Advance under visualization if possible; aspirate continuously or frequently.",
-        "Even small drainage volumes can dramatically improve tamponade physiology.",
+        "Small volumes win. 20-50 mL is often enough to reverse tamponade physiology, and stopping there is a decision rather than a failure.",
         "Keep the whole obstructive shock differential active; tamponade can coexist with bleeding, tension pneumothorax, or profound hypovolemia."
       ],
       "indications": [
@@ -1340,85 +1341,109 @@
         "Diagnostic/therapeutic drainage when benefits outweigh risks"
       ],
       "contraindications": [
-        "No absolute contraindication in life-threatening tamponade",
-        "Aortic dissection/contained rupture requires extreme caution and specialist involvement when feasible",
-        "Coagulopathy is a caution but may be outweighed by shock"
+        "No absolute contraindication in life-threatening tamponade, with the two exceptions below.",
+        "Aortic dissection with haemopericardium: a surgical emergency, not a needle. Draining the pericardium restores the blood pressure and raises the transmural gradient across the tear, and the tamponade was the only thing slowing the bleed - decompression can convert a contained rupture into an uncontained one.",
+        "Post-infarction free-wall rupture: same mechanism, same answer. Cardiothoracic surgery now.",
+        "The narrow exception for both, per ESC procedural guidance: impending arrest with no immediate surgical option. Then drain in small aliquots, of the order of 10-20 mL at a time, targeting the lowest blood pressure that perfuses rather than a normal one, and stop the moment it does. The aliquot size is a local decision; the principle is that you are buying transport minutes, not treating the effusion.",
+        "Purulent effusion or organised clot: a needle and a pigtail will clear neither. Surgical drainage.",
+        "Coagulopathy is a caution but may be outweighed by shock.",
+        "Adult scope. Paediatric pericardiocentesis differs in needle length, drainage volume, and sedation, and is not covered by this card."
       ],
       "anatomy": [
-        "Potential approaches include subxiphoid, parasternal, or apical based on best ultrasound window.",
-        "Avoid internal mammary vessels with parasternal approach.",
-        "Needle trajectory should target fluid, not myocardium."
+        "Choose between subxiphoid, parasternal, and apical by which gives the largest pocket with the shortest safe path - not by tradition.",
+        "Parasternal: the internal mammary artery runs close and parallel to the sternal edge. Find it on colour Doppler before choosing the spot rather than trusting a distance in centimetres.",
+        "Parasternal and apical: enter just above the superior border of the rib below the target space. The intercostal vessels and nerve run along the inferior margin of the rib above.",
+        "Subxiphoid has the longest path to the heart and passes closest to the liver. It is the blind fallback: 1 cm below the costal margin just left of the xiphoid, about 30-45 degrees to the skin, aimed at the left shoulder.",
+        "The target is the fluid pocket. The myocardium is the structure you are steering away from, not a landmark you are aiming past."
       ],
       "equipment": [
-        "Ultrasound machine with sterile cover/gel",
-        "Long spinal needle or pericardiocentesis kit",
-        "Syringe and tubing/stopcock",
-        "Local anesthetic if time allows",
+        "Ultrasound machine with sterile cover and gel, and colour Doppler for the internal mammary and intercostal vessels",
+        "Identify the pericardiocentesis kit your department actually stocks and read its IFU before the crash, not during it: component sizes, wire diameter, and catheter French vary between sets, and some sets carry population precautions - incompletely characterised phthalate exposure in pregnancy, nursing, and children is a flagged example.",
+        "If assembling from parts: an 18 gauge thin-wall or spinal needle long enough for the chosen window, a 0.035 inch J-tipped guidewire, a dilator, and a 6-8F pigtail catheter",
+        "Three-way stopcock, 20-60 mL syringes, and extension tubing",
+        "Closed drainage bag or bottle and a securement dressing if leaving a catheter",
+        "Local anesthetic if time allows: 1% lidocaine, a few millilitres for a subxiphoid track in an adult",
         "ECG/monitoring",
         "Sterile prep/drape/gloves",
-        "Drainage catheter kit if placing catheter",
-        "Resuscitation medications and airway backup"
+        "Resuscitation medications and airway backup",
+        "Sample tubes and culture bottles, so the fluid is not discarded before anyone decides what to send"
       ],
       "positioning": [
-        "Supine or head elevated if tolerated",
+        "Supine, or head up 30-45 degrees if tolerated - elevation moves an effusion anteriorly and inferiorly toward a subxiphoid needle",
         "Expose chest/subxiphoid area widely",
         "Position ultrasound for continuous view"
       ],
       "steps": [
-        "Confirm effusion with tamponade physiology/clinical instability.",
-        "Identify safest window with ultrasound.",
+        "Confirm effusion with tamponade physiology or clinical instability, and confirm this is not dissection or free-wall rupture.",
+        "Identify the largest pocket with the shortest safe path. Mark the site and read the depth off the screen before you start.",
         "Prep/drape and anesthetize if time allows.",
-        "Advance needle toward fluid pocket while aspirating and visualizing tip when possible.",
-        "Aspirate pericardial fluid until hemodynamics improve or flow stops.",
-        "If catheter placed, advance wire/catheter with Seldinger control.",
-        "Secure catheter and reassess with ultrasound/hemodynamics."
+        "Advance under real-time visualisation, aspirating as you go, watching the tip rather than the hub.",
+        "Emergency phase: aspirate only until perfusion returns. 20-50 mL commonly does it. Then stop, re-scan, and decide whether a catheter is needed - do not keep going because fluid keeps coming.",
+        "Before dilating over the wire: see the wire inside the pericardial space. A needle in the right ventricle makes a hole most patients survive; a dilator and a pigtail in the right ventricle makes one they may not. There is no emergency exception to looking.",
+        "Place the catheter with Seldinger control, then confirm the catheter itself - not just the wire - in the pericardial space.",
+        "Secure the catheter, attach a closed drainage system, and reassess with ultrasound and haemodynamics.",
+        "Drainage after stabilisation is staged: keep the initial total under about 500 mL, then drain at intervals rather than continuously. Rapid large-volume removal is what causes pericardial decompression syndrome."
       ],
       "ultrasound": [
-        "Ultrasound guidance is central: choose the largest accessible pocket with safest path.",
+        "Ultrasound guidance is central: choose the largest accessible pocket with the safest path.",
         "Use in-plane visualization when operator skill and window allow.",
+        "Uncertain whether the tip is in the pericardium or in a chamber: inject a few millilitres of agitated saline and watch where the bubbles appear. Bubbles in the pericardial space confirm position; bubbles in the right ventricle mean you are inside the heart and must not dilate.",
         "Re-scan after drainage to assess residual fluid and cardiac filling."
       ],
       "confirmation": [
         "Improved blood pressure/perfusion",
         "Improved tachycardia or arrest physiology",
-        "Ultrasound decrease in effusion/tamponade findings",
-        "Drainage of pericardial fluid rather than blood from chamber"
+        "Ultrasound decrease in effusion and resolution of tamponade findings",
+        "Position confirmed rather than inferred. In haemopericardium the aspirate is blood, so its colour proves nothing - this is exactly the case where the fluid-versus-blood test fails and where you most need a real answer. Use agitated saline, direct visualisation of the catheter in the space, or a transduced waveform: a ventricular pressure trace means the catheter is in the ventricle.",
+        "Pericardial blood is usually defibrinated and does not clot in the syringe, and brisk clotting suggests intracardiac blood. Treat that as a supporting sign, never as the confirmation."
       ],
       "troubleshooting": [
         "No aspirate: reassess window, needle depth, clot, or wrong diagnosis.",
-        "Bright pulsatile blood: stop and reassess possible chamber puncture.",
+        "Bright pulsatile blood, or blood that clots briskly: stop, do not dilate, and confirm position. If the needle is intracardiac, withdraw it and watch - a needle hole usually seals - then re-scan for a new or enlarging effusion.",
+        "Fluid returns but nothing improves: consider clot rather than free fluid, a second loculated pocket, or that tamponade was not the problem. Clot needs surgery, not a bigger syringe.",
+        "Collapse after apparently successful drainage: pericardial decompression syndrome. Stop draining, support with fluid and inotropy, and get echo and cardiology. It can appear hours later, so it is a ward watch item and not only a bedside one.",
         "Recurrent instability: re-scan for reaccumulation, clot, tension pneumothorax, hemorrhage, or obstructive shock alternative."
       ],
       "complications": [
         "Myocardial or coronary injury",
+        "Right ventricular laceration from dilating or railroading a catheter over a misplaced wire",
         "Dysrhythmia",
         "Hemothorax/pneumothorax",
+        "Internal mammary or intercostal artery injury",
         "Liver injury with subxiphoid approach",
+        "Pericardial decompression syndrome: paradoxical haemodynamic collapse, pulmonary oedema, or ventricular dysfunction after drainage, typically following rapid or large-volume removal",
         "Failed drainage",
         "Reaccumulation"
       ],
       "aftercare": [
         "Continuous monitoring and repeat ultrasound.",
-        "Leave catheter/drain per local/specialty plan when placed.",
+        "Watch for decompression syndrome for hours after a large drainage, not only during it.",
+        "Staged drainage after stabilisation, with output recorded. Cardiology or cardiothoracic surgery owns the removal target; output falling below roughly 25-30 mL/day alongside echo showing no significant reaccumulation is the commonly used trigger, and the exact figure is a local plan rather than a rule.",
+        "Send fluid for what the aetiology needs before the sample is discarded: cell count, culture including mycobacteria, cytology, and protein/LDH as indicated.",
         "Cardiology/cardiothoracic/trauma involvement depending etiology.",
         "Definitive management of cause."
       ],
       "documentation": [
         "Pericardiocentesis performed for suspected/confirmed tamponade with hemodynamic compromise.",
         "Consent/emergent rationale documented.",
-        "Ultrasound used to identify effusion and procedural window when feasible.",
-        "Needle/catheter advanced with aspiration; volume/character of fluid documented.",
+        "Ultrasound used to identify effusion and procedural window when feasible; approach and window documented.",
+        "Position-confirmation method documented: real-time visualisation, agitated saline, or transduced waveform.",
+        "Needle/catheter advanced with aspiration; volume and character of fluid documented, and whether drainage was single-pass or staged.",
+        "Residual effusion on post-procedure ultrasound documented.",
         "Hemodynamic response and complications documented.",
         "Consultation and ongoing drainage plan documented."
       ],
       "seniorPearls": [
         "The ultrasound diagnosis is not just 'effusion'; it is effusion plus physiology plus patient context.",
         "Pick the safest window, not the most traditional one.",
-        "Small amount out with sudden BP improvement is a real win."
+        "Small amount out with sudden BP improvement is a real win - and it is also the moment to stop.",
+        "The colour of the aspirate answers nothing in trauma. Everything is blood.",
+        "If you are reaching for a dilator, you have time to look at the wire."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "European Society of Cardiology. 2025 ESC Guidelines for the Management of Myocarditis and Pericarditis. Eur Heart J. 2025;46(40):3952. https://doi.org/10.1093/eurheartj/ehaf192",
+        "ESC Council for Cardiology Practice. Pericardiocentesis in Cardiac Tamponade: Indications and Practical Aspects. E-Journal of Cardiology Practice. 2017;15. https://www.escardio.org/communities/councils/cardiology-practice/scientific-documents-and-publications/ejournal/volume-15/Pericardiocentesis-in-cardiac-tamponade-indications-and-practical-aspects/",
+        "Read the instructions for use of the pericardiocentesis set your department stocks, by manufacturer and revision, for component sizes and population precautions. Cook Medical's pericardiocentesis set IFU is one example: https://ifu.cookmedical.com/data/IFU_PDF/C_T_TTPS_REV11.PDF",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
     },
@@ -1436,12 +1461,12 @@
       {
         "id": "pericardiocentesis_needle_path",
         "kind": "Landmark",
-        "title": "Subxiphoid needle geometry",
-        "subtitle": "Needle enters adjacent to the probe, tracks shallowly under the costal margin, and aims toward the left shoulder while avoiding myocardium and liver.",
+        "title": "Subxiphoid needle geometry (no-ultrasound fallback)",
+        "subtitle": "Blind fallback route only, for when no machine is available. Needle enters 1 cm below the costal margin just left of the xiphoid, tracks shallowly under the costal margin at about 30-45 degrees, and aims toward the left shoulder.",
         "assetName": null,
         "systemImage": "scope",
         "caption": "Replace assetName with reviewed artwork when available.",
-        "clinicalWarning": "Steep/deep trajectories risk myocardium or liver."
+        "clinicalWarning": "With ultrasound available, the safest pocket sets the trajectory, not this geometry. Steep or deep trajectories risk myocardium or liver."
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
@@ -1470,31 +1495,41 @@
     "sections": {
       "shiftMode": [
         "Use when unstable bradycardia is not responding or needs bridge therapy.",
-        "Keep transcutaneous pacing/pressors running while placing if unstable.",
-        "Know the generator: rate, output, sensitivity, battery, connections.",
+        "Keep transcutaneous pacing and pressors running while placing if unstable.",
+        "Know the generator before you need it: rate, output in mA, sensitivity, battery, and which cable mates it to this catheter. The connector is the commonest thing missing from the trolley.",
         "Electrical capture is not enough; confirm mechanical capture with pulse/BP/arterial waveform.",
+        "Spikes with no capture at maximum output is not a generator problem. The catheter is not where you think it is - reposition rather than climbing the output.",
         "Secure catheter and generator carefully; dislodgement is common.",
-        "Do not remove backup pads/pressors until capture is reliable and the catheter is secured."
+        "Do not remove backup pads or pressors until capture is reliable and the catheter is secured.",
+        "Shortest dwell that reaches definitive care. Review the need daily, and preserve the side the permanent device will want."
       ],
       "indications": [
         "Unstable bradycardia refractory to medications/transcutaneous pacing",
         "High-grade AV block with instability",
+        "Reversible bradycardia - drug toxicity, hyperkalaemia, Lyme carditis, myocarditis - where pacing bridges to resolution",
         "Bridge to permanent pacing or definitive management"
       ],
       "contraindications": [
         "No absolute contraindication in life-threatening bradycardia",
+        "Prosthetic tricuspid valve - a pacing lead cannot be floated across a mechanical tricuspid",
         "Severe agitation may require sedation/airway planning",
-        "Infection or thrombus at access site affects site selection"
+        "Infection or thrombus at access site affects site selection",
+        "Adult scope."
       ],
       "anatomy": [
-        "Usually placed through central venous access into RV.",
-        "Balloon-tipped catheter floats with blood flow toward RV when advanced correctly.",
+        "Right internal jugular is the preferred route: the straightest and shortest course to the right ventricle, and the least likely to displace.",
+        "Left subclavian is the second choice for a longer dwell. Avoid an intrathoracic subclavian puncture - it risks pneumothorax and it compromises the vein a permanent device may need.",
+        "Femoral works and is sometimes the only option, but it carries higher infection and thrombosis rates and loses capture with leg movement.",
+        "Preserve the side planned for the permanent pacemaker. Ask, if there is anyone to ask.",
+        "The balloon-tipped catheter floats with blood flow toward the RV when advanced correctly. From the right internal jugular the right ventricle is typically at about 30-35 cm.",
         "ECG changes and capture help guide placement."
       ],
       "equipment": [
-        "Central venous sheath/introducer",
-        "Balloon-tipped pacing catheter",
-        "Pacing generator with battery checked",
+        "Central venous introducer sized to this pacing catheter - check the French compatibility, not just that both are in the tray",
+        "Balloon-tipped pacing catheter with its sterile contamination sleeve and locking mechanism",
+        "Pacing generator with battery checked, and the specific connector cable that mates it to this catheter",
+        "Named locally: which catheter, which generator, which cable, and the balloon inflation volume from that catheter's instructions for use. Balloon capacity and connector type vary between manufacturers and this is not a bedside guess.",
+        "A syringe of air for the balloon - air only, never fluid or contrast",
         "Sterile setup",
         "Monitor/defib pads",
         "Ultrasound for venous access",
@@ -1508,14 +1543,15 @@
         "Defib pads on patient"
       ],
       "steps": [
-        "Obtain central venous access/sheath.",
-        "Connect pacing catheter to generator correctly and test function.",
-        "Inflate balloon per catheter instructions.",
-        "Advance catheter while watching ECG for ectopy/capture clues.",
-        "Set rate/output and advance until capture achieved.",
-        "Lower output to find threshold, then set safety margin above threshold.",
-        "Confirm mechanical capture with pulse/BP/arterial waveform.",
-        "Deflate balloon if appropriate, secure catheter/generator, obtain imaging."
+        "Obtain central venous access and place the introducer.",
+        "Test the balloon before it goes in, then connect the pacing catheter to the generator and confirm it paces.",
+        "Set the generator before insertion: rate about 60-80 or above the patient's own rate, output high to start at around 5-10 mA, and the mode the rhythm calls for.",
+        "Inflate the balloon with the volume this catheter's instructions state - typically of the order of 1.0-1.5 mL of air - once the tip is past the introducer and never inside it.",
+        "Advance gently while watching the ECG for ectopy and capture. Never advance against resistance, and never advance or withdraw with the balloon inflated against resistance. The catheter is not a guidewire and it will find a valve.",
+        "Capture, then find the threshold: reduce the output until capture is lost, note that number, and set the output at two to three times it. A threshold above roughly 2 mA in a well-positioned catheter is a positioning problem, not a setting.",
+        "Confirm mechanical capture with pulse, blood pressure, or arterial waveform. Electrical capture alone is the fake success this procedure is known for.",
+        "Deflate the balloon, secure the catheter and the generator, and obtain a chest radiograph for position, depth, and pneumothorax.",
+        "Record rate, output, threshold, sensitivity, and insertion depth, so the next person can tell whether anything has moved."
       ],
       "ultrasound": [
         "Ultrasound helps obtain venous access and may help assess catheter course/complications.",
@@ -1525,12 +1561,15 @@
         "Electrical capture on ECG",
         "Mechanical capture with palpable pulse/BP/arterial waveform",
         "Improved perfusion/mental status",
-        "Chest x-ray for catheter position and complications"
+        "Chest x-ray for catheter position, depth, and complications",
+        "Diaphragmatic pacing or hiccups means the tip is against the diaphragmatic surface or through the wall. Reassess position rather than accepting it."
       ],
       "troubleshooting": [
-        "No capture: increase mA, check connections/generator, reposition catheter, continue transcutaneous pacing/pressors.",
+        "No capture at maximum output: this is position, not power. Deflate, withdraw a few centimetres, reinflate, and refloat - and keep transcutaneous pacing and pressors going while you do.",
         "Intermittent capture: secure, reposition, increase output margin.",
+        "Threshold rising over hours: the catheter is migrating or the tip is becoming inflamed. Recheck position and securement, and hand that number over to the next team.",
         "Ventricular ectopy: withdraw/reposition if irritating myocardium.",
+        "Sudden hypotension after a good capture: think right ventricular perforation and tamponade. Scan.",
         "Hypotension despite capture: reassess rate, shock, medications, and mechanical complications."
       ],
       "complications": [
@@ -1538,31 +1577,40 @@
         "Dysrhythmia",
         "Ventricular perforation/tamponade",
         "Pneumothorax from access",
-        "Infection",
+        "Bleeding or haematoma at the access site",
+        "Venous thrombosis",
+        "Catheter-related bloodstream infection, which scales with dwell time",
+        "Catheter knotting or entrapment",
         "Catheter dislodgement"
       ],
       "aftercare": [
         "Continuous monitoring.",
         "Cardiology/ICU admission and permanent pacer planning if indicated.",
+        "Review the need every day and document the plan. Dwell time drives infection, thrombosis, and displacement, and the answer is almost always to reach a permanent device or fix the reversible cause.",
         "Repeat capture checks after movement/transport.",
+        "Keep transcutaneous pacing capability and pressors immediately available for the whole dwell, not just for the insertion.",
         "Secure generator and catheter to prevent accidental migration."
       ],
       "documentation": [
         "Transvenous pacemaker placed for unstable bradycardia/conduction disease.",
         "Consent/emergent rationale documented.",
-        "Venous access obtained using documented site/technique.",
-        "Pacing catheter advanced and capture achieved at documented settings.",
+        "Venous access obtained using documented site/technique, and the reason that site was chosen.",
+        "Catheter, generator, and connector cable identified by name.",
+        "Pacing catheter advanced and capture achieved at documented rate, output, threshold, sensitivity, and insertion depth.",
         "Mechanical capture confirmed clinically/hemodynamically.",
-        "Catheter secured; imaging/consultation plan documented."
+        "Catheter secured; imaging, dwell-time plan, and consultation documented."
       ],
       "seniorPearls": [
         "The most common fake success is seeing spikes and forgetting to check a pulse.",
+        "Air in the balloon. Not saline, not contrast.",
+        "Write the threshold down. A number nobody recorded cannot be compared with tomorrow's.",
         "Keep pads on until the whole setup is stable and secured.",
         "Every movement can lose capture; check after transport."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "American Heart Association. Part 9: Adult Advanced Life Support, 2025 CPR and ECC Guidelines. 2025. https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support",
+        "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J. 2021;42(35):3427-3520. https://doi.org/10.1093/eurheartj/ehab364",
+        "Read the instructions for use of the pacing catheter and external generator your department stocks for balloon inflation volume, introducer compatibility, and connector type, and record which cable joins them. Teleflex Arrow temporary pacing catheters are one example: https://www.teleflex.us.com/usa/en/product-areas/interventional/cardiac-diagnostics/pacing-catheters-and-kits/index.html",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
     },
@@ -1787,8 +1835,7 @@
     "reviewTime": "5 min",
     "setting": [
       "ED",
-      "ICU",
-      "Peds"
+      "ICU"
     ],
     "lastReviewed": "2026-06-14",
     "version": "0.2.0",
@@ -1802,102 +1849,125 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm indication and whether imaging/platelets/anticoagulation review is needed before starting.",
+        "Suspected bacterial meningitis: antibiotics first. Nothing about the LP - not imaging, not positioning, not consent, not finding the tubes - is allowed to move the first dose later.",
+        "An LP after antibiotics still answers the question. Cell count, glucose, protein, and PCR survive the first dose. The culture is what may be lost, which is why the blood cultures go before the antibiotics rather than the LP going before them.",
+        "Check the blood glucose immediately before the LP when meningitis is suspected. The CSF-to-blood glucose ratio needs a paired value, not this morning's.",
         "Position is the procedure: poor flexion and rotation kill success.",
         "Use L3-L4 or L4-L5; avoid going too high.",
-        "Have tubes labeled and opening pressure setup ready before puncture if needed.",
+        "An atraumatic pencil-point needle is the default. It roughly halves post-dural-puncture headache and it needs an introducer.",
+        "Have tubes labeled and the manometer assembled before puncture if opening pressure is needed.",
         "If traumatic or no flow, pause and reposition rather than digging.",
-        "Document neuro exam and consent before local anesthetic when feasible."
+        "Document the neurological examination before local anaesthetic when feasible."
       ],
       "indications": [
-        "Concern for meningitis/encephalitis when LP indicated",
-        "Subarachnoid hemorrhage evaluation after appropriate imaging pathway",
+        "Concern for meningitis or encephalitis - and the LP does not gate the antibiotics",
+        "Subarachnoid haemorrhage evaluation after a negative CT taken outside the window in which CT alone is sufficient",
         "Measurement of opening pressure",
-        "Diagnostic CSF studies for inflammatory, malignant, or infectious etiologies"
+        "Diagnostic CSF studies for inflammatory, malignant, or infectious etiologies",
+        "Therapeutic CSF removal where that is the agreed plan, as in idiopathic intracranial hypertension"
       ],
       "contraindications": [
-        "Signs of elevated ICP/mass lesion requiring imaging first",
-        "Coagulopathy/thrombocytopenia or anticoagulation depending context",
+        "Image the head first, and treat first, if any of these are present: focal neurological deficit, new-onset seizure, a reduced or fluctuating conscious level, papilloedema, abnormal pupils, abnormal posturing, or significant immunocompromise. These are the features that make a mass lesion or impending herniation likely, and they are the reason to image - not a routine CT for everyone.",
+        "Deferring the LP for imaging never defers the antibiotics.",
+        "Stabilise first and LP later in shock, respiratory compromise, or uncontrolled seizures. The positioning alone can be lethal in a patient who is already marginal.",
+        "Coagulopathy, thrombocytopenia, or therapeutic anticoagulation: this is a neuraxial procedure and the bleed is concealed. It needs a named local antithrombotic policy, because the hold interval depends on the agent, the dose, renal function, and how urgent the LP is. A single interval transposed from neuraxial anaesthesia is not that policy. A coagulopathy that defers the LP still does not defer antibiotics.",
         "Overlying infection at puncture site",
-        "Unstable patient who cannot tolerate positioning"
+        "Unstable patient who cannot tolerate positioning",
+        "Adult scope. Paediatric and neonatal LP differ in interspace, needle length, sedation, CSF volume, and opening-pressure interpretation, and this card does not cover them."
       ],
       "anatomy": [
         "Use line between iliac crests approximating L4 spinous process.",
+        "Tuffier's line is an approximation and sits higher than expected in obesity and in pregnancy. If the level matters, count up from the sacrum or mark the interspace with ultrasound.",
         "Needle enters midline between spinous processes toward umbilicus.",
         "Conus usually ends above adult L3; use lower lumbar spaces."
       ],
       "equipment": [
         "LP tray",
-        "Sterile gloves/mask/prep/drape",
-        "Spinal needle with stylet",
-        "Manometer tubing if opening pressure needed",
-        "Collection tubes labeled 1\u20134",
-        "Local anesthetic and small needle",
+        "Sterile gloves, surgical mask, prep, and drape - the mask protects the puncture site from your respiratory flora, not you from the patient",
+        "Atraumatic pencil-point spinal needle, 22-25 gauge, with its introducer. This is the default for adults: it roughly halves post-dural-puncture headache without reducing success.",
+        "Cutting (Quincke) needle as the fallback when no atraumatic needle is stocked",
+        "A longer needle available for large body habitus",
+        "Manometer and three-way tap if opening pressure is needed",
+        "Collection tubes labeled 1-4",
+        "1% lidocaine and a small needle for skin and deeper infiltration",
         "Bandage",
-        "Assistant for positioning",
-        "Extra needles if obese or difficult anatomy"
+        "Assistant for positioning - the highest-yield item on this list"
       ],
       "positioning": [
-        "Lateral decubitus for opening pressure; hips/neck flexed but airway comfortable",
-        "Sitting position can improve success but opening pressure is less reliable",
-        "Shoulders and hips perpendicular to bed"
+        "Lateral decubitus for opening pressure; hips and neck flexed but the airway comfortable",
+        "Sitting-flexed improves success and midline identification but makes opening pressure uninterpretable. If you need a pressure, you need lateral.",
+        "Shoulders and hips perpendicular to bed, with the plane of the back vertical rather than rolled",
+        "Once the needle is in and before measuring, let the legs come down. Flexion falsely raises the opening pressure."
       ],
       "steps": [
-        "Review contraindications, consent, and required studies.",
-        "Position patient carefully and identify interspace.",
+        "Suspected meningitis: blood cultures, then antibiotics, then everything below.",
+        "Review contraindications and the imaging criteria, consent, and required studies.",
+        "Position patient carefully, identify the interspace, and mark it.",
         "Prep/drape sterile field.",
         "Anesthetize skin and deeper tissue.",
-        "Insert spinal needle with stylet bevel oriented appropriately.",
-        "Advance slowly until pop/loss of resistance; remove stylet to check flow.",
-        "Measure opening pressure if indicated in lateral decubitus.",
+        "Insert the introducer, then the atraumatic needle through it, angled slightly cephalad. Bevel orientation is a cutting-needle instruction and does not apply to a pencil-point needle.",
+        "Advance slowly. An atraumatic needle gives a subtle or absent pop, so check for flow every few millimetres by removing the stylet rather than waiting for a feel that may never come.",
+        "Measure opening pressure before removing any CSF: lateral position, legs and neck relaxed, manometer zeroed at the interspace.",
         "Collect CSF in ordered tubes.",
-        "Replace stylet before removing needle; dress site and reassess."
+        "Replace stylet before removing needle; dress site and reassess the neurological examination."
       ],
       "ultrasound": [
-        "Ultrasound can help identify midline and depth in obese or difficult anatomy but does not replace sterile technique."
+        "Ultrasound can help identify midline and depth in obese or difficult anatomy but does not replace sterile technique.",
+        "It is most useful before the first attempt, as a marking tool, rather than after three failures."
       ],
       "confirmation": [
         "CSF obtained and sent for ordered studies",
-        "Opening pressure documented if measured",
+        "Opening pressure measured before CSF removal, with the position, leg position, and zero reference recorded beside the number. A commonly cited adult range is about 6-25 cmH2O, and a number recorded without its conditions is not interpretable.",
+        "Straining, coughing, Valsalva, hypercapnia, and a flexed position all raise it. A single high number in a struggling patient is not intracranial hypertension.",
         "Patient neurologic status reassessed",
         "Tube numbers and appearance documented"
       ],
       "troubleshooting": [
         "No CSF: recheck positioning, level, angle, depth; consider longer needle or ultrasound marking.",
         "Bone repeatedly: withdraw to subcutaneous tissue and redirect cephalad slightly.",
+        "Flow starts then stops: rotate the needle 90 degrees. A nerve root or the arachnoid can occlude the aperture, and rotating is gentler than advancing.",
         "Traumatic tap: minimize needle movement; consider another level if needed.",
         "Post-LP headache: counsel, fluids/analgesia, blood patch pathway if persistent/severe."
       ],
       "complications": [
         "Post-dural puncture headache",
-        "Bleeding/epidural hematoma",
+        "Spinal or epidural haematoma - rare, and the reason the anticoagulation question is not a formality",
         "Infection",
         "Nerve root irritation",
         "Brain herniation in high-risk patients",
         "Traumatic tap or failed procedure"
       ],
       "aftercare": [
-        "Supine rest per local practice if symptomatic.",
-        "Send CSF promptly with correct labels/orders.",
+        "Bed rest does not prevent post-dural-puncture headache. Lying flat may make an established one more tolerable; do not offer it as prophylaxis.",
+        "Send CSF promptly with correct labels and orders.",
         "Reassess neuro status and puncture site.",
+        "New or worsening back pain, leg weakness, numbness, or urinary retention after an LP is a spinal or epidural haematoma until proven otherwise. Urgent MRI and a neurosurgical conversation - not analgesia and reassurance. The risk is highest in anticoagulated or coagulopathic patients, and the window in which decompression preserves function is hours.",
         "Give return precautions for severe headache, fever, weakness, urinary retention, or site issues."
       ],
       "documentation": [
         "Lumbar puncture performed for documented indication.",
-        "Consent obtained; contraindications reviewed as appropriate.",
+        "Consent obtained; contraindications and imaging criteria reviewed as appropriate.",
+        "Where meningitis was suspected: time of blood cultures, time of first antibiotic dose, and time of LP, so the order is on the record.",
         "Patient positioned and sterile technique used.",
-        "Needle inserted at documented level; CSF obtained/unsuccessful attempts documented.",
-        "Opening pressure documented if measured.",
+        "Needle type and gauge documented - atraumatic or cutting - and the level of insertion.",
+        "CSF obtained or unsuccessful attempts documented.",
+        "Opening pressure documented with position, leg position, and zero reference if measured.",
         "CSF appearance/tubes/studies documented; patient tolerated procedure with complications noted."
       ],
       "seniorPearls": [
         "Most failed LPs are positioning failures, not needle failures.",
         "Do not chase bone deeper and deeper; reset your angle.",
-        "Label tubes before you are holding CSF and everyone is suddenly excited."
+        "Label tubes before you are holding CSF and everyone is suddenly excited.",
+        "The atraumatic needle has no satisfying pop. Check for flow instead of waiting for a feeling.",
+        "If you are about to delay antibiotics for the LP, the order of this procedure is backwards."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli's Emergency Medicine: A Comprehensive Study Guide.",
+        "World Health Organization. Guidelines on Meningitis Diagnosis, Treatment and Care. 2025. https://iris.who.int/bitstream/handle/10665/381006/9789240108042-eng.pdf",
+        "National Institute for Health and Care Excellence. Meningitis (bacterial) and meningococcal disease: recognition, diagnosis and management. NG240. 2024. https://www.nice.org.uk/guidance/NG240/chapter/recommendations",
+        "Nath S, et al. Atraumatic versus conventional lumbar puncture needles. BMJ Rapid Recommendation. 2018;361:k1920. https://doi.org/10.1136/bmj.k1920",
+        "Engelborghs S, et al. Consensus guidelines for lumbar puncture in patients with neurological diseases. Alzheimers Dement (Amst). 2017;8:111-126. https://pmc.ncbi.nlm.nih.gov/articles/PMC5454085/",
+        "Centers for Disease Control and Prevention. Injection safety and lumbar puncture infection-control practices. https://www.cdc.gov/injection-safety/hcp/clinical-guidance/index.html",
+        "Link the local antithrombotic policy that governs hold intervals before neuraxial puncture. ASRA Pain Medicine's fifth-edition guideline is the usual source document for that policy: https://doi.org/10.1136/rapm-2024-105766",
         "Verify local institutional policy, kit contents, consent requirements, and credentialing expectations."
       ]
     },
@@ -3754,42 +3824,49 @@
     ],
     "sections": {
       "shiftMode": [
-        "This is a last-resort, time-critical trauma procedure with narrow indications \u2014 apply the criteria, do not improvise them.",
-        "Best evidence supports penetrating chest trauma with signs of life within a short window before arrest; blunt arrest outcomes are dismal.",
-        "Goals: release tamponade, control intrathoracic hemorrhage, cross-clamp the aorta, and allow internal cardiac massage.",
+        "This is a last-resort, time-critical trauma procedure. The criteria are below as numbers - if you are reasoning about whether the window has closed, it has.",
+        "Signs of life means any one of: a palpable pulse, a measurable blood pressure, spontaneous respiratory effort, pupillary reaction, spontaneous or purposeful movement, or organised cardiac electrical activity. None of the six, at any point since injury, and this is a resuscitation you are stopping rather than one you are opening.",
+        "CPR-duration windows (WTA 2024): under 15 minutes for penetrating trauma, under 10 minutes for blunt. Blunt arrest without signs of life is not an indication at any duration.",
+        "It presumes an operating theatre, a surgeon, and blood. Without a surgical destination this is not a bridge to anywhere.",
+        "Goals, in order: release tamponade, control intrathoracic haemorrhage, allow internal cardiac massage, and cross-clamp the descending aorta if subdiaphragmatic bleeding is the problem.",
         "Left anterolateral thoracotomy at the 4th/5th intercostal space; extend across the sternum (clamshell) for right-sided or wider access.",
         "Open the pericardium longitudinally and anterior to the phrenic nerve to relieve tamponade.",
-        "Control obvious cardiac or great-vessel bleeding and cross-clamp the descending aorta if needed.",
-        "Have massive transfusion, surgical backup, and a clear destination (OR) activated before and during the procedure."
+        "Massive transfusion, surgical backup, and a named destination activated before the incision, not after it."
       ],
       "indications": [
-        "Penetrating thoracic trauma with witnessed loss of vital signs and a short arrest interval",
-        "Traumatic arrest with suspected pericardial tamponade amenable to release",
-        "Selected penetrating trauma arrest with signs of life en route, per local trauma protocol",
-        "Exsanguinating intrathoracic hemorrhage where aortic cross-clamp may be life-saving as a bridge to the OR"
+        "Penetrating thoracic trauma with signs of life at some point after injury and CPR under 15 minutes - the strongest indication and the one the outcome data rests on",
+        "Penetrating extrathoracic trauma within the same window: consider, but the yield is lower and the source may be abdominal",
+        "Blunt trauma arrest with signs of life and CPR under 10 minutes",
+        "Traumatic arrest with pericardial tamponade identified on ultrasound and a correctable source",
+        "Exsanguinating intrathoracic haemorrhage where an aortic cross-clamp is a bridge to the operating theatre",
+        "Exsanguinating abdominopelvic haemorrhage is a different branch: laparotomy, or Zone 1 REBOA where it is available and part of the local pathway - not thoracotomy"
       ],
       "contraindications": [
-        "Blunt trauma arrest without signs of life (very poor outcomes; per protocol generally not indicated)",
-        "Prolonged pulselessness beyond the evidence-supported window",
-        "No realistic surgical/definitive care pathway available",
-        "Injuries clearly incompatible with survival",
-        "Penetrating trauma with prolonged arrest and no signs of life per local criteria"
+        "Blunt trauma arrest with no signs of life. Survival is effectively zero and this is not indicated at any CPR duration.",
+        "No signs of life at any point since injury, for any mechanism",
+        "CPR beyond 15 minutes for penetrating or 10 minutes for blunt trauma",
+        "No operating theatre, surgeon, or blood available. Opening a chest nobody can repair is not a bridge.",
+        "Injuries clearly incompatible with survival, including devastating head injury",
+        "Adult criteria only. Paediatric resuscitative thoracotomy has its own algorithm and its own outcome data; use the paediatric trauma pathway."
       ],
       "anatomy": [
         "Left anterolateral approach at the 4th-5th intercostal space follows the rib's superior margin to avoid the neurovascular bundle.",
         "The pericardium is opened longitudinally and anterior to the phrenic nerve, which runs along its lateral surface.",
-        "The descending thoracic aorta lies posteriorly against the spine, anterior to it the esophagus and lung must be retracted.",
-        "Clamshell extension across the sternum exposes both pleural cavities and the heart for wider access."
+        "The descending thoracic aorta lies posteriorly against the spine. The oesophagus lies immediately anterior to it and is the structure most often clamped by mistake - an orogastric tube makes it identifiable by feel.",
+        "Clamshell extension across the sternum exposes both pleural cavities and the heart for wider access.",
+        "Crossing the sternum divides both internal mammary arteries. They will not bleed while there is no circulation and will bleed hard the moment there is one - find and ligate them."
       ],
       "equipment": [
-        "Thoracotomy/clamshell tray (scalpel, Mayo scissors, rib spreader/Finochietto retractor)",
+        "Thoracotomy/clamshell tray: scalpel, Mayo scissors, rib spreader (Finochietto retractor)",
+        "An instrument that will actually divide the sternum: heavy trauma shears, a Lebsche knife, or a Gigli saw. Confirm which one is in your tray before the shift, because 'extend across the sternum' means nothing without it.",
         "Vascular clamps (aortic and DeBakey-type) for cross-clamping and vessel control",
         "Toothed forceps and large hemostats",
-        "Internal defibrillator paddles if available",
+        "Internal defibrillator paddles, and confirmation that they connect to your department's defibrillator - paddle and connector generations are not interchangeable",
         "Suction and large volumes of gauze/laparotomy pads",
         "Massive transfusion products and rapid infuser",
-        "Sterile gloves, gowns, and eye protection for the team",
-        "Foley catheter or sutures for temporary cardiac wound control"
+        "Orogastric tube, to identify the oesophagus before clamping the aorta",
+        "Foley catheter or sutures for temporary cardiac wound control, and a skin stapler for rapid closure",
+        "Sterile gloves, gowns, eye protection, and face shields for the whole team - this is the highest blood-exposure procedure in the department"
       ],
       "positioning": [
         "Patient supine with the left arm raised or abducted to expose the lateral chest.",
@@ -3798,39 +3875,47 @@
         "Prep quickly; this is a time-critical procedure where speed and exposure dominate."
       ],
       "steps": [
-        "Confirm the indication meets local resuscitative thoracotomy criteria and activate trauma surgery and massive transfusion.",
-        "Make a left anterolateral incision at the 4th-5th intercostal space along the superior rib margin, from sternum to the table.",
-        "Divide intercostal muscles and enter the pleura; place and open the rib spreader.",
-        "Extend across the sternum (clamshell) if right-sided injury or wider exposure is needed.",
-        "Open the pericardium longitudinally, anterior to the phrenic nerve, and evacuate clot to relieve tamponade.",
-        "Identify and control cardiac wounds with finger pressure, then a Foley balloon or sutures as appropriate.",
-        "Perform internal cardiac massage and internal defibrillation if indicated.",
-        "Cross-clamp the descending thoracic aorta to support coronary/cerebral perfusion and limit subdiaphragmatic hemorrhage.",
+        "Confirm the criteria in shiftMode by the numbers, then activate trauma surgery, massive transfusion, and the theatre.",
+        "Make a left anterolateral incision at the 4th-5th intercostal space along the superior rib margin, from the sternal edge to the table. Short incisions are the commonest reason this procedure fails.",
+        "Divide intercostal muscles and enter the pleura; place and open the rib spreader with its handle toward the axilla so it does not sit in the field.",
+        "Extend across the sternum (clamshell) if there is right-sided injury or you need wider exposure, then find and ligate both internal mammary arteries.",
+        "Open the pericardium longitudinally and anterior to the phrenic nerve, and evacuate clot to relieve tamponade. A tamponaded pericardium is tense and hard to pinch up - grasp and incise it.",
+        "Control cardiac wounds with finger pressure first, then a Foley balloon, staples, or sutures. Do not tie a suture around a coronary artery.",
+        "Internal cardiac massage two-handed. Internal defibrillation only if the rhythm is shockable, and at the low energy internal paddles use - commonly of the order of 10-20 J, and confirmed against your paddle and defibrillator instructions rather than assumed.",
+        "Cross-clamp the descending aorta only if the bleeding is subdiaphragmatic or you need to redirect what circulation there is to heart and brain. Retract the left lung anteriorly, open the posterior pleura, identify the aorta against the spine with the oesophagus anterior to it, and clamp under direct vision.",
+        "Say the clamp time out loud when you apply it and every five minutes after. Everything below the clamp is ischaemic, and its release is a second resuscitation.",
         "Control intrathoracic bleeding and continue resuscitation with blood products.",
+        "Endpoint: no organised cardiac activity after tamponade release, haemorrhage control, and an aortic clamp is the answer the procedure gives you. Stop there.",
         "Transport immediately to the operating room for definitive repair if circulation is restored."
       ],
       "ultrasound": [
-        "Pre-arrest or peri-arrest ultrasound (e-FAST) can identify tamponade and guide the decision to proceed.",
-        "Cardiac standstill on ultrasound informs prognosis within the resuscitation algorithm.",
-        "Do not let imaging delay a clearly indicated thoracotomy in a peri-arrest penetrating chest trauma."
+        "Ultrasound before or around the arrest can identify tamponade and support the decision to proceed.",
+        "Cardiac standstill is not a free-standing reason to stop. Its place in the algorithm is narrow: in a patient in PEA with no signs of life, absent wall motion on a technically adequate view supports termination. In a patient with signs of life it changes nothing.",
+        "Never delay a clearly indicated thoracotomy to get a scan, and never repeat a scan to postpone the decision."
       ],
       "confirmation": [
         "Pericardium opened and tamponade relieved if present",
         "Cardiac or great-vessel bleeding controlled",
-        "Aorta cross-clamped when indicated, with improved central perfusion",
+        "Aorta clamped under direct vision with the oesophagus identified, clamp time recorded, and central perfusion improved",
         "Return of organized cardiac activity or perfusing rhythm as the resuscitation endpoint",
         "Patient moving to definitive operative care without delay"
       ],
       "troubleshooting": [
+        "Cannot get exposure: the incision is too short or too high. Extend it to the table and across the sternum. Almost every failed thoracotomy is an inadequate incision.",
         "Cannot find a cardiac wound after opening the pericardium: inspect the posterior surface and great vessels; lift the heart carefully.",
         "Ongoing massive hemorrhage from the chest: pack, control the source, and cross-clamp the aorta while transfusing.",
+        "Sudden brisk bleeding after return of circulation in a clamshell: the internal mammary arteries. Look at the sternal edges first.",
+        "Clamp is on and nothing changed after a few minutes: question the clamp before the patient. It is probably on the oesophagus - check by feel against the orogastric tube - or the bleeding is above it.",
         "Phrenic nerve in the way of pericardiotomy: open anterior to it to avoid injury.",
-        "No response after pericardial release and aortic clamp: reassess for non-survivable injury and the resuscitation endpoint.",
-        "Right-sided injury inaccessible from the left: extend to a clamshell for bilateral exposure."
+        "Right-sided injury inaccessible from the left: extend to a clamshell for bilateral exposure.",
+        "No response after pericardial release and aortic clamp: reassess for non-survivable injury and the resuscitation endpoint."
       ],
       "complications": [
         "Iatrogenic injury to the heart, lung, phrenic nerve, or great vessels",
+        "Oesophageal injury from clamping the wrong posterior structure",
+        "Internal mammary bleeding after clamshell, unmasked by return of circulation",
         "Coronary or aortic injury during clamping",
+        "Distal ischaemia below the clamp, and the reperfusion physiology when it comes off",
         "Massive ongoing hemorrhage",
         "Inadequate exposure leading to missed injury",
         "Team blood-borne exposure during a rapid open procedure",
@@ -3838,27 +3923,31 @@
       ],
       "aftercare": [
         "Move immediately to the operating room for definitive repair if circulation returns.",
-        "Maintain the aortic cross-clamp time awareness and communicate it to the surgical team.",
+        "Release the aortic clamp as early as the patient tolerates, and announce it. Reperfusion drops the pressure and returns the products of ischaemia to the circulation - the team should be ready rather than surprised.",
+        "Carry the clamp on and off times to the surgical team explicitly; they drive the ischaemic-time decisions you will not be there for.",
         "Continue massive transfusion and correct coagulopathy, acidosis, and hypothermia.",
         "Debrief the team and address occupational exposures after the resuscitation."
       ],
       "documentation": [
         "Resuscitative thoracotomy performed for [penetrating/blunt] trauma arrest meeting local criteria.",
-        "Mechanism, arrest interval, and signs of life documented.",
-        "Procedure performed: thoracotomy \u00b1 clamshell, pericardiotomy, hemorrhage control, aortic cross-clamp as applicable.",
+        "Mechanism, CPR duration in minutes, and which signs of life were present and when, named individually.",
+        "Procedure performed: thoracotomy with or without clamshell, pericardiotomy, hemorrhage control, aortic cross-clamp as applicable.",
+        "Aortic clamp application and release times documented.",
         "Intraoperative findings and interventions recorded.",
-        "Resuscitation endpoint and disposition (OR vs. termination) documented.",
+        "Resuscitation endpoint and disposition (OR vs. termination) documented against the criteria used.",
         "Team exposures and debrief noted."
       ],
       "seniorPearls": [
-        "The decision to open is the procedure \u2014 applying the indication criteria correctly matters more than blade speed.",
+        "The decision to open is the procedure. Applying the criteria correctly matters more than blade speed.",
         "Open the pericardium anterior to the phrenic nerve and longitudinally; tamponade release is often the single highest-yield action.",
+        "The commonest technical failure is a small incision. Cut from the sternum to the table.",
+        "If you clamped and nothing changed, question the clamp before you question the patient.",
         "This is a bridge, not a destination: it buys minutes to reach the OR, and only certain patients can cross that bridge."
       ],
       "references": [
-        "Western Trauma Association and EAST guidelines on emergency department/resuscitative thoracotomy indications.",
-        "ATLS and major trauma surgery references on resuscitative thoracotomy technique.",
-        "Institutional trauma protocols defining local indication criteria; verify local pathway."
+        "Western Trauma Association. Adult Emergency Resuscitative Thoracotomy Algorithm and Procedure Guide. 2024. https://westerntrauma.org/wp-content/uploads/2024/02/ERT-Algorithm-Procedures.pdf",
+        "Eastern Association for the Surgery of Trauma. Emergency Department Thoracotomy: Practice Management Guideline. 2015. https://www.east.org/education-resources/practice-management-guidelines/details/emergency-department-thoracotomy",
+        "Name the institutional trauma algorithm that governs signs of life, CPR windows, REBOA availability, and termination, and confirm the thoracotomy tray contains a sternal-division instrument and compatible internal paddles."
       ]
     },
     "visualAssets": [
@@ -4388,39 +4477,48 @@
         "Synchronized cardioversion delivers a shock timed to the R wave. Always confirm SYNC mode is on before shocking.",
         "Unstable = cardiovert now. Stable = consider rate control, rhythm control, or elective cardioversion.",
         "Signs of instability: hypotension, altered mental status, ischemic chest pain, acute heart failure.",
-        "Sedate the patient before cardioversion unless peri-arrest.",
+        "Sedate the patient before cardioversion unless peri-arrest. Doses, monitoring, and rescue are on the procedural sedation card.",
         "If the patient deteriorates into pulseless VT or VF, switch to defibrillation (SYNC off, max energy).",
-        "Starting energy: atrial fibrillation 120\u2013200 J biphasic; atrial flutter/SVT 50\u2013100 J; VT with pulse 100 J."
+        "Initial biphasic energy: atrial fibrillation 200 J, atrial flutter 200 J, narrow-complex SVT 100 J, monomorphic VT with a pulse 100 J.",
+        "Those 200 J figures replace the old habit of starting low and climbing. A failed low-energy shock costs the patient another sedation and another shock. AHA states at least 200 J is reasonable for fibrillation and that 200 J may be reasonable for flutter, so the recommendation is stronger for fibrillation than for flutter.",
+        "Your defibrillator's manufacturer recommendation takes precedence over any figure above. Biphasic waveforms are not interchangeable and current AHA guidance defers to the manufacturer's stated dose - find out what your machine says before the night you need it.",
+        "Escalate toward the device maximum if a shock fails rather than repeating the same energy."
       ],
       "indications": [
         "Unstable tachyarrhythmia with a pulse (SVT, atrial fibrillation, atrial flutter, monomorphic VT with a pulse)",
-        "Elective cardioversion of persistent atrial fibrillation or flutter after appropriate anticoagulation",
+        "Elective cardioversion of persistent atrial fibrillation or flutter, once the anticoagulation or imaging pathway below is satisfied",
         "Wide complex tachycardia with hemodynamic compromise"
       ],
       "contraindications": [
         "Pulseless VT or VF (requires unsynchronized defibrillation, not cardioversion)",
-        "Digitalis toxicity\u2013related arrhythmia (relative; cardioversion may precipitate refractory VF)",
+        "Polymorphic VT (unsynchronized shock at defibrillation energy; the device cannot synchronize to it)",
+        "Known left atrial or left atrial appendage thrombus - an absolute contraindication to elective cardioversion",
+        "Elective cardioversion of atrial fibrillation lasting 48 hours or longer, or of unknown duration, without either three weeks of uninterrupted therapeutic anticoagulation or transoesophageal echo excluding thrombus",
+        "Digitalis toxicity-related arrhythmia (relative; cardioversion may precipitate refractory VF)",
         "Multifocal atrial tachycardia (will not respond; treat underlying cause)",
         "Sinus tachycardia (not an indication for cardioversion; treat the cause)"
       ],
       "anatomy": [
-        "Anterolateral pad placement: right parasternal and left lateral chest wall (V5\u2013V6 position at the mid-axillary line).",
+        "Anterolateral pad placement: right parasternal and left lateral chest wall (V5-V6 position at the mid-axillary line).",
         "Anteroposterior placement: sternum and left infrascapular area. May be superior for atrial fibrillation.",
-        "Ensure pads do not overlap implanted devices (pacemaker, ICD). Place pads at least 8 cm from the generator."
+        "Do not place a pad over an implanted device generator. Keep at least 8 cm away, prefer anteroposterior, and confirm the separation your device and defibrillator manufacturers state rather than treating 8 cm as universal.",
+        "Any pacemaker or ICD needs interrogation after cardioversion. A shock can alter programming or damage the device, and this is the step everybody forgets.",
+        "Remove transdermal medication patches from the pad path. A metal-backed patch can arc and burn."
       ],
       "equipment": [
-        "Defibrillator/cardioverter with SYNC capability",
+        "Defibrillator/cardioverter with SYNC capability, and knowledge of its recommended energies and its SYNC-persistence behaviour",
         "Adhesive defibrillation pads (preferred over paddles)",
         "Continuous cardiac monitor with 12-lead ECG capability",
-        "Sedation medications (etomidate, propofol, midazolam, or ketamine per institutional protocol)",
+        "Sedation per the procedural sedation card, which carries the agents, doses, monitoring, and rescue requirements. Cardioversion is brief and intensely painful, which is the combination that card addresses directly.",
         "Airway equipment including bag-valve mask, oral airway, suction, and intubation supplies at bedside",
-        "Pulse oximetry and capnography",
+        "Pulse oximetry and continuous waveform capnography",
         "IV access (ideally two sites)",
         "Resuscitation medications (epinephrine, amiodarone, atropine) at bedside",
         "Crash cart"
       ],
       "positioning": [
         "Patient supine. Pads placed with good skin contact (shave excess chest hair if needed, wipe moisture).",
+        "Pads pressed down over their whole surface, and not overlapping ECG electrodes or medication patches - both cause burns and both raise impedance.",
         "Clear the area around the patient before shock delivery.",
         "Ensure monitor leads are connected and rhythm is visible."
       ],
@@ -4430,13 +4528,13 @@
         "Establish IV access. Place monitoring (pulse ox, capnography, cardiac monitor).",
         "Prepare airway equipment at bedside.",
         "Apply defibrillation pads in anterolateral or anteroposterior position.",
-        "Administer procedural sedation (if patient is conscious and not peri-arrest). Confirm adequate sedation depth.",
-        "Select energy level based on rhythm. Activate SYNC mode on the defibrillator.",
+        "Administer procedural sedation per that card if the patient is conscious and not peri-arrest. Confirm depth before you charge, not after.",
+        "Select the energy for the rhythm, cross-checked against your defibrillator's recommended dose. Activate SYNC mode.",
         "Verify SYNC markers are tracking R waves on the monitor.",
         "Announce \"Charging\" and charge the defibrillator.",
         "Perform a visual and verbal safety check: \"I am clear, you are clear, everyone is clear.\"",
         "Deliver the shock. Hold the shock button until the device fires (SYNC mode may have a brief delay).",
-        "Assess the rhythm immediately. If unsuccessful, increase energy and repeat. Re-select SYNC mode (many devices default back to defibrillation after each shock).",
+        "Assess the rhythm immediately. If unsuccessful, escalate the energy rather than repeating the same one, and look at the screen to confirm SYNC before every shock - whether a device holds SYNC or drops it after a shock is configurable on current Philips and LIFEPAK platforms, so it is not something to remember about defibrillators in general.",
         "If the patient becomes pulseless, immediately switch to defibrillation protocol."
       ],
       "ultrasound": [],
@@ -4447,46 +4545,53 @@
       ],
       "troubleshooting": [
         "Shock does not fire: SYNC mode waits for an R wave. If the rhythm is too irregular or amplitude is too low, the device may not fire. Try a different lead, increase ECG gain, or switch to unsynchronized defibrillation if the patient is deteriorating.",
-        "Rhythm unchanged after shock: increase energy, ensure good pad contact, try anteroposterior pad position.",
+        "Rhythm unchanged after shock: escalate the energy, ensure good pad contact, try anteroposterior pad position.",
+        "Patient moves or remembers the shock: that is a sedation failure, not a cardioversion failure. Do not shock a conscious patient again without deepening sedation unless they are peri-arrest.",
         "Patient deteriorates to VF or pulseless VT: immediately switch to unsynchronized defibrillation at max energy.",
         "Post-cardioversion bradycardia: observe, atropine if symptomatic, transcutaneous pacing at bedside.",
         "Recurrence of arrhythmia: consider antiarrhythmic medication before repeating cardioversion."
       ],
       "complications": [
-        "Skin burns at pad sites",
+        "Skin burns at pad sites, worse with poor contact, chest hair, or a shock delivered over an ECG electrode or medication patch",
         "Post-cardioversion arrhythmia (bradycardia, VF, asystole)",
         "Thromboembolism (stroke) if atrial fibrillation cardioverted without adequate anticoagulation",
+        "Implanted pacemaker or ICD damage or reprogramming",
         "Aspiration during sedation",
         "Myocardial injury (rare with standard energy)",
         "Failure to cardiovert"
       ],
       "aftercare": [
-        "Monitor on telemetry for at least 1\u20133 hours post-cardioversion.",
+        "Monitor until the rhythm is stable and the sedation has resolved against the discharge criteria on the procedural sedation card. There is no evidence-based universal telemetry duration for cardioversion itself - the observation period is a local policy decision driven by the arrhythmia, the sedation, and comorbidity rather than a fixed number of hours.",
         "Repeat 12-lead ECG.",
-        "Assess for chest wall discomfort, skin burns at pad sites.",
-        "Resume or initiate anticoagulation and antiarrhythmic therapy as indicated.",
-        "If elective cardioversion for atrial fibrillation: ensure appropriate anticoagulation plan before discharge."
+        "Assess for chest wall discomfort and skin burns at pad sites.",
+        "Interrogate any pacemaker or ICD.",
+        "Anticoagulation after cardioversion: at least four weeks of uninterrupted therapeutic anticoagulation for anyone cardioverted from atrial fibrillation or flutter, whatever the pre-procedure duration, and then long-term by stroke risk rather than by whether the rhythm held.",
+        "An unstable patient cardioverted without the pre-procedure pathway still needs the post-procedure anticoagulation. The thromboembolic risk did not disappear because the cardioversion was necessary."
       ],
       "documentation": [
         "Synchronized cardioversion performed for [rhythm] with [indication].",
         "Pre-procedure rhythm documented on 12-lead ECG.",
+        "Atrial fibrillation or flutter: duration, and which pre-procedure pathway applied - anticoagulation, imaging, or urgent without either.",
         "Sedation: [agent, dose, route]. Adequate sedation achieved.",
-        "SYNC mode confirmed. [Energy] J delivered via biphasic defibrillator.",
+        "SYNC mode confirmed. [Energy] J delivered via biphasic defibrillator, with the device model recorded.",
         "Post-shock rhythm: [rhythm]. Hemodynamics [stable/improved].",
         "Patient tolerated procedure without immediate complication.",
-        "Post-procedure 12-lead ECG obtained. Monitoring plan documented."
+        "Post-procedure 12-lead ECG obtained. Monitoring, device interrogation, and anticoagulation plan documented."
       ],
       "seniorPearls": [
-        "SYNC mode resets after every shock on most devices. Re-select it every single time or you will defibrillate a patient with a pulse.",
+        "Look at SYNC on the screen before every shock. Whether your device holds it or drops it depends on the model and its configuration, so the habit that survives every platform is checking rather than remembering.",
         "The shock button delay in SYNC mode confuses people. Hold the button until it fires.",
+        "The first shock is the one most likely to work. Do not spend it on a low energy chosen out of caution.",
         "Anteroposterior pad placement is better for atrial fibrillation. If anterolateral fails, switch before escalating energy.",
         "Do not cardiovert sinus tachycardia. Find and fix the cause.",
-        "If the rhythm is polymorphic VT, treat it as VF: unsynchronized defibrillation, not synchronized cardioversion."
+        "If the rhythm is polymorphic VT, treat it as VF: unsynchronized defibrillation, not synchronized cardioversion.",
+        "Interrogate the pacemaker afterwards. It is the step that gets left out, and the patient goes home with a device nobody checked."
       ],
       "references": [
-        "ACLS guidelines on tachycardia management.",
-        "AHA/ACC guidelines on atrial fibrillation management.",
-        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
+        "American Heart Association. Electrical Cardioversion Algorithm, 2025 CPR and ECC Guidelines. 2025. https://www.heart.org/-/media/CPR-Files/CPR-Guidelines-Files/2025-Algorithms/Algorithm-ACLS-Electrical-Cardioversion-250514.pdf",
+        "American Heart Association. Part 9: Adult Advanced Life Support, 2025 CPR and ECC Guidelines - synchronized cardioversion energy and manufacturer dose deference. 2025. https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support",
+        "Joglar JA, et al. 2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation. Circulation. 2024;149(1):e1-e156. https://doi.org/10.1161/CIR.0000000000001193",
+        "Read your defibrillator's operating instructions for its recommended cardioversion energies, SYNC-persistence configuration, and implanted-device clearance. Philips HeartStart Intrepid and Stryker LIFEPAK 15 are examples: https://www.stryker.com/content/dam/stryker/ems/resources/operating-instructions/international/3314911-030_int-eng_lifepak_15_operating_instructions.pdf",
         "Verify institutional cardioversion and sedation protocols."
       ]
     },
