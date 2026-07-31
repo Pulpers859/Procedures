@@ -143,10 +143,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_auricular",
-      "auditFingerprint": "9a9f879b21fd0118c4ca121437b72dfa21a6ddcf96c9cc6c38c07f86c2a1949c",
+      "auditFingerprint": "64180d4736f0153150f7f11fd24c582674e299a874070ca2584a6cd627cf7048",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -154,10 +154,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_deep_peroneal",
-      "auditFingerprint": "f9834f34433471d4eb60759320dabcad08978080a0a11703d98a4d2bb4829219",
+      "auditFingerprint": "e013123ac1a9d23c6e8c6970d0fc3c3b130bdf4861a389b25ff3a8aa2dc2527b",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -165,10 +165,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_femoral_nerve",
-      "auditFingerprint": "a4438e70bdd61098b05419617644f7d30aa986ff94c41226ec9a339ed98c0675",
+      "auditFingerprint": "22c8b71e14f19500c1ac0b3dac5d22c98c45966492651ba327d5d7ff34301066",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -176,10 +176,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_inferior_alveolar",
-      "auditFingerprint": "529456d4e9de73923796722d538d4c5dcfb5b74589ed70f57e22f77acb358184",
+      "auditFingerprint": "025b9ed6bdff5d814af941985ae81245de6cfee28b537336d796a7e679cbe71d",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -187,10 +187,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_infraorbital",
-      "auditFingerprint": "261aea3cc7297d94e728f467adf7a313031e9dcd67efb2e64f8e71291e20d8f8",
+      "auditFingerprint": "db0ea26e2f2c8c601c5ac1ec233e324949705aab89eafef580a67bc1a73a0462",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -198,10 +198,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_interscalene",
-      "auditFingerprint": "b05ef982186f3eebbfc2b032aee77b6decb8ba7e81fdfffcce5b52b78090d661",
+      "auditFingerprint": "2106d453e16916c8852e43590f30b1c32c8010018773fbfd019fbeb8f85ee6b5",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -209,10 +209,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_median_nerve",
-      "auditFingerprint": "f188591b38d798ef8a425f3c27b81db8a75c74982324b6d5861c1b527162801c",
+      "auditFingerprint": "3bc5860ab36dec7e4d722ccce0b92572ccbf4cf2e5dba4f2bd0ff7534090f519",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -220,10 +220,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_mental",
-      "auditFingerprint": "bf354e3dddb68cc26b373c7c1b150f31fb29fe4b7631cbcac93fcd8595750938",
+      "auditFingerprint": "3b7454c776da2b6bb0075b881f3f68d89592ec25bfb1fe166219df8168d0572e",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -231,10 +231,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_pecs",
-      "auditFingerprint": "7709d91a6617b1f00e3898ae18f7f43efe013fd3ed97edc047835fd9f6b81118",
+      "auditFingerprint": "eab9e56ff1b7709ad54920362024efb8787f8676be717309f0d7c33d9a8a3c05",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -242,10 +242,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_peng",
-      "auditFingerprint": "4bb8f509a081e8bdbf7f5a314ab451caeac256c0c65ceb32b0f559af6aabe827",
+      "auditFingerprint": "a59e66fde67487b604909692a32ece35d66960b6b9f2780c7e85818599ab4915",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -253,10 +253,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_popliteal_sciatic",
-      "auditFingerprint": "c84702e00b47df7d124e55cb5fe2b207e6864a249c7b96f83995f364eaf9cac7",
+      "auditFingerprint": "386fdc32a84112a1b6162c184828f6db2dcfd083f8e1c121d33f200a534c7c32",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -264,10 +264,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_radial_nerve",
-      "auditFingerprint": "50eeb865cae96a637218de355914972c67fe778e4201cd09a7acd2786fb3d6bb",
+      "auditFingerprint": "ef1f9c01a52dff3c8457a406732ba0cf1d587974f380ac161bbee7ef4a39f6f0",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -275,10 +275,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_raptir",
-      "auditFingerprint": "386a5a6887fcbb13947d5c721289ee613d4aaa6dd612acd625858598cebf538a",
+      "auditFingerprint": "3e2a4b08120db5ae36962f034fa6cb6c12b9b787cb2f95260edff520d989dae3",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -286,10 +286,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_saphenous_nerve",
-      "auditFingerprint": "d292e1c72e1611e1b1578ee7214cfc22a571f7df06c4f8b846328d35fecb5103",
+      "auditFingerprint": "a13db1f28fe49d5bce70b137c30492d171aa5ba88eb8734b367ed4de7d295f11",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -297,10 +297,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_serratus_anterior",
-      "auditFingerprint": "bb2006fd313bdfcb9fb41da288df842df5c30f415ebdc1ff48e607ed8c4ba7ee",
+      "auditFingerprint": "e4a9d1745e0d8942714b2f43aa6419e1ecd439a89f29aac9d032fa787781fa60",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -308,10 +308,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_superficial_cervical_plexus",
-      "auditFingerprint": "3e5bbd85ef3346d5063168668e0c37f89676117afb5faaa8b1db05d13d83ccb6",
+      "auditFingerprint": "0d5a2f64cfe9d75612ed1a7ec8dcf8f15635ae054c34b9ea2a935f5768951842",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -319,10 +319,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_superficial_peroneal",
-      "auditFingerprint": "9f25397ced7fdc4839e56db689b4c1e1592a6bfabce0591e741c94213e1cc781",
+      "auditFingerprint": "5bb72e11cc53b4921158984d81562ce27a2febf84b6b6f0e133f9e89d67157ce",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -330,10 +330,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_superior_alveolar",
-      "auditFingerprint": "922f3b3b3b300ad9ea7ddf9cc79f8e0805b120f088822e46b3f481fe0364bad5",
+      "auditFingerprint": "f260826a12ce39b429b0f235cb97f3535d5dcbe5c4a4e785e7240b3587f72a74",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -341,10 +341,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_supraclavicular",
-      "auditFingerprint": "94b55560fafc058fef70e1e4e04faf890a4240dd019f45cdb87b336c69b83184",
+      "auditFingerprint": "eaa5aef705d30555878668934f24efb1004bffd71958e61d0d4371dabec06cb8",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -352,10 +352,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_supraorbital",
-      "auditFingerprint": "21540bd2d98eda9f0353fa005ee77be1ad3d565de1d73cb297246113c9b8a6b7",
+      "auditFingerprint": "f37d36dd21c97b464c2c4cccb410187d3a11a40578fb5a6ef7aaa911d0ffc3fd",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -363,10 +363,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_sural_nerve",
-      "auditFingerprint": "ece374575cb34607444d3a4881348c1820ac5cf8b544f4e9c2e7d2dc03d61c8c",
+      "auditFingerprint": "4ceddb63672c94d36d6a6d0e31b9ef9b250b52cfc88d296ade9e7d32795f3157",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -374,10 +374,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_tap",
-      "auditFingerprint": "cc64140afb23ada81270aa838d555ac0c3ffd2c05b7c299155ea80df25a4708d",
+      "auditFingerprint": "dfc84deb854b56484f1ad4280e6c66887cadb2028f80a8bbd85c8216d02d7a01",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -385,10 +385,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_thoracic_esp",
-      "auditFingerprint": "dad085c7e1a4eb71671664c7b66b52708494068565ee307ebf1d37a4d7c83a3c",
+      "auditFingerprint": "dd4d79fb2b3099db7f7d78dd7102df93551972f24a940ba5ff0344b74d84cf70",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -396,10 +396,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_tibial_nerve",
-      "auditFingerprint": "8f21e76abb8c3e10841286db3da1e9cae42d2d3d67eadb45112db689a5db6815",
+      "auditFingerprint": "459139bd697bcfa37f0e6f04bf7200d6105b18bbffeb6cae9252427d75c95625",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -407,10 +407,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_transgluteal_sciatic",
-      "auditFingerprint": "5fa2b8e85807b9074f715ab3f7921ab29ff5b8cc826d25c80f61ea9a56de9c45",
+      "auditFingerprint": "6f94f15d16f03736ea13d08b4fa6eb3271c64f8899bdc80dc3907713eaa91f79",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -418,10 +418,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_ulnar_nerve",
-      "auditFingerprint": "74c6e4eb7c526d4c65d415a05ecc337e340d89d0d7f54d0ae61cc94208eae16f",
+      "auditFingerprint": "fe486e49917a79e3bd3f8aa9beeee883accf10a66bb6fd6e64be6ad606003b12",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -462,10 +462,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "digital_nerve_block",
-      "auditFingerprint": "66cb44b65ec5838d6c5f2167458e965c5db140afeaebfc497260ed1630602fe1",
+      "auditFingerprint": "7b858d6eb9eb91ecec2d8399e619ff882151a6560da3edb5e820848030d7b376",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -484,10 +484,10 @@
     {
       "corpus": "procedures.json",
       "recordId": "fascia_iliaca_block",
-      "auditFingerprint": "b8bd63dce72869f2285b0ef47af39eccedc4a58bab2635c5f43bba3d4d3e31a0",
+      "auditFingerprint": "b11f727f41b4aff44d3361d730ef53166c27deb3626018aa6fc1bd41ebd0e4ec",
       "owner": "clinical owner",
-      "rationale": "Regional lanes 06-09 and the P1 dosing governance model, adjudicated 2026-07-31; safety spine, needle targets, and cumulative-dose rule applied in 4ea632d.",
-      "commit": "4ea632d",
+      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
+      "commit": "8dcb3ec",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
