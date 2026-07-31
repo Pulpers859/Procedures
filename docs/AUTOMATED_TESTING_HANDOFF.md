@@ -22,7 +22,7 @@
 
 `.github/workflows/ios-tests.yml` dynamically selects an available iPhone
 simulator by UDID, runs the shared scheme, requires the executed XCTest count to
-exactly match the source-derived declaration count (currently 57; the
+exactly match the source-derived declaration count (currently 132; the
 workflow computes it dynamically via `verify_xcode_project.py --test-count-only`), builds the Release configuration, and
 retains logs plus the `.xcresult` bundle.
 

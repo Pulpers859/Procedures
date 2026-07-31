@@ -3,6 +3,7 @@ import XCTest
 
 /// Unit tests for the validator and the tolerant decoder, using synthetic
 /// fixtures so the rules themselves are exercised independent of shipped JSON.
+@MainActor
 final class ValidationTests: XCTestCase {
     func testFailableDecodableSalvagesBadElements() throws {
         let json = Data("""

@@ -6,7 +6,11 @@
 - The shared Xcode scheme is `Procedures`.
 - Current XCTest files:
   - `ProceduresTests/ContentDecodingTests.swift`
+  - `ProceduresTests/ContentEditingTests.swift`
+  - `ProceduresTests/PersistenceSafetyTests.swift`
   - `ProceduresTests/RescueSearchTests.swift`
+  - `ProceduresTests/ReviewStateTests.swift`
+  - `ProceduresTests/SearchRegressionTests.swift`
   - `ProceduresTests/ValidationTests.swift`
 - Run these tests in Xcode with `Product > Test` or `Command-U`.
 - Beginner guide: `docs/ai-instructions/XCTEST_GUIDE.md`.

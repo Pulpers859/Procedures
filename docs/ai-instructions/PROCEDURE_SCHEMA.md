@@ -36,6 +36,60 @@ Each procedure should follow this structure:
 }
 ```
 
+## Dosing Schema
+
+Two dosing blocks exist and mean different things. Rendering one as the other
+puts a target dose under a "max dose" heading or vice versa.
+
+`dosing` (`ProcedureDosing`) is a local-anesthetic safety **ceiling** - a
+number never to exceed. It renders `MaxDoseCalculatorCard` and is
+release-blocking for `Regional Anesthesia` category records; it is optional
+for any other record that also injects local anesthetic (infiltration for
+laceration repair, incision and drainage, etc.).
+
+```json
+"dosing": {
+  "agents": [
+    {"name": "Lidocaine plain", "maxMgPerKg": 4.5, "absoluteMaxMg": 300},
+    {"name": "Bupivacaine plain", "maxMgPerKg": 2.5, "absoluteMaxMg": 175}
+  ],
+  "cumulativeWarning": "string - must state each agent is a fraction of its own ceiling, not a shared pool",
+  "caveats": ["string - must include the site-of-injection absorption caveat and the owner-policy caveat"],
+  "monitoring": ["string"],
+  "rescueCardID": "local_anesthetic_systemic_toxicity"
+}
+```
+
+Governance rules enforced by `scripts/validate_procedures.py` and
+`scripts/tests/test_dosing_validation.py`:
+
+- Every agent named anywhere in the record's steps/equipment/prose must appear
+  in `dosing.agents` with a bound, or must not be named at all
+  (`unbounded_agent_issues`). Do not invent a ceiling to satisfy this - remove
+  the agent from prose instead, and explain why in `seniorPearls`.
+- A record may only offer agents whose ceiling its own stated volume fits
+  under at the 50 kg reference weight (`regional_dosing_issues` for
+  `Regional Anesthesia`). A block whose volume doesn't fit any agent's ceiling
+  needs a volume-free prose warning instead of a `dosing` block.
+- Do not put two agents' percentages/volumes on the same textual line -
+  `prose_dose_ceiling_issues` cannot tell which strength belongs to which
+  agent and will misattribute the arithmetic.
+- `cumulativeWarning` must frame toxicity as additive fractions of separate
+  ceilings, never as agents sharing one number of milligrams.
+
+`medicationDosing` (`ProcedureMedicationDosing`) is a systemic-medication
+**target** dose (currently RSI induction/paralytic agents) - a dose to hit, not
+a ceiling to stay under. It renders `MedicationDosingCard` under Shift Mode.
+
+```json
+"medicationDosing": {
+  "indication": "string",
+  "medications": [{"name": "string", "doseMgPerKg": 1.5, "notes": "string"}],
+  "selectionGuidance": ["string"],
+  "inductionRequirement": "string"
+}
+```
+
 ## Content rules
 
 - Shift Mode should be short and actionable.
