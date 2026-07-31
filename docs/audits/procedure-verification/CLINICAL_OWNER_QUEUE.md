@@ -24,12 +24,12 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
 
 ## P0: Remove Direct Harm Pathways Before Broader Editing
 
-> Items 1, 2, 3, and 5 were adjudicated by the clinical owner on 2026-07-30 and
-> the content changed; their original text is struck through with the
-> resolution beneath it. Items 4 and 6 are still open. Adjudication here
-> resolves the clinical finding only - the reference gate in P3.3 is
-> independent, though it has now been satisfied for the thirteen records
-> re-screened so far. Pending artwork stopped being a release gate on
+> Items 1, 2, 3, and 5 were adjudicated on 2026-07-30 and item 6 partly on
+> 2026-07-31; their original text is struck through with the resolution
+> beneath it. Item 4 is still open, as is the shoulder-reduction half of item
+> 6. Adjudication here resolves the clinical finding only - the reference gate
+> in P3.3 is independent, though it has now been satisfied for the eighteen
+> records re-screened so far. Pending artwork stopped being a release gate on
 > 2026-07-30; see P3.2.
 
 1. **Pleural procedures:** ~~Thoracentesis currently permits vacuum-bottle
@@ -82,12 +82,19 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
    limits the cricothyrotomy sequence lacked - bougie to 10-15 cm, tube stopped
    once the cuff clears the membrane. See
    [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md#owner-adjudication---2026-07-30).
-6. **Time-critical decisions:** Shoulder neurovascular compromise can be read as
-   a contraindication to urgent reduction; lumbar puncture omits the rule that
-   LP/imaging must not materially delay empiric meningitis treatment; and
+6. **Time-critical decisions:** ~~Shoulder neurovascular compromise can be read
+   as a contraindication to urgent reduction; lumbar puncture omits the rule
+   that LP/imaging must not materially delay empiric meningitis treatment; and
    resuscitative thoracotomy lacks executable signs-of-life and CPR-window
-   criteria. See [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) and
-   [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md).
+   criteria.~~ **Two of three adjudicated 2026-07-31, addressed in `05ca4f0`.**
+   "Antibiotics first" is now the opening line of the lumbar puncture card, and
+   deferring the LP for imaging is stated as never deferring the antibiotics.
+   Resuscitative thoracotomy enumerates six signs of life and states the WTA
+   2024 windows as numbers - penetrating under 15 minutes, blunt under 10 - with
+   a termination endpoint. The shoulder-reduction half is still open and belongs
+   to lane 05. See
+   [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md#owner-adjudication---2026-07-31)
+   and [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md).
 
 ## P1: Replace the Dosing Governance Model
 
@@ -118,14 +125,24 @@ The full evidence is in reports 06 through 09.
 
 - Decide whether records tagged `Peds` retain that scope; several have no
   age/weight-specific equipment, dosing, monitoring, interpretation, or rescue
-  path.
+  path. Lumbar puncture was de-scoped on 2026-07-31 for exactly that reason,
+  following intubation and sedation; the intraosseous exception is still open.
 - ~~Replace procedural-sedation "when possible" staffing and optional capnography
   language with depth-, venue-, and pediatric-specific requirements.~~
   **Addressed 2026-07-30 in `88d8d21`:** the record is scoped to adult
   moderate-to-deep sedation in the ED or ICU, the monitor is dedicated and does
   nothing else, and capnography is required. Paediatric scope is deferred rather
   than specified.
-- Update 2025 AHA synchronized-cardioversion energy and anticoagulation pathways.
+- ~~Update 2025 AHA synchronized-cardioversion energy and anticoagulation
+  pathways.~~ **Addressed 2026-07-31 in `05ca4f0`.** Atrial fibrillation and
+  flutter both start at 200 J, verified against AHA's adult advanced life
+  support guidance rather than taken from the lane report, and the card now
+  states that the defibrillator manufacturer's recommended dose takes
+  precedence over any published figure. Both sides of the anticoagulation
+  pathway are stated - three weeks or a thrombus-excluding TOE before elective
+  cardioversion, at least four weeks after, whatever the pre-procedure
+  duration. The unsupported "at least 1-3 hours" telemetry period is replaced
+  by the sedation card's recovery criteria plus local policy.
 - ~~Define attempt ceilings and Plan A-D transitions for intubation.~~
   **Addressed 2026-07-30.** The DAS 2025 3+1 ceiling predates this cycle;
   `88d8d21` defines each plan letter alongside its action and states that the

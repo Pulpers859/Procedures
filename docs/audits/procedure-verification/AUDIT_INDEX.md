@@ -7,9 +7,9 @@
 ## Result
 
 - Audited procedures: **55/55**.
-- Proposed `STOP-SHIP`: **17** (28 at audit; 11 re-screened to `MINOR` on 2026-07-30).
-- Proposed `MAJOR`: **25** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30).
-- Re-screened `MINOR` after owner adjudication: **13** (vascular access, thoracic, and airway/sedation lanes).
+- Proposed `STOP-SHIP`: **14** (28 at audit; 11 re-screened to `MINOR` on 2026-07-30, 3 on 2026-07-31).
+- Proposed `MAJOR`: **23** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30, 2 on 2026-07-31).
+- Re-screened `MINOR` after owner adjudication: **18** (vascular access, thoracic, airway/sedation, and cardiac/neuro lanes).
 - Corpus SHA-256: `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1`.
 - Audit date: 2026-07-18.
 
@@ -37,11 +37,11 @@ report before assigning remediation priority.
 |---|---|---|---|
 | Airway | `cricothyrotomy` - Cricothyrotomy | `MINOR` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
 | Airway | `endotracheal_intubation` - Endotracheal Intubation | `MINOR` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
-| Cardiac / Resuscitation | `pericardiocentesis` - Pericardiocentesis | `STOP-SHIP` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
-| Cardiac / Resuscitation | `resuscitative_thoracotomy` - Resuscitative Thoracotomy | `STOP-SHIP` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
-| Cardiac / Resuscitation | `synchronized_cardioversion` - Synchronized Cardioversion | `MAJOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
-| Cardiac / Resuscitation | `transvenous_pacemaker` - Transvenous Pacemaker | `MAJOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
-| Neuro | `lumbar_puncture` - Lumbar Puncture | `STOP-SHIP` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
+| Cardiac / Resuscitation | `pericardiocentesis` - Pericardiocentesis | `MINOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
+| Cardiac / Resuscitation | `resuscitative_thoracotomy` - Resuscitative Thoracotomy | `MINOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
+| Cardiac / Resuscitation | `synchronized_cardioversion` - Synchronized Cardioversion | `MINOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
+| Cardiac / Resuscitation | `transvenous_pacemaker` - Transvenous Pacemaker | `MINOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
+| Neuro | `lumbar_puncture` - Lumbar Puncture | `MINOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
 | Other | `anterior_nasal_packing` - Anterior Nasal Packing | `MAJOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
 | Other | `knee_arthrocentesis` - Knee Arthrocentesis | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
 | Other | `lateral_canthotomy` - Lateral Canthotomy & Cantholysis | `MAJOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |

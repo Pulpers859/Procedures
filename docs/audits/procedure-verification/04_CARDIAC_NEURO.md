@@ -7,9 +7,127 @@
 
 Every JSON section, equipment/instrument list, visual-asset record, and structured-dosing field in each assigned procedure was screened. None of the five records contains a `structuredDosing` object.
 
+## Owner adjudication - 2026-07-31
+
+**How to read this section.** The lane report above is the AI screening record
+against the audited snapshot and is left as written. This section records what
+the clinical owner decided on 2026-07-31 and what changed in `05ca4f0`. The five
+`Screening disposition` lines below have been re-screened against the amended
+content; the original rationale is kept inline on each so nothing is quietly
+rewritten.
+
+### The shape of all three stop-ship findings was the same
+
+Each of the three was a card that named a decision without stating it.
+Pericardiocentesis said aortic dissection "requires extreme caution".
+Resuscitative thoracotomy said to "apply the criteria, do not improvise them"
+and then never gave them. Lumbar puncture described a meningitis workup without
+the one rule that governs its timing. In all three the prose reads as competent,
+which is what makes it dangerous: a reader takes the confident tone as evidence
+that the missing specifics are somewhere else on the card.
+
+That pattern is worth naming because it is invisible to every gate in this
+repository. A record can pass the schema, the reference gate, the thin-section
+check, and the fingerprint ledger while telling the reader to apply criteria it
+does not contain.
+
+### Decisions
+
+1. **Aortic dissection and post-infarction free-wall rupture are surgical
+   exclusions, not cautions.** The mechanism is now stated rather than implied:
+   draining the pericardium restores the blood pressure and raises the
+   transmural gradient across the tear, and the tamponade was the only thing
+   slowing the bleed. The ESC bridge exception is kept but bounded - impending
+   arrest with no immediate surgical option, small aliquots, target the lowest
+   perfusing pressure, stop when it returns. The aliquot figure is written as an
+   order of magnitude and labelled a local decision, because ESC describes the
+   principle rather than a number.
+2. **Cardioversion energies move to the current AHA figures.** Verified directly
+   against AHA's adult advanced life support guidance rather than taken from the
+   lane report: at least 200 J is reasonable for atrial fibrillation, 200 J may
+   be reasonable for atrial flutter. The card states both and states that the
+   recommendation is stronger for fibrillation than for flutter, because it is.
+3. **No antithrombotic hold table was invented for lumbar puncture.** The
+   question the audit asked - what interval, for which agent, at what renal
+   function - cannot be answered by this repository, and a transposed
+   neuraxial-anaesthesia interval would be a fabricated policy wearing a
+   citation. What replaced it is the post-procedure surveillance rule, which is
+   the thing that actually converts a rare spinal haematoma into a recoverable
+   one.
+4. **Lumbar puncture drops its `Peds` setting.** It claimed paediatric scope and
+   contained no paediatric specific: no interspace, no needle length, no volume,
+   no sedation, no age-adjusted opening pressure. Adding a partial paediatric
+   section under a retained claim would have been worse than either alternative.
+   This is reversible and is flagged as an open owner choice below.
+
+### Adopted beyond the stated findings
+
+- **Pericardiocentesis could not confirm its own needle position in the case it
+  exists for.** The confirmation section relied on "drainage of pericardial
+  fluid rather than blood from chamber". In haemopericardium the aspirate is
+  blood, so the test returns the same answer whether the needle is in the sac or
+  in the ventricle. Three tests that work replace it - agitated saline, direct
+  visualisation of the catheter in the space, and a transduced waveform - and
+  the non-clotting property of pericardial blood is demoted to a supporting sign.
+- **A pre-dilation gate, matching the one the vascular records already carry.**
+  A needle in the right ventricle makes a hole most patients survive. A dilator
+  and a pigtail railroaded over a wire in the right ventricle makes one they may
+  not. The wire is now confirmed inside the pericardial space before dilation,
+  with no emergency exception, in the same shape the CVC, introducer, and
+  dialysis records use.
+- **The thoracotomy tray named no instrument that divides a sternum.** "Extend
+  across the sternum (clamshell)" was a step with no means. The equipment list
+  now asks which of a Lebsche knife, Gigli saw, or heavy trauma shears is
+  actually in the tray.
+- **The oesophagus is named as the structure cross-clamped by mistake**, with
+  the orogastric tube as the way to tell, and the troubleshooting entry now says
+  to question the clamp before questioning the patient.
+- **The internal mammary arteries after a clamshell.** They do not bleed while
+  the patient is arrested. They bleed at the moment the resuscitation starts
+  working, which is the moment nobody is looking at the sternal edges.
+- **The lumbar puncture steps were wrong for the needle the evidence prefers.**
+  "Bevel oriented appropriately" is a cutting-needle instruction; a pencil-point
+  needle has no bevel to orient and gives a subtle or absent pop, which is what
+  makes an operator waiting for the pop advance too far. Both are now stated.
+- **Cardioversion never mentioned the manufacturer's recommended dose.**
+  Biphasic waveforms are not interchangeable and the AHA guidance defers to the
+  manufacturer. That deference is now on the card, above the numbers.
+- **Implanted device interrogation after cardioversion**, which the record
+  omitted entirely, and removal of transdermal patches from the pad path.
+- **No capture at maximum output is a position problem.** Climbing the output is
+  the intuitive move and the wrong one; the pacing card now says so in shiftMode
+  and in troubleshooting, together with the balloon rules the record lacked -
+  air only, inflated past the introducer, never forced.
+- **Access-site choice on the pacing card now protects the vein a permanent
+  device will need**, which is a consequence of the choice that no complication
+  list would have surfaced.
+
+### Known residual gaps
+
+- The narrow-complex SVT figure moved from `50-100 J` to `100 J`. That is a
+  narrowing to the top of the range the card already carried, consistent with
+  the verified fibrillation and flutter direction, but the SVT and monomorphic
+  VT figures in the 2025 algorithm could not be extracted from the primary PDF
+  in this environment - its energy table is not machine-readable text. The
+  monomorphic VT figure is unchanged at 100 J. Both remain open to owner
+  correction against the printed algorithm.
+- No device in this lane is bound to a stocked IFU revision: the
+  pericardiocentesis set, the pacing catheter and its generator and connector
+  cable, the defibrillator, and the internal paddles. Each record now names what
+  must be looked up rather than asserting a generic value. This stays under P3.1.
+- The 8 cm implanted-device pad clearance is stated as the commonly cited
+  minimum needing manufacturer confirmation rather than as a fact.
+- The pericardial drain-removal threshold and the internal-defibrillation energy
+  are written as the commonly used figures with their owners named, not as
+  guideline values.
+- Resuscitative thoracotomy reproduces the WTA 2024 criteria. The reference line
+  asks for the local algorithm to be named, and the tray inventory and clamshell
+  simulation check are unverified.
+- Paediatric scope is deferred on all five records rather than specified.
+
 ## `pericardiocentesis` - Pericardiocentesis
 
-**Screening disposition: `STOP-SHIP` (proposed; clinician adjudication required).** The concern is the potentially harmful treatment of aortic-dissection or free-wall-rupture tamponade as a generic caution rather than a surgical emergency with only tightly controlled bridge drainage in exceptional circumstances.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot, for the reason recorded next. The findings are addressed in `05ca4f0`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because the bridge-drainage aliquot and the drain-removal threshold are stated as the commonly used figures with their owners named rather than as guideline values, the stocked kit is not bound to an IFU revision, and artwork is outstanding. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP** because of the potentially harmful treatment of aortic-dissection or free-wall-rupture tamponade as a generic caution rather than a surgical emergency with only tightly controlled bridge drainage in exceptional circumstances.
 
 **Source-standard summary.** ESC 2025 recommends imaging-guided pericardiocentesis for tamponade and specified symptomatic/diagnostic effusions, identifies imaging as essential, advises avoiding large-volume drainage (usually keeping initial drainage below 500 mL) because of pericardial decompression syndrome, and recommends surgical drainage when percutaneous drainage is infeasible or for purulent effusion/clot. ESC procedural guidance describes aortic dissection and post-infarction free-wall rupture as contraindications to needle pericardiocentesis except very small, controlled bridge drainage when immediate surgery is unavailable. The entry site should be chosen by the closest, largest safe pocket without an intervening vital structure.
 
@@ -30,11 +148,11 @@ Every JSON section, equipment/instrument list, visual-asset record, and structur
 
 **Sources.** [European Society of Cardiology, 2025 ESC Guidelines for the Management of Myocarditis and Pericarditis (2025)](https://academic.oup.com/eurheartj/article/46/40/3952/8234483); [ESC Council for Cardiology Practice, Pericardiocentesis in Cardiac Tamponade: Indications and Practical Aspects (2017)](https://www.escardio.org/communities/councils/cardiology-practice/scientific-documents-and-publications/ejournal/volume-15/Pericardiocentesis-in-cardiac-tamponade-indications-and-practical-aspects/); [Cook Medical, Pericardiocentesis Sets Instructions for Use, Rev. 11 (current revision, accessed 2026)](https://ifu.cookmedical.com/data/IFU_PDF/C_T_TTPS_REV11.PDF).
 
-`reviewerStatus` remains unchanged (`Needs Clinical Review`). The null `assetName` values also remain an independent release blocker under the repository safety policy.
+`reviewerStatus` remains unchanged (`Needs Clinical Review`). The null `assetName` values are warnings rather than release blockers since the owner decision of 2026-07-30; the card falls back to its SF Symbol and reads correctly.
 
 ## `transvenous_pacemaker` - Transvenous Pacemaker
 
-**Screening disposition: `MAJOR` (proposed; clinician adjudication required).**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot, for the reason recorded next. The findings are addressed in `05ca4f0`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because the catheter, generator, and connector cable are named as things to look up locally rather than bound to a stocked IFU revision, and the balloon volume, threshold margin, and insertion depth are conventional figures qualified as typical. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR** for access-site, device-binding, complication, and reference gaps.
 
 **Source-standard summary.** AHA 2025 supports temporary transvenous pacing for persistent hemodynamically unstable bradycardia refractory to medical therapy, with transcutaneous pacing and/or adrenergic support while preparing. ESC 2021 limits temporary transvenous pacing to severe hemodynamically compromising or anticipated bradyarrhythmia, reversible indications, or a bridge to permanent pacing, and recommends the shortest feasible dwell time. ESC also describes access-site tradeoffs, avoidance of intrathoracic subclavian puncture, and risks including bleeding, perforation/tamponade, infection, thrombosis, arrhythmia, malfunction, and displacement.
 
@@ -55,11 +173,11 @@ Every JSON section, equipment/instrument list, visual-asset record, and structur
 
 **Sources.** [American Heart Association, Part 9: Adult Advanced Life Support, 2025 CPR and ECC Guidelines (2025)](https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support); [European Society of Cardiology/European Heart Rhythm Association, Guidelines on Cardiac Pacing and CRT (2021)](https://academic.oup.com/eurheartj/article/42/35/3427/6358547); [Teleflex, Arrow Temporary Pacing Catheters and Kits (current manufacturer product information, accessed 2026)](https://www.teleflex.us.com/usa/en/product-areas/interventional/cardiac-diagnostics/pacing-catheters-and-kits/index.html); [Teleflex, Arrow Right Heart Catheters and Vascular Access product brochure (2026)](https://www.teleflex.com/usa/en/product-areas/interventional/cardiac-diagnostics/arrow-balloon-wedge-pressure-catheters/CC_RH_Right-Heart-Product-Brochure_BR_MC-000166_Rev%203_final.pdf).
 
-`reviewerStatus` remains unchanged (`Needs Clinical Review`). The null visual `assetName` remains an independent release blocker under repository policy.
+`reviewerStatus` remains unchanged (`Needs Clinical Review`). The null visual `assetName` is a warning rather than a release blocker since the owner decision of 2026-07-30.
 
 ## `resuscitative_thoracotomy` - Resuscitative Thoracotomy
 
-**Screening disposition: `STOP-SHIP` (proposed; clinician adjudication required).** The card repeatedly directs the user to apply narrow criteria but does not actually state an operational adult decision pathway for a time-critical, invasive procedure.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot, for the reason recorded next. The findings are addressed in `05ca4f0`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because the criteria reproduced are WTA 2024's rather than a named institutional algorithm, the internal-defibrillation energy is an order of magnitude to confirm against the device, and the tray inventory and clamshell simulation check remain unverified. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP** because the card repeatedly directs the user to apply narrow criteria but does not actually state an operational adult decision pathway for a time-critical, invasive procedure.
 
 **Source-standard summary.** The WTA 2024 adult algorithm defines signs of life, uses CPR-duration cutoffs of less than 10 minutes for blunt and less than 15 minutes for penetrating trauma, distinguishes injury pattern and tamponade, and limits the role of cardiac ultrasound to a specific decision branch. It also distinguishes thoracotomy from possible Zone 1 REBOA for selected abdominopelvic injury. EAST 2015 stratifies recommendations by mechanism, injury location, and signs of life rather than by penetrating chest trauma alone.
 
@@ -81,11 +199,11 @@ Every JSON section, equipment/instrument list, visual-asset record, and structur
 
 **Sources.** [Western Trauma Association, Adult Emergency Resuscitative Thoracotomy Algorithm and Procedure Guide (2024)](https://westerntrauma.org/wp-content/uploads/2024/02/ERT-Algorithm-Procedures.pdf); [Eastern Association for the Surgery of Trauma, Emergency Department Thoracotomy Practice Management Guideline (2015)](https://www.east.org/education-resources/practice-management-guidelines/details/emergency-department-thoracotomy).
 
-`reviewerStatus` remains unchanged (`Needs Clinical Review`). The null visual `assetName` remains an independent release blocker under repository policy.
+`reviewerStatus` remains unchanged (`Needs Clinical Review`). The null visual `assetName` is a warning rather than a release blocker since the owner decision of 2026-07-30.
 
 ## `synchronized_cardioversion` - Synchronized Cardioversion
 
-**Screening disposition: `MAJOR` (proposed; clinician adjudication required).**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot, for the reason recorded next. The findings are addressed in `05ca4f0`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because the narrow-complex SVT and monomorphic VT energies could not be read from the primary algorithm PDF in this environment, the 8 cm implanted-device clearance is stated as needing manufacturer confirmation, and the observation period is deliberately left to local policy. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR** for outdated energies, an incomplete anticoagulation pathway, a device-dependent synchronization claim, an unsupported telemetry period, and untraceable references.
 
 **Source-standard summary.** The AHA 2025 electrical-cardioversion algorithm lists initial biphasic energies of 200 J for atrial fibrillation, 200 J for atrial flutter, 100 J for narrow-complex tachycardia, and 100 J for monomorphic VT; polymorphic VT requires unsynchronized high-energy shock. It requires sedation when feasible, notes possible re-synchronization after each shock, and directs immediate unsynchronized shocks if critical deterioration makes synchronization delay unsafe. The 2023 ACC/AHA/ACCP/HRS AF guideline requires three weeks of uninterrupted therapeutic anticoagulation or thrombus-excluding imaging before elective cardioversion when AF duration is at least 48 hours, and at least four weeks of uninterrupted anticoagulation afterward.
 
@@ -111,7 +229,7 @@ Every JSON section, equipment/instrument list, visual-asset record, and structur
 
 ## `lumbar_puncture` - Lumbar Puncture
 
-**Screening disposition: `STOP-SHIP` (proposed; clinician adjudication required).** The meningitis indication lacks an explicit safeguard that imaging or LP must not cause a clinically significant delay to empiric antimicrobial treatment.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot, for the reason recorded next. The findings are addressed in `05ca4f0`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because no antithrombotic hold table is stated - deliberately, since this repository cannot source one - the opening-pressure range is the commonly cited one, and paediatric scope was removed rather than specified. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP** because the meningitis indication lacks an explicit safeguard that imaging or LP must not cause a clinically significant delay to empiric antimicrobial treatment.
 
 **Source-standard summary.** WHO 2025 and NICE 2024 advise against routine cranial imaging before LP, define clinical features that require imaging/deferral, and state that LP should not delay antibiotics in suspected bacterial meningitis. NICE also calls for stabilization of airway, breathing, shock, seizures, and bleeding risk, and measurement of blood glucose immediately before LP when meningitis is suspected. CDC recommends a surgical mask for LP. Evidence-based guidance strongly favors atraumatic needles in adults and children; consensus technique requires lateral recumbency for opening pressure and supports stylet replacement before needle removal. Antithrombotic hold times vary by agent, dose, renal function, and laboratory assessment.
 
@@ -134,7 +252,7 @@ Every JSON section, equipment/instrument list, visual-asset record, and structur
 
 **Sources.** [World Health Organization, Guidelines on Meningitis Diagnosis, Treatment and Care (2025)](https://iris.who.int/bitstream/handle/10665/381006/9789240108042-eng.pdf); [NICE, Bacterial Meningitis and Meningococcal Disease, NG240 (2024)](https://www.nice.org.uk/guidance/NG240/chapter/recommendations); [CDC/HICPAC, Safe Injection and Special Lumbar Puncture Infection-Control Practices (2007 guideline; current CDC page)](https://www.cdc.gov/injection-safety/hcp/clinical-guidance/index.html); [BMJ Rapid Recommendation, Atraumatic Versus Conventional Needles for Lumbar Puncture (2018)](https://www.bmj.com/content/361/bmj.k1920); [Consensus Guidelines for Lumbar Puncture in Neurological Diseases (2017)](https://pmc.ncbi.nlm.nih.gov/articles/PMC5454085/); [ASRA Pain Medicine, Antithrombotic/Thrombolytic Therapy Guidelines, fifth edition (2025)](https://rapm.bmj.com/content/early/2025/09/16/rapm-2024-105766).
 
-`reviewerStatus` remains unchanged (`Needs Clinical Review`). The null visual `assetName` values remain an independent release blocker under repository policy.
+`reviewerStatus` remains unchanged (`Needs Clinical Review`). The null visual `assetName` values are warnings rather than release blockers since the owner decision of 2026-07-30.
 
 ## Changed File and Sources/Limitations
 
