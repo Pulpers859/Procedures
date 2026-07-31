@@ -2371,12 +2371,13 @@
     "sections": {
       "shiftMode": [
         "Confirm indication (diagnostic vs. therapeutic); verify ascites is present and accessible by ultrasound.",
-        "Ultrasound marks the largest, safest pocket in the LLQ \u2014 avoids bowel, bladder, and inferior epigastric vessels.",
-        "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum \u2014 reduces post-procedure fluid leak.",
-        "For large-volume (>5 L): administer albumin 6-8 g per liter removed to prevent paracentesis-induced circulatory dysfunction.",
-        "Do not give albumin for diagnostic or small-volume (<5 L) taps \u2014 no evidence of benefit.",
-        "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap \u2014 you cannot rule out SBP clinically.",
-        "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn \u2014 highest diagnostic yield for SBP."
+        "Ultrasound marks the largest, safest pocket in the LLQ - avoids bowel, bladder, and inferior epigastric vessels.",
+        "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum - reduces post-procedure fluid leak.",
+        "For large-volume (>5 L): administer albumin 6-8 g per litre removed to prevent paracentesis-induced circulatory dysfunction.",
+        "Below 5 L albumin is not routine, but it is not forbidden either. Acute-on-chronic liver failure or a high risk of post-paracentesis acute kidney injury are reasons to give it at a smaller volume - a judgement, not a threshold.",
+        "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap - you cannot rule out SBP clinically.",
+        "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn - highest diagnostic yield for SBP.",
+        "Do not delay or cancel the tap to correct clotting numbers. Routine coagulation testing and prophylactic products are not recommended before paracentesis."
       ],
       "indications": [
         "New-onset ascites requiring diagnostic evaluation",
@@ -2385,11 +2386,11 @@
         "Evaluation of ascites in acute decompensated liver disease, malignancy, or unknown etiology"
       ],
       "contraindications": [
-        "Disseminated intravascular coagulation (DIC) \u2014 significant bleeding risk",
+        "Disseminated intravascular coagulation or clinically active bleeding - the one coagulopathy that genuinely changes the decision",
         "Surgical abdomen where bowel perforation is possible at all accessible sites",
         "Active infection, wound, or burn overlying all potential insertion sites",
         "Known adhesions or bowel loops adherent to the anterior abdominal wall at the planned site",
-        "INR >2.0 or platelets <50,000 are relative contraindications; routine FFP correction is not required but individual bleeding risk applies"
+        "There is no INR or platelet threshold on this card, and the earlier INR >2.0 and platelets <50,000 gates were removed. Current cirrhosis guidance recommends against routine coagulation testing and against prophylactic plasma or platelets before paracentesis, because the INR does not describe bleeding risk in cirrhosis. Assess bleeding risk clinically and follow local procedural policy."
       ],
       "anatomy": [
         "Standard entry: LLQ 4-6 cm lateral to the midline, midway between umbilicus and anterior superior iliac spine (ASIS).",
@@ -2404,9 +2405,10 @@
         "Ultrasound machine",
         "Chlorhexidine prep",
         "Sterile drape, sterile gloves",
-        "Local anesthetic (1% lidocaine), syringe, and small-gauge needle",
-        "Large-bore drainage tubing and vacuum collection bottles for therapeutic tap",
-        "Specimen collection tubes: cell count with differential, albumin, protein, LDH, glucose, culture",
+        "Local anesthetic: 1% lidocaine, syringe, and small-gauge needle",
+        "Large-bore drainage tubing and collection containers for therapeutic tap",
+        "Specimen tubes for cell count with differential, ascitic albumin, protein, LDH, glucose, and culture",
+        "A paired serum albumin drawn at the same time. The serum-ascites albumin gradient needs both halves, and a lone ascitic albumin cannot be interpreted - order it with the tap for any new or undifferentiated ascites.",
         "Blood culture bottles for bedside inoculation (best yield for SBP detection)",
         "Occlusive dressing or small bandage"
       ],
@@ -2425,9 +2427,9 @@
         "Anesthetize skin, subcutaneous tissue, and peritoneum with local anesthetic, aspirating as you advance to confirm proximity to fluid.",
         "Using Z-track technique (displace skin 1-2 cm laterally before advancing; release after entering peritoneum), insert needle perpendicular to skin with continuous aspiration.",
         "On peritoneal fluid return, lock needle or advance catheter; note character of fluid.",
-        "For diagnostic: collect 30-60 mL; inoculate blood culture bottles at bedside; send labeled specimens.",
-        "For therapeutic: connect drainage tubing to catheter; allow gravity or low-pressure vacuum drainage.",
-        "For >5 L therapeutic: administer albumin 6-8 g per liter removed concurrent with or immediately after drainage.",
+        "Diagnostic: collect 30-60 mL, inoculate blood culture bottles at the bedside, and send the labelled specimens with a paired serum albumin.",
+        "Therapeutic: connect drainage tubing to catheter; allow gravity or low-pressure drainage.",
+        "Over 5 L: give albumin at 6-8 g per litre removed, during or immediately after drainage. Under 5 L: give it if this patient has acute-on-chronic liver failure or a high risk of acute kidney injury, and record the reason either way.",
         "Withdraw needle/catheter when drainage complete; apply firm pressure briefly; dress the site with an occlusive bandage.",
         "Monitor BP, HR, and symptoms for 30-60 minutes post-procedure."
       ],
@@ -2439,11 +2441,11 @@
         "Post-procedure: brief scan to assess for residual ascites and any hematoma at the entry site."
       ],
       "confirmation": [
-        "Peritoneal fluid returns freely on aspiration \u2014 straw-colored, turbid, milky, or bloody depending on etiology",
+        "Peritoneal fluid returns freely on aspiration - straw-colored, turbid, milky, or bloody depending on etiology",
         "Fluid flows freely during therapeutic drainage",
         "No bowel contents (feculent material or food particles) in return",
         "Abdominal distension and discomfort reduce during therapeutic drainage",
-        "Albumin replacement administered if >5 L removed"
+        "Albumin decision made and recorded - given with the volume and dose, or withheld with the reason"
       ],
       "troubleshooting": [
         "No fluid return: confirm position with ultrasound; needle may have bypassed the pocket; withdraw and reassess live.",
@@ -2462,8 +2464,9 @@
         "Persistent ascites leak requiring surgical repair (rare)"
       ],
       "aftercare": [
-        "For >5 L: confirm albumin replacement administered; reassess BP and HR at 1 hour.",
-        "Send specimens promptly; neutrophil count >250 cells/mm\u00b3 meets criteria for empiric SBP treatment.",
+        "Albumin: confirm it was given for volumes above 5 L, and that the below-5-L decision was made rather than defaulted. Reassess BP and HR at 1 hour.",
+        "Check renal function and electrolytes after a large-volume tap in anyone with acute-on-chronic liver failure, baseline renal impairment, or hypotension during drainage.",
+        "Send specimens promptly; a neutrophil count above 250 cells/mm3 meets criteria for empiric SBP treatment.",
         "Monitor for abdominal pain, fever, or hematoma for 4-6 hours after the procedure.",
         "Record total volume drained and fluid character in the procedure note.",
         "Educate patient on return precautions: worsening pain, fever, spreading redness, or fluid leak from the site."
@@ -2478,14 +2481,17 @@
         "Patient hemodynamically stable post-procedure; no abdominal rigidity or signs of peritonitis."
       ],
       "seniorPearls": [
-        "Every hospitalized cirrhotic who decompensates gets a diagnostic tap first \u2014 you cannot exclude SBP on exam.",
+        "Every hospitalized cirrhotic who decompensates gets a diagnostic tap first - you cannot exclude SBP on exam.",
+        "The INR in cirrhosis is not a bleeding-risk score. Waiting on plasma delays a tap that diagnoses the thing killing the patient.",
+        "Order the serum albumin with the tap. A gradient needs two numbers and the second one is the one people forget.",
         "The Z-track technique reduces post-tap ascites leak; teach it and use it consistently.",
-        "Albumin replacement for large-volume taps is non-negotiable; paracentesis-induced circulatory dysfunction is underdiagnosed and preventable."
+        "Albumin replacement for large-volume taps is not optional; paracentesis-induced circulatory dysfunction is underdiagnosed and preventable."
       ],
       "references": [
-        "EASL Clinical Practice Guidelines on decompensated cirrhosis and management of ascites. J Hepatol. 2018.",
-        "Runyon BA. Management of adult patients with ascites due to cirrhosis: Update 2012. Hepatology.",
-        "AASLD guidelines on the management of ascites and spontaneous bacterial peritonitis."
+        "European Association for the Study of the Liver. EASL Clinical Practice Guidelines for the management of patients with decompensated cirrhosis. J Hepatol. 2018;69(2):406-460. https://doi.org/10.1016/j.jhep.2018.03.024",
+        "American Association for the Study of Liver Diseases. Diagnosis, Evaluation, and Management of Ascites, Spontaneous Bacterial Peritonitis and Hepatorenal Syndrome. https://www.aasld.org/practice-guidelines/diagnosis-evaluation-and-management-ascites-spontaneous-bacterial-peritonitis",
+        "Aithal GP, et al. Guidelines on the management of ascites in cirrhosis. British Society of Gastroenterology and British Association for the Study of the Liver. Gut. 2021;70(1):9-29. https://doi.org/10.1136/gutjnl-2020-321790",
+        "Verify local procedural policy on periprocedural coagulation assessment and the albumin preparation stocked."
       ]
     },
     "visualAssets": [
@@ -2501,7 +2507,56 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft"
+    "contentSource": "ai-draft",
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target."
+      ]
+    }
   },
   {
     "id": "abscess_incision_drainage",
@@ -2526,13 +2581,13 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node \u2014 ultrasound identifies occult pockets and depth, avoids dry incisions.",
-        "Anesthetize generously before incising \u2014 acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
+        "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node - ultrasound identifies occult pockets and depth, avoids dry incisions.",
+        "Anesthetize generously before incising - acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
         "The incision must be adequate: span the entire fluctuant cavity and allow complete drainage and loculation breakdown.",
-        "Irrigate vigorously with normal saline until return is clear \u2014 this step is often rushed.",
-        "Loop drain or loose packing prevents premature closure without the pain of tight gauze packing.",
-        "Primary closure is contraindicated \u2014 leave it open.",
-        "Most simple abscesses in immunocompetent patients do not need antibiotics; treat the cavity."
+        "Drainage and breaking down loculations is the treatment. Irrigation is optional - a randomised trial found no improvement in outcome from routine cavity irrigation, and it adds pain, time, and splash exposure. Irrigate a grossly contaminated or debris-filled cavity, and skip it for a clean one.",
+        "Packing is also not routine. For a simple abscess under about 5 cm, routine packing added pain without reducing reintervention. Leave it open, or use a loop drain where the cavity or the site makes premature closure likely.",
+        "Primary closure is contraindicated - leave it open.",
+        "Antibiotics are a shared decision rather than a reflex in either direction. See aftercare."
       ],
       "indications": [
         "Fluctuant, loculated skin or soft tissue abscess confirmed clinically or by ultrasound",
@@ -2556,9 +2611,9 @@
       "equipment": [
         "Scalpel with #11 or #15 blade",
         "Iris scissors and curved hemostat for blunt dissection",
-        "Irrigation syringe (60 mL) and 500-1000 mL normal saline for irrigation",
+        "Irrigation syringe and normal saline, if irrigating - not a fixed volume, and not for every cavity",
         "Splash guard or angiocatheter tip for directed irrigation",
-        "Loop drain (Penrose or vessel loop) or plain strip gauze packing",
+        "Loop drain (Penrose or vessel loop) or plain strip gauze packing, for the cavities that need one",
         "Sterile gloves and sterile drape",
         "Chlorhexidine or betadine prep",
         "Local anesthetic: 1% lidocaine with epinephrine (avoid end-arterial zones) or regional block",
@@ -2572,16 +2627,16 @@
       ],
       "steps": [
         "Confirm diagnosis with exam and ultrasound; identify all pockets, satellite collections, and the point of maximal fluctuance.",
-        "Infiltrate local anesthetic widely around and beneath the abscess margin \u2014 not into the cavity. Allow adequate time for onset (2-3 minutes minimum).",
+        "Infiltrate local anesthetic widely around and beneath the abscess margin - not into the cavity. Allow adequate time for onset (2-3 minutes minimum).",
         "Optionally consider regional nerve block for large or anatomically favorable abscesses.",
         "Prep the area; apply sterile drape.",
-        "Make a single, adequate linear incision through the abscess dome at maximal fluctuance \u2014 it must be long enough to allow complete drainage and instrument access.",
+        "Make a single, adequate linear incision through the abscess dome at maximal fluctuance - it must be long enough to allow complete drainage and instrument access.",
         "Gently express contents; do not squeeze forcefully.",
-        "Insert closed hemostat, open along cavity axis, and sweep to break down all loculations \u2014 confirm cavity extent.",
-        "Irrigate vigorously with normal saline under moderate pressure using a syringe; repeat until return is clear or nearly clear.",
-        "Place a loop drain loosely through the cavity (preferred) or insert plain strip gauze loosely \u2014 do not pack tightly.",
-        "Apply non-adherent dressing over the drain or packing.",
-        "Plan follow-up at 48-72 hours for packing change, drain assessment, or wound check."
+        "Insert closed hemostat, open along cavity axis, and sweep to break down all loculations - confirm cavity extent. This is the step that treats the abscess.",
+        "Irrigate if the cavity is grossly contaminated or full of debris. There is no evidence-based volume and no requirement to irrigate until the return runs clear.",
+        "Decide on a drain: a simple cavity under about 5 cm in an otherwise well patient can be left open with no packing. Use a loop drain for larger or deeper cavities, or where the skin will close over the space before it fills in. If you pack, pack loosely - packing is a spacer, not a treatment.",
+        "Apply non-adherent dressing.",
+        "Plan follow-up at 48-72 hours for drain assessment or wound check."
       ],
       "ultrasound": [
         "High-frequency linear probe (10+ MHz) for soft tissue abscess identification.",
@@ -2593,8 +2648,7 @@
       "confirmation": [
         "Frank pus drains freely on incision",
         "All loculations broken down and cavity fully explored with instrument",
-        "Vigorous irrigation return is clear or near-clear before packing",
-        "Loop drain or loose packing placed \u2014 not tight, not obliterating the cavity",
+        "Cavity left open, or a loop drain or loose packing placed where indicated - not tight, not obliterating the cavity",
         "No evidence of deeper structure involvement (tendon, joint, fascia)"
       ],
       "troubleshooting": [
@@ -2614,9 +2668,9 @@
       ],
       "aftercare": [
         "Instruct patient on wound care: warm soaks or showering; keep the site clean and moist.",
-        "Return visit in 48-72 hours for packing removal or loop drain assessment and wound inspection.",
-        "Antibiotics not routinely required for simple abscess in immunocompetent adults; indicated for surrounding cellulitis, systemic infection, immunocompromise, facial location, or MRSA risk factors.",
-        "MRSA coverage (TMP-SMX or doxycycline) based on local resistance patterns and risk factors.",
+        "Return visit in 48-72 hours for drain assessment and wound inspection.",
+        "Antibiotics are a conversation, not a default. Drainage alone cures most simple abscesses, and adding trimethoprim-sulfamethoxazole or clindamycin produces a modest reduction in treatment failure and recurrence at the cost of adverse effects - enough for a weak, shared-decision recommendation rather than a rule. Antibiotics are clearly indicated for surrounding cellulitis, systemic features, immunocompromise, a facial or hand location, or a prosthesis nearby.",
+        "Where antibiotics are given, choose against local resistance patterns and cover MRSA where prevalence warrants it.",
         "Provide clear return precautions: worsening pain, fever, spreading redness, or red streaking."
       ],
       "documentation": [
@@ -2629,14 +2683,17 @@
         "Patient discharged with wound care instructions and 48-72 hour follow-up arranged."
       ],
       "seniorPearls": [
-        "Acidic pus inactivates local anesthetic inside the cavity \u2014 infiltrate around the margin and wait; never rush into an under-anesthetized abscess.",
-        "The incision length is the most common technical mistake: if you cannot freely break down all loculations and irrigate completely, it is not big enough.",
-        "Packing is not the therapy \u2014 irrigation and complete drainage are. Packing is just a spacer."
+        "Acidic pus inactivates local anesthetic inside the cavity - infiltrate around the margin and wait; never rush into an under-anesthetized abscess.",
+        "The incision length is the most common technical mistake: if you cannot freely break down all loculations, it is not big enough.",
+        "Breaking down loculations is the therapy. Irrigation and packing are both optional extras that the evidence has been unkind to.",
+        "Packing a small simple abscess makes the follow-up visit worse and the outcome no better."
       ],
       "references": [
-        "Roberts JR, Custalow CB. Roberts and Hedges' Clinical Procedures in Emergency Medicine. Abscess Incision and Drainage chapter.",
-        "Talan DA et al. Trimethoprim-Sulfamethoxazole versus Placebo for Uncomplicated Skin Abscess. N Engl J Med. 2016;374:823-832.",
-        "Singer AJ et al. Loop drainage vs. primary closure after abscess I&D. Acad Emerg Med. 2014."
+        "Stevens DL, et al. Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 Update by IDSA. Clin Infect Dis. 2014;59(2):e10-e52. https://doi.org/10.1093/cid/ciu296",
+        "Chinnock B, Hendey GW. Irrigation of cutaneous abscesses does not improve treatment success. Ann Emerg Med. 2016;67(3):379-383. https://doi.org/10.1016/j.annemergmed.2015.08.007",
+        "O'Malley GF, et al. Routine packing of simple cutaneous abscesses is painful and probably unnecessary. Acad Emerg Med. 2009;16(5):470-473. https://doi.org/10.1111/j.1553-2712.2009.00409.x",
+        "Vermandere M, et al. Antibiotics after incision and drainage for uncomplicated skin abscesses: a clinical practice guideline. BMJ. 2018;360:k243. https://doi.org/10.1136/bmj.k243",
+        "Talan DA, et al. Trimethoprim-sulfamethoxazole versus placebo for uncomplicated skin abscess. N Engl J Med. 2016;374(9):823-832. https://doi.org/10.1056/NEJMoa1507476"
       ]
     },
     "visualAssets": [
@@ -2652,7 +2709,56 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft"
+    "contentSource": "ai-draft",
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target."
+      ]
+    }
   },
   {
     "id": "introducer_sheath_cordis",
@@ -3193,9 +3299,9 @@
         "The lacrimal apparatus sits medially; the lateral approach avoids it. Aim toward the lateral orbital rim, away from the globe."
       ],
       "equipment": [
-        "Local anesthetic with epinephrine, syringe, and small needle",
+        "Local anaesthetic with epinephrine: 1-2 mL of 1% lidocaine with epinephrine, a small syringe, and a 25-27G needle",
         "Straight hemostat",
-        "Iris or sharp straight scissors",
+        "Blunt-tipped scissors - Stevens tenotomy or blunt Westcott. Not iris or sharp straight scissors: you are cutting toward the orbital rim in a swollen, bloody field beside a globe, and a sharp tip is the wrong instrument for that.",
         "Toothed forceps",
         "Gauze and saline for hemostasis and visualization",
         "Tonometer to measure intraocular pressure if available",
@@ -3214,9 +3320,10 @@
         "Clamp the lateral canthus horizontally with a hemostat for 1-2 minutes to crush tissue and reduce bleeding.",
         "Remove the hemostat and make a horizontal canthotomy incision through the crushed tissue to the lateral orbital rim (about 1-2 cm).",
         "Pull the lower lid outward and downward with forceps to put the inferior crus of the lateral canthal tendon on tension.",
-        "Strum and identify the taut inferior crus, then cut it (inferior cantholysis); the lower lid should release and the globe soften.",
-        "Reassess intraocular pressure, proptosis, and tension.",
-        "If the orbit remains tense, release the superior crus (superior cantholysis) and reassess.",
+        "Strum and identify the taut inferior crus, then cut it with the blunt scissors directed toward the orbital rim - inferiorly and slightly posteriorly, away from the globe. The lower lid should release and the globe soften.",
+        "Confirm the inferior release is complete before considering anything else. The lid should swing freely away from the globe; if it does not, there is still tendon to cut, and that is the problem rather than an indication to move upward.",
+        "Reassess: intraocular pressure, visual acuity or at least light perception, the pupil, and orbital tension.",
+        "Release the superior crus only if all of these are true after a complete inferior cantholysis: the orbit is still tense, the intraocular pressure is still raised, and vision or the pupil has not improved. Superior release adds lacrimal artery and gland risk and adds little once the inferior release is adequate.",
         "Control bleeding with gentle pressure and arrange emergent ophthalmology evaluation."
       ],
       "ultrasound": [],
@@ -3228,8 +3335,8 @@
         "Hemostasis achieved at the canthotomy site"
       ],
       "troubleshooting": [
-        "No softening after the incision: the tendon was not released \u2014 the canthotomy cut alone is insufficient; perform the cantholysis.",
-        "Still tense after inferior cantholysis: release the superior crus as well.",
+        "No softening after the incision: the tendon was not released - the canthotomy cut alone is insufficient; perform the cantholysis.",
+        "Still tense after what you believe was a complete inferior cantholysis: check that it really was complete before going superior. An incompletely released inferior crus is far commoner than a genuine need for superior release.",
         "Cannot identify the crus: pull the lid on tension and strum for the taut band toward the orbital rim before cutting.",
         "Brisk bleeding obscuring the field: apply gentle pressure and use the pre-incision hemostat clamp to limit it.",
         "Suspect globe rupture mid-procedure: stop manipulating the globe and get emergent ophthalmology."
@@ -3249,11 +3356,13 @@
         "Document the time of decompression relative to symptom onset."
       ],
       "documentation": [
-        "Lateral canthotomy and inferior (\u00b1 superior) cantholysis performed for acute orbital compartment syndrome.",
-        "Clinical findings documented: proptosis, raised intraocular pressure, vision change, and afferent pupillary defect.",
+        "Lateral canthotomy and inferior (with or without superior) cantholysis performed for acute orbital compartment syndrome.",
+        "Clinical findings documented: proptosis, intraocular pressure with the value, visual acuity or best available assessment, and pupillary findings including relative afferent pupillary defect.",
+        "Both eyes documented. The unaffected eye is the baseline, and without it the affected eye's numbers mean less than they should.",
+        "Where vision or pupil could not be assessed - intubated, obtunded, lids too swollen - that is recorded as not testable rather than left blank.",
         "Globe rupture not suspected prior to the procedure.",
-        "Inferior crus released with resultant lid release and globe softening; superior crus released if needed.",
-        "Post-procedure intraocular pressure, vision, and pupillary findings recorded.",
+        "Inferior crus released with resultant lid release and globe softening; whether the superior crus was released, and the findings that justified it.",
+        "Post-procedure intraocular pressure, vision, and pupillary findings recorded, with the times.",
         "Emergent ophthalmology consultation arranged; time from onset to decompression documented."
       ],
       "seniorPearls": [
@@ -3262,9 +3371,9 @@
         "If the globe might be ruptured, stop \u2014 decompression can turn a salvageable eye into an extruded one."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, lateral canthotomy and cantholysis.",
-        "Ophthalmology and emergency medicine references on orbital compartment syndrome and retrobulbar hemorrhage.",
-        "Institutional ophthalmic emergency protocols; verify local consultation pathway."
+        "U.S. Joint Trauma System. Eye Trauma: Initial Care Clinical Practice Guideline. 2021. https://jts.health.mil/assets/docs/cpgs/Eye_Trauma_Initial_Care_01_Jun_2021_ID03.pdf",
+        "American Academy of Ophthalmology EyeWiki. Orbital Compartment Syndrome. https://eyewiki.aao.org/Orbital_Compartment_Syndrome",
+        "Institutional ophthalmic emergency protocols; verify local consultation pathway and which blunt scissors are stocked on the eye tray."
       ]
     },
     "visualAssets": [
@@ -3278,7 +3387,56 @@
         "caption": "Cut the inferior crus at the lateral canthus, angling away from the globe toward the orbital rim.",
         "clinicalWarning": "Visual must make the inferior crus target and a globe-safe cut direction unambiguous."
       }
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target."
+      ]
+    }
   },
   {
     "id": "laceration_repair",
@@ -3332,14 +3490,15 @@
         "Depth determines whether deep dermal sutures are needed to close dead space and reduce tension."
       ],
       "equipment": [
-        "Local anesthetic (lidocaine with or without epinephrine, avoiding epinephrine in end-arterial fields per policy)",
+        "Local anaesthetic: 1% or 2% lidocaine, with epinephrine unless local policy excludes it for this field. Calculate the ceiling on this card before drawing up.",
         "Syringe and small-gauge needle for infiltration",
         "Irrigation: normal saline or potable water, large syringe with splash guard",
         "Skin antiseptic and sterile drape",
         "Suture material appropriate to location (e.g., 6-0 face, 4-0/5-0 extremities, deeper absorbable for dermis)",
         "Needle driver, toothed forceps, suture scissors, and a sterile suture tray",
         "Sterile gloves and good lighting",
-        "Wound dressing and supplies for tetanus prophylaxis"
+        "Wound dressing",
+        "Tetanus-diphtheria vaccine, and tetanus immune globulin available in the department - the decision below needs both to be obtainable, not just the vaccine"
       ],
       "positioning": [
         "Position the patient and the wound for direct visualization and ergonomic access.",
@@ -3348,7 +3507,7 @@
         "Examine the wound through its full range of motion to detect deep injuries."
       ],
       "steps": [
-        "Obtain history including mechanism, timing, contamination, and tetanus status.",
+        "Obtain history including mechanism, timing, contamination, and tetanus immunisation history - the number of prior doses, not just the date of the last one.",
         "Document distal neurovascular and motor function before anesthesia.",
         "Infiltrate local anesthetic and confirm adequate analgesia.",
         "Explore the full wound depth and range of motion for foreign body or deep-structure injury.",
@@ -3357,7 +3516,7 @@
         "Place deep dermal absorbable sutures if needed to reduce tension and close dead space.",
         "Approximate the skin edges with everting interrupted sutures, matching size and spacing to the location.",
         "Confirm edge apposition and eversion without tension or gaping.",
-        "Apply dressing, update tetanus prophylaxis, and give wound-care and suture-removal instructions."
+        "Classify the wound and make the tetanus decision explicitly - see aftercare - then apply the dressing and give wound-care and suture-removal instructions."
       ],
       "ultrasound": [
         "Ultrasound can help localize radiolucent foreign bodies (wood, plastic) not seen on x-ray.",
@@ -3389,7 +3548,11 @@
       "aftercare": [
         "Keep the wound clean and dry per local guidance; instruct on signs of infection.",
         "Provide a suture-removal timeline appropriate to the body region.",
-        "Update tetanus prophylaxis based on wound and immunization status.",
+        "Tetanus, as two separate questions rather than one. First classify the wound: clean and minor, or dirty and major - contaminated with dirt, faeces, or saliva, a puncture, an avulsion, or a wound from a missile, crush, burn, or frostbite. Then count the patient's prior tetanus doses.",
+        "Three or more prior doses: give a tetanus-containing vaccine if the last dose was 10 or more years ago for a clean minor wound, or 5 or more years ago for a dirty or major wound. No immune globulin either way.",
+        "Fewer than three prior doses, or an unknown history: give the vaccine for any wound, and add tetanus immune globulin 250 IU intramuscularly for a dirty or major wound.",
+        "HIV infection or severe immunodeficiency with a dirty or major wound: give immune globulin regardless of the vaccination history, because the vaccine response cannot be relied on.",
+        "Give the vaccine and the immune globulin with separate syringes at separate sites.",
         "Arrange follow-up or wound check for higher-risk wounds and consider antibiotics only when indicated."
       ],
       "documentation": [
@@ -3397,7 +3560,8 @@
         "Pre-repair distal neurovascular and motor exam documented as intact.",
         "Wound explored; no retained foreign body or deep-structure injury identified (or findings noted).",
         "Irrigation performed; closure type and suture material/size documented.",
-        "Tetanus prophylaxis addressed.",
+        "Local anaesthetic agent, concentration, and total volume recorded.",
+        "Wound classified as clean-minor or dirty-major, prior tetanus dose count recorded, and the vaccine and immune globulin decision documented with what was given.",
         "Aftercare and suture-removal instructions provided."
       ],
       "seniorPearls": [
@@ -3406,9 +3570,9 @@
         "Eversion and tension control determine the scar far more than how fancy the stitch is."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, methods of wound closure.",
-        "Emergency medicine references on wound irrigation, closure timing, and tetanus prophylaxis.",
-        "Institutional wound-care and antibiotic-prophylaxis policies; verify local guidance."
+        "Centers for Disease Control and Prevention. Clinical Guidance for Wound Management to Prevent Tetanus. 2025. https://www.cdc.gov/tetanus/hcp/clinical-guidance/index.html",
+        "Food and Drug Administration. Xylocaine and Xylocaine with epinephrine prescribing information. 2024. https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/006488Orig1s100lbl.pdf",
+        "Institutional wound-care and antibiotic-prophylaxis policies; verify local guidance and that tetanus immune globulin is stocked where you work."
       ]
     },
     "visualAssets": [
@@ -3422,7 +3586,56 @@
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Visual should make edge eversion and tension-free apposition clear."
       }
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target."
+      ]
+    }
   },
   {
     "id": "shoulder_reduction",
@@ -3449,7 +3662,8 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm anterior dislocation and document neurovascular status \u2014 especially axillary nerve sensation over the deltoid \u2014 before and after.",
+        "Confirm anterior dislocation and document neurovascular status - especially axillary nerve sensation over the deltoid - before and after.",
+        "Neurovascular compromise is a reason to reduce sooner, not a reason to wait. The humeral head is what is compressing the artery or stretching the plexus, and putting it back is the treatment. Mobilise the specialist at the same time, not first.",
         "Get pre-reduction imaging unless the presentation is clearly recurrent and atraumatic per local practice.",
         "Optimize analgesia/relaxation: intra-articular block, procedural sedation, or a gentle technique the patient can tolerate.",
         "Choose a low-force technique first (scapular manipulation, Cunningham, external rotation) before high-traction methods.",
@@ -3459,15 +3673,16 @@
       ],
       "indications": [
         "Acute anterior glenohumeral dislocation",
-        "Confirmed dislocation requiring reduction to restore joint position and relieve neurovascular compromise",
+        "Dislocation with axillary nerve deficit - the deficit is caused by the dislocation and reduction is its treatment",
+        "Dislocation with a pulseless or ischaemic limb - reduce urgently while vascular surgery is called, do not wait for them to arrive",
         "Recurrent dislocation appropriate for ED reduction"
       ],
       "contraindications": [
-        "Associated displaced fracture that warrants orthopedic reduction (e.g., certain surgical-neck fractures)",
-        "Neurovascular compromise needing urgent surgical evaluation",
+        "Associated displaced fracture that warrants orthopedic reduction (e.g., certain surgical-neck fractures) - traction can displace the head further",
         "Posterior or inferior dislocation requiring a different, specific approach",
-        "Open dislocation or signs of significant associated injury",
-        "Inability to safely provide analgesia/sedation when required"
+        "Open dislocation - theatre, not the resus bay",
+        "Inability to safely provide analgesia/sedation when required",
+        "Neurovascular compromise is deliberately not on this list. It was, and it read as a reason to delay. See indications and troubleshooting for the sequence."
       ],
       "anatomy": [
         "The glenohumeral joint trades stability for mobility; the humeral head sits anterior/inferior in the common dislocation.",
@@ -3477,8 +3692,8 @@
       ],
       "equipment": [
         "Stretcher or bed allowing the chosen technique and patient positioning",
-        "Monitoring and supplies for procedural sedation if used (pulse oximetry, capnography, oxygen, airway kit)",
-        "Intra-articular block supplies (local anesthetic, needle) if used",
+        "Monitoring and supplies for procedural sedation if used, per the procedural sedation card (pulse oximetry, capnography, oxygen, airway kit)",
+        "Intra-articular block: 20 mL of 1% lidocaine, a 20 mL syringe, and a 21G needle, with full sterile prep - this is an injection into a joint and a septic shoulder is a worse problem than the dislocation",
         "A sheet for counter-traction if a traction technique is chosen",
         "Sling or shoulder immobilizer for post-reduction",
         "Imaging access for pre- and post-reduction films"
@@ -3491,8 +3706,10 @@
       ],
       "steps": [
         "Confirm the diagnosis and document a detailed neurovascular exam including axillary nerve function.",
+        "If the limb is pulseless or ischaemic: call vascular surgery and reduce now. Do not sequence those.",
         "Obtain pre-reduction imaging unless clearly indicated otherwise by local protocol.",
         "Provide analgesia/relaxation: intra-articular block, procedural sedation, or a sedation-sparing gentle technique.",
+        "Intra-articular block, if used: sterile prep, enter from the lateral or posterior approach into the joint, aspirate, and inject. Twenty millilitres of 1% lidocaine is 200 mg - a large fraction of a small adult's ceiling, so check the calculator on this card before adding any other local anaesthetic.",
         "Select a first-line low-force technique (scapular manipulation, Cunningham, or external rotation).",
         "Apply slow, steady force appropriate to the technique, allowing muscle relaxation over time.",
         "Feel or observe for the humeral head relocating into the glenoid.",
@@ -3514,9 +3731,10 @@
         "Shoulder immobilized and follow-up arranged"
       ],
       "troubleshooting": [
-        "Reduction failing: ensure adequate analgesia/relaxation; muscle spasm is the usual obstacle \u2014 add an intra-articular block or sedation and switch technique.",
+        "Pulseless or cold limb: reduce urgently and call vascular surgery in parallel. Reassess the pulse the moment the head relocates. A pulse that does not return after reduction is an arterial injury until imaging says otherwise, and axillary artery injury is commonest in the elderly, whose vessels tolerate stretch least.",
+        "Reduction failing: ensure adequate analgesia/relaxation; muscle spasm is the usual obstacle - add an intra-articular block or sedation and switch technique.",
         "Persistent inability after multiple attempts: reassess for fracture or alternate dislocation type and involve orthopedics.",
-        "New neurologic deficit after reduction: document and arrange urgent orthopedic/neuro evaluation.",
+        "New neurologic deficit after reduction: document and arrange urgent orthopedic/neuro evaluation. A deficit present before reduction and unchanged after it is usually a traction injury to the axillary nerve and usually recovers.",
         "Suspected associated fracture on pre-reduction film: weigh technique choice and consult orthopedics.",
         "Severe pain limiting any technique: optimize analgesia before continuing rather than forcing traction."
       ],
@@ -3529,27 +3747,32 @@
         "Sedation-related complications when procedural sedation is used"
       ],
       "aftercare": [
-        "Immobilize in a sling or shoulder immobilizer per orthopedic guidance.",
-        "Provide analgesia and instructions to avoid provocative positions.",
-        "Arrange orthopedic follow-up; first-time dislocations often need outpatient assessment.",
-        "Counsel on return precautions: numbness, weakness, worsening pain, or recurrent dislocation."
+        "Immobilize in a sling or shoulder immobilizer. Around one to three weeks is the usual range, and shorter is generally preferred - prolonged immobilisation buys stiffness without buying stability.",
+        "The two populations diverge. A first-time dislocation under about 25 has a high recurrence rate and needs orthopaedic assessment for whether stabilisation is indicated. Over about 40, suspect an associated rotator cuff tear and arrange assessment for that instead - persistent weakness is a cuff tear until examined, not a slow-recovering nerve.",
+        "Start early range-of-motion within the limits orthopaedics set, rather than waiting for the follow-up appointment to begin anything.",
+        "Provide analgesia and instructions to avoid provocative positions - abduction with external rotation is the position that redislocates it.",
+        "Arrange orthopedic follow-up.",
+        "Counsel on return precautions: numbness, weakness, worsening pain, a cold or pale hand, or recurrent dislocation."
       ],
       "documentation": [
-        "Anterior shoulder dislocation confirmed; pre-reduction neurovascular exam (including axillary nerve) documented.",
-        "Analgesia/sedation method recorded.",
+        "Anterior shoulder dislocation confirmed; pre-reduction neurovascular exam (including axillary nerve sensation and deltoid function, and the distal pulse) documented.",
+        "Where a deficit was present before reduction, it is recorded as pre-existing with the time noted.",
+        "Analgesia/sedation method recorded, including intra-articular agent, concentration, and volume if used.",
         "Reduction technique(s) used and number of attempts documented.",
         "Reduction confirmed clinically and on post-reduction imaging.",
-        "Post-reduction neurovascular exam documented as intact (or deficits noted).",
+        "Post-reduction neurovascular exam documented as intact (or deficits noted, with comparison to the pre-reduction exam).",
         "Immobilization applied and orthopedic follow-up arranged."
       ],
       "seniorPearls": [
-        "Most failed reductions are really failed analgesia \u2014 relax the patient and the shoulder usually follows.",
-        "Always test and document the axillary nerve before and after; an unrecorded pre-reduction deficit becomes 'your' deficit.",
+        "Most failed reductions are really failed analgesia - relax the patient and the shoulder usually follows.",
+        "Always test and document the axillary nerve before and after. An unrecorded pre-reduction deficit becomes a post-reduction one on paper.",
+        "A nerve deficit is not a reason to delay. The nerve is stretched over a humeral head that should not be there.",
         "Lead with low-force techniques; high-traction methods add fracture and soft-tissue risk for little benefit in cooperative patients."
       ],
       "references": [
-        "Roberts and Hedges' Clinical Procedures in Emergency Medicine, management of shoulder dislocations.",
-        "Emergency medicine and orthopedic references on anterior glenohumeral reduction techniques.",
+        "UK Defence Medical Command. Clinical Guidelines for Operations: Joint Dislocations. 2026. https://cgo.mod.uk/clinical-guidelines-for-operations/treatment-guidelines/musculoskeletal/joint-dislocations/",
+        "British Elbow and Shoulder Society. Practice guidelines: rehabilitation following traumatic anterior shoulder dislocation. 2026. https://pmc.ncbi.nlm.nih.gov/articles/PMC13056797/",
+        "Royal Children's Hospital Melbourne. Shoulder Dislocations - Emergency Department. Updated 2020. https://www.rch.org.au/clinicalguide/guideline_index/fractures/Shoulder_Dislocations_-_Emergency_Department/",
         "Institutional protocols on procedural sedation and intra-articular blocks; verify local practice."
       ]
     },
@@ -3564,7 +3787,56 @@
         "caption": "Placeholder: replace assetName with a bundled image when final reviewed artwork is added.",
         "clinicalWarning": "Visual should make the low-force technique and traction direction clear."
       }
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target."
+      ]
+    }
   },
   {
     "id": "fascia_iliaca_block",
@@ -4182,8 +4454,8 @@
       "shiftMode": [
         "Superolateral approach is the most common. Medial approach is an alternative.",
         "Always send fluid for cell count, Gram stain, culture, and crystal analysis.",
-        "Use sterile technique. A septic joint from your tap is a career-defining complication.",
-        "If you suspect septic arthritis, tap before antibiotics when feasible.",
+        "Use sterile technique. A septic joint introduced by the tap is the complication that defines the case.",
+        "Tap before antibiotics when the patient is well enough to wait the few minutes it takes. If they are septic or in shock, give the antibiotics and tap after - blood cultures first, and say in the notes that the sample is post-antibiotic.",
         "Ultrasound guidance increases success, especially in obese patients or small effusions.",
         "Document appearance of fluid: clear, turbid, bloody, purulent."
       ],
@@ -4209,9 +4481,9 @@
       "equipment": [
         "Sterile gloves and drape",
         "Antiseptic prep (chlorhexidine or povidone-iodine)",
-        "Local anesthetic (1% lidocaine), 5 mL syringe, 25G needle for skin wheal",
-        "18G needle and 20\u201360 mL syringe for aspiration",
-        "Specimen tubes: purple top (cell count), blood culture bottle or sterile tube (culture), green top or plain tube (crystals)",
+        "Local anesthetic: 5 mL of 1% lidocaine, with a 25G needle for the skin wheal",
+        "18G needle and 20-60 mL syringe for aspiration",
+        "Sterile containers for the primary samples, with the remaining fluid inoculated into blood culture bottles. Tube colours and whether your laboratory accepts a culture bottle as the primary specimen are local - confirm with the lab that will run it rather than with a card.",
         "Sterile dressing",
         "Ultrasound with high-frequency linear probe (if available)",
         "Hemostat (optional, for syringe exchange)"
@@ -4261,7 +4533,7 @@
         "Instruct patient on signs of infection: increasing pain, redness, warmth, fever.",
         "Keep dressing clean and dry for 24 hours.",
         "Follow up on culture and crystal results.",
-        "If septic arthritis suspected, coordinate disposition and antibiotics appropriately."
+        "If septic arthritis is suspected, treat and admit rather than waiting for a number. Sepsis or septic shock means empiric antibiotics immediately, before or without the aspirate - the tap comes first only when the patient can safely wait for it."
       ],
       "documentation": [
         "Knee arthrocentesis performed on [side] knee for [indication].",
@@ -4274,14 +4546,14 @@
       ],
       "seniorPearls": [
         "If you are debating whether to tap a hot swollen joint, tap it. Missing a septic joint is worse than a dry tap.",
-        "Ultrasound turns a frustrating blind procedure into a reliable one. Use it.",
+        "Ultrasound turns a frustrating blind procedure into a reliable one, in proportion to how much you have used it and how big the effusion is.",
         "Clear straw-colored fluid at the bedside does not rule out infection. Send the labs.",
-        "A white count over 50,000 with >90% PMNs is septic until proven otherwise, regardless of crystals."
+        "There is no synovial white cell count that rules septic arthritis in or out. Above 50,000 raises the probability and does not confirm it; below 50,000 does not exclude it, particularly early, in the immunocompromised, and in prosthetic joints. Crystals do not exclude infection either - a patient can have gout and a septic joint in the same knee. Treat the patient, the culture, and the trajectory rather than the threshold."
       ],
       "references": [
-        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
-        "Verify institutional policy on anticoagulation and prosthetic joint aspiration."
+        "European Bone and Joint Infection Society. Guideline for the management of septic arthritis in native joints (SANJO). J Bone Jt Infect. 2023;8(1):29-37. https://doi.org/10.5194/jbji-8-29-2023",
+        "Food and Drug Administration. Xylocaine and Xylocaine with epinephrine prescribing information. 2024. https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/006488Orig1s100lbl.pdf",
+        "Confirm specimen containers and order with the laboratory that will process them, and verify institutional policy on anticoagulation and prosthetic joint aspiration."
       ]
     },
     "visualAssets": [
@@ -4305,7 +4577,56 @@
         "caption": "Replace assetName with reviewed artwork when available.",
         "clinicalWarning": "Complex or echogenic fluid may indicate infection or hemarthrosis."
       }
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target."
+      ]
+    }
   },
   {
     "id": "anterior_nasal_packing",
@@ -4365,10 +4686,11 @@
         "Nasal speculum",
         "Suction with Frazier tip",
         "Topical vasoconstrictor (oxymetazoline spray or phenylephrine-soaked pledgets)",
-        "Topical anesthetic (4% lidocaine or lidocaine/epinephrine mix on cotton pledgets)",
+        "Topical anaesthetic: 4% lidocaine on cotton pledgets. That is 40 mg per millilitre, and nasal mucosa absorbs close to intravenous rates - 2-3 mL of it is 80-120 mg arriving fast. It counts against the same ceiling as anything injected, so do not keep re-soaking pledgets to hold the field.",
         "Silver nitrate sticks (for cautery if appropriate)",
         "Nasal packing device: Rapid Rhino, Merocel sponge, or ribbon gauze with petroleum jelly",
-        "Syringe with water or saline for inflating balloon devices",
+        "Resorbable packing for patients with a bleeding disorder or on antithrombotic therapy - the guideline preference for that group, because removing a non-resorbable pack restarts the bleed",
+        "Sterile water to activate a Rapid Rhino's hydrocolloid coating, and a separate syringe of air for its cuff. The water is for the outside of the pack and the air is for the inside; saline goes in neither.",
         "Antibiotic ointment (for gauze packing)",
         "Kidney basin and gauze for blood management",
         "Tranexamic acid (TXA) for topical use per local policy (e.g. 500 mg/5 mL injectable solution applied on a pledget or used to soak the pack)"
@@ -4382,11 +4704,11 @@
         "Ensure hemodynamic stability. Obtain IV access if significant bleeding or anticoagulation.",
         "Apply personal protective equipment.",
         "Have the patient blow out clots. Suction the nasal cavity.",
-        "Apply topical vasoconstrictor and anesthetic pledgets. Wait 10\u201315 minutes.",
+        "Apply topical vasoconstrictor and anesthetic pledgets. Wait 10-15 minutes.",
         "Remove pledgets and inspect with nasal speculum and headlamp to identify bleeding source.",
-        "If a single anterior point is identified and bleeding is controlled: apply silver nitrate to the site for 5\u201310 seconds. Do not cauterize both sides of the septum simultaneously (perforation risk).",
+        "If a single anterior point is identified and bleeding is controlled: apply silver nitrate to the site for 5-10 seconds. Do not cauterize both sides of the septum simultaneously (perforation risk).",
         "If cautery fails or bleeding is diffuse: proceed to nasal packing.",
-        "Rapid Rhino: coat with water to activate lubricant, insert along nasal floor, inflate balloon with air or saline per device instructions.",
+        "Rapid Rhino: soak the pack in sterile water for at least 30 seconds to activate the hydrocolloid coating, insert along the nasal floor, then inflate the cuff slowly with air only, using the pilot cuff to judge it. Saline or water in the cuff is contrary to the manufacturer's instructions.",
         "Merocel sponge: insert dry sponge along the nasal floor, then hydrate with saline to expand.",
         "Ribbon gauze: layer gauze accordion-style from floor to ceiling of nasal cavity using bayonet forceps, coat with antibiotic ointment or petroleum jelly.",
         "Confirm hemostasis. Check for posterior drainage in the oropharynx.",
@@ -4402,7 +4724,7 @@
       "troubleshooting": [
         "Continued bleeding after packing: ensure packing fills the anterior cavity adequately. May need additional packing or posterior epistaxis management.",
         "Posterior bleed suspected: blood draining in posterior pharynx despite adequate anterior packing. Place posterior balloon or consult ENT urgently.",
-        "Patient on anticoagulation: correct coagulopathy as able while packing. Check INR/platelet count.",
+        "Patient on an anticoagulant or antiplatelet: use the local measures first - pressure, vasoconstrictor, cautery, resorbable packing. Reversal or withholding the drug is not the opening move and is reserved for bleeding that is life-threatening. The decision to stop or reverse an antithrombotic belongs to the team that prescribed it or to haematology, jointly with ENT, and it is a decision with its own risks.",
         "Vasovagal during packing: recline patient, maintain airway, resume when stable."
       ],
       "complications": [
@@ -4415,18 +4737,20 @@
         "Septal perforation from bilateral cautery"
       ],
       "aftercare": [
-        "Discharge with packing in place. Arrange ENT follow-up for removal in 48\u201372 hours.",
-        "Prescribe antibiotics covering for toxic shock syndrome prevention per institutional protocol (controversial; follow local practice).",
+        "Discharge with packing in place. Arrange ENT follow-up for removal in 48-72 hours.",
+        "Antibiotics after packing are not an automatic prescription. The nosebleed guideline identifies both the benefit and the ideal duration as unresolved research questions, so follow a local policy if one exists and record the reasoning if you prescribe outside it. Toxic shock syndrome after nasal packing is rare, and routine prophylaxis has not been shown to prevent it.",
         "Instruct patient to keep head elevated, avoid straining, nose blowing, and blood thinners if safe to hold.",
         "Return precautions: recurrent heavy bleeding, difficulty breathing, fever, significant swelling."
       ],
       "documentation": [
         "Anterior epistaxis managed with [method: cautery / packing device].",
         "Bleeding source identified on [side] anterior septum.",
-        "Topical vasoconstrictor and anesthetic applied.",
-        "[Cautery performed / Packing placed] with hemostasis achieved.",
+        "Bleeding-risk factors recorded: anticoagulant or antiplatelet therapy with the agent and last dose, known bleeding disorder, liver disease, hypertension.",
+        "Topical vasoconstrictor and anaesthetic applied, with the agent, concentration, and approximate amount.",
+        "[Cautery performed / packing placed]: device, side, whether resorbable, and inflation medium if applicable.",
+        "Removal plan documented with the date and who will remove it.",
         "No posterior drainage observed.",
-        "Patient hemodynamically stable. Discharged with ENT follow-up arranged.",
+        "Patient hemodynamically stable. Discharged with ENT follow-up arranged and the transition of care recorded.",
         "Return precautions given."
       ],
       "seniorPearls": [
@@ -4436,10 +4760,11 @@
         "A posterior bleed masquerading as anterior packing failure will waste your time until you check the oropharynx."
       ],
       "references": [
-        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
-        "Verify institutional policy on antibiotic prophylaxis with nasal packing and cautery technique.",
-        "Zahed R, Moharamzadeh P, Alizadeharasi S, Ghasemi A, Saeedi M. A new and rapid method for epistaxis treatment using injectable form of tranexamic acid topically: a randomized controlled trial. Am J Emerg Med. 2013;31(9):1389-1392."
+        "Tunkel DE, et al. Clinical Practice Guideline: Nosebleed (Epistaxis). Otolaryngol Head Neck Surg. 2020;162(1_suppl):S1-S38. https://doi.org/10.1177/0194599819890327",
+        "Smith+Nephew. RAPID RHINO usage instructions. https://rapidrhino.com/usage-instructions/",
+        "AAO-HNSF. Nosebleed guideline research needs. 2020. https://www.entnet.org/resource/cpg-nosebleed-epistaxis-research-needs/",
+        "Zahed R, et al. A new and rapid method for epistaxis treatment using injectable form of tranexamic acid topically: a randomized controlled trial. Am J Emerg Med. 2013;31(9):1389-1392. https://doi.org/10.1016/j.ajem.2013.06.043",
+        "Verify institutional policy on antibiotic prophylaxis with nasal packing, and read the instructions for use of the specific pack your department stocks."
       ]
     },
     "visualAssets": []
@@ -4624,8 +4949,9 @@
     "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
-        "Needle aspiration is the first-line ED drainage technique. Most PTAs can be aspirated at bedside.",
-        "The danger: the internal carotid artery lies posterolateral to the tonsil, typically 2\u20132.5 cm from the mucosal surface.",
+        "Needle aspiration, incision and drainage, and abscess tonsillectomy are all effective. Aspiration is the usual bedside choice because it is the one a non-surgeon can do safely; it is not established as superior. Follow the local ENT preference where there is one.",
+        "Decide first whether this patient can have anything done at the bedside at all. See contraindications - the airway question comes before the technique question.",
+        "The danger: the internal carotid artery lies posterolateral to the tonsil, typically 2-2.5 cm from the mucosal surface.",
         "Limit needle depth to 1 cm with a guard (cut syringe sheath or tape) to prevent deep penetration.",
         "Aspirate at the point of maximal fluctuance or bulging, usually the superior pole of the tonsil.",
         "Always have suction ready. These patients aspirate pus.",
@@ -4637,10 +4963,13 @@
         "Failed outpatient antibiotic therapy for peritonsillar cellulitis progressing to abscess"
       ],
       "contraindications": [
-        "Concern for deep space neck infection extending beyond the peritonsillar space (consult ENT/surgery)",
+        "Any airway warning sign: stridor, drooling or inability to handle secretions, respiratory distress, a tripoding or sniffing posture, or hypoxia. These patients need a controlled airway plan and ENT or anaesthesia involvement, not a needle at the bedside.",
+        "Severe sepsis or septic shock - resuscitate and involve ENT and critical care; drainage still needs to happen, but not as an unmonitored bedside procedure.",
+        "Concern for deep space neck infection extending beyond the peritonsillar space: neck swelling, torticollis, trismus out of proportion, or pain on neck movement. Image and consult ENT or surgery.",
         "Pulsatile mass or bruit suggesting vascular anomaly (get imaging first)",
-        "Severe trismus preventing adequate visualization (may need sedation or operative drainage)",
-        "Patient unable to cooperate (relative; consider procedural sedation)"
+        "Severe trismus preventing adequate visualization - you cannot aim a needle at what you cannot see. Sedation or operative drainage.",
+        "Patient unable to cooperate (relative; consider procedural sedation, and if sedation is needed then the monitoring on the procedural sedation card applies)",
+        "Bedside drainage belongs in a space with suction, oxygen, monitoring, and airway equipment immediately to hand. If the room does not have them, that is a contraindication to the room, not to the procedure."
       ],
       "anatomy": [
         "The peritonsillar space lies between the tonsillar capsule and the superior pharyngeal constrictor muscle.",
@@ -4652,13 +4981,15 @@
       "equipment": [
         "Headlamp or good overhead light",
         "Tongue depressor",
-        "Topical anesthetic spray (benzocaine or cetacaine)",
+        "Topical anaesthetic spray. If you use a benzocaine product such as Cetacaine, keep to the shortest labelled spray - about one second - and never repeat it freely: benzocaine sprays carry an FDA warning for methaemoglobinaemia, which can be fatal, and the mouth and pharynx absorb quickly. A lidocaine-based topical avoids the issue entirely and is the safer default.",
         "Local anesthetic: lidocaine 1% with epinephrine, 3 mL syringe, 25G needle",
         "Aspiration: 18G needle on a 10 mL syringe",
         "Needle guard: tape or cut syringe cap placed 1 cm from needle tip",
-        "Suction with Yankauer tip",
+        "Suction with Yankauer tip, tested before you start",
+        "Oxygen, monitoring, and airway equipment in the room",
         "Kidney basin",
-        "Specimen cup for culture"
+        "Specimen cup for culture",
+        "Methylene blue available in the department if benzocaine is used - it is the treatment for methaemoglobinaemia, and cyanosis that does not improve with oxygen is the sign"
       ],
       "positioning": [
         "Patient seated upright, leaning slightly forward.",
@@ -4693,7 +5024,8 @@
       "troubleshooting": [
         "Dry tap: reposition needle to a different quadrant. Consider imaging if repeated attempts fail.",
         "Trismus limiting access: topical anesthetic, consider procedural sedation, or refer to ENT for operative drainage.",
-        "Significant bleeding: apply pressure with gauze, maintain suction, most minor mucosal bleeding is self-limited.",
+        "Significant bleeding: apply pressure with gauze, maintain suction, most minor mucosal bleeding is self-limited. Pulsatile or brisk bleeding is a different problem - secure the airway and get ENT and vascular help.",
+        "Cyanosis or low saturations after a benzocaine spray, not improving with oxygen: methaemoglobinaemia. Stop the agent, give oxygen, send a co-oximetry level, and treat with methylene blue.",
         "Large abscess with rapid re-accumulation: ENT consultation for incision and drainage or tonsillectomy."
       ],
       "complications": [
@@ -4705,10 +5037,12 @@
         "Vasovagal reaction"
       ],
       "aftercare": [
-        "Oral antibiotics: amoxicillin-clavulanate or clindamycin. Follow institutional guidelines.",
-        "Pain management: NSAIDs, acetaminophen, consider medrol dose pack per institutional protocol.",
+        "Oral antibiotics: amoxicillin-clavulanate or clindamycin. Follow institutional guidelines for dose and duration.",
+        "Pain management: NSAIDs and paracetamol.",
+        "A single dose of a corticosteroid - dexamethasone is the agent studied - is a reasonable adjunct for pain and trismus. The evidence is limited and heterogeneous, and it supports one dose rather than a multi-day tapering pack. The earlier instruction to consider a methylprednisolone dose pack is not supported and has been removed.",
+        "Confirm the patient can swallow before discharge. Watch them drink something. Inability to tolerate oral intake is the commonest reason a discharged patient comes back.",
         "Encourage oral hydration. Soft diet.",
-        "ENT follow-up within 2\u20133 days for reassessment.",
+        "ENT follow-up within 2-3 days for reassessment.",
         "Return precautions: worsening pain, inability to swallow, difficulty breathing, fever, neck swelling."
       ],
       "documentation": [
@@ -4727,12 +5061,62 @@
         "These patients look terrible but get dramatically better within minutes of drainage. That immediate relief is diagnostic and therapeutic."
       ],
       "references": [
-        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
-        "Verify institutional antibiotic guidelines and ENT referral pathways."
+        "Windfuhr JP, et al. Clinical practice guideline: tonsillitis II. Surgical management. Eur Arch Otorhinolaryngol. 2016;273(4):989-1009. https://doi.org/10.1007/s00405-016-3904-x",
+        "DailyMed. Cetacaine Topical Anesthetic prescribing information, including the methemoglobinemia warning. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=af1773c5-5d5b-4278-b551-30ad2df6d5b5",
+        "Chau JKM, et al. Corticosteroids in peritonsillar abscess treatment: a blinded placebo-controlled clinical trial. Laryngoscope. 2014;124(1):97-103. https://doi.org/10.1002/lary.24283",
+        "Verify institutional antibiotic guidelines, the topical anaesthetic on your formulary, and ENT referral pathways."
       ]
     },
-    "visualAssets": []
+    "visualAssets": [],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target."
+      ]
+    }
   },
   {
     "id": "foreign_body_removal_soft_tissue",
@@ -4763,9 +5147,10 @@
     "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
-        "X-ray detects glass, metal, gravel, and bone. It does not reliably detect wood, plastic, or thorns.",
-        "Ultrasound is the best bedside tool for radiolucent foreign bodies (wood, plastic, thorns).",
+        "X-ray finds most glass, metal, gravel, and bone. It is not a rule-out: small fragments, some glass, and some ceramic are missed, and a negative film with a persistent story means ultrasound or CT, not reassurance.",
+        "X-ray does not reliably show wood, plastic, or thorns at all. Ultrasound is the bedside tool for those.",
         "Adequate anesthesia and a bloodless field make the difference between a controlled extraction and a dig.",
+        "A digital tourniquet has to come off. Use a device you cannot miss, write the time down, and check the finger after - see equipment and aftercare. Retained tourniquets have cost fingers.",
         "If you cannot find it in a reasonable time or it is near critical structures, stop and refer.",
         "Document what you found, what you removed, and what imaging showed. If retained FB is possible, tell the patient.",
         "Tetanus status and wound infection risk should be addressed at every visit."
@@ -4789,8 +5174,8 @@
         "The depth and tissue plane of the foreign body dictate the approach. Imaging helps plan."
       ],
       "equipment": [
-        "Local anesthetic (1% or 2% lidocaine with or without epinephrine)",
-        "Syringe and needle for anesthesia (25\u201327G)",
+        "Local anesthetic: 1% or 2% lidocaine, with epinephrine where the field allows it",
+        "Syringe and needle for anesthesia (25-27G)",
         "Antiseptic prep",
         "Sterile gloves and drape",
         "Scalpel (#11 or #15 blade)",
@@ -4798,31 +5183,35 @@
         "Fine-tipped forceps (splinter forceps or Adson)",
         "Iris scissors",
         "Needle driver",
-        "Wound irrigation supplies (saline, 18G angiocath on 30\u201360 mL syringe)",
-        "Tourniquet or Penrose drain (for digit bloodless field)",
+        "Wound irrigation supplies (saline, 18G angiocath on 30-60 mL syringe)",
+        "Digit tourniquet, and it must be a device that cannot be forgotten: a brightly coloured commercial ring tourniquet, or a glove finger or Penrose secured with a large clamp left hanging outside the drape. A rolled glove finger tucked under a dressing is the arrangement that gets left on.",
+        "A clock or timer, and something to write the application time on - the drape, the notes, or the patient's chart",
         "Ultrasound with high-frequency linear probe",
         "Suture material for closure if needed"
       ],
       "positioning": [
         "Position the affected area for optimal access, lighting, and comfort.",
-        "Use a tourniquet for digit procedures to create a bloodless field.",
+        "Digit procedures: apply the tourniquet only after the field is prepped, record the time of application out loud and in writing, and leave the device visible outside the drape.",
         "Ensure the patient is comfortable and the field is well-lit."
       ],
       "steps": [
         "Obtain history: mechanism, timing, material type, symptoms since injury.",
         "Examine the wound. Assess for signs of infection, neurovascular status distally.",
-        "Image the area: X-ray for radiopaque materials, ultrasound for radiolucent objects.",
+        "Image the area: X-ray for radiopaque materials, ultrasound for radiolucent objects. A negative X-ray with a story that still fits does not close the question.",
         "Mark the foreign body location on the skin using imaging guidance if needed.",
         "Anesthetize the area with local or regional block as appropriate.",
         "Prep and drape the wound.",
+        "Digits: apply the tourniquet now, record the time, and leave the device visible.",
         "If the foreign body is visible or superficial: extract with forceps.",
         "If deeper: make a small incision over the marked location. Blunt dissect along tissue planes using hemostats.",
         "Use ultrasound in real-time to guide your approach to deeper or radiolucent foreign bodies.",
         "Grasp and remove the foreign body. Inspect it for fragmentation.",
-        "Irrigate the wound copiously with normal saline.",
+        "Irrigate the wound with normal saline.",
         "Reassess the wound. Obtain post-removal imaging if fragmentation is suspected.",
+        "Remove the tourniquet and say so out loud. Record the removal time and the total tourniquet time.",
+        "Confirm the digit is perfused: capillary refill and colour, compared with the neighbouring finger.",
         "Close the wound if appropriate (clean, non-infected, within time window). Leave contaminated or infected wounds open.",
-        "Apply appropriate dressing."
+        "Apply appropriate dressing - and confirm again that the tourniquet is not under it."
       ],
       "ultrasound": [
         "High-frequency linear probe (10\u201315 MHz) provides best resolution for superficial foreign bodies.",
@@ -4833,18 +5222,21 @@
       ],
       "confirmation": [
         "Foreign body visualized and removed intact",
-        "Post-removal imaging shows no retained fragments (if indicated)",
+        "Post-removal imaging shows no retained fragments (if indicated). Negative imaging is not proof of complete removal when the object may be radiolucent or fragmented.",
         "Wound irrigated and inspected",
+        "Tourniquet removed, removal time recorded, and the digit confirmed pink with normal capillary refill",
         "Neurovascular status intact after removal"
       ],
       "troubleshooting": [
-        "Cannot locate foreign body: reimage with ultrasound, try different scanning plane, consider CT for deep or small objects.",
+        "Cannot locate foreign body: reimage with ultrasound, try a different scanning plane, consider CT for deep or small objects. Ultrasound sensitivity falls with depth, small size, and operator inexperience, so a negative scan is not an answer on its own.",
         "Fragmented foreign body: remove what is accessible, image to assess residual, discuss with patient and consider specialist referral.",
         "Significant bleeding during exploration: apply direct pressure, tourniquet for digits, consider specialist referral for deep structures.",
-        "Foreign body near nerve or tendon: stop if safe extraction is not possible. Refer to hand surgery or appropriate specialist."
+        "Foreign body near nerve or tendon: stop if safe extraction is not possible. Refer to hand surgery or appropriate specialist.",
+        "Tourniquet time approaching 20-30 minutes: stop, release, and reassess. There is no foreign body worth a digit."
       ],
       "complications": [
         "Retained foreign body fragments",
+        "Digital ischaemia or amputation from a tourniquet left in place - the reason the removal step is written as its own step with its own time record",
         "Wound infection",
         "Neurovascular injury during exploration",
         "Tendon injury",
@@ -4852,33 +5244,36 @@
         "Bleeding or hematoma"
       ],
       "aftercare": [
-        "Update tetanus immunization if indicated.",
+        "Confirm the tourniquet is off before the patient leaves the room. If a handover happens mid-procedure, the tourniquet is the first thing handed over.",
+        "Tetanus: assess the wound as clean-minor or dirty-major and the immunisation history separately, and give vaccine, tetanus immune globulin, or both accordingly. See the laceration repair card, which carries the full decision.",
         "Antibiotics for contaminated wounds, bite wounds, or immunocompromised patients per guidelines.",
         "Wound care instructions: keep clean, dressing changes, elevation.",
-        "Return precautions: increasing pain, redness, swelling, drainage, fever.",
+        "Return precautions: increasing pain, redness, swelling, drainage, fever, or a cold or discoloured digit.",
         "If retained FB is possible: disclose to patient, arrange follow-up, document discussion."
       ],
       "documentation": [
         "Foreign body removal performed from [location].",
         "Informed consent obtained.",
-        "Pre-procedure imaging: [modality] showing [finding].",
-        "Local anesthesia administered. Sterile technique used.",
+        "Pre-procedure imaging: [modality] showing [finding], and the limits of that modality for this material noted.",
+        "Local anesthesia administered: agent, concentration, and volume. Sterile technique used.",
+        "Tourniquet [used/not used]; if used, device type, application time, removal time, and total tourniquet time recorded, with post-removal perfusion documented.",
         "Foreign body identified and removed: [description of object].",
         "Wound irrigated with [volume] normal saline.",
         "Post-procedure neurovascular status intact.",
         "[Wound closed with X / wound left open for healing by secondary intention].",
-        "Tetanus status addressed. Return precautions and follow-up discussed."
+        "Tetanus status addressed with the vaccine and immune globulin decision recorded. Return precautions and follow-up discussed."
       ],
       "seniorPearls": [
         "If you are digging for more than 15 minutes, you are not removing a foreign body. You are creating a bigger wound.",
-        "Ultrasound finds what X-ray misses. Wood and plastic are invisible on plain film but light up on ultrasound.",
-        "The tourniquet on a finger transforms a bloody mess into a clean field. Use it.",
-        "Telling a patient there might be a retained fragment is better than a malpractice deposition about one you missed."
+        "Ultrasound finds much of what X-ray misses, and misses things too. Neither is a rule-out; the history is.",
+        "The tourniquet on a finger transforms a bloody mess into a clean field. It also transforms a finger into a stump if it stays on. Write the time down.",
+        "Telling a patient there might be a retained fragment is better than them finding out later."
       ],
       "references": [
-        "Roberts and Hedges\u2019 Clinical Procedures in Emergency Medicine and Acute Care.",
-        "Tintinalli\u2019s Emergency Medicine: A Comprehensive Study Guide.",
-        "Emergency Ultrasound Guidelines from ACEP.",
+        "National Patient Safety Agency. Reducing risks of tourniquets left on after finger and toe surgery. 2010. https://www.cas.mhra.gov.uk/ViewandAcknowledgment/ViewAttachment.aspx?Attachment_id=101035",
+        "American College of Emergency Physicians. Sonoguide: Foreign Body Localization. 2020. https://www.acep.org/sonoguide/procedures/foreign-bodies/",
+        "American College of Radiology. Appropriateness Criteria: Suspected Osteomyelitis, Septic Arthritis, or Soft Tissue Infection - 2022 Update. https://acsearch.acr.org/docs/3094201/Narrative/",
+        "Centers for Disease Control and Prevention. Clinical Guidance for Wound Management to Prevent Tetanus. 2025. https://www.cdc.gov/tetanus/hcp/clinical-guidance/index.html",
         "Verify institutional wound management and antibiotic prophylaxis guidelines."
       ]
     },
@@ -4893,7 +5288,56 @@
         "caption": "Replace assetName with reviewed artwork when available.",
         "clinicalWarning": "X-ray misses wood, plastic, and thorns. Ultrasound is the bedside tool for radiolucent foreign bodies."
       }
-    ]
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target."
+      ]
+    }
   },
   {
     "id": "block_interscalene",
