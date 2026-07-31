@@ -5,9 +5,157 @@
 - Audited procedures SHA-256: `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1`
 - Boundary: AI-assisted discrepancy screening only. This report is not clinical approval, credentialing, an institutional protocol, or a substitute for qualified review.
 
+## Owner adjudication - 2026-07-31
+
+**How to read this section.** The lane report below is the AI screening record
+against the audited snapshot and is left as written. This section records what
+the clinical owner decided on 2026-07-31 and what changed in `4ea632d`. Every
+`Screening disposition` line has been re-screened against the amended content,
+with the original level named on each.
+
+### Why this was not twenty-eight separate adjudications
+
+Lanes 06 through 09 are twenty-eight near-identical records that drew
+near-identical findings. Almost every one of them was told that its equipment
+list omits asepsis, monitoring, and resuscitation readiness; that its
+confirmation section proves where the drug went rather than whether the patient
+is blocked; that it has no partial or failed-block pathway; and that its
+references are untraceable. Twenty-eight bespoke rewrites of the same four
+paragraphs would have produced twenty-eight slightly different versions of each,
+which is how a corpus ends up with one block missing the sentence its
+neighbours all carry.
+
+So the answer is one safety spine, applied word-for-word and asserted identical
+by test, in the same shape the vascular lane's pre-dilation gate uses. What is
+per-block is what the lane reports actually named: the needle targets, the
+overclaims, and the volumes.
+
+### The spine
+
+- **Spread on the screen is not success.** Twenty-five of the twenty-eight had
+  one or two confirmation lines, and none of them tested the patient. Every
+  block now tests the target's own territory - light touch or cold, and motor
+  where the nerve has one, against the other side - and waits out the agent's
+  onset before judging. A block called failed at five minutes was never tested.
+- **A partial-block and a failed-block pathway on every card.** Supplement
+  rather than repeat, and recalculate the remaining allowance first, because
+  more of the same is how the ceiling gets crossed. This closes the P2 item.
+- **Three stop signs on injection** - pain, paraesthesia, high resistance -
+  none of which is a reason to push harder.
+- **Setup that scales.** Major blocks get IV access, blood pressure, ECG,
+  oximetry, and resuscitation equipment in the room. Minor blocks get asepsis
+  and the location of the lipid emulsion. Demanding the full major-block setup
+  for a digital block would produce a rule nobody follows, and a rule nobody
+  follows is worse than no rule.
+- **Antithrombotic handling matched to the depth of the block.** ASRA applies
+  neuraxial-equivalent timing to deep blocks and asks a different question of
+  everything else: can the site be compressed, how vascular is it, and what
+  would a haematoma there do. Only the retroclavicular and transgluteal
+  approaches get the neuraxial interval.
+- **Aftercare for a limb that cannot feel.** Protection from pressure and heat,
+  fall risk from motor block stated at handover, and - the one that matters
+  most - how compartment syndrome announces itself through a working block. A
+  team told only that blocks mask it watches for the wrong thing; a rising
+  analgesic requirement and pain breaking through are the signs.
+- **A pre-block neurological examination on every card**, because a deficit
+  nobody looked for beforehand becomes the block's deficit afterwards.
+
+### The four needle targets - owner-queue P0 item 4
+
+In three of the four the wrong endpoint was the one written down, which is
+worse than an omission: the reader takes the instruction as the technique.
+
+1. **Popliteal sciatic** directed the needle "within its epineural sheath (the
+   'Vloka sheath')". Epineural means inside the nerve's own covering. The
+   target is the common paraneural sheath, outside both divisions, and the
+   record now says the nerve should be pushed away by the injectate rather than
+   swollen by it - and to stop and withdraw if it swells.
+2. **Serratus anterior** said "hit the rib, slide off, inject". Off the rib is
+   the intercostal space and the pleura is behind it. The rib is the endpoint,
+   not a waypoint.
+3. **PECS II** permitted an "or ribs" endpoint reached by passing through
+   serratus. Removed; the pectoserratus plane is the only endpoint.
+4. **Infraorbital** had no bounded trajectory at all. The palpating finger now
+   stays over the foramen for the whole injection as the physical stop, the
+   intraoral approach follows the second premolar's long axis to roughly 1.5-2
+   cm, and nothing advances toward the orbit. Depth without a direction is the
+   part that goes wrong: a shallow angle points at the orbit rather than the
+   foramen.
+
+### P1: the dosing governance model
+
+- **The cumulative rule was wrong, not merely vague.** "All local anaesthetic
+  this encounter shares one maximum" is not a valid mixed-agent calculation.
+  Agents do not share a pool of milligrams. All forty dosing blocks in the
+  corpus now say to work each agent out as a fraction of its own ceiling and
+  keep the fractions under one - half a lidocaine maximum plus half a
+  bupivacaine maximum is a full dose.
+- **Every ceiling is now labelled as this app's governed policy** rather than
+  as a fact about the drug, because the labels publish no universal mg/kg figure
+  and explicitly require individualisation. Staying under the number is
+  necessary and is not the same as being safe.
+- **Site of absorption** is added as the individualisation axis the model
+  lacked: the same milligram dose peaks higher from a vascular bed than from a
+  subcutaneous wheal.
+- **The TAP finding is answered without inventing a number.** No new ceiling was
+  fabricated. Instead the four truncal fascial-plane blocks carry the
+  pharmacokinetic evidence itself - bilateral dosing at 3 mg/kg of ropivacaine,
+  and bilateral 200 mg totals, produced potentially toxic plasma concentrations
+  at doses a weight-based calculator calls acceptable - and their cards name
+  concentrations and volumes that keep a bilateral block well below that. The
+  0.25% ropivacaine the records recommended is gone; no label supplies it.
+- **Ten blocks stated a volume with no agent and no strength**, so the volume
+  could not be converted to milligrams against the ceiling a few fields away.
+  Each now names only the agents whose ceiling that volume actually fits under
+  at the 50 kg reference weight. A thirty-millilitre block is not a lidocaine
+  block, and the card says so.
+- **Articaine** is resolved by taking it off the inferior alveolar card rather
+  than by inventing a ceiling for it, with the reason - a reported and debated
+  association with persistent paraesthesia after this block specifically - kept
+  in the pearls.
+
+### Stale findings
+
+`workedExample` no longer exists anywhere in the corpus, so the 315 mg versus
+300 mg lidocaine contradiction and the fascia iliaca 210 mg versus 200 mg
+contradiction were both already resolved before this adjudication. So was the
+"Standard emergency medicine regional anesthesia literature" placeholder. The
+declared-placeholder artwork that drove the `digital_nerve_block` and
+`fascia_iliaca_block` stop-ships stopped gating release on 2026-07-30.
+
+### Two gaps the validator could not see
+
+The tests written for this adjudication found two records - `digital_nerve_block`
+and `fascia_iliaca_block` - that named no agent and no concentration anywhere,
+beside a calculator offering three agents with three different ceilings. The
+validator's rule needs a volume and the word "anesthetic" on one line with no
+agent, and both records phrase it differently enough to slip past. Both now name
+their agents.
+
+The metadata findings were also real and unenforced: twenty-six records shipped
+`reviewTime: "standard"`, which the schema does not list, because the validator
+checked the field was present and never what it said. That check now exists. The
+`icon` field, which said `lungs` on a mental nerve block, is deleted - no Swift
+code has ever decoded it.
+
+### Known residual gaps
+
+- **`block_tap` stays MAJOR.** The ropivacaine ceiling itself is unchanged at 3
+  mg/kg, and the pharmacokinetic evidence says that figure is not safe for a
+  bilateral TAP. The card can no longer lead a reader to it, and the ceiling is
+  still a pharmacy and regional-anaesthesia decision that this repository cannot
+  make. That is the one open item left in these four lanes.
+- Needle length is still given as a range on several blocks rather than being
+  selected by measured depth.
+- Coverage is stated as expected rather than guaranteed on the fascial-plane
+  blocks, which is honest but leaves the reader to test it.
+- Paediatric scope is not specified on any block in these lanes.
+- Institutional credentialing for the deep and retroclavicular approaches is
+  named as a requirement rather than resolved.
+
 ## `block_serratus_anterior` - Serratus Anterior Plane Block
 
-**Screening disposition: `STOP-SHIP`** because the senior pearl directs the operator to slide off the rib after contact, away from the consensus deep-plane target and toward an intercostal/pleural hazard. Additional `MAJOR` indication, setup, dosing, bleeding-risk, reassessment, and reference gaps require clinician review.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** because the senior pearl directs the operator to slide off the rib after contact, away from the consensus deep-plane target and toward an intercostal/pleural hazard. Additional `MAJOR` indication, setup, dosing, bleeding-risk, reassessment, and reference gaps require clinician review.
 
 ### Source-standard summary
 
@@ -56,7 +204,7 @@ No additional material discrepancy was identified in the basic lateral positioni
 
 ## `block_thoracic_esp` - Thoracic Erector Spinae Plane (ESP) Block
 
-**Screening disposition: `MAJOR`** because the record presents disputed paravertebral spread and broad anterior/visceral coverage as settled mechanism, uses unsupported safety reassurance, and does not qualify a mixed-strength indication base. The defined needle target itself matches current nomenclature consensus.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.** because the record presents disputed paravertebral spread and broad anterior/visceral coverage as settled mechanism, uses unsupported safety reassurance, and does not qualify a mixed-strength indication base. The defined needle target itself matches current nomenclature consensus.
 
 ### Source-standard summary
 
@@ -106,7 +254,7 @@ No additional material discrepancy was identified in the sitting/lateral positio
 
 ## `block_tap` - Transversus Abdominis Plane (TAP) Block
 
-**Screening disposition: `STOP-SHIP`** because the structured dosing treats 3 mg/kg ropivacaine as a safe universal maximum for a block in which primary pharmacokinetic studies found potentially neurotoxic plasma concentrations at 3 mg/kg and after bilateral 200 mg dosing. Additional `MAJOR` approach/coverage, anticoagulation, setup, and failure-plan gaps require review.
+**Screening disposition: `MAJOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The approach, coverage, anticoagulation classification, setup, and failure-plan findings are addressed in `4ea632d`, and the card now names concentrations and volumes that keep a bilateral block well below the concentrations the pharmacokinetic studies found troubling. It is not MINOR because the ropivacaine ceiling itself is unchanged at 3 mg/kg: no substitute figure was invented, and selecting one is a pharmacy and regional-anaesthesia decision this repository cannot make. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** because the structured dosing treats 3 mg/kg ropivacaine as a safe universal maximum for a block in which primary pharmacokinetic studies found potentially neurotoxic plasma concentrations at 3 mg/kg and after bilateral 200 mg dosing. Additional `MAJOR` approach/coverage, anticoagulation, setup, and failure-plan gaps require review.
 
 ### Source-standard summary
 
@@ -156,7 +304,7 @@ No additional material discrepancy was identified in the basic muscle-layer anat
 
 ## `block_pecs` - PECS I / II Block
 
-**Screening disposition: `STOP-SHIP`** because the PECS II step permits an "or ribs" endpoint that is not the consensus pectoserratus target and can direct the needle through serratus toward an unintended deeper chest-wall plane near the pleura. The listed indications and asserted anterior-chest coverage also exceed the strongest evidence reviewed.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** because the PECS II step permits an "or ribs" endpoint that is not the consensus pectoserratus target and can direct the needle through serratus toward an unintended deeper chest-wall plane near the pleura. The listed indications and asserted anterior-chest coverage also exceed the strongest evidence reviewed.
 
 ### Source-standard summary
 

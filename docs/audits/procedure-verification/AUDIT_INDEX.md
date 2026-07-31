@@ -7,9 +7,9 @@
 ## Result
 
 - Audited procedures: **55/55**.
-- Proposed `STOP-SHIP`: **8** (28 at audit; 11 re-screened to `MINOR` on 2026-07-30, 9 on 2026-07-31).
-- Proposed `MAJOR`: **20** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30, 5 on 2026-07-31).
-- Re-screened `MINOR` after owner adjudication: **27** (vascular access, thoracic, airway/sedation, cardiac/neuro, and general-procedures lanes).
+- Proposed `STOP-SHIP`: **0** (28 at audit; 11 re-screened on 2026-07-30 and 17 on 2026-07-31).
+- Proposed `MAJOR`: **1** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30 and 25 on 2026-07-31, and one STOP-SHIP re-screened down to `MAJOR` rather than clear - `block_tap`, whose ropivacaine ceiling remains an open pharmacy decision).
+- Re-screened `MINOR` after owner adjudication: **54** (all nine lanes).
 - Corpus SHA-256: `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1`.
 - Audit date: 2026-07-18.
 
@@ -48,34 +48,34 @@ report before assigning remediation priority.
 | Other | `paracentesis` - Paracentesis | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
 | Other | `peritonsillar_abscess_drainage` - Peritonsillar Abscess Drainage | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
 | Other | `shoulder_reduction` - Shoulder Reduction (Anterior) | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
-| Regional Anesthesia | `block_auricular` - Auricular Block | `MAJOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
-| Regional Anesthesia | `block_deep_peroneal` - Deep Peroneal Nerve Block | `MAJOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
-| Regional Anesthesia | `digital_nerve_block` - Digital Nerve Block | `STOP-SHIP` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
-| Regional Anesthesia | `fascia_iliaca_block` - Fascia Iliaca Compartment Block | `STOP-SHIP` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
-| Regional Anesthesia | `block_femoral_nerve` - Femoral Nerve Block | `MAJOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
-| Regional Anesthesia | `block_inferior_alveolar` - Inferior Alveolar Nerve Block | `MAJOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
-| Regional Anesthesia | `block_infraorbital` - Infraorbital Nerve Block | `STOP-SHIP` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
-| Regional Anesthesia | `block_interscalene` - Interscalene Nerve Block | `MAJOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
-| Regional Anesthesia | `block_median_nerve` - Median Nerve Block | `MAJOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
-| Regional Anesthesia | `block_mental` - Mental Nerve Block | `MAJOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
-| Regional Anesthesia | `block_pecs` - PECS I / II Block | `STOP-SHIP` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
-| Regional Anesthesia | `block_peng` - PENG (Pericapsular Nerve Group) Block | `MAJOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
-| Regional Anesthesia | `block_popliteal_sciatic` - Popliteal Sciatic Nerve Block | `STOP-SHIP` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
-| Regional Anesthesia | `block_raptir` - RAPTIR (Infraclavicular) Block | `STOP-SHIP` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
-| Regional Anesthesia | `block_radial_nerve` - Radial Nerve Block | `MAJOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
-| Regional Anesthesia | `block_saphenous_nerve` - Saphenous Nerve (Adductor Canal) Block | `MAJOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
-| Regional Anesthesia | `block_serratus_anterior` - Serratus Anterior Plane Block | `STOP-SHIP` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
-| Regional Anesthesia | `block_superficial_cervical_plexus` - Superficial Cervical Plexus Block | `MAJOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
-| Regional Anesthesia | `block_superficial_peroneal` - Superficial Peroneal Nerve Block | `MAJOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
-| Regional Anesthesia | `block_superior_alveolar` - Superior Alveolar Nerve Block (Supraperiosteal) | `MAJOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
-| Regional Anesthesia | `block_supraclavicular` - Supraclavicular Nerve Block | `MAJOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
-| Regional Anesthesia | `block_supraorbital` - Supraorbital Nerve Block | `MAJOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
-| Regional Anesthesia | `block_sural_nerve` - Sural Nerve Block | `MAJOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
-| Regional Anesthesia | `block_thoracic_esp` - Thoracic Erector Spinae Plane (ESP) Block | `MAJOR` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
-| Regional Anesthesia | `block_tibial_nerve` - Tibial Nerve Block | `MAJOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
-| Regional Anesthesia | `block_transgluteal_sciatic` - Transgluteal / Proximal Sciatic Nerve Block | `MAJOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
-| Regional Anesthesia | `block_tap` - Transversus Abdominis Plane (TAP) Block | `STOP-SHIP` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
-| Regional Anesthesia | `block_ulnar_nerve` - Ulnar Nerve Block | `MAJOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
+| Regional Anesthesia | `block_auricular` - Auricular Block | `MINOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
+| Regional Anesthesia | `block_deep_peroneal` - Deep Peroneal Nerve Block | `MINOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
+| Regional Anesthesia | `digital_nerve_block` - Digital Nerve Block | `MINOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
+| Regional Anesthesia | `fascia_iliaca_block` - Fascia Iliaca Compartment Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
+| Regional Anesthesia | `block_femoral_nerve` - Femoral Nerve Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
+| Regional Anesthesia | `block_inferior_alveolar` - Inferior Alveolar Nerve Block | `MINOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
+| Regional Anesthesia | `block_infraorbital` - Infraorbital Nerve Block | `MINOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
+| Regional Anesthesia | `block_interscalene` - Interscalene Nerve Block | `MINOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
+| Regional Anesthesia | `block_median_nerve` - Median Nerve Block | `MINOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
+| Regional Anesthesia | `block_mental` - Mental Nerve Block | `MINOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
+| Regional Anesthesia | `block_pecs` - PECS I / II Block | `MINOR` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
+| Regional Anesthesia | `block_peng` - PENG (Pericapsular Nerve Group) Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
+| Regional Anesthesia | `block_popliteal_sciatic` - Popliteal Sciatic Nerve Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
+| Regional Anesthesia | `block_raptir` - RAPTIR (Infraclavicular) Block | `MINOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
+| Regional Anesthesia | `block_radial_nerve` - Radial Nerve Block | `MINOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
+| Regional Anesthesia | `block_saphenous_nerve` - Saphenous Nerve (Adductor Canal) Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
+| Regional Anesthesia | `block_serratus_anterior` - Serratus Anterior Plane Block | `MINOR` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
+| Regional Anesthesia | `block_superficial_cervical_plexus` - Superficial Cervical Plexus Block | `MINOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
+| Regional Anesthesia | `block_superficial_peroneal` - Superficial Peroneal Nerve Block | `MINOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
+| Regional Anesthesia | `block_superior_alveolar` - Superior Alveolar Nerve Block (Supraperiosteal) | `MINOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
+| Regional Anesthesia | `block_supraclavicular` - Supraclavicular Nerve Block | `MINOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
+| Regional Anesthesia | `block_supraorbital` - Supraorbital Nerve Block | `MINOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
+| Regional Anesthesia | `block_sural_nerve` - Sural Nerve Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
+| Regional Anesthesia | `block_thoracic_esp` - Thoracic Erector Spinae Plane (ESP) Block | `MINOR` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
+| Regional Anesthesia | `block_tibial_nerve` - Tibial Nerve Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
+| Regional Anesthesia | `block_transgluteal_sciatic` - Transgluteal / Proximal Sciatic Nerve Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
+| Regional Anesthesia | `block_tap` - Transversus Abdominis Plane (TAP) Block | `MAJOR` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
+| Regional Anesthesia | `block_ulnar_nerve` - Ulnar Nerve Block | `MINOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
 | Sedation & Analgesia | `procedural_sedation` - Procedural Sedation | `MINOR` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
 | Thoracic | `needle_decompression` - Needle Decompression | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |
 | Thoracic | `pigtail_catheter` - Pigtail Pleural Catheter | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |

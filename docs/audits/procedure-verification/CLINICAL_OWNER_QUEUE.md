@@ -24,12 +24,11 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
 
 ## P0: Remove Direct Harm Pathways Before Broader Editing
 
-> Items 1, 2, 3, 5, and 6 have been adjudicated; their original text is struck
-> through with the resolution beneath it. Item 4 is the only P0 still open.
-> Adjudication here resolves the clinical finding only - the reference gate in
-> P3.3 is independent, though it has now been satisfied for the twenty-seven
-> records re-screened so far. Pending artwork stopped being a release gate on
-> 2026-07-30; see P3.2.
+> All six P0 items have now been adjudicated; their original text is struck
+> through with the resolution beneath it. Adjudication resolves the clinical
+> finding only - the reference gate in P3.3 is independent, and it is now
+> satisfied for every procedure and every rescue card in the corpus. Pending
+> artwork stopped being a release gate on 2026-07-30; see P3.2.
 
 1. **Pleural procedures:** ~~Thoracentesis currently permits vacuum-bottle
    therapeutic drainage despite the 2023 BTS safety statement, and it teaches
@@ -63,12 +62,22 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
    identical by test. An air-embolism rescue card was added and linked from all
    three. Residual: introducer and dialysis IFU binding stays under P3.1. See
    [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md#owner-adjudication---2026-07-30).
-4. **Needle targets:** Popliteal sciatic directs entry into an "epineural
+4. **Needle targets:** ~~Popliteal sciatic directs entry into an "epineural
    sheath"; serratus says to slide off the rib; PECS II permits an "or ribs"
    endpoint; and infraorbital lacks a bounded trajectory that prevents orbital
-   advancement. See [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md),
-   [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md), and
-   [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md).
+   advancement.~~ **Adjudicated 2026-07-31, addressed in `4ea632d`.** In three
+   of the four the wrong endpoint was the one written down, which is worse than
+   an omission. Popliteal sciatic targets the common paraneural sheath outside
+   both divisions, with instructions to stop and withdraw if the nerve swells.
+   Serratus makes the rib the endpoint rather than a waypoint - off the rib is
+   the intercostal space. PECS II loses the rib alternative entirely.
+   Infraorbital keeps the palpating finger over the foramen as a physical stop,
+   follows the second premolar's long axis to roughly 1.5-2 cm, and never
+   advances toward the orbit. See
+   [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md#owner-adjudication---2026-07-31),
+   [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md#owner-adjudication---2026-07-31),
+   and
+   [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md#owner-adjudication---2026-07-31).
 5. ~~**Airway assets and rescue:** The bundled cricothyrotomy danger-zone image
    conflicts with its own thyroid-isthmus description, while the intubation
    visual/text needs an explicit prohibition on blind grade 3/4 bougie
@@ -100,28 +109,56 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
 
 ## P1: Replace the Dosing Governance Model
 
-The new regional-anesthesia dosing blocks are useful structurally but are not
-ready for clinical reliance:
+**Adjudicated 2026-07-31, addressed in `4ea632d`. One item remains open - see
+the end of this section.**
 
-- `2 mg/kg / 175 mg` bupivacaine and `3 mg/kg / 200 mg` ropivacaine are framed
-  as universal ceilings even though current labels require site- and
-  patient-specific individualization and do not establish those exact universal
-  pairs.
-- Several lidocaine examples calculate 315 mg for a 70 kg patient while the same
-  record declares a 300 mg absolute ceiling; the lower limit is not applied.
-- Fascia iliaca uses 0.25% ropivacaine in its example without listing that
-  concentration or defining a preparation, and it fails to apply its 200 mg
-  absolute ceiling to the 70 kg calculation.
-- The statement that different local anesthetics "share one maximum" is not a
-  valid mixed-agent calculation. Toxicity is additive, but agents do not share
-  one interchangeable mg or mg/kg ceiling.
-- TAP evidence identified potentially toxic ropivacaine concentrations at doses
-  the current record presents as within its maximum.
+The model now has five rules, applied to all forty dosing blocks in the corpus
+and asserted by test:
 
-Required owners: regional anesthesiology and clinical pharmacy. Required output:
-a versioned, formulary-specific policy for agent, formulation, concentration,
-site, laterality, prior dosing, patient modifiers, monitoring, and LAST rescue.
-The full evidence is in reports 06 through 09.
+1. **Toxicity is additive; the maximums are not interchangeable.** The old
+   wording said every local anaesthetic "shares one maximum", which is not a
+   valid mixed-agent calculation. Each agent is now worked out as a fraction of
+   its own ceiling, and the fractions must add to less than one. Half a
+   lidocaine maximum plus half a bupivacaine maximum is a full dose.
+2. **A ceiling is this app's governed policy, not a fact about the drug.** The
+   labels publish no universal mg/kg figure and require individualisation by
+   block, site, size, and physical status. Every card says so beside its
+   numbers, so the reader knows what kind of claim they are looking at.
+3. **Where it goes changes how fast it arrives.** Site of absorption is the
+   individualisation axis the model was missing, and it is now a caveat on every
+   block: the same milligram dose peaks higher from a vascular bed than from a
+   subcutaneous wheal.
+4. **A block only offers agents whose ceiling its own stated volume fits under**
+   at the 50 kg reference weight. That is why a thirty-millilitre block no
+   longer offers lidocaine and says so in words. This closed the ten
+   uncomputable-volume release blockers.
+5. **An agent named in prose must have a ceiling, or it does not appear.**
+   Articaine was removed from the inferior alveolar card rather than given an
+   invented maximum; the reason lives in the pearls.
+
+The specific bullets that opened this section:
+
+- The `2 mg/kg / 175 mg` and `3 mg/kg / 200 mg` framings were superseded by the
+  owner-designated ceilings on 2026-07-30 and are now labelled as policy under
+  rule 2.
+- The 315 mg lidocaine worked examples and the fascia iliaca 210 mg example are
+  gone; `workedExample` no longer exists anywhere, replaced by a calculator that
+  cannot contradict itself.
+- Fascia iliaca now names 0.25% bupivacaine or 0.2% ropivacaine. The 0.25%
+  ropivacaine it used to recommend is not a strength any label supplies and has
+  been removed everywhere it appeared.
+- The mixed-agent statement is corrected under rule 1.
+
+**Still open - the only unresolved disposition left in the corpus.** TAP's
+ropivacaine ceiling is unchanged at 3 mg/kg. Griffiths 2010 found potentially
+neurotoxic plasma concentrations after bilateral TAP at that figure, and Torup
+2012 found potentially toxic peaks in a third of patients after bilateral 200 mg
+totals. No substitute number was invented here, because selecting one is a
+pharmacy and regional-anaesthesia decision. What the content does instead is
+carry that evidence as a caveat on the four truncal fascial-plane blocks and
+name concentrations and volumes that keep a bilateral block well below it, so
+the card cannot lead anyone to the dose. `block_tap` is re-screened to `MAJOR`
+rather than `MINOR` until the ceiling itself is decided.
 
 ## P2: Resolve Scope, Monitoring, and Failure Plans
 
@@ -151,8 +188,12 @@ The full evidence is in reports 06 through 09.
   plus-one is a handover rather than a fourth attempt by the same operator.
 - Define device/site/indication selection for chest tubes, pigtails, central
   access, pacing catheters, and dialysis catheters.
-- Add explicit partial/failed block reassessment and rescue paths rather than
-  treating ultrasound spread as proof of clinical success.
+- ~~Add explicit partial/failed block reassessment and rescue paths rather
+  than treating ultrasound spread as proof of clinical success.~~ **Addressed
+  2026-07-31 in `4ea632d`.** All 28 blocks carry the same spine: spread on the
+  screen is not success, test the target's own territory against the other
+  side, wait out the agent's onset before judging, and supplement rather than
+  repeat - with the remaining allowance recalculated first.
 
 ## P3: Device, Visual, and Reference Control
 
@@ -166,8 +207,13 @@ The full evidence is in reports 06 through 09.
    blocker, and artwork that does ship still needs review of what it depicts —
    the cricothyrotomy image already has a substantive anatomy concern, which is
    unaffected by this change.
-3. Replace generic textbook and "standard literature" references with named,
-   dated, claim-matched primary guidance and stable locators.
+3. ~~Replace generic textbook and "standard literature" references with named,
+   dated, claim-matched primary guidance and stable locators.~~ **Complete as of
+   2026-07-31.** Every procedure and every rescue card now carries at least one
+   resolvable DOI or URL, and no record cites an undated textbook. Note that the
+   release gate only ever looked for two placeholder phrases, so most of these
+   records were passing it while citing sources nobody could trace - the gate
+   and the property are different things, and the tests now check the property.
 4. Require the clinical owner to sign the exact JSON and asset fingerprints;
    changing either invalidates prior approval.
 

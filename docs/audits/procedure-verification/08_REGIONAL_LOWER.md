@@ -20,9 +20,157 @@
 - ASRA's neurologic-complications advisory addresses ultrasound, injection-pressure monitoring, preexisting neurologic disease, and avoidance of mechanical/injection injury; no single monitor eliminates nerve injury. [ASRA, *Second Practice Advisory on Neurologic Complications*, 2015](https://rapm.bmj.com/content/40/5/401)
 - For lower-leg trauma at risk of acute compartment syndrome (ACS), the Association of Anaesthetists advises multidisciplinary protocols, avoidance of dense long-duration blocks that outlast surgery, and scheduled surveillance by trained staff with pressure measurement available. [Association of Anaesthetists, *Regional Analgesia for Lower Leg Trauma and the Risk of ACS*, 2021](https://pmc.ncbi.nlm.nih.gov/articles/PMC9292897/)
 
+## Owner adjudication - 2026-07-31
+
+**How to read this section.** The lane report below is the AI screening record
+against the audited snapshot and is left as written. This section records what
+the clinical owner decided on 2026-07-31 and what changed in `4ea632d`. Every
+`Screening disposition` line has been re-screened against the amended content,
+with the original level named on each.
+
+### Why this was not twenty-eight separate adjudications
+
+Lanes 06 through 09 are twenty-eight near-identical records that drew
+near-identical findings. Almost every one of them was told that its equipment
+list omits asepsis, monitoring, and resuscitation readiness; that its
+confirmation section proves where the drug went rather than whether the patient
+is blocked; that it has no partial or failed-block pathway; and that its
+references are untraceable. Twenty-eight bespoke rewrites of the same four
+paragraphs would have produced twenty-eight slightly different versions of each,
+which is how a corpus ends up with one block missing the sentence its
+neighbours all carry.
+
+So the answer is one safety spine, applied word-for-word and asserted identical
+by test, in the same shape the vascular lane's pre-dilation gate uses. What is
+per-block is what the lane reports actually named: the needle targets, the
+overclaims, and the volumes.
+
+### The spine
+
+- **Spread on the screen is not success.** Twenty-five of the twenty-eight had
+  one or two confirmation lines, and none of them tested the patient. Every
+  block now tests the target's own territory - light touch or cold, and motor
+  where the nerve has one, against the other side - and waits out the agent's
+  onset before judging. A block called failed at five minutes was never tested.
+- **A partial-block and a failed-block pathway on every card.** Supplement
+  rather than repeat, and recalculate the remaining allowance first, because
+  more of the same is how the ceiling gets crossed. This closes the P2 item.
+- **Three stop signs on injection** - pain, paraesthesia, high resistance -
+  none of which is a reason to push harder.
+- **Setup that scales.** Major blocks get IV access, blood pressure, ECG,
+  oximetry, and resuscitation equipment in the room. Minor blocks get asepsis
+  and the location of the lipid emulsion. Demanding the full major-block setup
+  for a digital block would produce a rule nobody follows, and a rule nobody
+  follows is worse than no rule.
+- **Antithrombotic handling matched to the depth of the block.** ASRA applies
+  neuraxial-equivalent timing to deep blocks and asks a different question of
+  everything else: can the site be compressed, how vascular is it, and what
+  would a haematoma there do. Only the retroclavicular and transgluteal
+  approaches get the neuraxial interval.
+- **Aftercare for a limb that cannot feel.** Protection from pressure and heat,
+  fall risk from motor block stated at handover, and - the one that matters
+  most - how compartment syndrome announces itself through a working block. A
+  team told only that blocks mask it watches for the wrong thing; a rising
+  analgesic requirement and pain breaking through are the signs.
+- **A pre-block neurological examination on every card**, because a deficit
+  nobody looked for beforehand becomes the block's deficit afterwards.
+
+### The four needle targets - owner-queue P0 item 4
+
+In three of the four the wrong endpoint was the one written down, which is
+worse than an omission: the reader takes the instruction as the technique.
+
+1. **Popliteal sciatic** directed the needle "within its epineural sheath (the
+   'Vloka sheath')". Epineural means inside the nerve's own covering. The
+   target is the common paraneural sheath, outside both divisions, and the
+   record now says the nerve should be pushed away by the injectate rather than
+   swollen by it - and to stop and withdraw if it swells.
+2. **Serratus anterior** said "hit the rib, slide off, inject". Off the rib is
+   the intercostal space and the pleura is behind it. The rib is the endpoint,
+   not a waypoint.
+3. **PECS II** permitted an "or ribs" endpoint reached by passing through
+   serratus. Removed; the pectoserratus plane is the only endpoint.
+4. **Infraorbital** had no bounded trajectory at all. The palpating finger now
+   stays over the foramen for the whole injection as the physical stop, the
+   intraoral approach follows the second premolar's long axis to roughly 1.5-2
+   cm, and nothing advances toward the orbit. Depth without a direction is the
+   part that goes wrong: a shallow angle points at the orbit rather than the
+   foramen.
+
+### P1: the dosing governance model
+
+- **The cumulative rule was wrong, not merely vague.** "All local anaesthetic
+  this encounter shares one maximum" is not a valid mixed-agent calculation.
+  Agents do not share a pool of milligrams. All forty dosing blocks in the
+  corpus now say to work each agent out as a fraction of its own ceiling and
+  keep the fractions under one - half a lidocaine maximum plus half a
+  bupivacaine maximum is a full dose.
+- **Every ceiling is now labelled as this app's governed policy** rather than
+  as a fact about the drug, because the labels publish no universal mg/kg figure
+  and explicitly require individualisation. Staying under the number is
+  necessary and is not the same as being safe.
+- **Site of absorption** is added as the individualisation axis the model
+  lacked: the same milligram dose peaks higher from a vascular bed than from a
+  subcutaneous wheal.
+- **The TAP finding is answered without inventing a number.** No new ceiling was
+  fabricated. Instead the four truncal fascial-plane blocks carry the
+  pharmacokinetic evidence itself - bilateral dosing at 3 mg/kg of ropivacaine,
+  and bilateral 200 mg totals, produced potentially toxic plasma concentrations
+  at doses a weight-based calculator calls acceptable - and their cards name
+  concentrations and volumes that keep a bilateral block well below that. The
+  0.25% ropivacaine the records recommended is gone; no label supplies it.
+- **Ten blocks stated a volume with no agent and no strength**, so the volume
+  could not be converted to milligrams against the ceiling a few fields away.
+  Each now names only the agents whose ceiling that volume actually fits under
+  at the 50 kg reference weight. A thirty-millilitre block is not a lidocaine
+  block, and the card says so.
+- **Articaine** is resolved by taking it off the inferior alveolar card rather
+  than by inventing a ceiling for it, with the reason - a reported and debated
+  association with persistent paraesthesia after this block specifically - kept
+  in the pearls.
+
+### Stale findings
+
+`workedExample` no longer exists anywhere in the corpus, so the 315 mg versus
+300 mg lidocaine contradiction and the fascia iliaca 210 mg versus 200 mg
+contradiction were both already resolved before this adjudication. So was the
+"Standard emergency medicine regional anesthesia literature" placeholder. The
+declared-placeholder artwork that drove the `digital_nerve_block` and
+`fascia_iliaca_block` stop-ships stopped gating release on 2026-07-30.
+
+### Two gaps the validator could not see
+
+The tests written for this adjudication found two records - `digital_nerve_block`
+and `fascia_iliaca_block` - that named no agent and no concentration anywhere,
+beside a calculator offering three agents with three different ceilings. The
+validator's rule needs a volume and the word "anesthetic" on one line with no
+agent, and both records phrase it differently enough to slip past. Both now name
+their agents.
+
+The metadata findings were also real and unenforced: twenty-six records shipped
+`reviewTime: "standard"`, which the schema does not list, because the validator
+checked the field was present and never what it said. That check now exists. The
+`icon` field, which said `lungs` on a mental nerve block, is deleted - no Swift
+code has ever decoded it.
+
+### Known residual gaps
+
+- **`block_tap` stays MAJOR.** The ropivacaine ceiling itself is unchanged at 3
+  mg/kg, and the pharmacokinetic evidence says that figure is not safe for a
+  bilateral TAP. The card can no longer lead a reader to it, and the ceiling is
+  still a pharmacy and regional-anaesthesia decision that this repository cannot
+  make. That is the one open item left in these four lanes.
+- Needle length is still given as a range on several blocks rather than being
+  selected by measured depth.
+- Coverage is stated as expected rather than guaranteed on the fascial-plane
+  blocks, which is honest but leaves the reader to test it.
+- Paediatric scope is not specified on any block in these lanes.
+- Institutional credentialing for the deep and retroclavicular approaches is
+  named as a requirement rather than resolved.
+
 ## `fascia_iliaca_block` - Fascia Iliaca Compartment Block
 
-**Screening disposition: STOP-SHIP**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.**
 
 **Source-standard summary.** AAOS strongly recommends multimodal analgesia incorporating a preoperative nerve block for older adults with hip fracture; its evidence base includes fascia iliaca and femoral blocks. Randomized ED evidence also supports fascia iliaca or femoral block for femoral-fracture analgesia. Cadaveric/radiologic work confirms that needle level and volume materially alter spread; 40 mL has been studied, but obturator and cranial spread are not guaranteed. [AAOS, *Management of Hip Fractures in Older Adults*, 2021](https://new.aaos.org/globalassets/quality-and-practice-resources/hip-fractures-in-the-elderly/hipfxcpg.pdf); [Rukerd et al., randomized ED trial, 2024](https://pmc.ncbi.nlm.nih.gov/articles/PMC10916633/); [Ten Hoope et al., radiological cadaver study, 2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC10372149/)
 
@@ -42,7 +190,7 @@
 
 ## `block_femoral_nerve` - Femoral Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** AAOS supports preoperative nerve blocks for hip-fracture pain, and ED randomized trials show opioid reduction with ultrasound-guided femoral block. These sources support analgesia, not complete anesthesia of all structures of the femur or knee. Bupivacaine labeling also confirms that 0.25% can produce incomplete motor block and 0.5% produces motor blockade. [AAOS, *Management of Hip Fractures in Older Adults*, 2021](https://new.aaos.org/globalassets/quality-and-practice-resources/hip-fractures-in-the-elderly/hipfxcpg.pdf); [Gerlier et al., randomized ED trial, 2024](https://pubmed.ncbi.nlm.nih.gov/37650732/); [FDA/DailyMed, bupivacaine label, 2024](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bcaab86f-20f0-4482-8d73-e29b36dced58)
 
@@ -62,7 +210,7 @@
 
 ## `block_peng` - PENG (Pericapsular Nerve Group) Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** The original PENG report described a 20 mL injection for hip-fracture analgesia in the plane deep to the iliopsoas tendon at the iliopubic eminence. A later sham-controlled trial supports early analgesia in selected elderly hip-fracture patients, but PENG remains a relatively new technique. It is not reliably motor-sparing: a randomized volume trial found quadriceps weakness at 6 hours in 5%, 20%, and 75% of 10, 20, and 30 mL groups, respectively. [Giron-Arango et al., original PENG description, 2018](https://pubmed.ncbi.nlm.nih.gov/30063657/); [Lin et al., randomized hip-fracture trial, 2023](https://rapm.bmj.com/content/48/11/535); [Wen et al., randomized volume trial, 2024](https://pmc.ncbi.nlm.nih.gov/articles/PMC11111422/)
 
@@ -82,7 +230,7 @@
 
 ## `block_saphenous_nerve` - Saphenous Nerve (Adductor Canal) Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** The saphenous nerve is sensory, and adductor-canal block generally preserves more quadriceps strength and balance than femoral block. That comparative advantage is not a guarantee of normal motor function or safe walking. A randomized volunteer trial studied 15 mL and found relative preservation, while low-volume anatomical/clinical work specifically evaluated vastus-medialis consequences and target level. [Kwofie et al., randomized blinded volunteer trial, 2013](https://pubmed.ncbi.nlm.nih.gov/23788068/); [Adoni et al., randomized target-level trial, 2014](https://pmc.ncbi.nlm.nih.gov/articles/PMC4152679/)
 
@@ -102,7 +250,7 @@
 
 ## `block_popliteal_sciatic` - Popliteal Sciatic Nerve Block
 
-**Screening disposition: STOP-SHIP**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.**
 
 **Source-standard summary.** Randomized evidence distinguishes injection through the common **paraneural** sheath at the sciatic bifurcation from intraneural/intrafascicular injection and describes faster onset while preserving epineurium and intraneural structures. ASRA's neurologic advisory supports conservative responses to possible needle/injection injury. For trauma at ACS risk, current guidance favors a multidisciplinary surveillance protocol rather than an unsupported assumption that a block either always masks or never affects diagnosis. [Perlas et al., randomized paraneural-sheath trial, 2013](https://pubmed.ncbi.nlm.nih.gov/23558372/); [ASRA, neurologic-complications advisory, 2015](https://rapm.bmj.com/content/40/5/401); [Association of Anaesthetists, lower-leg trauma/ACS guideline, 2021](https://pmc.ncbi.nlm.nih.gov/articles/PMC9292897/)
 
@@ -122,7 +270,7 @@
 
 ## `block_transgluteal_sciatic` - Transgluteal / Proximal Sciatic Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** A proximal sciatic block covers sciatic motor/sensory territories, but posterior-thigh skin is supplied by the posterior femoral cutaneous nerve and may require a separate block for complete above-knee cutaneous anesthesia. The transgluteal sciatic target is deep and near noncompressible structures, so current antithrombotic guidance is materially different from a superficial ankle block. [Shabani et al., posterior femoral cutaneous nerve technique/anatomy, 2024](https://pmc.ncbi.nlm.nih.gov/articles/PMC11064292/); [ASRA, antithrombotic guideline, 2025](https://rapm.bmj.com/content/early/2025/09/16/rapm-2024-105766)
 
@@ -142,7 +290,7 @@
 
 ## `block_tibial_nerve` - Tibial Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** Ultrasound-guided ankle-block studies use the posterior tibial artery as a landmark and show that low-volume image-guided techniques can be effective, but the artery and accompanying veins make vascular identification and incremental injection central safety steps. The block covers plantar/heel sensation; motor and gait effects still require patient assessment. [Fredrickson et al., randomized ultrasound-guided ankle-block trial, 2011](https://pubmed.ncbi.nlm.nih.gov/21610557/); [ASRA, neurologic-complications advisory, 2015](https://rapm.bmj.com/content/40/5/401)
 
@@ -162,7 +310,7 @@
 
 ## `block_sural_nerve` - Sural Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** A randomized volunteer study found improved sural-block success when ultrasound used the small/lesser saphenous vein as the landmark and local anesthetic was placed circumferentially around the vein. That technique makes explicit vascular identification, aspiration, tip visualization, and small incremental injection important; it does not justify an unqualified instruction to inject around a nerve/vein without those safeguards. [Redborg et al., randomized sural-block trial, 2009](https://pubmed.ncbi.nlm.nih.gov/19258984/); [ASRA, neurologic-complications advisory, 2015](https://rapm.bmj.com/content/40/5/401)
 

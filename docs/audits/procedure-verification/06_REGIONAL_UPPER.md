@@ -18,9 +18,157 @@
 - ASRA states that local-anesthetic toxic effects are additive and provides a 20% lipid-emulsion rescue checklist. The JSON's phrase that different agents "share one maximum" does not explain how to calculate an additive mixed-agent limit. [ASRA, *Third Practice Advisory on LAST*, 2018](https://rapm.bmj.com/content/43/2/113) and [ASRA, *LAST Checklist*, 2020](https://asra.com/docs/default-source/guidelines-articles/local-anesthetic-systemic-toxicity-rgb.pdf?sfvrsn=33b348e_2)
 - ASRA's fifth-edition antithrombotic guideline applies neuraxial timing to deep plexus/deep peripheral blocks, explicitly including infraclavicular block, and calls for other peripheral sites to be assessed by compressibility, vascularity, and consequences of bleeding. [ASRA, *Regional Anesthesia in the Patient Receiving Antithrombotic or Thrombolytic Therapy*, fifth edition, 2025](https://rapm.bmj.com/content/early/2025/09/16/rapm-2024-105766)
 
+## Owner adjudication - 2026-07-31
+
+**How to read this section.** The lane report below is the AI screening record
+against the audited snapshot and is left as written. This section records what
+the clinical owner decided on 2026-07-31 and what changed in `4ea632d`. Every
+`Screening disposition` line has been re-screened against the amended content,
+with the original level named on each.
+
+### Why this was not twenty-eight separate adjudications
+
+Lanes 06 through 09 are twenty-eight near-identical records that drew
+near-identical findings. Almost every one of them was told that its equipment
+list omits asepsis, monitoring, and resuscitation readiness; that its
+confirmation section proves where the drug went rather than whether the patient
+is blocked; that it has no partial or failed-block pathway; and that its
+references are untraceable. Twenty-eight bespoke rewrites of the same four
+paragraphs would have produced twenty-eight slightly different versions of each,
+which is how a corpus ends up with one block missing the sentence its
+neighbours all carry.
+
+So the answer is one safety spine, applied word-for-word and asserted identical
+by test, in the same shape the vascular lane's pre-dilation gate uses. What is
+per-block is what the lane reports actually named: the needle targets, the
+overclaims, and the volumes.
+
+### The spine
+
+- **Spread on the screen is not success.** Twenty-five of the twenty-eight had
+  one or two confirmation lines, and none of them tested the patient. Every
+  block now tests the target's own territory - light touch or cold, and motor
+  where the nerve has one, against the other side - and waits out the agent's
+  onset before judging. A block called failed at five minutes was never tested.
+- **A partial-block and a failed-block pathway on every card.** Supplement
+  rather than repeat, and recalculate the remaining allowance first, because
+  more of the same is how the ceiling gets crossed. This closes the P2 item.
+- **Three stop signs on injection** - pain, paraesthesia, high resistance -
+  none of which is a reason to push harder.
+- **Setup that scales.** Major blocks get IV access, blood pressure, ECG,
+  oximetry, and resuscitation equipment in the room. Minor blocks get asepsis
+  and the location of the lipid emulsion. Demanding the full major-block setup
+  for a digital block would produce a rule nobody follows, and a rule nobody
+  follows is worse than no rule.
+- **Antithrombotic handling matched to the depth of the block.** ASRA applies
+  neuraxial-equivalent timing to deep blocks and asks a different question of
+  everything else: can the site be compressed, how vascular is it, and what
+  would a haematoma there do. Only the retroclavicular and transgluteal
+  approaches get the neuraxial interval.
+- **Aftercare for a limb that cannot feel.** Protection from pressure and heat,
+  fall risk from motor block stated at handover, and - the one that matters
+  most - how compartment syndrome announces itself through a working block. A
+  team told only that blocks mask it watches for the wrong thing; a rising
+  analgesic requirement and pain breaking through are the signs.
+- **A pre-block neurological examination on every card**, because a deficit
+  nobody looked for beforehand becomes the block's deficit afterwards.
+
+### The four needle targets - owner-queue P0 item 4
+
+In three of the four the wrong endpoint was the one written down, which is
+worse than an omission: the reader takes the instruction as the technique.
+
+1. **Popliteal sciatic** directed the needle "within its epineural sheath (the
+   'Vloka sheath')". Epineural means inside the nerve's own covering. The
+   target is the common paraneural sheath, outside both divisions, and the
+   record now says the nerve should be pushed away by the injectate rather than
+   swollen by it - and to stop and withdraw if it swells.
+2. **Serratus anterior** said "hit the rib, slide off, inject". Off the rib is
+   the intercostal space and the pleura is behind it. The rib is the endpoint,
+   not a waypoint.
+3. **PECS II** permitted an "or ribs" endpoint reached by passing through
+   serratus. Removed; the pectoserratus plane is the only endpoint.
+4. **Infraorbital** had no bounded trajectory at all. The palpating finger now
+   stays over the foramen for the whole injection as the physical stop, the
+   intraoral approach follows the second premolar's long axis to roughly 1.5-2
+   cm, and nothing advances toward the orbit. Depth without a direction is the
+   part that goes wrong: a shallow angle points at the orbit rather than the
+   foramen.
+
+### P1: the dosing governance model
+
+- **The cumulative rule was wrong, not merely vague.** "All local anaesthetic
+  this encounter shares one maximum" is not a valid mixed-agent calculation.
+  Agents do not share a pool of milligrams. All forty dosing blocks in the
+  corpus now say to work each agent out as a fraction of its own ceiling and
+  keep the fractions under one - half a lidocaine maximum plus half a
+  bupivacaine maximum is a full dose.
+- **Every ceiling is now labelled as this app's governed policy** rather than
+  as a fact about the drug, because the labels publish no universal mg/kg figure
+  and explicitly require individualisation. Staying under the number is
+  necessary and is not the same as being safe.
+- **Site of absorption** is added as the individualisation axis the model
+  lacked: the same milligram dose peaks higher from a vascular bed than from a
+  subcutaneous wheal.
+- **The TAP finding is answered without inventing a number.** No new ceiling was
+  fabricated. Instead the four truncal fascial-plane blocks carry the
+  pharmacokinetic evidence itself - bilateral dosing at 3 mg/kg of ropivacaine,
+  and bilateral 200 mg totals, produced potentially toxic plasma concentrations
+  at doses a weight-based calculator calls acceptable - and their cards name
+  concentrations and volumes that keep a bilateral block well below that. The
+  0.25% ropivacaine the records recommended is gone; no label supplies it.
+- **Ten blocks stated a volume with no agent and no strength**, so the volume
+  could not be converted to milligrams against the ceiling a few fields away.
+  Each now names only the agents whose ceiling that volume actually fits under
+  at the 50 kg reference weight. A thirty-millilitre block is not a lidocaine
+  block, and the card says so.
+- **Articaine** is resolved by taking it off the inferior alveolar card rather
+  than by inventing a ceiling for it, with the reason - a reported and debated
+  association with persistent paraesthesia after this block specifically - kept
+  in the pearls.
+
+### Stale findings
+
+`workedExample` no longer exists anywhere in the corpus, so the 315 mg versus
+300 mg lidocaine contradiction and the fascia iliaca 210 mg versus 200 mg
+contradiction were both already resolved before this adjudication. So was the
+"Standard emergency medicine regional anesthesia literature" placeholder. The
+declared-placeholder artwork that drove the `digital_nerve_block` and
+`fascia_iliaca_block` stop-ships stopped gating release on 2026-07-30.
+
+### Two gaps the validator could not see
+
+The tests written for this adjudication found two records - `digital_nerve_block`
+and `fascia_iliaca_block` - that named no agent and no concentration anywhere,
+beside a calculator offering three agents with three different ceilings. The
+validator's rule needs a volume and the word "anesthetic" on one line with no
+agent, and both records phrase it differently enough to slip past. Both now name
+their agents.
+
+The metadata findings were also real and unenforced: twenty-six records shipped
+`reviewTime: "standard"`, which the schema does not list, because the validator
+checked the field was present and never what it said. That check now exists. The
+`icon` field, which said `lungs` on a mental nerve block, is deleted - no Swift
+code has ever decoded it.
+
+### Known residual gaps
+
+- **`block_tap` stays MAJOR.** The ropivacaine ceiling itself is unchanged at 3
+  mg/kg, and the pharmacokinetic evidence says that figure is not safe for a
+  bilateral TAP. The card can no longer lead a reader to it, and the ceiling is
+  still a pharmacy and regional-anaesthesia decision that this repository cannot
+  make. That is the one open item left in these four lanes.
+- Needle length is still given as a range on several blocks rather than being
+  selected by measured depth.
+- Coverage is stated as expected rather than guaranteed on the fascial-plane
+  blocks, which is honest but leaves the reader to test it.
+- Paediatric scope is not specified on any block in these lanes.
+- Institutional credentialing for the deep and retroclavicular approaches is
+  named as a requirement rather than resolved.
+
 ## `digital_nerve_block` - Digital Nerve Block
 
-**Screening disposition: STOP-SHIP**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.**
 
 **Source-standard summary.** ACEP's 2025 review distinguishes dorsal, transthecal, volar, and circumferential techniques and recommends matching the approach to the injured surface; it notes that a dorsal web-space block can have incomplete distal/nail-bed coverage. Randomized evidence likewise found more predictable coverage with the two-injection dorsal technique but less injection pain with a volar approach. The FDA lidocaine label calls for restricted quantities in digits and the lowest effective dose. [ACEP, *Digital Nerve Blocks*, 2025](https://www.acep.org/siteassets/sites/acep/media/moc/moc-documents/cdem_39_llsa.pdf); [Turkish Journal of Emergency Medicine, randomized trial, 2022](https://pubmed.ncbi.nlm.nih.gov/35936956/)
 
@@ -39,7 +187,7 @@
 
 ## `block_interscalene` - Interscalene Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** Interscalene block is effective for shoulder analgesia but respiratory effect is volume- and technique-dependent. In a randomized trial, 20 mL produced diaphragmatic paralysis in 100% while 5 mL produced it in 45%, so 100% is not a universal rate. ACEP also cautions against use with respiratory compromise and known contralateral laryngeal-nerve palsy. Clavicle studies use combined cervical-plexus plus brachial-plexus/fascial techniques rather than establishing this record's stand-alone lateral-clavicle claim. [Riazi et al., randomized trial, 2008](https://pubmed.ncbi.nlm.nih.gov/18682410/); [ACEP Sonoguide, *Interscalene Nerve Block*, 2025](https://www.acep.org/sonoguide/nerve-blocks/interscalene-nerve-block); [Zhuo et al., randomized trial, 2022](https://pubmed.ncbi.nlm.nih.gov/35061634/)
 
@@ -59,7 +207,7 @@
 
 ## `block_supraclavicular` - Supraclavicular Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** Contemporary studies show clinically important but variable hemidiaphragmatic paresis: 47.5% with 25 mL in one randomized trial, 44% any paresis with 30 mL in another, and occurrence even at low volumes in a dose-response study. Pneumothorax remains possible despite ultrasound. ACEP supports arm-below-shoulder indications and explicitly cautions in lung disease. [Kim et al., randomized trial, 2021](https://pubmed.ncbi.nlm.nih.gov/34548555/); [Petrar et al., randomized trial, 2015](https://pubmed.ncbi.nlm.nih.gov/25650633/); [Tedore et al., dose-response study, 2020](https://pubmed.ncbi.nlm.nih.gov/33004656/); [ACEP Sonoguide, *Supraclavicular Brachial Plexus Block*, 2025](https://www.acep.org/sonoguide/nerve-blocks/supraclavicular-block)
 
@@ -79,7 +227,7 @@
 
 ## `block_raptir` - RAPTIR (Infraclavicular) Block
 
-**Screening disposition: STOP-SHIP**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.**
 
 **Source-standard summary.** The original ED report said RAPTIR likely reduces phrenic, vascular, nerve, and pneumothorax risks; it did not say those risks are absent. Randomized data support distal-upper-limb efficacy with 30 mL, but the needle passes through the clavicle's acoustic shadow. A published hemothorax case and cadaver concerns demonstrate potentially serious injury in a noncompressible blind segment. ASRA classifies infraclavicular block among deep plexus/peripheral techniques for antithrombotic management. [Luftig et al., original ED description, 2017](https://pubmed.ncbi.nlm.nih.gov/28126454/); [Grape et al., randomized trial, 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6435841/); [Ribeiro et al., hemothorax case report, 2023](https://pubmed.ncbi.nlm.nih.gov/38169999/); [ASRA antithrombotic guideline, 2025](https://rapm.bmj.com/content/early/2025/09/16/rapm-2024-105766)
 
@@ -99,7 +247,7 @@
 
 ## `block_radial_nerve` - Radial Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** ACEP's 2025 guide emphasizes overlapping hand sensory territories and says the radial nerve has only a small exclusive cutaneous territory. At the elbow it bifurcates into deep and superficial branches; a forearm approach blocks only the superficial branch, while a proximal approach is needed for both branches and fracture-related coverage. High-resolution ultrasound anatomy confirms the branching and changing nerve-vessel relationships. [ACEP Sonoguide, *Radial Nerve Block*, 2025](https://www.acep.org/sonoguide/nerve-blocks/radial-nerve-block); [Radiologia Brasileira, ultrasound anatomy study, 2021](https://pubmed.ncbi.nlm.nih.gov/34866699/)
 
@@ -119,7 +267,7 @@
 
 ## `block_median_nerve` - Median Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** ACEP describes the median nerve in the FDS/FDP fascial plane, recommends a proximal forearm target to include branches, prefers an in-plane approach, and stresses overlapping hand territory. It cautions that forearm blocks are not generally reliable for wrist-fracture osteotomes and warns that combined forearm blocks can reach toxic dosing. [ACEP Sonoguide, *Median Nerve Block*, 2025](https://www.acep.org/sonoguide/nerve-blocks/median-nerve-block); [Nagdev et al., randomized volunteer comparison, 2016](https://pubmed.ncbi.nlm.nih.gov/26920669/)
 
@@ -138,7 +286,7 @@
 
 ## `block_ulnar_nerve` - Ulnar Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** ACEP supports forearm ulnar block for ulnar-hand soft-tissue procedures and isolated fifth-metacarpal fractures, but stresses overlapping territory, pre-scan identification of the artery, a sterile setup, test aliquots, incremental injection, and visible separation of nerve and artery. The dorsal cutaneous branch arises proximal to the wrist, supporting a more proximal target when dorsal coverage is required. [ACEP Sonoguide, *Ulnar Nerve Block*, 2025](https://www.acep.org/sonoguide/nerve-blocks/ulnar-nerve-block); [Radiologia Brasileira, ultrasound anatomy study, 2021](https://pubmed.ncbi.nlm.nih.gov/34866699/)
 
@@ -157,7 +305,7 @@
 
 ## `block_superficial_cervical_plexus` - Superficial Cervical Plexus Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** ASRA-ESRA nomenclature defines superficial cervical plexus block as injection superficial to the investing fascia at the midpoint of the posterior SCM border; injection deep to the investing fascia but superficial to prevertebral fascia is an intermediate block. A randomized trial found injection depth changes diaphragmatic function and other spread-related effects. Clavicle trials generally combine cervical-plexus coverage with interscalene or clavipectoral coverage rather than proving this block alone covers the fracture. [ASRA-ESRA, *Standardizing Nomenclature in Regional Anesthesia*, 2024](https://rapm.bmj.com/content/49/11/782); [Opperer et al., randomized trial, 2022](https://pmc.ncbi.nlm.nih.gov/articles/PMC8867263/); [Zhuo et al., randomized trial, 2022](https://pubmed.ncbi.nlm.nih.gov/35061634/)
 

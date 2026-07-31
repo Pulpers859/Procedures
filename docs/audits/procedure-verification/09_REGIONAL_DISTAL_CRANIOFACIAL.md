@@ -21,9 +21,157 @@
 - Pediatric dosing is not safely derivable from the adult fields. AAPD uses a more conservative pediatric dental lidocaine limit of 4.4 mg/kg, advises a 30% amide-dose reduction in infants younger than 6 months, does not recommend bupivacaine below age 12, and requires sedative/CNS-depressant dose adjustment. Pregnancy, hepatic/cardiac disease, sulfite sensitivity, epinephrine interactions, and patient-specific vascular risk likewise require product- and patient-specific review. [AAPD, *Use of Local Anesthesia for Pediatric Dental Patients*, latest revision 2023, published in the 2025 Reference Manual](https://www.aapd.org/globalassets/media/policies_guidelines/bp_localanesthesia25.pdf)
 - Every assigned `sections.references` array begins with the untraceable phrase "Standard emergency medicine regional anesthesia literature" and otherwise cites ASRA/NYSORA generically. Those references cannot support the procedure-specific anatomy, depth, direction, volume, cartridge formulation, or epinephrine claims. NYSORA was used only for orientation and was not sole support for a substantive finding.
 
+## Owner adjudication - 2026-07-31
+
+**How to read this section.** The lane report below is the AI screening record
+against the audited snapshot and is left as written. This section records what
+the clinical owner decided on 2026-07-31 and what changed in `4ea632d`. Every
+`Screening disposition` line has been re-screened against the amended content,
+with the original level named on each.
+
+### Why this was not twenty-eight separate adjudications
+
+Lanes 06 through 09 are twenty-eight near-identical records that drew
+near-identical findings. Almost every one of them was told that its equipment
+list omits asepsis, monitoring, and resuscitation readiness; that its
+confirmation section proves where the drug went rather than whether the patient
+is blocked; that it has no partial or failed-block pathway; and that its
+references are untraceable. Twenty-eight bespoke rewrites of the same four
+paragraphs would have produced twenty-eight slightly different versions of each,
+which is how a corpus ends up with one block missing the sentence its
+neighbours all carry.
+
+So the answer is one safety spine, applied word-for-word and asserted identical
+by test, in the same shape the vascular lane's pre-dilation gate uses. What is
+per-block is what the lane reports actually named: the needle targets, the
+overclaims, and the volumes.
+
+### The spine
+
+- **Spread on the screen is not success.** Twenty-five of the twenty-eight had
+  one or two confirmation lines, and none of them tested the patient. Every
+  block now tests the target's own territory - light touch or cold, and motor
+  where the nerve has one, against the other side - and waits out the agent's
+  onset before judging. A block called failed at five minutes was never tested.
+- **A partial-block and a failed-block pathway on every card.** Supplement
+  rather than repeat, and recalculate the remaining allowance first, because
+  more of the same is how the ceiling gets crossed. This closes the P2 item.
+- **Three stop signs on injection** - pain, paraesthesia, high resistance -
+  none of which is a reason to push harder.
+- **Setup that scales.** Major blocks get IV access, blood pressure, ECG,
+  oximetry, and resuscitation equipment in the room. Minor blocks get asepsis
+  and the location of the lipid emulsion. Demanding the full major-block setup
+  for a digital block would produce a rule nobody follows, and a rule nobody
+  follows is worse than no rule.
+- **Antithrombotic handling matched to the depth of the block.** ASRA applies
+  neuraxial-equivalent timing to deep blocks and asks a different question of
+  everything else: can the site be compressed, how vascular is it, and what
+  would a haematoma there do. Only the retroclavicular and transgluteal
+  approaches get the neuraxial interval.
+- **Aftercare for a limb that cannot feel.** Protection from pressure and heat,
+  fall risk from motor block stated at handover, and - the one that matters
+  most - how compartment syndrome announces itself through a working block. A
+  team told only that blocks mask it watches for the wrong thing; a rising
+  analgesic requirement and pain breaking through are the signs.
+- **A pre-block neurological examination on every card**, because a deficit
+  nobody looked for beforehand becomes the block's deficit afterwards.
+
+### The four needle targets - owner-queue P0 item 4
+
+In three of the four the wrong endpoint was the one written down, which is
+worse than an omission: the reader takes the instruction as the technique.
+
+1. **Popliteal sciatic** directed the needle "within its epineural sheath (the
+   'Vloka sheath')". Epineural means inside the nerve's own covering. The
+   target is the common paraneural sheath, outside both divisions, and the
+   record now says the nerve should be pushed away by the injectate rather than
+   swollen by it - and to stop and withdraw if it swells.
+2. **Serratus anterior** said "hit the rib, slide off, inject". Off the rib is
+   the intercostal space and the pleura is behind it. The rib is the endpoint,
+   not a waypoint.
+3. **PECS II** permitted an "or ribs" endpoint reached by passing through
+   serratus. Removed; the pectoserratus plane is the only endpoint.
+4. **Infraorbital** had no bounded trajectory at all. The palpating finger now
+   stays over the foramen for the whole injection as the physical stop, the
+   intraoral approach follows the second premolar's long axis to roughly 1.5-2
+   cm, and nothing advances toward the orbit. Depth without a direction is the
+   part that goes wrong: a shallow angle points at the orbit rather than the
+   foramen.
+
+### P1: the dosing governance model
+
+- **The cumulative rule was wrong, not merely vague.** "All local anaesthetic
+  this encounter shares one maximum" is not a valid mixed-agent calculation.
+  Agents do not share a pool of milligrams. All forty dosing blocks in the
+  corpus now say to work each agent out as a fraction of its own ceiling and
+  keep the fractions under one - half a lidocaine maximum plus half a
+  bupivacaine maximum is a full dose.
+- **Every ceiling is now labelled as this app's governed policy** rather than
+  as a fact about the drug, because the labels publish no universal mg/kg figure
+  and explicitly require individualisation. Staying under the number is
+  necessary and is not the same as being safe.
+- **Site of absorption** is added as the individualisation axis the model
+  lacked: the same milligram dose peaks higher from a vascular bed than from a
+  subcutaneous wheal.
+- **The TAP finding is answered without inventing a number.** No new ceiling was
+  fabricated. Instead the four truncal fascial-plane blocks carry the
+  pharmacokinetic evidence itself - bilateral dosing at 3 mg/kg of ropivacaine,
+  and bilateral 200 mg totals, produced potentially toxic plasma concentrations
+  at doses a weight-based calculator calls acceptable - and their cards name
+  concentrations and volumes that keep a bilateral block well below that. The
+  0.25% ropivacaine the records recommended is gone; no label supplies it.
+- **Ten blocks stated a volume with no agent and no strength**, so the volume
+  could not be converted to milligrams against the ceiling a few fields away.
+  Each now names only the agents whose ceiling that volume actually fits under
+  at the 50 kg reference weight. A thirty-millilitre block is not a lidocaine
+  block, and the card says so.
+- **Articaine** is resolved by taking it off the inferior alveolar card rather
+  than by inventing a ceiling for it, with the reason - a reported and debated
+  association with persistent paraesthesia after this block specifically - kept
+  in the pearls.
+
+### Stale findings
+
+`workedExample` no longer exists anywhere in the corpus, so the 315 mg versus
+300 mg lidocaine contradiction and the fascia iliaca 210 mg versus 200 mg
+contradiction were both already resolved before this adjudication. So was the
+"Standard emergency medicine regional anesthesia literature" placeholder. The
+declared-placeholder artwork that drove the `digital_nerve_block` and
+`fascia_iliaca_block` stop-ships stopped gating release on 2026-07-30.
+
+### Two gaps the validator could not see
+
+The tests written for this adjudication found two records - `digital_nerve_block`
+and `fascia_iliaca_block` - that named no agent and no concentration anywhere,
+beside a calculator offering three agents with three different ceilings. The
+validator's rule needs a volume and the word "anesthetic" on one line with no
+agent, and both records phrase it differently enough to slip past. Both now name
+their agents.
+
+The metadata findings were also real and unenforced: twenty-six records shipped
+`reviewTime: "standard"`, which the schema does not list, because the validator
+checked the field was present and never what it said. That check now exists. The
+`icon` field, which said `lungs` on a mental nerve block, is deleted - no Swift
+code has ever decoded it.
+
+### Known residual gaps
+
+- **`block_tap` stays MAJOR.** The ropivacaine ceiling itself is unchanged at 3
+  mg/kg, and the pharmacokinetic evidence says that figure is not safe for a
+  bilateral TAP. The card can no longer lead a reader to it, and the ceiling is
+  still a pharmacy and regional-anaesthesia decision that this repository cannot
+  make. That is the one open item left in these four lanes.
+- Needle length is still given as a range on several blocks rather than being
+  selected by measured depth.
+- Coverage is stated as expected rather than guaranteed on the fascial-plane
+  blocks, which is honest but leaves the reader to test it.
+- Paediatric scope is not specified on any block in these lanes.
+- Institutional credentialing for the deep and retroclavicular approaches is
+  named as a requirement rather than resolved.
+
 ## `block_superficial_peroneal` - Superficial Peroneal Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** ACEP describes the nerve between fibularis brevis and extensor digitorum longus in the mid-lower leg, with distal perforating branches that become difficult to see near the ankle. It recommends tracing the nerve from proximal, keeping the tip visible in-plane, testing with 0.5 mL, then injecting in 1 mL increments to a typical total of 3-5 mL. Proximal blocks may cause weakness. [ACEP Sonoguide, 2025](https://www.acep.org/sonoguide/nerve-blocks/superficial-peroneal-nb); [Canella et al., original sonographic anatomy study, 2009](https://pubmed.ncbi.nlm.nih.gov/19542411/)
 
@@ -44,7 +192,7 @@
 
 ## `block_deep_peroneal` - Deep Peroneal Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** ACEP places the nerve near the anterior tibial artery just above the malleoli, usually lateral but sometimes anterior or medial. If the nerve is not visible, the artery may be used as the landmark for a carefully visualized perivascular injection. The standard uses in-plane tip visualization, 0.5 mL testing, 1 mL increments, aspiration, and 3-5 mL total. [ACEP Sonoguide, 2025](https://www.acep.org/sonoguide/nerve-blocks/deep-peroneal-nerve-block)
 
@@ -62,7 +210,7 @@
 
 ## `block_supraorbital` - Supraorbital Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** The supraorbital exit has wide positional variation and may be a notch or a foramen. Contemporary procedural guidance keeps injection superficial at the superior rim, explicitly prohibits entering the foramen, uses slow injection after aspiration, and protects the orbit/upper eyelid with a finger or gauze under the rim. [Webster et al., original cadaveric variation study, 2013](https://pubmed.ncbi.nlm.nih.gov/23299811/); [MSD Manual Professional, *How To Do an Ophthalmic Nerve Block*, reviewed 2026](https://www.msdmanuals.com/professional/injuries-poisoning/how-to-do-anesthesia-procedures/how-to-do-an-ophthalmic-nerve-block). MSD is secondary and was used with the primary anatomy study and federal labels, not alone.
 
@@ -82,7 +230,7 @@
 
 ## `block_infraorbital` - Infraorbital Nerve Block
 
-**Screening disposition: STOP-SHIP**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.**
 
 **Source-standard summary.** Cadaver studies place the infraorbital foramen variably below the inferior orbital rim; soft-tissue landmarks are approximations. For an intraoral approach, contemporary technique maintains a palpating finger over the foramen, follows a controlled tooth-axis trajectory, defines an approximate adult depth, and warns that an overly shallow angle can pass too far and enter the orbit. Injection is adjacent to, not within, the foramen. [Aziz et al., original cadaver study, 2000](https://pubmed.ncbi.nlm.nih.gov/10981979/); [Ercikti et al., original soft-tissue landmark study, 2016](https://pubmed.ncbi.nlm.nih.gov/27146295/); [MSD Manual Professional, intraoral technique, reviewed 2026](https://www.msdmanuals.com/professional/dental-disorders/how-to-do-dental-procedures/how-to-do-an-infraorbital-nerve-block-intraoral)
 
@@ -101,7 +249,7 @@
 
 ## `block_mental` - Mental Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** The mental foramen is most often at the second premolar or between premolars but varies by patient/population. Contemporary intraoral technique advances approximately 0.5-1 cm parallel to the teeth and injects 1-2 mL adjacent to, not into, the foramen. Midline lip/chin work may require bilateral blocks. [Afkhami et al., original radiographic localization study, 2013](https://pmc.ncbi.nlm.nih.gov/articles/PMC4025417/); [Laher et al., original ultrasound localization study, 2016](https://pmc.ncbi.nlm.nih.gov/articles/PMC4963689/); [MSD Manual Professional, mental block technique, reviewed 2026](https://www.msdmanuals.com/professional/dental-disorders/how-to-do-dental-procedures/how-to-do-a-mental-nerve-block)
 
@@ -120,7 +268,7 @@
 
 ## `block_inferior_alveolar` - Inferior Alveolar Nerve Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** Accepted technique uses the coronoid notch/pterygomandibular triangle, a contralateral-premolar syringe angle, bone contact at about 20-25 mm, slight withdrawal, aspiration, and slow injection. The lingual nerve is commonly anesthetized incidentally; buccal soft-tissue coverage may require a separate long-buccal injection. Dental products have cartridge-specific concentrations and limits. [AAPD, pediatric dental local-anesthesia best practice, latest revision 2023](https://www.aapd.org/globalassets/media/policies_guidelines/bp_localanesthesia25.pdf); [Merck Manual Professional, IANB technique, reviewed 2026](https://www.merckmanuals.com/professional/dental-disorders/how-to-do-dental-procedures/how-to-do-an-inferior-alveolar-nerve-block); [FDA/DailyMed Xylocaine Dental label, 2024](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=14b55cf9-f7cd-4bb4-a7c5-aba61abadef1)
 
@@ -141,7 +289,7 @@
 
 ## `block_superior_alveolar` - Superior Alveolar Nerve Block (Supraperiosteal)
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** Supraperiosteal infiltration deposits anesthetic near the target tooth apex and can be effective in the porous maxilla, but success depends on tooth, agent, volume, anatomy, and inflammatory/pulpal state. Randomized trials in symptomatic irreversible pulpitis do not support a universal 95% success claim or one rescue path. Dental labels use product-specific cartridges and lowest-effective dosing. [Aggarwal et al., randomized comparison in irreversible pulpitis, 2011](https://pubmed.ncbi.nlm.nih.gov/22000449/); [Hosseini et al., randomized maxillary-molar infiltration trial, 2016](https://pubmed.ncbi.nlm.nih.gov/27141212/); [FDA/DailyMed Marcaine Dental label, revised 2020/currently posted](https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=3e196aa4-0b01-44db-9267-98a995b54743)
 
@@ -162,7 +310,7 @@
 
 ## `block_auricular` - Auricular Block
 
-**Screening disposition: MAJOR**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `4ea632d` by the shared safety spine and the per-block corrections recorded in the owner adjudication section at the top of this report. Pending artwork stopped being release-gating on 2026-07-30 by owner decision. MINOR rather than no-material-discrepancy because needle length is still a range rather than a measured depth, fascial-plane coverage is expected rather than guaranteed, and paediatric scope is deferred. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Source-standard summary.** Human dissection shows heterogeneous, overlapping innervation from cranial and cervical nerves; a field/ring block may anesthetize most of the auricle but conchal/meatal coverage is variable. A large clinical series of more than 10,000 ear/nose procedures found no epinephrine-associated tissue or flap necrosis with specified dilute preparations, contradicting an absolute ear/cartilage prohibition. [Peuker and Filler, original human cadaver study, 2002](https://pubmed.ncbi.nlm.nih.gov/11835542/); [Hafner et al., original clinical series, 2005](https://pubmed.ncbi.nlm.nih.gov/16372813/); [Bermejo et al., original concha/canal anatomy study, 2017](https://pubmed.ncbi.nlm.nih.gov/28396871/)
 
