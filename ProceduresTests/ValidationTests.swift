@@ -241,6 +241,7 @@ final class ValidationTests: XCTestCase {
 /// "absolute max 300 mg" on the digital block, because a worked example cannot
 /// recalculate itself when a ceiling is added later. These tests exist so the
 /// computed version cannot acquire the same defect quietly.
+@MainActor
 final class MaxDoseCalculatorTests: XCTestCase {
     private func agent(
         maxDoseMgPerKg: Double = 4.5,
