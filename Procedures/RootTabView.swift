@@ -18,6 +18,7 @@ struct RootTabView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     @EnvironmentObject private var editStore: ProcedureEditStore
+    @EnvironmentObject private var recoveryStore: ClinicalRecoveryStore
     @ObservedObject private var deepLinkRouter = DeepLinkRouter.shared
     @Environment(\.scenePhase) private var scenePhase
     @AppStorage(RootTabStorageKey.disclaimerAccepted) private var hasAcceptedClinicalDisclaimer = false
@@ -130,14 +131,24 @@ struct RootTabView: View {
         // text they had already fixed is the failure this app exists to avoid.
         .onChange(of: editStore.editsByProcedureID) { _, _ in
             reindexSpotlight()
+            recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore)
         }
+        .onChange(of: userData.favoriteIDs) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
+        .onChange(of: userData.recentIDs) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
+        .onChange(of: userData.notes) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
+        .onChange(of: userData.checkedEquipment) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
+        .onChange(of: userData.kitCheckedItems) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
+        .onChange(of: userData.locallyReviewedContent) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
         // A checklist session belongs to the case in front of the reader. The
         // active-session sets used to be cleared only by constructing the
         // store — a cold launch — and iOS keeps an app resident for days, so
         // ticks from a previous case could reappear as the current room's
         // state with no confirmation.
         .onChange(of: scenePhase) { _, phase in
-            if phase == .background { userData.endActiveChecklistSessions() }
+            if phase == .background {
+                userData.endActiveChecklistSessions()
+                recoveryStore.snapshotNow(userData: userData, editStore: editStore)
+            }
         }
     }
 

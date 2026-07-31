@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		01BE97BB2FE0E226000F52A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01BE97BA2FE0E226000F52A9 /* Assets.xcassets */; };
 		22D4F55CAA5846FB8B4A33C6 /* Data/ProcedureEditStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A35F9CACEC4A6E8BD79884 /* Data/ProcedureEditStore.swift */; };
+		A91000000000000000000001 /* Data/ClinicalRecoveryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91000000000000000000002 /* Data/ClinicalRecoveryStore.swift */; };
+		A91000000000000000000003 /* ClinicalRecoveryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91000000000000000000004 /* ClinicalRecoveryStoreTests.swift */; };
 		338F8C8BBF1343EB69A78AD0 /* Models/ContentValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8DC468D85E10471B68033F /* Models/ContentValidation.swift */; };
 		34895A7D84534D8CA7CF6D2C /* Data/ProcedureRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9DA74992140609FB5FBCB /* Data/ProcedureRepository.swift */; };
 		489861521A8E4EE8B8A92E0F /* Views/Procedures/ProcedureDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44016AEFAE5E48D48C84BAE1 /* Views/Procedures/ProcedureDetailView.swift */; };
@@ -110,6 +112,8 @@
 		A90000000000000000000019 /* PersistenceSafetyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceSafetyTests.swift; sourceTree = "<group>"; };
 		A90000000000000000000031 /* ReviewStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStateTests.swift; sourceTree = "<group>"; };
 		A90000000000000000000021 /* ContentEditingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEditingTests.swift; sourceTree = "<group>"; };
+		A91000000000000000000002 /* Data/ClinicalRecoveryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/ClinicalRecoveryStore.swift; sourceTree = "<group>"; };
+		A91000000000000000000004 /* ClinicalRecoveryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalRecoveryStoreTests.swift; sourceTree = "<group>"; };
 		AABBCCDD0000000000005E72 /* Views/Settings/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Settings/SettingsView.swift; sourceTree = "<group>"; };
 		AD38FED1DEFEFB62F3922F4C /* Models/ComplicationRescueCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/ComplicationRescueCard.swift; sourceTree = "<group>"; };
 		B7E9D92490F346AC94F36B69 /* Views/Equipment/EquipmentHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Equipment/EquipmentHomeView.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				6DDB17579B3E40EDB201B37B /* Data/UserDataStore.swift */,
 				CA80AC35D0544FFDB64B52AF /* Views/Review/ProcedureEditorView.swift */,
 				D8A35F9CACEC4A6E8BD79884 /* Data/ProcedureEditStore.swift */,
+				A91000000000000000000002 /* Data/ClinicalRecoveryStore.swift */,
 				6CBD851062FD4CF6B0503C4B /* Components/ProcedureCard.swift */,
 				292B31E7F747418789D2A966 /* Components/SectionCard.swift */,
 				4301701BC4A744288E325DE7 /* Components/CriticalWarningCard.swift */,
@@ -203,6 +208,7 @@
 				A90000000000000000000019 /* PersistenceSafetyTests.swift */,
 				A90000000000000000000031 /* ReviewStateTests.swift */,
 				A90000000000000000000021 /* ContentEditingTests.swift */,
+				A91000000000000000000004 /* ClinicalRecoveryStoreTests.swift */,
 				7E5900000000000000000010 /* SearchRegressionTests.swift */,
 			);
 			path = ProceduresTests;
@@ -317,6 +323,7 @@
 				A90000000000000000000009 /* PersistenceSafetyTests.swift in Sources */,
 				A90000000000000000000030 /* ReviewStateTests.swift in Sources */,
 				A90000000000000000000020 /* ContentEditingTests.swift in Sources */,
+				A91000000000000000000003 /* ClinicalRecoveryStoreTests.swift in Sources */,
 				7E5900000000000000000011 /* SearchRegressionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +351,7 @@
 				CB2CA167E0F74C4A8EDE9CA4 /* Data/UserDataStore.swift in Sources */,
 				806FDFB23931401697D9789A /* Views/Review/ProcedureEditorView.swift in Sources */,
 				22D4F55CAA5846FB8B4A33C6 /* Data/ProcedureEditStore.swift in Sources */,
+				A91000000000000000000001 /* Data/ClinicalRecoveryStore.swift in Sources */,
 				5A6D4E9C7089450EB8F5B4ED /* Components/ProcedureCard.swift in Sources */,
 				F312BCB2A1354D51B8B76D53 /* Components/SectionCard.swift in Sources */,
 				8FE086BA856F4B1293051E57 /* Components/CriticalWarningCard.swift in Sources */,

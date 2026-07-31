@@ -1,4 +1,5 @@
 import SwiftUI
+import UniformTypeIdentifiers
 
 enum ReviewCenterTab: String, CaseIterable, Identifiable {
     case queue = "Queue"
@@ -12,9 +13,14 @@ struct ReviewCenterView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     @EnvironmentObject private var editStore: ProcedureEditStore
+    @EnvironmentObject private var recoveryStore: ClinicalRecoveryStore
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var exportURL: URL?
     @State private var reviewExportURL: URL?
+    @State private var recoveryExportURL: URL?
+    @State private var showingRecoveryImporter = false
+    @State private var recoveryPreview: ClinicalRecoveryPreview?
+    @State private var recoveryError: String?
     @State private var selectedTab: ReviewCenterTab = .queue
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
@@ -51,12 +57,49 @@ struct ReviewCenterView: View {
 
             myEditsSection
             myReviewsSection
+            recoverySection
         }
         .listStyle(.insetGrouped)
         .navigationTitle("Review Center")
         .onAppear { refreshExport() }
         .onChange(of: editStore.editsByProcedureID) { _, _ in refreshExport() }
         .onChange(of: userData.locallyReviewedContent) { _, _ in refreshExport() }
+        .fileImporter(
+            isPresented: $showingRecoveryImporter,
+            allowedContentTypes: [.json],
+            allowsMultipleSelection: false
+        ) { result in
+            switch result {
+            case .success(let urls):
+                guard let url = urls.first else { return }
+                presentRecoveryPreview(from: url)
+            case .failure(let error):
+                recoveryError = "Could not open recovery package: \(error.localizedDescription)"
+            }
+        }
+        .confirmationDialog(
+            "Restore recovery package?",
+            isPresented: Binding(get: { recoveryPreview != nil }, set: { if !$0 { recoveryPreview = nil } }),
+            titleVisibility: .visible,
+            presenting: recoveryPreview
+        ) { preview in
+            Button("Restore Safe Items") {
+                restore(preview, replacingConflicts: false)
+            }
+            if !preview.conflicts.isEmpty || !preview.staleProcedureIDs.isEmpty {
+                Button("Replace Conflicting Local Items", role: .destructive) {
+                    restore(preview, replacingConflicts: true)
+                }
+            }
+            Button("Cancel", role: .cancel) { recoveryPreview = nil }
+        } message: { preview in
+            Text(recoveryMessage(for: preview))
+        }
+        .alert("Recovery Backup", isPresented: Binding(get: { recoveryError != nil }, set: { if !$0 { recoveryError = nil } })) {
+            Button("OK", role: .cancel) { recoveryError = nil }
+        } message: {
+            Text(recoveryError ?? "")
+        }
     }
 
     /// Without review tools the "Review" panel is hidden on every content
@@ -149,6 +192,91 @@ struct ReviewCenterView: View {
     private func refreshExport() {
         exportURL = editStore.editedProcedureCount > 0 ? editStore.writeExportFile() : nil
         reviewExportURL = userData.locallyReviewedContent.isEmpty ? nil : userData.writeReviewExportFile()
+    }
+
+    @ViewBuilder
+    private var recoverySection: some View {
+        Section("Recovery Backup") {
+            if let date = recoveryStore.lastAutomaticBackupDate {
+                Label("Automatic backup: \(date)", systemImage: "checkmark.icloud")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            } else {
+                Label("Automatic backup starts after your first local change.", systemImage: "externaldrive.badge.exclamationmark")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+
+            if userData.hasUnreadableData || editStore.hasUnreadableEdits {
+                Label("Some local data could not be read. Restore a recovery package before making more edits.", systemImage: "exclamationmark.triangle.fill")
+                    .foregroundStyle(AppSemanticColor.warningText)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Button {
+                recoveryExportURL = recoveryStore.writePortableExport(userData: userData, editStore: editStore)
+            } label: {
+                Label("Prepare Recovery Package", systemImage: "archivebox")
+                    .frame(minHeight: AppLayout.controlMinHeight)
+            }
+
+            if let recoveryExportURL {
+                ShareLink(item: recoveryExportURL) {
+                    Label("Save Recovery Package to Files", systemImage: "square.and.arrow.up")
+                        .frame(minHeight: AppLayout.controlMinHeight)
+                }
+            }
+
+            Button {
+                showingRecoveryImporter = true
+            } label: {
+                Label("Restore Recovery Package", systemImage: "arrow.clockwise.icloud")
+                    .frame(minHeight: AppLayout.controlMinHeight)
+            }
+
+            ForEach(recoveryStore.snapshots) { snapshot in
+                Button {
+                    presentRecoveryPreview(from: snapshot.url)
+                } label: {
+                    Label("Review automatic backup from \(snapshot.date)", systemImage: "clock.arrow.circlepath")
+                        .font(.subheadline)
+                }
+            }
+        } footer: {
+            Text("Automatic copies protect this app on this device. Save a recovery package to Files, iCloud Drive, or your Mac to survive an app deletion, phone replacement, or reset. It includes local notes; use approved storage and never enter patient identifiers. Restoring never changes bundled GitHub content.")
+        }
+    }
+
+    private func presentRecoveryPreview(from url: URL) {
+        do {
+            recoveryPreview = try recoveryStore.previewImport(
+                from: url,
+                editStore: editStore,
+                procedures: repository.procedures
+            )
+        } catch {
+            recoveryError = error.localizedDescription
+        }
+    }
+
+    private func restore(_ preview: ClinicalRecoveryPreview, replacingConflicts: Bool) {
+        recoveryStore.restore(
+            preview,
+            replacingConflicts: replacingConflicts,
+            userData: userData,
+            editStore: editStore,
+            repository: repository
+        )
+        recoveryPreview = nil
+    }
+
+    private func recoveryMessage(for preview: ClinicalRecoveryPreview) -> String {
+        var lines = ["This package contains \(preview.package.edits.count) local procedure correction(s)."]
+        if !preview.conflicts.isEmpty { lines.append("\(preview.conflicts.count) correction(s) conflict with current local edits.") }
+        if !preview.staleProcedureIDs.isEmpty { lines.append("\(preview.staleProcedureIDs.count) correction(s) need comparison with the current bundled clinical text.") }
+        if !preview.unknownProcedureIDs.isEmpty { lines.append("\(preview.unknownProcedureIDs.count) correction(s) refer to procedures no longer in this build and will be skipped.") }
+        lines.append("Restore Safe Items keeps current or stale corrections unchanged. Replace Conflicting Local Items is deliberate and replaces only matching local records.")
+        return lines.joined(separator: " ")
     }
 
     private var heroSection: some View {

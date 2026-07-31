@@ -66,6 +66,7 @@ struct SettingsView: View {
     @EnvironmentObject private var repository: ProcedureRepository
     @EnvironmentObject private var userData: UserDataStore
     @EnvironmentObject private var editStore: ProcedureEditStore
+    @EnvironmentObject private var recoveryStore: ClinicalRecoveryStore
     @Environment(\.dismiss) private var dismiss
 
     @AppStorage(SettingsStorageKey.appearance) private var appearanceRaw = AppAppearance.system.rawValue
@@ -73,6 +74,7 @@ struct SettingsView: View {
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
     @State private var confirmation: DataAction?
+    @State private var recoveryError: String?
 
     private var appearance: Binding<AppAppearance> {
         Binding(
@@ -206,10 +208,20 @@ struct SettingsView: View {
                     secondaryButton: .cancel()
                 )
             }
+            .alert("Safety Backup", isPresented: Binding(get: { recoveryError != nil }, set: { if !$0 { recoveryError = nil } })) {
+                Button("OK", role: .cancel) { recoveryError = nil }
+            } message: {
+                Text(recoveryError ?? "")
+            }
         }
     }
 
     private func perform(_ action: DataAction) {
+        guard recoveryStore.makeSafetySnapshot(userData: userData, editStore: editStore) else {
+            recoveryError = recoveryStore.lastError ?? "A safety backup could not be created."
+            confirmation = nil
+            return
+        }
         switch action {
         case .clearRecents: userData.clearRecents()
         case .clearFavorites: userData.clearFavorites()

@@ -86,6 +86,10 @@ struct ProcedureSectionEdits: Codable, Hashable {
     /// appear; everything else falls through to bundled content.
     var sections: [String: [String]] = [:]
     var editedAt: String = ""
+    /// Bundled clinically material text when this local correction started.
+    /// This lets recovery import warn when a saved correction would conceal a
+    /// newer shipped procedure after an app update.
+    var baseMaterialFingerprint: String?
 
     var isEmpty: Bool { sections.isEmpty }
 }
@@ -101,6 +105,7 @@ struct ProcedureSectionEdits: Codable, Hashable {
 @MainActor
 final class ProcedureEditStore: ObservableObject {
     @Published private(set) var editsByProcedureID: [String: ProcedureSectionEdits] = [:]
+    @Published private(set) var hasUnreadableEdits = false
 
     private let fileURL: URL?
 
@@ -165,6 +170,11 @@ final class ProcedureEditStore: ObservableObject {
             .filter { !$0.isEmpty }
 
         var edits = editsByProcedureID[procedure.id] ?? ProcedureSectionEdits()
+        if edits.sections.isEmpty {
+            var bundled = procedure
+            bundled.sections = bundledSections[procedure.id] ?? procedure.sections
+            edits.baseMaterialFingerprint = bundled.materialFingerprint
+        }
         if cleaned == bundledLines(section, in: procedure) {
             // Identical to what shipped: store nothing rather than a no-op
             // override that would mark the procedure as edited forever.
@@ -235,6 +245,35 @@ final class ProcedureEditStore: ObservableObject {
         if Set(editsByProcedureID.keys) != original { save() }
     }
 
+    /// The original bundled fingerprint for a visible procedure. The
+    /// repository normally hands views merged procedures, so this deliberately
+    /// reaches back to the captured pre-edit baseline.
+    func bundledMaterialFingerprint(for procedureID: String, in procedures: [Procedure]) -> String? {
+        guard var procedure = procedures.first(where: { $0.id == procedureID }) else { return nil }
+        procedure.sections = bundledSections[procedureID] ?? procedure.sections
+        return procedure.materialFingerprint
+    }
+
+    func restoreRecoveryEdits(_ restored: [String: ProcedureSectionEdits], replacingConflicts: Bool) {
+        if replacingConflicts {
+            for (procedureID, restoredEdit) in restored {
+                editsByProcedureID[procedureID] = restoredEdit
+            }
+        } else {
+            for (procedureID, restoredEdit) in restored where editsByProcedureID[procedureID] == nil {
+                editsByProcedureID[procedureID] = restoredEdit
+            }
+        }
+        save()
+    }
+
+    /// The unreadable sidecar remains on disk for forensic recovery, but an
+    /// explicitly completed recovery makes the new primary store trustworthy
+    /// again and allows automatic snapshots to resume.
+    func markRecoveryRestored() {
+        hasUnreadableEdits = false
+    }
+
     // MARK: - Export
 
     /// Serializes every local edit for transfer back into the repo. Paired with
@@ -280,6 +319,13 @@ final class ProcedureEditStore: ObservableObject {
         guard let fileURL, let data = try? Data(contentsOf: fileURL) else { return }
         if let decoded = try? JSONDecoder().decode([String: ProcedureSectionEdits].self, from: data) {
             editsByProcedureID = decoded
+        } else {
+            // Preserve the only copy before any later edit can replace it.
+            let unreadableURL = fileURL.appendingPathExtension("unreadable")
+            if !FileManager.default.fileExists(atPath: unreadableURL.path) {
+                try? data.write(to: unreadableURL, options: .atomic)
+            }
+            hasUnreadableEdits = true
         }
     }
 

@@ -106,6 +106,58 @@ final class UserDataStore: ObservableObject {
     private var reviewsRevision = 0
     private var cachedProcedureBadgePolicy: (count: Int, revision: Int, policy: ReviewBadgePolicy)?
 
+    func recoverySnapshot() -> ClinicalRecoveryUserData {
+        ClinicalRecoveryUserData(
+            favoriteIDs: Array(favoriteIDs).sorted(),
+            recentIDs: recentIDs,
+            notes: notes,
+            checkedEquipment: checkedEquipment.mapValues { Array($0).sorted() },
+            kitCheckedItems: kitCheckedItems.mapValues { Array($0).sorted() },
+            locallyReviewedContent: locallyReviewedContent
+        )
+    }
+
+    /// Restoring checklist ticks must never make an old room setup look active
+    /// for the patient in front of the clinician, so active sessions stay
+    /// empty regardless of the restore mode.
+    func restoreRecoverySnapshot(_ snapshot: ClinicalRecoveryUserData, replacingConflicts: Bool) {
+        if replacingConflicts {
+            favoriteIDs.formUnion(snapshot.favoriteIDs)
+            recentIDs = Array((snapshot.recentIDs + recentIDs.filter { !snapshot.recentIDs.contains($0) }).prefix(AppConstants.maxRecents))
+            for (key, value) in snapshot.notes { notes[key] = value }
+            for (key, values) in snapshot.checkedEquipment { checkedEquipment[key] = Set(values) }
+            for (key, values) in snapshot.kitCheckedItems { kitCheckedItems[key] = Set(values) }
+            for (key, value) in snapshot.locallyReviewedContent { locallyReviewedContent[key] = value }
+        } else {
+            favoriteIDs.formUnion(snapshot.favoriteIDs)
+            recentIDs = Array((recentIDs + snapshot.recentIDs.filter { !recentIDs.contains($0) }).prefix(AppConstants.maxRecents))
+            for (key, value) in snapshot.notes where notes[key] == nil { notes[key] = value }
+            for (key, values) in snapshot.checkedEquipment where checkedEquipment[key] == nil {
+                checkedEquipment[key] = Set(values)
+            }
+            for (key, values) in snapshot.kitCheckedItems where kitCheckedItems[key] == nil {
+                kitCheckedItems[key] = Set(values)
+            }
+            for (key, value) in snapshot.locallyReviewedContent where locallyReviewedContent[key] == nil {
+                locallyReviewedContent[key] = value
+            }
+        }
+        activeEquipmentSessionIDs = []
+        activeKitSessionIDs = []
+        saveFavorites()
+        saveRecents()
+        saveNotes()
+        saveCheckedEquipment()
+        saveKitCheckedItems()
+        saveLocallyReviewedContent()
+    }
+
+    /// Keep the quarantined bytes for inspection, while allowing a clinician
+    /// who has completed an explicit recovery to resume automatic backups.
+    func markRecoveryRestored() {
+        unreadableDataKeys = []
+    }
+
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
         load()

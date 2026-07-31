@@ -20,6 +20,7 @@ struct ProceduresApp: App {
     @StateObject private var repository = ProcedureRepository()
     @StateObject private var userData = UserDataStore()
     @StateObject private var editStore = ProcedureEditStore()
+    @StateObject private var recoveryStore = ClinicalRecoveryStore()
 
     var body: some Scene {
         WindowGroup {
@@ -27,6 +28,7 @@ struct ProceduresApp: App {
                 .environmentObject(repository)
                 .environmentObject(userData)
                 .environmentObject(editStore)
+                .environmentObject(recoveryStore)
         }
     }
 }
