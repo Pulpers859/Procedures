@@ -109,14 +109,25 @@
   "amendments": [
     {
       "corpus": "procedures.json",
-      "recordId": "anterior_nasal_packing",
-      "auditFingerprint": "af9b463db25bea9985a3afe2906185d12ccd79d2037a22f44f15545f90281362",
-      "owner": "Patrick",
-      "rationale": "Re-screened and accepted by the clinical owner. Post-audit change in 9425966 added topical tranexamic acid to equipment (500 mg/5 mL injectable solution on a pledget or soaking the pack, per local policy), the Zahed 2013 randomised trial supporting it, and matching search tags. No existing step, dose ceiling, contraindication or complication text was altered; the addition is an adjunct alongside the audited packing technique. The lane report's findings for this record stand.",
-      "commit": "9425966",
+      "recordId": "abscess_incision_drainage",
+      "auditFingerprint": "dfb895b511b2c10d518ce1d917cb36667abf23c35f4a06409c4c7801eb544809",
+      "owner": "clinical owner",
+      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
+      "commit": "fb22f79",
       "expires": "2026-10-31",
-      "followUp": "docs/audits/procedure-verification/CLINICAL_OWNER_QUEUE.md#p2-resolve-scope-monitoring-and-failure-plans",
-      "recordedAt": "2026-07-29"
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-07-31"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "anterior_nasal_packing",
+      "auditFingerprint": "2dd82ae866f39453a60d3c93b900c195b384a35fb45c5bc5480fcafa5bdd111b",
+      "owner": "clinical owner",
+      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
+      "commit": "fb22f79",
+      "expires": "2026-10-31",
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-07-31"
     },
     {
       "corpus": "procedures.json",
@@ -483,6 +494,17 @@
     },
     {
       "corpus": "procedures.json",
+      "recordId": "foreign_body_removal_soft_tissue",
+      "auditFingerprint": "b6ef1e13db6438415c95ec64cff65d8507ee13036f5327fecdfa5282fd9ca44f",
+      "owner": "clinical owner",
+      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
+      "commit": "fb22f79",
+      "expires": "2026-10-31",
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-07-31"
+    },
+    {
+      "corpus": "procedures.json",
       "recordId": "intraosseous_access",
       "auditFingerprint": "fe57b05834cfa285fa82e1a8ca761db5f2abccf0a7a3422616cc55c1340ca765",
       "owner": "Patrick",
@@ -502,6 +524,39 @@
       "expires": "2026-10-31",
       "followUp": "reviewerStatus is deliberately unchanged: AUDIT_PROTOCOL.md forbids an agent from setting it, and the owner promotes a sign-off through the app export and scripts/apply_local_reviews.py so the fingerprint binds it to exact bytes. Residual MINOR items: introducer and dialysis IFU binding is scoped to stocked products rather than named per-product, and artwork remains pending on all six. The air-embolism rescue card is still an AI draft awaiting review.",
       "recordedAt": "2026-07-30"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "knee_arthrocentesis",
+      "auditFingerprint": "f469dca70f262f6b64b3289f2b8dcd87d944f4faec5a8acce7b8db2b9c05dce2",
+      "owner": "clinical owner",
+      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
+      "commit": "fb22f79",
+      "expires": "2026-10-31",
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-07-31"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "laceration_repair",
+      "auditFingerprint": "4451023c8f1d7c3325b321ef2d5e0616df07fde040e8189a4797eb33acec15f7",
+      "owner": "clinical owner",
+      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
+      "commit": "fb22f79",
+      "expires": "2026-10-31",
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-07-31"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "lateral_canthotomy",
+      "auditFingerprint": "4106fd405cf43b6832eb35f1aa0051e286da22e28ca8bf66755f82c3973aa334",
+      "owner": "clinical owner",
+      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
+      "commit": "fb22f79",
+      "expires": "2026-10-31",
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-07-31"
     },
     {
       "corpus": "procedures.json",
@@ -527,11 +582,33 @@
     },
     {
       "corpus": "procedures.json",
+      "recordId": "paracentesis",
+      "auditFingerprint": "137e8a42e2304b7d3ac4585a3858a96ef4280ea276b4b676f585d6185a3e3665",
+      "owner": "clinical owner",
+      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
+      "commit": "fb22f79",
+      "expires": "2026-10-31",
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-07-31"
+    },
+    {
+      "corpus": "procedures.json",
       "recordId": "pericardiocentesis",
       "auditFingerprint": "fe38636b6c1705c6fc3f4eeda0347b6d97f73d972e9935b90e066fa0b91bb926",
       "owner": "clinical owner",
       "rationale": "Lane 04 adjudication 2026-07-31: findings addressed in content; see 04_CARDIAC_NEURO.md owner adjudication section.",
       "commit": "05ca4f0",
+      "expires": "2026-10-31",
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-07-31"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "peritonsillar_abscess_drainage",
+      "auditFingerprint": "2f2277848a66914a27f25a48910cc13c921342001fad840d4c74218d5c5bb900",
+      "owner": "clinical owner",
+      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
+      "commit": "fb22f79",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"
@@ -565,6 +642,17 @@
       "owner": "clinical owner",
       "rationale": "Lane 04 adjudication 2026-07-31: findings addressed in content; see 04_CARDIAC_NEURO.md owner adjudication section.",
       "commit": "05ca4f0",
+      "expires": "2026-10-31",
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-07-31"
+    },
+    {
+      "corpus": "procedures.json",
+      "recordId": "shoulder_reduction",
+      "auditFingerprint": "ce77808e2d4a08c630c9a0150cda49f9f77ca52ac111115ab882e6f051df8ecb",
+      "owner": "clinical owner",
+      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
+      "commit": "fb22f79",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
       "recordedAt": "2026-07-31"

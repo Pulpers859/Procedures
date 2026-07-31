@@ -7,9 +7,9 @@
 ## Result
 
 - Audited procedures: **55/55**.
-- Proposed `STOP-SHIP`: **14** (28 at audit; 11 re-screened to `MINOR` on 2026-07-30, 3 on 2026-07-31).
-- Proposed `MAJOR`: **23** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30, 2 on 2026-07-31).
-- Re-screened `MINOR` after owner adjudication: **18** (vascular access, thoracic, airway/sedation, and cardiac/neuro lanes).
+- Proposed `STOP-SHIP`: **8** (28 at audit; 11 re-screened to `MINOR` on 2026-07-30, 9 on 2026-07-31).
+- Proposed `MAJOR`: **20** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30, 5 on 2026-07-31).
+- Re-screened `MINOR` after owner adjudication: **27** (vascular access, thoracic, airway/sedation, cardiac/neuro, and general-procedures lanes).
 - Corpus SHA-256: `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1`.
 - Audit date: 2026-07-18.
 
@@ -42,12 +42,12 @@ report before assigning remediation priority.
 | Cardiac / Resuscitation | `synchronized_cardioversion` - Synchronized Cardioversion | `MINOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
 | Cardiac / Resuscitation | `transvenous_pacemaker` - Transvenous Pacemaker | `MINOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
 | Neuro | `lumbar_puncture` - Lumbar Puncture | `MINOR` | [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md) |
-| Other | `anterior_nasal_packing` - Anterior Nasal Packing | `MAJOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
-| Other | `knee_arthrocentesis` - Knee Arthrocentesis | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
-| Other | `lateral_canthotomy` - Lateral Canthotomy & Cantholysis | `MAJOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
-| Other | `paracentesis` - Paracentesis | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
-| Other | `peritonsillar_abscess_drainage` - Peritonsillar Abscess Drainage | `MAJOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
-| Other | `shoulder_reduction` - Shoulder Reduction (Anterior) | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
+| Other | `anterior_nasal_packing` - Anterior Nasal Packing | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
+| Other | `knee_arthrocentesis` - Knee Arthrocentesis | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
+| Other | `lateral_canthotomy` - Lateral Canthotomy & Cantholysis | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
+| Other | `paracentesis` - Paracentesis | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
+| Other | `peritonsillar_abscess_drainage` - Peritonsillar Abscess Drainage | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
+| Other | `shoulder_reduction` - Shoulder Reduction (Anterior) | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
 | Regional Anesthesia | `block_auricular` - Auricular Block | `MAJOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
 | Regional Anesthesia | `block_deep_peroneal` - Deep Peroneal Nerve Block | `MAJOR` | [09_REGIONAL_DISTAL_CRANIOFACIAL.md](09_REGIONAL_DISTAL_CRANIOFACIAL.md) |
 | Regional Anesthesia | `digital_nerve_block` - Digital Nerve Block | `STOP-SHIP` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
@@ -87,9 +87,9 @@ report before assigning remediation priority.
 | Vascular Access | `dialysis_catheter_vascath` - Dialysis Catheter (Vas-Cath) | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
 | Vascular Access | `intraosseous_access` - Intraosseous (IO) Access | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
 | Vascular Access | `introducer_sheath_cordis` - Introducer Sheath (Cordis) | `MINOR` | [02_VASCULAR_ACCESS.md](02_VASCULAR_ACCESS.md) |
-| Wound / Soft Tissue | `abscess_incision_drainage` - Abscess Incision & Drainage | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
-| Wound / Soft Tissue | `foreign_body_removal_soft_tissue` - Foreign Body Removal (Soft Tissue) | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
-| Wound / Soft Tissue | `laceration_repair` - Laceration Repair (Suturing) | `STOP-SHIP` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
+| Wound / Soft Tissue | `abscess_incision_drainage` - Abscess Incision & Drainage | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
+| Wound / Soft Tissue | `foreign_body_removal_soft_tissue` - Foreign Body Removal (Soft Tissue) | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
+| Wound / Soft Tissue | `laceration_repair` - Laceration Repair (Suturing) | `MINOR` | [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md) |
 
 ## Release Boundary
 

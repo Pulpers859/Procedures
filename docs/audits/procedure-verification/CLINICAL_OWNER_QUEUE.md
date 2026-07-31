@@ -24,11 +24,10 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
 
 ## P0: Remove Direct Harm Pathways Before Broader Editing
 
-> Items 1, 2, 3, and 5 were adjudicated on 2026-07-30 and item 6 partly on
-> 2026-07-31; their original text is struck through with the resolution
-> beneath it. Item 4 is still open, as is the shoulder-reduction half of item
-> 6. Adjudication here resolves the clinical finding only - the reference gate
-> in P3.3 is independent, though it has now been satisfied for the eighteen
+> Items 1, 2, 3, 5, and 6 have been adjudicated; their original text is struck
+> through with the resolution beneath it. Item 4 is the only P0 still open.
+> Adjudication here resolves the clinical finding only - the reference gate in
+> P3.3 is independent, though it has now been satisfied for the twenty-seven
 > records re-screened so far. Pending artwork stopped being a release gate on
 > 2026-07-30; see P3.2.
 
@@ -86,15 +85,18 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
    as a contraindication to urgent reduction; lumbar puncture omits the rule
    that LP/imaging must not materially delay empiric meningitis treatment; and
    resuscitative thoracotomy lacks executable signs-of-life and CPR-window
-   criteria.~~ **Two of three adjudicated 2026-07-31, addressed in `05ca4f0`.**
+   criteria.~~ **Adjudicated 2026-07-31, addressed in `05ca4f0` and `fb22f79`.**
    "Antibiotics first" is now the opening line of the lumbar puncture card, and
    deferring the LP for imaging is stated as never deferring the antibiotics.
    Resuscitative thoracotomy enumerates six signs of life and states the WTA
    2024 windows as numbers - penetrating under 15 minutes, blunt under 10 - with
-   a termination endpoint. The shoulder-reduction half is still open and belongs
-   to lane 05. See
+   a termination endpoint. The shoulder half closed the same day in `fb22f79`:
+   neurovascular compromise is out of `contraindications` and stated as a reason
+   to reduce sooner, with the nerve case and the vessel case separated and a
+   parallel sequence for the pulseless limb. See
    [04_CARDIAC_NEURO.md](04_CARDIAC_NEURO.md#owner-adjudication---2026-07-31)
-   and [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md).
+   and
+   [05_GENERAL_PROCEDURES.md](05_GENERAL_PROCEDURES.md#owner-adjudication---2026-07-31).
 
 ## P1: Replace the Dosing Governance Model
 

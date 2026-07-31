@@ -10,19 +10,142 @@ This is an AI-assisted discrepancy screen, not clinical approval. I am not a lic
 
 | Procedure ID | Screening disposition | Principal reason |
 |---|---|---|
-| `paracentesis` | **STOP-SHIP** | Declared placeholder visual is a release stop; albumin and coagulation statements also need major clinical revision. |
-| `lateral_canthotomy` | **MAJOR** | Instrument choice and superior-cantholysis trigger are not sufficiently safety-bounded. |
-| `shoulder_reduction` | **STOP-SHIP** | Neurovascular compromise is presented as a contraindication to reduction; declared visual is also a placeholder. |
-| `knee_arthrocentesis` | **STOP-SHIP** | Declared visuals are placeholders; synovial WBC/PMN interpretation is overstated. |
-| `anterior_nasal_packing` | **MAJOR** | RAPID RHINO inflation conflicts with manufacturer instructions; anticoagulation guidance omits the society standard. |
-| `peritonsillar_abscess_drainage` | **MAJOR** | Airway readiness and topical-anesthetic safety are incomplete; steroid regimen is unsupported as written. |
-| `abscess_incision_drainage` | **STOP-SHIP** | Declared visual is a placeholder; routine irrigation and routine packing/loop-drain language conflict with trial evidence. |
-| `laceration_repair` | **STOP-SHIP** | Declared visual is a placeholder; tetanus prophylaxis omits the vaccine/TIG decision pathway. |
-| `foreign_body_removal_soft_tissue` | **STOP-SHIP** | Digital tourniquet instructions lack a removal fail-safe; declared visual is also a placeholder. |
+| `paracentesis` | **MINOR** (re-screened 2026-07-31; was STOP-SHIP) | Declared placeholder visual is a release stop; albumin and coagulation statements also need major clinical revision. |
+| `lateral_canthotomy` | **MINOR** (re-screened 2026-07-31; was MAJOR) | Instrument choice and superior-cantholysis trigger are not sufficiently safety-bounded. |
+| `shoulder_reduction` | **MINOR** (re-screened 2026-07-31; was STOP-SHIP) | Neurovascular compromise is presented as a contraindication to reduction; declared visual is also a placeholder. |
+| `knee_arthrocentesis` | **MINOR** (re-screened 2026-07-31; was STOP-SHIP) | Declared visuals are placeholders; synovial WBC/PMN interpretation is overstated. |
+| `anterior_nasal_packing` | **MINOR** (re-screened 2026-07-31; was MAJOR) | RAPID RHINO inflation conflicts with manufacturer instructions; anticoagulation guidance omits the society standard. |
+| `peritonsillar_abscess_drainage` | **MINOR** (re-screened 2026-07-31; was MAJOR) | Airway readiness and topical-anesthetic safety are incomplete; steroid regimen is unsupported as written. |
+| `abscess_incision_drainage` | **MINOR** (re-screened 2026-07-31; was STOP-SHIP) | Declared visual is a placeholder; routine irrigation and routine packing/loop-drain language conflict with trial evidence. |
+| `laceration_repair` | **MINOR** (re-screened 2026-07-31; was STOP-SHIP) | Declared visual is a placeholder; tetanus prophylaxis omits the vaccine/TIG decision pathway. |
+| `foreign_body_removal_soft_tissue` | **MINOR** (re-screened 2026-07-31; was STOP-SHIP) | Digital tourniquet instructions lack a removal fail-safe; declared visual is also a placeholder. |
+
+## Owner adjudication - 2026-07-31
+
+**How to read this section.** The lane report below is the AI screening record
+against the audited snapshot and is left as written. This section records what
+the clinical owner decided on 2026-07-31 and what changed in `fb22f79`. The nine
+`Screening disposition` lines and the summary table have been re-screened
+against the amended content, with the original rationale kept inline.
+
+### Four of the six stop-ships were about artwork, not medicine
+
+`paracentesis`, `knee_arthrocentesis`, `abscess_incision_drainage`, and
+`laceration_repair` were each screened STOP-SHIP because a declared visual had
+`assetName: null`. Three of the four say so explicitly: "Clinical screen:
+**MAJOR**." Pending artwork stopped gating release on 2026-07-30 by owner
+decision - a declared asset with no image falls back to an SF Symbol and the
+card reads correctly - so those four stop-ship reasons had already evaporated
+before this adjudication began.
+
+This is the second lane where a third or more of the stop-ships were stale by
+the time anyone returned to them, and the cause is the same both times: nothing
+re-reads a disposition when the thing that caused it changes. The gate that
+consumes these files cannot tell a live finding from a dead one.
+
+The remaining findings on those four records were real and are fixed below.
+
+### The two that were genuinely stop-ship had both inverted a decision
+
+Neither was an omission. Shoulder reduction put neurovascular compromise in
+`contraindications`, and foreign body removal instructed a digital tourniquet
+with no removal step. Each is worse than silence: a reader who has not seen the
+condition before takes the card's structure as the clinical logic, and the
+structure said "compromise means do not reduce" and "apply a tourniquet" with
+nothing after it.
+
+### Decisions
+
+1. **Neurovascular compromise is a reason to reduce sooner.** The humeral head
+   is what is compressing the axillary artery or stretching the plexus, so
+   reduction is the treatment and the specialist is mobilised alongside it, not
+   before it. The nerve case and the vessel case are separated, because they
+   have different urgency and collapsing them is what produced the original
+   line. The contraindication list now states in words that the entry was
+   removed deliberately, so that a future editor does not restore it as an
+   oversight. This closes the shoulder half of P0 item 6.
+2. **The digital tourniquet gets a fail-safe, not a reminder.** A device that
+   cannot be missed and is left visible outside the drape; the application time
+   recorded; removal as its own numbered step, said out loud; the removal time
+   and total tourniquet time recorded; and perfusion compared against the
+   neighbouring finger. A 20-30 minute stop is stated in troubleshooting.
+3. **Paracentesis loses its numeric clotting gates.** The INR does not describe
+   bleeding risk in cirrhosis, and current guidance recommends against both the
+   routine test and prophylactic products. The card says that rather than
+   silently dropping the numbers, so the absence reads as a decision.
+4. **No synovial white cell count rules septic arthritis in or out.** The
+   50,000-with-90%-PMN heuristic is replaced by a probability statement that
+   also says crystals do not exclude infection - a patient can have gout and a
+   septic joint in the same knee.
+5. **Irrigation and packing become optional for abscesses.** Both on randomised
+   evidence. Breaking down loculations is named as the therapy; the other two
+   are extras the trials were unkind to.
+6. **"Update tetanus" is replaced by the actual decision.** Classify the wound,
+   count prior doses, then vaccine, immune globulin at 250 IU, or both -
+   including the rule that severe immunodeficiency with a dirty wound gets
+   globulin regardless of vaccination history. Immune globulin is added to the
+   equipment list, because a decision that depends on a product nobody stocks is
+   not a decision.
+
+### Adopted beyond the stated findings
+
+- **Eight of the nine records now carry a local-anaesthetic ceiling.** They told
+  the reader to inject and stated no maximum anywhere. The validator never
+  asked: both of its agent-ceiling rules are gated on `item.get("dosing")`, so
+  they only interrogate records that already have a dosing block. The gate was
+  weakest exactly where the content was weakest, which is the general shape of
+  the finding rather than a detail of these nine records.
+- **Nasal packing is deliberately excluded from that.** It uses 4% lidocaine on
+  mucosa, which absorbs at close to intravenous rates. An infiltration
+  calculator would model it wrongly and reassuringly, so the milligrams are
+  stated in the equipment line instead: 40 mg per millilitre, and do not
+  re-soak pledgets to hold the field.
+- **The cumulative rule in those new blocks is corrected.** Two agents do not
+  share one pool of milligrams. Each has its own ceiling and the fractions add,
+  so half a lidocaine maximum plus half a bupivacaine maximum is a full dose.
+  This is P1's fourth bullet; the other 32 dosing blocks are brought into line
+  in the P1 pass.
+- **Where it goes changes how fast it arrives**, added as a caveat. The same
+  milligram dose peaks higher from mucosa or an intercostal bed than from a
+  subcutaneous wheal, which is the individualisation axis the labels require and
+  the card did not have.
+- **The commonest reason an orbit stays tense after canthotomy is an incomplete
+  inferior cantholysis**, not a need to release the superior crus. The steps now
+  gate superior release on a confirmed-complete inferior one, which is also the
+  answer to the reviewer question about the trigger.
+- **The airway question precedes the technique question for peritonsillar
+  abscess.** Stridor, drooling, inability to handle secretions, respiratory
+  distress, or a posture are all reasons this is not a bedside procedure, and
+  they now sit in contraindications rather than being implied by "have suction
+  ready".
+- **Benzocaine carries its methaemoglobinaemia pathway** through to methylene
+  blue and the sign that identifies it - cyanosis that does not improve with
+  oxygen - with a lidocaine-based topical named as the safer default.
+- **A negative X-ray is not a rule-out for a foreign body**, and neither is a
+  negative ultrasound. The card asserted both directions absolutely; it now
+  states the limits of each and says the history is what closes the question.
+
+### Known residual gaps
+
+- No device in this lane is bound to a stocked IFU revision: the pack devices,
+  the tourniquet, the pericardiocentesis-style kits, the blunt scissors on the
+  eye tray. Each record now names what to look up. This stays under P3.1.
+- Antibiotic dose, duration, and agent selection remain deferred to local
+  policy on the abscess, peritonsillar, and wound records. So does the
+  dexamethasone dose for peritonsillar abscess - the agent and the single-dose
+  shape are stated, the number is not.
+- The 1 cm needle-depth guard for peritonsillar aspiration is close to published
+  limits and is not independently verified here.
+- Wound-age limits and suture-removal timing on the laceration card remain
+  deliberately nonspecific, which avoids false universal cutoffs at the cost of
+  leaving those decisions undiscoverable.
+- Sling duration after shoulder reduction is stated as a range with the
+  direction of travel, not as a protocol.
+- Paediatric scope is not specified on any record in this lane.
 
 ## `paracentesis` - Paracentesis
 
-**Screening disposition: STOP-SHIP.** Clinical screen: **MAJOR**.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `fb22f79`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision, which had already resolved the artwork half of this lane's stop-ships before this adjudication began. MINOR rather than no-material-discrepancy because the catheter and drainage set are not bound to a stocked IFU, the albumin preparation is local, and paediatric scope is unaddressed. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** Clinical screen: **MAJOR**.
 
 **Coverage and source standard.** Reviewed metadata and every section (`shiftMode` through `references`), plus `visualAssets`, equipment/instruments, medication statements, confirmation, rescue, and monitoring. AASLD and BSG/BASL support prompt diagnostic paracentesis for new or admitted cirrhotic ascites, ascitic cell count/culture and SAAG-based evaluation, no routine coagulation-product correction, and albumin after >5 L removal. BSG/BASL also permits albumin below 5 L for acute-on-chronic liver failure or high AKI risk.
 
@@ -46,7 +169,7 @@ This is an AI-assisted discrepancy screen, not clinical approval. I am not a lic
 
 ## `lateral_canthotomy` - Lateral Canthotomy & Cantholysis
 
-**Screening disposition: MAJOR.**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `fb22f79`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision, which had already resolved the artwork half of this lane's stop-ships before this adjudication began. MINOR rather than no-material-discrepancy because which blunt scissors are stocked on the eye tray is not named, no numeric intraocular-pressure threshold is asserted, and the acetazolamide adjunct is left to ophthalmology. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Coverage and source standard.** Reviewed every section, equipment/instruments, medication language, and the bundled visual declaration. The Joint Trauma System requires immediate lateral canthotomy with complete inferior cantholysis for orbital compartment syndrome, use of blunt scissors, and reassessment of vision and IOP before considering superior release. AAO material likewise cautions that superior cantholysis adds lacrimal artery/gland risk.
 
@@ -70,7 +193,7 @@ This is an AI-assisted discrepancy screen, not clinical approval. I am not a lic
 
 ## `shoulder_reduction` - Shoulder Reduction (Anterior)
 
-**Screening disposition: STOP-SHIP.**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `fb22f79`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision, which had already resolved the artwork half of this lane's stop-ships before this adjudication began. MINOR rather than no-material-discrepancy because sling duration is a range with a direction rather than a protocol, and the intra-articular block technique is stated briefly. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.**
 
 **Coverage and source standard.** Reviewed every section, the three named reduction families, sedation/intra-articular anesthesia, equipment, imaging, neurovascular checks, aftercare, and the placeholder visual. Authoritative guidance treats an unreduced shoulder as an emergency, requires pre/post neurovascular documentation, and calls for urgent specialist involvement when neurovascular compromise is present; compromise does not safely function as a simple contraindication to reduction.
 
@@ -95,7 +218,7 @@ This is an AI-assisted discrepancy screen, not clinical approval. I am not a lic
 
 ## `knee_arthrocentesis` - Knee Arthrocentesis
 
-**Screening disposition: STOP-SHIP.** Clinical screen: **MAJOR**.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `fb22f79`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision, which had already resolved the artwork half of this lane's stop-ships before this adjudication began. MINOR rather than no-material-discrepancy because specimen containers and order are deferred to the receiving laboratory, and paediatric scope is unaddressed. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** Clinical screen: **MAJOR**.
 
 **Coverage and source standard.** Reviewed every section, both declared visuals, equipment/containers, local anesthesia, sampling order, antimicrobial timing, confirmation, and aftercare. The EBJIS SANJO guideline prioritizes bacterial identification, WBC/PMN, and crystals; recommends aspiration promptly; and defers antibiotics until sampling only when the patient is not septic.
 
@@ -119,7 +242,7 @@ This is an AI-assisted discrepancy screen, not clinical approval. I am not a lic
 
 ## `anterior_nasal_packing` - Anterior Nasal Packing
 
-**Screening disposition: MAJOR.**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `fb22f79`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision, which had already resolved the artwork half of this lane's stop-ships before this adjudication began. MINOR rather than no-material-discrepancy because the pack devices are not bound to stocked IFU revisions, antibiotic policy after packing is deferred rather than resolved, and the topical lidocaine ceiling is in prose rather than structured data. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Coverage and source standard.** Reviewed every section, all named devices/topicals, cautery, anticoagulation, packing removal, antibiotic language, and lack of visual assets. The AAO-HNSF guideline calls for resorbable packing in patients with bleeding disorders or antithrombotic use, first-line local treatment before reversal/withdrawal absent life-threatening bleeding, and explicit packing/removal education. RAPID RHINO instructions require sterile-water activation and air-only inflation.
 
@@ -144,7 +267,7 @@ This is an AI-assisted discrepancy screen, not clinical approval. I am not a lic
 
 ## `peritonsillar_abscess_drainage` - Peritonsillar Abscess Drainage
 
-**Screening disposition: MAJOR.**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally MAJOR against the audited snapshot. The findings are addressed in `fb22f79`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision, which had already resolved the artwork half of this lane's stop-ships before this adjudication began. MINOR rather than no-material-discrepancy because antibiotic dose and duration are deferred, the dexamethasone dose is not stated, and the 1 cm depth guard is close to published limits and unverified here. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **MAJOR.**
 
 **Coverage and source standard.** Reviewed every section, needle depth/trajectory, suction, anesthesia, airway and deep-space escalation, antibiotics/steroids, and the empty visual array. A multidisciplinary tonsillitis guideline recognizes aspiration, incision/drainage, and abscess tonsillectomy as effective options selected by cooperation, comorbidity, complications, and prior failure; evidence does not establish one universal first-line drainage technique. Bedside drainage must occur where airway complications can be managed.
 
@@ -169,7 +292,7 @@ This is an AI-assisted discrepancy screen, not clinical approval. I am not a lic
 
 ## `abscess_incision_drainage` - Abscess Incision & Drainage
 
-**Screening disposition: STOP-SHIP.** Clinical screen: **MAJOR**.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `fb22f79`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision, which had already resolved the artwork half of this lane's stop-ships before this adjudication began. MINOR rather than no-material-discrepancy because antibiotic agent, dose, and duration are deferred to local resistance patterns. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** Clinical screen: **MAJOR**.
 
 **Coverage and source standard.** Reviewed every section, ultrasound, incision/dissection, irrigation, packing/loop drainage, cultures, antibiotics, equipment, follow-up, and the placeholder visual. IDSA makes incision and drainage the core treatment and uses systemic illness/host factors to guide antibiotics. Later randomized evidence found no outcome benefit from routine cavity irrigation and no benefit, with more pain, from routine packing of simple abscesses under 5 cm. A BMJ guideline makes a weak, shared-decision recommendation for TMP-SMX or clindamycin after drainage of uncomplicated abscesses.
 
@@ -195,7 +318,7 @@ This is an AI-assisted discrepancy screen, not clinical approval. I am not a lic
 
 ## `laceration_repair` - Laceration Repair (Suturing)
 
-**Screening disposition: STOP-SHIP.** Clinical screen: **MAJOR**.
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `fb22f79`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision, which had already resolved the artwork half of this lane's stop-ships before this adjudication began. MINOR rather than no-material-discrepancy because wound-age limits and suture-removal timing remain deliberately nonspecific, and the local-anaesthetic concentration choice by site is not encoded. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** Clinical screen: **MAJOR**.
 
 **Coverage and source standard.** Reviewed every section, exploration through range of motion, irrigation/closure selection, equipment and sutures, local anesthesia, tetanus, aftercare, documentation, and the placeholder visual. CDC requires wound classification plus vaccination-history assessment and, for selected dirty/major wounds, tetanus immune globulin (TIG). FDA labeling requires cumulative local-anesthetic dose limits and physiologic monitoring.
 
@@ -219,7 +342,7 @@ This is an AI-assisted discrepancy screen, not clinical approval. I am not a lic
 
 ## `foreign_body_removal_soft_tissue` - Foreign Body Removal (Soft Tissue)
 
-**Screening disposition: STOP-SHIP.**
+**Screening disposition: `MINOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The findings are addressed in `fb22f79`. Pending artwork stopped being release-gating on 2026-07-30 by owner decision, which had already resolved the artwork half of this lane's stop-ships before this adjudication began. MINOR rather than no-material-discrepancy because the tourniquet device is described by property rather than bound to a stocked product, and the escalation from ultrasound to CT is left to judgement. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.**
 
 **Coverage and source standard.** Reviewed every section, radiography/ultrasound/CT escalation, incision/dissection, confirmation, equipment, digital tourniquet, wound closure, tetanus/antibiotics, and the placeholder visual. ACR supports US or noncontrast CT after negative radiographs when suspicion persists and notes that glass is not invariably visible. ACEP supports high-frequency ultrasound for radiolucent localization and image-guided removal. A UK national patient-safety alert documents amputations from forgotten digital tourniquets.
 
