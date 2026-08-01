@@ -722,10 +722,26 @@ def synonym_map_issues(synonyms):
 
 
 def validate_rescue_coverage(procedures, rescue_cards):
-    """Flag procedures that have no rescue card coverage, especially high-risk ones."""
+    """Flag procedures no rescue card covers, especially high-risk ones.
+
+    Coverage runs in two directions and this used to read only one. A card
+    names the procedures it answers for in `relatedProcedureIDs`, and a
+    procedure names the card it escalates to in `dosing.rescueCardID`. Reading
+    only the first told thirteen procedures they had "no rescue card coverage"
+    while the app was rendering a rescue link on every one of them, because
+    each carries a dosing block pointing at the LAST card. A warning a reader
+    can see is false on the screen in front of them is worse than no warning:
+    it teaches them to discount the rest.
+
+    The underlying gap is still real, so the finding stays - a LAST link
+    answers for the injection, not for the bowel the paracentesis needle can
+    perforate. Only the wording changes, to say which of the two cases it is.
+    """
     issues = []
     covered_ids = set()
+    card_ids = set()
     for card in rescue_cards:
+        card_ids.add(card.get("id"))
         covered_ids.update(card.get("relatedProcedureIDs", []))
 
     high_risk = {"Advanced", "Rare-Crash"}
@@ -733,11 +749,20 @@ def validate_rescue_coverage(procedures, rescue_cards):
         pid = proc.get("id", "<missing>")
         title = proc.get("title", pid)
         difficulty = proc.get("difficulty", "")
-        if pid not in covered_ids:
-            if difficulty in high_risk:
-                issues.append(("WARNING", title, f"high-risk procedure ({difficulty}) has no rescue card coverage"))
-            else:
-                issues.append(("POLISH", title, "no rescue card coverage"))
+        if pid in covered_ids:
+            continue
+        linked = (proc.get("dosing") or {}).get("rescueCardID")
+        if linked and linked in card_ids:
+            issues.append((
+                "POLISH", title,
+                f"no rescue card names this procedure; it escalates to '{linked}' "
+                f"through its dosing block, which answers for that hazard rather "
+                f"than for this procedure's own complications",
+            ))
+        elif difficulty in high_risk:
+            issues.append(("WARNING", title, f"high-risk procedure ({difficulty}) has no rescue card coverage"))
+        else:
+            issues.append(("POLISH", title, "no rescue card coverage"))
     return issues
 
 

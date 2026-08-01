@@ -226,11 +226,33 @@ enum ContentValidator {
         return issues
     }
 
+    /// Coverage runs in two directions and this used to read only one. A card
+    /// names the procedures it answers for in `relatedProcedureIDs`, and a
+    /// procedure names the card it escalates to in `dosing.rescueCardID`.
+    /// Reading only the first told thirteen procedures they had "no rescue card
+    /// coverage" on this very screen while the procedure page was rendering a
+    /// rescue link on every one of them. A warning the reader can see is false
+    /// is worse than no warning: it teaches them to discount the rest.
+    ///
+    /// The gap underneath is real — a LAST link answers for the injection, not
+    /// for the bowel a paracentesis needle can perforate — so the finding
+    /// stays. Only the wording changes, to say which of the two cases it is.
+    /// Mirrors `validate_rescue_coverage` in scripts/validate_procedures.py.
     private static func validateRescueCoverage(_ procedures: [Procedure], rescueCards: [ComplicationRescueCard]) -> [ContentValidationIssue] {
         let coveredIDs = Set(rescueCards.flatMap(\.relatedProcedureIDs))
+        let cardIDs = Set(rescueCards.map(\.id))
         return procedures.compactMap { procedure in
             guard !coveredIDs.contains(procedure.id) else { return nil }
             let isHighRisk = procedure.difficulty == .advanced || procedure.difficulty == .rareCrash
+
+            if let linked = procedure.dosing?.rescueCardID, cardIDs.contains(linked) {
+                return ContentValidationIssue(
+                    severity: .polish,
+                    procedureID: procedure.id,
+                    procedureTitle: procedure.title,
+                    message: "no rescue card names this procedure; it escalates to '\(linked)' through its dosing block, which answers for that hazard rather than for this procedure's own complications."
+                )
+            }
             return ContentValidationIssue(
                 severity: isHighRisk ? .warning : .polish,
                 procedureID: procedure.id,

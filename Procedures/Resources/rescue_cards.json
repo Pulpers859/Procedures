@@ -629,5 +629,173 @@
     ],
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft"
+  },
+  {
+    "id": "orbit_still_tense_after_canthotomy",
+    "title": "Orbit still tense after canthotomy",
+    "acuity": "Crash",
+    "relatedProcedureIDs": [
+      "lateral_canthotomy"
+    ],
+    "trigger": [
+      "The lateral canthotomy is made but the orbit has not decompressed: the globe is still tense and proptotic, the intraocular pressure is still raised, and vision or the pupil has not improved.",
+      "The lower lid does not swing freely away from the globe when pulled outward and downward. That is the finding that says the release is incomplete."
+    ],
+    "immediateMoves": [
+      "Treat this as an incomplete cantholysis until proven otherwise. The skin incision is only the approach; releasing the inferior crus of the lateral canthal tendon is the treatment, and a canthotomy without it leaves the pressure unchanged.",
+      "Clear the field before cutting again: gentle pressure and gauze. Bleeding hides remaining tendon, and cutting into a bloody field beside a globe is how the globe gets injured.",
+      "Grasp the lower lid with toothed forceps and pull it outward and downward to put the inferior crus on tension, then strum for the taut band running to the lateral orbital rim.",
+      "Cut the remaining inferior crus with blunt-tipped scissors directed toward the orbital rim, inferiorly and slightly posteriorly, away from the globe. The lid should then swing freely and the globe should soften.",
+      "Reassess after the release: orbital tension, intraocular pressure, proptosis, and vision or at least light perception with the pupil.",
+      "Release the superior crus only when all three are still true after a genuinely complete inferior release - the orbit is still tense, the pressure is still raised, and vision or the pupil has not improved. It adds lacrimal artery and gland risk and adds little once the inferior release is adequate.",
+      "Call ophthalmology emergently and continue medical measures to lower intraocular pressure under their guidance, but do not wait for either to finish the release."
+    ],
+    "reassess": [
+      "Whether the lower lid swings freely away from the globe",
+      "Globe tension and proptosis on gentle palpation",
+      "Intraocular pressure if a tonometer is available",
+      "Vision or light perception and the pupil, after each release",
+      "Time from symptom onset to decompression"
+    ],
+    "avoid": [
+      "Do not accept the skin incision as the procedure. Without the cantholysis the orbital pressure is unchanged.",
+      "Do not move to the superior crus to compensate for an incomplete inferior release - an incompletely released inferior crus is far commoner than a genuine need to go superior.",
+      "Do not cut toward the globe, and do not substitute sharp or iris scissors for blunt-tipped ones in a swollen, bloody field.",
+      "Do not keep manipulating the orbit if globe rupture is suspected - stop and get emergent ophthalmology."
+    ],
+    "tags": [
+      "canthotomy",
+      "cantholysis",
+      "orbital compartment syndrome",
+      "retrobulbar hematoma",
+      "inferior crus",
+      "IOP",
+      "proptosis",
+      "vision loss",
+      "eye emergency"
+    ],
+    "lastReviewed": "2026-08-01",
+    "version": "0.1.0",
+    "references": [
+      "Rowh AD, et al. Lateral canthotomy and cantholysis: emergency management of orbital compartment syndrome. J Emerg Med. 2015;48(3):325-330. https://doi.org/10.1016/j.jemermed.2014.11.002",
+      "U.S. Joint Trauma System. Eye Trauma: Initial Care Clinical Practice Guideline. 2021. https://jts.health.mil/assets/docs/cpgs/Eye_Trauma_Initial_Care_01_Jun_2021_ID03.pdf",
+      "American Academy of Ophthalmology EyeWiki. Orbital Compartment Syndrome. https://eyewiki.aao.org/Orbital_Compartment_Syndrome",
+      "Verify local institutional policy, the ophthalmology consultation pathway, and which blunt scissors are stocked on the eye tray."
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
+  },
+  {
+    "id": "pericardiocentesis_needle_in_the_heart",
+    "title": "Needle position uncertain during pericardiocentesis",
+    "acuity": "Crash",
+    "relatedProcedureIDs": [
+      "pericardiocentesis"
+    ],
+    "trigger": [
+      "Blood back in the syringe, or blood that clots briskly, and no proof of where the tip is - about to dilate, pass a wire, or railroad a catheter.",
+      "Bright pulsatile return, new ventricular ectopy as the needle advances, or a tip that cannot be seen in the fluid pocket on ultrasound."
+    ],
+    "immediateMoves": [
+      "Stop. Do not dilate and do not railroad a catheter until position is proven. A needle hole in the right ventricle is one most patients survive; a dilator and a pigtail through the same hole is one they may not.",
+      "The colour of the aspirate answers nothing. In haemopericardium everything is blood, so this is exactly the case where the fluid-versus-blood test fails.",
+      "Prove position with agitated saline: inject a few millilitres and watch where the bubbles appear. Bubbles in the pericardial space confirm position; bubbles in the right ventricle mean the tip is inside the heart.",
+      "Alternatives when saline contrast is unavailable or equivocal: see the needle, wire, or catheter itself in the pericardial space on real-time ultrasound, or transduce the hub - a ventricular pressure waveform means the tip is in the ventricle.",
+      "Brisk clotting in the syringe supports intracardiac blood, since pericardial blood is usually defibrinated and does not clot. Treat it as a supporting sign, never as the confirmation.",
+      "If intracardiac: withdraw the needle, watch, and re-scan for a new or enlarging effusion. A needle hole usually seals.",
+      "Then re-plan rather than repeat: pick the largest pocket with the shortest safe path, read the depth off the screen, and advance under real-time visualisation. Activate cardiothoracic surgery and blood if the effusion enlarges or the patient deteriorates."
+    ],
+    "reassess": [
+      "Where the bubbles went on agitated saline",
+      "Whether the wire, and then the catheter, is seen inside the pericardial space before anything is dilated",
+      "Rhythm and blood pressure - new ectopy suggests the tip is against or in myocardium",
+      "Repeat ultrasound for a new or enlarging effusion after any withdrawal",
+      "Residual effusion and whether tamponade physiology has actually resolved"
+    ],
+    "avoid": [
+      "Do not use the colour of the aspirate as confirmation.",
+      "Do not dilate or railroad a catheter over a wire nobody has seen inside the pericardial space. There is no emergency exception to looking.",
+      "Do not treat withdrawal of an intracardiac needle as the end of it - re-scan for a new or enlarging effusion.",
+      "Do not repeat blind passes at the window that just found the heart.",
+      "Do not read failure to improve after drainage as proof the needle was misplaced - clot, a second loculated pocket, or a different obstructive shock can all do that."
+    ],
+    "tags": [
+      "pericardiocentesis",
+      "tamponade",
+      "intracardiac needle",
+      "right ventricle",
+      "agitated saline",
+      "bubble study",
+      "guidewire",
+      "pigtail",
+      "haemopericardium",
+      "ultrasound"
+    ],
+    "lastReviewed": "2026-08-01",
+    "version": "0.1.0",
+    "references": [
+      "Ainsworth CD, Salehian O. Echo-guided pericardiocentesis: let the bubbles show the way. Circulation. 2011;123(4):e210-e211. https://doi.org/10.1161/CIRCULATIONAHA.110.005512",
+      "Tsang TS, et al. Consecutive 1127 therapeutic echocardiographically guided pericardiocenteses: clinical profile, practice patterns, and outcomes spanning 21 years. Mayo Clin Proc. 2002;77(5):429-436. https://doi.org/10.4065/77.5.429",
+      "European Society of Cardiology. 2025 ESC Guidelines for the management of myocarditis and pericarditis. Eur Heart J. 2025;46(40):3952-4041. https://doi.org/10.1093/eurheartj/ehaf192",
+      "Verify local institutional policy, the pericardiocentesis set stocked in your department, and the surgical escalation pathway."
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
+  },
+  {
+    "id": "no_circulation_after_thoracotomy",
+    "title": "No return of circulation after thoracotomy",
+    "acuity": "Crash",
+    "relatedProcedureIDs": [
+      "resuscitative_thoracotomy"
+    ],
+    "trigger": [
+      "The chest is open and there is still no organised cardiac activity, no pulse, and no measurable pressure after the incision, the pericardiotomy, or the aortic cross-clamp."
+    ],
+    "immediateMoves": [
+      "Work the recoverable technical failures in order before reaching for the endpoint. Almost every failed thoracotomy is a technical one.",
+      "Exposure first. The commonest technical failure is a small incision: extend it from the sternal edge to the table, and across the sternum to a clamshell for right-sided injury or wider access.",
+      "Confirm the pericardium is genuinely open. A tamponaded pericardium is tense and hard to pinch up - grasp and incise it longitudinally, anterior to the phrenic nerve, and evacuate clot.",
+      "Hunt the cardiac wound: inspect the posterior surface and the great vessels, lifting the heart carefully. Control with finger pressure first, then a Foley balloon, staples, or sutures, and do not tie a suture around a coronary artery.",
+      "Two-handed internal cardiac massage throughout, with blood products running. Internal defibrillation only for a shockable rhythm and at the low energy internal paddles use - commonly of the order of 10-20 J, confirmed against the paddle and defibrillator instructions rather than assumed.",
+      "If the clamp is on and nothing changed, question the clamp before the patient. It is probably on the oesophagus - check by feel against the orogastric tube - or the bleeding is above it.",
+      "Expect brisk bleeding from the divided internal mammary arteries the moment circulation returns in a clamshell. Look at the sternal edges first and ligate them."
+    ],
+    "reassess": [
+      "Organised cardiac activity and a perfusing rhythm - the resuscitation endpoint",
+      "Whether the incision truly runs from the sternum to the table",
+      "Whether the pericardium is open and decompressed, or only incised over a tense sac",
+      "Aortic clamp position under direct vision and by feel against the orogastric tube, with the clamp time said out loud every five minutes",
+      "Sternal edges for internal mammary bleeding once circulation returns",
+      "Blood product delivery and whether the theatre and surgeon are still a real destination"
+    ],
+    "avoid": [
+      "Do not keep massaging through an inadequate incision. Extend it.",
+      "Do not accept 'pericardium opened' without evacuated clot and a decompressed sac.",
+      "Do not leave a clamp that has not been identified under direct vision and by feel against the orogastric tube.",
+      "Do not carry on past the endpoint: no organised cardiac activity after tamponade release, haemorrhage control, and an aortic clamp is the answer the procedure gives. Stop there."
+    ],
+    "tags": [
+      "thoracotomy",
+      "EDT",
+      "clamshell",
+      "trauma arrest",
+      "pericardiotomy",
+      "aortic cross-clamp",
+      "internal mammary",
+      "internal cardiac massage",
+      "resuscitation endpoint",
+      "termination"
+    ],
+    "lastReviewed": "2026-08-01",
+    "version": "0.1.0",
+    "references": [
+      "Burlew CC, et al. Western Trauma Association critical decisions in trauma: resuscitative thoracotomy. J Trauma Acute Care Surg. 2012;73(6):1359-1363. https://doi.org/10.1097/TA.0b013e318270d2df",
+      "Seamon MJ, et al. An evidence-based approach to patient selection for emergency department thoracotomy: a practice management guideline from the Eastern Association for the Surgery of Trauma. J Trauma Acute Care Surg. 2015;79(1):159-173. https://doi.org/10.1097/TA.0000000000000648",
+      "Western Trauma Association. Adult Emergency Resuscitative Thoracotomy Algorithm and Procedure Guide. 2024. https://westerntrauma.org/wp-content/uploads/2024/02/ERT-Algorithm-Procedures.pdf",
+      "Verify the institutional trauma algorithm that governs signs of life, CPR windows, and termination, and confirm the tray holds a sternal-division instrument and compatible internal paddles."
+    ],
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft"
   }
 ]
