@@ -20,6 +20,9 @@ import json
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from atomic_write import atomic_write_text
+
 ROOT = Path(__file__).resolve().parents[1]
 PROCEDURES = ROOT / "Procedures" / "Resources" / "procedures.json"
 EXPORT_SCHEMA = "procedures.local-edits.v1"
@@ -119,9 +122,9 @@ def main(argv=None) -> int:
     # ASCII-escaped non-ASCII (the shipped file stores "\u2013", not an en
     # dash), and no trailing newline. Getting this wrong rewrites every line
     # containing a dash and buries the real change in hundreds of diff lines.
-    PROCEDURES.write_text(
+    atomic_write_text(
+        PROCEDURES,
         json.dumps(procedures, indent=2, ensure_ascii=True),
-        encoding="utf-8",
     )
     try:
         display_path = PROCEDURES.relative_to(ROOT)

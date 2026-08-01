@@ -178,4 +178,16 @@ enum ContentFreshness {
         guard !trimmed.isEmpty else { return false }
         return formatter.date(from: trimmed) == nil
     }
+
+    /// Today as an ISO `yyyy-MM-dd` string, in the one format this app stamps
+    /// dates with.
+    ///
+    /// The local stores each carried a byte-identical private copy of the
+    /// formatter above and their own `todayString`. Three independent
+    /// definitions of one format is three places to edit and two chances to
+    /// miss: a change to any one of them would desync the dates the stores
+    /// write from the dates this type parses, with nothing to catch it.
+    static func todayString(now: Date = Date()) -> String {
+        formatter.string(from: now)
+    }
 }

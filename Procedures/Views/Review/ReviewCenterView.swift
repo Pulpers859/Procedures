@@ -87,7 +87,7 @@ struct ReviewCenterView: View {
             Button("Restore Safe Items") {
                 restore(preview, replacingConflicts: false)
             }
-            if !preview.conflicts.isEmpty || !preview.staleProcedureIDs.isEmpty {
+            if preview.hasReplaceableConflicts {
                 Button("Replace Conflicting Local Items", role: .destructive) {
                     restore(preview, replacingConflicts: true)
                 }

@@ -30,7 +30,6 @@ struct ClinicalRecoverySnapshot: Identifiable, Hashable {
 
     var id: URL { url }
     var date: String { package.exportedAt }
-    var procedureEditCount: Int { package.edits.count }
 }
 
 struct ClinicalRecoveryPreview: Identifiable {
@@ -40,7 +39,19 @@ struct ClinicalRecoveryPreview: Identifiable {
     let unknownProcedureIDs: [String]
 
     var id: String { package.exportedAt + package.appVersion }
+
+    /// Nothing about this restore needs a decision: no conflicts, nothing
+    /// stale, nothing skipped.
     var canRestoreSafely: Bool { conflicts.isEmpty && staleProcedureIDs.isEmpty && unknownProcedureIDs.isEmpty }
+
+    /// Whether the destructive "replace" path has anything to act on.
+    ///
+    /// Deliberately narrower than `canRestoreSafely`: `unknownProcedureIDs`
+    /// are procedures no longer in this build, and they are skipped whichever
+    /// button is pressed, so offering to overwrite local work on their account
+    /// would be offering a destructive action that fixes nothing. The view
+    /// open-coded this test, which is how the two could drift apart.
+    var hasReplaceableConflicts: Bool { !conflicts.isEmpty || !staleProcedureIDs.isEmpty }
 }
 
 enum ClinicalRecoveryError: LocalizedError {

@@ -182,7 +182,7 @@ final class ProcedureEditStore: ObservableObject {
         } else {
             edits.sections[section.rawValue] = cleaned
         }
-        edits.editedAt = Self.todayString()
+        edits.editedAt = ContentFreshness.todayString()
         commit(edits, for: procedure.id)
     }
 
@@ -282,7 +282,7 @@ final class ProcedureEditStore: ObservableObject {
     func exportData() throws -> Data {
         let payload = ExportPayload(
             schema: Self.exportSchema,
-            exportedAt: Self.todayString(),
+            exportedAt: ContentFreshness.todayString(),
             edits: editsByProcedureID
         )
         let encoder = JSONEncoder()
@@ -296,7 +296,7 @@ final class ProcedureEditStore: ObservableObject {
         do {
             let data = try exportData()
             let url = FileManager.default.temporaryDirectory
-                .appendingPathComponent("procedure-edits-\(Self.todayString()).json")
+                .appendingPathComponent("procedure-edits-\(ContentFreshness.todayString()).json")
             try data.write(to: url, options: .atomic)
             return url
         } catch {
@@ -340,16 +340,4 @@ final class ProcedureEditStore: ObservableObject {
         }
     }
 
-    private static let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(identifier: "UTC")
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
-
-    private static func todayString(now: Date = Date()) -> String {
-        formatter.string(from: now)
-    }
 }

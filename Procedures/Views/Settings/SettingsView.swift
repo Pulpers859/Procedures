@@ -189,15 +189,11 @@ struct SettingsView: View {
                     Button("Done") { dismiss() }
                 }
             }
-            .navigationDestination(for: Procedure.self) { procedure in
-                ProcedureDetailView(procedure: procedure)
-            }
-            .navigationDestination(for: ComplicationRescueCard.self) { card in
-                RescueCardDetailView(card: card)
-            }
-            .navigationDestination(for: Kit.self) { kit in
-                KitDetailView(kit: kit)
-            }
+            // No value-based destinations are registered here on purpose.
+            // This stack pushes its screens with plain NavigationLink
+            // destinations; three `navigationDestination(for:)` registrations
+            // for Procedure, ComplicationRescueCard and Kit sat here with
+            // nothing in the stack ever pushing those values.
             .alert(item: $confirmation) { action in
                 Alert(
                     title: Text(action.title),

@@ -70,16 +70,14 @@ struct SavedView: View {
             }
             .navigationTitle("Saved")
             .settingsToolbar()
+            // Procedure is the only value this stack pushes. Registrations for
+            // ComplicationRescueCard and Kit used to sit here too, justified by
+            // a comment saying ProcedureDetailView's rescue links needed
+            // resolving at the root — but those links pass a destination
+            // closure rather than a value, so they never consulted this table.
+            // Saved holds no kits or rescue cards, so nothing else reaches it.
             .navigationDestination(for: Procedure.self) { procedure in
                 ProcedureDetailView(procedure: procedure)
-            }
-            // ProcedureDetailView surfaces rescue-card links, so this stack must
-            // resolve them at the root.
-            .navigationDestination(for: ComplicationRescueCard.self) { card in
-                RescueCardDetailView(card: card)
-            }
-            .navigationDestination(for: Kit.self) { kit in
-                KitDetailView(kit: kit)
             }
         }
     }

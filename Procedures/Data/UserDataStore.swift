@@ -359,7 +359,7 @@ final class UserDataStore: ObservableObject {
     func exportReviewData() throws -> Data {
         let payload = ReviewExportPayload(
             schema: Self.reviewExportSchema,
-            exportedAt: Self.todayString(),
+            exportedAt: ContentFreshness.todayString(),
             reviews: locallyReviewedContent
         )
         let encoder = JSONEncoder()
@@ -372,7 +372,7 @@ final class UserDataStore: ObservableObject {
         do {
             let data = try exportReviewData()
             let url = FileManager.default.temporaryDirectory
-                .appendingPathComponent("procedure-reviews-\(Self.todayString()).json")
+                .appendingPathComponent("procedure-reviews-\(ContentFreshness.todayString()).json")
             try data.write(to: url, options: .atomic)
             return url
         } catch {
@@ -825,7 +825,7 @@ final class UserDataStore: ObservableObject {
     ) {
         locallyReviewedContent[key] = LocalReviewRecord(
             disposition: disposition,
-            date: Self.todayString(),
+            date: ContentFreshness.todayString(),
             contentVersion: contentVersion,
             materialFingerprint: materialFingerprint,
             fingerprintVersion: ContentFingerprint.version
@@ -842,16 +842,4 @@ final class UserDataStore: ObservableObject {
         "\(kind):\(id)"
     }
 
-    private static let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(identifier: "UTC")
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
-
-    private static func todayString(now: Date = Date()) -> String {
-        return formatter.string(from: now)
-    }
 }

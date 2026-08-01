@@ -31,6 +31,16 @@ struct KitsHomeView: View {
                         message: error,
                         systemImage: "exclamationmark.triangle"
                     )
+                } else if repository.kits.isEmpty {
+                    // A load that succeeds and yields nothing is not the same
+                    // as a filter matching nothing. Without this the reader
+                    // saw "No kits in this category" and blamed the category
+                    // filter for a library that is not there at all.
+                    EmptyStateView(
+                        title: "No kits available",
+                        message: "The kit library is empty. Reinstall the app or restore a recovery package if this is unexpected.",
+                        systemImage: "shippingbox"
+                    )
                 } else {
                     List {
                         if searchText.isEmpty && !repository.kits.isEmpty {

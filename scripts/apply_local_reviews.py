@@ -32,6 +32,9 @@ import json
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from atomic_write import atomic_write_text
+
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCES = ROOT / "Procedures" / "Resources"
 EXPORT_SCHEMA = "procedures.local-reviews.v1"
@@ -264,7 +267,7 @@ def main(argv=None):
         # Match the shipped formatting exactly: 2-space indent, ASCII-escaped,
         # no trailing newline. ensure_ascii=False rewrites every line holding a
         # dash and buries the real change.
-        path.write_text(json.dumps(items, indent=2, ensure_ascii=True), encoding="utf-8")
+        atomic_write_text(path, json.dumps(items, indent=2, ensure_ascii=True))
         print(f"\nUpdated {path.name}.")
 
     print("Now run: python3 scripts/validate_procedures.py")
