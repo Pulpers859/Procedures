@@ -641,18 +641,23 @@ def unbounded_agent_issues(procedures, level="WARNING"):
     `block_inferior_alveolar` offers "lidocaine/articaine" and its dosing table
     has no articaine entry — anywhere in the file. A drug the procedure names
     with no ceiling is the gap the structured dosing block exists to close.
+
+    Checked for every procedure, not only ones that already carry a `dosing`
+    block. Gating on `item.get("dosing")` was itself the bug once: it meant a
+    procedure with no dosing block at all — the maximally unbounded case —
+    was invisible to this check, which is how pericardiocentesis, lumbar
+    puncture, and the arterial line all shipped naming lidocaine with no
+    ceiling anywhere in the record.
     """
     issues = []
     for item in procedures:
         dosing = item.get("dosing")
-        if not isinstance(dosing, dict):
-            continue
         title = item.get("title", item.get("id", "<missing id>"))
         listed = " ".join(
             str(agent.get("agent") or "")
-            for agent in dosing.get("agents") or []
+            for agent in (dosing.get("agents") or [])
             if isinstance(agent, dict)
-        ).lower()
+        ).lower() if isinstance(dosing, dict) else ""
         sections = item.get("sections") or {}
         prose = " ".join(
             list(sections.get("equipment") or []) + list(sections.get("steps") or [])

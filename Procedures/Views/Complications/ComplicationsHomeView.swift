@@ -200,32 +200,7 @@ struct RescueCardDetailView: View {
                     BulletListView(items: card.avoid)
                 }
 
-                if !relatedProcedures.isEmpty {
-                    SectionCard(title: "Related Procedures", systemImage: "link") {
-                        VStack(alignment: .leading, spacing: 10) {
-                            ForEach(relatedProcedures) { procedure in
-                                NavigationLink {
-                                    ProcedureDetailView(procedure: procedure)
-                                } label: {
-                                    HStack {
-                                        VStack(alignment: .leading, spacing: 2) {
-                                            Text(procedure.title)
-                                                .font(.subheadline.weight(.semibold))
-                                            Text(procedure.category.rawValue)
-                                                .font(.caption)
-                                                .foregroundStyle(.secondary)
-                                        }
-                                        Spacer()
-                                        Image(systemName: "chevron.right")
-                                            .font(.caption.weight(.semibold))
-                                            .foregroundStyle(.secondary)
-                                    }
-                                }
-                                .buttonStyle(.plain)
-                            }
-                        }
-                    }
-                }
+                RelatedProceduresCard(procedures: relatedProcedures)
 
                 if reviewModeEnabled {
                     SectionCard(title: "Review", systemImage: "checkmark.shield") {

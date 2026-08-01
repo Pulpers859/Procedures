@@ -354,9 +354,27 @@ final class ProcedureRepository: ObservableObject {
         kits.filter { $0.category == category }
     }
 
+    /// Ranked kit lookup, mirroring `searchRescueCards`: the best-matching
+    /// tier rather than a strict AND across every token, so one word the kit
+    /// doesn't happen to contain doesn't zero out an otherwise-good match.
     func searchKits(_ query: String) -> [Kit] {
-        guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return kits }
-        return kits.filter { $0.matches(query) }
+        struct ScoredKit {
+            let kit: Kit
+            let relevance: Kit.KitRelevance
+        }
+
+        let tokens = ClinicalSynonyms.contentTokens(in: query)
+        guard !tokens.isEmpty else { return kits }
+
+        let scored = kits
+            .map { ScoredKit(kit: $0, relevance: $0.relevance(forTokens: tokens)) }
+            .filter { $0.relevance.isMatch }
+        guard let bestTier = scored.map({ $0.relevance.matchedTokens }).max() else { return [] }
+
+        return scored
+            .filter { $0.relevance.matchedTokens == bestTier }
+            .sorted { $0.kit.title.localizedCaseInsensitiveCompare($1.kit.title) == .orderedAscending }
+            .map(\.kit)
     }
 
     func search(_ query: String) -> [Procedure] {

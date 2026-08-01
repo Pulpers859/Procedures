@@ -23,9 +23,15 @@ struct DeepReviewContent: View {
             DisclosureSectionCard(title: showGovernanceCopy ? "References + Disclaimer" : "References", systemImage: "books.vertical") {
                 VStack(alignment: .leading, spacing: 8) {
                     if procedure.sections.references.isEmpty {
-                        Text("No references entered yet. This should block release-quality content approval.")
-                            .font(.footnote.weight(.semibold))
-                            .foregroundStyle(AppSemanticColor.warningText)
+                        if showGovernanceCopy {
+                            Text("No references entered yet. This should block release-quality content approval.")
+                                .font(.footnote.weight(.semibold))
+                                .foregroundStyle(AppSemanticColor.warningText)
+                        } else {
+                            Text("No references entered yet.")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
                     } else {
                         ForEach(Array(procedure.sections.references.enumerated()), id: \.offset) { _, reference in
                             Text(reference)

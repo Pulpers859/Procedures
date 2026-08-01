@@ -188,7 +188,11 @@ class DosingGovernanceTests(unittest.TestCase):
         self.with_dosing = [p for p in load() if p.get("dosing")]
 
     def test_every_dosing_block_exists_on_the_expected_count(self):
-        self.assertEqual(len(self.with_dosing), 40)
+        """40 from the regional/infiltration governance pass, plus 4 added when
+        unbounded_agent_issues was widened to scan procedures with no dosing
+        block at all: pericardiocentesis, lumbar_puncture, arterial_line, and
+        anterior_nasal_packing all named lidocaine with no ceiling anywhere."""
+        self.assertEqual(len(self.with_dosing), 44)
 
     def test_the_cumulative_rule_is_fractional_everywhere(self):
         """"All local anesthetic this encounter shares one maximum" is not a

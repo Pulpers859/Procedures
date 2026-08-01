@@ -1511,7 +1511,57 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft"
+    "contentSource": "ai-draft",
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
+        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+      ]
+    }
   },
   {
     "id": "transvenous_pacemaker",
@@ -2035,7 +2085,57 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft"
+    "contentSource": "ai-draft",
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
+        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+      ]
+    }
   },
   {
     "id": "arterial_line",
@@ -2202,7 +2302,57 @@
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft"
+    "contentSource": "ai-draft",
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": "Epinephrine buys a higher ceiling and a drier field. Avoid it in an end-arterial field unless local policy says otherwise."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5
+          ],
+          "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
+        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+      ]
+    }
   },
   {
     "id": "thoracentesis",
@@ -4856,7 +5006,34 @@
         "Verify institutional policy on antibiotic prophylaxis with nasal packing, and read the instructions for use of the specific pack your department stocks."
       ]
     },
-    "visualAssets": []
+    "visualAssets": [],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            4.0
+          ],
+          "note": "Applied topically on pledgets here, not injected. Nasal mucosa absorbs close to intravenous rates, so it counts against this same ceiling in full."
+        }
+      ],
+      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Calculate the maximum in mg AND mL before soaking the first pledget - say it out loud.",
+        "Count every pledget against the running total; re-soaking a pledget is a second dose, not a top-up.",
+        "Know where the 20% lipid emulsion is before you start."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
+        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+      ]
+    }
   },
   {
     "id": "synchronized_cardioversion",

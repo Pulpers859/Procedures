@@ -168,7 +168,7 @@ struct ProcedureListView: View {
                             CategoryProcedureListView(category: category)
                         } label: {
                             VStack(alignment: .leading, spacing: 8) {
-                                Image(systemName: icon(for: category))
+                                Image(systemName: category.systemImageName)
                                     .font(.title3)
                                     .foregroundStyle(.blue)
                                 Text(category.rawValue)
@@ -196,21 +196,6 @@ struct ProcedureListView: View {
             }
             .listRowBackground(Color.clear)
             .listRowInsets(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16))
-        }
-    }
-
-    private func icon(for category: ProcedureCategory) -> String {
-        switch category {
-        case .airway: return "lungs.fill"
-        case .vascularAccess: return "drop.fill"
-        case .thoracic: return "stethoscope"
-        case .cardiacResuscitation: return "heart.fill"
-        case .neuro: return "brain.head.profile"
-        case .regionalAnesthesia: return "syringe"
-        case .woundSoftTissue: return "bandage.fill"
-        case .ultrasoundGuided: return "waveform.path.ecg.rectangle"
-        case .sedationAnalgesia: return "moon.zzz.fill"
-        case .other: return "square.grid.2x2"
         }
     }
 }

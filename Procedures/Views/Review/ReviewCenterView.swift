@@ -19,6 +19,7 @@ struct ReviewCenterView: View {
     @State private var reviewExportURL: URL?
     @State private var recoveryExportURL: URL?
     @State private var showingRecoveryImporter = false
+    @State private var showingRecoveryExportWarning = false
     @State private var recoveryPreview: ClinicalRecoveryPreview?
     @State private var recoveryError: String?
     @State private var selectedTab: ReviewCenterTab = .queue
@@ -214,10 +215,22 @@ struct ReviewCenterView: View {
             }
 
             Button {
-                recoveryExportURL = recoveryStore.writePortableExport(userData: userData, editStore: editStore)
+                showingRecoveryExportWarning = true
             } label: {
                 Label("Prepare Recovery Package", systemImage: "archivebox")
                     .frame(minHeight: AppLayout.controlMinHeight)
+            }
+            .confirmationDialog(
+                "Never enter patient identifiers",
+                isPresented: $showingRecoveryExportWarning,
+                titleVisibility: .visible
+            ) {
+                Button("Prepare Package") {
+                    recoveryExportURL = recoveryStore.writePortableExport(userData: userData, editStore: editStore)
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("This package includes your local notes. Check them before sharing to Files, iCloud Drive, or your Mac.")
             }
 
             if let recoveryExportURL {

@@ -299,6 +299,24 @@ enum ProcedureCategory: String, Codable, CaseIterable, Identifiable {
     case other = "Other"
 
     var id: String { rawValue }
+
+    /// SF Symbol shown for this category. Was defined identically in both
+    /// ProcedureListView and EquipmentHomeView (`icon(for:)` / `kitIcon(for:)`)
+    /// - one place means one place to keep in sync when a category is added.
+    var systemImageName: String {
+        switch self {
+        case .airway: return "lungs.fill"
+        case .vascularAccess: return "drop.fill"
+        case .thoracic: return "stethoscope"
+        case .cardiacResuscitation: return "heart.fill"
+        case .neuro: return "brain.head.profile"
+        case .regionalAnesthesia: return "syringe"
+        case .woundSoftTissue: return "bandage.fill"
+        case .ultrasoundGuided: return "waveform.path.ecg.rectangle"
+        case .sedationAnalgesia: return "moon.zzz.fill"
+        case .other: return "square.grid.2x2"
+        }
+    }
 }
 
 enum ProcedureDifficulty: String, Codable {

@@ -93,7 +93,7 @@ struct KitsHomeView: View {
                     ForEach(populatedCategories) { category in
                         categoryChip(
                             label: category.rawValue,
-                            systemImage: kitIcon(for: category),
+                            systemImage: category.systemImageName,
                             isSelected: selectedCategory == category,
                             tint: kitTint(for: category)
                         ) {
@@ -156,7 +156,7 @@ struct KitRow: View {
 
     var body: some View {
         HStack(spacing: 14) {
-            Image(systemName: kitIcon(for: kit.category))
+            Image(systemName: kit.category.systemImageName)
                 .font(.title3.weight(.semibold))
                 .foregroundStyle(kitTint(for: kit.category))
                 .frame(width: 42, height: 42)
@@ -280,32 +280,7 @@ struct KitDetailView: View {
                     }
                 }
 
-                if !relatedProcedures.isEmpty {
-                    SectionCard(title: "Related Procedures", systemImage: "link") {
-                        VStack(alignment: .leading, spacing: 10) {
-                            ForEach(relatedProcedures) { procedure in
-                                NavigationLink {
-                                    ProcedureDetailView(procedure: procedure)
-                                } label: {
-                                    HStack {
-                                        VStack(alignment: .leading, spacing: 2) {
-                                            Text(procedure.title)
-                                                .font(.subheadline.weight(.semibold))
-                                            Text(procedure.category.rawValue)
-                                                .font(.caption)
-                                                .foregroundStyle(.secondary)
-                                        }
-                                        Spacer()
-                                        Image(systemName: "chevron.right")
-                                            .font(.caption.weight(.semibold))
-                                            .foregroundStyle(.secondary)
-                                    }
-                                }
-                                .buttonStyle(.plain)
-                            }
-                        }
-                    }
-                }
+                RelatedProceduresCard(procedures: relatedProcedures)
 
                 if reviewModeEnabled {
                     SectionCard(title: "Review", systemImage: "checkmark.shield") {
@@ -375,7 +350,7 @@ struct KitDetailView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 14) {
-                Image(systemName: kitIcon(for: kit.category))
+                Image(systemName: kit.category.systemImageName)
                     .font(.title2.weight(.semibold))
                     .foregroundStyle(kitTint(for: kit.category))
                     .frame(width: 50, height: 50)
@@ -502,21 +477,6 @@ struct KitDetailView: View {
 }
 
 // MARK: - Shared helpers (used by both KitsHomeView and KitDetailView)
-
-private func kitIcon(for category: ProcedureCategory) -> String {
-    switch category {
-    case .airway: return "lungs.fill"
-    case .vascularAccess: return "drop.fill"
-    case .thoracic: return "stethoscope"
-    case .cardiacResuscitation: return "heart.fill"
-    case .neuro: return "brain.head.profile"
-    case .regionalAnesthesia: return "syringe"
-    case .woundSoftTissue: return "bandage.fill"
-    case .sedationAnalgesia: return "moon.zzz.fill"
-    case .ultrasoundGuided: return "waveform.path.ecg.rectangle"
-    case .other: return "square.grid.2x2"
-    }
-}
 
 private func kitTint(for category: ProcedureCategory) -> Color {
     switch category {

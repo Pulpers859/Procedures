@@ -286,6 +286,8 @@ struct ProcedureDetailView: View {
                 RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous)
                     .stroke(Color.red.opacity(0.22), lineWidth: 1)
             )
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("Open rescue, \(card.title)")
         }
         .buttonStyle(.plain)
     }

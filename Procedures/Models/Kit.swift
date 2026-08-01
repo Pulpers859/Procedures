@@ -50,15 +50,27 @@ struct Kit: Identifiable, Codable, Hashable {
         ])
     }
 
-    func matches(_ query: String) -> Bool {
-        // Stop words are dropped for the same reason as the rescue path: a
-        // filler word the kit happens not to contain must not zero the result.
-        let tokens = ClinicalSynonyms.contentTokens(in: query)
-        guard !tokens.isEmpty else { return true }
+    struct KitRelevance: Hashable {
+        let matchedTokens: Int
+        var isMatch: Bool { matchedTokens > 0 }
+    }
+
+    /// Scores the kit against already-normalized query tokens.
+    ///
+    /// Matching used to be a strict AND across every typed word, which meant
+    /// one word the kit happened not to contain collapsed the result to zero
+    /// — the same failure the rescue-card and procedure search paths were
+    /// fixed for. Scoring instead lets the caller keep the best-matching
+    /// tier, so a query degrades gracefully rather than falling off a cliff.
+    func relevance(forTokens tokens: [String]) -> KitRelevance {
+        guard !tokens.isEmpty else { return KitRelevance(matchedTokens: 0) }
         let haystack = searchFields().joined(separator: " ").lowercased()
-        return tokens.allSatisfy { token in
-            ClinicalSynonyms.group(for: token).contains { haystack.contains($0) }
+        let matched = tokens.reduce(into: 0) { count, token in
+            if ClinicalSynonyms.group(for: token).contains(where: { haystack.contains($0) }) {
+                count += 1
+            }
         }
+        return KitRelevance(matchedTokens: matched)
     }
 
     /// Flattened searchable text, for the corpus vocabulary that stops typo

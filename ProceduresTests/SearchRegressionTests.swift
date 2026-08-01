@@ -89,6 +89,23 @@ final class SearchRegressionTests: XCTestCase {
         }
     }
 
+    /// Kit search used to be a strict AND across every token (`Kit.matches`,
+    /// before it was rewritten to mirror the rescue-card relevance scoring),
+    /// so one word the kit's text happened not to contain zeroed the whole
+    /// result - the same failure class fixed twice already for procedures and
+    /// rescue cards, and unguarded by any test until now.
+    func testKitSearchDegradesGracefullyRatherThanZeroingOut() {
+        let repository = ProcedureRepository()
+        XCTAssertTrue(
+            repository.searchKits("chest tube").contains { $0.id == "kit_chest_tube" },
+            "a bare two-word query must still find the chest tube kit"
+        )
+        XCTAssertTrue(
+            repository.searchKits("chest tube setup").contains { $0.id == "kit_chest_tube" },
+            "'setup' does not appear anywhere in kit_chest_tube's text; a strict AND would return nothing"
+        )
+    }
+
     func testSynonymMapLoadsFromBundle() {
         XCTAssertFalse(ClinicalSynonyms.loadFailed, "synonyms.json must load from the app bundle")
         XCTAssertNotNil(ClinicalSynonyms.expansions["cric"], "core shorthand must survive the move to JSON")

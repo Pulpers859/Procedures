@@ -59,6 +59,7 @@
 		E075E2EF1601425490291385 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B9118E397A43DFBAA25820 /* RootTabView.swift */; };
 		ECF59648B12840F78DBE7AAD /* Components/EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B819C919EE4D2797D8FBA7 /* Components/EmptyStateView.swift */; };
 		F312BCB2A1354D51B8B76D53 /* Components/SectionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B31E7F747418789D2A966 /* Components/SectionCard.swift */; };
+		F315A9B85D70538657841E1A /* Components/RelatedProceduresCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67434C88EDF76F691EC90E08 /* Components/RelatedProceduresCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		14AA73F6A3DD4C6599CF0094 /* Views/Procedures/ProcedureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/ProcedureListView.swift; sourceTree = "<group>"; };
 		160FBDD0DD9E41C9906384DF /* ProceduresApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceduresApp.swift; sourceTree = "<group>"; };
 		292B31E7F747418789D2A966 /* Components/SectionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/SectionCard.swift; sourceTree = "<group>"; };
+		67434C88EDF76F691EC90E08 /* Components/RelatedProceduresCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/RelatedProceduresCard.swift; sourceTree = "<group>"; };
 		32D9DA74992140609FB5FBCB /* Data/ProcedureRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/ProcedureRepository.swift; sourceTree = "<group>"; };
 		4301701BC4A744288E325DE7 /* Components/CriticalWarningCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/CriticalWarningCard.swift; sourceTree = "<group>"; };
 		44016AEFAE5E48D48C84BAE1 /* Views/Procedures/ProcedureDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/Procedures/ProcedureDetailView.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				A91000000000000000000002 /* Data/ClinicalRecoveryStore.swift */,
 				6CBD851062FD4CF6B0503C4B /* Components/ProcedureCard.swift */,
 				292B31E7F747418789D2A966 /* Components/SectionCard.swift */,
+				67434C88EDF76F691EC90E08 /* Components/RelatedProceduresCard.swift */,
 				4301701BC4A744288E325DE7 /* Components/CriticalWarningCard.swift */,
 				FFD19908C0EF438BABD37112 /* Components/ChecklistRow.swift */,
 				60B819C919EE4D2797D8FBA7 /* Components/EmptyStateView.swift */,
@@ -354,6 +357,7 @@
 				A91000000000000000000001 /* Data/ClinicalRecoveryStore.swift in Sources */,
 				5A6D4E9C7089450EB8F5B4ED /* Components/ProcedureCard.swift in Sources */,
 				F312BCB2A1354D51B8B76D53 /* Components/SectionCard.swift in Sources */,
+				F315A9B85D70538657841E1A /* Components/RelatedProceduresCard.swift in Sources */,
 				8FE086BA856F4B1293051E57 /* Components/CriticalWarningCard.swift in Sources */,
 				BA427DAF09B3410CAD39E4DD /* Components/ChecklistRow.swift in Sources */,
 				ECF59648B12840F78DBE7AAD /* Components/EmptyStateView.swift in Sources */,

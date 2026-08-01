@@ -326,6 +326,23 @@ class UnboundedAgentTests(unittest.TestCase):
             MODULE.unbounded_agent_issues([self.procedure(["0.25% bupivacaine"])]), []
         )
 
+    def test_a_record_with_no_dosing_block_at_all_is_still_checked(self):
+        """The maximally unbounded case - no dosing block whatsoever - used to
+        be invisible to this rule because it gated on item.get("dosing") before
+        looking at prose at all. That is how pericardiocentesis, lumbar
+        puncture, and the arterial line all shipped naming lidocaine with no
+        ceiling anywhere in the record, on a check whose whole job is to catch
+        exactly that."""
+        procedure = {
+            "id": "no_dosing_block",
+            "title": "No Dosing Block",
+            "category": "Other",
+            "sections": {"equipment": ["1% lidocaine for skin infiltration"], "steps": []},
+        }
+        issues = MODULE.unbounded_agent_issues([procedure])
+        self.assertEqual(len(issues), 1)
+        self.assertIn("lidocaine", issues[0][2])
+
     def test_no_shipped_record_names_an_agent_it_cannot_bound(self):
         """The known gap - articaine on the inferior alveolar block - was closed
         on 2026-07-31 by removing the agent rather than by inventing a ceiling

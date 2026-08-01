@@ -50,8 +50,22 @@ laceration repair, incision and drainage, etc.).
 ```json
 "dosing": {
   "agents": [
-    {"name": "Lidocaine plain", "maxMgPerKg": 4.5, "absoluteMaxMg": 300},
-    {"name": "Bupivacaine plain", "maxMgPerKg": 2.5, "absoluteMaxMg": 175}
+    {
+      "agent": "Lidocaine",
+      "withEpinephrine": false,
+      "maxDoseMgPerKg": 4.5,
+      "absoluteMaxMg": 300,
+      "concentrationsPercent": [1.0, 2.0],
+      "note": null
+    },
+    {
+      "agent": "Bupivacaine",
+      "withEpinephrine": false,
+      "maxDoseMgPerKg": 2.5,
+      "absoluteMaxMg": 175,
+      "concentrationsPercent": [0.25, 0.5, 0.75],
+      "note": null
+    }
   ],
   "cumulativeWarning": "string - must state each agent is a fraction of its own ceiling, not a shared pool",
   "caveats": ["string - must include the site-of-injection absorption caveat and the owner-policy caveat"],
@@ -59,6 +73,13 @@ laceration repair, incision and drainage, etc.).
   "rescueCardID": "local_anesthetic_systemic_toxicity"
 }
 ```
+
+`agent` is the drug name alone (no strength, no epinephrine qualifier) — plain
+and with-epinephrine are separate `Agent` entries for the same drug, since
+epinephrine changes the ceiling. `concentrationsPercent` lists stocked
+strengths as percentages, strongest-selling first; the calculator derives
+mg/mL from these rather than storing it separately. `absoluteMaxMg` and `note`
+may be `null`.
 
 Governance rules enforced by `scripts/validate_procedures.py` and
 `scripts/tests/test_dosing_validation.py`:
@@ -84,11 +105,29 @@ a ceiling to stay under. It renders `MedicationDosingCard` under Shift Mode.
 ```json
 "medicationDosing": {
   "indication": "string",
-  "medications": [{"name": "string", "doseMgPerKg": 1.5, "notes": "string"}],
+  "medications": [
+    {
+      "medication": "Etomidate",
+      "role": "Induction",
+      "doseLowPerKg": 0.3,
+      "doseHighPerKg": null,
+      "unit": "mg/kg",
+      "onset": "15-45 s",
+      "durationNote": "lasts 5-10 min",
+      "caution": "string or null"
+    }
+  ],
   "selectionGuidance": ["string"],
-  "inductionRequirement": "string"
+  "inductionRequirement": "string",
+  "sourceNote": "string"
 }
 ```
+
+`doseLowPerKg`/`doseHighPerKg` are a single value when `doseHighPerKg` is
+`null`, or a range when it's set and greater than `doseLowPerKg` — the UI
+labels a range as such so it can't be misread as a maximum. `unit` is held as
+data (`"mg/kg"` or `"mcg/kg"`) because RSI mixes both. `sourceNote` and
+`inductionRequirement` are required, not optional.
 
 ## Content rules
 

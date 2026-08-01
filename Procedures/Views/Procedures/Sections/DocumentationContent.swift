@@ -48,7 +48,7 @@ struct DocumentationContent: View {
 
             SectionCard(title: "Local Notes", systemImage: "square.and.pencil") {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Kit locations, attending preferences, reminders. Stored only on device.")
+                    Text("Kit locations, attending preferences, reminders. Stored only on device - never enter patient identifiers.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                     TextEditor(text: $noteText)
