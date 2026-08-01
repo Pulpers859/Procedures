@@ -89,20 +89,36 @@ final class SearchRegressionTests: XCTestCase {
         }
     }
 
-    /// Kit search used to be a strict AND across every token (`Kit.matches`,
-    /// before it was rewritten to mirror the rescue-card relevance scoring),
-    /// so one word the kit's text happened not to contain zeroed the whole
-    /// result - the same failure class fixed twice already for procedures and
-    /// rescue cards, and unguarded by any test until now.
-    func testKitSearchDegradesGracefullyRatherThanZeroingOut() {
+    /// Kit search was a strict AND across every token, so one word the kit's
+    /// text happened not to contain zeroed the whole result.
+    ///
+    /// Counting matched tokens is not the fix on its own, and this test caught
+    /// that: kit text is short and heavily shared, so "setup" — a word in the
+    /// RSI, cric, and CVC checklists but not in the chest tube kit's own text
+    /// — scored those three above the kit the reader actually named, and a
+    /// best-tier filter then dropped the right answer entirely. Ranking on
+    /// title hits first is what holds the correct kit at the top.
+    func testKitSearchRanksTheNamedKitFirst() {
+        let repository = ProcedureRepository()
+        XCTAssertEqual(
+            repository.searchKits("chest tube").first?.id, "kit_chest_tube",
+            "a bare two-word query must rank the kit it names first"
+        )
+        XCTAssertEqual(
+            repository.searchKits("chest tube setup").first?.id, "kit_chest_tube",
+            "an incidental extra word must not displace the kit the reader named"
+        )
+        XCTAssertEqual(
+            repository.searchKits("lumbar puncture tray").first?.id, "kit_lumbar_puncture"
+        )
+    }
+
+    /// The flip side of not tiering: a match must never be silently dropped.
+    func testKitSearchKeepsTheNamedKitEvenWithAnUnmatchedWord() {
         let repository = ProcedureRepository()
         XCTAssertTrue(
-            repository.searchKits("chest tube").contains { $0.id == "kit_chest_tube" },
-            "a bare two-word query must still find the chest tube kit"
-        )
-        XCTAssertTrue(
             repository.searchKits("chest tube setup").contains { $0.id == "kit_chest_tube" },
-            "'setup' does not appear anywhere in kit_chest_tube's text; a strict AND would return nothing"
+            "the named kit must survive a query word its own text does not contain"
         )
     }
 

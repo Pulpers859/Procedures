@@ -354,9 +354,18 @@ final class ProcedureRepository: ObservableObject {
         kits.filter { $0.category == category }
     }
 
-    /// Ranked kit lookup, mirroring `searchRescueCards`: the best-matching
-    /// tier rather than a strict AND across every token, so one word the kit
-    /// doesn't happen to contain doesn't zero out an otherwise-good match.
+    /// Ranked kit lookup.
+    ///
+    /// Deliberately *not* filtered to a best-matching tier. Kit text is short
+    /// and heavily shared — every kit lists gloves, a drape, and a syringe —
+    /// so a tier filter lets one incidental word decide the whole result: for
+    /// "chest tube setup", "setup" appears in three other kits' checklists and
+    /// not in the chest tube kit's own text, so tiering drops the one kit the
+    /// reader named and returns three confident wrong answers. An empty result
+    /// is recoverable at the bedside; a wrong one that looks right is not.
+    ///
+    /// Every match is kept and ordered by how well it matches, title first.
+    /// With eight kits the list is short enough that ranking beats hiding.
     func searchKits(_ query: String) -> [Kit] {
         struct ScoredKit {
             let kit: Kit
@@ -366,14 +375,21 @@ final class ProcedureRepository: ObservableObject {
         let tokens = ClinicalSynonyms.contentTokens(in: query)
         guard !tokens.isEmpty else { return kits }
 
-        let scored = kits
+        return kits
             .map { ScoredKit(kit: $0, relevance: $0.relevance(forTokens: tokens)) }
             .filter { $0.relevance.isMatch }
-        guard let bestTier = scored.map({ $0.relevance.matchedTokens }).max() else { return [] }
-
-        return scored
-            .filter { $0.relevance.matchedTokens == bestTier }
-            .sorted { $0.kit.title.localizedCaseInsensitiveCompare($1.kit.title) == .orderedAscending }
+            .sorted { lhs, rhs in
+                if lhs.relevance.exactTitleHits != rhs.relevance.exactTitleHits {
+                    return lhs.relevance.exactTitleHits > rhs.relevance.exactTitleHits
+                }
+                if lhs.relevance.titleHits != rhs.relevance.titleHits {
+                    return lhs.relevance.titleHits > rhs.relevance.titleHits
+                }
+                if lhs.relevance.matchedTokens != rhs.relevance.matchedTokens {
+                    return lhs.relevance.matchedTokens > rhs.relevance.matchedTokens
+                }
+                return lhs.kit.title.localizedCaseInsensitiveCompare(rhs.kit.title) == .orderedAscending
+            }
             .map(\.kit)
     }
 

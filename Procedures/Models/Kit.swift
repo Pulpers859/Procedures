@@ -52,25 +52,48 @@ struct Kit: Identifiable, Codable, Hashable {
 
     struct KitRelevance: Hashable {
         let matchedTokens: Int
+        /// Query tokens appearing literally in the title.
+        let exactTitleHits: Int
+        /// Query tokens appearing in the title directly or through a synonym.
+        let titleHits: Int
+
         var isMatch: Bool { matchedTokens > 0 }
     }
 
     /// Scores the kit against already-normalized query tokens.
     ///
-    /// Matching used to be a strict AND across every typed word, which meant
-    /// one word the kit happened not to contain collapsed the result to zero
-    /// — the same failure the rescue-card and procedure search paths were
-    /// fixed for. Scoring instead lets the caller keep the best-matching
-    /// tier, so a query degrades gracefully rather than falling off a cliff.
+    /// Matching used to be a strict AND across every typed word, so one word
+    /// the kit happened not to contain collapsed the result to zero. Counting
+    /// matched tokens alone is not the fix either: with synonym expansion and
+    /// substring matching, a generic word buried in some other kit's checklist
+    /// scores that kit higher than the kit the reader named. "chest tube
+    /// setup" is the case — "setup" appears in the RSI, cric, and CVC kits but
+    /// not in the chest tube kit's own text, so ranking on token count alone
+    /// puts three wrong kits above the right one.
+    ///
+    /// Title hits break that: what the reader typed as the *name* of the thing
+    /// outranks a word that merely appears somewhere in a checklist.
     func relevance(forTokens tokens: [String]) -> KitRelevance {
-        guard !tokens.isEmpty else { return KitRelevance(matchedTokens: 0) }
-        let haystack = searchFields().joined(separator: " ").lowercased()
-        let matched = tokens.reduce(into: 0) { count, token in
-            if ClinicalSynonyms.group(for: token).contains(where: { haystack.contains($0) }) {
-                count += 1
-            }
+        guard !tokens.isEmpty else {
+            return KitRelevance(matchedTokens: 0, exactTitleHits: 0, titleHits: 0)
         }
-        return KitRelevance(matchedTokens: matched)
+        let haystack = searchFields().joined(separator: " ").lowercased()
+        let titleText = title.lowercased()
+
+        var matched = 0
+        var exactTitleMatches = 0
+        var titleMatches = 0
+        for token in tokens {
+            let group = ClinicalSynonyms.group(for: token)
+            if group.contains(where: { haystack.contains($0) }) { matched += 1 }
+            if group.contains(where: { titleText.contains($0) }) { titleMatches += 1 }
+            if titleText.contains(token) { exactTitleMatches += 1 }
+        }
+        return KitRelevance(
+            matchedTokens: matched,
+            exactTitleHits: exactTitleMatches,
+            titleHits: titleMatches
+        )
     }
 
     /// Flattened searchable text, for the corpus vocabulary that stops typo
