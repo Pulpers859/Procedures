@@ -47,7 +47,14 @@ struct RootTabView: View {
         }
     }
 
-    var body: some View {
+    // Split out of `body` deliberately. The recovery-backup work added seven
+    // chained autosave `.onChange` modifiers, and stacked on the five-tab
+    // TabView plus the disclaimer cover, Spotlight handling and the
+    // scene-phase hook, the single expression went past what the Swift type
+    // checker will solve: the build failed with "unable to type-check this
+    // expression in reasonable time". Each computed property and modifier
+    // below gives the compiler a scope it can close on its own.
+    private var tabs: some View {
         TabView(selection: selectedTab) {
             GuideHomeView()
                 // "Guide" named the content; the screen is a dispatcher, and
@@ -72,83 +79,74 @@ struct RootTabView: View {
                 .tabItem { Label("Saved", systemImage: "bookmark.fill") }
                 .tag(RootTab.saved)
         }
-        .tint(.blue)
-        .preferredColorScheme(appearance.colorScheme)
-        .fullScreenCover(isPresented: Binding(
-            get: { !hasAcceptedClinicalDisclaimer },
-            set: { newValue in
-                if newValue == false { hasAcceptedClinicalDisclaimer = true }
-            }
-        )) {
-            DisclaimerView {
-                hasAcceptedClinicalDisclaimer = true
-            }
-        }
-        .onContinueUserActivity(CSSearchableItemActionType) { activity in
-            if let identifier = activity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                deepLinkRouter.openSpotlightItem(identifier: identifier)
-            }
-        }
-        .onChange(of: deepLinkRouter.destination) { _, destination in
-            routeDeepLink(destination)
-        }
-        .onAppear {
-            // Overlay local edits before anything reads content, so Spotlight
-            // and the search index publish the corrected text.
-            repository.attachEditStore(editStore)
-            routeDeepLink(deepLinkRouter.destination)
-            reindexSpotlight()
-            let procedureIDs = ContentLoadAuthority.authoritativeIDs(
-                Set(repository.procedures.map(\.id)),
-                loadError: repository.loadError,
-                loadWarning: repository.loadWarning
-            )
-            let rescueCardIDs = ContentLoadAuthority.authoritativeIDs(
-                Set(repository.rescueCards.map(\.id)),
-                loadError: repository.rescueLoadError,
-                loadWarning: repository.rescueLoadWarning
-            )
-            let kitIDs = ContentLoadAuthority.authoritativeIDs(
-                Set(repository.kits.map(\.id)),
-                loadError: repository.kitLoadError,
-                loadWarning: repository.kitLoadWarning
-            )
+    }
 
-            userData.reconcileLoadedContent(
-                validProcedureIDs: procedureIDs,
-                validRescueCardIDs: rescueCardIDs,
-                validKitIDs: kitIDs
+    var body: some View {
+        tabs
+            .tint(.blue)
+            .preferredColorScheme(appearance.colorScheme)
+            .modifier(DisclaimerGate(hasAccepted: $hasAcceptedClinicalDisclaimer))
+            .modifier(
+                AutomaticRecoverySnapshots(
+                    userData: userData,
+                    editStore: editStore,
+                    recoveryStore: recoveryStore,
+                    onEditsChanged: reindexSpotlight
+                )
             )
-            // Only prune edits when the bundled load was complete; a transient
-            // failure must never delete a clinician's corrections.
-            if let procedureIDs {
-                editStore.pruneMissingProcedures(validProcedureIDs: procedureIDs)
+            .onContinueUserActivity(CSSearchableItemActionType) { activity in
+                if let identifier = activity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                    deepLinkRouter.openSpotlightItem(identifier: identifier)
+                }
             }
-        }
-        // Spotlight was indexed only at launch, so a correction made on shift
-        // did not reach it until the next cold start. The crash path is exactly
-        // where a clinician searches from outside the app, and serving them the
-        // text they had already fixed is the failure this app exists to avoid.
-        .onChange(of: editStore.editsByProcedureID) { _, _ in
-            reindexSpotlight()
-            recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore)
-        }
-        .onChange(of: userData.favoriteIDs) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
-        .onChange(of: userData.recentIDs) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
-        .onChange(of: userData.notes) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
-        .onChange(of: userData.checkedEquipment) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
-        .onChange(of: userData.kitCheckedItems) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
-        .onChange(of: userData.locallyReviewedContent) { _, _ in recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore) }
-        // A checklist session belongs to the case in front of the reader. The
-        // active-session sets used to be cleared only by constructing the
-        // store — a cold launch — and iOS keeps an app resident for days, so
-        // ticks from a previous case could reappear as the current room's
-        // state with no confirmation.
-        .onChange(of: scenePhase) { _, phase in
-            if phase == .background {
-                userData.endActiveChecklistSessions()
-                recoveryStore.snapshotNow(userData: userData, editStore: editStore)
+            .onChange(of: deepLinkRouter.destination) { _, destination in
+                routeDeepLink(destination)
             }
+            .onAppear(perform: handleAppear)
+            // A checklist session belongs to the case in front of the reader.
+            // The active-session sets used to be cleared only by constructing
+            // the store — a cold launch — and iOS keeps an app resident for
+            // days, so ticks from a previous case could reappear as the
+            // current room's state with no confirmation.
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .background {
+                    userData.endActiveChecklistSessions()
+                    recoveryStore.snapshotNow(userData: userData, editStore: editStore)
+                }
+            }
+    }
+
+    private func handleAppear() {
+        // Overlay local edits before anything reads content, so Spotlight
+        // and the search index publish the corrected text.
+        repository.attachEditStore(editStore)
+        routeDeepLink(deepLinkRouter.destination)
+        reindexSpotlight()
+        let procedureIDs = ContentLoadAuthority.authoritativeIDs(
+            Set(repository.procedures.map(\.id)),
+            loadError: repository.loadError,
+            loadWarning: repository.loadWarning
+        )
+        let rescueCardIDs = ContentLoadAuthority.authoritativeIDs(
+            Set(repository.rescueCards.map(\.id)),
+            loadError: repository.rescueLoadError,
+            loadWarning: repository.rescueLoadWarning
+        )
+        let kitIDs = ContentLoadAuthority.authoritativeIDs(
+            Set(repository.kits.map(\.id)),
+            loadError: repository.kitLoadError,
+            loadWarning: repository.kitLoadWarning
+        )
+
+        userData.reconcileLoadedContent(
+            validProcedureIDs: procedureIDs,
+            validRescueCardIDs: rescueCardIDs,
+            validKitIDs: kitIDs
+        )
+        // Only prune edits when the bundled load was complete; a transient
+        // failure must never delete a clinician's corrections.
+        if let procedureIDs {
+            editStore.pruneMissingProcedures(validProcedureIDs: procedureIDs)
         }
     }
 
@@ -174,6 +172,70 @@ struct RootTabView: View {
         case nil:
             break
         }
+    }
+}
+
+/// The clinical-disclaimer gate, lifted out of `RootTabView.body`.
+///
+/// A `Binding` rather than the `@AppStorage` itself so the cover's presentation
+/// state and the stored acceptance stay one value: dismissing by any route is
+/// the same as accepting, which is what the original inline binding encoded.
+@MainActor
+private struct DisclaimerGate: ViewModifier {
+    @Binding var hasAccepted: Bool
+
+    func body(content: Content) -> some View {
+        content.fullScreenCover(
+            isPresented: Binding(
+                get: { !hasAccepted },
+                set: { newValue in
+                    if newValue == false { hasAccepted = true }
+                }
+            )
+        ) {
+            DisclaimerView { hasAccepted = true }
+        }
+    }
+}
+
+/// Every local-data change that should trigger a recovery snapshot.
+///
+/// These were seven near-identical `.onChange` modifiers chained directly onto
+/// `RootTabView.body`; together with the rest of the chain they are what broke
+/// the type checker. Bundling them gives the compiler a separate scope to
+/// solve and puts the repeated `scheduleAutomaticSnapshot` call in one place,
+/// so a future published property cannot be wired up subtly differently from
+/// its six neighbours.
+/// `@MainActor` because `snapshot()` below is a plain helper that calls into
+/// the `@MainActor`-isolated stores. Without it that call is a hard isolation
+/// error — the same class of break that took this build down twice already.
+@MainActor
+private struct AutomaticRecoverySnapshots: ViewModifier {
+    @ObservedObject var userData: UserDataStore
+    @ObservedObject var editStore: ProcedureEditStore
+    @ObservedObject var recoveryStore: ClinicalRecoveryStore
+    /// Spotlight was indexed only at launch, so a correction made on shift did
+    /// not reach it until the next cold start. The crash path is exactly where
+    /// a clinician searches from outside the app, and serving them the text
+    /// they had already fixed is the failure this app exists to avoid.
+    let onEditsChanged: () -> Void
+
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: editStore.editsByProcedureID) { _, _ in
+                onEditsChanged()
+                snapshot()
+            }
+            .onChange(of: userData.favoriteIDs) { _, _ in snapshot() }
+            .onChange(of: userData.recentIDs) { _, _ in snapshot() }
+            .onChange(of: userData.notes) { _, _ in snapshot() }
+            .onChange(of: userData.checkedEquipment) { _, _ in snapshot() }
+            .onChange(of: userData.kitCheckedItems) { _, _ in snapshot() }
+            .onChange(of: userData.locallyReviewedContent) { _, _ in snapshot() }
+    }
+
+    private func snapshot() {
+        recoveryStore.scheduleAutomaticSnapshot(userData: userData, editStore: editStore)
     }
 }
 
