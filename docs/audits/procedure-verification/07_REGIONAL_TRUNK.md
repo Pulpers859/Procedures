@@ -140,11 +140,13 @@ code has ever decoded it.
 
 ### Known residual gaps
 
-- **`block_tap` stays MAJOR.** The ropivacaine ceiling itself is unchanged at 3
-  mg/kg, and the pharmacokinetic evidence says that figure is not safe for a
-  bilateral TAP. The card can no longer lead a reader to it, and the ceiling is
-  still a pharmacy and regional-anaesthesia decision that this repository cannot
-  make. That is the one open item left in these four lanes.
+- **`block_tap` is resolved, corrected 2026-08-01.** It was re-screened to
+  MAJOR on 2026-07-31 on the premise that the ropivacaine ceiling was still an
+  undecided pharmacy question. It was not: the clinical owner had already
+  adopted 3 mg/kg with no absolute cap a day earlier, in `34ffea6`
+  (2026-07-30), from his nominated drug reference, with the TAP toxicity
+  literature explicitly considered and set aside. `block_tap` re-screens to
+  MINOR with the other 27 blocks; nothing is open in these four lanes.
 - Needle length is still given as a range on several blocks rather than being
   selected by measured depth.
 - Coverage is stated as expected rather than guaranteed on the fascial-plane
@@ -254,7 +256,7 @@ No additional material discrepancy was identified in the sitting/lateral positio
 
 ## `block_tap` - Transversus Abdominis Plane (TAP) Block
 
-**Screening disposition: `MAJOR`.** Re-screened 2026-07-31 after owner adjudication; originally STOP-SHIP against the audited snapshot. The approach, coverage, anticoagulation classification, setup, and failure-plan findings are addressed in `4ea632d`, and the card now names concentrations and volumes that keep a bilateral block well below the concentrations the pharmacokinetic studies found troubling. It is not MINOR because the ropivacaine ceiling itself is unchanged at 3 mg/kg: no substitute figure was invented, and selecting one is a pharmacy and regional-anaesthesia decision this repository cannot make. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** because the structured dosing treats 3 mg/kg ropivacaine as a safe universal maximum for a block in which primary pharmacokinetic studies found potentially neurotoxic plasma concentrations at 3 mg/kg and after bilateral 200 mg dosing. Additional `MAJOR` approach/coverage, anticoagulation, setup, and failure-plan gaps require review.
+**Screening disposition: `MINOR`.** Corrected 2026-08-01; re-screened `MAJOR` on 2026-07-31, originally STOP-SHIP against the audited snapshot. The 2026-07-31 re-screening treated the ropivacaine ceiling as an undecided pharmacy question and held the record at MAJOR on that basis alone. It was not undecided: the clinical owner had already adopted 3 mg/kg with no absolute cap a day earlier, in `34ffea6` (2026-07-30), from his nominated drug reference, "with the TAP toxicity literature in 07_REGIONAL_TRUNK explicitly considered and set aside" (that commit's own words). The same figure appears in the owner's reference for both the fascial-plane and peripheral-nerve-block ropivacaine entries. The approach, coverage, anticoagulation classification, setup, and failure-plan findings are addressed in `4ea632d`, and the card names concentrations and volumes that keep a bilateral block well below the levels the pharmacokinetic studies flagged. This is a discrepancy-screen result, not clinical approval; `reviewerStatus` is unchanged. Original screening rationale: **STOP-SHIP.** because the structured dosing treats 3 mg/kg ropivacaine as a safe universal maximum for a block in which primary pharmacokinetic studies found potentially neurotoxic plasma concentrations at 3 mg/kg and after bilateral 200 mg dosing; the owner's adoption of that exact figure, made with those studies already in view, is the adjudication that resolves this finding.
 
 ### Source-standard summary
 

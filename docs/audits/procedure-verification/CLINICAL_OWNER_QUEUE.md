@@ -109,8 +109,8 @@ Evidence lanes: [airway/sedation](01_AIRWAY_SEDATION.md),
 
 ## P1: Replace the Dosing Governance Model
 
-**Adjudicated 2026-07-31, addressed in `4ea632d`. One item remains open - see
-the end of this section.**
+**Adjudicated 2026-07-31, addressed in `4ea632d`. Fully closed as of
+2026-08-01 - see the end of this section.**
 
 The model now has five rules, applied to all forty dosing blocks in the corpus
 and asserted by test:
@@ -149,16 +149,23 @@ The specific bullets that opened this section:
   been removed everywhere it appeared.
 - The mixed-agent statement is corrected under rule 1.
 
-**Still open - the only unresolved disposition left in the corpus.** TAP's
-ropivacaine ceiling is unchanged at 3 mg/kg. Griffiths 2010 found potentially
-neurotoxic plasma concentrations after bilateral TAP at that figure, and Torup
-2012 found potentially toxic peaks in a third of patients after bilateral 200 mg
-totals. No substitute number was invented here, because selecting one is a
-pharmacy and regional-anaesthesia decision. What the content does instead is
-carry that evidence as a caveat on the four truncal fascial-plane blocks and
-name concentrations and volumes that keep a bilateral block well below it, so
-the card cannot lead anyone to the dose. `block_tap` is re-screened to `MAJOR`
-rather than `MINOR` until the ceiling itself is decided.
+**Closed 2026-08-01 - `block_tap` was held at `MAJOR`, incorrectly.** TAP's
+ropivacaine ceiling is 3 mg/kg with no absolute cap. Griffiths 2010 found
+potentially neurotoxic plasma concentrations after bilateral TAP at that
+figure, and Torup 2012 found potentially toxic peaks in a third of patients
+after bilateral 200 mg totals - and the 2026-07-31 adjudication read that
+literature as leaving the ceiling an open pharmacy decision this repository
+could not make. It was not open: the clinical owner had already decided it a
+day earlier, in `34ffea6` (2026-07-30), adopting 3 mg/kg with no absolute cap
+from his nominated drug reference "with the TAP toxicity literature ...
+explicitly considered and set aside" (that commit's own words). The same
+figure is what his reference states for both fascial-plane and
+peripheral-nerve-block ropivacaine. The content already does what it should
+given that decision: the four truncal fascial-plane blocks carry the
+pharmacokinetic evidence as a caveat and name concentrations and volumes that
+keep a bilateral block well below the levels the studies flagged, so the card
+does not lead anyone to the dose. `block_tap` re-screens to `MINOR` with the
+other 27 blocks. Nothing in the corpus carries an unresolved disposition.
 
 ## P2: Resolve Scope, Monitoring, and Failure Plans
 

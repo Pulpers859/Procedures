@@ -155,11 +155,13 @@ code has ever decoded it.
 
 ### Known residual gaps
 
-- **`block_tap` stays MAJOR.** The ropivacaine ceiling itself is unchanged at 3
-  mg/kg, and the pharmacokinetic evidence says that figure is not safe for a
-  bilateral TAP. The card can no longer lead a reader to it, and the ceiling is
-  still a pharmacy and regional-anaesthesia decision that this repository cannot
-  make. That is the one open item left in these four lanes.
+- **`block_tap` is resolved, corrected 2026-08-01.** It was re-screened to
+  MAJOR on 2026-07-31 on the premise that the ropivacaine ceiling was still an
+  undecided pharmacy question. It was not: the clinical owner had already
+  adopted 3 mg/kg with no absolute cap a day earlier, in `34ffea6`
+  (2026-07-30), from his nominated drug reference, with the TAP toxicity
+  literature explicitly considered and set aside. `block_tap` re-screens to
+  MINOR with the other 27 blocks; nothing is open in these four lanes.
 - Needle length is still given as a range on several blocks rather than being
   selected by measured depth.
 - Coverage is stated as expected rather than guaranteed on the fascial-plane

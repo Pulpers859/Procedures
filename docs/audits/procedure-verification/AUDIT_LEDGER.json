@@ -121,24 +121,24 @@
     {
       "corpus": "procedures.json",
       "recordId": "anterior_nasal_packing",
-      "auditFingerprint": "2dd82ae866f39453a60d3c93b900c195b384a35fb45c5bc5480fcafa5bdd111b",
+      "auditFingerprint": "c1f6022db7283f4e075414f9a9dfe4cf022916ffde2667de10b6e6b95fed5dff",
       "owner": "clinical owner",
-      "rationale": "Lane 05 adjudication 2026-07-31: findings addressed in content; see 05_GENERAL_PROCEDURES.md owner adjudication section.",
-      "commit": "fb22f79",
+      "rationale": "Council content-pipeline audit 2026-08-01 found unbounded_agent_issues only scanned records that already carried a dosing block, so a record with none at all - the maximally unbounded case - was invisible to it. Widened the check and closed the four real gaps it then found in 7202ef9: these four procedures named lidocaine in equipment/steps with no ceiling anywhere. Each now carries a structured dosing block (anterior_nasal_packing's scoped to its topical route).",
+      "commit": "7202ef9",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
       "recordId": "arterial_line",
-      "auditFingerprint": "38d5cb789335510012040e7b5d8d7a830cc1fe39b3d7afb17ee41fe43f358ed0",
-      "owner": "Patrick",
-      "rationale": "Second amendment for these records on 2026-07-30, covering the reference replacement that followed the clinical fixes amended at dc58371. The generic textbook and society-guidance entries the lane report flagged as MAJOR were replaced with the primary sources the report itself identified, each transcribed with title, year and locator; the Guilbert 2008 arterial-trauma series was added to the CVC because it is the evidence behind the leave-in-place rescue the card now instructs. No clinical instruction changed in this commit. With the clinical findings addressed, references traceable, and pending artwork no longer release-gating by owner decision, all six were re-screened from STOP-SHIP/MAJOR to MINOR in the lane report and AUDIT_INDEX.md.",
-      "commit": "f4241c7",
+      "auditFingerprint": "80bdb3f248fa6c4748a4d3fb19288aa3bb8bce8aa6a9b32bea8110c8508d70af",
+      "owner": "clinical owner",
+      "rationale": "Council content-pipeline audit 2026-08-01 found unbounded_agent_issues only scanned records that already carried a dosing block, so a record with none at all - the maximally unbounded case - was invisible to it. Widened the check and closed the four real gaps it then found in 7202ef9: these four procedures named lidocaine in equipment/steps with no ceiling anywhere. Each now carries a structured dosing block (anterior_nasal_packing's scoped to its topical route).",
+      "commit": "7202ef9",
       "expires": "2026-10-31",
-      "followUp": "reviewerStatus is deliberately unchanged: AUDIT_PROTOCOL.md forbids an agent from setting it, and the owner promotes a sign-off through the app export and scripts/apply_local_reviews.py so the fingerprint binds it to exact bytes. Residual MINOR items: introducer and dialysis IFU binding is scoped to stocked products rather than named per-product, and artwork remains pending on all six. The air-embolism rescue card is still an AI draft awaiting review.",
-      "recordedAt": "2026-07-30"
+      "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
@@ -561,13 +561,13 @@
     {
       "corpus": "procedures.json",
       "recordId": "lumbar_puncture",
-      "auditFingerprint": "ddbb3e6c123d294e8ee52a4b6e2d0b9798d558d5eea65c7522e6ee6677f3383a",
+      "auditFingerprint": "59eb75390ccdf730bd65c017f38d66e802ee6ae69f2828bf907de86db5b1b736",
       "owner": "clinical owner",
-      "rationale": "Lane 04 adjudication 2026-07-31: findings addressed in content; see 04_CARDIAC_NEURO.md owner adjudication section.",
-      "commit": "05ca4f0",
+      "rationale": "Council content-pipeline audit 2026-08-01 found unbounded_agent_issues only scanned records that already carried a dosing block, so a record with none at all - the maximally unbounded case - was invisible to it. Widened the check and closed the four real gaps it then found in 7202ef9: these four procedures named lidocaine in equipment/steps with no ceiling anywhere. Each now carries a structured dosing block (anterior_nasal_packing's scoped to its topical route).",
+      "commit": "7202ef9",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
@@ -594,13 +594,13 @@
     {
       "corpus": "procedures.json",
       "recordId": "pericardiocentesis",
-      "auditFingerprint": "fe38636b6c1705c6fc3f4eeda0347b6d97f73d972e9935b90e066fa0b91bb926",
+      "auditFingerprint": "b93db329bc0f0fa5a9fdffeb7c224dbf1148f70646b17df22b93188257367660",
       "owner": "clinical owner",
-      "rationale": "Lane 04 adjudication 2026-07-31: findings addressed in content; see 04_CARDIAC_NEURO.md owner adjudication section.",
-      "commit": "05ca4f0",
+      "rationale": "Council content-pipeline audit 2026-08-01 found unbounded_agent_issues only scanned records that already carried a dosing block, so a record with none at all - the maximally unbounded case - was invisible to it. Widened the check and closed the four real gaps it then found in 7202ef9: these four procedures named lidocaine in equipment/steps with no ceiling anywhere. Each now carries a structured dosing block (anterior_nasal_packing's scoped to its topical route).",
+      "commit": "7202ef9",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",

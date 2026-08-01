@@ -8,8 +8,8 @@
 
 - Audited procedures: **55/55**.
 - Proposed `STOP-SHIP`: **0** (28 at audit; 11 re-screened on 2026-07-30 and 17 on 2026-07-31).
-- Proposed `MAJOR`: **1** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30 and 25 on 2026-07-31, and one STOP-SHIP re-screened down to `MAJOR` rather than clear - `block_tap`, whose ropivacaine ceiling remains an open pharmacy decision).
-- Re-screened `MINOR` after owner adjudication: **54** (all nine lanes).
+- Proposed `MAJOR`: **0** (27 at audit; 2 re-screened to `MINOR` on 2026-07-30, 25 on 2026-07-31, and the last - `block_tap` - on 2026-08-01: it had been held at `MAJOR` on the premise that its ropivacaine ceiling was an undecided pharmacy question, but the clinical owner had already adopted 3 mg/kg with no absolute cap the day before, in `34ffea6`, from his nominated drug reference and with the toxicity literature explicitly considered).
+- Re-screened `MINOR` after owner adjudication: **55** (all nine lanes).
 - Corpus SHA-256: `3b642c17b79839d111a20e21f158765ba820d3a3a4889d2d49aaa37bf28edde1`.
 - Audit date: 2026-07-18.
 
@@ -74,7 +74,7 @@ report before assigning remediation priority.
 | Regional Anesthesia | `block_thoracic_esp` - Thoracic Erector Spinae Plane (ESP) Block | `MINOR` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
 | Regional Anesthesia | `block_tibial_nerve` - Tibial Nerve Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
 | Regional Anesthesia | `block_transgluteal_sciatic` - Transgluteal / Proximal Sciatic Nerve Block | `MINOR` | [08_REGIONAL_LOWER.md](08_REGIONAL_LOWER.md) |
-| Regional Anesthesia | `block_tap` - Transversus Abdominis Plane (TAP) Block | `MAJOR` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
+| Regional Anesthesia | `block_tap` - Transversus Abdominis Plane (TAP) Block | `MINOR` | [07_REGIONAL_TRUNK.md](07_REGIONAL_TRUNK.md) |
 | Regional Anesthesia | `block_ulnar_nerve` - Ulnar Nerve Block | `MINOR` | [06_REGIONAL_UPPER.md](06_REGIONAL_UPPER.md) |
 | Sedation & Analgesia | `procedural_sedation` - Procedural Sedation | `MINOR` | [01_AIRWAY_SEDATION.md](01_AIRWAY_SEDATION.md) |
 | Thoracic | `needle_decompression` - Needle Decompression | `MINOR` | [03_THORACIC.md](03_THORACIC.md) |
