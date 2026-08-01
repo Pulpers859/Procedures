@@ -143,24 +143,24 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_auricular",
-      "auditFingerprint": "64180d4736f0153150f7f11fd24c582674e299a874070ca2584a6cd627cf7048",
+      "auditFingerprint": "30d174d5d35dc4cce8347a976703c8b88d77a3b524cbd3908efaae9a4f10de4a",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
       "recordId": "block_deep_peroneal",
-      "auditFingerprint": "e013123ac1a9d23c6e8c6970d0fc3c3b130bdf4861a389b25ff3a8aa2dc2527b",
+      "auditFingerprint": "e9e6765e49f4f5fcf33f3a2df01def71821c8a9da9d6a12273297c75064dc955",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
@@ -209,13 +209,13 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_median_nerve",
-      "auditFingerprint": "3bc5860ab36dec7e4d722ccce0b92572ccbf4cf2e5dba4f2bd0ff7534090f519",
+      "auditFingerprint": "63481f37cd5fa8ca5a8964c2d23a98b7acbc26e538ca46cf277162eac04cc987",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
@@ -231,13 +231,13 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_pecs",
-      "auditFingerprint": "eab9e56ff1b7709ad54920362024efb8787f8676be717309f0d7c33d9a8a3c05",
+      "auditFingerprint": "e0276f29dc399a0a43facdd44bfc6ed219077748b6b891076ad9140e9778b404",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
@@ -253,24 +253,24 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_popliteal_sciatic",
-      "auditFingerprint": "386fdc32a84112a1b6162c184828f6db2dcfd083f8e1c121d33f200a534c7c32",
+      "auditFingerprint": "4ecc6cc81bad4157f136bfc2c21695b76786eb357f686fc7e397c49e212c543c",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
       "recordId": "block_radial_nerve",
-      "auditFingerprint": "ef1f9c01a52dff3c8457a406732ba0cf1d587974f380ac161bbee7ef4a39f6f0",
+      "auditFingerprint": "7984f2c36d1c773a9eb05fa355fc44952d81f474d35d16acb9e2a492cd4df98c",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
@@ -308,24 +308,24 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_superficial_cervical_plexus",
-      "auditFingerprint": "0d5a2f64cfe9d75612ed1a7ec8dcf8f15635ae054c34b9ea2a935f5768951842",
+      "auditFingerprint": "e7998975232a14953dfaf56fc23a48ed370344f695d0bdd4092808c047890531",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
       "recordId": "block_superficial_peroneal",
-      "auditFingerprint": "5bb72e11cc53b4921158984d81562ce27a2febf84b6b6f0e133f9e89d67157ce",
+      "auditFingerprint": "164d488b500a018731715a09be97b68ed5017943fc3a4fe3f53074e138a20a17",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
@@ -363,24 +363,24 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_sural_nerve",
-      "auditFingerprint": "4ceddb63672c94d36d6a6d0e31b9ef9b250b52cfc88d296ade9e7d32795f3157",
+      "auditFingerprint": "4c46c504651d78eca34a5065bc6fc1dd4b5c0e46fde47e1b5f237b735ff52c6a",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
       "recordId": "block_tap",
-      "auditFingerprint": "dfc84deb854b56484f1ad4280e6c66887cadb2028f80a8bbd85c8216d02d7a01",
+      "auditFingerprint": "946420cf34d3abac48aebadcb3d0e0e16b24b5544e838614bb87d3facc1a87ab",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
@@ -396,35 +396,35 @@
     {
       "corpus": "procedures.json",
       "recordId": "block_tibial_nerve",
-      "auditFingerprint": "459139bd697bcfa37f0e6f04bf7200d6105b18bbffeb6cae9252427d75c95625",
+      "auditFingerprint": "70bd094b929ff693589f4203a1a06ae671815cb72d232b8bbd7f28042ef244ef",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
       "recordId": "block_transgluteal_sciatic",
-      "auditFingerprint": "6f94f15d16f03736ea13d08b4fa6eb3271c64f8899bdc80dc3907713eaa91f79",
+      "auditFingerprint": "fd223578815d486f36fa5c69763807544c77f53acff9b3a7c1c078c59a4b580e",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
       "recordId": "block_ulnar_nerve",
-      "auditFingerprint": "fe486e49917a79e3bd3f8aa9beeee883accf10a66bb6fd6e64be6ad606003b12",
+      "auditFingerprint": "4e336c1bb4b45ea9b42d81e626402c3b9003622bb6df55cc1b4b9768a27b445b",
       "owner": "clinical owner",
-      "rationale": "Regional documentation and pre-block spine, adjudicated 2026-07-31, applied in 8dcb3ec.",
-      "commit": "8dcb3ec",
+      "rationale": "Validator thin-section warnings cleared in f2243d7. Each record gained one block-specific shiftMode line and, where steps were below the floor, a confirmation endpoint and any missing mechanical step. 21 of 22 added lines were surfaced from text already present and reviewed elsewhere in the same record (seniorPearls, troubleshooting, contraindications, confirmation, ultrasound), verified present before lifting; the exception is a needle-insertion step on the superficial peroneal block, which had none, matching the sentence every sibling block carries. No new clinical claim asserted, and the corrected needle targets (popliteal paraneural sheath, PECS II pectoserratus-only) are untouched. block_auricular additionally had literal numeric prefixes stripped from four steps that double-numbered in the UI.",
+      "commit": "f2243d7",
       "expires": "2026-10-31",
       "followUp": "Re-screen against the amended content and obtain reviewerStatus sign-off.",
-      "recordedAt": "2026-07-31"
+      "recordedAt": "2026-08-01"
     },
     {
       "corpus": "procedures.json",
