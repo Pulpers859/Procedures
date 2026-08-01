@@ -196,7 +196,7 @@ struct ReviewCenterView: View {
 
     @ViewBuilder
     private var recoverySection: some View {
-        Section("Recovery Backup") {
+        Section {
             if let date = recoveryStore.lastAutomaticBackupDate {
                 Label("Automatic backup: \(date)", systemImage: "checkmark.icloud")
                     .font(.subheadline)
@@ -242,6 +242,8 @@ struct ReviewCenterView: View {
                         .font(.subheadline)
                 }
             }
+        } header: {
+            Text("Recovery Backup")
         } footer: {
             Text("Automatic copies protect this app on this device. Save a recovery package to Files, iCloud Drive, or your Mac to survive an app deletion, phone replacement, or reset. It includes local notes; use approved storage and never enter patient identifiers. Restoring never changes bundled GitHub content.")
         }
