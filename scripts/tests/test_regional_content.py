@@ -43,7 +43,12 @@ def joined(record):
 class SafetySpineTests(unittest.TestCase):
     """One spine, applied identically. A block that quietly loses a line its 27
     neighbours carry is the failure mode this suite exists for - it would read
-    fine and be missing the part that matters."""
+    fine and be missing the part that matters.
+
+    The fragments asserted below are the canonical spine wording. Rewording the
+    spine in procedures.json means changing it in all 28 records and updating
+    the fragment here in the same commit - that coupling is deliberate, because
+    it is what stops one record drifting on its own."""
 
     def setUp(self):
         self.blocks = regional()
@@ -100,7 +105,7 @@ class SafetySpineTests(unittest.TestCase):
         for block in self.blocks:
             with self.subTest(block["id"]):
                 self.assertIn(
-                    "a deficit nobody looked for beforehand becomes the block's deficit",
+                    "pre-existing neurological deficit in the target territory",
                     joined(block),
                 )
 
@@ -155,13 +160,13 @@ class SafetySpineTests(unittest.TestCase):
         for block in self.blocks:
             with self.subTest(block["id"]):
                 self.assertIn(
-                    "before you draw up, and say it out loud", joined(block)
+                    "before drawing up - say it out loud", joined(block)
                 )
 
     def test_every_block_plans_for_failure_before_starting(self):
         for block in self.blocks:
             with self.subTest(block["id"]):
-                self.assertIn("before you start - not afterwards", joined(block))
+                self.assertIn("backup plan before you start", joined(block))
 
 
 class MetadataTests(unittest.TestCase):
@@ -281,12 +286,13 @@ class NeedleTargetTests(unittest.TestCase):
         """Off the rib is the intercostal space, and the pleura is behind it."""
         text = joined(self.records["block_serratus_anterior"])
         self.assertNotIn("hit the rib, slide off, inject", text)
-        self.assertIn("the rib is the endpoint rather than a waypoint", text)
+        self.assertIn("the rib is the endpoint, not a waypoint", text)
+        self.assertIn("off the rib is the intercostal space", text)
 
     def test_pecs_two_has_no_rib_endpoint(self):
         text = joined(self.records["block_pecs"])
         self.assertNotIn("serratus anterior (or ribs). inject", text)
-        self.assertIn("only that plane", text)
+        self.assertIn("stop at that plane - passing through serratus onto the ribs", text)
 
     def test_infraorbital_has_a_bounded_trajectory(self):
         """Depth without a direction is the part that goes wrong: a shallow
@@ -313,13 +319,14 @@ class OverclaimTests(unittest.TestCase):
         record = self.records["block_supraclavicular"]
         text = joined(record)
         self.assertIn("20 ml total", text)
-        self.assertIn("one total rather than two ranges", text)
+        self.assertNotIn("15-20 ml", text)
+        self.assertNotIn("15-25", text)
         self.assertNotIn("bouncing off the rib", text)
 
     def test_raptir_reduces_risk_rather_than_removing_it(self):
         text = joined(self.records["block_raptir"])
         self.assertNotIn("without the pneumothorax/phrenic risk", text)
-        self.assertIn("less, not none", text)
+        self.assertIn("less phrenic and pleural risk than a supraclavicular block, but not zero", text)
         self.assertIn("haemothorax", text)
         self.assertIn("acoustic shadow", text)
 
@@ -327,17 +334,18 @@ class OverclaimTests(unittest.TestCase):
         text = joined(self.records["block_thoracic_esp"])
         self.assertNotIn("remarkably safe", text)
         self.assertIn("does not remove it", text)
-        self.assertIn("variable rather than dermatomally predictable", text)
+        self.assertIn("variable, not dermatomally predictable", text)
 
     def test_serratus_is_an_adjunct_rather_than_essential(self):
         text = joined(self.records["block_serratus_anterior"])
         self.assertNotIn("essential for multi-level rib fractures", text)
-        self.assertIn("useful, and not essential", text)
+        self.assertIn("useful, not essential", text)
 
     def test_tap_is_classified_as_a_superficial_block(self):
         text = joined(self.records["block_tap"])
         self.assertIn("not an automatic prohibition", text)
-        self.assertIn("was wrong", text)
+        self.assertIn("superficial, compressible plane block, not a deep block", text)
+        self.assertNotIn("deep fascial plane", text)
 
     def test_supraorbital_states_one_volume(self):
         """Equipment said 3-5 mL, the steps added to 2-4, the worked example

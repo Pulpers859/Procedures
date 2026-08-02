@@ -826,7 +826,7 @@ class PleuralProcedureTests(unittest.TestCase):
         joined = self.sections("thoracentesis", "anatomy", "shiftMode")
         self.assertNotIn("NAV", joined)
         self.assertNotIn("nerve-artery-vein", joined)
-        self.assertIn("vein-artery-nerve", joined + " " + joined)
+        self.assertIn("vein, artery, nerve from superior to inferior", joined)
         self.assertIn("vein, artery,", joined)
         # The bundle is not reliably under the rib; saying so is the point.
         self.assertIn("not reliably", joined)
@@ -870,7 +870,7 @@ class PleuralProcedureTests(unittest.TestCase):
     def test_the_failed_needle_pathway_no_longer_contradicts_itself(self):
         """shiftMode allowed another needle while troubleshooting forbade it."""
         joined = self.sections("needle_decompression", "shiftMode", "troubleshooting")
-        self.assertIn("decide by capability", joined)
+        self.assertIn("if finger thoracostomy is available to you, do that", joined)
         self.assertIn("finger thoracostomy", joined)
 
     def test_a_tube_is_the_default_rather_than_the_exception(self):
@@ -909,13 +909,13 @@ class PleuralProcedureTests(unittest.TestCase):
         joined = self.sections("thoracostomy_chest_tube", "troubleshooting", "shiftMode")
         self.assertIn("1,500 mL", joined)
         self.assertIn("200 mL/h", joined)
-        self.assertIn("triggers to call, not thresholds to wait for", joined)
+        self.assertIn("is a call, not a number to wait for", joined)
 
     def test_the_drain_system_safety_rules_are_present_on_both_drains(self):
         for pid in ("thoracostomy_chest_tube", "pigtail_catheter"):
             with self.subTest(pid):
                 joined = self.sections(pid, "troubleshooting")
-                self.assertIn("Never clamp a bubbling drain", joined)
+                self.assertIn("Bubbling drain: never clamp", joined)
                 self.assertIn("below the insertion site", joined)
                 self.assertIn("three sides", joined)
 

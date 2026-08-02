@@ -101,7 +101,7 @@ class IntubationSafetyNumbersTests(unittest.TestCase):
     def test_the_collar_comes_off_for_laryngoscopy(self):
         """The counterintuitive half of the 2024 cervical-spine guidance, and
         the half that actually improves the view."""
-        collar = [line for line in self.lines if "front of the collar off" in line]
+        collar = [line for line in self.lines if "Remove the front of the collar for laryngoscopy" in line]
         self.assertEqual(len(collar), 1, self.lines)
 
     def test_the_old_cervical_spine_strawman_is_gone(self):
@@ -125,7 +125,8 @@ class IntubationSafetyNumbersTests(unittest.TestCase):
         open."""
         defined = [
             line for line in self.lines
-            if "Plan A" in line and "Plan B" in line and "Plan D" in line
+            if "A tracheal intubation" in line and "B supraglottic airway" in line
+            and "D front-of-neck access" in line
         ]
         self.assertEqual(len(defined), 1, self.lines)
         self.assertIn("supraglottic", defined[0])
@@ -137,12 +138,12 @@ class IntubationSafetyNumbersTests(unittest.TestCase):
         attempt by the same pair of hands."""
         plus_one = [line for line in self.lines if "The plus-one is a handover" in line]
         self.assertEqual(len(plus_one), 1, self.lines)
-        self.assertIn("the ceiling is three", plus_one[0])
+        self.assertIn("ceiling is three", plus_one[0])
 
     def test_awareness_under_paralysis_is_stated_as_a_duration_gap(self):
         """"Do not forget sedation" is not the same claim as "this patient will
         be awake and paralysed for 35 minutes"."""
-        aware = [line for line in self.lines if "awake, paralysed" in line]
+        aware = [line for line in self.lines if "awareness under paralysis" in line]
         self.assertEqual(len(aware), 1, self.lines)
         self.assertIn("35 minutes", aware[0])
 
@@ -161,7 +162,7 @@ class CricothyrotomyTechniqueTests(unittest.TestCase):
         self.lines = all_lines(self.record)
 
     def test_the_technique_is_named_once_and_committed_to(self):
-        named = [line for line in self.lines if "scalpel, bougie, tube (DAS 2025)" in line]
+        named = [line for line in self.lines if "scalpel-bougie-tube (DAS 2025)" in line]
         self.assertEqual(len(named), 1, self.lines)
         self.assertFalse(
             any("unless your institution has a specific kit" in line for line in self.lines)
@@ -171,8 +172,8 @@ class CricothyrotomyTechniqueTests(unittest.TestCase):
         """A Seldinger kit fails by wire kinking and dilator false passage; a
         scalpel technique fails by losing the tract. The troubleshooting for one
         is wrong for the other, so they cannot share a step list."""
-        for fragment in ("instructions for use rather than these steps",
-                         "not a substitute item in this list"):
+        for fragment in ("governed by its own instructions for use",
+                         "separate pathway, governed by its own instructions for use"):
             with self.subTest(fragment=fragment):
                 self.assertTrue(any(fragment in line for line in self.lines), fragment)
 
@@ -207,12 +208,12 @@ class CricothyrotomyTechniqueTests(unittest.TestCase):
         the reader to skip it: the patient is already not breathing."""
         block = [line for line in self.lines if "full neuromuscular block" in line]
         self.assertEqual(len(block), 1, self.lines)
-        self.assertIn("counterintuitive", block[0])
+        self.assertIn("even apnoeic, a straining patient", block[0])
 
     def test_oxygen_from_above_continues_through_the_incision(self):
         oxygen = [line for line in self.lines if "Oxygen from above continues" in line]
         self.assertEqual(len(oxygen), 1, self.lines)
-        self.assertIn("do not stop because you have started cutting", oxygen[0])
+        self.assertIn("Don't stop because you've started cutting", oxygen[0])
 
     def test_ultrasound_is_pre_crisis_only(self):
         ultrasound = self.record["sections"]["ultrasound"]
@@ -231,7 +232,7 @@ class CricothyrotomyTechniqueTests(unittest.TestCase):
     def test_bronchial_placement_and_pneumothorax_are_excluded_after_stabilising(self):
         aftercare = " ".join(self.record["sections"]["aftercare"])
         self.assertIn("exclude bronchial intubation and pneumothorax", aftercare)
-        self.assertIn("bridge, not a destination", aftercare)
+        self.assertIn("definitive airway plan", aftercare)
 
 
 class SedationStaffingAndMonitoringTests(unittest.TestCase):
@@ -248,15 +249,15 @@ class SedationStaffingAndMonitoringTests(unittest.TestCase):
     def test_the_monitor_is_dedicated_and_does_nothing_else(self):
         monitor = [line for line in self.lines if "does nothing else" in line]
         self.assertEqual(len(monitor), 1, self.lines)
-        self.assertIn("proceduralist cannot do it", monitor[0])
+        self.assertIn("proceduralist can't do it", monitor[0])
         self.assertFalse(
             any("sedation/monitoring clinician when possible" in line for line in self.lines)
         )
 
     def test_capnography_is_required_rather_than_ideal(self):
-        required = [line for line in self.lines if "Capnography is required, not optional" in line]
+        required = [line for line in self.lines if "capnography is required, not optional" in line]
         self.assertEqual(len(required), 1, self.lines)
-        self.assertIn("lagging indicator", required[0])
+        self.assertIn("saturation lags true oxygenation", required[0])
         for hedge in ("ideally ETCO2", "ETCO2 if available", "capnography when available"):
             with self.subTest(hedge=hedge):
                 self.assertFalse(any(hedge in line for line in self.lines), hedge)
@@ -272,7 +273,7 @@ class SedationStaffingAndMonitoringTests(unittest.TestCase):
         joined = " ".join(self.lines)
         self.assertIn("Urgent sedation is not delayed for fasting time", joined)
         self.assertIn("GLP-1 receptor agonist", joined)
-        self.assertIn("not the number of hours you wait", joined)
+        self.assertIn("not the hours waited", joined)
         self.assertFalse(any("Recent oral intake is contextual" in line for line in self.lines))
 
     def test_laryngospasm_and_vomiting_appear_in_the_records_own_troubleshooting(self):
@@ -288,7 +289,7 @@ class SedationStaffingAndMonitoringTests(unittest.TestCase):
 
     def test_reversal_lengthens_the_watch(self):
         """The intuition runs the other way: they are awake, so send them."""
-        reversal = [line for line in self.lines if "longer watch, not a shorter one" in line]
+        reversal = [line for line in self.lines if "extend the observation period" in line]
         self.assertEqual(len(reversal), 1, self.lines)
         self.assertIn("two-hour window", reversal[0])
 
@@ -305,12 +306,12 @@ class SedationStaffingAndMonitoringTests(unittest.TestCase):
         sedated patient cannot report early toxicity."""
         ceiling = [line for line in self.lines if "maximum local anaesthetic dose" in line]
         self.assertEqual(len(ceiling), 1, self.lines)
-        self.assertIn("cannot report the early symptoms", ceiling[0])
+        self.assertIn("cannot report early toxicity", ceiling[0])
 
     def test_airway_assessment_names_what_it_is_looking_for(self):
         assessment = [line for line in self.lines if "thyromental distance" in line]
         self.assertEqual(len(assessment), 1, self.lines)
-        self.assertIn("not a box to tick", assessment[0])
+        self.assertIn("any previous difficult airway", assessment[0])
 
 
 class AirwayReferenceTests(unittest.TestCase):

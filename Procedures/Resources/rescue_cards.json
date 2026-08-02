@@ -168,7 +168,7 @@
       "Need for retrieval"
     ],
     "avoid": [
-      "Do not pretend it did not happen. This is a patient-safety emergency."
+      "Do not pretend it did not happen."
     ],
     "tags": [
       "central line",
@@ -314,7 +314,7 @@
       "block_auricular"
     ],
     "trigger": [
-      "Early warning \u2014 stop injecting and reassess: numbness or tingling of the lips, mouth or tongue (perioral), ringing in the ears or tinnitus, metallic taste, light-headedness, blurred or double vision, drowsiness, agitation or confusion. This prodrome is the point at which stopping changes the outcome.",
+      "Early warning - stop injecting and reassess: numbness or tingling of the lips, mouth or tongue (perioral), ringing in the ears or tinnitus, metallic taste, light-headedness, blurred or double vision, drowsiness, agitation or confusion.",
       "Established toxicity: seizure, altered mental status, dysrhythmia, or cardiac arrest. May occur immediately or up to 60 minutes after injection.",
       "The prodrome may be absent or unobservable under sedation or general anaesthesia, where a dysrhythmia or sudden hypotension can be the first sign. Absence of early symptoms does not exclude LAST."
     ],
@@ -496,7 +496,7 @@
     "avoid": [
       "Do not force a laryngoscope or airway device through a closed glottis \u2014 worsens spasm and laryngeal trauma.",
       "Do not use jaw thrust without BVM mask seal \u2014 Larson's point maneuver (bilateral firm pressure at the condylar notch posterior to the jaw ramus) may help break spasm without an airway device.",
-      "Do not delay succinylcholine if BVM ventilation is failing \u2014 early use prevents full cardiorespiratory arrest.",
+      "Do not delay succinylcholine if BVM ventilation is failing.",
       "Do not use ketamine for sedation without suction immediately available \u2014 increased secretions can precipitate laryngospasm."
     ],
     "tags": [
@@ -602,7 +602,7 @@
       "Total volume already removed this session"
     ],
     "avoid": [
-      "Do not keep draining to 'finish the job' once symptoms start; the symptoms are the warning, not a nuisance.",
+      "Do not keep draining to 'finish the job' once symptoms start.",
       "Do not give diuretics reflexively - this is not volume overload.",
       "Do not attribute new hypoxia after drainage to the effusion itself without excluding pneumothorax.",
       "Do not use vacuum bottles or wall suction for therapeutic aspiration; suction increases this risk."
@@ -639,15 +639,15 @@
     ],
     "trigger": [
       "The lateral canthotomy is made but the orbit has not decompressed: the globe is still tense and proptotic, the intraocular pressure is still raised, and vision or the pupil has not improved.",
-      "The lower lid does not swing freely away from the globe when pulled outward and downward. That is the finding that says the release is incomplete."
+      "The lower lid does not swing freely away from the globe when pulled outward and downward - the release is incomplete."
     ],
     "immediateMoves": [
-      "Treat this as an incomplete cantholysis until proven otherwise. The skin incision is only the approach; releasing the inferior crus of the lateral canthal tendon is the treatment, and a canthotomy without it leaves the pressure unchanged.",
-      "Clear the field before cutting again: gentle pressure and gauze. Bleeding hides remaining tendon, and cutting into a bloody field beside a globe is how the globe gets injured.",
+      "Treat this as an incomplete cantholysis until proven otherwise. The skin incision is only the approach; releasing the inferior crus of the lateral canthal tendon is the treatment.",
+      "Clear the field before cutting again: gentle pressure and gauze. Bleeding hides remaining tendon.",
       "Grasp the lower lid with toothed forceps and pull it outward and downward to put the inferior crus on tension, then strum for the taut band running to the lateral orbital rim.",
       "Cut the remaining inferior crus with blunt-tipped scissors directed toward the orbital rim, inferiorly and slightly posteriorly, away from the globe. The lid should then swing freely and the globe should soften.",
       "Reassess after the release: orbital tension, intraocular pressure, proptosis, and vision or at least light perception with the pupil.",
-      "Release the superior crus only when all three are still true after a genuinely complete inferior release - the orbit is still tense, the pressure is still raised, and vision or the pupil has not improved. It adds lacrimal artery and gland risk and adds little once the inferior release is adequate.",
+      "Release the superior crus only when all three are still true after a genuinely complete inferior release - the orbit is still tense, the pressure is still raised, and vision or the pupil has not improved. It adds lacrimal artery and gland risk.",
       "Call ophthalmology emergently and continue medical measures to lower intraocular pressure under their guidance, but do not wait for either to finish the release."
     ],
     "reassess": [
@@ -697,8 +697,8 @@
       "Bright pulsatile return, new ventricular ectopy as the needle advances, or a tip that cannot be seen in the fluid pocket on ultrasound."
     ],
     "immediateMoves": [
-      "Stop. Do not dilate and do not railroad a catheter until position is proven. A needle hole in the right ventricle is one most patients survive; a dilator and a pigtail through the same hole is one they may not.",
-      "The colour of the aspirate answers nothing. In haemopericardium everything is blood, so this is exactly the case where the fluid-versus-blood test fails.",
+      "Stop. Do not dilate and do not railroad a catheter until position is proven.",
+      "The colour of the aspirate answers nothing - in haemopericardium everything is blood.",
       "Prove position with agitated saline: inject a few millilitres and watch where the bubbles appear. Bubbles in the pericardial space confirm position; bubbles in the right ventricle mean the tip is inside the heart.",
       "Alternatives when saline contrast is unavailable or equivocal: see the needle, wire, or catheter itself in the pericardial space on real-time ultrasound, or transduce the hub - a ventricular pressure waveform means the tip is in the ventricle.",
       "Brisk clotting in the syringe supports intracardiac blood, since pericardial blood is usually defibrinated and does not clot. Treat it as a supporting sign, never as the confirmation.",
@@ -714,7 +714,7 @@
     ],
     "avoid": [
       "Do not use the colour of the aspirate as confirmation.",
-      "Do not dilate or railroad a catheter over a wire nobody has seen inside the pericardial space. There is no emergency exception to looking.",
+      "Do not dilate or railroad a catheter over a wire nobody has seen inside the pericardial space.",
       "Do not treat withdrawal of an intracardiac needle as the end of it - re-scan for a new or enlarging effusion.",
       "Do not repeat blind passes at the window that just found the heart.",
       "Do not read failure to improve after drainage as proof the needle was misplaced - clot, a second loculated pocket, or a different obstructive shock can all do that."
@@ -753,7 +753,7 @@
       "The chest is open and there is still no organised cardiac activity, no pulse, and no measurable pressure after the incision, the pericardiotomy, or the aortic cross-clamp."
     ],
     "immediateMoves": [
-      "Work the recoverable technical failures in order before reaching for the endpoint. Almost every failed thoracotomy is a technical one.",
+      "Work the recoverable technical failures in order before reaching for the endpoint.",
       "Exposure first. The commonest technical failure is a small incision: extend it from the sternal edge to the table, and across the sternum to a clamshell for right-sided injury or wider access.",
       "Confirm the pericardium is genuinely open. A tamponaded pericardium is tense and hard to pinch up - grasp and incise it longitudinally, anterior to the phrenic nerve, and evacuate clot.",
       "Hunt the cardiac wound: inspect the posterior surface and the great vessels, lifting the heart carefully. Control with finger pressure first, then a Foley balloon, staples, or sutures, and do not tie a suture around a coronary artery.",
@@ -773,7 +773,7 @@
       "Do not keep massaging through an inadequate incision. Extend it.",
       "Do not accept 'pericardium opened' without evacuated clot and a decompressed sac.",
       "Do not leave a clamp that has not been identified under direct vision and by feel against the orogastric tube.",
-      "Do not carry on past the endpoint: no organised cardiac activity after tamponade release, haemorrhage control, and an aortic clamp is the answer the procedure gives. Stop there."
+      "Do not carry on past the endpoint: no organised cardiac activity after tamponade release, haemorrhage control, and an aortic clamp. Stop there."
     ],
     "tags": [
       "thoracotomy",

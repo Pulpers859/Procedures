@@ -184,7 +184,7 @@ class CardioversionEnergyTests(unittest.TestCase):
         """Biphasic waveforms are not interchangeable and the guideline itself
         defers to the manufacturer. Without this line the card asserts a
         universal number that its own source does not."""
-        self.assertIn("manufacturer recommendation takes precedence", self.text)
+        self.assertIn("manufacturer's recommended energy takes precedence", self.text)
 
     def test_sync_persistence_is_not_asserted_as_a_universal_default(self):
         """"Most devices reset" is a claim about defibrillators in general that
@@ -259,7 +259,7 @@ class TransvenousPacemakerTests(unittest.TestCase):
 
     def test_no_capture_is_named_as_a_position_problem(self):
         """Climbing the output is the intuitive move and the wrong one."""
-        self.assertIn("this is position, not power", self.text)
+        self.assertIn("position, not power", self.text)
 
     def test_the_balloon_rules_are_present(self):
         """Air only, inflated past the introducer, and never forced."""
