@@ -30,14 +30,14 @@
     ],
     "sections": {
       "shiftMode": [
-        "Call for help early; assign airway, meds, monitor, suction, backup airway, and post-intubation sedation roles.",
-        "Preoxygenate aggressively; consider NC apneic oxygenation, flush-rate NRB, NIV, or BVM with PEEP depending physiology.",
-        "Have suction in hand or immediately reachable before first attempt.",
-        "Choose first-pass plan and backup plan before pushing meds: video/direct laryngoscopy, introducer, supraglottic, cricothyrotomy. Make the first attempt the best attempt.",
-        "Name the plan and the action together: Plan A tracheal intubation, Plan B a supraglottic airway, Plan C a final facemask attempt and the wake-up-or-proceed decision, Plan D front-of-neck access. The letter alone means nothing to a room that has not read the guideline.",
-        "Maximum 3+1 attempts (DAS 2025): three attempts, plus one final attempt only by a more experienced colleague. Change something material between attempts - a suboptimal attempt is a wasted attempt.",
-        "The plus-one is a handover, not an extra turn for the same operator. If nobody more experienced is available, the ceiling is three.",
-        "If hypoxaemia occurs at any point, abandon the attempt and prioritise oxygenation with facemask ventilation. Oxygenate between attempts and maintain anaesthesia.",
+        "Call for help early \u2014 assign roles: airway, meds, monitor, suction, backup airway, post-intubation sedation.",
+        "Preoxygenate aggressively; consider NC apneic oxygenation, flush-rate NRB, NIV, or BVM with PEEP depending on physiology.",
+        "Have suction in hand or immediately reachable before the first attempt.",
+        "Choose first-pass and backup plans before pushing meds \u2014 video/direct laryngoscopy, introducer, supraglottic, cricothyrotomy. Make the first attempt the best attempt.",
+        "Name plan and action together: A tracheal intubation, B supraglottic airway, C final facemask attempt plus the wake-up-or-proceed decision, D front-of-neck access. A letter alone means nothing to a room that hasn't read the guideline.",
+        "Maximum 3+1 attempts (DAS 2025): three, plus one final attempt by a more experienced colleague only. Change something material each attempt \u2014 repeating the same technique wastes an attempt.",
+        "The plus-one is a handover, not an extra turn for the same operator. No one more experienced available: ceiling is three.",
+        "Hypoxaemia at any point: abandon the attempt, prioritise facemask oxygenation. Oxygenate between attempts; maintain anaesthesia.",
         "Physiology kills before anatomy: optimize hypotension, hypoxemia, severe acidosis, RV failure, and hyperkalemia when possible.",
         "Confirm with continuous waveform capnography; auscultation alone is not enough.",
         "Do not forget post-intubation analgesia/sedation and ventilator reassessment."
@@ -701,12 +701,12 @@
     "sections": {
       "shiftMode": [
         "This is an oxygenation rescue, not a perfect cosmetic airway.",
-        "Call failed airway out loud and assign someone to continue oxygenation attempts while you prep the neck.",
-        "Oxygen from above continues throughout. Leave the facemask or supraglottic device in place and keep delivering; do not stop because you have started cutting.",
-        "Ensure full neuromuscular block before you cut. This is counterintuitive in a patient who is already not breathing, but a straining patient or a closed glottis makes the procedure harder and the oxygenation worse.",
+        "Call failed airway out loud; assign someone to keep oxygenating while you prep the neck.",
+        "Oxygen from above continues throughout \u2014 leave the facemask or supraglottic device in place and keep delivering. Don't stop because you've started cutting.",
+        "Ensure full neuromuscular block before you cut \u2014 even apnoeic, a straining patient or closed glottis makes the procedure harder and oxygenation worse.",
         "Landmark before the airway is lost if the airway looks high risk.",
-        "Prep wide if time allows; do not let sterile perfection delay oxygenation in a true cannot-oxygenate crisis.",
-        "One technique: scalpel, bougie, tube (DAS 2025). A number 10 blade, a bougie, and a 6.0 cuffed tracheal tube. A commercial Seldinger kit is a different procedure with a different failure profile - if that is what is stocked, follow its instructions for use rather than these steps.",
+        "Prep wide if time allows \u2014 don't let sterile technique delay oxygenation in a true cannot-oxygenate crisis.",
+        "One technique: scalpel-bougie-tube (DAS 2025) \u2014 number 10 blade, bougie, 6.0 cuffed tracheal tube. A commercial Seldinger kit is a different procedure with a different failure profile; if that's what's stocked, follow its instructions instead.",
         "Confirm with ETCO2 and chest rise; secure aggressively."
       ],
       "indications": [
@@ -1744,11 +1744,11 @@
     "sections": {
       "shiftMode": [
         "This is an airway procedure wearing a comfort-procedure costume.",
-        "Adult moderate-to-deep sedation in the ED or ICU. Not general anaesthesia, not elective or outpatient sedation, and not paediatric sedation - each carries different staffing, monitoring, fasting, and recovery rules.",
-        "Sedation is a continuum and you get the depth you get, not the depth you intended. Be staffed and equipped to rescue a patient one level deeper than you are aiming for.",
-        "A dedicated clinician monitors the patient and does nothing else. The proceduralist cannot do it: during a reduction your hands are committed and your eyes are on the joint.",
+        "Adult moderate-to-deep sedation, ED or ICU only \u2014 not general anaesthesia, elective or outpatient sedation, or paediatric sedation; each has different staffing, monitoring, fasting, and recovery rules.",
+        "Sedation is a continuum \u2014 you get the depth you get, not the depth you intended. Staff and equip to rescue one level deeper than the target.",
+        "A dedicated clinician monitors and does nothing else \u2014 the proceduralist can't do it; hands and eyes are on the procedure.",
         "Pre-brief airway risk, hemodynamics, meds, dose plan, and rescue plan.",
-        "Continuous pulse oximetry, cardiac monitoring, blood pressure cycling, and continuous waveform capnography. Capnography is required, not optional: on supplemental oxygen the saturation is a lagging indicator by minutes, which is the whole reason you preoxygenated.",
+        "Continuous pulse oximetry, cardiac monitoring, cycled blood pressure, and continuous waveform capnography \u2014 capnography is required, not optional. On supplemental oxygen, saturation lags true oxygenation by minutes; that's why you preoxygenated.",
         "Have suction, BVM, airway adjuncts, and reversal/rescue meds physically in the room.",
         "Do not give more medication because the room is impatient; dose to patient response."
       ],
