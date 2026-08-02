@@ -268,13 +268,13 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm indication, site, side, anticoagulation/coagulopathy context, and whether this should be triple lumen, introducer, or dialysis catheter instead.",
-        "Use full sterile barrier: cap, mask, sterile gown/gloves, wide chlorhexidine prep, large drape.",
+        "Confirm indication, site, side, anticoagulation/coagulopathy status, and whether triple lumen, introducer, or dialysis catheter is needed instead.",
+        "Full sterile barrier: cap, mask, gown, gloves, wide chlorhexidine prep, large drape.",
         "Ultrasound before puncture: identify vein, artery, thrombus, depth, compressibility, and safest trajectory.",
-        "Needle tip visualization matters. Do not just watch tissue move.",
-        "Never dilate on blood return alone. Ultrasound the wire in two planes, or transduce, every time - there is no emergency exception to this step.",
+        "Track the needle tip itself \u2014 not just tissue movement.",
+        "Never dilate on blood return alone. Ultrasound the wire in two planes, or transduce, every time \u2014 no emergency exception.",
         "Keep control of the wire at all times.",
-        "Confirm placement and evaluate for complications per site and institutional practice."
+        "Confirm placement and screen for complications per site and institutional practice."
       ],
       "indications": [
         "Vasopressor or irritant medication administration",
@@ -463,7 +463,7 @@
         "Give the block time to work before starting repair.",
         "Reassess anesthesia and distal perfusion before procedure.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages - these catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -845,12 +845,12 @@
     "sections": {
       "shiftMode": [
         "Confirm side and indication before incision.",
-        "This card is the large-bore tube. For a simple pneumothorax or an uncomplicated effusion, a small-bore pigtail is the better device - see the pigtail catheter card.",
+        "Large-bore tube card \u2014 for a simple pneumothorax or an uncomplicated effusion, use the pigtail catheter card instead.",
         "Size by indication: 28-32 Fr for significant hemothorax, unstable trauma, or a large air leak; 20-24 Fr or larger for a ventilated patient with a significant leak.",
-        "Have suction/water seal system set up before the tube goes in.",
+        "Have suction/water seal set up before the tube goes in.",
         "Use safe triangle when possible; go over the rib, not under.",
-        "Finger sweep before tube advancement; do not blindly shove a tube through soft tissue.",
-        "Direct tube apically for pneumothorax and posterior/basilar for fluid when feasible.",
+        "Finger sweep before advancing the tube \u2014 don't blindly shove it through soft tissue.",
+        "Direct the tube apically for pneumothorax, posterior/basilar for fluid, when feasible.",
         "Massive hemothorax is a call, not a number to wait for: 1,500 mL out, 200 mL/h for 3 hours, or instability with ongoing output.",
         "Secure with strong suture and occlusive dressing; reassess breath sounds and imaging."
       ],
@@ -1042,14 +1042,14 @@
     ],
     "sections": {
       "shiftMode": [
-        "This card is the small-bore drain: simple pneumothorax, uncomplicated effusion, and pleural infection. Significant hemothorax and unstable trauma belong on the chest tube card.",
+        "Small-bore drain: simple pneumothorax, uncomplicated effusion, pleural infection. Significant hemothorax or unstable trauma \u2014 use the chest tube card instead.",
         "Size by indication: 8-14 Fr for pneumothorax, 12-14 Fr for effusion, 14 Fr or smaller for initial pleural infection drainage.",
         "Use ultrasound for fluid; confirm anatomy before puncture.",
-        "Measure the chest wall on ultrasound and dilate only that far. A dilator driven to the hub is how the lung or heart gets lacerated.",
-        "Seldinger discipline matters: never lose wire control and do not force dilation.",
+        "Measure chest wall depth on ultrasound; dilate only that far \u2014 driven to the hub, the dilator can lacerate the lung or heart.",
+        "Seldinger discipline: never lose wire control, don't force dilation.",
         "Confirm all side holes are intrathoracic before connecting drainage.",
-        "Secure well; small catheters dislodge easily.",
-        "Haemodynamic instability or suspected major ongoing bleeding excludes a bedside pigtail. Place a large-bore tube and involve surgery."
+        "Secure well \u2014 small catheters dislodge easily.",
+        "Haemodynamic instability or suspected major ongoing bleeding excludes a bedside pigtail \u2014 place a large-bore tube and involve surgery."
       ],
       "indications": [
         "Simple or selected pneumothorax in a stable patient",
@@ -1234,12 +1234,12 @@
       "shiftMode": [
         "This is a temporizing maneuver for suspected tension physiology.",
         "Do not wait for imaging in a crashing patient with compatible findings.",
-        "Use a 14 gauge or larger catheter with at least 8 cm (3.25 in) of usable length. A 5 cm catheter does not reach the pleural space in a large share of adults.",
-        "Primary site is the 4th or 5th intercostal space, anterior axillary line. Alternate is the 2nd intercostal space, midclavicular line.",
-        "Failure to decompress is common and expected. Have the next step ready before you start.",
-        "If you can perform a finger thoracostomy, that is the answer to a failed needle - not another needle.",
+        "Use a 14 gauge or larger catheter, at least 8 cm (3.25 in) of usable length \u2014 a 5 cm catheter often won't reach the pleural space.",
+        "Primary site: 4th or 5th intercostal space, anterior axillary line. Alternate: 2nd intercostal space, midclavicular line.",
+        "Failure to decompress is common and expected \u2014 have the next step ready before you start.",
+        "A failed needle means finger thoracostomy, not another needle.",
         "A tube follows. Assume it, and justify the exception rather than the rule.",
-        "Adult scope only. Paediatric site selection, device size, and dosing differ materially and are not covered by this card."
+        "Adult scope only \u2014 paediatric site selection, device size, and dosing differ materially and aren't covered here."
       ],
       "indications": [
         "Suspected tension pneumothorax with hemodynamic or respiratory compromise",
@@ -1316,7 +1316,7 @@
         "Failure is common enough that you must reassess immediately."
       ],
       "references": [
-        "Joint Trauma System. Wartime Thoracic Injury clinical practice guideline, ID 74. 2018. https://jts.health.mil/assets/docs/cpgs/Wartime_Thoracic_Injury_26_Dec_2018_ID74.pdf",
+        "Joint Trauma System. Wartime Thoracic Injury clinical practice guideline, ID 74. 2018. https://jts.health.mil/assets/docs/cpgs/Wartime_Thoracic_Injury_26_Dec_2018_ID74.pdf \u2014 Chest wall thickness studies show a standard 5 cm catheter fails to reach the pleural space in a substantial proportion of adults, supporting the 8 cm minimum length recommendation.",
         "Western Trauma Association. Evaluation and management of traumatic pneumothorax: a critical decisions algorithm. 2022. https://www.westerntrauma.org/wp-content/uploads/2024/02/32-Evaluation-and-management-of-traumatic-pneumothorax_-A-Western-Trauma-Association-critical-decisions-algorithm.pdf",
         "World Society of Emergency Surgery / AAST. Thoracic trauma guidelines. World J Emerg Surg. 2025. https://link.springer.com/article/10.1186/s13017-025-00651-1"
       ]
@@ -1369,12 +1369,12 @@
     "sections": {
       "shiftMode": [
         "This is for tamponade physiology, not just an effusion on ultrasound.",
-        "Ultrasound picks the pocket and the path. The subxiphoid landmark route is the fallback for when there is no machine, not the default.",
-        "Two situations are surgical rather than needle problems: aortic dissection and post-infarction free-wall rupture. Read contraindications before putting a needle in either.",
+        "Ultrasound picks the pocket and path; subxiphoid landmark route is the fallback for no machine, not the default.",
+        "Aortic dissection and post-infarction free-wall rupture are surgical, not needle, problems \u2014 read contraindications before needling either.",
         "Have resuscitation, pressors, blood, and surgical backup moving in parallel when indicated.",
         "Advance under visualization if possible; aspirate continuously or frequently.",
-        "Small volumes win. 20-50 mL is often enough to reverse tamponade physiology, and stopping there is a decision rather than a failure.",
-        "Keep the whole obstructive shock differential active; tamponade can coexist with bleeding, tension pneumothorax, or profound hypovolemia."
+        "20-50 mL often reverses tamponade physiology; stopping there is a decision, not a failure.",
+        "Keep the obstructive shock differential active \u2014 tamponade can coexist with bleeding, tension pneumothorax, or profound hypovolemia."
       ],
       "indications": [
         "Cardiac tamponade with hemodynamic compromise",
@@ -1586,13 +1586,13 @@
     "sections": {
       "shiftMode": [
         "Use when unstable bradycardia is not responding or needs bridge therapy.",
-        "Keep transcutaneous pacing and pressors running while placing if unstable.",
-        "Know the generator before you need it: rate, output in mA, sensitivity, battery, and which cable mates it to this catheter. The connector is the commonest thing missing from the trolley.",
-        "Electrical capture is not enough; confirm mechanical capture with pulse/BP/arterial waveform.",
-        "Spikes with no capture at maximum output is not a generator problem. The catheter is not where you think it is - reposition rather than climbing the output.",
+        "Keep transcutaneous pacing and pressors running while placing, if unstable.",
+        "Know the generator before you need it \u2014 rate, output in mA, sensitivity, battery, and which cable mates it to this catheter. The connector is the commonest thing missing from the trolley.",
+        "Electrical capture is not enough \u2014 confirm mechanical capture with pulse/BP/arterial waveform.",
+        "Spikes with no capture at maximum output means malposition, not a generator problem \u2014 reposition rather than increasing output.",
         "Secure catheter and generator carefully; dislodgement is common.",
         "Do not remove backup pads or pressors until capture is reliable and the catheter is secured.",
-        "Shortest dwell that reaches definitive care. Review the need daily, and preserve the side the permanent device will want."
+        "Shortest dwell that reaches definitive care \u2014 review the need daily, and preserve the side the permanent device will want."
       ],
       "indications": [
         "Unstable bradycardia refractory to medications/transcutaneous pacing",
@@ -1940,12 +1940,12 @@
     ],
     "sections": {
       "shiftMode": [
-        "Suspected bacterial meningitis: antibiotics first. Nothing about the LP - not imaging, not positioning, not consent, not finding the tubes - is allowed to move the first dose later.",
-        "An LP after antibiotics still answers the question. Cell count, glucose, protein, and PCR survive the first dose. The culture is what may be lost, which is why the blood cultures go before the antibiotics rather than the LP going before them.",
-        "Check the blood glucose immediately before the LP when meningitis is suspected. The CSF-to-blood glucose ratio needs a paired value, not this morning's.",
+        "Suspected bacterial meningitis: antibiotics first \u2014 nothing about the LP (imaging, positioning, consent, finding tubes) is allowed to delay the first dose.",
+        "Draw blood cultures before antibiotics, not the LP \u2014 an LP after antibiotics still answers the question (cell count, glucose, protein, and PCR survive the first dose); culture is what may be lost.",
+        "Check blood glucose immediately before the LP when meningitis is suspected \u2014 the CSF:blood glucose ratio needs a paired value, not this morning's.",
         "Position is the procedure: poor flexion and rotation kill success.",
         "Use L3-L4 or L4-L5; avoid going too high.",
-        "An atraumatic pencil-point needle is the default. It roughly halves post-dural-puncture headache and it needs an introducer.",
+        "Atraumatic pencil-point needle is the default; it needs an introducer.",
         "Have tubes labeled and the manometer assembled before puncture if opening pressure is needed.",
         "If traumatic or no flow, pause and reposition rather than digging.",
         "Document the neurological examination before local anaesthetic when feasible."
@@ -2055,7 +2055,7 @@
       "references": [
         "World Health Organization. Guidelines on Meningitis Diagnosis, Treatment and Care. 2025. https://iris.who.int/bitstream/handle/10665/381006/9789240108042-eng.pdf",
         "National Institute for Health and Care Excellence. Meningitis (bacterial) and meningococcal disease: recognition, diagnosis and management. NG240. 2024. https://www.nice.org.uk/guidance/NG240/chapter/recommendations",
-        "Nath S, et al. Atraumatic versus conventional lumbar puncture needles. BMJ Rapid Recommendation. 2018;361:k1920. https://doi.org/10.1136/bmj.k1920",
+        "Nath S, et al. Atraumatic versus conventional lumbar puncture needles. BMJ Rapid Recommendation. 2018;361:k1920. https://doi.org/10.1136/bmj.k1920 \u2014 atraumatic needles roughly halve the risk of post-dural-puncture headache compared with conventional needles.",
         "Engelborghs S, et al. Consensus guidelines for lumbar puncture in patients with neurological diseases. Alzheimers Dement (Amst). 2017;8:111-126. https://pmc.ncbi.nlm.nih.gov/articles/PMC5454085/",
         "Centers for Disease Control and Prevention. Injection safety and lumbar puncture infection-control practices. https://www.cdc.gov/injection-safety/hcp/clinical-guidance/index.html",
         "Link the local antithrombotic policy that governs hold intervals before neuraxial puncture. ASRA Pain Medicine's fifth-edition guideline is the usual source document for that policy: https://doi.org/10.1136/rapm-2024-105766",
@@ -2163,11 +2163,11 @@
         "Confirm indication, site preference (radial first), and assess collateral flow with ultrasound before committing.",
         "Position wrist in 20-30\u00b0 extension over a firm roll; tape securely without restricting distal circulation.",
         "Ultrasound preferred: identify radial artery, confirm pulsatility and depth, plan entry point.",
-        "Anesthetize even in awake patients \u2014 arterial puncture without local anesthetic causes involuntary movement and failed placement.",
-        "Advance catheter-over-needle with bevel up at 30-45\u00b0; on flashback, flatten and advance catheter. Use Seldinger for deep or small vessels.",
-        "Arterial waveform on the transducer is definitive confirmation \u2014 a flat or venous tracing means reposition or replace.",
-        "Label, zero at the phlebostatic axis, and square-wave test before relying on readings. Re-level after every bed height change.",
-        "MAP is relatively protected when the trace is damped or resonant; the systolic is not. Titrate to MAP."
+        "Anesthetize even in awake patients \u2014 unanesthetized puncture causes movement and failed placement.",
+        "Advance catheter-over-needle bevel-up at 30-45\u00b0; on flashback, flatten and advance. Use Seldinger for deep or small vessels.",
+        "Arterial waveform on the transducer is definitive confirmation \u2014 flat or venous tracing means reposition or replace.",
+        "Label, zero at the phlebostatic axis, square-wave test before trusting readings. Re-level after every bed height change.",
+        "MAP holds up better than systolic through damping or resonance \u2014 titrate to MAP."
       ],
       "indications": [
         "Continuous beat-to-beat blood pressure monitoring in hemodynamic instability or vasopressor titration",
@@ -2377,14 +2377,14 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm indication (diagnostic vs. therapeutic) and laterality; verify effusion is free-flowing on ultrasound \u2014 not loculated.",
-        "Mark the site with the patient in the procedure position; fluid pockets shift significantly when patients change position.",
-        "Puncture over the superior margin of the lower rib. The intercostal bundle runs vein-artery-nerve from superior to inferior in the costal groove, and it is not reliably tucked under the rib - collateral branches can sit mid-space.",
-        "Anesthetize all the way to the pleural surface \u2014 the parietal pleura is where the pain is.",
-        "For therapeutic: connect drainage before advancing the catheter; preventing air entry is critical. Manual syringe aspiration or gravity to a bag below the patient - never a vacuum bottle or wall suction.",
-        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary oedema. General ceiling is 1.5 L in one session.",
-        "Check lung sliding on ultrasound immediately in everyone. Chest x-ray only if symptomatic, air was aspirated, the procedure was difficult, sliding is absent or uncertain, or the patient is ventilated or cannot report symptoms.",
-        "Adult scope only. Paediatric site selection, device size, and dosing differ materially and are not covered by this card."
+        "Confirm indication (diagnostic vs. therapeutic) and laterality; verify on ultrasound that the effusion is free-flowing, not loculated.",
+        "Mark the site with the patient in the procedure position.",
+        "Puncture over the superior margin of the lower rib \u2014 the neurovascular bundle isn't always fully protected there.",
+        "Anesthetize down to the pleural surface \u2014 that's where the pain is.",
+        "For therapeutic drainage: connect the collection system before advancing the catheter, to keep air out. Use manual syringe aspiration or gravity to a bag below the patient \u2014 never a vacuum bottle or wall suction.",
+        "Drain to symptoms, not a number. Stop and clamp \u2014 don't just slow \u2014 for repeat cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary oedema. Ceiling: 1.5 L per session.",
+        "Check lung sliding on ultrasound in everyone, immediately after. CXR only if symptomatic, air was aspirated, the procedure was difficult, sliding is absent or uncertain, or the patient is ventilated or can't report symptoms.",
+        "Adult scope only \u2014 paediatric site selection, device size, and dosing differ materially and aren't covered here."
       ],
       "indications": [
         "Diagnostic evaluation of a new, undiagnosed pleural effusion",
@@ -2491,8 +2491,8 @@
       "references": [
         "British Thoracic Society. Clinical Statement on pleural procedures. Thorax. 2023;78(Suppl 3):s43-s68. https://thorax.bmj.com/content/78/Suppl_3/s43",
         "British Thoracic Society. Guideline for pleural disease. Thorax. 2023;78(11):1143-1156. https://thorax.bmj.com/content/78/11/1143",
-        "Society of Hospital Medicine. Recommendations on the use of ultrasound guidance for adult thoracentesis. J Hosp Med. 2018;13(2):126-135. https://cdn.mdedge.com/files/s3fs-public/Document/January-2018/jhm013020126.pdf",
-        "Wraight WM, Tweedie DJ, Parkin IG. Neurovascular anatomy and variation in the fourth, fifth, and sixth intercostal spaces in the mid-axillary line: a cadaveric study. Clin Anat. 2005;18(5):346-349. https://pubmed.ncbi.nlm.nih.gov/15971216/",
+        "Society of Hospital Medicine. Recommendations on the use of ultrasound guidance for adult thoracentesis. J Hosp Med. 2018;13(2):126-135. https://cdn.mdedge.com/files/s3fs-public/Document/January-2018/jhm013020126.pdf \u2014 Recommends marking the needle insertion site with the patient in the procedural position, since pleural fluid location shifts significantly when the patient's position changes.",
+        "Wraight WM, Tweedie DJ, Parkin IG. Neurovascular anatomy and variation in the fourth, fifth, and sixth intercostal spaces in the mid-axillary line: a cadaveric study. Clin Anat. 2005;18(5):346-349. https://pubmed.ncbi.nlm.nih.gov/15971216/ \u2014 Cadaveric study found the intercostal neurovascular bundle runs vein-artery-nerve in the costal groove and is not reliably tucked under the rib, with collateral branches sometimes present mid-space.",
         "Fresenius Kabi / FDA DailyMed. Lidocaine Hydrochloride Injection prescribing information, revised 2025. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=cddb2b22-fce3-8967-6e54-dca3df5ac4b3"
       ]
     },
@@ -2567,10 +2567,10 @@
         "Ultrasound marks the largest, safest pocket in the LLQ - avoids bowel, bladder, and inferior epigastric vessels.",
         "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum - reduces post-procedure fluid leak.",
         "For large-volume (>5 L): administer albumin 6-8 g per litre removed to prevent paracentesis-induced circulatory dysfunction.",
-        "Below 5 L albumin is not routine, but it is not forbidden either. Acute-on-chronic liver failure or a high risk of post-paracentesis acute kidney injury are reasons to give it at a smaller volume - a judgement, not a threshold.",
+        "Below 5 L, albumin isn't routine but isn't forbidden \u2014 consider it at a smaller volume for acute-on-chronic liver failure or high AKI risk; a judgement call, not a threshold.",
         "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap - you cannot rule out SBP clinically.",
         "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn - highest diagnostic yield for SBP.",
-        "Do not delay or cancel the tap to correct clotting numbers. Routine coagulation testing and prophylactic products are not recommended before paracentesis."
+        "Don't delay or cancel the tap to correct clotting numbers \u2014 routine coagulation testing and prophylactic products aren't recommended before paracentesis."
       ],
       "indications": [
         "New-onset ascites requiring diagnostic evaluation",
@@ -2778,7 +2778,7 @@
         "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node - ultrasound identifies occult pockets and depth, avoids dry incisions.",
         "Anesthetize generously before incising - acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
         "The incision must be adequate: span the entire fluctuant cavity and allow complete drainage and loculation breakdown.",
-        "Drainage and breaking down loculations is the treatment. Irrigation is optional - a randomised trial found no improvement in outcome from routine cavity irrigation, and it adds pain, time, and splash exposure. Irrigate a grossly contaminated or debris-filled cavity, and skip it for a clean one.",
+        "Breaking down loculations is the treatment. Irrigation is optional \u2014 skip it for a clean cavity, use it for a grossly contaminated one.",
         "Packing is also not routine. For a simple abscess under about 5 cm, routine packing added pain without reducing reintervention. Leave it open, or use a loop drain where the cavity or the site makes premature closure likely.",
         "Primary closure is contraindicated - leave it open.",
         "Antibiotics are a shared decision rather than a reflex in either direction. See aftercare."
@@ -2884,7 +2884,7 @@
       ],
       "references": [
         "Stevens DL, et al. Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 Update by IDSA. Clin Infect Dis. 2014;59(2):e10-e52. https://doi.org/10.1093/cid/ciu296",
-        "Chinnock B, Hendey GW. Irrigation of cutaneous abscesses does not improve treatment success. Ann Emerg Med. 2016;67(3):379-383. https://doi.org/10.1016/j.annemergmed.2015.08.007",
+        "Chinnock B, Hendey GW. Irrigation of cutaneous abscesses does not improve treatment success. Ann Emerg Med. 2016;67(3):379-383. https://doi.org/10.1016/j.annemergmed.2015.08.007 \u2014 RCT found no improvement in outcome from routine cavity irrigation; irrigation adds pain, time, and splash exposure.",
         "O'Malley GF, et al. Routine packing of simple cutaneous abscesses is painful and probably unnecessary. Acad Emerg Med. 2009;16(5):470-473. https://doi.org/10.1111/j.1553-2712.2009.00409.x",
         "Vermandere M, et al. Antibiotics after incision and drainage for uncomplicated skin abscesses: a clinical practice guideline. BMJ. 2018;360:k243. https://doi.org/10.1136/bmj.k243",
         "Talan DA, et al. Trimethoprim-sulfamethoxazole versus placebo for uncomplicated skin abscess. N Engl J Med. 2016;374(9):823-832. https://doi.org/10.1056/NEJMoa1507476"
@@ -2984,11 +2984,11 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm you actually need large-bore central access (massive transfusion, rapid volume, or a conduit for a transvenous pacer/PA catheter) \u2014 a triple lumen is not interchangeable with an introducer.",
-        "Full sterile barrier and ultrasound, exactly as for any central line. The larger dilator is less forgiving, not more.",
+        "Confirm you actually need large-bore central access (massive transfusion, rapid volume, or a conduit for a transvenous pacer/PA catheter) \u2014 a triple lumen isn't interchangeable with an introducer.",
+        "Full sterile barrier and ultrasound, same as any central line \u2014 the larger dilator is less forgiving, not more.",
         "Confirm the wire is venous before dilating \u2014 arterial dilation with an 8.5 Fr sheath is a surgical emergency.",
-        "Dilator and sheath advance together as a unit over the wire; keep the wire moving freely and never lose the back end.",
-        "Advance with gentle rotation, not force. The skin nick must be adequate or the sheath tip will peel back.",
+        "Dilator and sheath advance together as a unit over the wire; keep the wire moving freely, never lose the back end.",
+        "Advance with gentle rotation, not force \u2014 an inadequate skin nick lets the sheath tip peel back.",
         "Remove dilator and wire together, then immediately cap or connect the side port and aspirate/flush.",
         "Confirm position and screen for pneumothorax/arterial placement per site and local policy."
       ],
@@ -3145,13 +3145,13 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis) \u2014 a triple lumen will not deliver it.",
-        "Site choice matters: right IJ is preferred for function and lower complication; avoid subclavian to preserve future fistula options.",
+        "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis) \u2014 a triple lumen won't deliver it.",
+        "Site choice matters: right IJ preferred for function and lower complication; avoid subclavian to preserve future fistula options.",
         "Full sterile barrier and ultrasound, identical discipline to any central line.",
-        "Pick the length before you open the kit: right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm.",
+        "Pick the length before opening the kit: right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm.",
         "Confirm the wire is venous before dilating; dialysis catheters use serial dilators and a large stiff catheter.",
-        "Dilate sequentially without force; the tract must be developed enough to pass the catheter but not over-dilated.",
-        "Both lumens must aspirate and flush; lock each to the priming volume printed on the lumen, and aspirate that lock before the next use.",
+        "Dilate sequentially without force \u2014 enough to pass the catheter, not over-dilated.",
+        "Both lumens must aspirate and flush; lock each to its printed priming volume, and aspirate that lock before next use.",
         "Confirm tip position and screen for complications before the line is used for dialysis."
       ],
       "indications": [
@@ -3308,14 +3308,14 @@
     ],
     "sections": {
       "shiftMode": [
-        "Reserve for difficult access; do not default to it when a visible/palpable vein is available.",
-        "Measure the depth before you pick the catheter. Deeper than the catheter can seat means it will not stay in.",
-        "Aim for at least 2.75 cm of catheter inside the vein - about 4.8 cm of catheter at 1 cm depth, 6.3 cm at 1.5 cm. Past roughly 1.5-2 cm depth, ask whether this patient needs a midline instead.",
+        "Reserve for difficult access \u2014 don't default to it when a visible/palpable vein is available.",
+        "Measure depth before picking the catheter \u2014 too deep and it won't seat.",
+        "Aim for at least 2.75 cm of catheter inside the vein: about 4.8 cm of catheter at 1 cm depth, 6.3 cm at 1.5 cm. Past roughly 1.5-2 cm depth, consider a midline instead.",
         "Avoid the brachial artery and median nerve in the medial upper arm; confirm the structure is a compressible vein.",
         "Track the needle tip, not just tissue movement, in short or long axis as you advance.",
         "Confirm flash, then lower the angle and advance several more millimeters before threading the catheter.",
         "Confirm intraluminal position by flushing while imaging; watch for tissue bulging that signals infiltration.",
-        "Depth over 1.2 cm predicts failure. If the patient needs reliable access for days, a deep PIV is the wrong device and the problem lands on the night shift."
+        "Depth over 1.2 cm predicts failure. If the patient needs reliable access for days, a deep PIV is the wrong device \u2014 that problem lands on the night shift."
       ],
       "indications": [
         "Difficult intravenous access where surface veins are unavailable or repeatedly fail",
@@ -3860,7 +3860,7 @@
     "sections": {
       "shiftMode": [
         "Confirm anterior dislocation and document neurovascular status - especially axillary nerve sensation over the deltoid - before and after.",
-        "Neurovascular compromise is a reason to reduce sooner, not a reason to wait. The humeral head is what is compressing the artery or stretching the plexus, and putting it back is the treatment. Mobilise the specialist at the same time, not first.",
+        "Neurovascular compromise means reduce sooner, not wait \u2014 the humeral head causing it is fixed by reduction. Call the specialist in parallel, not first.",
         "Get pre-reduction imaging unless the presentation is clearly recurrent and atraumatic per local practice.",
         "Optimize analgesia/relaxation: intra-articular block, procedural sedation, or a gentle technique the patient can tolerate.",
         "Choose a low-force technique first (scapular manipulation, Cunningham, external rotation) before high-traction methods.",
@@ -4070,8 +4070,8 @@
         "Confirm spread under the fascia (a lens of fluid lifting the fascia) rather than within muscle.",
         "Have LAST rescue (lipid emulsion) and resuscitation equipment available before you start.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Aspirate before each increment and inject in stages.",
+        "Decide the fallback for a failed block before you start \u2014 not once the patient is already in pain."
       ],
       "indications": [
         "Analgesia for hip fracture (femoral neck, intertrochanteric) and proximal femur fractures",
@@ -4201,7 +4201,7 @@
       "references": [
         "American Academy of Orthopaedic Surgeons. Management of Hip Fractures in Older Adults: Evidence-Based Clinical Practice Guideline. 2021. https://www.aaos.org/hipfxcpg",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 frequent aspiration and incremental (fractionated) injection are recommended to help detect intravascular needle placement before a full toxic dose is delivered.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -4334,10 +4334,10 @@
     ],
     "sections": {
       "shiftMode": [
-        "This is a last-resort, time-critical trauma procedure. The criteria are below as numbers - if you are reasoning about whether the window has closed, it has.",
-        "Signs of life means any one of: a palpable pulse, a measurable blood pressure, spontaneous respiratory effort, pupillary reaction, spontaneous or purposeful movement, or organised cardiac electrical activity. None of the six, at any point since injury, and this is a resuscitation you are stopping rather than one you are opening.",
+        "This is a last-resort, time-critical trauma procedure \u2014 if you're reasoning about whether the window has closed, it has.",
+        "Signs of life means any one of: a palpable pulse, a measurable blood pressure, spontaneous respiratory effort, pupillary reaction, spontaneous or purposeful movement, or organised cardiac electrical activity. None of the six, at any point since injury \u2014 this is a resuscitation you're stopping, not one you're opening.",
         "CPR-duration windows (WTA 2024): under 15 minutes for penetrating trauma, under 10 minutes for blunt. Blunt arrest without signs of life is not an indication at any duration.",
-        "It presumes an operating theatre, a surgeon, and blood. Without a surgical destination this is not a bridge to anywhere.",
+        "Requires an operating theatre, a surgeon, and blood \u2014 without a surgical destination, this is not a bridge to anywhere.",
         "Goals, in order: release tamponade, control intrathoracic haemorrhage, allow internal cardiac massage, and cross-clamp the descending aorta if subdiaphragmatic bleeding is the problem.",
         "Left anterolateral thoracotomy at the 4th/5th intercostal space; extend across the sternum (clamshell) for right-sided or wider access.",
         "Open the pericardium longitudinally and anterior to the phrenic nerve to relieve tamponade.",
@@ -4504,10 +4504,10 @@
     "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
-        "IO is a bridge, not a destination. Transition to definitive IV access when stable.",
-        "Tibia is the easiest site and the default when unsure. The humerus flows faster and delivers drug to the central circulation sooner in arrest, but it is mis-sited more often and dislodges during CPR.",
-        "In a responsive patient the lidocaine comes first, then the flush. Flushing an un-anaesthetised marrow is the painful step, and doing it first wastes the lidocaine.",
-        "Lidocaine 2%, preservative-free and epinephrine-free: 0.5 mg/kg to a 40 mg ceiling. Use the calculator - a flat adult dose can be many times the correct dose for an infant.",
+        "IO is a bridge, not a destination \u2014 transition to definitive IV access once stable.",
+        "Tibia is the default site when unsure. Humerus flows faster and reaches central circulation sooner in arrest, but is mis-sited more often and dislodges during CPR.",
+        "In a responsive patient: lidocaine first, then flush \u2014 flushing unanesthetized marrow is painful and wastes the lidocaine.",
+        "Lidocaine 2%, preservative-free and epinephrine-free: 0.5 mg/kg to a 40 mg ceiling. Use the calculator \u2014 a flat adult dose can be many times the correct dose for an infant.",
         "Nearly all IV medications and fluids can be given IO. Pressure bag or push-pull syringe for rapid infusion.",
         "Aim to remove within 24 hours. Document site, time in, and reason for IO."
       ],
@@ -4693,7 +4693,7 @@
         "Superolateral approach is the most common. Medial approach is an alternative.",
         "Always send fluid for cell count, Gram stain, culture, and crystal analysis.",
         "Use sterile technique. A septic joint introduced by the tap is the complication that defines the case.",
-        "Tap before antibiotics when the patient is well enough to wait the few minutes it takes. If they are septic or in shock, give the antibiotics and tap after - blood cultures first, and say in the notes that the sample is post-antibiotic.",
+        "Tap before antibiotics if the patient can wait a few minutes. If septic or in shock: antibiotics first (blood cultures first), tap after \u2014 document the sample as post-antibiotic.",
         "Ultrasound guidance increases success, especially in obese patients or small effusions.",
         "Document appearance of fluid: clear, turbid, bloody, purulent."
       ],
@@ -5065,14 +5065,13 @@
     "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
-        "Synchronized cardioversion delivers a shock timed to the R wave. Always confirm SYNC mode is on before shocking.",
+        "Confirm SYNC mode is on before shocking \u2014 it times the shock to the R wave.",
         "Unstable = cardiovert now. Stable = consider rate control, rhythm control, or elective cardioversion.",
         "Signs of instability: hypotension, altered mental status, ischemic chest pain, acute heart failure.",
-        "Sedate the patient before cardioversion unless peri-arrest. Doses, monitoring, and rescue are on the procedural sedation card.",
+        "Sedate before cardioversion unless peri-arrest \u2014 doses, monitoring, and rescue are on the procedural sedation card.",
         "If the patient deteriorates into pulseless VT or VF, switch to defibrillation (SYNC off, max energy).",
         "Initial biphasic energy: atrial fibrillation 200 J, atrial flutter 200 J, narrow-complex SVT 100 J, monomorphic VT with a pulse 100 J.",
-        "Those 200 J figures replace the old habit of starting low and climbing. A failed low-energy shock costs the patient another sedation and another shock. AHA states at least 200 J is reasonable for fibrillation and that 200 J may be reasonable for flutter, so the recommendation is stronger for fibrillation than for flutter.",
-        "Your defibrillator's manufacturer recommendation takes precedence over any figure above. Biphasic waveforms are not interchangeable and current AHA guidance defers to the manufacturer's stated dose - find out what your machine says before the night you need it.",
+        "Manufacturer's recommended energy takes precedence over the figures above \u2014 find out what your machine says before the night you need it.",
         "Escalate toward the device maximum if a shock fails rather than repeating the same energy."
       ],
       "indications": [
@@ -5180,7 +5179,7 @@
       ],
       "references": [
         "American Heart Association. Electrical Cardioversion Algorithm, 2025 CPR and ECC Guidelines. 2025. https://www.heart.org/-/media/CPR-Files/CPR-Guidelines-Files/2025-Algorithms/Algorithm-ACLS-Electrical-Cardioversion-250514.pdf",
-        "American Heart Association. Part 9: Adult Advanced Life Support, 2025 CPR and ECC Guidelines - synchronized cardioversion energy and manufacturer dose deference. 2025. https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support",
+        "American Heart Association. Part 9: Adult Advanced Life Support, 2025 CPR and ECC Guidelines - synchronized cardioversion energy and manufacturer dose deference. 2025. https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support \u2014 AHA states at least 200 J is reasonable for fibrillation and that 200 J may be reasonable for flutter (a stronger recommendation for fibrillation than flutter), replacing the older practice of starting low and climbing since a failed low-energy shock costs the patient another sedation and another shock; AHA also defers to the manufacturer's stated dose, as biphasic waveforms are not interchangeable across devices.",
         "Joglar JA, et al. 2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation. Circulation. 2024;149(1):e1-e156. https://doi.org/10.1161/CIR.0000000000001193",
         "Read your defibrillator's operating instructions for its recommended cardioversion energies, SYNC-persistence configuration, and implanted-device clearance. Philips HeartStart Intrepid and Stryker LIFEPAK 15 are examples: https://www.stryker.com/content/dam/stryker/ems/resources/operating-instructions/international/3314911-030_int-eng_lifepak_15_operating_instructions.pdf",
         "Verify institutional cardioversion and sedation protocols."
@@ -5215,7 +5214,7 @@
     "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
-        "Needle aspiration, incision and drainage, and abscess tonsillectomy are all effective. Aspiration is the usual bedside choice because it is the one a non-surgeon can do safely; it is not established as superior. Follow the local ENT preference where there is one.",
+        "Needle aspiration, I&D, and abscess tonsillectomy are all effective \u2014 aspiration is the usual bedside choice. Follow local ENT preference where one exists.",
         "Decide first whether this patient can have anything done at the bedside at all. See contraindications - the airway question comes before the technique question.",
         "The danger: the internal carotid artery lies posterolateral to the tonsil, typically 2-2.5 cm from the mucosal surface.",
         "Limit needle depth to 1 cm with a guard (cut syringe sheath or tape) to prevent deep penetration.",
@@ -5327,7 +5326,7 @@
         "These patients look terrible but get dramatically better within minutes of drainage. That immediate relief is diagnostic and therapeutic."
       ],
       "references": [
-        "Windfuhr JP, et al. Clinical practice guideline: tonsillitis II. Surgical management. Eur Arch Otorhinolaryngol. 2016;273(4):989-1009. https://doi.org/10.1007/s00405-016-3904-x",
+        "Windfuhr JP, et al. Clinical practice guideline: tonsillitis II. Surgical management. Eur Arch Otorhinolaryngol. 2016;273(4):989-1009. https://doi.org/10.1007/s00405-016-3904-x \u2014 no drainage technique is established as superior; needle aspiration is often preferred at the bedside because it does not require surgical training.",
         "DailyMed. Cetacaine Topical Anesthetic prescribing information, including the methemoglobinemia warning. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=af1773c5-5d5b-4278-b551-30ad2df6d5b5",
         "Chau JKM, et al. Corticosteroids in peritonsillar abscess treatment: a blinded placebo-controlled clinical trial. Laryngoscope. 2014;124(1):97-103. https://doi.org/10.1002/lary.24283",
         "Verify institutional antibiotic guidelines, the topical anaesthetic on your formulary, and ENT referral pathways."
@@ -5414,10 +5413,10 @@
     "contentSource": "ai-draft",
     "sections": {
       "shiftMode": [
-        "X-ray finds most glass, metal, gravel, and bone. It is not a rule-out: small fragments, some glass, and some ceramic are missed, and a negative film with a persistent story means ultrasound or CT, not reassurance.",
+        "X-ray finds most glass, metal, gravel, and bone \u2014 it's not a rule-out. Small fragments, some glass, and ceramic are missed; a negative film with a persistent story needs ultrasound or CT, not reassurance.",
         "X-ray does not reliably show wood, plastic, or thorns at all. Ultrasound is the bedside tool for those.",
         "Adequate anesthesia and a bloodless field make the difference between a controlled extraction and a dig.",
-        "A digital tourniquet has to come off. Use a device you cannot miss, write the time down, and check the finger after - see equipment and aftercare. Retained tourniquets have cost fingers.",
+        "A digital tourniquet must come off \u2014 use a device you can't miss, note the time, and check the finger after (see equipment and aftercare).",
         "If you cannot find it in a reasonable time or it is near critical structures, stop and refer.",
         "Document what you found, what you removed, and what imaging showed. If retained FB is possible, tell the patient.",
         "Tetanus status and wound infection risk should be addressed at every visit."
@@ -5537,7 +5536,7 @@
         "Telling a patient there might be a retained fragment is better than them finding out later."
       ],
       "references": [
-        "National Patient Safety Agency. Reducing risks of tourniquets left on after finger and toe surgery. 2010. https://www.cas.mhra.gov.uk/ViewandAcknowledgment/ViewAttachment.aspx?Attachment_id=101035",
+        "National Patient Safety Agency. Reducing risks of tourniquets left on after finger and toe surgery. 2010. https://www.cas.mhra.gov.uk/ViewandAcknowledgment/ViewAttachment.aspx?Attachment_id=101035 \u2014 documents cases of digital ischemia and loss from tourniquets retained after finger/toe procedures.",
         "American College of Emergency Physicians. Sonoguide: Foreign Body Localization. 2020. https://www.acep.org/sonoguide/procedures/foreign-bodies/",
         "American College of Radiology. Appropriateness Criteria: Suspected Osteomyelitis, Septic Arthritis, or Soft Tissue Infection - 2022 Update. https://acsearch.acr.org/docs/3094201/Narrative/",
         "Centers for Disease Control and Prevention. Clinical Guidance for Wound Management to Prevent Tetanus. 2025. https://www.cdc.gov/tetanus/hcp/clinical-guidance/index.html",
@@ -5613,10 +5612,10 @@
     "sections": {
       "shiftMode": [
         "Target: C5-C7 nerve roots between anterior and middle scalene muscles.",
-        "Hemidiaphragmatic paresis is volume-dependent, not universal: 20 mL produced it in 100% of patients in the randomised trial that figure comes from, and 5 mL in 45%. At the 10-15 mL on this card, expect it often and not always - and avoid the block in severe COPD or respiratory failure regardless.",
-        "Use low volume (10-15 mL) and always visualize needle tip to avoid intravascular/intraneural injection.",
+        "Hemidiaphragmatic paresis is volume-dependent: at the 10-15 mL on this card, expect it often, not always. Avoid this block in severe COPD or respiratory failure regardless.",
+        "Low volume (10-15 mL); always visualize the needle tip to avoid intravascular/intraneural injection.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages - these catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -5736,7 +5735,7 @@
         "Always assume you will block the phrenic nerve; do not do this block bilaterally."
       ],
       "references": [
-        "Riazi S, et al. Effect of local anaesthetic volume (20 vs 5 mL) on the efficacy and respiratory consequences of ultrasound-guided interscalene brachial plexus block. Br J Anaesth. 2008;101(4):549-556. https://doi.org/10.1093/bja/aen229",
+        "Riazi S, et al. Effect of local anaesthetic volume (20 vs 5 mL) on the efficacy and respiratory consequences of ultrasound-guided interscalene brachial plexus block. Br J Anaesth. 2008;101(4):549-556. https://doi.org/10.1093/bja/aen229 \u2014 Found hemidiaphragmatic paresis in 100% of patients at 20 mL versus 45% at 5 mL, demonstrating a volume-dependent effect.",
         "ACEP Sonoguide. Interscalene Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/interscalene-nerve-block",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
         "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
@@ -5849,9 +5848,9 @@
       "shiftMode": [
         "The 'spinal of the arm' - covers distal humerus, elbow, forearm, wrist, and hand.",
         "Target: Brachial plexus trunks/divisions ('bunch of grapes') lateral and superficial to the subclavian artery.",
-        "High risk for pneumothorax (pleura is just deep to the artery) - always visualize the needle tip!",
+        "High risk for pneumothorax - pleura is just deep to the artery. Always visualize the needle tip.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages - these catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -6080,10 +6079,10 @@
     "sections": {
       "shiftMode": [
         "Retroclavicular Approach to the Infraclavicular Region (RAPTIR).",
-        "Good for forearm and hand trauma, with less phrenic and pleural risk than a supraclavicular block - less, not none. The needle crosses the clavicle's acoustic shadow where the tip cannot be seen, and haemothorax has been reported.",
+        "Good for forearm and hand trauma - less phrenic and pleural risk than a supraclavicular block, but not zero. The needle crosses the clavicle's acoustic shadow, where the tip can't be seen.",
         "Target: Axillary artery posterior to the pectoralis minor. The cords surround the artery.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages - these catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -6198,7 +6197,7 @@
       ],
       "references": [
         "Luftig J, et al. A new frontier in pelvic fracture pain control: the retroclavicular approach to the infraclavicular region. Am J Emerg Med. 2017. https://pubmed.ncbi.nlm.nih.gov/28126454/",
-        "Ribeiro J, et al. Haemothorax after retroclavicular brachial plexus block. 2023. https://pubmed.ncbi.nlm.nih.gov/38169999/",
+        "Ribeiro J, et al. Haemothorax after retroclavicular brachial plexus block. 2023. https://pubmed.ncbi.nlm.nih.gov/38169999/ \u2014 Case report of haemothorax after a retroclavicular block, illustrating that the reduced risk versus a supraclavicular approach is not zero.",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
         "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
@@ -6312,7 +6311,7 @@
         "Provides anesthesia to the dorsal thumb, index, and lateral middle finger.",
         "Combine with Median/Ulnar for complete hand anesthesia.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages - these catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -6507,9 +6506,9 @@
       "shiftMode": [
         "Target: Median nerve in the mid-forearm, between FDS and FDP.",
         "Provides anesthesia to the palmar thumb, index, middle, and radial half of ring finger.",
-        "Block in the mid-forearm, not at the wrist. The carpal tunnel is a confined space and the risk of nerve injury is higher there.",
+        "Block in the mid-forearm, not at the wrist - the carpal tunnel's confined space raises nerve injury risk there.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages - these catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -6705,7 +6704,7 @@
         "Provides anesthesia to the 5th digit and medial half of the 4th digit.",
         "Block high in the forearm to catch the dorsal cutaneous branch, which leaves the nerve proximal to the wrist.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages - these catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -6898,9 +6897,9 @@
       "shiftMode": [
         "Target: Superficial cervical plexus as it emerges behind the posterior border of the sternocleidomastoid (SCM) muscle.",
         "Provides anesthesia to the anterior/lateral neck, clavicle, and skin over the shoulder.",
-        "This is a superficial block. Do not plunge deep to the SCM - depth is what turns it into a deep cervical plexus or phrenic nerve block.",
+        "Superficial block only - do not plunge deep to the SCM. Depth turns it into a deep cervical plexus or phrenic nerve block.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages - these catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -7103,9 +7102,9 @@
       "shiftMode": [
         "Target: Fascial plane superficial OR deep to the serratus anterior muscle.",
         "Provides analgesia to the lateral chest wall (T3-T9).",
-        "An analgesic adjunct within a rib-fracture care bundle, not a substitute for one. The SABRE trial found 41% met its four-hour composite endpoint, with no change in pneumonia or length of stay and no benefit in the anterior-fracture subgroup - useful, and not essential.",
+        "Analgesic adjunct within a rib-fracture care bundle, not a substitute for one \u2014 useful, not essential.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages \u2014 the two habits that catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -7197,7 +7196,7 @@
       ],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: abdominal wall, paraspinal, and chest wall blocks. Reg Anesth Pain Med. 2021. https://doi.org/10.1136/rapm-2020-102451",
-        "Partyka C, et al. Serratus Anterior Plane Blocks for Early Rib Fracture Pain Management: the SABRE randomized clinical trial. JAMA Surg. 2024. https://jamanetwork.com/journals/jamasurgery/fullarticle/2818238",
+        "Partyka C, et al. Serratus Anterior Plane Blocks for Early Rib Fracture Pain Management: the SABRE randomized clinical trial. JAMA Surg. 2024. https://jamanetwork.com/journals/jamasurgery/fullarticle/2818238 \u2014 RCT found 41% met the four-hour composite endpoint, with no change in pneumonia or length of stay and no benefit in the anterior-fracture subgroup.",
         "Blanco R, et al. Serratus plane block: a novel ultrasound-guided thoracic wall nerve block. Anaesthesia. 2013;68(11):1107-1113. https://pubmed.ncbi.nlm.nih.gov/23923989/",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
         "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
@@ -7311,9 +7310,9 @@
       "shiftMode": [
         "Target: Fascial plane deep to the erector spinae muscle, resting on the transverse processes.",
         "Provides somatic and visceral analgesia for posterior/lateral/anterior chest wall.",
-        "Coverage is variable rather than dermatomally predictable. Cadaver studies have repeatedly failed to show paravertebral, epidural, or ventral-ramus spread, so do not promise anterior or visceral analgesia - test the territory and have a fallback.",
+        "Coverage is variable, not dermatomally predictable \u2014 don't promise anterior or visceral analgesia. Test the territory and have a fallback.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages \u2014 the two habits that catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -7404,7 +7403,7 @@
       ],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: abdominal wall, paraspinal, and chest wall blocks. Reg Anesth Pain Med. 2021. https://doi.org/10.1136/rapm-2020-102451",
-        "Ivanusic J, et al. A cadaveric study investigating the mechanism of action of erector spinae blockade. Reg Anesth Pain Med. 2018;43(6):567-571. https://pubmed.ncbi.nlm.nih.gov/29746445/",
+        "Ivanusic J, et al. A cadaveric study investigating the mechanism of action of erector spinae blockade. Reg Anesth Pain Med. 2018;43(6):567-571. https://pubmed.ncbi.nlm.nih.gov/29746445/ \u2014 Cadaver studies repeatedly failed to show paravertebral, epidural, or ventral-ramus spread.",
         "Gadsden J, et al. Relationship between injectate volume and disposition in erector spinae plane block. 2024. https://pubmed.ncbi.nlm.nih.gov/37758461/",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
         "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
@@ -7518,9 +7517,9 @@
       "shiftMode": [
         "Target: Fascial plane between the internal oblique and transversus abdominis muscles.",
         "Provides analgesia to the anterior abdominal wall (parietal peritoneum and skin).",
-        "Somatic cover only. The abdominal wall is blocked and the inflamed organ is not, so expect deep visceral pain to remain and plan for it.",
+        "Somatic cover only \u2014 the abdominal wall is blocked, not the inflamed organ. Expect deep visceral pain to remain and plan for it.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages \u2014 the two habits that catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -7723,10 +7722,10 @@
     "sections": {
       "shiftMode": [
         "Target: Fascial planes between the pectoralis major and minor (PECS I), and between the pectoralis minor and serratus anterior (PECS II).",
-        "Expect upper anterolateral and lateral chest wall and the axilla. A randomised trial found no anterior-chest sensory block from PECS II alone, so do not rely on it for a medial or anterior procedure without mapping the territory first and having a fallback.",
+        "Covers the upper anterolateral and lateral chest wall and axilla, not the anterior chest \u2014 a randomised trial found no anterior-chest sensory block from PECS II alone. Map the territory and have a fallback before relying on it for a medial or anterior procedure.",
         "Keep the needle tip in view the whole way through pectoralis minor. The pleura is one muscle layer below the target plane.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
+        "Aspirate before each increment and inject in stages \u2014 the two habits that catch a needle that's found a vessel.",
         "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
       ],
       "indications": [
@@ -7930,8 +7929,8 @@
         "Provides anesthesia to the anterior thigh, femur, and knee.",
         "Mnemonic: NAVEL (from lateral to medial: Nerve, Artery, Vein, Empty space, Lymphatics).",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Aspirate before each increment and inject in stages.",
+        "Decide the fallback for a failed block before you start \u2014 not once the patient is already in pain."
       ],
       "indications": [
         "Femur fractures (mid-shaft)",
@@ -8023,7 +8022,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 frequent aspiration and incremental (fractionated) injection are recommended to help detect intravascular needle placement before a full toxic dose is delivered.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -8135,8 +8134,8 @@
         "Provides excellent analgesia for the hip joint (articular branches of femoral and obturator nerves).",
         "Motor-sparing alternative to the fascia iliaca or femoral nerve block.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Aspirate before each increment and inject in stages.",
+        "Decide the fallback for a failed block before you start \u2014 not once the patient is already in pain."
       ],
       "indications": [
         "Hip fractures (neck of femur, intertrochanteric)",
@@ -8223,7 +8222,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 frequent aspiration and incremental (fractionated) injection are recommended to help detect intravascular needle placement before a full toxic dose is delivered.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -8335,8 +8334,8 @@
         "Provides sensory analgesia to the medial lower leg and ankle.",
         "Purely sensory branch of the femoral nerve (motor-sparing).",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Aspirate before each increment and inject in stages.",
+        "Decide the fallback for a failed block before you start \u2014 not once the patient is already in pain."
       ],
       "indications": [
         "Lacerations or fractures of the medial lower leg",
@@ -8424,7 +8423,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 frequent aspiration and incremental (fractionated) injection are recommended to help detect intravascular needle placement before a full toxic dose is delivered.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -8536,8 +8535,8 @@
         "Provides anesthesia to the entire lower leg and foot, EXCEPT the medial strip (covered by the saphenous nerve).",
         "Lower-leg trauma at risk of compartment syndrome: agree the reassessment plan with the surgical team before you block, not after.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Aspirate before each increment and inject in stages.",
+        "Decide the fallback for a failed block before you start \u2014 not once the patient is already in pain."
       ],
       "indications": [
         "Achilles tendon ruptures",
@@ -8631,7 +8630,7 @@
       "references": [
         "Karmakar MK, et al. Sonographically guided popliteal sciatic nerve block: the subparaneural compartment. Reg Anesth Pain Med. 2013;38(3):206-211. https://doi.org/10.1097/AAP.0b013e31828b25b9",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 frequent aspiration and incremental (fractionated) injection are recommended to help detect intravascular needle placement before a full toxic dose is delivered.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -8741,10 +8740,10 @@
       "shiftMode": [
         "Target: Sciatic nerve deep in the posterior thigh/gluteal region.",
         "Provides anesthesia to the posterior thigh and the entire lower leg (except medial strip).",
-        "This is a deep block. Antithrombotic timing follows the neuraxial interval in local policy, not the compressible-site reasoning used for superficial blocks.",
+        "Deep block: antithrombotic timing follows the neuraxial interval in local policy, not the compressible-site rule for superficial blocks.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Aspirate before each increment and inject in stages.",
+        "Decide the fallback for a failed block before you start \u2014 not once the patient is already in pain."
       ],
       "indications": [
         "Posterior thigh lacerations or hamstring tears",
@@ -8830,7 +8829,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 frequent aspiration and incremental (fractionated) injection are recommended to help detect intravascular needle placement before a full toxic dose is delivered.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -8940,10 +8939,10 @@
       "shiftMode": [
         "Target: Posterior tibial nerve posterior to the medial malleolus.",
         "Provides anesthesia to the heel and sole (plantar aspect) of the foot.",
-        "For a plantar wound, block rather than infiltrate. Direct injection into the sole is far more painful than this block.",
+        "For a plantar wound, block rather than infiltrate \u2014 direct injection into the sole is far more painful.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Aspirate before each increment and inject in stages.",
+        "Decide the fallback for a failed block before you start \u2014 not once the patient is already in pain."
       ],
       "indications": [
         "Plantar lacerations",
@@ -9027,7 +9026,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 frequent aspiration and incremental (fractionated) injection are recommended to help detect intravascular needle placement before a full toxic dose is delivered.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -9137,10 +9136,10 @@
       "shiftMode": [
         "Target: Sural nerve posterior to the lateral malleolus.",
         "Provides anesthesia to the lateral/posterior aspect of the foot.",
-        "Ultrasound is optional here. A subcutaneous wheal from the Achilles tendon to the lateral malleolus is often faster and works as well for a nerve this small.",
+        "Ultrasound optional \u2014 a subcutaneous wheal from Achilles tendon to lateral malleolus is faster and works just as well for a nerve this small.",
         "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Aspirate before each increment and inject in stages.",
+        "Decide the fallback for a failed block before you start \u2014 not once the patient is already in pain."
       ],
       "indications": [
         "Lacerations on the lateral aspect of the foot"
@@ -9222,7 +9221,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 frequent aspiration and incremental (fractionated) injection are recommended to help detect intravascular needle placement before a full toxic dose is delivered.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -9332,10 +9331,10 @@
       "shiftMode": [
         "Target: Superficial peroneal nerve on the anterior/lateral aspect of the distal leg.",
         "Provides anesthesia to the dorsum of the foot (except the first web space).",
-        "The nerve branches extensively before the ankle. On landmarks that means a wide subcutaneous band from the anterior tibial crest to the lateral malleolus, not a single wheal.",
-        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Nerve branches widely before the ankle \u2014 inject a subcutaneous band from the anterior tibial crest to the lateral malleolus, not a single wheal.",
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
+        "Aspirate before each increment and inject in stages.",
+        "Decide your backup plan before you start - not after, when the patient is in pain and the dose allowance is spent."
       ],
       "indications": [
         "Lacerations or procedures on the dorsum of the foot"
@@ -9415,7 +9414,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -9525,10 +9524,10 @@
       "shiftMode": [
         "Target: Deep peroneal nerve anterior to the ankle joint.",
         "Provides anesthesia to the first web space (between big toe and second toe).",
-        "The nerve is very small. Perivascular spread around the anterior tibial artery is usually enough - do not chase the nerve itself.",
-        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Nerve is tiny \u2014 perivascular spread around the anterior tibial artery is usually enough; don't chase the nerve itself.",
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
+        "Aspirate before each increment and inject in stages.",
+        "Decide your backup plan before you start - not after, when the patient is in pain and the dose allowance is spent."
       ],
       "indications": [
         "Lacerations or procedures in the first web space of the foot"
@@ -9609,7 +9608,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -9720,9 +9719,9 @@
         "Target: Supraorbital and supratrochlear nerves as they exit the supraorbital rim.",
         "Provides anesthesia to the forehead and anterior scalp.",
         "Landmark-guided injection along the superior orbital rim.",
-        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
+        "Aspirate before each increment and inject in stages.",
+        "Decide your backup plan before you start - not after, when the patient is in pain and the dose allowance is spent."
       ],
       "indications": [
         "Forehead lacerations",
@@ -9808,7 +9807,7 @@
       "references": [
         "Webster K, et al. Anatomical variation of the supraorbital exit: cadaveric study. 2013. https://pubmed.ncbi.nlm.nih.gov/23299811/",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -9919,9 +9918,9 @@
         "Target: Infraorbital nerve as it exits the infraorbital foramen on the maxilla.",
         "Provides anesthesia to the lower eyelid, cheek, lateral nose, and upper lip.",
         "Can be performed via an intraoral (preferred) or extraoral approach.",
-        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
+        "Aspirate before each increment and inject in stages.",
+        "Decide your backup plan before you start - not after, when the patient is in pain and the dose allowance is spent."
       ],
       "indications": [
         "Upper lip lacerations (especially those crossing the vermilion border)",
@@ -10012,7 +10011,7 @@
       "references": [
         "Aggarwal A, et al. Anatomical study of the infraorbital foramen: a basis for successful infraorbital nerve block. Clin Anat. https://pubmed.ncbi.nlm.nih.gov/25640833/",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -10123,9 +10122,9 @@
         "Target: Mental nerve as it exits the mental foramen on the mandible.",
         "Provides anesthesia to the lower lip and chin.",
         "Intraoral approach is preferred.",
-        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
+        "Aspirate before each increment and inject in stages.",
+        "Decide your backup plan before you start - not after, when the patient is in pain and the dose allowance is spent."
       ],
       "indications": [
         "Lower lip lacerations (especially crossing the vermilion border)",
@@ -10210,7 +10209,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -10321,9 +10320,9 @@
         "Target: Inferior alveolar nerve before it enters the mandibular foramen on the medial aspect of the mandibular ramus.",
         "Provides profound anesthesia to all mandibular teeth to the midline, the lower lip, and the chin.",
         "The 'gold standard' for lower jaw dental pain in the ED.",
-        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
+        "Aspirate before each increment and inject in stages.",
+        "Decide your backup plan before you start - not after, when the patient is in pain and the dose allowance is spent."
       ],
       "indications": [
         "Severe dental pain of the lower teeth (caries, abscess, fracture)",
@@ -10419,7 +10418,7 @@
       "references": [
         "Garisto GA, et al. Occurrence of paresthesia after dental local anesthetic administration in the United States. J Am Dent Assoc. 2010;141(7):836-844. https://doi.org/10.14219/jada.archive.2010.0281",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -10528,11 +10527,11 @@
     "sections": {
       "shiftMode": [
         "Target: The small nerve branches entering the apex of the maxillary tooth roots.",
-        "Unlike the dense mandible, the maxillary bone is porous, allowing anesthetic to diffuse directly through the bone to the tooth root (Supraperiosteal infiltration).",
+        "Maxillary bone is porous (unlike the mandible) \u2014 anesthetic diffuses directly through bone to the tooth root (supraperiosteal infiltration).",
         "Provides anesthesia to individual upper teeth.",
-        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
+        "Aspirate before each increment and inject in stages.",
+        "Decide your backup plan before you start - not after, when the patient is in pain and the dose allowance is spent."
       ],
       "indications": [
         "Maxillary dental pain (caries, abscess, fracture)",
@@ -10616,7 +10615,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
@@ -10726,10 +10725,10 @@
       "shiftMode": [
         "Target: A 'ring block' around the base of the ear to hit the greater auricular, lesser occipital, and auriculotemporal nerves.",
         "Provides complete anesthesia of the auricle (except the external auditory canal and concha).",
-        "No epinephrine in this block. The ring goes around cartilage, and the concern is cartilage ischemia.",
-        "Work out the maximum in milligrams and in millilitres before you draw up, and say it out loud. The calculator is on this card.",
-        "Aspirate before each increment and give the dose in stages. Aspiration and incremental injection are the two things that catch a needle that has found a vessel.",
-        "Decide what you will do if the block does not work before you start - not afterwards, when the patient is still in pain and the allowance is spent."
+        "No epinephrine \u2014 the ring encircles cartilage, and epi risks cartilage ischemia.",
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
+        "Aspirate before each increment and inject in stages.",
+        "Decide your backup plan before you start - not after, when the patient is in pain and the dose allowance is spent."
       ],
       "indications": [
         "Complex ear lacerations",
@@ -10812,7 +10811,7 @@
       ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
-        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
         "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
         "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
