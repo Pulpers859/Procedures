@@ -54,11 +54,11 @@ class ShoulderReductionTests(unittest.TestCase):
     def test_compromise_is_not_listed_as_a_contraindication(self):
         contra = " ".join(self.record["sections"]["contraindications"]).lower()
         self.assertNotIn("neurovascular compromise needing urgent surgical evaluation", contra)
-        self.assertIn("deliberately not on this list", contra)
+        self.assertIn("deliberately not a contraindication", contra)
 
     def test_compromise_is_stated_as_a_reason_to_reduce_sooner(self):
-        self.assertIn("reason to reduce sooner, not a reason to wait", self.text)
-        self.assertIn("mobilise the specialist at the same time, not first", self.text)
+        self.assertIn("reduce sooner, not wait", self.text)
+        self.assertIn("call the specialist in parallel, not first", self.text)
 
     def test_the_pulseless_limb_has_an_explicit_sequence(self):
         self.assertIn("call vascular surgery and reduce now", self.text)
@@ -93,7 +93,7 @@ class TourniquetFailSafeTests(unittest.TestCase):
     def test_imaging_absolutes_are_qualified(self):
         """"X-ray detects glass" and "wood is invisible" both turned a
         probability into a rule, in opposite directions."""
-        self.assertIn("it is not a rule-out", self.text)
+        self.assertIn("it's not a rule-out", self.text)
         self.assertNotIn("x-ray detects glass, metal, gravel, and bone.", self.text)
 
 
@@ -105,11 +105,11 @@ class ParacentesisTests(unittest.TestCase):
         """INR and platelet thresholds are not bleeding-risk scores in
         cirrhosis, and the guidance recommends against the tests themselves."""
         self.assertNotIn("are relative contraindications", self.text)
-        self.assertIn("no inr or platelet threshold on this card", self.text)
+        self.assertIn("no inr or platelet threshold applies", self.text)
 
     def test_the_sub_five_litre_albumin_exception_exists(self):
         self.assertIn("acute-on-chronic liver failure", self.text)
-        self.assertIn("a judgement, not a threshold", self.text)
+        self.assertIn("a judgement call, not a threshold", self.text)
 
     def test_the_paired_serum_albumin_is_ordered_with_the_tap(self):
         """A lone ascitic albumin cannot produce a gradient, and the serum half
@@ -123,13 +123,13 @@ class KneeArthrocentesisTests(unittest.TestCase):
 
     def test_the_fifty_thousand_heuristic_is_replaced(self):
         self.assertNotIn("septic until proven otherwise, regardless of crystals", self.text)
-        self.assertIn("no synovial white cell count that rules septic arthritis in or out", self.text)
+        self.assertIn("no synovial white cell count rules septic arthritis in or out", self.text)
 
     def test_crystals_do_not_exclude_infection(self):
-        self.assertIn("gout and a septic joint in the same knee", self.text)
+        self.assertIn("gout and a septic joint can coexist in the same knee", self.text)
 
     def test_the_sepsis_exception_to_tapping_first_is_named(self):
-        self.assertIn("give the antibiotics and tap after", self.text)
+        self.assertIn("if septic or in shock: antibiotics first (blood cultures first), tap after", self.text)
 
 
 class CanthotomyTests(unittest.TestCase):
@@ -163,11 +163,11 @@ class NasalPackingTests(unittest.TestCase):
         self.assertNotIn("inflate balloon with air or saline", self.text)
 
     def test_local_measures_come_before_reversing_an_anticoagulant(self):
-        self.assertIn("reversal or withholding the drug is not the opening move", self.text)
+        self.assertIn("reserve reversal or withholding the drug for life-threatening bleeding", self.text)
         self.assertIn("resorbable packing", self.text)
 
     def test_antibiotics_after_packing_are_not_a_default_prescription(self):
-        self.assertIn("not an automatic prescription", self.text)
+        self.assertIn("antibiotics after packing are not automatic", self.text)
         self.assertNotIn("prescribe antibiotics covering for toxic shock", self.text)
 
     def test_the_topical_lidocaine_dose_is_quantified(self):
@@ -190,11 +190,11 @@ class PeritonsillarTests(unittest.TestCase):
 
     def test_the_steroid_is_a_single_dose_not_a_pack(self):
         self.assertNotIn("medrol dose pack", self.text)
-        self.assertIn("one dose rather than a multi-day tapering pack", self.text)
+        self.assertIn("supports one dose, not a multi-day tapering pack", self.text)
 
     def test_aspiration_is_not_overclaimed_as_first_line(self):
         self.assertNotIn("needle aspiration is the first-line ed drainage technique", self.text)
-        self.assertIn("not established as superior", self.text)
+        self.assertIn("no drainage technique is established as superior", self.text)
 
 
 class AbscessTests(unittest.TestCase):
@@ -210,8 +210,8 @@ class AbscessTests(unittest.TestCase):
         self.assertIn("under about 5 cm", self.text)
 
     def test_antibiotics_are_framed_as_a_shared_decision(self):
-        self.assertIn("a conversation, not a default", self.text)
-        self.assertIn("weak, shared-decision recommendation", self.text)
+        self.assertIn("antibiotics are a shared decision rather than a reflex in either direction", self.text)
+        self.assertIn("weak shared-decision recommendation", self.text)
 
 
 class TetanusTests(unittest.TestCase):
@@ -235,7 +235,7 @@ class TetanusTests(unittest.TestCase):
         self.assertIn("regardless of the vaccination history", self.text)
 
     def test_the_globulin_is_stocked_rather_than_assumed(self):
-        self.assertIn("tetanus immune globulin available in the department", self.text)
+        self.assertIn("tetanus immune globulin, both obtainable in the department", self.text)
 
 
 class LaneDosingTests(unittest.TestCase):
