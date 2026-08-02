@@ -206,17 +206,10 @@ private struct TroubleshootingRow: View {
 
             VStack(alignment: .leading, spacing: 5) {
                 if let parsed {
-                    HStack(spacing: 7) {
-                        Text("FAIL")
-                            .font(.caption2.weight(.heavy))
-                            .foregroundStyle(AppSemanticColor.warningText)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 3)
-                            .background(AppSemanticColor.warningText.opacity(0.14), in: Capsule())
-                        Text(parsed.failure)
-                            .font(.subheadline.weight(.semibold))
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
+                    Text(parsed.failure)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(AppSemanticColor.warningText)
+                        .fixedSize(horizontal: false, vertical: true)
                     Text(parsed.response)
                         .font(.subheadline)
                         .fixedSize(horizontal: false, vertical: true)

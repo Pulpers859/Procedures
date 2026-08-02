@@ -57,16 +57,6 @@ struct MaxDoseCalculatorCard: View {
                         .foregroundStyle(.secondary)
                 }
                 Divider()
-                if let warningSummary {
-                    Label {
-                        Text(warningSummary)
-                            .font(.subheadline.weight(.semibold))
-                            .fixedSize(horizontal: false, vertical: true)
-                    } icon: {
-                        Image(systemName: "plus.forwardslash.minus")
-                            .foregroundStyle(AppSemanticColor.warningText)
-                    }
-                }
                 DisclosureGroup(isExpanded: $showCeilingDetails) {
                     reference
                         .padding(.top, 4)
@@ -214,15 +204,6 @@ struct MaxDoseCalculatorCard: View {
             }
         }
         .accessibilityElement(children: .combine)
-    }
-
-    /// Keeps the first source sentence visible while the complete warning
-    /// remains available in the expanded safety guidance disclosure.
-    private var warningSummary: String? {
-        guard let firstSentence = dosing.cumulativeWarning
-            .split(separator: ".", maxSplits: 1, omittingEmptySubsequences: true)
-            .first else { return nil }
-        return String(firstSentence).trimmingCharacters(in: .whitespacesAndNewlines) + "."
     }
 
     // MARK: - Reference table
