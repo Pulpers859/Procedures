@@ -263,7 +263,7 @@ class SedationStaffingAndMonitoringTests(unittest.TestCase):
                 self.assertFalse(any(hedge in line for line in self.lines), hedge)
 
     def test_the_depth_continuum_is_stated(self):
-        continuum = [line for line in self.lines if "you get the depth you get" in line]
+        continuum = [line for line in self.lines if "can go deeper than intended" in line]
         self.assertEqual(len(continuum), 1, self.lines)
         self.assertIn("one level deeper", continuum[0])
 

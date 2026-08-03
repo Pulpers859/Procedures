@@ -54,7 +54,7 @@ class ShoulderReductionTests(unittest.TestCase):
     def test_compromise_is_not_listed_as_a_contraindication(self):
         contra = " ".join(self.record["sections"]["contraindications"]).lower()
         self.assertNotIn("neurovascular compromise needing urgent surgical evaluation", contra)
-        self.assertIn("deliberately not a contraindication", contra)
+        self.assertIn("neurovascular compromise is not a contraindication", contra)
 
     def test_compromise_is_stated_as_a_reason_to_reduce_sooner(self):
         self.assertIn("reduce sooner, not wait", self.text)
@@ -268,7 +268,7 @@ class LaneDosingTests(unittest.TestCase):
         for pid in INFILTRATING_IDS:
             with self.subTest(pid):
                 caveats = " ".join(self.records[pid]["dosing"]["caveats"]).lower()
-                self.assertIn("where it goes changes how fast it arrives", caveats)
+                self.assertIn("peaks higher from a vascular bed", caveats)
 
 
 class LaneReferenceTests(unittest.TestCase):

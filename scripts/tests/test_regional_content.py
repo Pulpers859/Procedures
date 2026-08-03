@@ -59,12 +59,21 @@ class SafetySpineTests(unittest.TestCase):
         had one or two confirmation lines and none of them tested the patient."""
         for block in self.blocks:
             with self.subTest(block["id"]):
-                self.assertIn("spread on the screen is not success", joined(block))
+                self.assertIn(
+                    "spread on the screen shows where the drug went, "
+                    "not whether the patient is blocked",
+                    joined(block),
+                )
 
     def test_every_block_carries_an_onset_time_before_calling_failure(self):
+        """The guarantee is the times themselves, so pin those rather than the
+        sentence around them."""
         for block in self.blocks:
             with self.subTest(block["id"]):
-                self.assertIn("a block called failed at 5 minutes was never tested", joined(block))
+                text = joined(block)
+                self.assertIn("onset time before judging", text)
+                self.assertIn("lidocaine 5-10 minutes", text)
+                self.assertIn("bupivacaine and ropivacaine 15-30", text)
 
     def test_every_block_has_a_partial_and_a_failed_pathway(self):
         """P2: "add explicit partial/failed block reassessment and rescue paths
@@ -74,7 +83,8 @@ class SafetySpineTests(unittest.TestCase):
                 text = joined(block)
                 self.assertIn("partial block:", text)
                 self.assertIn("failed block:", text)
-                self.assertIn("more of the same is how the ceiling gets crossed", text)
+                self.assertIn("do not re-inject the same volume in the same place", text)
+                self.assertIn("infiltration within the remaining ceiling", text)
 
     def test_every_block_has_the_three_stop_signs(self):
         for block in self.blocks:
@@ -94,7 +104,12 @@ class SafetySpineTests(unittest.TestCase):
         the wrong thing."""
         for block in self.blocks:
             with self.subTest(block["id"]):
-                self.assertIn("breaking through a block that was working", joined(block))
+                text = joined(block)
+                self.assertIn(
+                    "compartment syndrome still shows through a working block", text
+                )
+                self.assertIn("rising analgesic requirement", text)
+                self.assertIn("pain breaking through", text)
 
     def test_every_block_requires_chlorhexidine_that_is_allowed_to_dry(self):
         for block in self.blocks:
@@ -140,7 +155,9 @@ class SafetySpineTests(unittest.TestCase):
                 if block["id"] in deep:
                     self.assertIn("neuraxial-equivalent timing", text)
                 else:
-                    self.assertIn("can the site be compressed", text)
+                    self.assertIn("site compressibility, vascularity", text)
+                    # The retired wording argued the point instead of stating it.
+                    self.assertNotIn("do not transpose a neuraxial interval", text)
 
 
     def test_every_block_documents_side_agent_and_total_milligrams(self):
@@ -232,7 +249,7 @@ class DosingGovernanceTests(unittest.TestCase):
             with self.subTest(record["id"]):
                 caveats = " ".join(record["dosing"]["caveats"]).lower()
                 self.assertIn("this app's governed policy", caveats)
-                self.assertIn("where it goes changes how fast it arrives", caveats)
+                self.assertIn("peaks higher from a vascular bed", caveats)
 
     def test_the_truncal_blocks_carry_the_pharmacokinetic_warning(self):
         """The TAP stop-ship: bilateral dosing at 3 mg/kg ropivacaine, and

@@ -98,7 +98,7 @@ class PericardiocentesisTests(unittest.TestCase):
         """The vascular records carry a pre-dilation gate for the same reason:
         a needle hole in a chamber is survivable and a dilator hole may not be."""
         self.assertIn("before dilating over the wire", self.text)
-        self.assertIn("no emergency exception to looking", self.text)
+        self.assertIn("no exception, including in an emergency", self.text)
 
     def test_the_colour_test_is_named_as_useless_in_haemopericardium(self):
         """The old confirmation line - "pericardial fluid rather than blood from
