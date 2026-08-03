@@ -151,7 +151,7 @@ struct GuideHomeView: View {
             repository.kitLoadWarning.map { ("Some kits were skipped", $0) },
             userData.hasUnreadableData
                 ? ("Saved data could not be read",
-                   "Some saved reviews or notes could not be read and were set aside rather than overwritten. Recorded work from this point is saved normally.")
+                   "Some saved reviews or notes could not be read. They were set aside, not overwritten. New work saves normally.")
                 : nil
         ].compactMap { $0 }
 
@@ -203,7 +203,7 @@ struct GuideHomeView: View {
 
     private var recentSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            sectionHeading("Pick Up Where You Left Off")
+            sectionHeading("Recent")
 
             VStack(spacing: 0) {
                 ForEach(Array(recentProcedures.enumerated()), id: \.element.id) { index, procedure in
@@ -501,11 +501,11 @@ struct PathwayProcedureListView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .accessibilityElement(children: .combine)
                     } else if repository.procedures.isEmpty {
-                        Text("The procedure library is empty. This is not expected — reinstall the app or restore the bundled content.")
+                        Text("The procedure library is empty. Reinstall the app or restore the bundled content.")
                             .font(.subheadline)
                             .foregroundStyle(AppSemanticColor.warningText)
                     } else {
-                        Text("No procedures in this pathway yet. Content is added before release rather than showing empty categories.")
+                        Text("No procedures in this pathway yet.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }

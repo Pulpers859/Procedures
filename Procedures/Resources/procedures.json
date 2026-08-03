@@ -648,11 +648,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -660,7 +660,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -992,12 +992,12 @@
           "note": "Pleural procedures use a more conservative ceiling than infiltration elsewhere: BTS gives 3 mg/kg to a 250 mg maximum, against the 4.5 mg/kg and 300 mg on the FDA label. A wide infiltration of skin, periosteum and pleura in a patient who may already be hypoxic is the reason to take the lower figure."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "caveats": [
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ],
       "monitoring": [
         "Aspirate before each injection; the intercostal vessels sit right where the needle goes.",
@@ -1179,12 +1179,12 @@
           "note": "Pleural procedures use a more conservative ceiling than infiltration elsewhere: BTS gives 3 mg/kg to a 250 mg maximum, against the 4.5 mg/kg and 300 mg on the FDA label. A wide infiltration of skin, periosteum and pleura in a patient who may already be hypoxic is the reason to take the lower figure."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "caveats": [
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ],
       "monitoring": [
         "Aspirate before each injection; the intercostal vessels sit right where the needle goes.",
@@ -1533,7 +1533,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -1544,7 +1544,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -2107,7 +2107,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -2118,7 +2118,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -2324,7 +2324,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -2335,7 +2335,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -2509,12 +2509,12 @@
           "note": "Pleural procedures use a more conservative ceiling than infiltration elsewhere: BTS gives 3 mg/kg to a 250 mg maximum, against the 4.5 mg/kg and 300 mg on the FDA label. A wide infiltration of skin, periosteum and pleura in a patient who may already be hypoxic is the reason to take the lower figure."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "caveats": [
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ],
       "monitoring": [
         "Aspirate before each injection; the intercostal vessels sit right where the needle goes.",
@@ -2722,7 +2722,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -2733,7 +2733,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -2925,7 +2925,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -2936,7 +2936,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -3604,7 +3604,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -3615,7 +3615,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -3804,7 +3804,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -3815,7 +3815,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -4006,7 +4006,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -4017,7 +4017,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -4263,11 +4263,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -4275,7 +4275,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -4622,7 +4622,7 @@
           "note": "Preservative-free and epinephrine-free only. Adults are given 40 mg initially regardless of weight; infants and children get 0.5 mg/kg to a 40 mg maximum, which is the figure computed here."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "caveats": [
         "This is the dose to give, not a range to stay under.",
         "At paediatric volumes the extension set's dead space can hold most of the dose. Prime the set or follow with the age-appropriate flush."
@@ -4824,7 +4824,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -4835,7 +4835,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -4992,7 +4992,7 @@
           "note": "Applied topically on pledgets here, not injected. Nasal mucosa absorbs close to intravenous rates, so it counts against this same ceiling in full."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Calculate the maximum in mg AND mL before soaking the first pledget - say it out loud.",
         "Count every pledget against the running total; re-soaking a pledget is a second dose, not a top-up.",
@@ -5003,7 +5003,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -5341,7 +5341,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -5352,7 +5352,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -5563,7 +5563,7 @@
           "note": "Higher risk of severe cardiotoxicity than lidocaine or ropivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
         "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration.",
@@ -5574,7 +5574,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -5792,11 +5792,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -5804,7 +5804,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -6020,11 +6020,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -6032,7 +6032,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -6243,11 +6243,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -6255,7 +6255,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -6436,11 +6436,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -6448,7 +6448,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -6628,11 +6628,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -6640,7 +6640,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -6819,11 +6819,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -6831,7 +6831,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -7023,11 +7023,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -7035,7 +7035,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -7228,11 +7228,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -7240,8 +7240,8 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe.",
-        "Bilateral truncal fascial-plane blocks are the case where the ceiling is most misleading. Bilateral TAP dosing at 3 mg/kg of ropivacaine, and bilateral 200 mg totals, have both produced potentially toxic plasma concentrations in published pharmacokinetic studies - at doses a weight-based calculator calls acceptable. Choose the concentration and volume on this card, which keep the bilateral total well below that, rather than dosing up to the calculated maximum."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient.",
+        "Bilateral truncal fascial-plane blocks are where the ceiling is most misleading. Bilateral TAP dosing at 3 mg/kg ropivacaine, and bilateral 200 mg totals, have produced potentially toxic plasma concentrations in published pharmacokinetic studies - at doses a weight-based calculator calls acceptable. Use the concentration and volume on this card, which keep the bilateral total well below that; do not dose up to the calculated maximum."
       ]
     }
   },
@@ -7433,11 +7433,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -7445,8 +7445,8 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe.",
-        "Bilateral truncal fascial-plane blocks are the case where the ceiling is most misleading. Bilateral TAP dosing at 3 mg/kg of ropivacaine, and bilateral 200 mg totals, have both produced potentially toxic plasma concentrations in published pharmacokinetic studies - at doses a weight-based calculator calls acceptable. Choose the concentration and volume on this card, which keep the bilateral total well below that, rather than dosing up to the calculated maximum."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient.",
+        "Bilateral truncal fascial-plane blocks are where the ceiling is most misleading. Bilateral TAP dosing at 3 mg/kg ropivacaine, and bilateral 200 mg totals, have produced potentially toxic plasma concentrations in published pharmacokinetic studies - at doses a weight-based calculator calls acceptable. Use the concentration and volume on this card, which keep the bilateral total well below that; do not dose up to the calculated maximum."
       ]
     }
   },
@@ -7637,11 +7637,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -7649,8 +7649,8 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe.",
-        "Bilateral truncal fascial-plane blocks are the case where the ceiling is most misleading. Bilateral TAP dosing at 3 mg/kg of ropivacaine, and bilateral 200 mg totals, have both produced potentially toxic plasma concentrations in published pharmacokinetic studies - at doses a weight-based calculator calls acceptable. Choose the concentration and volume on this card, which keep the bilateral total well below that, rather than dosing up to the calculated maximum."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient.",
+        "Bilateral truncal fascial-plane blocks are where the ceiling is most misleading. Bilateral TAP dosing at 3 mg/kg ropivacaine, and bilateral 200 mg totals, have produced potentially toxic plasma concentrations in published pharmacokinetic studies - at doses a weight-based calculator calls acceptable. Use the concentration and volume on this card, which keep the bilateral total well below that; do not dose up to the calculated maximum."
       ]
     }
   },
@@ -7839,11 +7839,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -7851,8 +7851,8 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe.",
-        "Bilateral truncal fascial-plane blocks are the case where the ceiling is most misleading. Bilateral TAP dosing at 3 mg/kg of ropivacaine, and bilateral 200 mg totals, have both produced potentially toxic plasma concentrations in published pharmacokinetic studies - at doses a weight-based calculator calls acceptable. Choose the concentration and volume on this card, which keep the bilateral total well below that, rather than dosing up to the calculated maximum."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient.",
+        "Bilateral truncal fascial-plane blocks are where the ceiling is most misleading. Bilateral TAP dosing at 3 mg/kg ropivacaine, and bilateral 200 mg totals, have produced potentially toxic plasma concentrations in published pharmacokinetic studies - at doses a weight-based calculator calls acceptable. Use the concentration and volume on this card, which keep the bilateral total well below that; do not dose up to the calculated maximum."
       ]
     }
   },
@@ -8043,11 +8043,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -8055,7 +8055,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -8241,11 +8241,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -8253,7 +8253,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -8439,11 +8439,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -8451,7 +8451,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -8644,11 +8644,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -8656,7 +8656,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -8841,11 +8841,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -8853,7 +8853,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -9035,11 +9035,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -9047,7 +9047,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -9228,11 +9228,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -9240,7 +9240,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -9420,11 +9420,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -9432,7 +9432,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -9613,11 +9613,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -9625,7 +9625,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -9811,11 +9811,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -9823,7 +9823,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -10013,11 +10013,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -10025,7 +10025,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -10209,11 +10209,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -10221,7 +10221,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -10418,11 +10418,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -10430,7 +10430,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -10614,11 +10614,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -10626,7 +10626,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   },
@@ -10808,11 +10808,11 @@
           "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
         }
       ],
-      "cumulativeWarning": "Toxicity adds up, but the maximums are not interchangeable and two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling and keep the fractions adding to less than one - half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Everything counts: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "cumulativeWarning": "Toxicity adds up, but maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Half the lidocaine maximum plus half the bupivacaine maximum is a full dose, not half of one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
       "monitoring": [
-        "Weigh or estimate the patient and calculate the maximum dose in mg AND mL before drawing up \u2014 say it out loud.",
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
         "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
-        "Confirm where 20% lipid emulsion is stocked before injecting \u2014 do not start without a LAST plan.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
         "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
       ],
       "rescueCardID": "local_anesthetic_systemic_toxicity",
@@ -10820,7 +10820,7 @@
         "Use lean body weight in obese patients.",
         "Reduce by about 25% at the extremes of age or with severe comorbidity.",
         "Where it goes changes how fast it arrives. The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
-        "These ceilings are this app's governed policy, designated by the clinical owner. The drug labels do not publish one universal figure per agent: they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary and is not the same as being safe."
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualisation by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
   }

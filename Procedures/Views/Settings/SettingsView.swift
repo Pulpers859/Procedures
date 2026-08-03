@@ -99,7 +99,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Procedure Pages")
                 } footer: {
-                    Text("Clinical Mode hides editorial metadata and review controls. Clinical warnings and the first-run acknowledgment always remain visible.")
+                    Text("Clinical Mode hides editorial metadata and review controls. Clinical warnings and the first-run acknowledgment are always visible.")
                 }
 
                 Section {
@@ -112,7 +112,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Review Mode")
                 } footer: {
-                    Text("Review Center stays in Settings so the bedside tab bar remains stable.")
+                    Text("Review Center lives in Settings.")
                 }
 
                 Section {

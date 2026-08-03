@@ -38,7 +38,7 @@ struct KitsHomeView: View {
                     // filter for a library that is not there at all.
                     EmptyStateView(
                         title: "No kits available",
-                        message: "The kit library is empty. Reinstall the app or restore a recovery package if this is unexpected.",
+                        message: "The kit library is empty. Reinstall the app or restore a recovery package.",
                         systemImage: "shippingbox"
                     )
                 } else {

@@ -121,7 +121,7 @@ struct ReviewCenterView: View {
                 Label("Review tools are turned off", systemImage: "exclamationmark.triangle.fill")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(AppSemanticColor.warningText)
-                Text("Opening an item below will show the content but no review controls. Turn review tools on to record Reviewed, Needs Edits, or Defer.")
+                Text("Items below open without review controls. Turn review tools on to record Reviewed, Needs Edits, or Defer.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -158,7 +158,7 @@ struct ReviewCenterView: View {
             } header: {
                 Text("Edits")
             } footer: {
-                Text("Exports a JSON file of every local correction. Apply it to the repo with scripts/apply_local_edits.py to turn local edits into a reviewable diff.")
+                Text("Exports a JSON file of every local correction. Apply it to the repo with scripts/apply_local_edits.py for a reviewable diff.")
             }
         }
     }
@@ -185,7 +185,7 @@ struct ReviewCenterView: View {
             } header: {
                 Text("Reviews")
             } footer: {
-                Text("Apply it to the repo with scripts/apply_local_reviews.py to promote these items out of \"AI draft\". Sign-offs recorded against content that has since changed are refused rather than promoted.")
+                Text("Apply it to the repo with scripts/apply_local_reviews.py to promote these items out of \"AI draft\". Sign-offs against content that has since changed are refused.")
             }
         }
     }
@@ -203,7 +203,7 @@ struct ReviewCenterView: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             } else {
-                Label("Automatic backup starts after your first local change.", systemImage: "externaldrive.badge.exclamationmark")
+                Label("Automatic backup starts after the first local change.", systemImage: "externaldrive.badge.exclamationmark")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -230,7 +230,7 @@ struct ReviewCenterView: View {
                 }
                 Button("Cancel", role: .cancel) {}
             } message: {
-                Text("This package includes your local notes. Check them before sharing to Files, iCloud Drive, or your Mac.")
+                Text("Includes local notes. Check them before sharing.")
             }
 
             if let recoveryExportURL {
@@ -258,7 +258,7 @@ struct ReviewCenterView: View {
         } header: {
             Text("Recovery Backup")
         } footer: {
-            Text("Automatic copies protect this app on this device. Save a recovery package to Files, iCloud Drive, or your Mac to survive an app deletion, phone replacement, or reset. It includes local notes; use approved storage and never enter patient identifiers. Restoring never changes bundled GitHub content.")
+            Text("Automatic copies stay on this device. Save a recovery package to Files, iCloud Drive, or a Mac to survive app deletion, phone replacement, or reset. It includes local notes; use approved storage and never enter patient identifiers. Restoring never changes bundled GitHub content.")
         }
     }
 
@@ -290,7 +290,7 @@ struct ReviewCenterView: View {
         if !preview.conflicts.isEmpty { lines.append("\(preview.conflicts.count) correction(s) conflict with current local edits.") }
         if !preview.staleProcedureIDs.isEmpty { lines.append("\(preview.staleProcedureIDs.count) correction(s) need comparison with the current bundled clinical text.") }
         if !preview.unknownProcedureIDs.isEmpty { lines.append("\(preview.unknownProcedureIDs.count) correction(s) refer to procedures no longer in this build and will be skipped.") }
-        lines.append("Restore Safe Items keeps current or stale corrections unchanged. Replace Conflicting Local Items is deliberate and replaces only matching local records.")
+        lines.append("Restore Safe Items keeps current or stale corrections unchanged. Replace Conflicting Local Items replaces only matching local records.")
         return lines.joined(separator: " ")
     }
 
@@ -307,7 +307,7 @@ struct ReviewCenterView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Review Workspace")
                             .font(.title3.weight(.bold))
-                        Text("Separate from bedside use. Review content, capture fixes, and track what has been signed off on this device.")
+                        Text("Separate from bedside use. Review content, capture fixes, and track sign-offs on this device.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .fixedSize(horizontal: false, vertical: true)
@@ -475,7 +475,7 @@ struct ReviewCenterView: View {
                 } header: {
                     Text("Changed Since Review")
                 } footer: {
-                    Text("These stay reviewed and still count as done. Listed only because the clinically material text moved — open one to re-confirm.")
+                    Text("These stay reviewed and still count as done. The clinically material text moved — open one to re-confirm.")
                 }
             }
 

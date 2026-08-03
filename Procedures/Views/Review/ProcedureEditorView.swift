@@ -18,7 +18,7 @@ struct ProcedureEditorView: View {
     var body: some View {
         List {
             Section {
-                Text("Edits are saved on this device and replace the bundled text everywhere in the app. Nothing that shipped is overwritten — any section can be reverted.")
+                Text("Edits are stored on this device and replace the bundled text everywhere. Any section can be reverted.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -120,7 +120,7 @@ struct SectionEditorView: View {
             if section.isClinicallyMaterial {
                 Section {
                     Label(
-                        "This is clinically material content. The existing review stays exactly as it is — this change is deliberate. Exporting it will not promote the sign-off until the edit is applied to the bundled content.",
+                        "Clinically material content. The existing review stays as it is. Exporting will not promote the sign-off until the edit is applied to the bundled content.",
                         systemImage: "exclamationmark.triangle.fill"
                     )
                     .font(.footnote.weight(.semibold))
@@ -164,7 +164,7 @@ struct SectionEditorView: View {
             } header: {
                 Text(section.displayName)
             } footer: {
-                Text("Swipe a line to delete it. Blank lines are discarded when you save.")
+                Text("Swipe a line to delete it. Blank lines are discarded on save.")
             }
 
             if editStore.isEdited(section, procedureID: procedure.id) {

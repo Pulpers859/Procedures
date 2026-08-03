@@ -44,10 +44,10 @@ enum ReviewScope: Hashable {
             case .needsEdits:
                 return "Flagged as needing changes. Open one to edit the text inline."
             case .deferred:
-                return "Set aside for later. Deferring is not a review, so these still read as unreviewed everywhere else."
+                return "Set aside for later. Deferring is not a review; these still read as unreviewed everywhere else."
             }
         case .changedSinceReview:
-            return "Still reviewed, and still counted as done. Listed only because the steps, doses, contraindications, or complications moved after sign-off."
+            return "Still reviewed, and still counted as done. The steps, doses, contraindications, or complications moved after sign-off."
         case .issues(let severity):
             switch severity {
             case .blocker:

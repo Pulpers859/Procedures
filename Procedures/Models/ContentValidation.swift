@@ -272,7 +272,7 @@ enum ContentValidator {
         }
 
         if cards.isEmpty {
-            add(.warning, nil, "No rescue cards loaded. Rescue should be a first-class content object, not hardcoded Swift.")
+            add(.warning, nil, "No rescue cards loaded.")
             return issues
         }
 

@@ -388,7 +388,7 @@ struct LocalReviewPanel: View {
                 .frame(minHeight: AppLayout.controlMinHeight)
                 .contentShape(Rectangle())
             } else {
-                Text("Not reviewed in this local workspace.")
+                Text("Not reviewed yet.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                 reviewActions
