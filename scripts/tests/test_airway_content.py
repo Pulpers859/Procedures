@@ -213,7 +213,7 @@ class CricothyrotomyTechniqueTests(unittest.TestCase):
     def test_oxygen_from_above_continues_through_the_incision(self):
         oxygen = [line for line in self.lines if "Oxygen from above continues" in line]
         self.assertEqual(len(oxygen), 1, self.lines)
-        self.assertIn("Don't stop because you've started cutting", oxygen[0])
+        self.assertIn("including once cutting starts", oxygen[0])
 
     def test_ultrasound_is_pre_crisis_only(self):
         ultrasound = self.record["sections"]["ultrasound"]

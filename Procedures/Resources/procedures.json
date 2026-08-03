@@ -35,7 +35,7 @@
         "Have suction in hand or immediately reachable before the first attempt.",
         "Choose first-pass and backup plans before pushing meds \u2014 video/direct laryngoscopy, introducer, supraglottic, cricothyrotomy.",
         "Name plan and action together, never the letter alone: A tracheal intubation, B supraglottic airway, C final facemask attempt plus the wake-up-or-proceed decision, D front-of-neck access.",
-        "Maximum 3+1 attempts (DAS 2025): three, plus one final attempt by a more experienced colleague only. Change something material each attempt \u2014 repeating the same technique wastes an attempt.",
+        "Maximum 3+1 attempts (DAS 2025): three, plus one final attempt by a more experienced colleague only. Change something material each attempt.",
         "The plus-one is a handover, not an extra turn for the same operator. No one more experienced available: ceiling is three.",
         "Hypoxaemia at any point: abandon the attempt, prioritise facemask oxygenation. Oxygenate between attempts; maintain anaesthesia.",
         "Physiology kills before anatomy: optimize hypotension, hypoxemia, severe acidosis, RV failure, and hyperkalemia when possible.",
@@ -689,11 +689,11 @@
       "shiftMode": [
         "This is an oxygenation rescue.",
         "Call failed airway out loud; assign someone to keep oxygenating while you prep the neck.",
-        "Oxygen from above continues throughout \u2014 leave the facemask or supraglottic device in place and keep delivering. Don't stop because you've started cutting.",
+        "Oxygen from above continues throughout, including once cutting starts \u2014 leave the facemask or supraglottic device in place and keep delivering.",
         "Ensure full neuromuscular block before you cut \u2014 even apnoeic, a straining patient or closed glottis makes the procedure harder and oxygenation worse.",
         "Landmark before the airway is lost if the airway looks high risk.",
         "Prep wide if time allows \u2014 don't let sterile technique delay oxygenation in a true cannot-oxygenate crisis.",
-        "One technique: scalpel-bougie-tube (DAS 2025) \u2014 number 10 blade, bougie, 6.0 cuffed tracheal tube. A commercial Seldinger kit is a different procedure with a different failure profile; if that's what's stocked, follow its instructions instead.",
+        "One technique: scalpel-bougie-tube (DAS 2025) \u2014 number 10 blade, bougie, 6.0 cuffed tracheal tube. A commercial Seldinger kit is a different procedure; if that's what's stocked, follow its instructions instead.",
         "Confirm with ETCO2 and chest rise; secure aggressively."
       ],
       "indications": [
@@ -943,7 +943,7 @@
         "Too low is the commonest preventable error - the tract enters the abdomen.",
         "Finger sweep is the safety check; skipping it is how tubes end up in soft tissue.",
         "Have the drainage system ready before pleura is entered.",
-        "Do not drain a large hemothorax in a hypotensive patient until blood is at the bedside and a surgeon knows. You may be releasing a tamponade.",
+        "Do not drain a large hemothorax in a hypotensive patient until blood is at the bedside and a surgeon knows - the clot may be tamponading the bleeding.",
         "Pus does not need a big tube. Small-bore plus flushes is the standard for empyema; blockage is managed by flushing, not by upsizing in advance."
       ],
       "references": [
@@ -1223,7 +1223,7 @@
         "Primary site: 4th or 5th intercostal space, anterior axillary line. Alternate: 2nd intercostal space, midclavicular line.",
         "Failure to decompress is common and expected \u2014 have the next step ready before you start.",
         "A failed needle means finger thoracostomy, not another needle.",
-        "A tube follows. Assume it, and justify the exception rather than the rule.",
+        "A tube follows. Not placing one is the exception and needs a reason.",
         "Adult scope only \u2014 paediatric site selection, device size, and dosing differ materially and aren't covered here."
       ],
       "indications": [
@@ -1405,7 +1405,7 @@
         "Prep/drape and anesthetize if time allows.",
         "Advance under real-time visualisation, aspirating as you go, watching the tip rather than the hub.",
         "Emergency phase: aspirate only until perfusion returns. 20-50 mL commonly does it. Then stop, re-scan, and decide whether a catheter is needed - do not keep going because fluid keeps coming.",
-        "Before dilating over the wire, see the wire inside the pericardial space - no exception, including in an emergency. A dilator and a pigtail in the right ventricle is a far worse injury than the needle alone.",
+        "Before dilating over the wire, see the wire inside the pericardial space - no exception, including in an emergency.",
         "Place the catheter with Seldinger control, then confirm the catheter itself - not just the wire - in the pericardial space.",
         "Secure the catheter, attach a closed drainage system, and reassess with ultrasound and haemodynamics.",
         "Drainage after stabilisation is staged: keep the initial total under about 500 mL, then drain at intervals rather than continuously. Rapid large-volume removal causes pericardial decompression syndrome."
@@ -1463,7 +1463,7 @@
         "The diagnosis is effusion plus tamponade physiology plus patient context, not effusion alone.",
         "Pick the safest window, not the most traditional one.",
         "Small volume out with sudden BP improvement - stop there.",
-        "The colour of the aspirate answers nothing in trauma. Everything is blood.",
+        "The colour of the aspirate answers nothing in trauma - everything there is blood.",
         "If you are reaching for a dilator, you have time to look at the wire."
       ],
       "references": [
@@ -1733,7 +1733,7 @@
         "Sedation is a continuum and the patient can go deeper than intended. Staff and equip to rescue one level deeper than the target.",
         "A dedicated clinician monitors and does nothing else \u2014 the proceduralist can't do it; hands and eyes are on the procedure.",
         "Pre-brief airway risk, hemodynamics, meds, dose plan, and rescue plan.",
-        "Continuous pulse oximetry, cardiac monitoring, cycled blood pressure, and continuous waveform capnography \u2014 capnography is required, not optional. On supplemental oxygen, saturation lags true oxygenation by minutes; that's why you preoxygenated.",
+        "Continuous pulse oximetry, cardiac monitoring, cycled blood pressure, and continuous waveform capnography \u2014 capnography is required, not optional. On supplemental oxygen, saturation lags true oxygenation by minutes.",
         "Have suction, BVM, airway adjuncts, and reversal/rescue meds physically in the room.",
         "Do not give more medication because the room is impatient; dose to patient response."
       ],
@@ -3300,7 +3300,7 @@
         "Track the needle tip, not just tissue movement, in short or long axis as you advance.",
         "Confirm flash, then lower the angle and advance several more millimeters before threading the catheter.",
         "Confirm intraluminal position by flushing while imaging; watch for tissue bulging that signals infiltration.",
-        "Depth over 1.2 cm predicts failure. If the patient needs reliable access for days, a deep PIV is the wrong device \u2014 that problem lands on the night shift."
+        "Depth over 1.2 cm predicts failure. If the patient needs reliable access for days, a deep PIV is the wrong device."
       ],
       "indications": [
         "Difficult intravenous access where surface veins are unavailable or repeatedly fail",
@@ -5191,7 +5191,7 @@
         "The danger: the internal carotid artery lies posterolateral to the tonsil, typically 2-2.5 cm from the mucosal surface.",
         "Limit needle depth to 1 cm with a guard (cut syringe sheath or tape) to prevent deep penetration.",
         "Aspirate at the point of maximal fluctuance or bulging, usually the superior pole of the tonsil.",
-        "Always have suction ready. These patients aspirate pus.",
+        "Always have suction ready - these patients aspirate pus.",
         "If you cannot aspirate pus but clinical suspicion is high, consider CT with contrast or ENT consultation."
       ],
       "indications": [
@@ -5503,7 +5503,7 @@
       ],
       "seniorPearls": [
         "If you are digging for more than 15 minutes, stop - further exploration only enlarges the wound.",
-        "Ultrasound finds much of what X-ray misses, and misses things too. Neither is a rule-out.",
+        "Ultrasound finds much of what X-ray misses and misses things too; neither is a rule-out.",
         "A finger tourniquet turns a bloody mess into a clean field, and costs the finger if it stays on. Write the time down.",
         "Tell the patient if a fragment might be retained."
       ],
