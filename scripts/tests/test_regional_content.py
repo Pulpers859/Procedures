@@ -8,6 +8,7 @@ sentence its neighbours all carry. The per-block classes hold the line on the
 four needle targets from owner-queue P0 item 4 and the specific overclaims each
 lane report named."""
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -273,6 +274,67 @@ class DosingGovernanceTests(unittest.TestCase):
                     any(agent in lines for agent in ("lidocaine", "bupivacaine", "ropivacaine")),
                     "no agent named anywhere in equipment or steps",
                 )
+
+    def test_every_strength_named_in_prose_is_one_the_calculator_can_convert(self):
+        """A card that recommends "0.25% bupivacaine or ropivacaine" has offered
+        0.25% ropivacaine, which is not a supplied strength - fascia_iliaca_block
+        says so in as many words - and is not in that card's own concentration
+        list. The reader picks ropivacaine, opens the calculator, and cannot get
+        from milligrams to millilitres.
+
+        Three records shipped that phrasing. The neighbouring test checks the
+        agent is *named*; this one checks the strength is *usable*.
+
+        The two entries below need an owner decision on which strength to name,
+        so they are listed rather than guessed at."""
+        pending = {
+            # "1-2 mL of 0.5% bupivacaine or lidocaine": 0.5% bupivacaine is
+            # convertible, 0.5% lidocaine is not (offers 1% and 2%).
+            ("block_superior_alveolar", "lidocaine", 0.5),
+            # "5-10 mL of 1% lidocaine or bupivacaine": 1% lidocaine is
+            # convertible, 1% bupivacaine is not (offers 0.25/0.5/0.75%).
+            ("block_auricular", "bupivacaine", 1.0),
+        }
+        agent_word = r"(lidocaine|bupivacaine|ropivacaine)"
+        shared = re.compile(rf"(\d+(?:\.\d+)?)\s*%\s+{agent_word}\s+or\s+{agent_word}\b", re.I)
+        direct = re.compile(rf"(\d+(?:\.\d+)?)\s*%\s+{agent_word}\b", re.I)
+        for record in regional():
+            offered = {}
+            for agent in (record.get("dosing") or {}).get("agents", []):
+                base = (agent.get("agent") or "").lower().replace(" with epinephrine", "").strip()
+                offered.setdefault(base, set()).update(
+                    float(c) for c in (agent.get("concentrationsPercent") or [])
+                )
+            # A sentence that exists to rule a strength OUT is not recommending
+            # it. fascia_iliaca_block says "0.25% ropivacaine is not a supplied
+            # strength and is not used here" - that is the fix, not the defect.
+            disclaimer = re.compile(
+                r"not a supplied strength|is not used|not offered|not stocked", re.I
+            )
+            for section in ("equipment", "steps"):
+                for line in record["sections"].get(section, []):
+                    named = set()
+                    for sentence in re.split(r"(?<=[.;])\s+", line):
+                        if disclaimer.search(sentence):
+                            continue
+                        for m in shared.finditer(sentence):
+                            named.add((m.group(2).lower(), float(m.group(1))))
+                            named.add((m.group(3).lower(), float(m.group(1))))
+                        for m in direct.finditer(sentence):
+                            named.add((m.group(2).lower(), float(m.group(1))))
+                    for agent, percent in sorted(named):
+                        if agent not in offered or not offered[agent]:
+                            continue
+                        if (record["id"], agent, percent) in pending:
+                            continue
+                        with self.subTest(record["id"], agent=agent, percent=percent):
+                            self.assertIn(
+                                percent, offered[agent],
+                                f"{record['id']} names {percent}% {agent} in {section} "
+                                f"but the calculator offers only "
+                                f"{sorted(offered[agent])}%, so mg cannot be "
+                                f"converted to mL",
+                            )
 
     def test_large_volume_blocks_do_not_offer_lidocaine(self):
         """The governance rule: a block only offers agents whose ceiling its
