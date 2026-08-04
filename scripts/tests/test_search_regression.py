@@ -507,3 +507,40 @@ class FuzzyMatcherTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class AmbiguousAbbreviationTests(unittest.TestCase):
+    """FIB is the everyday abbreviation for the fascia iliaca block, and it is
+    also inside "fibrillation". The block was unreachable by it: "fib" returned
+    cardioversion, thoracotomy and the pacer and never the block.
+
+    The obvious fix - a "fib" synonym - was tried and reverted. It sent "a-fib"
+    and "vfib" to nerve blocks instead of the cardiac cards, because the
+    tokenizer splits "a-fib" into "fib" and fuzzy matching pulls "vfib" onto it.
+    That is the same class of bug as "lost" being one edit from "last". A tag
+    scores the block without touching synonym expansion, so the cardiac
+    abbreviations are unaffected."""
+
+    def test_fib_reaches_the_fascia_iliaca_block(self):
+        results = [r[0] if isinstance(r, tuple) else r for r in search("fib")]
+        self.assertIn("fascia_iliaca_block", results)
+
+    def test_fib_does_not_displace_the_cardiac_cards(self):
+        """Ambiguous means both should be findable, and the arrhythmia card
+        should still come first - it is the time-critical one."""
+        results = [r[0] if isinstance(r, tuple) else r for r in search("fib")]
+        self.assertEqual(results[0], "synchronized_cardioversion")
+
+    def test_the_fibrillation_abbreviations_are_untouched(self):
+        for query, expected_first in (("afib", "synchronized_cardioversion"),
+                                      ("a-fib", "synchronized_cardioversion"),
+                                      ("atrial fibrillation", "synchronized_cardioversion")):
+            with self.subTest(query):
+                results = [r[0] if isinstance(r, tuple) else r for r in search(query)]
+                self.assertTrue(results, f"{query!r} returned nothing")
+                self.assertEqual(results[0], expected_first)
+
+    def test_vfib_is_not_captured_by_the_block(self):
+        """It returned nothing before and must not start returning nerve blocks."""
+        results = [r[0] if isinstance(r, tuple) else r for r in search("vfib")]
+        self.assertNotIn("fascia_iliaca_block", results)
