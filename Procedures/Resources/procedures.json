@@ -1321,7 +1321,7 @@
         "id": "needle_decompression_danger",
         "kind": "Danger Zone",
         "title": "Medial danger zone",
-        "subtitle": "Internal mammary artery runs 1\u20132 cm lateral to the sternum. Stay in the midclavicular line to avoid it. The intercostal bundle runs along the inferior rib margin.",
+        "subtitle": "Internal mammary artery runs 1-2 cm lateral to the sternum. Stay in the midclavicular line to avoid it. The intercostal bundle runs along the inferior rib margin.",
         "assetName": null,
         "systemImage": "exclamationmark.triangle",
         "caption": "",
@@ -2269,7 +2269,7 @@
         "id": "radial_approach",
         "kind": "Landmark",
         "title": "Radial artery approach",
-        "subtitle": "Wrist extended 30\u201345 degrees over a towel roll. Radial artery palpated 1\u20132 cm proximal to the wrist crease, lateral to the flexor carpi radialis tendon.",
+        "subtitle": "Wrist extended 30-45 degrees over a towel roll. Radial artery palpated 1-2 cm proximal to the wrist crease, lateral to the flexor carpi radialis tendon.",
         "assetName": null,
         "systemImage": "hand.raised",
         "caption": "",
@@ -2279,7 +2279,7 @@
         "id": "aline_us_short_axis",
         "kind": "Probe Position",
         "title": "Ultrasound short-axis view",
-        "subtitle": "Linear probe perpendicular to the radial artery. Small pulsatile structure visible at 2\u20135 mm depth. Radial nerve and vein are adjacent.",
+        "subtitle": "Linear probe perpendicular to the radial artery. Small pulsatile structure visible at 2-5 mm depth. Radial nerve and vein are adjacent.",
         "assetName": null,
         "systemImage": "dot.viewfinder",
         "caption": "",
@@ -4499,9 +4499,9 @@
         "Excessive tissue over the site, or landmarks that cannot be identified"
       ],
       "anatomy": [
-        "Proximal tibia: flat anteromedial surface, 1\u20132 cm distal and medial to the tibial tuberosity.",
+        "Proximal tibia: flat anteromedial surface, 1-2 cm distal and medial to the tibial tuberosity.",
         "Proximal humerus: greater tubercle, arm adducted and internally rotated with the hand on the abdomen. Insert at 45 degrees to the anterior plane aimed posteromedially - not 90 degrees.",
-        "Distal tibia: medial malleolus, 1\u20132 cm proximal to the most prominent point.",
+        "Distal tibia: medial malleolus, 1-2 cm proximal to the most prominent point.",
         "In pediatrics the proximal tibia is preferred; the flat medial tibial surface is more accessible."
       ],
       "equipment": [
@@ -4592,7 +4592,7 @@
         "id": "io_proximal_tibia_landmark",
         "kind": "Landmark",
         "title": "Proximal tibia insertion site",
-        "subtitle": "Palpate the tibial tuberosity. Move 1\u20132 cm distal and medial to the flat anteromedial tibial surface. This is the insertion point. Needle at 90 degrees to the bone.",
+        "subtitle": "Palpate the tibial tuberosity. Move 1-2 cm distal and medial to the flat anteromedial tibial surface. This is the insertion point. Needle at 90 degrees to the bone.",
         "assetName": null,
         "systemImage": "figure.walk",
         "caption": "",
@@ -4699,7 +4699,7 @@
         "Hemostat (optional, for syringe exchange)"
       ],
       "positioning": [
-        "Patient supine with knee in slight flexion (15\u201320 degrees). A rolled towel behind the knee helps.",
+        "Patient supine with knee in slight flexion (15-20 degrees). A rolled towel behind the knee helps.",
         "Relaxed quadriceps. The patella should be mobile.",
         "Identify landmarks or use ultrasound to confirm effusion location."
       ],
@@ -4872,7 +4872,7 @@
         "If a single bleeding point is visible, silver nitrate cautery may stop the bleed without packing.",
         "If packing is needed, Rapid Rhino or Merocel sponge are first-line devices.",
         "Always check vitals and hemodynamic stability. Posterior bleeds and anticoagulated patients can hemorrhage.",
-        "Patients discharged with packing need ENT follow-up for removal in 48\u201372 hours."
+        "Patients discharged with packing need ENT follow-up for removal in 48-72 hours."
       ],
       "indications": [
         "Anterior epistaxis uncontrolled by direct pressure",
@@ -4909,7 +4909,7 @@
       "positioning": [
         "Patient seated upright leaning slightly forward to prevent blood swallowing.",
         "Have the patient blow out clots gently before examination.",
-        "Apply topical vasoconstrictor and anesthetic pledgets for 10\u201315 minutes before instrumentation."
+        "Apply topical vasoconstrictor and anesthetic pledgets for 10-15 minutes before instrumentation."
       ],
       "steps": [
         "Ensure hemodynamic stability. Obtain IV access if significant bleeding or anticoagulation.",
@@ -5210,7 +5210,7 @@
       ],
       "anatomy": [
         "The peritonsillar space lies between the tonsillar capsule and the superior pharyngeal constrictor muscle.",
-        "The internal carotid artery runs posterolateral, typically 2\u20132.5 cm from the pharyngeal mucosal surface.",
+        "The internal carotid artery runs posterolateral, typically 2-2.5 cm from the pharyngeal mucosal surface.",
         "Most PTAs collect at the superior pole of the tonsil, between the anterior tonsillar pillar and the soft palate.",
         "Uvular deviation is typically away from the affected side.",
         "The palatine tonsil, anterior and posterior pillars, and soft palate are key landmarks."
@@ -5244,7 +5244,7 @@
         "Aspirate while advancing slowly up to 1 cm only.",
         "If pus is obtained: aspirate as much as possible. Send sample for culture.",
         "If no pus is obtained: redirect the needle slightly inferior or medial. A second attempt at the middle pole may be tried.",
-        "If no pus after 2\u20133 attempts: consider CT to confirm abscess vs. cellulitis, or consult ENT.",
+        "If no pus after 2-3 attempts: consider CT to confirm abscess vs. cellulitis, or consult ENT.",
         "After drainage, have the patient gargle and spit. Reassess the oropharynx."
       ],
       "ultrasound": [
@@ -5451,7 +5451,7 @@
         "Apply appropriate dressing - and confirm again that the tourniquet is not under it."
       ],
       "ultrasound": [
-        "High-frequency linear probe (10\u201315 MHz) provides best resolution for superficial foreign bodies.",
+        "High-frequency linear probe (10-15 MHz) provides best resolution for superficial foreign bodies.",
         "Foreign bodies appear as hyperechoic structures, often with posterior shadowing (glass, metal) or reverberation artifact.",
         "Wood may appear as a hyperechoic linear structure with dirty shadowing.",
         "Scan in two orthogonal planes to localize in 3D.",

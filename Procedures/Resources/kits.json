@@ -11,7 +11,7 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "ETT (7.0–7.5 for most adults; 8.0 for large males) — confirm cuff inflates with 10 mL syringe",
+      "ETT (7.0-7.5 for most adults; 8.0 for large males) — confirm cuff inflates with 10 mL syringe",
       "Malleable stylet — pre-set hockey-stick or gentle curve before handing to intubator",
       "10 mL syringe for cuff inflation",
       "Laryngoscope handle with Mac 3 and Mac 4 blades (confirm light before patient arrives)",
@@ -119,7 +119,7 @@
       "Suction immediately adjacent to the working field"
     ],
     "backupEquipment": [
-      "Needle cricothyrotomy (14g angiocath): temporizing bridge for maximum 30–45 min with jet ventilation — do not delay surgical cric if jet ventilation is unavailable",
+      "Needle cricothyrotomy (14g angiocath): temporizing bridge for maximum 30-45 min with jet ventilation — do not delay surgical cric if jet ventilation is unavailable",
       "Melker percutaneous cric kit (Seldinger technique): alternative if scalpel cric not within operator's trained skill set",
       "Video laryngoscope: one final attempt may be reasonable in selected scenarios before declaring CICO"
     ],
@@ -141,7 +141,7 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Triple-lumen CVC (15–16 cm for IJ/subclavian; 20 cm for femoral) — Arrow, Cook, or equivalent",
+      "Triple-lumen CVC (15-16 cm for IJ/subclavian; 20 cm for femoral) — Arrow, Cook, or equivalent",
       "Introducer needle (18g, included in kit)",
       "Guidewire (J-tip, 0.035\") — keep track of depth mark at skin at all times",
       "Vessel dilator",
@@ -211,7 +211,7 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Chest tube: 28–36 Fr for hemothorax; 20–24 Fr for uncomplicated pneumothorax — select size before opening",
+      "Chest tube: 28-36 Fr for hemothorax; 20-24 Fr for uncomplicated pneumothorax — select size before opening",
       "Large curved clamp (Kelly or Rochester hemostat) ×2 — one for blunt dissection, one for tube passage",
       "Scalpel (#10 blade, or #21 for large incision)",
       "20 mL syringe + 25g and 22g needles for lidocaine infiltration",
@@ -242,8 +242,8 @@
       "Position: ipsilateral arm raised above head (hand behind head or draped overhead) to expose lateral chest wall",
       "Target: safe triangle — bounded by lateral pectoralis border anteriorly, mid-axillary line posteriorly, and 4th–5th ICS superiorly",
       "Mark insertion site with pen before prepping when possible",
-      "Elevate head of bed 30–45° for alert patients to reduce venous engorgement",
-      "Systemic analgesia before prep: IV opioid 5–10 min before procedure; local anesthesia at site with rib periosteum block"
+      "Elevate head of bed 30-45° for alert patients to reduce venous engorgement",
+      "Systemic analgesia before prep: IV opioid 5-10 min before procedure; local anesthesia at site with rib periosteum block"
     ],
     "sterileSetup": [
       "Chlorhexidine prep over large area: axilla to midline, 3 complete passes; allow 2 min to dry",
@@ -252,7 +252,7 @@
       "Mayo stand in order: lidocaine syringe, scalpel, clamp ×2, chest tube (clamped at distal end), suture, petroleum gauze"
     ],
     "backupEquipment": [
-      "Pigtail catheter (14–16 Fr Seldinger kit): for uncomplicated pneumothorax or free-flowing effusion when large-bore tube is not indicated",
+      "Pigtail catheter (14-16 Fr Seldinger kit): for uncomplicated pneumothorax or free-flowing effusion when large-bore tube is not indicated",
       "Needle decompression (14g angiocath, 2nd ICS MCL): for tension pneumothorax with hemodynamic compromise — do not wait for chest tube in arrest",
       "CT surgery or thoracic consult: initial hemothorax >1500 mL OR ongoing >200 mL/hr"
     ],
@@ -300,10 +300,10 @@
     ],
     "patientSetup": [
       "Non-dominant wrist preferred in awake cooperative patients",
-      "Dorsiflex wrist 45–60° over wrist roll; tape index finger, middle finger, and ring finger back without occluding circulation",
-      "Palpate radial pulse 1–2 cm proximal to flexor wrist crease; mark with thumbnail",
+      "Dorsiflex wrist 45-60° over wrist roll; tape index finger, middle finger, and ring finger back without occluding circulation",
+      "Palpate radial pulse 1-2 cm proximal to flexor wrist crease; mark with thumbnail",
       "Position arm at or below heart level",
-      "For ultrasound guidance: linear probe (10–15 MHz) oriented transverse over radial artery"
+      "For ultrasound guidance: linear probe (10-15 MHz) oriented transverse over radial artery"
     ],
     "sterileSetup": [
       "Chlorhexidine prep swab over wrist; allow to dry",
@@ -400,9 +400,9 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Thoracentesis catheter-over-needle assembly (Unipleur, Arrow, or Thal-Quick) — 8–9 cm with side holes",
+      "Thoracentesis catheter-over-needle assembly (Unipleur, Arrow, or Thal-Quick) — 8-9 cm with side holes",
       "Collection tubing with three-way stopcock",
-      "Large drainage bag (1000–1500 mL) or vacuum collection bottles ×2",
+      "Large drainage bag (1000-1500 mL) or vacuum collection bottles ×2",
       "Sterile drapes and fenestrated drape",
       "Chlorhexidine prep applicators ×3",
       "1% lidocaine 10 mL syringe with 25g and 22g needles — infiltrate generously to parietal pleura",
@@ -411,7 +411,7 @@
       "Sterile 4x4 gauze packs and adhesive bandage"
     ],
     "outsideKit": [
-      "Ultrasound machine with low-frequency probe (3.5–5 MHz curvilinear) — mark effusion IMMEDIATELY before procedure; do NOT mark hours earlier with position changes",
+      "Ultrasound machine with low-frequency probe (3.5-5 MHz curvilinear) — mark effusion IMMEDIATELY before procedure; do NOT mark hours earlier with position changes",
       "Sterile ultrasound probe cover for real-time guidance during needle insertion",
       "Lab tubes for fluid analysis — order BEFORE starting: LDH, protein, glucose, cell count, Gram stain/culture, cytology",
       "Heparinized syringe for pleural fluid pH if parapneumonic effusion suspected",
@@ -441,8 +441,8 @@
       "Drainage collection bag gravity-dependent and below patient level before aspiration begins"
     ],
     "backupEquipment": [
-      "Pigtail catheter (14–16 Fr Seldinger kit): for prolonged drainage over days, loculated effusion, or empyema not draining through needle",
-      "Chest tube (24–28 Fr): if empyema is confirmed or frank pus encountered",
+      "Pigtail catheter (14-16 Fr Seldinger kit): for prolonged drainage over days, loculated effusion, or empyema not draining through needle",
+      "Chest tube (24-28 Fr): if empyema is confirmed or frank pus encountered",
       "Needle decompression: if tension pneumothorax develops with acute hemodynamic compromise post-procedure"
     ],
     "references": [
@@ -464,12 +464,12 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Pericardiocentesis needle (18g spinal needle, 6–9 cm, or commercial pericardiocentesis kit)",
+      "Pericardiocentesis needle (18g spinal needle, 6-9 cm, or commercial pericardiocentesis kit)",
       "Guidewire (0.035\" J-tip) and pigtail or straight drainage catheter (if Seldinger kit)",
-      "50–60 mL syringes ×2 for aspiration",
+      "50-60 mL syringes ×2 for aspiration",
       "Three-way stopcock",
       "Sterile drapes and chlorhexidine prep applicators",
-      "1–2% lidocaine, 10 mL syringe with 25g needle for skin infiltration",
+      "1-2% lidocaine, 10 mL syringe with 25g needle for skin infiltration",
       "ECG alligator clip (V-lead monitor wire) to attach to needle hub for landmark guidance when echo unavailable"
     ],
     "outsideKit": [
