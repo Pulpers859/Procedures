@@ -285,16 +285,11 @@ class DosingGovernanceTests(unittest.TestCase):
         Three records shipped that phrasing. The neighbouring test checks the
         agent is *named*; this one checks the strength is *usable*.
 
-        The two entries below need an owner decision on which strength to name,
-        so they are listed rather than guessed at."""
-        pending = {
-            # "1-2 mL of 0.5% bupivacaine or lidocaine": 0.5% bupivacaine is
-            # convertible, 0.5% lidocaine is not (offers 1% and 2%).
-            ("block_superior_alveolar", "lidocaine", 0.5),
-            # "5-10 mL of 1% lidocaine or bupivacaine": 1% lidocaine is
-            # convertible, 1% bupivacaine is not (offers 0.25/0.5/0.75%).
-            ("block_auricular", "bupivacaine", 1.0),
-        }
+        block_superior_alveolar and block_auricular had the same defect in the
+        "X% A or B" form and were resolved by the owner on 2026-08-04: both now
+        offer either 0.5% bupivacaine or 1% lidocaine, and both strengths are in
+        those cards' concentration lists. There is nothing left to exempt."""
+        pending = set()
         agent_word = r"(lidocaine|bupivacaine|ropivacaine)"
         shared = re.compile(rf"(\d+(?:\.\d+)?)\s*%\s+{agent_word}\s+or\s+{agent_word}\b", re.I)
         direct = re.compile(rf"(\d+(?:\.\d+)?)\s*%\s+{agent_word}\b", re.I)

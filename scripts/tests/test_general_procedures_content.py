@@ -346,3 +346,16 @@ class KitAndCardAgreementTests(unittest.TestCase):
                 "fallback" in clause or "no atraumatic needle is stocked" in clause,
                 f"Quincke named without marking it the fallback: {clause.strip()!r}",
             )
+
+    def test_the_chest_tube_kit_agrees_with_the_card_on_large_bore_size(self):
+        """The kit said 28-36 Fr for hemothorax where the card said 28-32 Fr.
+        Same device, same indication, two ranges, and a reader who sizes from
+        the kit picks a tube the card does not sanction. Owner kept 28-32 on
+        2026-08-04, so the kit follows the card."""
+        card = " ".join(
+            self.records["thoracostomy_chest_tube"]["sections"]["equipment"]
+        ).lower()
+        kit = self._kit_text("kit_chest_tube")
+        self.assertIn("28-32 fr", card)
+        self.assertIn("28-32 fr", kit)
+        self.assertNotIn("28-36 fr", kit)

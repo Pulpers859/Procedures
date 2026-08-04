@@ -166,9 +166,6 @@ class ReleaseValidationTests(unittest.TestCase):
              / "procedures.json").read_text(encoding="utf-8")
         )
         pending = {
-            # Radial artery depth: anatomy says 3-8 mm, this says 2-5 mm.
-            # Overlapping but not identical - needs an owner decision.
-            ("arterial_line", "aline_us_short_axis", "2-5 mm"),
             # Detail present only in the visual; not contradicted anywhere.
             ("arterial_line", "radial_approach", "1-2 cm"),
             ("needle_decompression", "needle_decompression_danger", "1-2 cm"),

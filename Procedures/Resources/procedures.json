@@ -2280,7 +2280,7 @@
         "id": "aline_us_short_axis",
         "kind": "Probe Position",
         "title": "Ultrasound short-axis view",
-        "subtitle": "Linear probe perpendicular to the radial artery. Small pulsatile structure visible at 2-5 mm depth. Radial nerve and vein are adjacent.",
+        "subtitle": "Linear probe perpendicular to the radial artery. Small pulsatile structure visible at 3-8 mm depth. Radial nerve and vein are adjacent.",
         "assetName": null,
         "systemImage": "dot.viewfinder",
         "caption": "",
@@ -10466,7 +10466,7 @@
       ],
       "equipment": [
         "25G or 27G needle (short, 1 inch is fine)",
-        "Local anesthetic (1-2 mL of 0.5% bupivacaine or lidocaine)",
+        "Local anesthetic (1-2 mL of 0.5% bupivacaine or 1% lidocaine)",
         "Topical anesthetic",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
@@ -10662,7 +10662,7 @@
       ],
       "equipment": [
         "25G or 27G needle (1.5 inch)",
-        "Local anesthetic (5-10 mL of 1% lidocaine or bupivacaine, WITHOUT epinephrine to avoid cartilage ischemia)",
+        "Local anesthetic (5-10 mL of 1% lidocaine or 0.5% bupivacaine, WITHOUT epinephrine to avoid cartilage ischemia)",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
         "Know where the 20% lipid emulsion is before you inject."
