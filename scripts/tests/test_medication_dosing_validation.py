@@ -287,7 +287,7 @@ class ShippedSedationBlockTests(unittest.TestCase):
         sentence is about being able to rescue what you may create."""
         requirement = self.block["inductionRequirement"]
         self.assertIn("one level deeper", requirement)
-        self.assertIn("before the first millilitre goes in", requirement)
+        self.assertIn("before the first milliliter goes in", requirement)
 
     def test_ketamine_states_the_all_or_nothing_property(self):
         """An underdose does not give light sedation. It gives an agitated,

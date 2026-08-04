@@ -67,7 +67,7 @@ class ShoulderReductionTests(unittest.TestCase):
         """They are different problems with different urgency, and collapsing
         them is what produced the original contraindication line."""
         self.assertIn("axillary nerve deficit", self.text)
-        self.assertIn("pulseless or ischaemic limb", self.text)
+        self.assertIn("pulseless or ischemic limb", self.text)
 
 
 class TourniquetFailSafeTests(unittest.TestCase):
@@ -173,7 +173,7 @@ class NasalPackingTests(unittest.TestCase):
     def test_the_topical_lidocaine_dose_is_quantified(self):
         """4% on mucosa absorbs close to intravenous rates and this record has
         no calculator, so the milligrams have to be in the sentence."""
-        self.assertIn("40 mg per millilitre", self.text)
+        self.assertIn("40 mg per milliliter", self.text)
 
 
 class PeritonsillarTests(unittest.TestCase):
@@ -185,7 +185,7 @@ class PeritonsillarTests(unittest.TestCase):
         self.assertIn("the airway question comes before the technique question", self.text)
 
     def test_benzocaine_carries_its_methaemoglobinaemia_pathway(self):
-        self.assertIn("methaemoglobinaemia", self.text)
+        self.assertIn("methemoglobinemia", self.text)
         self.assertIn("methylene blue", self.text)
 
     def test_the_steroid_is_a_single_dose_not_a_pack(self):

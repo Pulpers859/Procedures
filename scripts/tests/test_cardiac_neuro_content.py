@@ -66,7 +66,7 @@ class LaneScopeTests(unittest.TestCase):
         claim was the defect; removing it is reversible, shipping it was not."""
         record = self.records["lumbar_puncture"]
         self.assertNotIn("Peds", record["setting"])
-        self.assertIn("paediatric and neonatal lp differ", joined(record))
+        self.assertIn("pediatric and neonatal lp differ", joined(record))
 
 
 class PericardiocentesisTests(unittest.TestCase):
@@ -104,7 +104,7 @@ class PericardiocentesisTests(unittest.TestCase):
         """The old confirmation line - "pericardial fluid rather than blood from
         chamber" - fails in precisely the trauma case this card exists for.
         Everything is blood there."""
-        self.assertIn("colour proves nothing", self.text)
+        self.assertIn("color proves nothing", self.text)
         self.assertIn("agitated saline", self.text)
 
     def test_the_landmark_visual_is_labelled_as_the_no_ultrasound_fallback(self):
@@ -130,7 +130,7 @@ class ResuscitativeThoracotomyTests(unittest.TestCase):
             "measurable blood pressure",
             "spontaneous respiratory effort",
             "pupillary reaction",
-            "organised cardiac electrical activity",
+            "organized cardiac electrical activity",
         ):
             with self.subTest(sign):
                 self.assertIn(sign, self.text)
@@ -156,7 +156,7 @@ class ResuscitativeThoracotomyTests(unittest.TestCase):
         )
 
     def test_the_oesophagus_is_named_as_the_structure_clamped_by_mistake(self):
-        self.assertIn("oesophagus", self.text)
+        self.assertIn("esophagus", self.text)
         self.assertIn("orogastric tube", self.text)
 
     def test_the_internal_mammaries_are_flagged_after_clamshell(self):
@@ -165,7 +165,7 @@ class ResuscitativeThoracotomyTests(unittest.TestCase):
         self.assertIn("internal mammary arteries", self.text)
 
     def test_there_is_a_stated_termination_endpoint(self):
-        self.assertIn("no organised cardiac activity after tamponade release", self.text)
+        self.assertIn("no organized cardiac activity after tamponade release", self.text)
 
 
 class CardioversionEnergyTests(unittest.TestCase):
@@ -219,7 +219,7 @@ class LumbarPunctureTests(unittest.TestCase):
 
     def test_the_imaging_criteria_are_named_features(self):
         """"Signs of elevated ICP/mass lesion" is a category, not a checklist."""
-        for feature in ("focal neurological deficit", "papilloedema", "abnormal posturing"):
+        for feature in ("focal neurological deficit", "papilledema", "abnormal posturing"):
             with self.subTest(feature):
                 self.assertIn(feature, self.text)
 

@@ -86,7 +86,7 @@ class IntubationSafetyNumbersTests(unittest.TestCase):
         instruction to put 10 mL in. Cuff pressure is the number that matters."""
         cuff = [line for line in self.lines if "20-30 cmH2O" in line]
         self.assertEqual(len(cuff), 1, self.lines)
-        self.assertIn("Millilitres are not a pressure", cuff[0])
+        self.assertIn("Milliliters are not a pressure", cuff[0])
         self.assertTrue(
             any("cuff manometer" in line for line in self.record["sections"]["equipment"])
         )
@@ -208,7 +208,7 @@ class CricothyrotomyTechniqueTests(unittest.TestCase):
         the reader to skip it: the patient is already not breathing."""
         block = [line for line in self.lines if "full neuromuscular block" in line]
         self.assertEqual(len(block), 1, self.lines)
-        self.assertIn("even apnoeic, a straining patient", block[0])
+        self.assertIn("even apneic, a straining patient", block[0])
 
     def test_oxygen_from_above_continues_through_the_incision(self):
         oxygen = [line for line in self.lines if "Oxygen from above continues" in line]
@@ -304,7 +304,7 @@ class SedationStaffingAndMonitoringTests(unittest.TestCase):
     def test_the_local_anaesthetic_ceiling_is_cross_referenced(self):
         """Sedation and infiltration share one encounter and one ceiling, and a
         sedated patient cannot report early toxicity."""
-        ceiling = [line for line in self.lines if "maximum local anaesthetic dose" in line]
+        ceiling = [line for line in self.lines if "maximum local anesthetic dose" in line]
         self.assertEqual(len(ceiling), 1, self.lines)
         self.assertIn("cannot report early toxicity", ceiling[0])
 

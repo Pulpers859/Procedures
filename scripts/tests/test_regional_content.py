@@ -90,7 +90,7 @@ class SafetySpineTests(unittest.TestCase):
         for block in self.blocks:
             with self.subTest(block["id"]):
                 self.assertIn(
-                    "pain on injection, paraesthesia, or high resistance", joined(block)
+                    "pain on injection, paresthesia, or high resistance", joined(block)
                 )
 
     def test_every_block_protects_the_insensate_part(self):
@@ -344,7 +344,7 @@ class OverclaimTests(unittest.TestCase):
         text = joined(self.records["block_raptir"])
         self.assertNotIn("without the pneumothorax/phrenic risk", text)
         self.assertIn("less phrenic and pleural risk than a supraclavicular block, but not zero", text)
-        self.assertIn("haemothorax", text)
+        self.assertIn("hemothorax", text)
         self.assertIn("acoustic shadow", text)
 
     def test_esp_is_not_described_as_remarkably_safe(self):

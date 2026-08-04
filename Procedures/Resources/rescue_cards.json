@@ -316,7 +316,7 @@
     "trigger": [
       "Early warning - stop injecting and reassess: numbness or tingling of the lips, mouth or tongue (perioral), ringing in the ears or tinnitus, metallic taste, light-headedness, blurred or double vision, drowsiness, agitation or confusion.",
       "Established toxicity: seizure, altered mental status, dysrhythmia, or cardiac arrest. May occur immediately or up to 60 minutes after injection.",
-      "The prodrome may be absent or unobservable under sedation or general anaesthesia, where a dysrhythmia or sudden hypotension can be the first sign. Absence of early symptoms does not exclude LAST."
+      "The prodrome may be absent or unobservable under sedation or general anesthesia, where a dysrhythmia or sudden hypotension can be the first sign. Absence of early symptoms does not exclude LAST."
     ],
     "immediateMoves": [
       "Stop local anesthetic injection immediately.",
@@ -576,7 +576,7 @@
   },
   {
     "id": "re_expansion_pulmonary_edema",
-    "title": "Re-expansion pulmonary oedema after pleural drainage",
+    "title": "Re-expansion pulmonary edema after pleural drainage",
     "acuity": "Urgent",
     "relatedProcedureIDs": [
       "thoracentesis",
@@ -591,14 +591,14 @@
       "Sit the patient up and give high-flow oxygen; titrate to saturation.",
       "Do not resume drainage in this session. If more must come off later, drain slowly and stop at the first symptom.",
       "Escalate respiratory support early: CPAP or non-invasive ventilation for hypoxia that does not correct, and intubation with lung-protective settings if it progresses.",
-      "Support the circulation with fluids and, if needed, norepinephrine 0.05-0.1 mcg/kg/min titrated to MAP. This is a permeability oedema, so diuretics are not the treatment and may worsen hypovolaemia.",
-      "Chest x-ray to confirm unilateral oedema on the drained side and exclude pneumothorax as the cause of deterioration."
+      "Support the circulation with fluids and, if needed, norepinephrine 0.05-0.1 mcg/kg/min titrated to MAP. This is a permeability edema, so diuretics are not the treatment and may worsen hypovolemia.",
+      "Chest x-ray to confirm unilateral edema on the drained side and exclude pneumothorax as the cause of deterioration."
     ],
     "reassess": [
       "SpO2 and work of breathing every 5 minutes until stable",
       "Whether the drain is clamped and stays clamped",
       "Blood pressure - hypotension is common and is not a reason to diurese",
-      "Chest x-ray for unilateral oedema on the drained side",
+      "Chest x-ray for unilateral edema on the drained side",
       "Total volume already removed this session"
     ],
     "avoid": [
@@ -610,7 +610,7 @@
     "tags": [
       "re-expansion",
       "reexpansion",
-      "pulmonary oedema",
+      "pulmonary edema",
       "pulmonary edema",
       "RPE",
       "REPE",
@@ -698,12 +698,12 @@
     ],
     "immediateMoves": [
       "Stop. Do not dilate and do not railroad a catheter until position is proven.",
-      "The colour of the aspirate answers nothing - in haemopericardium everything is blood.",
-      "Prove position with agitated saline: inject a few millilitres and watch where the bubbles appear. Bubbles in the pericardial space confirm position; bubbles in the right ventricle mean the tip is inside the heart.",
+      "The color of the aspirate answers nothing - in hemopericardium everything is blood.",
+      "Prove position with agitated saline: inject a few milliliters and watch where the bubbles appear. Bubbles in the pericardial space confirm position; bubbles in the right ventricle mean the tip is inside the heart.",
       "Alternatives when saline contrast is unavailable or equivocal: see the needle, wire, or catheter itself in the pericardial space on real-time ultrasound, or transduce the hub - a ventricular pressure waveform means the tip is in the ventricle.",
       "Brisk clotting in the syringe supports intracardiac blood, since pericardial blood is usually defibrinated and does not clot. Treat it as a supporting sign, never as the confirmation.",
       "If intracardiac: withdraw the needle, watch, and re-scan for a new or enlarging effusion. A needle hole usually seals.",
-      "Then re-plan rather than repeat: pick the largest pocket with the shortest safe path, read the depth off the screen, and advance under real-time visualisation. Activate cardiothoracic surgery and blood if the effusion enlarges or the patient deteriorates."
+      "Then re-plan rather than repeat: pick the largest pocket with the shortest safe path, read the depth off the screen, and advance under real-time visualization. Activate cardiothoracic surgery and blood if the effusion enlarges or the patient deteriorates."
     ],
     "reassess": [
       "Where the bubbles went on agitated saline",
@@ -713,7 +713,7 @@
       "Residual effusion and whether tamponade physiology has actually resolved"
     ],
     "avoid": [
-      "Do not use the colour of the aspirate as confirmation.",
+      "Do not use the color of the aspirate as confirmation.",
       "Do not dilate or railroad a catheter over a wire that has not been seen inside the pericardial space.",
       "Do not treat withdrawal of an intracardiac needle as the end of it - re-scan for a new or enlarging effusion.",
       "Do not repeat blind passes at the window that just found the heart.",
@@ -728,7 +728,7 @@
       "bubble study",
       "guidewire",
       "pigtail",
-      "haemopericardium",
+      "hemopericardium",
       "ultrasound"
     ],
     "lastReviewed": "2026-08-01",
@@ -750,7 +750,7 @@
       "resuscitative_thoracotomy"
     ],
     "trigger": [
-      "The chest is open and there is still no organised cardiac activity, no pulse, and no measurable pressure after the incision, the pericardiotomy, or the aortic cross-clamp."
+      "The chest is open and there is still no organized cardiac activity, no pulse, and no measurable pressure after the incision, the pericardiotomy, or the aortic cross-clamp."
     ],
     "immediateMoves": [
       "Work the recoverable technical failures in order before reaching for the endpoint.",
@@ -758,22 +758,22 @@
       "Confirm the pericardium is genuinely open. A tamponaded pericardium is tense and hard to pinch up - grasp and incise it longitudinally, anterior to the phrenic nerve, and evacuate clot.",
       "Hunt the cardiac wound: inspect the posterior surface and the great vessels, lifting the heart carefully. Control with finger pressure first, then a Foley balloon, staples, or sutures, and do not tie a suture around a coronary artery.",
       "Two-handed internal cardiac massage throughout, with blood products running. Internal defibrillation only for a shockable rhythm and at the low energy internal paddles use - commonly of the order of 10-20 J, confirmed against the paddle and defibrillator instructions rather than assumed.",
-      "If the clamp is on and nothing changed, question the clamp before the patient. It is probably on the oesophagus - check by feel against the orogastric tube - or the bleeding is above it.",
+      "If the clamp is on and nothing changed, question the clamp before the patient. It is probably on the esophagus - check by feel against the orogastric tube - or the bleeding is above it.",
       "Expect brisk bleeding from the divided internal mammary arteries the moment circulation returns in a clamshell. Look at the sternal edges first and ligate them."
     ],
     "reassess": [
-      "Organised cardiac activity and a perfusing rhythm - the resuscitation endpoint",
+      "Organized cardiac activity and a perfusing rhythm - the resuscitation endpoint",
       "Whether the incision truly runs from the sternum to the table",
       "Whether the pericardium is open and decompressed, or only incised over a tense sac",
       "Aortic clamp position under direct vision and by feel against the orogastric tube, with the clamp time said out loud every five minutes",
       "Sternal edges for internal mammary bleeding once circulation returns",
-      "Blood product delivery and whether the theatre and surgeon are still a real destination"
+      "Blood product delivery and whether the theater and surgeon are still a real destination"
     ],
     "avoid": [
       "Do not keep massaging through an inadequate incision. Extend it.",
       "Do not accept 'pericardium opened' without evacuated clot and a decompressed sac.",
       "Do not leave a clamp that has not been identified under direct vision and by feel against the orogastric tube.",
-      "Do not carry on past the endpoint: no organised cardiac activity after tamponade release, haemorrhage control, and an aortic clamp. Stop there."
+      "Do not carry on past the endpoint: no organized cardiac activity after tamponade release, hemorrhage control, and an aortic clamp. Stop there."
     ],
     "tags": [
       "thoracotomy",
