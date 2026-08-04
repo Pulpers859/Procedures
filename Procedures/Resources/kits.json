@@ -336,7 +336,7 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Spinal needle: 20g Quincke for standard adult; 22g or 24g Sprotte/Whitacre pencil-point to reduce post-LP headache",
+      "Spinal needle: 22-25g Sprotte/Whitacre pencil-point with its introducer - the default for adults; lower post-LP headache, higher first-pass difficulty",
       "Stylet (always inserted before needle advances — never removed until tip is intrathecal)",
       "CSF collection tubes ×4 — label 1, 2, 3, 4 BEFORE starting the procedure",
       "Three-way stopcock for opening pressure measurement",
@@ -379,7 +379,7 @@
     "backupEquipment": [
       "Ultrasound-guided approach: use when bony landmarks are not palpable; mark interspace with probe before prepping",
       "Fluoroscopy-guided LP (IR): for severe obesity, scoliosis, prior lumbar surgery, or multiple failed bedside attempts",
-      "24g atraumatic needle (Sprotte): higher first-pass difficulty, lower post-LP headache incidence in appropriate patients",
+      "20g Quincke cutting needle: the fallback when no atraumatic needle is stocked; higher post-LP headache incidence",
       "Blood patch (anesthesia consult): for refractory post-LP headache that does not resolve with caffeine and supine positioning"
     ],
     "references": [

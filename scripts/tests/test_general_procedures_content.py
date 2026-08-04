@@ -294,3 +294,55 @@ class LaneReferenceTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class KitAndCardAgreementTests(unittest.TestCase):
+    """A kit and its procedure card are read together - the kit to gather the
+    equipment, the card to do the procedure. When they disagree the reader
+    collects the wrong thing before ever opening the card.
+
+    The lumbar puncture kit listed "20g Quincke for standard adult" and filed
+    the atraumatic needle under backup equipment, while the card said in three
+    separate places that the atraumatic pencil-point needle is the default and
+    the Quincke is the fallback. Nothing compared the two objects."""
+
+    def setUp(self):
+        self.kits = {
+            kit["id"]: kit
+            for kit in json.loads(
+                (Path(__file__).resolve().parents[2] / "Procedures" / "Resources"
+                 / "kits.json").read_text(encoding="utf-8")
+            )
+        }
+        self.records = load()
+
+    def _kit_text(self, kit_id):
+        kit = self.kits[kit_id]
+        return " ".join(
+            item
+            for key in ("inKit", "outsideKit", "commonlyForgotten",
+                        "patientSetup", "sterileSetup", "backupEquipment")
+            for item in kit.get(key, [])
+        ).lower()
+
+    def test_the_lp_kit_agrees_with_the_card_on_which_needle_is_default(self):
+        card = " ".join(self.records["lumbar_puncture"]["sections"]["equipment"]).lower()
+        self.assertIn("atraumatic pencil-point spinal needle", card)
+        self.assertIn("the default for adults", card)
+        self.assertIn("quincke", card)
+        self.assertIn("fallback", card)
+
+        kit = self._kit_text("kit_lumbar_puncture")
+        self.assertIn("pencil-point", kit)
+        self.assertIn("the default for adults", kit)
+        # The inversion that shipped: Quincke presented as the standard choice.
+        self.assertNotIn("quincke for standard adult", kit)
+        # The card requires an introducer twice; the kit never mentioned one.
+        self.assertIn("introducer", kit)
+        # Quincke may appear, but only as the fallback.
+        quincke = [s for s in kit.split(";") if "quincke" in s]
+        for clause in quincke:
+            self.assertTrue(
+                "fallback" in clause or "no atraumatic needle is stocked" in clause,
+                f"Quincke named without marking it the fallback: {clause.strip()!r}",
+            )
