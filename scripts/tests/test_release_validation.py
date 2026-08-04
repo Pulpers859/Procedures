@@ -98,6 +98,58 @@ class ReleaseValidationTests(unittest.TestCase):
                 )
                 self.assertTrue(any("visual" in issue[2] for issue in issues))
 
+    def test_authoring_notes_in_visual_metadata_are_blockers(self):
+        """VisualGuideContent renders subtitle, clinicalWarning and caption
+        whether or not artwork is bundled, and clinicalWarning renders in
+        warning colour behind a warning triangle. Thirty-four captions and
+        eleven clinicalWarnings shipped as briefs to the illustrator, so a note
+        reading "Visual must make the danger zone unambiguous" was displayed to
+        a clinician as a clinical caution. Nothing caught it because the
+        validator's comment claimed the card was only shown with an image."""
+        notes = [
+            "Visual must make the danger zone unambiguous.",
+            "Visual should clarify incision length adequacy.",
+            "The image must teach not to accept spikes without capture.",
+            "Placeholder: replace assetName with a bundled image.",
+            "Replace assetName with reviewed artwork when available.",
+            "Illustration pending clinical review.",
+            "Keep this clean and simple.",
+            "TODO: redraw this",
+        ]
+        for field in ("subtitle", "caption", "clinicalWarning"):
+            for note in notes:
+                with self.subTest(field=field, note=note):
+                    visual = {
+                        "id": "v1", "kind": "Danger Zone", "title": "T",
+                        "subtitle": "S", "caption": "C",
+                    }
+                    visual[field] = note
+                    issues = MODULE.validate_procedures([procedure(visuals=[visual])])
+                    self.assertTrue(
+                        any(i[0] == "BLOCKER" and "authoring note" in i[2] for i in issues),
+                        f"{field}={note!r} was not flagged: {issues}",
+                    )
+
+    def test_caption_is_required_only_when_artwork_is_bundled(self):
+        """A caption captions an image. With no artwork the card already shows
+        its own 'Illustration Pending' chip, and requiring a caption anyway is
+        what pushed placeholder text in front of the reader."""
+        base = {"id": "v1", "kind": "Setup", "title": "T", "subtitle": "S"}
+
+        pending = MODULE.validate_procedures([procedure(visuals=[dict(base, caption="")])])
+        self.assertFalse(
+            any("caption" in i[2] for i in pending),
+            f"an empty caption on pending artwork should be fine: {pending}",
+        )
+
+        bundled = MODULE.validate_procedures(
+            [procedure(visuals=[dict(base, caption="", assetName="diagram.png")])]
+        )
+        self.assertTrue(
+            any("no caption" in i[2] for i in bundled),
+            f"bundled artwork with no caption should warn: {bundled}",
+        )
+
     def test_release_rejects_placeholder_and_generic_references(self):
         references = [
             "Procedures starter content. Replace with formal reviewer-approved references before release.",

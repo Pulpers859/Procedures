@@ -90,6 +90,16 @@ VALID_DIFFICULTIES = {"Basic", "Intermediate", "Advanced", "Rare-Crash"}
 VALID_SETTINGS = {"ED", "ICU", "Trauma", "Peds"}
 VALID_ACUITIES = {"Crash", "Urgent", "Watch"}
 VALID_VISUAL_KINDS = {"Landmark", "Probe Position", "Danger Zone", "Confirmation", "Setup"}
+
+# Text addressed to whoever builds the app rather than to the clinician reading
+# it. Thirty-four captions and eleven clinicalWarnings shipped like this - and
+# clinicalWarning renders in warning colour behind a warning triangle, so a
+# note to the illustrator read as a clinical caution at the bedside.
+AUTHORING_NOTE = re.compile(
+    r"^\s*(visual (must|should|slot)|the image must|placeholder|replace assetname"
+    r"|illustration pending|keep this clean|TODO|TBD|FIXME)",
+    re.IGNORECASE,
+)
 MINIMUM_TAGS = 5
 RELEASE_REFERENCE_MARKERS = (
     "replace with formal reviewer-approved references before release",
@@ -292,13 +302,33 @@ def validate_procedures(data):
 
         issues.extend(governance_issues(title, item))
 
-        # Visual assets are an optional enhancement, shown only when a real
-        # image is bundled. Validate structure when present, but do not flag
-        # their absence or pending artwork as content issues.
+        # Visual assets are an optional enhancement, but the card is NOT gated
+        # on artwork: VisualGuideContent renders title, subtitle,
+        # clinicalWarning and caption whether or not an image is bundled, and
+        # only the image itself falls back to a placeholder. Everything here is
+        # therefore reader-facing text and is checked as such. Pending artwork
+        # is still not a content issue.
         for visual in item.get("visualAssets", []):
-            for field in ["id", "kind", "title", "subtitle", "caption"]:
+            for field in ["id", "kind", "title", "subtitle"]:
                 if not visual.get(field):
                     issues.append(("WARNING", title, f"visual asset missing {field}"))
+            # A caption captions an image. With no artwork the card already
+            # shows its own "Illustration Pending" chip, so requiring a caption
+            # here is what pushed placeholder text in front of the reader.
+            if visual.get("assetName") and not visual.get("caption"):
+                issues.append((
+                    "WARNING", title,
+                    f"visual asset '{visual.get('id')}' has bundled artwork but no caption",
+                ))
+            for field in ["subtitle", "caption", "clinicalWarning"]:
+                value = visual.get(field) or ""
+                if AUTHORING_NOTE.match(value):
+                    issues.append((
+                        "BLOCKER", title,
+                        f"visual asset '{visual.get('id')}' {field} is an authoring note, "
+                        f"not reader-facing text; it renders on the Visual tab "
+                        f"({value[:60]!r})",
+                    ))
             kind = visual.get("kind")
             if kind and kind not in VALID_VISUAL_KINDS:
                 issues.append((
