@@ -319,3 +319,44 @@ class ReleaseValidationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class InstructionsHaveTheirEquipmentTests(unittest.TestCase):
+    """A card that tells the reader to transduce before dilating has to stock
+    something to transduce with.
+
+    central_venous_catheter listed "Sterile pressure tubing or manometry setup
+    to confirm venous placement before dilation". introducer_sheath_cordis and
+    dialysis_catheter_vascath carried the same pre-dilation gate - the sheath
+    card twice, where arterial dilation is a surgical emergency - and neither
+    listed the means. One record got the fix, two siblings did not, which is
+    the drift this whole suite exists to catch."""
+
+    def setUp(self):
+        self.records = {
+            r["id"]: r
+            for r in json.loads(
+                (Path(__file__).resolve().parents[2] / "Procedures" / "Resources"
+                 / "procedures.json").read_text(encoding="utf-8")
+            )
+        }
+
+    def test_every_card_that_says_transduce_stocks_something_to_transduce_with(self):
+        for pid, record in sorted(self.records.items()):
+            sections = record.get("sections") or {}
+            instructs = any(
+                "transduce" in entry.lower()
+                for name, entries in sections.items()
+                if name != "references"
+                for entry in entries
+            )
+            if not instructs:
+                continue
+            equipment = " ".join(sections.get("equipment", [])).lower()
+            with self.subTest(pid):
+                self.assertTrue(
+                    any(word in equipment for word in ("transduc", "manometry", "manometer",
+                                                       "pressure tubing")),
+                    f"{pid} instructs the reader to transduce but its equipment "
+                    f"list has nothing to transduce with",
+                )

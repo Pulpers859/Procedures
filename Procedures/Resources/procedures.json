@@ -1390,6 +1390,7 @@
         "Closed drainage bag or bottle and a securement dressing if leaving a catheter",
         "Local anesthetic if time allows: 1% lidocaine, a few milliliters for a subxiphoid track in an adult",
         "ECG/monitoring",
+        "Sterile pressure tubing or manometry setup, if a transduced waveform is used to confirm the tip is not in the ventricle",
         "Sterile prep/drape/gloves",
         "Resuscitation medications and airway backup",
         "Sample tubes and culture bottles"
@@ -2998,6 +2999,7 @@
       ],
       "equipment": [
         "Introducer/Cordis kit with sheath, integrated dilator, guidewire, needle, and scalpel. This card matches the 8.5-9 Fr, 10 cm percutaneous sheath introducers with a hemostasis valve and side arm. If the kit in your hands is a different design, read its insert - assembly and removal sequences vary.",
+        "Sterile pressure tubing or manometry setup to confirm venous placement before dilation",
         "Sterile gown, gloves, mask, cap, and large sterile drape",
         "Alcoholic chlorhexidine over 0.5% (alternative agent if contraindicated)",
         "Ultrasound machine with sterile probe cover and sterile gel",
@@ -3163,6 +3165,7 @@
       ],
       "equipment": [
         "Dialysis catheter kit (dual-lumen catheter, guidewire, needle, scalpel, serial dilators). Adult acute catheters are typically 12-14 Fr; pick the length by site before opening the kit.",
+        "Sterile pressure tubing or manometry setup to confirm venous placement before dilation",
         "Sterile gown, gloves, mask, cap, and large sterile drape",
         "Alcoholic chlorhexidine over 0.5% (alternative agent if contraindicated)",
         "Ultrasound machine with sterile probe cover and sterile gel",
