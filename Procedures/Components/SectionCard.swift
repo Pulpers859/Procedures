@@ -492,7 +492,7 @@ struct LocalReviewPanel: View {
         switch materialState {
         case .materialChanged:
             Label(
-                "Still marked reviewed. The steps or doses changed since \(record.date) — worth a glance.",
+                "Still marked reviewed. The steps or doses changed since \(record.date).",
                 systemImage: "arrow.triangle.2.circlepath"
             )
             .font(.caption.weight(.semibold))

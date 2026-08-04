@@ -40,7 +40,7 @@
         "Hypoxaemia at any point: abandon the attempt, prioritise facemask oxygenation. Oxygenate between attempts; maintain anaesthesia.",
         "Physiology kills before anatomy: optimize hypotension, hypoxemia, severe acidosis, RV failure, and hyperkalemia when possible.",
         "Confirm with continuous waveform capnography; auscultation alone is not enough.",
-        "Do not forget post-intubation analgesia/sedation and ventilator reassessment."
+        "Give post-intubation analgesia and sedation, and reassess the ventilator."
       ],
       "indications": [
         "Failure to oxygenate or ventilate",
@@ -768,7 +768,7 @@
         "Failure to oxygenate"
       ],
       "aftercare": [
-        "Secure extremely well; accidental dislodgement can be catastrophic.",
+        "Secure it well; accidental dislodgement loses the airway.",
         "Once stabilised, exclude bronchial intubation and pneumothorax: chest rise, breath sounds, tube depth, and chest x-ray.",
         "Arrange early surgical or ENT review and a definitive airway plan.",
         "Document failed airway context and rescue rationale."
@@ -2801,7 +2801,7 @@
       ],
       "positioning": [
         "Position the abscess for optimal visualization and operator ergonomics \u2014 often lateral decubitus for buttock or perianal.",
-        "Adequate lighting is critical; use a headlamp or task light for depth visualization.",
+        "Use a headlamp or task light so the depth of the cavity is visible.",
         "Pediatric patients may require restraint assistance or procedural sedation for larger abscesses."
       ],
       "steps": [
@@ -3454,7 +3454,7 @@
     ],
     "sections": {
       "shiftMode": [
-        "This is a vision-saving, time-critical procedure \u2014 minutes matter; do not wait for ophthalmology or imaging if the diagnosis is clear.",
+        "This is a vision-saving, time-critical procedure \u2014 do not wait for ophthalmology or imaging if the diagnosis is clear.",
         "Diagnose clinically: acute orbital compartment syndrome with a tense, proptotic eye, decreased vision/APD, raised intraocular pressure, and pain after trauma or retrobulbar hemorrhage.",
         "The goal is to release the inferior crus of the lateral canthal tendon (cantholysis) \u2014 the canthotomy incision alone is not enough.",
         "Anesthetize and clamp the lateral canthus to reduce bleeding, then cut horizontally to the orbital rim.",
@@ -5406,7 +5406,6 @@
         "Inadequate anesthesia or equipment for safe removal"
       ],
       "anatomy": [
-        "Knowledge of local neurovascular anatomy is essential for safe exploration.",
         "Hand and foot foreign bodies are near tendons, nerves, and vessels in tight compartments.",
         "Plantar foot: flexor tendons, digital nerves, and plantar fascia are at risk during deep exploration.",
         "The depth and tissue plane of the foreign body dictate the approach. Imaging helps plan."
@@ -6931,7 +6930,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "This is an extremely superficial block. Do not plunge the needle deep to the SCM."
+        "This is a superficial block. Do not plunge the needle deep to the SCM."
       ],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: an ASRA-ESRA Delphi consensus study of upper and lower limb nerve blocks. Reg Anesth Pain Med. 2024;49(11):782-791. https://doi.org/10.1136/rapm-2023-104754",
@@ -8065,7 +8064,7 @@
     "sections": {
       "shiftMode": [
         "Target: Fascial plane between the psoas tendon and the pubic ramus.",
-        "Provides excellent analgesia for the hip joint (articular branches of femoral and obturator nerves).",
+        "Covers the hip joint (articular branches of femoral and obturator nerves).",
         "Motor-sparing alternative to the fascia iliaca or femoral nerve block.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
@@ -10232,7 +10231,7 @@
       "shiftMode": [
         "Target: Inferior alveolar nerve before it enters the mandibular foramen on the medial aspect of the mandibular ramus.",
         "Provides profound anesthesia to all mandibular teeth to the midline, the lower lip, and the chin.",
-        "The 'gold standard' for lower jaw dental pain in the ED.",
+        "First-line for lower jaw dental pain in the ED.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -10325,7 +10324,7 @@
       ],
       "seniorPearls": [
         "Long-acting bupivacaine gives 12-24 hours of profound pain relief - enough to sleep and find a dentist the next day.",
-        "Always contact bone! If you don't feel the hard stop, do not inject.",
+        "Always contact bone. If you don't feel the hard stop, do not inject.",
         "The 4% dental agent many clinics stock is deliberately absent from this card: it carries a reported association with persistent paraesthesia after inferior alveolar block specifically - debated rather than settled, with concentration the suspected reason. Lidocaine works for this block."
       ],
       "references": [
