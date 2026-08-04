@@ -150,6 +150,65 @@ class ReleaseValidationTests(unittest.TestCase):
             f"bundled artwork with no caption should warn: {bundled}",
         )
 
+    def test_no_visual_asset_contradicts_the_prose_on_a_measurement(self):
+        """The arterial line card shipped a visual reading "wrist extended
+        30-45 degrees" while its Brief, Positioning, Steps and Pearls all said
+        20-30. 30-45 is that card's *needle* angle, copied into the wrong slot,
+        and the asset's own warning said to avoid hyperextension. Six audit
+        passes missed it because every one of them checked fields in isolation;
+        nothing compared a record against itself.
+
+        The allowlist below is the three figures a visual states that the prose
+        does not. They are extra detail rather than known contradictions, and
+        they are listed here so they stay visible and so anything NEW fails."""
+        procedures = json.loads(
+            (Path(__file__).resolve().parents[2] / "Procedures" / "Resources"
+             / "procedures.json").read_text(encoding="utf-8")
+        )
+        pending = {
+            # Radial artery depth: anatomy says 3-8 mm, this says 2-5 mm.
+            # Overlapping but not identical - needs an owner decision.
+            ("arterial_line", "aline_us_short_axis", "2-5 mm"),
+            # Detail present only in the visual; not contradicted anywhere.
+            ("arterial_line", "radial_approach", "1-2 cm"),
+            ("needle_decompression", "needle_decompression_danger", "1-2 cm"),
+        }
+        unexpected = []
+        for record in procedures:
+            prose = {
+                MODULE._canonical_figure(m.group(0))
+                for section, entries in (record.get("sections") or {}).items()
+                if section != "references"
+                for entry in entries
+                for m in MODULE.MEASUREMENT.finditer(entry)
+            }
+            for visual in record.get("visualAssets", []):
+                for field in ("subtitle", "caption", "clinicalWarning"):
+                    for m in MODULE.MEASUREMENT.finditer(visual.get(field) or ""):
+                        if MODULE._canonical_figure(m.group(0)) in prose:
+                            continue
+                        entry = (record["id"], visual["id"], m.group(0))
+                        if entry not in pending:
+                            unexpected.append(entry)
+        self.assertEqual(
+            unexpected, [],
+            "a visual asset states a figure the record's prose never states; "
+            "either the prose or the visual is wrong",
+        )
+
+    def test_the_measurement_guard_actually_fires(self):
+        """A guard nobody has seen fail is a guard nobody should trust."""
+        record = procedure(visuals=[{
+            "id": "v1", "kind": "Landmark", "title": "T",
+            "subtitle": "Wrist extended 30-45 degrees.", "caption": "",
+        }])
+        record["sections"]["positioning"] = ["Extend the wrist 20-30 degrees."]
+        issues = MODULE.validate_procedures([record])
+        self.assertTrue(
+            any("30-45 degrees" in i[2] and "prose" in i[2] for i in issues),
+            f"the contradiction was not reported: {issues}",
+        )
+
     def test_release_rejects_placeholder_and_generic_references(self):
         references = [
             "Procedures starter content. Replace with formal reviewer-approved references before release.",

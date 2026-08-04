@@ -100,6 +100,22 @@ AUTHORING_NOTE = re.compile(
     r"|illustration pending|keep this clean|TODO|TBD|FIXME)",
     re.IGNORECASE,
 )
+
+# A number with a unit: "20-30°", "8.5 Fr", "2-5 mm", "0.25%".
+MEASUREMENT = re.compile(
+    r"\d+(?:\.\d+)?(?:\s*-\s*\d+(?:\.\d+)?)?\s*(?:°|degrees?|cm|mm|mL|mg|Fr|%)",
+    re.IGNORECASE,
+)
+
+
+def _canonical_figure(text: str) -> str:
+    """Compare figures by value and unit, not by how they were typed, so
+    "30-45 degrees" and "30-45°" are the same measurement."""
+    return (
+        re.sub(r"\s+", "", text.lower())
+        .replace("degrees", "°")
+        .replace("degree", "°")
+    )
 MINIMUM_TAGS = 5
 RELEASE_REFERENCE_MARKERS = (
     "replace with formal reviewer-approved references before release",
@@ -329,6 +345,29 @@ def validate_procedures(data):
                         f"not reader-facing text; it renders on the Visual tab "
                         f"({value[:60]!r})",
                     ))
+            # A visual asset describes the same procedure as the prose, so any
+            # figure it states should be one the prose also states. The arterial
+            # line card had a visual reading "wrist extended 30-45 degrees"
+            # while its Brief, Positioning, Steps and Pearls all said 20-30 -
+            # 30-45 is that card's *needle* angle, copied into the wrong slot,
+            # and the asset's own warning said to avoid hyperextension. Nothing
+            # caught it because no check compared fields against each other.
+            prose_figures = {
+                _canonical_figure(match.group(0))
+                for section, entries in (item.get("sections") or {}).items()
+                if section != "references"
+                for entry in entries
+                for match in MEASUREMENT.finditer(entry)
+            }
+            for field in ["subtitle", "caption", "clinicalWarning"]:
+                for match in MEASUREMENT.finditer(visual.get(field) or ""):
+                    if _canonical_figure(match.group(0)) not in prose_figures:
+                        issues.append((
+                            "WARNING", title,
+                            f"visual asset '{visual.get('id')}' {field} states "
+                            f"'{match.group(0)}', which appears nowhere in this "
+                            f"record's prose; confirm the two agree",
+                        ))
             kind = visual.get("kind")
             if kind and kind not in VALID_VISUAL_KINDS:
                 issues.append((
