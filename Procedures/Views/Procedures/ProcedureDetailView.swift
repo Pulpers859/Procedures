@@ -50,7 +50,12 @@ struct ProcedureDetailView: View {
                     header
 
                     Section {
-                        if !relatedRescueCards.isEmpty {
+                        // ComplicationContent (the Rescue tab body) renders its
+                        // own full "Open Rescue" card for the same cards, with
+                        // an acuity badge the pinned strip doesn't have. Showing
+                        // both stacks the identical link twice on the one tab
+                        // that exists specifically to reach it.
+                        if !relatedRescueCards.isEmpty, selectedSection != .complications {
                             rescueShortcuts
                         }
                         selectedContent
@@ -74,7 +79,13 @@ struct ProcedureDetailView: View {
             }
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(current.title)
+        // The full title already renders in `header` below, in full and
+        // unabbreviated. An inline nav bar title has to share the bar with
+        // the back button and two toolbar icons, so it truncates long
+        // titles ("Deep Peroneal Nerve B...") - a degraded second copy of
+        // information the reader already has. Leaving it blank keeps the
+        // back button and toolbar without repeating (and mangling) the title.
+        .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if reviewModeEnabled {
@@ -141,6 +152,11 @@ struct ProcedureDetailView: View {
             .padding(.vertical, 6)
             .foregroundStyle(isHighRisk ? .orange : .blue)
             .background((isHighRisk ? Color.orange : Color.blue).opacity(0.13), in: Capsule())
+            // Without this, VoiceOver reads the raw word alone - "Rare-Crash"
+            // read out of context sounds like an acuity signal, not a
+            // difficulty rating. AcuityBadge, right below this in the same
+            // header, already sets its own equivalent label.
+            .accessibilityLabel("Difficulty: \(current.difficulty.rawValue)")
     }
 
     private var sectionSelector: some View {
@@ -208,7 +224,10 @@ struct ProcedureDetailView: View {
         Button {
             select(section)
         } label: {
-            Label(section.rawValue, systemImage: systemImage(for: section))
+            // shortTitle, not section.rawValue: the collapsed "More" pill
+            // echoes back shortTitle after a selection ("Documentation" ->
+            // "Chart" read as if a different section had been picked).
+            Label(shortTitle(for: section), systemImage: systemImage(for: section))
         }
     }
 

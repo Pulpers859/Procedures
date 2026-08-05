@@ -24,6 +24,21 @@ struct Procedure: Identifiable, Codable, Hashable {
     /// other would put a target dose under a "Max Dose" heading.
     let medicationDosing: ProcedureMedicationDosing?
 
+    /// Standing monitoring requirement for major regional blocks (IV access,
+    /// BP, ECG, pulse oximetry before the needle goes in). Previously
+    /// copy-pasted as an `equipment` checklist line into 14 procedures,
+    /// which meant a change to the standard required editing 14 separate
+    /// entries and could silently drift out of sync between them. A flag
+    /// here plus one shared string (`MajorBlockMonitoring.requirement`)
+    /// replaces the copies; the row still renders on the Setup checklist.
+    /// Defaulted rather than required at every call site: the four existing
+    /// test fixtures that hand-construct a `Procedure` predate this field and
+    /// have no reason to state a monitoring requirement they don't test.
+    let majorBlockMonitoring: Bool? = nil
+
+    /// Never-nil: absent means this procedure carries no such requirement.
+    var requiresMajorBlockMonitoring: Bool { majorBlockMonitoring ?? false }
+
     /// Editorial review state. Optional in the wire format for decode
     /// resilience; absent content is treated as the conservative default.
     /// Declared before `sections` so the memberwise initializer reads with the
@@ -45,8 +60,6 @@ struct Procedure: Identifiable, Codable, Hashable {
 
     /// Never-nil provenance: undeclared content reads as an AI draft.
     var source: ContentSource { contentSource ?? .undeclaredDefault }
-
-    var primaryVisualAsset: ProcedureVisualAsset? { visualAssets?.first }
 
     /// Fingerprint of the parts a clinician is actually vouching for when they
     /// sign this off. Deliberately excludes tags, references, documentation,
@@ -77,7 +90,11 @@ struct Procedure: Identifiable, Codable, Hashable {
             ("steps", sections.steps),
             ("confirmation", sections.confirmation),
             ("troubleshooting", sections.troubleshooting),
-            ("complications", sections.complications)
+            ("complications", sections.complications),
+            // A monitoring requirement is safety content, not editorial
+            // metadata - flipping it must revoke a stale sign-off the same
+            // way changing a step or a dose does.
+            ("majorBlockMonitoring", [requiresMajorBlockMonitoring ? "true" : "false"])
         ]
         if let dosing {
             var doseParts: [String] = []

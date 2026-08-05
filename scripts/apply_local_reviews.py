@@ -49,7 +49,8 @@ SECTION_SEPARATOR = "\x1e"
 # Bumped whenever the set of hashed fields changes. A digest written under an
 # older version answers a different question and must not be compared; see
 # LocalReviewRecord.contentState in UserDataStore.swift.
-FINGERPRINT_VERSION = 4
+# v5: added majorBlockMonitoring (see procedure_fingerprint below).
+FINGERPRINT_VERSION = 5
 
 REVIEWED_DISPOSITION = "Reviewed"
 DEFAULT_STATUS = "Internally Reviewed"
@@ -93,6 +94,9 @@ def dose_string(value):
 def procedure_fingerprint(item):
     sections = item.get("sections") or {}
     grouped = [(name, list(sections.get(name) or [])) for name in PROCEDURE_MATERIAL_SECTIONS]
+    # Mirror of Procedure.requiresMajorBlockMonitoring - a monitoring
+    # requirement is safety content, not editorial metadata.
+    grouped.append(("majorBlockMonitoring", ["true" if item.get("majorBlockMonitoring") else "false"]))
     dosing = item.get("dosing")
     if dosing:
         dose_parts = []

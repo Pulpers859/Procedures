@@ -128,7 +128,12 @@ class SafetySpineTests(unittest.TestCase):
     def test_the_setup_requirement_scales_with_the_block(self):
         """Requiring IV access and full monitoring for a digital block produces
         a rule nobody follows, which is worse than no rule. Major blocks get the
-        full setup; minor blocks get asepsis and the location of the lipid."""
+        full setup; minor blocks get asepsis and the location of the lipid.
+
+        The full-setup requirement is `majorBlockMonitoring: true` plus the
+        shared string in MajorBlockMonitoring.requirement (SwiftUI side), not
+        copy-pasted prose - see scripts/apply_local_reviews.py's
+        procedure_fingerprint for why it still has to be material content."""
         major = {
             "block_interscalene", "block_supraclavicular", "block_raptir",
             "block_superficial_cervical_plexus", "block_serratus_anterior",
@@ -141,9 +146,9 @@ class SafetySpineTests(unittest.TestCase):
                 text = joined(block)
                 self.assertIn("lipid emulsion", text)
                 if block["id"] in major:
-                    self.assertIn("iv access, blood pressure, ecg, and pulse oximetry", text)
+                    self.assertTrue(block.get("majorBlockMonitoring"))
                 else:
-                    self.assertNotIn("iv access, blood pressure, ecg, and pulse oximetry", text)
+                    self.assertFalse(block.get("majorBlockMonitoring"))
 
     def test_antithrombotic_handling_matches_the_depth_of_the_block(self):
         """ASRA applies neuraxial-equivalent timing to deep blocks and asks a
@@ -354,7 +359,7 @@ class NeedleTargetTests(unittest.TestCase):
         text = joined(self.records["block_popliteal_sciatic"])
         self.assertNotIn("epineural sheath (the 'vloka sheath')", text)
         self.assertIn("outside the nerves, not inside them", text)
-        self.assertIn("if it swells, stop and withdraw", text)
+        self.assertIn("stop and withdraw - the injectate should push the nerve away, not swell it", text)
 
     def test_serratus_does_not_slide_off_the_rib(self):
         """Off the rib is the intercostal space, and the pleura is behind it."""

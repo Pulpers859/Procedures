@@ -35,7 +35,13 @@ enum ContentFingerprint {
     /// date" and told the reader their content had changed when nothing had.
     /// A version mismatch reads as `.unknownBaseline` instead, which is the
     /// truth: no comparison is possible, and nothing is reported.
-    static let version = 4
+    ///
+    /// v5: added `majorBlockMonitoring` - a procedure-level flag replacing a
+    /// checklist line that used to live directly in `equipment` prose for 14
+    /// regional blocks. It is still material (it is a monitoring
+    /// requirement, not editorial metadata), so it must still revoke a stale
+    /// sign-off if it changes.
+    static let version = 5
 
     static func make(_ parts: [String]) -> String {
         let joined = parts.joined(separator: separator)

@@ -1,5 +1,14 @@
 import SwiftUI
 
+/// Standing monitoring requirement for major regional blocks. Previously
+/// copy-pasted as an `equipment` checklist line into 14 procedures - a change
+/// to the standard meant editing 14 separate entries, with no way to catch
+/// one left behind. Centralized here instead; `Procedure.majorBlockMonitoring`
+/// flags which procedures render it.
+enum MajorBlockMonitoring {
+    static let requirement = "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block."
+}
+
 struct EquipmentChecklistContent: View {
     @EnvironmentObject private var userData: UserDataStore
     let procedure: Procedure
@@ -27,12 +36,29 @@ struct EquipmentChecklistContent: View {
                         }
                     }
 
-                    ForEach(procedure.sections.equipment, id: \.self) { item in
-                        ChecklistRow(
-                            text: item,
-                            isChecked: userData.isEquipmentChecked(item, for: procedure),
-                            action: { userData.toggleEquipment(item, for: procedure) }
-                        )
+                    if procedure.sections.equipment.isEmpty && !procedure.requiresMajorBlockMonitoring {
+                        // Setup is a primary tab, not an overflow one - an
+                        // empty ForEach here left the card showing a caption
+                        // and a Reset button over nothing, which reads as
+                        // broken rather than as "nothing to check."
+                        Text("No equipment listed for this procedure.")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    } else {
+                        ForEach(procedure.sections.equipment, id: \.self) { item in
+                            ChecklistRow(
+                                text: item,
+                                isChecked: userData.isEquipmentChecked(item, for: procedure),
+                                action: { userData.toggleEquipment(item, for: procedure) }
+                            )
+                        }
+                        if procedure.requiresMajorBlockMonitoring {
+                            ChecklistRow(
+                                text: MajorBlockMonitoring.requirement,
+                                isChecked: userData.isEquipmentChecked(MajorBlockMonitoring.requirement, for: procedure),
+                                action: { userData.toggleEquipment(MajorBlockMonitoring.requirement, for: procedure) }
+                            )
+                        }
                     }
                 }
             }

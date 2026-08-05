@@ -111,7 +111,7 @@
         "Desaturation: stop, oxygenate with BVM/PEEP, improve mask seal, use oral/nasal airway, recruit help.",
         "Poor view: optimize position, suction, external laryngeal manipulation (BURP on the thyroid cartilage), change blade or laryngoscope, optimize neuromuscular block. Do not insert a bougie blind at a grade 3-4 view.",
         "Cannot intubate/cannot oxygenate: supraglottic airway or surgical airway pathway immediately.",
-        "Sugammadex does not rescue a cannot-intubate cannot-oxygenate patient. 16 mg/kg reverses rocuronium in about three minutes. Oxygenate and go to the front of the neck.",
+        "Sugammadex reliance: it does not rescue a cannot-intubate cannot-oxygenate patient now. 16 mg/kg reverses rocuronium in about three minutes - oxygenate and go to the front of the neck.",
         "Post-intubation hypotension: check tube depth, breath stacking/auto-PEEP, tension pneumothorax, sedation effect, occult shock; start fluids/pressors as appropriate.",
         "High peak pressures: consider bronchospasm, tube obstruction, mainstem, pneumothorax, or ventilator mismatch."
       ],
@@ -504,7 +504,7 @@
         "Aspirate before injection.",
         "Inject slowly while withdrawing or redirecting based on technique.",
         "Repeat on opposite side if needed.",
-        "Wait several minutes and test anesthesia before starting procedure.",
+        "Wait several minutes and test anesthesia.",
         "Proceed with repair, drainage, reduction, or nail procedure once anesthesia is adequate."
       ],
       "ultrasound": [],
@@ -555,8 +555,6 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "Inject slowly.",
-        "Do the neurovascular exam before the block.",
         "Remove rings early."
       ],
       "references": [
@@ -1092,7 +1090,7 @@
         "No expanding subcutaneous emphysema or bleeding"
       ],
       "troubleshooting": [
-        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary edema. General ceiling is 1.5 L in one session.",
+        "Repetitive cough, chest tightness or pain, or worsening breathlessness during drainage: stop and clamp - not merely slow. These precede re-expansion pulmonary edema. General ceiling is 1.5 L in one session.",
         "Wire will not pass: stop; do not force; reassess needle position.",
         "Poor drainage: check kink, stopcock, clot/debris, catheter depth, and whether side holes are outside chest.",
         "Worsening dyspnea: reassess pneumothorax, malposition, bleeding, and re-expansion risk.",
@@ -1670,7 +1668,6 @@
         "Securement, imaging, dwell-time plan, and consultation."
       ],
       "seniorPearls": [
-        "Spikes are not capture. Check a pulse.",
         "Air in the balloon. Not saline, not contrast.",
         "Write the threshold down.",
         "Keep pads on until the whole setup is stable and secured.",
@@ -2027,8 +2024,7 @@
         "Most failed LPs are positioning failures, not needle failures.",
         "Do not chase bone deeper and deeper; reset your angle.",
         "Label tubes before you are holding CSF.",
-        "The atraumatic needle has no satisfying pop. Check for flow.",
-        "Do not delay antibiotics for the LP."
+        "The atraumatic needle has no satisfying pop. Check for flow."
       ],
       "references": [
         "World Health Organization. Guidelines on Meningitis Diagnosis, Treatment and Care. 2025. https://iris.who.int/bitstream/handle/10665/381006/9789240108042-eng.pdf",
@@ -2433,7 +2429,7 @@
         "No fluid on aspiration: confirm with real-time ultrasound \u2014 pocket may have shifted; use live guidance for next attempt.",
         "Air return: withdraw immediately; the needle may be in lung parenchyma; assess urgently for pneumothorax.",
         "Bloody return: distinguish hemorrhagic effusion from hemothorax vs. vessel injury \u2014 non-clotting blood suggests pleural; rapidly clotting suggests vascular.",
-        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary edema. General ceiling is 1.5 L in one session.",
+        "Repetitive cough, chest tightness or pain, or worsening breathlessness during drainage: stop and clamp - not merely slow. These precede re-expansion pulmonary edema. General ceiling is 1.5 L in one session.",
         "Loculated pocket: scan multiple windows; if truly inaccessible, consult interventional radiology or thoracics."
       ],
       "complications": [
@@ -2651,10 +2647,8 @@
         "Patient hemodynamically stable post-procedure; no abdominal rigidity or signs of peritonitis."
       ],
       "seniorPearls": [
-        "Every hospitalized cirrhotic who decompensates gets a diagnostic tap first - SBP cannot be excluded on exam.",
         "The INR in cirrhosis is not a bleeding-risk score. Do not delay the tap for plasma.",
         "Order the serum albumin with the tap - the gradient needs both values.",
-        "Z-track technique reduces post-tap ascites leak.",
         "Albumin replacement for large-volume taps is not optional."
       ],
       "references": [
@@ -2854,7 +2848,6 @@
         "Patient discharged with wound care instructions and 48-72 hour follow-up arranged."
       ],
       "seniorPearls": [
-        "Acidic pus inactivates local anesthetic inside the cavity - infiltrate around the margin and wait.",
         "If you cannot freely break down all loculations, the incision is not long enough.",
         "Irrigation and packing are optional. Breaking down loculations is not.",
         "Packing a small simple abscess is painful and does not improve the outcome."
@@ -3938,7 +3931,6 @@
       ],
       "seniorPearls": [
         "Most failed reductions are failed analgesia. Relax the patient first.",
-        "Test and document the axillary nerve before and after.",
         "A nerve deficit is not a reason to delay - the nerve is stretched over a displaced humeral head.",
         "Lead with low-force techniques - high-traction methods add fracture and soft-tissue risk."
       ],
@@ -4037,6 +4029,7 @@
       "nerve block",
       "fib"
     ],
+    "majorBlockMonitoring": true,
     "sections": {
       "shiftMode": [
         "Most useful for hip and proximal femur fractures: opioid-sparing analgesia that helps frail and elderly patients.",
@@ -4078,7 +4071,6 @@
         "Aspirating syringe",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -5283,7 +5275,6 @@
         "Antibiotics prescribed. ENT follow-up arranged. Return precautions discussed."
       ],
       "seniorPearls": [
-        "The needle guard is not optional. The carotid is 2 cm away. You only need 1 cm of depth.",
         "If the patient cannot open their mouth, do not force it. Sedate or consult ENT.",
         "Most PTAs are at the superior pole. If your first aspiration is dry, try there before giving up.",
         "These patients look terrible but get dramatically better within minutes of drainage."
@@ -5494,8 +5485,7 @@
       "seniorPearls": [
         "If you are digging for more than 15 minutes, stop - further exploration only enlarges the wound.",
         "Ultrasound finds much of what X-ray misses and misses things too; neither is a rule-out.",
-        "A finger tourniquet turns a bloody mess into a clean field, and costs the finger if it stays on. Write the time down.",
-        "Tell the patient if a fragment might be retained."
+        "A finger tourniquet turns a bloody mess into a clean field, and costs the finger if it stays on. Write the time down."
       ],
       "references": [
         "National Patient Safety Agency. Reducing risks of tourniquets left on after finger and toe surgery. 2010. https://www.cas.mhra.gov.uk/ViewandAcknowledgment/ViewAttachment.aspx?Attachment_id=101035 \u2014 documents cases of digital ischemia and loss from tourniquets retained after finger/toe procedures.",
@@ -5609,7 +5599,6 @@
         "Regional block needle (echogenic, short bevel, e.g., 21G or 22G, 50mm)",
         "Local anesthetic (e.g., 10-15 mL of 0.25% or 0.5% bupivacaine or ropivacaine)",
         "Normal saline for hydrodissection (optional but recommended)",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -5722,6 +5711,7 @@
       "humerus block",
       "interscalene"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -5806,6 +5796,7 @@
         "The 'spinal of the arm' - covers distal humerus, elbow, forearm, wrist, and hand.",
         "Target: Brachial plexus trunks/divisions ('bunch of grapes') lateral and superficial to the subclavian artery.",
         "High risk for pneumothorax - pleura is just deep to the artery. Always visualize the needle tip.",
+        "Keep the first rib in view as the backstop between the needle and the pleura, and do not deliberately bounce the needle off it - not a validated maneuver.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -5837,7 +5828,6 @@
         "Regional block needle (echogenic, short bevel, e.g., 21G or 22G, 50mm)",
         "Local anesthetic: 20 mL total of 0.25% or 0.5% bupivacaine or 0.2% ropivacaine, split as the steps describe.",
         "Normal saline for hydrodissection",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -5871,9 +5861,8 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the first rib is not visible, do not advance the needle. The pleura is directly underneath.",
-        "If the needle is lost, stop. Do not advance blindly. Use saline hydrodissection to locate the tip.",
-        "Keep the first rib in view as the backstop between the needle and the pleura. Do not deliberately bounce the needle off the rib - it is not a validated maneuver. Visualize the rib and the tip.",
+        "First rib not visible: do not advance the needle. The pleura is directly underneath.",
+        "Needle lost: stop. Do not advance blindly. Use saline hydrodissection to locate the tip.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -5950,6 +5939,7 @@
       "supraclavicular",
       "brachial plexus"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -6063,7 +6053,6 @@
         "Regional block needle (echogenic, longer needle required, e.g., 21G 80-100mm)",
         "Local anesthetic, standard volume: 20-30 mL of 0.25% bupivacaine (30 mL = 75 mg) or 0.2% ropivacaine (30 mL = 60 mg)",
         "Local anesthetic, higher concentration: at 0.5%, cap the volume at 20 mL (= 100 mg) and confirm the total against the weight-based maximum below before drawing up",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -6099,9 +6088,9 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the needle trajectory is unclear, withdraw and redirect. The clavicle can obstruct the view if the probe is too close.",
-        "If the vein is in the way, adjust the angle or use less probe pressure to avoid compressing it entirely (making it invisible).",
-        "If spread is only on one side of the artery, consider a second injection site to surround it, though large volume often spreads sufficiently.",
+        "Needle trajectory unclear: withdraw and redirect. The clavicle can obstruct the view if the probe is too close.",
+        "Vein in the way: adjust the angle or use less probe pressure to avoid compressing it entirely (making it invisible).",
+        "Spread only on one side of the artery: consider a second injection site to surround it, though large volume often spreads sufficiently.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder.",
@@ -6173,6 +6162,7 @@
       "infraclavicular",
       "arm block"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -6305,7 +6295,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the nerve is hard to find at the elbow, scan proximally up the lateral arm.",
+        "Nerve hard to find at the elbow: scan proximally up the lateral arm.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -6450,6 +6440,7 @@
         "Target: Median nerve in the mid-forearm, between FDS and FDP.",
         "Provides anesthesia to the palmar thumb, index, middle, and radial half of ring finger.",
         "Block in the mid-forearm, not at the wrist - the carpal tunnel's confined space raises nerve injury risk there.",
+        "Have the patient flex their fingers to identify the FDS/FDP muscles sliding; the nerve will remain stationary.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -6496,7 +6487,6 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Have the patient flex their fingers to identify the FDS/FDP muscles sliding; the nerve will remain stationary.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -6525,9 +6515,7 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [
-        "Avoid blocking at the wrist (carpal tunnel) due to limited space and higher risk of nerve injury. The mid-forearm is much safer."
-      ],
+      "seniorPearls": [],
       "references": [
         "ACEP Sonoguide. Median Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/median-nerve-block",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
@@ -6688,7 +6676,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the nerve and artery are too close, inject a small amount of saline or anesthetic to dissect them apart before fully surrounding the nerve.",
+        "Nerve and artery too close: inject a small amount of saline or anesthetic to dissect them apart before fully surrounding the nerve.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -6717,9 +6705,7 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [
-        "Block higher up in the forearm to ensure you catch the dorsal cutaneous branch of the ulnar nerve, which branches off proximal to the wrist."
-      ],
+      "seniorPearls": [],
       "references": [
         "ACEP Sonoguide. Ulnar Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/ulnar-nerve-block",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
@@ -6859,7 +6845,6 @@
         "Local anesthetic (5-10 mL, e.g., 1% lidocaine or 0.25% bupivacaine)",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -6886,8 +6871,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the needle tip is not visible, use hydrodissection with small amounts of saline.",
-        "Avoid going too deep to prevent a deep cervical plexus block or phrenic nerve block.",
+        "Needle tip not visible: use hydrodissection with small amounts of saline.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -6920,9 +6904,7 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [
-        "This is a superficial block. Do not plunge the needle deep to the SCM."
-      ],
+      "seniorPearls": [],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: an ASRA-ESRA Delphi consensus study of upper and lower limb nerve blocks. Reg Anesth Pain Med. 2024;49(11):782-791. https://doi.org/10.1136/rapm-2023-104754",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
@@ -6953,6 +6935,7 @@
       "clavicle block",
       "cervical"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -7063,7 +7046,6 @@
         "Local anesthetic (large volume: 20-30 mL of 0.25% bupivacaine or 0.2% ropivacaine)",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -7158,6 +7140,7 @@
       "serratus",
       "chest tube block"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -7270,7 +7253,6 @@
         "Local anesthetic (large volume: 20-30 mL of 0.25% bupivacaine or 0.2% ropivacaine)",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -7363,6 +7345,7 @@
       "erector spinae",
       "posterior rib block"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -7475,7 +7458,6 @@
         "Local anesthetic: 20-30 mL per side of 0.25% bupivacaine or 0.2% ropivacaine. Those are the strengths the labels supply, and at 30 mL a side they put a bilateral block well under the concentrations that caused trouble in the TAP pharmacokinetic studies. Do not dose up to the calculated ceiling here - read the caveat on the dose card.",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -7499,7 +7481,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If you only see two muscle layers, you may be too far anterior (rectus sheath) or too far posterior. Move towards the mid-axillary line.",
+        "Only two muscle layers visible: you may be too far anterior (rectus sheath) or too far posterior. Move towards the mid-axillary line.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -7532,9 +7514,7 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [
-        "Covers somatic pain from the abdominal wall only, not visceral pain from the inflamed organ. Expect residual deep pain."
-      ],
+      "seniorPearls": [],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: abdominal wall, paraspinal, and chest wall blocks. Reg Anesth Pain Med. 2021. https://doi.org/10.1136/rapm-2020-102451",
         "Griffiths JD, et al. Plasma ropivacaine concentrations after ultrasound-guided transversus abdominis plane block. Br J Anaesth. 2010;105(6):853-856. https://doi.org/10.1093/bja/aeq255",
@@ -7567,6 +7547,7 @@
       "abdomen block",
       "abdominal wall"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -7652,6 +7633,7 @@
         "Target: Fascial planes between the pectoralis major and minor (PECS I), and between the pectoralis minor and serratus anterior (PECS II).",
         "Covers the upper anterolateral and lateral chest wall and axilla, not the anterior chest \u2014 a randomized trial found no anterior-chest sensory block from PECS II alone. Map the territory and have a fallback before relying on it for a medial or anterior procedure.",
         "Keep the needle tip in view the whole way through pectoralis minor. The pleura is one muscle layer below the target plane.",
+        "Use color Doppler to identify the thoracoacromial artery in the PECS I plane and avoid it.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -7679,7 +7661,6 @@
         "Local anesthetic (20-30 mL of 0.25% bupivacaine or 0.2% ropivacaine)",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -7703,7 +7684,6 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Use color Doppler to identify the thoracoacromial artery in the PECS I plane and avoid it.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -7735,9 +7715,7 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [
-        "Always keep the needle tip in view when passing through the pectoralis minor, as the pleura is just beneath the next muscle layer."
-      ],
+      "seniorPearls": [],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: abdominal wall, paraspinal, and chest wall blocks. Reg Anesth Pain Med. 2021. https://doi.org/10.1136/rapm-2020-102451",
         "Blanco R. The 'pecs block': a novel technique for providing analgesia after breast surgery. Anaesthesia. 2011;66(9):847-848. https://doi.org/10.1111/j.1365-2044.2011.06838.x",
@@ -7769,6 +7747,7 @@
       "chest block",
       "breast block"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -7882,7 +7861,6 @@
         "Local anesthetic (15-20 mL of 0.25% or 0.5% bupivacaine)",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -7909,8 +7887,8 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the nerve is hard to distinguish from fat or connective tissue, tilt the probe to enhance anisotropy.",
-        "If fluid spreads superficial to the fascia iliaca, withdraw slightly and redirect deeper.",
+        "Nerve hard to distinguish from fat or connective tissue: tilt the probe to enhance anisotropy.",
+        "Fluid spreading superficial to the fascia iliaca: withdraw slightly and redirect deeper.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -7973,6 +7951,7 @@
       "leg block",
       "femur fracture"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -8082,7 +8061,6 @@
         "Local anesthetic (large volume: 20-30 mL of 0.25% bupivacaine)",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -8108,7 +8086,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Ensure you are deep to the psoas tendon. If the fluid injects into the muscle belly, you are too superficial.",
+        "Fluid injecting into the muscle belly: you are too superficial. Ensure you are deep to the psoas tendon before injecting.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -8171,6 +8149,7 @@
       "hip fracture",
       "pelvis"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -8280,7 +8259,6 @@
         "Not a lidocaine block at this volume: at available lidocaine strengths this volume alone would take a small adult past the ceiling.",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -8308,7 +8286,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the nerve is not visible, simply injecting the local anesthetic around the artery (perivascular spread) within the canal is usually sufficient.",
+        "Nerve not visible: injecting the local anesthetic around the artery (perivascular spread) within the canal is usually sufficient.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -8369,6 +8347,7 @@
       "adductor canal",
       "knee block"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -8452,6 +8431,7 @@
       "shiftMode": [
         "Target: Sciatic nerve in the popliteal fossa before it bifurcates.",
         "Provides anesthesia to the entire lower leg and foot, EXCEPT the medial strip (covered by the saphenous nerve).",
+        "Inject at the level where the sciatic nerve divides, inside the common paraneural sheath and outside both nerves - this gives the most rapid onset.",
         "Lower-leg trauma at risk of compartment syndrome: agree the reassessment plan with the surgical team before you block, not after.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
@@ -8482,7 +8462,6 @@
         "Not a lidocaine block at this volume: at available lidocaine strengths this volume alone would take a small adult past the ceiling.",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -8509,7 +8488,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Injecting at the level where the sciatic nerve divides, inside the common paraneural sheath and outside both nerves, gives the most rapid onset. The nerve should be pushed away by the injectate, not swollen by it - if it swells, stop and withdraw.",
+        "Nerve swelling during injection: stop and withdraw - the injectate should push the nerve away, not swell it.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -8574,6 +8553,7 @@
       "sciatic",
       "ankle block"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -8684,7 +8664,6 @@
         "Not a lidocaine block at this volume: at available lidocaine strengths this volume alone would take a small adult past the ceiling.",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
-        "IV access, blood pressure, ECG, and pulse oximetry in place before the needle goes in. Major block.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
         "20% lipid emulsion located, not assumed."
       ],
@@ -8708,7 +8687,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the nerve is difficult to see, look for the acoustic shadow of the ischial tuberosity and greater trochanter; the nerve is exactly in the middle.",
+        "Nerve difficult to see: look for the acoustic shadow of the ischial tuberosity and greater trochanter; the nerve is exactly in the middle.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -8771,6 +8750,7 @@
       "gluteal",
       "posterior thigh"
     ],
+    "majorBlockMonitoring": true,
     "dosing": {
       "agents": [
         {
@@ -8855,6 +8835,7 @@
         "Target: Posterior tibial nerve posterior to the medial malleolus.",
         "Provides anesthesia to the heel and sole (plantar aspect) of the foot.",
         "For a plantar wound, block rather than infiltrate \u2014 direct injection into the sole is far more painful.",
+        "Use color Doppler to ensure you don't inject into the artery or veins.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -8903,7 +8884,6 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Use color Doppler to ensure you don't inject into the artery or veins.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -9096,7 +9076,6 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If using landmarks, simply deposit a subcutaneous wheal of anesthetic from the Achilles tendon to the lateral malleolus.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -9275,7 +9254,7 @@
         "Identify the nerve as it emerges through the crural fascia.",
         "Insert the needle in-plane toward the nerve.",
         "Aspirate, then inject 5-10 mL of anesthetic around the nerve.",
-        "After the agent's onset time, test the dorsum of the foot for numbness against the other side before starting the procedure."
+        "After the agent's onset time, test the dorsum of the foot for numbness against the other side before proceeding with the planned intervention."
       ],
       "ultrasound": [
         "The nerve is a small hyperechoic structure that pops through the bright fascial line."
@@ -9287,7 +9266,6 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "For landmarks, inject a subcutaneous band of anesthetic from the anterior tibial crest to the lateral malleolus.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -9318,9 +9296,7 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [
-        "This nerve branches extensively. A wide subcutaneous band of anesthetic is often needed if using landmarks."
-      ],
+      "seniorPearls": [],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
         "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
@@ -9434,6 +9410,7 @@
         "Target: Deep peroneal nerve anterior to the ankle joint.",
         "Provides anesthesia to the first web space (between big toe and second toe).",
         "Nerve is tiny \u2014 perivascular spread around the anterior tibial artery is usually enough; don't chase the nerve itself.",
+        "Avoid intravascular injection by carefully aspirating and using color Doppler.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -9468,7 +9445,7 @@
         "Identify the anterior tibial artery.",
         "The nerve is usually lateral to the artery.",
         "Inject 3-5 mL of anesthetic next to the artery.",
-        "After the agent's onset time, test the first web space for numbness against the other side before starting the procedure."
+        "After the agent's onset time, test the first web space for numbness against the other side before proceeding with the planned intervention."
       ],
       "ultrasound": [
         "Pulsatile artery; nerve is a small honeycomb dot next to it."
@@ -9480,7 +9457,6 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Avoid intravascular injection by carefully aspirating and using color Doppler.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -9511,9 +9487,7 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [
-        "This nerve is very small. Perivascular spread around the anterior tibial artery is usually sufficient."
-      ],
+      "seniorPearls": [],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
         "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
@@ -9675,8 +9649,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the block fails, inject a continuous subcutaneous band of anesthetic along the entire eyebrow (a 'field block').",
-        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat - a continuous subcutaneous band along the entire eyebrow (a field block) often completes coverage here. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
@@ -9825,6 +9798,7 @@
         "Target: Infraorbital nerve as it exits the infraorbital foramen on the maxilla.",
         "Provides anesthesia to the lower eyelid, cheek, lateral nose, and upper lip.",
         "Can be performed via an intraoral (preferred) or extraoral approach.",
+        "Do NOT enter the foramen. Injecting directly into the foramen can cause nerve injury or severe pressure necrosis. Injecting in the tissue *near* the foramen is sufficient.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -9878,7 +9852,6 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Do NOT enter the foramen. Injecting directly into the foramen can cause nerve injury or severe pressure necrosis. Injecting in the tissue *near* the foramen is sufficient.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -10027,6 +10000,7 @@
         "Target: Mental nerve as it exits the mental foramen on the mandible.",
         "Provides anesthesia to the lower lip and chin.",
         "Intraoral approach is preferred.",
+        "Like the infraorbital block, do NOT inject into the foramen itself to avoid nerve injury.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -10076,7 +10050,6 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Like the infraorbital block, do NOT inject into the foramen itself to avoid nerve injury.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -10277,8 +10250,8 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If you do not hit bone, you are too far posterior (risk of injecting into the parotid gland and paralyzing the facial nerve). Withdraw and redirect more laterally.",
-        "If you hit bone immediately, you are too far anterior. Withdraw and redirect more medially.",
+        "Did not hit bone: you are too far posterior (risk of injecting into the parotid gland and paralyzing the facial nerve). Withdraw and redirect more laterally.",
+        "Hit bone immediately: you are too far anterior. Withdraw and redirect more medially.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -10675,7 +10648,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "If the concha (the bowl of the ear) remains painful, it is because it receives innervation from the vagus/facial nerves deeper inside. A local wheal directly in the concha may be needed.",
+        "Concha (the bowl of the ear) remains painful: it receives innervation from the vagus/facial nerves deeper inside - a local wheal directly in the concha may be needed.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."

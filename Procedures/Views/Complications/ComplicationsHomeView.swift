@@ -184,6 +184,15 @@ struct RescueCardDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
+                // The nav bar title is blank (see below) because an inline
+                // title truncates long card names with no full copy anywhere
+                // else on screen - unlike the procedure and kit detail
+                // screens, this one never rendered the title in the body at
+                // all. This is that copy.
+                Text(card.title)
+                    .font(.title2.weight(.bold))
+                    .fixedSize(horizontal: false, vertical: true)
+
                 CriticalWarningCard(title: "Act Now", items: card.immediateMoves, ordered: true)
 
                 statusStrip
@@ -242,7 +251,7 @@ struct RescueCardDetailView: View {
             .padding(16)
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(card.title)
+        .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
     }
 

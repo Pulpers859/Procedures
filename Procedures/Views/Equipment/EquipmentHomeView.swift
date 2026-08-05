@@ -332,7 +332,9 @@ struct KitDetailView: View {
             .padding(16)
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(kit.title)
+        // Full title already renders in `header` below - see the matching
+        // note on ProcedureDetailView.
+        .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if checkedCount > 0, !requiresSessionDecision {

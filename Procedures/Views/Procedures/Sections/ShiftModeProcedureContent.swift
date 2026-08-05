@@ -3,6 +3,10 @@ import SwiftUI
 struct ShiftModeProcedureContent: View {
     let procedure: Procedure
 
+    // Troubleshooting ("If It Fails") lives only on the Rescue tab
+    // (ComplicationContent). It used to render here too, byte-identical -
+    // anyone checking both tabs for the same procedure read the same card
+    // twice for no reason.
     var body: some View {
         VStack(alignment: .leading, spacing: AppLayout.sectionSpacing) {
             CriticalWarningCard(title: "Before You Start", items: procedure.sections.shiftMode)
@@ -13,12 +17,6 @@ struct ShiftModeProcedureContent: View {
 
             if let medicationDosing = procedure.medicationDosing {
                 MedicationDosingCard(dosing: medicationDosing)
-            }
-
-            if !procedure.sections.troubleshooting.isEmpty {
-                SectionCard(title: "If It Fails", systemImage: "wrench.and.screwdriver") {
-                    TroubleshootingListView(items: procedure.sections.troubleshooting)
-                }
             }
 
             if !procedure.sections.seniorPearls.isEmpty {

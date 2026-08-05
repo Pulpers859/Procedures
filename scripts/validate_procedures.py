@@ -107,6 +107,14 @@ MEASUREMENT = re.compile(
     re.IGNORECASE,
 )
 
+# "...before starting the procedure" inside a procedure's own steps or
+# confirmation is ambiguous: it can read as this procedure (already what
+# steps is walking through) or the downstream intervention it is
+# anesthetizing/preparing for. Two nerve blocks said it about themselves with
+# nothing downstream named; a third used "procedure" for two different things
+# in adjacent steps. Flagged so a copy-paste from either can't reintroduce it.
+AMBIGUOUS_PROCEDURE_PHRASES = ("before starting the procedure", "before starting procedure")
+
 
 def _canonical_figure(text: str) -> str:
     """Compare figures by value and unit, not by how they were typed, so
@@ -315,6 +323,17 @@ def validate_procedures(data):
             dupes = sorted({x for x in equipment if equipment.count(x) > 1})
             if dupes:
                 issues.append(("WARNING", title, f"duplicate equipment items collide in the checklist: {', '.join(dupes)}"))
+
+        for section_key in ("steps", "confirmation"):
+            for entry in sections.get(section_key, []) or []:
+                lowered = entry.lower()
+                if any(phrase in lowered for phrase in AMBIGUOUS_PROCEDURE_PHRASES):
+                    issues.append((
+                        "WARNING", title,
+                        f"{section_key} entry says '...before starting the procedure', "
+                        f"ambiguous inside the procedure's own steps - name what comes "
+                        f"next instead ({entry[:70]!r})",
+                    ))
 
         issues.extend(governance_issues(title, item))
 
