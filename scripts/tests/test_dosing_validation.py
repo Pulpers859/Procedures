@@ -579,15 +579,30 @@ class VascularAccessRescueTests(unittest.TestCase):
             found.append(lines[0])
         return found
 
-    def test_the_pre_dilation_gate_is_word_for_word_the_same(self):
-        gates = self._matching("steps", "before dilating")
-        self.assertEqual(len(set(gates)), 1, "the confirmation gate has diverged")
-        self.assertIn("two planes", gates[0])
-        self.assertIn("transduce", gates[0])
+    def test_every_large_bore_record_gates_dilation_on_imaging_or_transduction(self):
+        """Identity across the three records was the original guarantee. The
+        clinician reworded the central-line gate on 2026-08-05 and declined
+        restoration, so the shared-wording assertion no longer holds. What is
+        still asserted per record is the substance: one gate, both planes
+        named, and transduction offered when the wire is not seen."""
+        for gate in self._matching("steps", "before dilating"):
+            self.assertIn("short", gate)
+            self.assertIn("long", gate)
+            self.assertIn("transduce", gate)
 
     def test_colour_and_pulsatility_are_explicitly_rejected(self):
-        for gate in self._matching("steps", "before dilating"):
-            self.assertIn("do not confirm venous placement", gate)
+        """Checked record-wide rather than at the gate: the central-line edit
+        moved this rejection out of the pre-dilation step and left it in
+        troubleshooting. Still present, no longer at the decision point."""
+        for pid in self.LARGE_BORE:
+            sections = self.records[pid]["sections"]
+            joined = " ".join(sections["steps"] + sections["troubleshooting"])
+            with self.subTest(procedure=pid):
+                self.assertTrue(
+                    "do not confirm venous placement" in joined
+                    or "do not answer it" in joined,
+                    f"{pid} no longer rejects colour/pulsatility anywhere",
+                )
 
     def test_no_record_still_makes_wire_confirmation_conditional(self):
         for pid, record in self.records.items():
@@ -655,8 +670,11 @@ class ArterialLineTraceTests(unittest.TestCase):
         joined = " ".join(
             self.sections["complications"] + self.sections["aftercare"]
         )
+        # The positive half ("Do not resite on a schedule") was removed from
+        # aftercare by the clinician on 2026-08-05 and restoration declined.
+        # The negative half still guards the rule it was written against: no
+        # scheduled-change interval may reappear.
         self.assertNotIn("72-96", joined)
-        self.assertIn("Do not resite on a schedule", joined)
 
     def test_the_single_lumen_catheter_is_not_described_as_having_ports(self):
         self.assertNotIn("All ports flush", " ".join(self.sections["confirmation"]))
@@ -703,8 +721,10 @@ class PeripheralIVLengthTests(unittest.TestCase):
         """"Sterile or single-use ... per local policy" reads as though
         non-sterile single-use gel is an acceptable branch. It is not, for a
         percutaneous procedure."""
+        # "explicitly labelled sterile" was shortened to "Single-use gel" by
+        # the clinician on 2026-08-05 and restoration declined. The branch this
+        # test was written to prevent is still asserted absent.
         joined = " ".join(self.sections["equipment"])
-        self.assertIn("labelled sterile", joined)
         self.assertNotIn("Sterile or single-use", joined)
 
     def test_the_intraluminal_length_target_replaced_the_fixed_minimum(self):
@@ -714,9 +734,13 @@ class PeripheralIVLengthTests(unittest.TestCase):
         self.assertIn("2.75 cm", joined)
         self.assertNotIn("one third of the catheter", joined)
 
-    def test_contrast_is_conditioned_rather_than_implied(self):
-        joined = " ".join(self.sections["indications"] + self.sections["confirmation"])
-        self.assertIn("power-rated catheter", joined)
+    # test_contrast_is_conditioned_rather_than_implied was removed here on
+    # 2026-08-05. It pinned "contrast additionally requires a power-rated
+    # catheter at an approved gauge, site, and flow rate" in indications. The
+    # clinician shortened that indication to "Patients requiring contrast,
+    # medications, or resuscitation without an existing line" and declined
+    # restoration, so there is nothing left for the guard to assert. The card
+    # no longer states the power-injection condition anywhere.
 
     def test_the_deep_extravasation_is_described_as_unwitnessed(self):
         joined = " ".join(self.sections["complications"])

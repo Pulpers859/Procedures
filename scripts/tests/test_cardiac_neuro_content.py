@@ -263,13 +263,18 @@ class TransvenousPacemakerTests(unittest.TestCase):
 
     def test_the_balloon_rules_are_present(self):
         """Air only, inflated past the introducer, and never forced."""
+        # "once the tip is past the introducer and never inside it" was removed
+        # from the inflation step by the clinician on 2026-08-05 and
+        # restoration declined. The other two balloon rules still hold.
         self.assertIn("air only, never fluid or contrast", self.text)
-        self.assertIn("past the introducer and never inside it", self.text)
         self.assertIn("never advance against resistance", self.text)
 
     def test_the_threshold_and_safety_margin_are_numeric(self):
+        # "A threshold above roughly 2 mA in a well-positioned catheter is a
+        # positioning problem, not a setting" was removed by the clinician on
+        # 2026-08-05 and restoration declined. The safety margin and the
+        # insertion depth are still pinned.
         self.assertIn("two to three times", self.text)
-        self.assertIn("above roughly 2 ma", self.text)
         self.assertIn("30-35 cm", self.text)
 
     def test_dwell_time_has_an_owner_and_a_review_cadence(self):

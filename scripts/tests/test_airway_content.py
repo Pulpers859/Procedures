@@ -50,8 +50,13 @@ class AirwayScopeTests(unittest.TestCase):
         for pid in AIRWAY_IDS:
             with self.subTest(procedure=pid):
                 lines = all_lines(self.records[pid])
+                # Two accepted phrasings, not one: the clinician reworded
+                # cricothyrotomy's boundary during review. The guarantee is
+                # that adult scope is stated somewhere in the prose, not that
+                # it is stated in a particular sentence.
                 self.assertTrue(
-                    any("Adult scope only" in line for line in lines),
+                    any("Adult scope only" in line or "indicated only for Adult" in line
+                        for line in lines),
                     f"{pid} does not state adult scope in any section",
                 )
 
@@ -68,7 +73,7 @@ class AirwayScopeTests(unittest.TestCase):
         lines = all_lines(self.records["cricothyrotomy"])
         boundary = [line for line in lines if "8-10 years" in line]
         self.assertEqual(len(boundary), 1, lines)
-        self.assertIn("cannula-based technique", boundary[0])
+        self.assertIn("cannula-based", boundary[0])
         self.assertFalse(
             any("Young children require special consideration" in line for line in lines)
         )
@@ -172,8 +177,8 @@ class CricothyrotomyTechniqueTests(unittest.TestCase):
         """A Seldinger kit fails by wire kinking and dilator false passage; a
         scalpel technique fails by losing the tract. The troubleshooting for one
         is wrong for the other, so they cannot share a step list."""
-        for fragment in ("governed by its own instructions for use",
-                         "separate pathway, governed by its own instructions for use"):
+        for fragment in ("is a different procedure",
+                         "follow its instructions instead"):
             with self.subTest(fragment=fragment):
                 self.assertTrue(any(fragment in line for line in self.lines), fragment)
 
@@ -211,7 +216,7 @@ class CricothyrotomyTechniqueTests(unittest.TestCase):
         self.assertIn("even apneic, a straining patient", block[0])
 
     def test_oxygen_from_above_continues_through_the_incision(self):
-        oxygen = [line for line in self.lines if "Oxygen from above continues" in line]
+        oxygen = [line for line in self.lines if "passive oxygenation from above" in line]
         self.assertEqual(len(oxygen), 1, self.lines)
         self.assertIn("including once cutting starts", oxygen[0])
 
@@ -227,7 +232,10 @@ class CricothyrotomyTechniqueTests(unittest.TestCase):
         tube, and this may be the only airway they have."""
         flat = [line for line in self.lines if "Capnography can be flat" in line]
         self.assertEqual(len(flat), 1, self.lines)
-        self.assertIn("circulation finding", flat[0])
+        # The guarantee is that flat ETCO2 is attributed to circulation rather
+        # than to tube position; the clinician's wording names the mechanism
+        # instead of the category.
+        self.assertIn("cardiac output is very low", flat[0])
 
     def test_bronchial_placement_and_pneumothorax_are_excluded_after_stabilising(self):
         aftercare = " ".join(self.record["sections"]["aftercare"])

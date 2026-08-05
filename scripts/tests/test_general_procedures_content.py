@@ -203,11 +203,17 @@ class AbscessTests(unittest.TestCase):
 
     def test_irrigation_is_optional_rather_than_a_confirmation_criterion(self):
         self.assertNotIn("until return is clear", self.text)
-        self.assertIn("irrigation is optional", self.text)
+        # Conditional phrasing carries the same guarantee as the word
+        # "optional": irrigation is indicated by the cavity, not performed to
+        # a clear-return endpoint.
+        self.assertIn("irrigate if the cavity is grossly contaminated", self.text)
+        self.assertIn("no need to irrigate until the return runs clear", self.text)
 
     def test_packing_is_not_routine_for_a_small_simple_cavity(self):
-        self.assertIn("packing is also not routine", self.text)
-        self.assertIn("under about 5 cm", self.text)
+        self.assertIn("packing not advised", self.text)
+        # Accept either spacing: the threshold is the guarantee, not the
+        # typography around it.
+        self.assertRegex(self.text, r"< ?5 ?cm")
 
     def test_antibiotics_are_framed_as_a_shared_decision(self):
         self.assertIn("antibiotics are a shared decision rather than a reflex in either direction", self.text)
