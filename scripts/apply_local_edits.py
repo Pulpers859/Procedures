@@ -16,12 +16,14 @@ empty a required section or drop the last reference, and only the validator
 will catch that.
 """
 import argparse
+import copy
 import json
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from atomic_write import atomic_write_text
+import search_model
 
 ROOT = Path(__file__).resolve().parents[1]
 PROCEDURES = ROOT / "Procedures" / "Resources" / "procedures.json"
@@ -53,6 +55,49 @@ def load_export(path: Path):
     sys.exit("error: export must be a JSON object")
 
 
+def report_retrieval_change(before, after, edited_ids):
+    """Say what the edit cost bedside retrieval, before anything is written.
+
+    An edit to one section can hand a query to a neighbouring procedure without
+    touching a word of clinical meaning: trimming the central-line shiftMode
+    removed the last high-weight occurrence of "catheter", and "central line"
+    began answering with the dialysis catheter. Nothing in the edit looked
+    wrong, and the record still said everything it needed to say.
+
+    Each record is probed with its own title and its own tags, so this covers
+    whatever was edited rather than whatever someone once wrote a query for.
+    Reported, never refused: the clinician's wording is the authority here, and
+    a ranking slip is a thing to know about, not a veto.
+    """
+    before_index = search_model.SearchIndex(before)
+    after_index = search_model.SearchIndex(after)
+    by_id = {item.get("id"): item for item in after}
+
+    losses = []
+    for procedure_id in sorted(edited_ids):
+        procedure = by_id.get(procedure_id)
+        if procedure is None:
+            continue
+        for probe in search_model.self_retrieval_probes(procedure):
+            was = before_index.rank_of(probe, procedure_id)
+            now = after_index.rank_of(probe, procedure_id)
+            if was is None or now is None or now <= was:
+                continue
+            winner = (after_index.search(probe) or ["nothing"])[0]
+            losses.append(f"{procedure_id}: {probe!r} #{was} -> #{now}, now answered by {winner}")
+
+    if not losses:
+        print("\nBedside retrieval: no edited record lost ground on its own title or tags.")
+        return
+    print("\nRETRIEVAL: this edit costs the following searches:")
+    for line in losses:
+        print(f"  {line}")
+    print(
+        "  Adding the missing term as a tag restores ranking without touching prose;\n"
+        "  tags are outside the material fingerprint, so a sign-off survives it."
+    )
+
+
 def bump_patch(version: str) -> str:
     parts = version.split(".")
     if len(parts) == 3 and parts[2].isdigit():
@@ -73,9 +118,11 @@ def main(argv=None) -> int:
 
     edits = load_export(args.export)
     procedures = json.loads(PROCEDURES.read_text(encoding="utf-8"))
+    # Kept for the retrieval comparison below: the entries are mutated in place.
+    before = copy.deepcopy(procedures)
     by_id = {item.get("id"): item for item in procedures}
 
-    applied, skipped = [], []
+    applied, skipped, edited_ids = [], [], []
     for procedure_id, entry in sorted(edits.items()):
         procedure = by_id.get(procedure_id)
         if procedure is None:
@@ -104,6 +151,7 @@ def main(argv=None) -> int:
             if args.bump_version and isinstance(procedure.get("version"), str):
                 procedure["version"] = bump_patch(procedure["version"])
             applied.append(f"{procedure_id}: {', '.join(changed)}")
+            edited_ids.append(procedure_id)
 
     for line in applied:
         print(f"apply  {line}")
@@ -113,6 +161,9 @@ def main(argv=None) -> int:
     if not applied:
         print("\nNothing to apply.")
         return 0
+
+    # Before the write, so --dry-run shows the retrieval cost too.
+    report_retrieval_change(before, procedures, edited_ids)
 
     if args.dry_run:
         print(f"\nDry run: {len(applied)} procedure(s) would change. Nothing written.")

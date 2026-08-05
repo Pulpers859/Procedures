@@ -1,219 +1,45 @@
 """Bedside search regression suite.
 
-Ports the app's search pipeline (ClinicalSynonyms + ProcedureRepository
-scoring in ProcedureRepository.swift — tokenizer, synonym expansion,
-single-edit typo recovery, weighted contains-scoring) to Python and runs
-real clinician queries against the real shipped content. If a query a
-clinician would type at the bedside stops resolving, this fails in CI.
+Runs real clinician queries against the real shipped content through
+scripts/search_model.py, the Python port of the app's search pipeline. If a
+query a clinician would type at the bedside stops resolving, this fails in CI.
 
-The port must stay behaviorally identical to the Swift implementation;
-change both together.
+The port must stay behaviorally identical to the Swift implementation; change
+both together.
+
+The queries below are hand-written, so they only cover what someone thought to
+write down. scripts/check_search_ranking.py complements them with a ratchet
+over every record's own title and tags, which is what catches a partial edit
+quietly costing a procedure its top spot.
 """
-import json
 import re
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-RESOURCES = ROOT / "Procedures" / "Resources"
+sys.path.insert(0, str(ROOT / "scripts"))
 
-PROCEDURES = json.loads((RESOURCES / "procedures.json").read_text(encoding="utf-8"))
-RESCUE_CARDS = json.loads((RESOURCES / "rescue_cards.json").read_text(encoding="utf-8"))
-SYNONYMS = json.loads((RESOURCES / "synonyms.json").read_text(encoding="utf-8"))
-
-VOCABULARY = set(SYNONYMS)
-for _terms in SYNONYMS.values():
-    VOCABULARY.update(_terms)
-
-
-def tokens(query):
-    result = []
-    for chunk in re.split(r"[\s,;/]+", query.strip().lower()):
-        parts = [part for part in chunk.split("-") if part]
-        if len(parts) > 1:
-            result.append("".join(parts))
-        result.extend(parts)
-    return [token for token in result if len(token) > 1]
-
-
-def within_one_edit(first, second):
-    if first == second:
-        return True
-    if abs(len(first) - len(second)) > 1:
-        return False
-    i = j = edits = 0
-    while i < len(first) and j < len(second):
-        if first[i] == second[j]:
-            i += 1
-            j += 1
-            continue
-        edits += 1
-        if edits > 1:
-            return False
-        if len(first) == len(second):
-            i += 1
-            j += 1
-        elif len(first) > len(second):
-            i += 1
-        else:
-            j += 1
-    return edits + (len(first) - i) + (len(second) - j) <= 1
-
-
-def corpus_words():
-    """Every word the shipped content actually uses.
-
-    Mirrors ClinicalSynonyms.corpusWords. Typo recovery is for words that are
-    not there: "lost" is one edit from "last" and was being rewritten into the
-    LAST group, so a query about a lost airway answered with local anaesthetic
-    systemic toxicity.
-    """
-    words = set()
-    for procedure in PROCEDURES:
-        for text, _ in searchable_fields(procedure):
-            words.update(re.findall(r"[a-z0-9]+", text))
-    for card in RESCUE_CARDS:
-        words.update(re.findall(r"[a-z0-9]+", card_haystack(card)))
-    return words
-
-
-CORPUS_WORDS = None
-
-
-def fuzzy_match(token):
-    global CORPUS_WORDS
-    if CORPUS_WORDS is None:
-        CORPUS_WORDS = corpus_words()
-    if len(token) < 4 or token in VOCABULARY:
-        return None
-    if token in CORPUS_WORDS:
-        return None
-    candidates = [word for word in VOCABULARY if within_one_edit(token, word)]
-    return min(candidates) if candidates else None
-
-
-def group(token):
-    if token in SYNONYMS:
-        return [token] + SYNONYMS[token]
-    corrected = fuzzy_match(token)
-    if corrected:
-        return [token, corrected] + SYNONYMS.get(corrected, [])
-    return [token]
-
-
-def searchable_fields(procedure):
-    sections = procedure["sections"]
-    visuals = " ".join(
-        " ".join(
-            [v.get("title", ""), v.get("subtitle", ""), v.get("kind", ""),
-             v.get("caption", ""), v.get("clinicalWarning") or ""]
-        )
-        for v in procedure.get("visualAssets") or []
-    )
-    return [
-        (procedure["title"].lower(), 12),
-        (procedure["category"].lower(), 7),
-        (procedure["difficulty"].lower(), 4),
-        (procedure.get("reviewTime", "").lower(), 2),
-        (" ".join(procedure.get("tags", [])).lower(), 10),
-        (visuals.lower(), 7),
-        (" ".join(sections["shiftMode"]).lower(), 8),
-        (" ".join(sections["equipment"]).lower(), 6),
-        (" ".join(sections["steps"]).lower(), 5),
-        (" ".join(sections["complications"]).lower(), 5),
-        (" ".join(sections["troubleshooting"]).lower(), 5),
-        (" ".join(sections["documentation"]).lower(), 3),
-        (" ".join(sections["seniorPearls"]).lower(), 4),
-    ]
-
-
-def search(query):
-    # content_tokens, mirroring ProcedureRepository.normalizedSearchTerms. Both
-    # search paths drop filler; scoring is substring-based, so a kept "the"
-    # matches ca-the-ter and scores the whole library.
-    query_tokens = content_tokens(query)
-    terms = set()
-    for token in query_tokens:
-        terms.update(group(token))
-    scored = []
-    for procedure in PROCEDURES:
-        total = 0
-        for term in terms:
-            for text, weight in searchable_fields(procedure):
-                if term in text:
-                    total += weight
-        if total > 0:
-            scored.append((procedure, total))
-    scored.sort(key=lambda pair: (-pair[1], pair[0]["title"].lower()))
-    return [procedure["id"] for procedure, _ in scored]
-
-
-STOP_WORDS = {
-    "the", "and", "for", "with", "has", "have", "had", "was", "were", "are",
-    "this", "that", "then", "than", "from", "into", "onto", "after", "before",
-    "during", "while", "when", "why", "how", "what", "who", "his", "her",
-    "their", "our", "your", "its", "patient", "pt", "still", "just", "very",
-    "really", "some", "any", "all", "not", "but", "out", "off", "over",
-    "under", "about", "also", "been", "being", "does", "did", "get", "got",
-    "now", "new", "can", "cant", "wont", "doesnt",
-    # Two-letter connectives; see the note in ProcedureRepository.stopWords.
-    # "or" (operating room) and "no" (nitric oxide) are deliberately absent.
-    "do", "is", "in", "of", "to", "on", "at", "an", "as", "be", "by",
-    "so", "up", "it", "my", "me", "we", "us", "am",
-}
-
-ACUITY_ORDER = {"Crash": 0, "Urgent": 1, "Watch": 2}
-
-
-def content_tokens(query):
-    raw = tokens(query)
-    filtered = [token for token in raw if token not in STOP_WORDS]
-    return filtered or raw
-
-
-def card_haystack(card):
-    # lastReviewed/version are deliberately excluded: editorial metadata is not
-    # clinical search text. Mirrors ComplicationRescueCard.searchFields().
-    return " ".join(
-        [card["title"], card["acuity"]]
-        + card.get("relatedProcedureIDs", []) + card.get("trigger", [])
-        + card.get("immediateMoves", []) + card.get("reassess", [])
-        + card.get("avoid", []) + card.get("tags", []) + card.get("references", [])
-    ).lower()
-
-
-def rescue_matches(query):
-    """Best-tier rescue ranking. Mirrors ProcedureRepository.searchRescueCards:
-    keep every card satisfying the most query tokens, ordered by title
-    relevance then acuity. Strict AND used to empty the crash screen whenever a
-    single typed word was absent from a card."""
-    query_tokens = content_tokens(query)
-    if not query_tokens:
-        return [card["id"] for card in RESCUE_CARDS]
-
-    scored = []
-    for card in RESCUE_CARDS:
-        haystack = card_haystack(card)
-        title = card["title"].lower()
-        matched = exact_title = title_hits = 0
-        for token in query_tokens:
-            expansion = group(token)
-            if any(term in haystack for term in expansion):
-                matched += 1
-            if any(term in title for term in expansion):
-                title_hits += 1
-            if token in title:
-                exact_title += 1
-        if matched:
-            scored.append((matched, exact_title, title_hits, card))
-
-    if not scored:
-        return []
-
-    best = max(entry[0] for entry in scored)
-    top = [entry for entry in scored if entry[0] == best]
-    top.sort(key=lambda e: (-e[1], -e[2], ACUITY_ORDER[e[3]["acuity"]], e[3]["title"].lower()))
-    return [entry[3]["id"] for entry in top]
+# The scoring model used to be defined here. It now lives in
+# scripts/search_model.py so the ranking ratchet scores queries through exactly
+# the same code this suite does; two copies would drift.
+from search_model import (  # noqa: E402
+    ACUITY_ORDER,
+    PROCEDURES,
+    RESCUE_CARDS,
+    SYNONYMS,
+    VOCABULARY,
+    card_haystack,
+    content_tokens,
+    corpus_words,
+    fuzzy_match,
+    group,
+    rescue_matches,
+    search,
+    searchable_fields,
+    tokens,
+    within_one_edit,
+)
 
 
 # (query, expected procedure id, max acceptable rank). Rank 3 means "in the

@@ -37,6 +37,15 @@ jobs:
       - name: Run content validator
         run: python3 scripts/validate_procedures.py
 
+      # A partial edit can hand a query to a neighbouring procedure without
+      # touching a word of clinical meaning, and the hand-written query suite
+      # only covers the sentences someone thought to write down. This probes
+      # every record by its own title and tags and refuses a drop against the
+      # committed baseline. Improvements are fine; regressions need either a
+      # fix or an explicit --update.
+      - name: Check bedside retrieval has not regressed
+        run: python3 scripts/check_search_ranking.py
+
       # The audit baselines must stay derivable from the audited bytes. If
       # someone edits a fingerprint in AUDIT_LEDGER.json by hand, this fails —
       # which is the one thing standing between a per-record ledger and a
