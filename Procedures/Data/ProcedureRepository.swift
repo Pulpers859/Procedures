@@ -1,6 +1,10 @@
 import Foundation
 
-private typealias SearchableField = (text: String, weight: Int)
+/// `words` alongside `text` so a term can be matched at a word boundary.
+/// Scoring on raw substrings meant "ear" matched the "ear" in *linear
+/// transducer* — shipped in the equipment list of every ultrasound-guided
+/// record — so "ear block" answered with the median nerve.
+private typealias SearchableField = (text: String, words: Set<String>, weight: Int)
 
 enum ContentLoadAuthority {
     static func authoritativeIDs(
@@ -91,6 +95,16 @@ enum ClinicalSynonyms {
         "really", "some", "any", "all", "not", "but", "out", "off", "over",
         "under", "about", "also", "been", "being", "does", "did", "get", "got",
         "now", "new", "can", "cant", "wont", "doesnt",
+        // Verbs of intent and modals. A clinician types "the patient needs a
+        // central line"; "needs" discriminates nothing but scored 14 points
+        // and decided that query against the central line. "patient" and
+        // "get" were already here for the same reason — this finishes the set.
+        "need", "needs", "needed", "want", "wants", "wanted", "give", "gives",
+        "given", "put", "puts", "take", "takes", "make", "makes", "use", "uses",
+        "using", "require", "requires", "required", "going", "goes", "went",
+        "let", "lets", "try", "trying", "help", "please", "should", "would",
+        "could", "will", "shall", "must", "may", "might", "him", "them", "they",
+        "she", "there", "here",
         // Two-letter connectives. The tokenizer keeps anything longer than one
         // character, so these survived and matched as substrings: "do" inside
         // *ab-do-minal*, "is" inside *ep-is-taxis*. That is enough to outscore
@@ -185,6 +199,11 @@ final class ProcedureRepository: ObservableObject {
     /// `procedures` changes instead of on every keystroke and re-render. Keyed by
     /// procedure ID.
     private var searchIndex: [String: [SearchableField]] = [:]
+
+    /// Memoized term rarity. Document frequency is a property of the whole
+    /// corpus, so this is cleared whenever the index rebuilds — a stale entry
+    /// would score a term against a library that no longer exists.
+    private var rarityCache: [String: Int] = [:]
     @Published private(set) var rescueCards: [ComplicationRescueCard] = []
     @Published private(set) var kits: [Kit] = []
     @Published private(set) var loadError: String?
@@ -396,9 +415,10 @@ final class ProcedureRepository: ObservableObject {
     func search(_ query: String) -> [Procedure] {
         let terms = normalizedSearchTerms(from: query)
         guard !terms.isEmpty else { return procedures }
+        let typed = Set(ClinicalSynonyms.contentTokens(in: query))
 
         return procedures
-            .map { procedure in (procedure, score(for: procedure, matching: terms)) }
+            .map { procedure in (procedure, score(for: procedure, matching: terms, typed: typed)) }
             .filter { $0.1 > 0 }
             .sorted {
                 if $0.1 == $1.1 {
@@ -466,14 +486,64 @@ final class ProcedureRepository: ObservableObject {
         return Array(Set(terms))
     }
 
-    private func score(for procedure: Procedure, matching terms: [String]) -> Int {
+    /// How much a term discriminates, from how many records contain it.
+    ///
+    /// "block", "nerve", "regional" and "anesthesia" each appear in 31-38 of
+    /// the 55 procedures; "carpal" appears in one. Weighting them equally is
+    /// what let the generic half of a two-word query outvote the half that
+    /// identified the procedure — "ear block" answered with the median nerve,
+    /// "abdomen block" with the popliteal sciatic. Buckets rather than a log
+    /// so this and its Python mirror cannot drift on floating point.
+    private func rarity(of term: String) -> Int {
+        if let cached = rarityCache[term] { return cached }
+        var frequency = 0
+        for procedure in procedures {
+            let fields = searchIndex[procedure.id] ?? Self.searchableFields(for: procedure)
+            if fields.contains(where: { Self.field($0, matches: term) }) { frequency += 1 }
+        }
+        let value: Int
+        switch max(1, frequency) {
+        case ...2: value = 4
+        case ...15: value = 2
+        default: value = 1
+        }
+        rarityCache[term] = value
+        return value
+    }
+
+    /// Word-prefix match, so "block" still finds blocks/blocked/blocking but
+    /// "ear" no longer finds *linear*.
+    private static func field(_ field: SearchableField, matches term: String) -> Bool {
+        field.words.contains { $0.hasPrefix(term) }
+    }
+
+    /// Each term scores its *best* field once, not every field it appears in.
+    /// Summing across fields rewarded a record for repeating a word rather
+    /// than for being the answer: a generic term sitting in nine fields
+    /// outscored the rare term that actually named the procedure.
+    ///
+    /// A term the clinician typed outranks one the synonym map added. "tube"
+    /// expands to endotracheal/intubation, which are rare and so score high —
+    /// enough that "chest tube" answered with the intubation card.
+    private func score(for procedure: Procedure, matching terms: [String], typed: Set<String>) -> Int {
         let fields = searchIndex[procedure.id] ?? Self.searchableFields(for: procedure)
 
         var total = 0
         for term in terms {
-            for field in fields where field.text.contains(term) {
-                total += field.weight
+            var best = 0
+            var sum = 0
+            for field in fields where Self.field(field, matches: term) {
+                best = max(best, field.weight)
+                sum += field.weight
             }
+            guard best > 0 else { continue }
+            // Best field, plus a damped contribution from the others. Pure max
+            // discards the signal that a record discusses the term throughout —
+            // which is how "fib" stopped reaching the cardioversion card ahead
+            // of the fascia iliaca block.
+            let base = best + (sum - best) / 4
+            let rarity = rarity(of: term)
+            total += base * (typed.contains(term) ? rarity : max(1, rarity / 4))
         }
         return total
     }
@@ -505,6 +575,7 @@ final class ProcedureRepository: ObservableObject {
             procedures.map { ($0.id, Self.searchableFields(for: $0)) },
             uniquingKeysWith: { first, _ in first }
         )
+        rarityCache.removeAll(keepingCapacity: true)
     }
 
     /// Builds the lowercased, weighted fields a query is scored against. Field
@@ -514,19 +585,23 @@ final class ProcedureRepository: ObservableObject {
         let sections = procedure.sections
         var fields: [SearchableField] = []
         fields.reserveCapacity(13)
-        fields.append((procedure.title.lowercased(), 12))
-        fields.append((procedure.category.rawValue.lowercased(), 7))
-        fields.append((procedure.difficulty.rawValue.lowercased(), 4))
-        fields.append((procedure.reviewTime.lowercased(), 2))
-        fields.append((procedure.tags.joined(separator: " ").lowercased(), 10))
-        fields.append((procedure.visualAssetsText.lowercased(), 7))
-        fields.append((sections.shiftMode.joined(separator: " ").lowercased(), 8))
-        fields.append((sections.equipment.joined(separator: " ").lowercased(), 6))
-        fields.append((sections.steps.joined(separator: " ").lowercased(), 5))
-        fields.append((sections.complications.joined(separator: " ").lowercased(), 5))
-        fields.append((sections.troubleshooting.joined(separator: " ").lowercased(), 5))
-        fields.append((sections.documentation.joined(separator: " ").lowercased(), 3))
-        fields.append((sections.seniorPearls.joined(separator: " ").lowercased(), 4))
+        func add(_ text: String, _ weight: Int) {
+            let lowered = text.lowercased()
+            fields.append((lowered, Set(ClinicalSynonyms.words(in: lowered)), weight))
+        }
+        add(procedure.title, 12)
+        add(procedure.category.rawValue, 7)
+        add(procedure.difficulty.rawValue, 4)
+        add(procedure.reviewTime, 2)
+        add(procedure.tags.joined(separator: " "), 10)
+        add(procedure.visualAssetsText, 7)
+        add(sections.shiftMode.joined(separator: " "), 8)
+        add(sections.equipment.joined(separator: " "), 6)
+        add(sections.steps.joined(separator: " "), 5)
+        add(sections.complications.joined(separator: " "), 5)
+        add(sections.troubleshooting.joined(separator: " "), 5)
+        add(sections.documentation.joined(separator: " "), 3)
+        add(sections.seniorPearls.joined(separator: " "), 4)
         return fields
     }
 

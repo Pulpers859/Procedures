@@ -186,7 +186,14 @@ class SentenceQueryTests(unittest.TestCase):
         ("the patient needs a central line", "central_venous_catheter"),
         ("i need to do a cric now", "cricothyrotomy"),
         ("how do i drain an abscess", "abscess_incision_drainage"),
-        ("what do i do when the airway is lost", "endotracheal_intubation"),
+        # A lost airway is the failed-airway scenario, and the cricothyrotomy
+        # card opens "This procedure is when you cannot oxygenate or ventilate
+        # your patient." Intubation is what has already been tried by the time
+        # anyone types this. This expected intubation only because the old
+        # scorer summed a common word across every field; changed on
+        # 2026-08-05 after re-reading what the query actually asks for.
+        # Intubation is still second - see the lost-airway test below.
+        ("what do i do when the airway is lost", "cricothyrotomy"),
     ]
 
     def test_sentences_rank_the_procedure_they_describe_first(self):

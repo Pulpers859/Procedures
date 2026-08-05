@@ -137,7 +137,20 @@ def main(argv=None):
         )
         return 1
 
-    if better or added or removed:
+    # A deleted tag or a retitled record cannot show up as `worse`: the probe
+    # is derived from that same text, so it leaves the set entirely rather
+    # than dropping down it. That is still a retrieval route the reader used
+    # to have and no longer does, so it fails here too and has to be accepted
+    # deliberately. Only `added` and `better` pass unremarked.
+    if removed:
+        print(
+            f"\n{len(removed)} probe(s) disappeared. A tag or title the reader could search by "
+            "is gone,\nso the query that used to reach this record no longer does. Restore it, "
+            "or accept\nthe loss with --update."
+        )
+        return 1
+
+    if better or added:
         print("\nNo regressions. Run --update to fold these changes into the baseline.")
         return 0
 

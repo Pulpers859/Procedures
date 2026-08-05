@@ -38,6 +38,16 @@ STOP_WORDS = {
     "really", "some", "any", "all", "not", "but", "out", "off", "over",
     "under", "about", "also", "been", "being", "does", "did", "get", "got",
     "now", "new", "can", "cant", "wont", "doesnt",
+    # Verbs of intent and modals. A clinician types "the patient needs a
+    # central line"; "needs" discriminates nothing but scored 14 points and
+    # decided that query against the central line. "patient" and "get" were
+    # already here for the same reason - this finishes the set.
+    "need", "needs", "needed", "want", "wants", "wanted", "give", "gives",
+    "given", "put", "puts", "take", "takes", "make", "makes", "use", "uses",
+    "using", "require", "requires", "required", "going", "goes", "went",
+    "let", "lets", "try", "trying", "help", "please", "should", "would",
+    "could", "will", "shall", "must", "may", "might", "him", "them", "they",
+    "she", "there", "here",
     # Two-letter connectives; see the note in ProcedureRepository.stopWords.
     # "or" (operating room) and "no" (nitric oxide) are deliberately absent.
     "do", "is", "in", "of", "to", "on", "at", "an", "as", "be", "by",
@@ -45,6 +55,10 @@ STOP_WORDS = {
 }
 
 ACUITY_ORDER = {"Crash": 0, "Urgent": 1, "Watch": 2}
+
+# Splits field text into words so a term can be matched at a word boundary
+# rather than anywhere inside one. Mirrors ProcedureRepository.wordPattern.
+WORD_RE = re.compile(r"[a-z0-9]+")
 
 
 def tokens(query):
@@ -131,6 +145,52 @@ class SearchIndex:
         self.procedures = PROCEDURES if procedures is None else procedures
         self.rescue_cards = RESCUE_CARDS if rescue_cards is None else rescue_cards
         self._corpus_words = None
+        self._field_words = {}
+        self._document_frequency = {}
+
+    def _fields_for(self, procedure):
+        """Weighted fields as word sets rather than raw text.
+
+        Scoring used raw substring containment, so "ear" matched the "ear" in
+        *linear transducer* - shipped in the equipment list of every
+        ultrasound-guided record - and a search for "ear block" answered with
+        the median nerve. Matching on word *prefixes* keeps plurals and
+        inflections ("block" finds blocks/blocked/blocking) without matching
+        the middle of an unrelated word.
+        """
+        key = procedure["id"]
+        if key not in self._field_words:
+            self._field_words[key] = [
+                (set(WORD_RE.findall(text)), weight)
+                for text, weight in searchable_fields(procedure)
+            ]
+        return self._field_words[key]
+
+    @staticmethod
+    def _term_matches(words, term):
+        return any(word.startswith(term) for word in words)
+
+    def rarity(self, term):
+        """How much a term discriminates, from how many records contain it.
+
+        "block", "nerve", "regional" and "anesthesia" each appear in 31-38 of
+        55 procedures; "carpal" appears in one. Weighting them equally is what
+        let the generic half of a two-word query outvote the half that
+        identified the procedure. Buckets rather than a log so Swift and
+        Python cannot drift on floating point.
+        """
+        if term not in self._document_frequency:
+            self._document_frequency[term] = max(1, sum(
+                1 for procedure in self.procedures
+                if any(self._term_matches(words, term)
+                       for words, _ in self._fields_for(procedure))
+            ))
+        frequency = self._document_frequency[term]
+        if frequency <= 2:
+            return 4
+        if frequency <= 15:
+            return 2
+        return 1
 
     def corpus_words(self):
         """Every word the shipped content actually uses.
@@ -173,15 +233,34 @@ class SearchIndex:
         return terms
 
     def scored(self, query):
-        """(id, score) for every procedure that matches, best first."""
+        """(id, score) for every procedure that matches, best first.
+
+        Each term scores its *best* field once, not every field it appears in.
+        Summing across fields rewarded a record for repeating a word rather
+        than for being the answer: a generic term sitting in nine fields
+        outscored the rare term that actually identified the procedure.
+
+        A term the clinician typed outranks one the synonym map added. "tube"
+        expands to endotracheal/intubation, which are rare and so score high -
+        enough that "chest tube" answered with the intubation card.
+        """
+        literal = set(content_tokens(query))
         terms = self.terms_for(query)
         results = []
         for procedure in self.procedures:
+            fields = self._fields_for(procedure)
             total = 0
             for term in terms:
-                for text, weight in searchable_fields(procedure):
-                    if term in text:
-                        total += weight
+                weights = [w for words, w in fields if self._term_matches(words, term)]
+                if not weights:
+                    continue
+                # Best field, plus a damped contribution from the others. Pure
+                # max discards the signal that a record discusses the term
+                # throughout - which is how "fib" stopped reaching the
+                # cardioversion card ahead of the fascia iliaca block.
+                base = max(weights) + (sum(weights) - max(weights)) // 4
+                rarity = self.rarity(term)
+                total += base * (rarity if term in literal else max(1, rarity // 4))
             if total > 0:
                 results.append((procedure, total))
         results.sort(key=lambda pair: (-pair[1], pair[0]["title"].lower()))

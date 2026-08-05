@@ -55,17 +55,30 @@ class RatchetFiresTests(unittest.TestCase):
         mutate(next(p for p in procedures if p["id"] == procedure_id))
         return ratchet.current_ranks(procedures)
 
-    def test_dropping_a_tag_that_carried_a_term_is_caught(self):
-        """The exact 2026-08-05 regression: trimming the central-line shiftMode
-        removed the last high-weight "catheter", and "central line" started
-        answering with the dialysis catheter."""
+    def test_dropping_a_tag_is_caught_as_a_lost_probe(self):
+        """A deleted tag cannot surface as `worse`.
+
+        The probe is derived from the tag, so removing the tag removes the
+        probe from the set rather than moving it down - it lands in `removed`.
+        That is still a query the reader could run and now cannot, so
+        check_search_ranking exits non-zero on it too.
+
+        This replaces an assertion that dropping central_venous_catheter's
+        "catheter" tag made its "central line" probe rank worse. It no longer
+        does: scoring now takes each term's best field rather than summing it
+        across all of them, so the title "Central Venous Catheter" carries the
+        term on its own. The scorer absorbing that regression is the point of
+        the rarity/best-field rework - but the guard still has to fail on
+        something, so it asserts the channel that does fire.
+        """
         ranks = self._mutated(
             "central_venous_catheter", lambda p: p["tags"].remove("catheter")
         )
-        worse, _, _, _ = ratchet.compare(ratchet.load_baseline(), ranks)
+        worse, _, _, removed = ratchet.compare(ratchet.load_baseline(), ranks)
+        self.assertEqual(worse, [], "no probe should rank lower; the title still carries it")
         self.assertTrue(
-            any("central_venous_catheter|central line" in line for line in worse),
-            f"the ratchet did not notice: {worse}",
+            any("central_venous_catheter|catheter" in line for line in removed),
+            f"the ratchet did not notice the lost probe: {removed}",
         )
 
     def test_emptying_a_weighted_section_is_caught(self):
@@ -74,6 +87,14 @@ class RatchetFiresTests(unittest.TestCase):
         )
         worse, _, _, _ = ratchet.compare(ratchet.load_baseline(), ranks)
         self.assertTrue(worse, "emptying shiftMode cost nothing, which cannot be right")
+
+    def test_a_lost_probe_fails_the_check_not_just_the_report(self):
+        """Printing "gone" and exiting 0 is how a deleted tag would ship."""
+        _, _, _, removed = ratchet.compare(
+            ratchet.load_baseline(),
+            self._mutated("block_auricular", lambda p: p["tags"].remove("ear block")),
+        )
+        self.assertTrue(removed, "dropping a distinctive tag must register somewhere")
 
     def test_an_unchanged_corpus_reports_nothing(self):
         worse, better, added, removed = ratchet.compare(
