@@ -158,14 +158,20 @@ struct ReviewCenterView: View {
             } header: {
                 Text("Edits")
             } footer: {
-                Text("Exports a JSON file of every local correction. Apply it to the repo with scripts/apply_local_edits.py for a reviewable diff.")
+                Text("Exports a JSON file of every local correction. Apply it to the repo with scripts/apply_local_edits.py for a reviewable diff. Export this before Export Reviews.")
             }
         }
     }
 
-    /// Your sign-offs are worth nothing to the content until they can leave the
+    /// Sign-offs are worth nothing to the content until they can leave the
     /// device. Without this a clinician could review all 73 items and every
     /// page would still read "AI draft - not clinically reviewed".
+    ///
+    /// The footer names the ordering because the failure is silent and its
+    /// error message misleads. A sign-off hashes the text as it was read -
+    /// which is the *edited* text - so promoting reviews before applying edits
+    /// refuses every one with "content changed since this review". That is
+    /// true, but it reads like a stale build rather than a missing step.
     @ViewBuilder
     private var myReviewsSection: some View {
         if !userData.locallyReviewedContent.isEmpty {
@@ -185,7 +191,7 @@ struct ReviewCenterView: View {
             } header: {
                 Text("Reviews")
             } footer: {
-                Text("Apply it to the repo with scripts/apply_local_reviews.py to promote these items out of \"AI draft\". Sign-offs against content that has since changed are refused.")
+                Text("Export and apply edits first — a sign-off covers the edited text, so applying reviews first refuses every one. Then apply this with scripts/apply_local_reviews.py to promote these items out of \"AI draft\".")
             }
         }
     }

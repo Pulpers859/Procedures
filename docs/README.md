@@ -19,7 +19,7 @@
 - `../Procedures/Resources/procedures.json` - bundled procedure content
 - `../Procedures/Resources/rescue_cards.json` - bundled rescue-card content
 - `ai-instructions/SWIFT_ARCHITECTURE.md` - current runtime structure and data flow
-- `../scripts/apply_local_edits.py` - merges edits exported from the app back into `procedures.json` as a reviewable diff
+- `../scripts/apply_local_edits.py` - merges edits exported from the app back into `procedures.json` as a reviewable diff (run **before** `apply_local_reviews.py`; see the round-trip below)
 - `../scripts/apply_local_reviews.py` - promotes sign-offs exported from the app into `reviewerStatus` and `contentSource`, refusing any review whose content has changed since it was recorded
 - `ai-instructions/TESTING_CHECKLIST.md` - manual verification checklist
 - `AUTOMATED_TESTING_HANDOFF.md` - CI surfaces, evidence boundaries, and required commands
@@ -35,6 +35,35 @@
 - `templates/ui-ux-resource-eval/SKILL.md` - portable local-skill template for other repos
 - `../.claude/skills/procedures-handoff/SKILL.md` - fast repo orientation and task routing
 - `../.claude/skills/procedures-content-audit/SKILL.md` - clinical content, schema, reference, and validator audit workflow
+
+## Review Round-Trip
+
+Content edited and signed off in the app comes back as **two separate
+exports**, from two different sections of Review Center. Both are needed, and
+the order is not interchangeable:
+
+1. **Edits** -> Review Center > Edits > *Export Edits*
+2. `python3 scripts/apply_local_edits.py <edits>.json` (add `--dry-run` first;
+   it reports the retrieval cost of the edit before writing anything)
+3. `python3 scripts/validate_procedures.py`
+4. **Reviews** -> Review Center > Reviews > *Export Reviews*
+5. `python3 scripts/apply_local_reviews.py <reviews>.json`
+6. `python3 scripts/validate_procedures.py` and
+   `python3 scripts/check_search_ranking.py`
+
+**Edits must be applied before reviews.** A sign-off is a hash of the text as
+the reviewer saw it, which means the *edited* text. Promote first and every
+sign-off is refused with "content changed since this review" - correctly, but
+the message points at the wrong cause and reads like a stale build.
+
+Two consequences worth knowing before editing:
+
+- Only the material sections are hashed (`shiftMode`, `contraindications`,
+  `equipment`, `steps`, `confirmation`, `troubleshooting`, `complications`,
+  plus the dosing blocks). Changing one of those after a sign-off revokes it.
+- `tags` are **not** hashed. When an edit costs a procedure its place in search
+  - see `check_search_ranking.py` - a tag can carry the missing term back
+  without disturbing a sign-off.
 
 ## Historical Notes
 - `audits/AUDIT_AND_NEXT_STEPS.md` - earlier audit log and roadmap snapshots kept for reference, not as the primary handoff file

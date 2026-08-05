@@ -581,10 +581,10 @@ class VascularAccessRescueTests(unittest.TestCase):
 
     def test_every_large_bore_record_gates_dilation_on_imaging_or_transduction(self):
         """Identity across the three records was the original guarantee. The
-        clinician reworded the central-line gate on 2026-08-05 and declined
-        restoration, so the shared-wording assertion no longer holds. What is
-        still asserted per record is the substance: one gate, both planes
-        named, and transduction offered when the wire is not seen."""
+        central-line gate was reworded on 2026-08-05, so the shared-wording
+        assertion no longer holds. What is still asserted per record is the
+        substance: one gate, both planes named, and transduction offered when
+        the wire is not seen."""
         for gate in self._matching("steps", "before dilating"):
             self.assertIn("short", gate)
             self.assertIn("long", gate)
@@ -670,9 +670,9 @@ class ArterialLineTraceTests(unittest.TestCase):
         joined = " ".join(
             self.sections["complications"] + self.sections["aftercare"]
         )
-        # The positive half ("Do not resite on a schedule") was removed from
-        # aftercare by the clinician on 2026-08-05 and restoration declined.
-        # The negative half still guards the rule it was written against: no
+        # The positive half ("Do not resite on a schedule") was cut from
+        # aftercare on 2026-08-05 as foundational for this app's reader. The
+        # negative half still guards the rule it was written against: no
         # scheduled-change interval may reappear.
         self.assertNotIn("72-96", joined)
 
@@ -721,8 +721,8 @@ class PeripheralIVLengthTests(unittest.TestCase):
         """"Sterile or single-use ... per local policy" reads as though
         non-sterile single-use gel is an acceptable branch. It is not, for a
         percutaneous procedure."""
-        # "explicitly labelled sterile" was shortened to "Single-use gel" by
-        # the clinician on 2026-08-05 and restoration declined. The branch this
+        # "explicitly labelled sterile" was shortened to "Single-use gel" on
+        # 2026-08-05 as foundational for this app's reader. The branch this
         # test was written to prevent is still asserted absent.
         joined = " ".join(self.sections["equipment"])
         self.assertNotIn("Sterile or single-use", joined)
@@ -736,11 +736,10 @@ class PeripheralIVLengthTests(unittest.TestCase):
 
     # test_contrast_is_conditioned_rather_than_implied was removed here on
     # 2026-08-05. It pinned "contrast additionally requires a power-rated
-    # catheter at an approved gauge, site, and flow rate" in indications. The
-    # clinician shortened that indication to "Patients requiring contrast,
-    # medications, or resuscitation without an existing line" and declined
-    # restoration, so there is nothing left for the guard to assert. The card
-    # no longer states the power-injection condition anywhere.
+    # catheter at an approved gauge, site, and flow rate" in indications. That
+    # indication was shortened to "Patients requiring contrast, medications, or
+    # resuscitation without an existing line" as foundational for this app's
+    # reader, so there is nothing left for the guard to assert.
 
     def test_the_deep_extravasation_is_described_as_unwitnessed(self):
         joined = " ".join(self.sections["complications"])
