@@ -20,6 +20,8 @@
 - The reader already knows what they did. Attribution is text they must read to learn nothing.
 - Enforced by `scripts/check_review_state_sources.py`, which fails the build on that phrasing. Explaining the rule in a comment is fine; shipping it in a string is not.
 - Keep the local-versus-upstream distinction in code (`ReviewState.reviewedLocally` vs `.clinicallyReviewed`) — it still drives export and validation. Only the copy collapses.
+- The reader is an EM or critical care resident or attending. Do not restate what they know at a foundational level; that is text they must read to learn nothing. Content earns its place by being specific to this procedure, this kit, or this failure mode.
+- A guard failing because content was trimmed is not by itself evidence a fact was lost. Ask whether the reader needed telling before restoring anything.
 
 ## Core Rules
 - Keep procedure content in `Procedures/Resources/procedures.json`.
