@@ -50,7 +50,8 @@ SECTION_SEPARATOR = "\x1e"
 # older version answers a different question and must not be compared; see
 # LocalReviewRecord.contentState in UserDataStore.swift.
 # v5: added majorBlockMonitoring (see procedure_fingerprint below).
-FINGERPRINT_VERSION = 5
+# v6: added seniorPearls, now the single home for clinical rationale.
+FINGERPRINT_VERSION = 6
 
 REVIEWED_DISPOSITION = "Reviewed"
 DEFAULT_STATUS = "Internally Reviewed"
@@ -68,6 +69,7 @@ KINDS = {
 PROCEDURE_MATERIAL_SECTIONS = [
     "shiftMode", "contraindications", "equipment",
     "steps", "confirmation", "troubleshooting", "complications",
+    "seniorPearls",
 ]
 
 

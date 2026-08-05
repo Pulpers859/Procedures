@@ -1569,7 +1569,7 @@
         "Keep transcutaneous pacing and pressors running while placing, if unstable.",
         "Know the generator before you need it \u2014 rate, output in mA, sensitivity, battery, and which cable mates it to this catheter.",
         "Electrical capture is not enough \u2014 confirm mechanical capture with pulse/BP/arterial waveform.",
-        "Spikes with no capture at maximum output means malposition, not a generator problem \u2014 reposition rather than increasing output.",
+        "Spikes with no capture at maximum output: reposition rather than increasing output.",
         "Secure catheter and generator carefully; dislodgement is common.",
         "Do not remove backup pads or pressors until capture is reliable and the catheter is secured."
       ],
@@ -1671,7 +1671,8 @@
         "Air in the balloon. Not saline, not contrast.",
         "Write the threshold down.",
         "Keep pads on until the whole setup is stable and secured.",
-        "Every movement can lose capture; check after transport."
+        "Every movement can lose capture; check after transport.",
+        "Spikes without capture at maximum output are a malposition, not a generator problem."
       ],
       "references": [
         "American Heart Association. Part 9: Adult Advanced Life Support, 2025 CPR and ECC Guidelines. 2025. https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support",
@@ -2538,10 +2539,10 @@
       "shiftMode": [
         "Confirm indication (diagnostic vs. therapeutic); verify ascites is present and accessible by ultrasound.",
         "Ultrasound marks the largest, safest pocket in the LLQ - avoids bowel, bladder, and inferior epigastric vessels.",
-        "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum - reduces post-procedure fluid leak.",
+        "Z-track technique: displace skin laterally before needle entry, release after entering peritoneum.",
         "For large-volume (>5 L): administer albumin 6-8 g per liter removed to prevent paracentesis-induced circulatory dysfunction.",
         "Below 5 L, albumin isn't routine but isn't forbidden \u2014 consider it at a smaller volume for acute-on-chronic liver failure or high AKI risk; a judgement call, not a threshold.",
-        "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap - you cannot rule out SBP clinically.",
+        "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap.",
         "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn - highest diagnostic yield for SBP.",
         "Don't delay or cancel the tap to correct clotting numbers \u2014 routine coagulation testing and prophylactic products aren't recommended before paracentesis."
       ],
@@ -2649,7 +2650,9 @@
       "seniorPearls": [
         "The INR in cirrhosis is not a bleeding-risk score. Do not delay the tap for plasma.",
         "Order the serum albumin with the tap - the gradient needs both values.",
-        "Albumin replacement for large-volume taps is not optional."
+        "Albumin replacement for large-volume taps is not optional.",
+        "SBP cannot be ruled out on examination, which is why decompensation alone earns a tap.",
+        "The Z-track offsets skin and peritoneal punctures so the tract closes on itself, which is what stops post-tap leak."
       ],
       "references": [
         "European Association for the Study of the Liver. EASL Clinical Practice Guidelines for the management of patients with decompensated cirrhosis. J Hepatol. 2018;69(2):406-460. https://doi.org/10.1016/j.jhep.2018.03.024",
@@ -2747,7 +2750,7 @@
     "sections": {
       "shiftMode": [
         "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node.",
-        "Anesthetize generously before incising - acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
+        "Anesthetize generously before incising: infiltrate widely around the margin and wait.",
         "Be sure to have the incision span the entire fluctuant cavity and allow complete drainage and loculation breakdown.",
         "Break down all loculations and irrigate.",
         "For a simple abscess < 5cm, packing not advised. Leave it open, or use a loop drain where the cavity or the site makes premature closure likely.",
@@ -2850,7 +2853,8 @@
       "seniorPearls": [
         "If you cannot freely break down all loculations, the incision is not long enough.",
         "Irrigation and packing are optional. Breaking down loculations is not.",
-        "Packing a small simple abscess is painful and does not improve the outcome."
+        "Packing a small simple abscess is painful and does not improve the outcome.",
+        "Acidic pus inactivates local anesthetic near the core, so anesthetic placed into the cavity does nothing."
       ],
       "references": [
         "Stevens DL, et al. Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 Update by IDSA. Clin Infect Dis. 2014;59(2):e10-e52. https://doi.org/10.1093/cid/ciu296",
@@ -5171,8 +5175,7 @@
       "shiftMode": [
         "Needle aspiration, I&D, and abscess tonsillectomy are all effective \u2014 aspiration is the usual bedside choice. Follow local ENT preference where one exists.",
         "Decide first whether this patient can have anything done at the bedside at all. See contraindications - the airway question comes before the technique question.",
-        "The danger: the internal carotid artery lies posterolateral to the tonsil, typically 2-2.5 cm from the mucosal surface.",
-        "Limit needle depth to 1 cm with a guard (cut syringe sheath or tape) to prevent deep penetration.",
+        "Limit needle depth to 1 cm with a guard (cut syringe sheath or tape).",
         "Aspirate at the point of maximal fluctuance or bulging, usually the superior pole of the tonsil.",
         "Always have suction ready - these patients aspirate pus.",
         "If you cannot aspirate pus but clinical suspicion is high, consider CT with contrast or ENT consultation."
@@ -5277,7 +5280,8 @@
       "seniorPearls": [
         "If the patient cannot open their mouth, do not force it. Sedate or consult ENT.",
         "Most PTAs are at the superior pole. If your first aspiration is dry, try there before giving up.",
-        "These patients look terrible but get dramatically better within minutes of drainage."
+        "These patients look terrible but get dramatically better within minutes of drainage.",
+        "The internal carotid lies posterolateral to the tonsil, typically 2-2.5 cm from the mucosal surface; the 1 cm guard is the margin against it."
       ],
       "references": [
         "Windfuhr JP, et al. Clinical practice guideline: tonsillitis II. Surgical management. Eur Arch Otorhinolaryngol. 2016;273(4):989-1009. https://doi.org/10.1007/s00405-016-3904-x \u2014 no drainage technique is established as superior; needle aspiration is often preferred at the bedside because it does not require surgical training.",
@@ -6439,7 +6443,7 @@
       "shiftMode": [
         "Target: Median nerve in the mid-forearm, between FDS and FDP.",
         "Provides anesthesia to the palmar thumb, index, middle, and radial half of ring finger.",
-        "Block in the mid-forearm, not at the wrist - the carpal tunnel's confined space raises nerve injury risk there.",
+        "Block in the mid-forearm, not at the wrist.",
         "Have the patient flex their fingers to identify the FDS/FDP muscles sliding; the nerve will remain stationary.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
@@ -6515,7 +6519,9 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [],
+      "seniorPearls": [
+        "The carpal tunnel is a confined space, so injecting there raises nerve injury risk in a way the mid-forearm does not."
+      ],
       "references": [
         "ACEP Sonoguide. Median Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/median-nerve-block",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
@@ -6629,7 +6635,7 @@
       "shiftMode": [
         "Target: Ulnar nerve in the mid-to-distal forearm, medial to the ulnar artery.",
         "Provides anesthesia to the 5th digit and medial half of the 4th digit.",
-        "Block high in the forearm to catch the dorsal cutaneous branch, which leaves the nerve proximal to the wrist.",
+        "Block high in the forearm to catch the dorsal cutaneous branch.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -6705,7 +6711,9 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [],
+      "seniorPearls": [
+        "The dorsal cutaneous branch leaves the ulnar nerve proximal to the wrist, so a block at the wrist misses the dorsal territory."
+      ],
       "references": [
         "ACEP Sonoguide. Ulnar Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/ulnar-nerve-block",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
@@ -6818,7 +6826,7 @@
       "shiftMode": [
         "Target: Superficial cervical plexus as it emerges behind the posterior border of the sternocleidomastoid (SCM) muscle.",
         "Provides anesthesia to the anterior/lateral neck, clavicle, and skin over the shoulder.",
-        "Superficial block only - do not plunge deep to the SCM. Depth turns it into a deep cervical plexus or phrenic nerve block.",
+        "Superficial block only - do not plunge deep to the SCM.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -6904,7 +6912,9 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [],
+      "seniorPearls": [
+        "Depth turns this into a deep cervical plexus or phrenic nerve block."
+      ],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: an ASRA-ESRA Delphi consensus study of upper and lower limb nerve blocks. Reg Anesth Pain Med. 2024;49(11):782-791. https://doi.org/10.1136/rapm-2023-104754",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
@@ -7430,7 +7440,7 @@
       "shiftMode": [
         "Target: Fascial plane between the internal oblique and transversus abdominis muscles.",
         "Provides analgesia to the anterior abdominal wall (parietal peritoneum and skin).",
-        "Somatic cover only \u2014 the abdominal wall is blocked, not the inflamed organ. Expect deep visceral pain to remain and plan for it.",
+        "Somatic cover only. Expect deep visceral pain to remain and plan for it.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -7514,7 +7524,9 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [],
+      "seniorPearls": [
+        "It blocks the abdominal wall, not the inflamed organ, which is why visceral pain survives a technically perfect block."
+      ],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: abdominal wall, paraspinal, and chest wall blocks. Reg Anesth Pain Med. 2021. https://doi.org/10.1136/rapm-2020-102451",
         "Griffiths JD, et al. Plasma ropivacaine concentrations after ultrasound-guided transversus abdominis plane block. Br J Anaesth. 2010;105(6):853-856. https://doi.org/10.1093/bja/aeq255",
@@ -7632,7 +7644,7 @@
       "shiftMode": [
         "Target: Fascial planes between the pectoralis major and minor (PECS I), and between the pectoralis minor and serratus anterior (PECS II).",
         "Covers the upper anterolateral and lateral chest wall and axilla, not the anterior chest \u2014 a randomized trial found no anterior-chest sensory block from PECS II alone. Map the territory and have a fallback before relying on it for a medial or anterior procedure.",
-        "Keep the needle tip in view the whole way through pectoralis minor. The pleura is one muscle layer below the target plane.",
+        "Keep the needle tip in view the whole way through pectoralis minor.",
         "Use color Doppler to identify the thoracoacromial artery in the PECS I plane and avoid it.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
@@ -7715,7 +7727,9 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [],
+      "seniorPearls": [
+        "The pleura sits one muscle layer below the target plane."
+      ],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: abdominal wall, paraspinal, and chest wall blocks. Reg Anesth Pain Med. 2021. https://doi.org/10.1136/rapm-2020-102451",
         "Blanco R. The 'pecs block': a novel technique for providing analgesia after breast surgery. Anaesthesia. 2011;66(9):847-848. https://doi.org/10.1111/j.1365-2044.2011.06838.x",
@@ -9220,7 +9234,7 @@
       "shiftMode": [
         "Target: Superficial peroneal nerve on the anterior/lateral aspect of the distal leg.",
         "Provides anesthesia to the dorsum of the foot (except the first web space).",
-        "Nerve branches widely before the ankle \u2014 inject a subcutaneous band from the anterior tibial crest to the lateral malleolus, not a single wheal.",
+        "Inject a subcutaneous band from the anterior tibial crest to the lateral malleolus, not a single wheal.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -9296,7 +9310,9 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [],
+      "seniorPearls": [
+        "The nerve has already branched widely by the ankle, which is why a band covers it and a single wheal misses most of it."
+      ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
         "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
@@ -9409,7 +9425,7 @@
       "shiftMode": [
         "Target: Deep peroneal nerve anterior to the ankle joint.",
         "Provides anesthesia to the first web space (between big toe and second toe).",
-        "Nerve is tiny \u2014 perivascular spread around the anterior tibial artery is usually enough; don't chase the nerve itself.",
+        "Perivascular spread around the anterior tibial artery; don't chase the nerve itself.",
         "Avoid intravascular injection by carefully aspirating and using color Doppler.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
@@ -9487,7 +9503,9 @@
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
-      "seniorPearls": [],
+      "seniorPearls": [
+        "The nerve is tiny, so perivascular spread around the artery reaches it and hunting the nerve only risks it."
+      ],
       "references": [
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
         "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",

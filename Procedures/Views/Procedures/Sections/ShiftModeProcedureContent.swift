@@ -20,7 +20,7 @@ struct ShiftModeProcedureContent: View {
             }
 
             if !procedure.sections.seniorPearls.isEmpty {
-                SectionCard(title: "Technique Notes", systemImage: "quote.bubble") {
+                SectionCard(title: "Senior Pearls", systemImage: "quote.bubble") {
                     BulletListView(items: procedure.sections.seniorPearls)
                 }
             }

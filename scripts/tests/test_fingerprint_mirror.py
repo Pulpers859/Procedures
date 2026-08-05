@@ -48,6 +48,9 @@ PROCEDURE = {
         "confirmation": ["a"],
         "troubleshooting": ["a", "b", "c"],
         "complications": ["a", "b", "c", "d"],
+        # Material since v6. Matches makeProcedure() in ContentEditingTests.swift;
+        # if the two fixtures disagree the digests diverge and this suite says so.
+        "seniorPearls": ["a", "b"],
     }
 }
 

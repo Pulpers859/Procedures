@@ -247,7 +247,7 @@ final class ContentEditingTests: XCTestCase {
     func testMaterialFingerprintMatchesThePythonMirror() {
         XCTAssertEqual(
             makeProcedure().materialFingerprint,
-            "eaa4427f6907169657d84344df1acf1ed0575728aa929b4c14d0705e553740ef"
+            "01e6c96ec3b9ee239830f84d4084e85b2d7a250e35052f7664f2e5a2bc354e7f"
         )
     }
 
@@ -279,7 +279,7 @@ final class ContentEditingTests: XCTestCase {
 
         XCTAssertEqual(
             procedure.materialFingerprint,
-            "dad26fed7e8e0d8c2fd8cf13a78cc423d092135dc7cf9be849a86f205e144db3"
+            "b42f4d49fda8397fb516377c043f54ad95e7774f4073ada1b0c36370cd6c72aa"
         )
     }
 

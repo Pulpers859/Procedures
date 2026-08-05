@@ -41,7 +41,10 @@ enum ContentFingerprint {
     /// regional blocks. It is still material (it is a monitoring
     /// requirement, not editorial metadata), so it must still revoke a stale
     /// sign-off if it changes.
-    static let version = 5
+    ///
+    /// v6: added `seniorPearls`, now the single home for clinical rationale
+    /// rather than assorted tips. Reasoning that drives a step is material.
+    static let version = 6
 
     static func make(_ parts: [String]) -> String {
         let joined = parts.joined(separator: separator)

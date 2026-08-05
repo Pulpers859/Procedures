@@ -73,13 +73,20 @@ struct Procedure: Identifiable, Codable, Hashable {
     /// same reason: the wrong kit, an unverified placement, or a missing
     /// bailout all change what the reader endorsed.
     ///
+    /// `seniorPearls` joined them when it became the single home for clinical
+    /// rationale rather than a loose bag of tips. "The carotid is 2 cm away"
+    /// and "acidic pus inactivates local anesthetic" are the reasons the
+    /// steps are what they are; a sign-off that did not cover them would
+    /// vouch for the instruction while the reasoning changed underneath it.
+    ///
     /// Still excluded, deliberately: anatomy, indications, positioning,
-    /// ultrasound, aftercare, documentation, seniorPearls, references, tags
-    /// and visual metadata. Those move for editorial reasons, and a notice
-    /// that fires on every update is a notice nobody reads.
+    /// ultrasound, aftercare, documentation, references, tags and visual
+    /// metadata. Those move for editorial reasons, and a notice that fires on
+    /// every update is a notice nobody reads.
     static let materialSectionNames = [
         "shiftMode", "contraindications", "equipment",
-        "steps", "confirmation", "troubleshooting", "complications"
+        "steps", "confirmation", "troubleshooting", "complications",
+        "seniorPearls"
     ]
 
     var materialFingerprint: String {
@@ -91,6 +98,7 @@ struct Procedure: Identifiable, Codable, Hashable {
             ("confirmation", sections.confirmation),
             ("troubleshooting", sections.troubleshooting),
             ("complications", sections.complications),
+            ("seniorPearls", sections.seniorPearls),
             // A monitoring requirement is safety content, not editorial
             // metadata - flipping it must revoke a stale sign-off the same
             // way changing a step or a dose does.
