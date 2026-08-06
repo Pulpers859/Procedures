@@ -5,7 +5,9 @@ Promotion writes clinical review status into shipped content, so the failure
 that matters is not "it did not work" but "it promoted something it should have
 refused". Each test below fails if a refusal stops refusing.
 """
+import contextlib
 import copy
+import io
 import json
 import sys
 import tempfile
@@ -147,6 +149,94 @@ class ApplyLocalReviewsTests(unittest.TestCase):
         path.write_text(json.dumps({"schema": "something.else.v9", "reviews": {}}), encoding="utf-8")
         with self.assertRaises(SystemExit):
             promote.main([str(path)])
+
+    # -- refusals that have to stay narrow ------------------------------
+    #
+    # These cover the half of a refusal that is not "did it refuse". A refusal
+    # naming the wrong repair costs the reader the work of following it: seven
+    # sign-offs were refused with "re-review it in the app so the sign-off
+    # covers the sections that were added" when every field they hashed was
+    # unchanged and one section was uncovered, and one was sent back to redo a
+    # review that could not succeed on the build it was recorded on. Each test
+    # here fails if a message stops being specific, and every one still asserts
+    # that nothing was promoted.
+
+    def _older_export(self, version=4):
+        """A sign-off recorded before seniorPearls entered the material set."""
+        return self._export(
+            materialFingerprint=promote.procedure_fingerprint(self.procedure, version),
+            fingerprintVersion=version,
+        )
+
+    def test_an_older_signoff_over_unchanged_text_names_only_the_new_section(self):
+        self.procedure["sections"]["seniorPearls"] = ["never covered by a v4 sign-off"]
+        self._write([self.procedure])
+
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            promote.main([self._older_export()])
+        report = out.getvalue()
+
+        self.assertIn("every field it hashed is unchanged", report)
+        self.assertIn("Only seniorPearls is outside it", report)
+        self.assertEqual(self._read()["reviewerStatus"], "Needs Clinical Review")
+
+    def test_an_older_signoff_over_changed_text_claims_nothing(self):
+        changed = copy.deepcopy(self.procedure)
+        export = self._older_export()
+        changed["sections"]["steps"] = ["a materially different step"]
+        self._write([changed])
+
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            promote.main([export])
+        report = out.getvalue()
+
+        self.assertIn("covers no part of the current text", report)
+        self.assertNotIn("still holds", report)
+        self.assertEqual(self._read()["reviewerStatus"], "Needs Clinical Review")
+
+    def test_drift_confined_to_an_uneditable_field_says_rebuild_not_re_review(self):
+        """The fascia iliaca case. majorBlockMonitoring is hashed, is not
+        editable in the app, and is not carried by the edit export, so a device
+        on an older bundle produces a digest that re-reviewing cannot fix."""
+        export = self._export()
+        self.procedure["majorBlockMonitoring"] = True
+        self._write([self.procedure])
+
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            promote.main([export])
+        report = out.getvalue()
+
+        self.assertIn("majorBlockMonitoring", report)
+        self.assertIn("Rebuild the app", report)
+        self.assertEqual(self._read()["reviewerStatus"], "Needs Clinical Review")
+
+    def test_per_section_digests_name_the_drifted_section(self):
+        """The forward contract. Nothing writes sectionFingerprints yet; when
+        the app does, a refusal stops guessing."""
+        sections = self.procedure["sections"]
+        digests = {
+            name: promote.fingerprint(list(sections.get(name) or []))
+            for name in promote.PROCEDURE_MATERIAL_SECTIONS
+        }
+        export = self._export(sectionFingerprints=digests)
+        self.procedure["sections"]["complications"] = ["a different complication"]
+        self._write([self.procedure])
+
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            promote.main([export])
+        report = out.getvalue()
+
+        self.assertIn("complications", report)
+        self.assertNotIn("steps", report)
+        self.assertEqual(self._read()["reviewerStatus"], "Needs Clinical Review")
+
+    def test_an_unreconstructable_version_is_still_refused(self):
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            promote.main([self._export(fingerprintVersion=2)])
+        report = out.getvalue()
+
+        self.assertIn("cannot reconstruct", report)
+        self.assertEqual(self._read()["reviewerStatus"], "Needs Clinical Review")
 
     def test_promotion_preserves_file_formatting(self):
         promote.main([self._export()])

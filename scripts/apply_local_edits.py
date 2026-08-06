@@ -23,6 +23,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from atomic_write import atomic_write_text
+import apply_local_reviews as review_fingerprint
 import search_model
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -98,6 +99,38 @@ def report_retrieval_change(before, after, edited_ids):
     )
 
 
+def edited_blind(procedure, entry) -> bool:
+    """True when this edit was written against text the repo has since moved past.
+
+    The app records the bundled material fingerprint at the moment a procedure's
+    first section is edited. When that no longer matches the shipping content,
+    the device wrote its replacement without ever seeing what the repo now says,
+    and applying it discards the difference silently - the merge is a whole-
+    section overwrite, so there is no conflict for anyone to notice.
+
+    That is not hypothetical. The repo corrected the fascia iliaca equipment
+    list against ACEP Sonoguide; the device, still on the older bundle, replaced
+    the corrected lines with its own. Nothing in the output said so.
+
+    Flagged, never refused. The reader is the clinical authority on their own
+    wording and frequently means to replace it - but the diff for a flagged
+    procedure has to be read as a merge, not as a change.
+
+    The export carries no fingerprint version, so every reconstructable version
+    is tried: a base written by an older build is still a valid base.
+    """
+    base = entry.get("baseMaterialFingerprint") if isinstance(entry, dict) else None
+    if not base:
+        # Written before the app recorded a base, or by a hand-built export.
+        # Nothing to compare, and a warning on every record would train the
+        # reader to skip the ones that mean something.
+        return False
+    return not any(
+        review_fingerprint.procedure_fingerprint(procedure, version) == base
+        for version in review_fingerprint.SECTIONS_BY_VERSION
+    )
+
+
 def bump_patch(version: str) -> str:
     parts = version.split(".")
     if len(parts) == 3 and parts[2].isdigit():
@@ -122,12 +155,16 @@ def main(argv=None) -> int:
     before = copy.deepcopy(procedures)
     by_id = {item.get("id"): item for item in procedures}
 
-    applied, skipped, edited_ids = [], [], []
+    applied, skipped, edited_ids, blind = [], [], [], []
     for procedure_id, entry in sorted(edits.items()):
         procedure = by_id.get(procedure_id)
         if procedure is None:
             skipped.append(f"{procedure_id}: no such procedure in procedures.json")
             continue
+
+        # Checked against the pre-edit record, so it reports the base this edit
+        # was written against rather than the one this run just created.
+        stale_base = edited_blind(procedure, entry)
 
         sections = entry.get("sections") if isinstance(entry, dict) else None
         if not isinstance(sections, dict) or not sections:
@@ -152,11 +189,22 @@ def main(argv=None) -> int:
                 procedure["version"] = bump_patch(procedure["version"])
             applied.append(f"{procedure_id}: {', '.join(changed)}")
             edited_ids.append(procedure_id)
+            if stale_base:
+                material = [key for key in changed if key in review_fingerprint.PROCEDURE_MATERIAL_SECTIONS]
+                blind.append(
+                    f"{procedure_id}: {', '.join(material) if material else 'no material section'}"
+                )
 
     for line in applied:
         print(f"apply  {line}")
     for line in skipped:
         print(f"skip   {line}")
+    if blind:
+        print("\nBLIND MERGE: these edits were written against content the repo has since changed.")
+        print("The overwrite is silent, so read their diff as a merge - anything the repo gained")
+        print("after the device's last build is being discarded. Material sections overwritten:")
+        for line in blind:
+            print(f"  {line}")
 
     if not applied:
         print("\nNothing to apply.")

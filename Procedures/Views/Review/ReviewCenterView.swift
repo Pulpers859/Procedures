@@ -198,7 +198,13 @@ struct ReviewCenterView: View {
 
     private func refreshExport() {
         exportURL = editStore.editedProcedureCount > 0 ? editStore.writeExportFile() : nil
-        reviewExportURL = userData.locallyReviewedContent.isEmpty ? nil : userData.writeReviewExportFile()
+        // Sign-offs the shipped content already carries are left out: the repo
+        // promoted them, and re-sending them asks it to do that again. The
+        // records stay on the device, which is what shows the item as reviewed
+        // offline - only the export is narrowed.
+        let landed = userData.landedReviewKeys(procedures: repository.procedures)
+        let pending = userData.locallyReviewedContent.keys.contains { !landed.contains($0) }
+        reviewExportURL = pending ? userData.writeReviewExportFile(omitting: landed) : nil
     }
 
     @ViewBuilder

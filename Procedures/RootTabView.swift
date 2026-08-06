@@ -144,9 +144,12 @@ struct RootTabView: View {
             validKitIDs: kitIDs
         )
         // Only prune edits when the bundled load was complete; a transient
-        // failure must never delete a clinician's corrections.
+        // failure must never delete a clinician's corrections. The same
+        // condition gates retirement, which compares overrides against the
+        // bundled text a partial load would not have.
         if let procedureIDs {
             editStore.pruneMissingProcedures(validProcedureIDs: procedureIDs)
+            editStore.retireLandedEdits()
         }
     }
 

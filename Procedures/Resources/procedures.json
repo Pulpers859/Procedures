@@ -31,15 +31,14 @@
     "sections": {
       "shiftMode": [
         "Call for help early \u2014 assign roles: airway, meds, monitor, suction, backup airway, post-intubation sedation.",
-        "Preoxygenate aggressively; consider NC apneic oxygenation, flush-rate NRB, NIV, or BVM with PEEP depending on physiology.",
-        "Have suction in hand or immediately reachable before the first attempt.",
-        "Choose first-pass and backup plans before pushing meds \u2014 video/direct laryngoscopy, introducer, supraglottic, cricothyrotomy.",
-        "Name plan and action together, never the letter alone: A tracheal intubation, B supraglottic airway, C final facemask attempt plus the wake-up-or-proceed decision, D front-of-neck access.",
-        "Maximum 3+1 attempts (DAS 2025): three, plus one final attempt by a more experienced colleague only. Change something material each attempt.",
-        "The plus-one is a handover, not an extra turn for the same operator. No one more experienced available: ceiling is three.",
-        "Hypoxemia at any point: abandon the attempt, prioritize facemask oxygenation. Oxygenate between attempts; maintain anesthesia.",
+        "Preoxygenate aggressively; consider nasal cannula, NRB, NIV, or BVM with PEEP.",
+        "Have suction immediately reachable before the first attempt.",
+        "Choose first-pass and backup plans before pushing meds \u2014 video/direct laryngoscopy, boujee, supraglottic, cricothyrotomy.",
+        "Name plan and action before performing so team is aware: A tracheal intubation, B supraglottic airway, C final facemask attempt plus the wake-up-or-proceed decision, D front-of-neck access.",
+        "Maximum 3+1 attempts: three, plus one final attempt by a more experienced colleague only. Change something material each attempt.",
+        "No one more experienced available: ceiling is three.",
         "Physiology kills before anatomy: optimize hypotension, hypoxemia, severe acidosis, RV failure, and hyperkalemia when possible.",
-        "Confirm with continuous waveform capnography; auscultation alone is not enough.",
+        "Confirm with continuous waveform capnography.",
         "Give post-intubation analgesia and sedation, and reassess the ventilator."
       ],
       "indications": [
@@ -50,15 +49,14 @@
         "Cardiac arrest or peri-arrest airway management when appropriate"
       ],
       "contraindications": [
-        "No absolute contraindication in a true airway emergency",
         "Anticipated impossible oral intubation should trigger alternate plan early",
         "Severe physiologic instability may require resuscitation before induction when time allows",
         "Suspected cervical spine injury: not a contraindication to intubation or to paralysis. See positioning.",
         "Adult scope only. Pediatric tube sizing, blade choice, cuffed-versus-uncuffed decision, per-kilogram dosing, and far shorter safe apnea time are not covered by this card."
       ],
       "anatomy": [
-        "Align oral, pharyngeal, and laryngeal axes when using direct laryngoscopy; ear-to-sternal-notch positioning helps many adults.",
-        "Identify epiglottis, arytenoids, posterior cartilages, and cords. Do not advance through unidentified tissue.",
+        "Align oral, pharyngeal, and laryngeal axes when using direct laryngoscopy; ear-to-sternal-notch positioning is ideal.",
+        "Identify epiglottis, arytenoids, posterior cartilages, and cords.",
         "In obesity or pregnancy, ramp aggressively rather than placing the patient flat."
       ],
       "equipment": [
@@ -90,26 +88,24 @@
         "Prepare equipment, suction, capnography, tube securement, and post-intubation medications.",
         "Administer induction and paralytic medications when ready.",
         "Perform laryngoscopy with deliberate epiglottis and glottic identification.",
-        "Pass the tube under continuous direct or video visualization. With a hyperangulated videolaryngoscope blade use a stylet, bougie, or flexible bronchoscope. Do not advance a bougie blind at a Cormack-Lehane grade 3-4 view: DAS 2025 advises against it because of trauma and misplacement risk - improve the view first.",
+        "Pass the tube under continuous direct or video visualization. With a hyperangulated videolaryngoscope blade use a stylet, bougie, or flexible bronchoscope. Do not advance a bougie blind at a Cormack-Lehane grade 3-4 view.",
         "Between attempts, change something informed by the last one: position, laryngoscope or blade, introducer, operator, external laryngeal manipulation, suction, removal of cricoid force, or optimized neuromuscular block.",
-        "After 3+1 unsuccessful attempts declare 'failed intubation', move to Plan B, summon assistance, and make the eFONA kit immediately accessible.",
-        "Inflate the cuff to the minimum that stops the leak and measure it: 20-30 cmH2O. Milliliters are not a pressure - a 10 mL syringe emptied into the cuff overshoots.",
+        "After 3+1 unsuccessful attempts declare 'failed intubation', move to Plan B, summon assistance, and decide to do surgical airway.",
+        "Inflate the cuff to the minimum that stops the leak and measure it: 20-30 cmH2O.",
         "Confirm continuous waveform capnography and bilateral chest rise; check for right mainstem.",
         "Secure the tube at a documented depth - about 21 cm at the incisors in women and 23 cm in men, or three times the tube size - then obtain a chest x-ray when appropriate and reassess ventilator and sedation."
       ],
-      "ultrasound": [
-        "Adjunct for tube confirmation in some settings; continuous waveform capnography remains the standard when available."
-      ],
+      "ultrasound": [],
       "confirmation": [
-        "Two-point check (DAS 2025): the tube seen passing through the vocal cords AND sustained exhaled carbon dioxide on waveform capnography. Sustained capnography excludes esophageal placement but cannot by itself exclude bronchial or pharyngeal position.",
+        "Two-point check: the tube seen passing through the vocal cords AND sustained exhaled carbon dioxide on waveform capnography. Sustained capnography excludes esophageal placement but cannot by itself exclude bronchial or pharyngeal position.",
         "Bilateral chest rise and breath sounds",
         "Absent gastric insufflation sounds",
         "Appropriate oxygenation/ventilation response",
         "Chest x-ray for depth and complications when clinically appropriate"
       ],
       "troubleshooting": [
-        "Desaturation: stop, oxygenate with BVM/PEEP, improve mask seal, use oral/nasal airway, recruit help.",
-        "Poor view: optimize position, suction, external laryngeal manipulation (BURP on the thyroid cartilage), change blade or laryngoscope, optimize neuromuscular block. Do not insert a bougie blind at a grade 3-4 view.",
+        "Hypoxemia: abandon the attempt, prioritize facemask oxygenation. Oxygenate between attempts; maintain anesthesia.",
+        "Poor view: optimize position, suction, external laryngeal manipulation, change blade or laryngoscope, optimize neuromuscular block. Do not insert a bougie blind at a grade 3-4 view.",
         "Cannot intubate/cannot oxygenate: supraglottic airway or surgical airway pathway immediately.",
         "Sugammadex reliance: it does not rescue a cannot-intubate cannot-oxygenate patient now. 16 mg/kg reverses rocuronium in about three minutes - oxygenate and go to the front of the neck.",
         "Post-intubation hypotension: check tube depth, breath stacking/auto-PEEP, tension pneumothorax, sedation effect, occult shock; start fluids/pressors as appropriate.",
@@ -297,11 +293,11 @@
       ],
       "equipment": [
         "Central line kit with catheter, wire, needle, scalpel, dilator, and caps",
+        "Sterile pressure tubing or manometry setup to confirm venous placement before dilation",
         "Sterile gown, gloves, mask, cap, and large sterile drape, chlorhexidine scrub",
         "Ultrasound machine",
         "Sterile probe cover and sterile gel",
         "Local anesthetic, syringe, and small needle",
-        "Sterile pressure tubing or manometry setup to confirm venous placement before dilation",
         "Flushes for all ports",
         "Suture or securement device",
         "Biopatch or antimicrobial dressing",
@@ -348,7 +344,7 @@
         "Wire will not pass: stop, do not force; check needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
         "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid hematoma can obstruct late.",
-        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
+        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and immediately call vascular surgery and interventional radiology. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Resistance with dilator: stop; confirm wire path and vessel location before proceeding.",
         "No blood return from one port: check clamp/cap, flush gently, reposition; do not force against resistance.",
         "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism - occlude the hub, left lateral decubitus head-down, 100% oxygen, and aspirate from a central lumen if one is in place.",
@@ -1569,7 +1565,7 @@
         "Keep transcutaneous pacing and pressors running while placing, if unstable.",
         "Know the generator before you need it \u2014 rate, output in mA, sensitivity, battery, and which cable mates it to this catheter.",
         "Electrical capture is not enough \u2014 confirm mechanical capture with pulse/BP/arterial waveform.",
-        "Spikes with no capture at maximum output: reposition rather than increasing output.",
+        "Spikes with no capture at maximum output means malposition, not a generator problem \u2014 reposition rather than increasing output.",
         "Secure catheter and generator carefully; dislodgement is common.",
         "Do not remove backup pads or pressors until capture is reliable and the catheter is secured."
       ],
@@ -2750,7 +2746,7 @@
     "sections": {
       "shiftMode": [
         "Confirm this is a fluctuant abscess, not cellulitis, a lipoma, or a lymph node.",
-        "Anesthetize generously before incising: infiltrate widely around the margin and wait.",
+        "Anesthetize generously before incising - acidic pus inactivates local anesthetic near the core; infiltrate widely around the margin and wait.",
         "Be sure to have the incision span the entire fluctuant cavity and allow complete drainage and loculation breakdown.",
         "Break down all loculations and irrigate.",
         "For a simple abscess < 5cm, packing not advised. Leave it open, or use a loop drain where the cavity or the site makes premature closure likely.",
@@ -3035,7 +3031,7 @@
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Sheath tip peels back or kinks on advancement: the skin/tract nick is too small - withdraw, enlarge the nick, and re-advance over a controlled wire.",
         "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid hematoma can obstruct late.",
-        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
+        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and immediately call vascular surgery and interventional radiology. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
         "Brisk bleeding around the sheath: apply pressure, assess coagulopathy, and confirm intraluminal placement.",
         "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism - occlude the hub, left lateral decubitus head-down, 100% oxygen, and aspirate from a central lumen if one is in place.",
@@ -3120,11 +3116,11 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis) \u2014 a triple lumen won't deliver it.",
+        "Confirm the need is dialysis-level flow (urgent HD, CRRT, or plasmapheresis)",
         "Site choice matters: right IJ preferred for function and lower complication; avoid subclavian to preserve future fistula options.",
-        "Full sterile barrier and ultrasound, identical discipline to any central line.",
+        "Full sterile barrier and ultrasound.",
         "Pick the length before opening the kit: right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm.",
-        "Confirm the wire is venous before dilating; dialysis catheters use serial dilators and a large stiff catheter.",
+        "Confirm the wire is venous before dilating.",
         "Dilate sequentially without force \u2014 enough to pass the catheter, not over-dilated.",
         "Both lumens must aspirate and flush; lock each to its printed priming volume, and aspirate that lock before next use.",
         "Confirm tip position and screen for complications before the line is used for dialysis."
@@ -3140,25 +3136,22 @@
         "Infection or burn over the intended site",
         "Thrombosis or distorted anatomy at the intended vein",
         "Subclavian approach is relatively contraindicated in candidates for future AV fistula (stenosis risk)",
-        "Uncorrected severe coagulopathy is a relative risk; weigh urgency and choose a compressible site"
+        "Uncorrected severe coagulopathy (relative)"
       ],
       "anatomy": [
         "Right IJ offers the straightest path to the SVC/RA junction and is the preferred site for catheter function.",
         "Femoral is acceptable for short-term or emergent access, with higher infection risk and flow limitations.",
         "Avoid subclavian when possible to preserve the vasculature for future arteriovenous access.",
-        "Length by site: right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm.",
-        "A femoral catheter that is too short leaves the tip in the iliac vein - poor flows and high recirculation.",
-        "A non-tunnelled IJ catheter is stiff. The tip belongs at the superior vena cava/right atrial junction, not in the atrium, where a stiff tip can perforate.",
-        "The vein must accommodate a large, stiff dual-lumen catheter - confirm caliber and compressibility on ultrasound."
+        "Length by site: right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm."
       ],
       "equipment": [
-        "Dialysis catheter kit (dual-lumen catheter, guidewire, needle, scalpel, serial dilators). Adult acute catheters are typically 12-14 Fr; pick the length by site before opening the kit.",
+        "Dialysis catheter kit. Adult catheters are typically 12-14 Fr. pick the length by site before opening the kit.",
         "Sterile pressure tubing or manometry setup to confirm venous placement before dilation",
         "Sterile gown, gloves, mask, cap, and large sterile drape",
-        "Alcoholic chlorhexidine over 0.5% (alternative agent if contraindicated)",
+        "Alcoholic chlorhexidine over 0.5%",
         "Ultrasound machine with sterile probe cover and sterile gel",
         "Local anesthetic, syringe, and small needle",
-        "Heparin or citrate catheter lock solution per local protocol. Citrate if heparin-induced thrombocytopenia is known or suspected.",
+        "Heparin or citrate catheter lock solution. Citrate where heparin is contraindicated - heparin-induced thrombocytopenia.",
         "Sterile saline flushes for both lumens",
         "Suture/securement device and sterile dressing",
         "Confirmation workflow (chest x-ray) for IJ/subclavian placement"
@@ -3175,12 +3168,12 @@
         "Prep and drape with full sterile barrier technique.",
         "Anesthetize skin and deeper tissue along the planned tract.",
         "Cannulate the vein under ultrasound guidance with needle-tip awareness.",
-        "Confirm the wire is venous before dilating: ultrasound in two planes - short axis showing the wire inside the vein and not the artery, long axis showing it tracking centrally. If the wire is not clearly seen, transduce or manometer before dilating. Blood color and non-pulsatile flow do not confirm venous placement.",
+        "Confirm the wire is venous before dilating: ultrasound in short and long axis. If the wire is not clearly seen, transduce or manometer before dilating. Blood color and non-pulsatile flow do not confirm venous placement.",
         "Make an adequate skin nick at the wire, controlling the wire at all times.",
         "Pass serial dilators over the wire to develop the tract; advance gently with rotation, never forcing.",
-        "Advance the dual-lumen catheter over the wire to the depth planned for that site and catheter length (right IJ 12-15 cm, left IJ 15-20 cm, femoral 19-24 cm).",
+        "Advance the dual-lumen catheter over the wire to the depth planned for that site and catheter length: \n- Right IJ = 12-15 cm\n- Left IJ 15-20 cm\n- Femoral 19-24 cm",
         "Remove the wire while holding the catheter; confirm the wire is out intact.",
-        "Aspirate and flush both lumens, then lock each with the prescribed solution to the priming volume printed on that lumen - read it off the catheter, never from memory. Overfilling pushes lock into the patient; underfilling lets blood in and it clots.",
+        "Aspirate and flush both lumens, then lock each with the prescribed solution to the priming volume printed on that lumen. Overfilling pushes lock into the patient; underfilling lets blood in and it clots.",
         "Label both lumens as locked so nobody flushes them.",
         "Secure the catheter, apply a sterile dressing, and confirm tip position before dialysis use."
       ],
@@ -3201,13 +3194,13 @@
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Catheter will not advance despite dilation: the tract is under-developed or the wire has kinked; re-dilate over a controlled wire and recheck.",
         "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid hematoma can obstruct late.",
-        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
+        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and immediately call vascular surgery and interventional radiology. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
         "Poor flow from one lumen after placement: reposition the patient, confirm depth and tip position, and avoid forcing against resistance.",
         "Unstable after placement: consider pneumothorax, bleeding, arrhythmia, air embolism, or progression of underlying illness."
       ],
       "complications": [
-        "Arterial cannulation with a large-bore catheter (surgical emergency)",
+        "Arterial cannulation with a large-bore catheter",
         "Pneumothorax or hemothorax, especially with IJ/subclavian approaches",
         "Hematoma or significant bleeding from the large tract",
         "Catheter dysfunction or inadequate dialysis flow",
@@ -3216,7 +3209,7 @@
       ],
       "aftercare": [
         "Lock both lumens with the prescribed solution to the printed priming volume, and label them. The lock is aspirated and discarded before every use - never flushed into the patient.",
-        "Reserve the catheter for dialysis per local policy.",
+        "Reserve the catheter for dialysis.",
         "Confirm tip position on imaging before first dialysis run for IJ/subclavian lines.",
         "Remove the catheter as soon as dialysis access is no longer required.",
         "Reassess the site for bleeding, hematoma, or signs of infection."
@@ -3233,7 +3226,9 @@
       "seniorPearls": [
         "Right IJ to the cavoatrial junction gives the best function; femoral works but flows and infection rates are worse.",
         "Avoid the subclavian in anyone who may ever need a fistula - central stenosis can cost them future access.",
-        "If a lumen will not aspirate, do not flush it under pressure; reposition and reconfirm tip position first."
+        "If a lumen will not aspirate, do not flush it under pressure; reposition and reconfirm tip position first.",
+        "A non-tunnelled IJ catheter is stiff. The tip belongs at the superior vena cava/right atrial junction, not in the atrium, where a stiff tip can perforate.",
+        "A femoral catheter that is too short leaves the tip in the iliac vein - poor flows and \nhigh recirculation."
       ],
       "references": [
         "KDIGO. Clinical Practice Guideline for Acute Kidney Injury, section 5.4: vascular access for renal replacement therapy. Kidney Int Suppl. 2012;2(1). https://kdigo.org/wp-content/uploads/2019/01/KDIGO-2012-AKI-Guideline-English.pdf",
@@ -3425,10 +3420,10 @@
       "ED",
       "Trauma"
     ],
-    "lastReviewed": "2026-06-15",
+    "lastReviewed": "2026-08-06",
     "version": "0.1.0",
-    "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft",
+    "reviewerStatus": "Internally Reviewed",
+    "contentSource": "clinician-reviewed",
     "tags": [
       "canthotomy",
       "cantholysis",
@@ -3444,32 +3439,32 @@
       "shiftMode": [
         "This is a vision-saving, time-critical procedure \u2014 do not wait for ophthalmology or imaging if the diagnosis is clear.",
         "Diagnose clinically: acute orbital compartment syndrome with a tense, proptotic eye, decreased vision/APD, raised intraocular pressure, and pain after trauma or retrobulbar hemorrhage.",
-        "The goal is to release the inferior crus of the lateral canthal tendon (cantholysis) \u2014 the canthotomy incision alone is not enough.",
+        "The goal is to release the inferior crus of the lateral canthal tendon.",
         "Anesthetize and clamp the lateral canthus to reduce bleeding, then cut horizontally to the orbital rim.",
         "Strum for the inferior crus and cut it; the lower lid should swing free and the globe should soften.",
         "Reassess intraocular pressure and proptosis; if still tense, release the superior crus as well.",
         "Do not let lack of an ophthalmologist delay the release in a clear orbital compartment syndrome."
       ],
       "indications": [
-        "Acute orbital compartment syndrome (commonly from retrobulbar hemorrhage) with vision threat",
+        "Acute orbital compartment syndrome with threat to vision",
         "Markedly raised intraocular pressure with a tense, proptotic globe and an afferent pupillary defect",
         "Progressive vision loss with orbital tension after facial/orbital trauma or surgery"
       ],
       "contraindications": [
-        "Suspected globe rupture - manipulating the orbit can extrude intraocular contents; avoid and get emergent ophthalmology",
+        "Suspected globe rupture - manipulating the orbit can extrude intraocular contents",
         "No evidence of orbital compartment syndrome",
         "An alternative, immediately treatable cause of the findings that does not involve orbital pressure"
       ],
       "anatomy": [
         "The lateral canthal tendon anchors the eyelids to the orbital rim and has a superior and an inferior crus.",
-        "Cantholysis of the inferior crus releases the lower lid and decompresses the orbit; both crura may need release.",
+        "Cantholysis of the inferior crus releases the lower lid and decompresses the orbit",
         "The orbital septum and retrobulbar space hold the hemorrhage that raises pressure on the optic nerve and its blood supply.",
         "The lacrimal apparatus sits medially; the lateral approach avoids it. Aim toward the lateral orbital rim, away from the globe."
       ],
       "equipment": [
         "Local anesthetic with epinephrine: 1-2 mL of 1% lidocaine with epinephrine, a small syringe, and a 25-27G needle",
         "Straight hemostat",
-        "Blunt-tipped scissors - Stevens tenotomy or blunt Westcott. Not iris or sharp straight scissors.",
+        "Blunt-tipped scissors. Not iris or sharp straight scissors.",
         "Toothed forceps",
         "Gauze and saline for hemostasis and visualization",
         "Tonometer to measure intraocular pressure if available",
@@ -3491,7 +3486,7 @@
         "Strum and identify the taut inferior crus, then cut it with the blunt scissors directed toward the orbital rim - inferiorly and slightly posteriorly, away from the globe. The lower lid should release and the globe soften.",
         "Confirm the inferior release is complete before anything else. The lid should swing freely away from the globe; if it does not, there is still tendon to cut - cut it rather than moving superior.",
         "Reassess: intraocular pressure, visual acuity or at least light perception, the pupil, and orbital tension.",
-        "Release the superior crus only if all of these are true after a complete inferior cantholysis: the orbit is still tense, the intraocular pressure is still raised, and vision or the pupil has not improved. Superior release adds lacrimal artery and gland risk.",
+        "Release the superior crus only if all of these are true after a complete inferior cantholysis:\n- the orbit is still tense\n- the intraocular pressure is still raised\n- vision or the pupil has not improved.",
         "Control bleeding with gentle pressure and arrange emergent ophthalmology evaluation."
       ],
       "ultrasound": [],
@@ -3515,7 +3510,8 @@
         "Incomplete decompression from canthotomy without cantholysis",
         "Lacrimal or eyelid structural injury",
         "Scarring or lid malposition after repair",
-        "Failure to restore vision if decompression is delayed"
+        "Failure to restore vision if decompression is delayed",
+        "Superior release adds lacrimal artery and gland risk."
       ],
       "aftercare": [
         "Arrange emergent ophthalmology evaluation and definitive management.",
@@ -3535,7 +3531,7 @@
       ],
       "seniorPearls": [
         "The canthotomy is the approach; the cantholysis is the treatment. Cutting skin without releasing the crus does nothing for the pressure.",
-        "Cut now, consult after. Sight is lost in tens of minutes of optic nerve ischemia.",
+        "Cut now, consult after. Sight is lost quickly when there is optic nerve ischemia.",
         "If the globe might be ruptured, stop - decompression can extrude a salvageable eye."
       ],
       "references": [
@@ -4036,47 +4032,46 @@
     "majorBlockMonitoring": true,
     "sections": {
       "shiftMode": [
-        "Most useful for hip and proximal femur fractures: opioid-sparing analgesia that helps frail and elderly patients.",
+        "Most useful for hip and proximal femur fractures.",
         "Confirm no allergy, no infection over the site, and document distal neurovascular function before the block.",
-        "Use ultrasound; deposit local anesthetic beneath the fascia iliaca, lateral to the femoral artery and nerve, not into them.",
-        "Calculate a weight-based maximum local anesthetic dose and stay under it \u2014 these are large-volume blocks.",
-        "Aspirate before and during injection to avoid intravascular delivery; watch for LAST.",
-        "Confirm spread under the fascia (a lens of fluid lifting the fascia) rather than within muscle.",
-        "Have LAST rescue (lipid emulsion) and resuscitation equipment available before you start.",
-        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
-        "Aspirate before each increment and inject in stages.",
+        "Use ultrasound: deposit local anesthetic beneath the fascia iliaca, lateral to the femoral artery and nerve.",
+        "Calculate a weight-based maximum local anesthetic dose and stay under it.",
+        "Aspirate before and during injection to avoid intravascular delivery.",
+        "Confirm spread under the fascia rather than within muscle.",
+        "Have LAST rescue and resuscitation equipment available before you start.",
+        "Calculate the max dose before drawing up - say it out loud.",
+        "Aspirate before each adjustment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
         "Analgesia for hip fracture (femoral neck, intertrochanteric) and proximal femur fractures",
-        "Femoral shaft fracture pain control",
-        "Opioid-sparing analgesia in elderly or frail patients where systemic opioids carry higher risk"
+        "Femoral shaft fracture pain control"
       ],
       "contraindications": [
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Allergy to local anesthetic",
         "Infection or wound over the injection site",
-        "Anticoagulation/coagulopathy as a relative risk per local policy",
-        "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge it on site compressibility, vascularity, and what a hematoma there would do. Follow local policy; a neuraxial hold interval does not automatically apply."
+        "Anticoagulation/coagulopathy (relative)",
+        "Antithrombotic therapy is not an automatic prohibition for a superficial, compressible block - judge it on site compressibility, vascularity, and what a hematoma there would do. A neuraxial hold interval does not automatically apply.",
+        "Pre-existing neurological deficit in the target territory - document before blocking."
       ],
       "anatomy": [
         "The fascia iliaca overlies the iliacus and psoas; the femoral nerve runs deep to it.",
         "Target is the compartment beneath the fascia iliaca, lateral to the femoral artery and nerve.",
-        "Landmarks: the femoral artery medially and the anterior superior iliac spine laterally; the injection point is lateral to the artery.",
+        "Landmarks: the femoral artery medially and the ASIS laterally; the injection point is lateral to the artery.",
         "Local anesthetic spreads under the fascia to reach the femoral and lateral femoral cutaneous nerves."
       ],
       "equipment": [
-        "Ultrasound machine with linear (or curvilinear for larger patients) probe and sterile cover",
-        "Block needle (e.g., short-bevel or echogenic) and extension tubing",
-        "Local anesthetic: 0.25% bupivacaine or 0.2% ropivacaine, volume from the weight-based calculator on this card. 0.25% ropivacaine is not a supplied strength and is not used here.",
+        "Ultrasound machine with linear probe (or curvilinear for larger patients)",
+        "Spinal/Block needle (20G or 22G) and extension tubing",
+        "Local anesthetic (0.25% bupivacaine with epinephrine)",
         "Saline for hydrodissection/confirmation",
         "Sterile drape",
         "Aspirating syringe",
         "Chlorhexidine-alcohol skin prep, left to dry.",
-        "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
+        "Sterile gloves, sterile probe cover, and sterile gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Patient supine with the leg slightly externally rotated and the groin exposed.",
@@ -4088,7 +4083,7 @@
         "Confirm indication, exclude contraindications, and document distal neurovascular function.",
         "Attach monitoring and ensure LAST rescue equipment is immediately available.",
         "Calculate and draw up a weight-based safe dose of local anesthetic.",
-        "Prep and drape; scan to identify the femoral artery, femoral nerve, iliacus, and the overlying fascia iliaca.",
+        "Prep and drape, then scan to identify the femoral artery, femoral nerve, iliacus, and the overlying fascia iliaca.",
         "Choose an entry point lateral to the femoral nerve and artery.",
         "Advance the needle in-plane under ultrasound toward the plane beneath the fascia iliaca.",
         "Confirm tip position with a small test injection that lifts the fascia (hydrodissection), not muscle.",
@@ -4104,12 +4099,11 @@
       ],
       "confirmation": [
         "Local anesthetic seen spreading beneath the fascia iliaca on ultrasound",
-        "No intravascular or intraneural injection (negative aspiration, no spread within the nerve)",
+        "No intravascular or intraneural injection",
         "Total dose remained below the weight-based maximum",
         "Progressive analgesia in the femoral distribution over the expected onset time",
         "No signs of local anesthetic systemic toxicity",
         "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold in the distribution, and motor function where the nerve has one, compared with the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
@@ -4121,7 +4115,7 @@
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
-        "Local anesthetic systemic toxicity - see the linked rescue card",
+        "Local anesthetic systemic toxicity",
         "Intravascular or intraneural injection",
         "Nerve injury - usually transient, occasionally permanent",
         "Bleeding or hematoma at the injection site",
@@ -4136,7 +4130,7 @@
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Motor block means the limb cannot bear weight - a fall risk in older patients. Say so to the patient and at handover.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
@@ -5351,7 +5345,7 @@
     "setting": [
       "ED"
     ],
-    "lastReviewed": "2026-06-16",
+    "lastReviewed": "2026-08-06",
     "version": "0.1.0",
     "tags": [
       "foreign body",
@@ -5367,14 +5361,14 @@
       "removal",
       "extraction"
     ],
-    "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft",
+    "reviewerStatus": "Internally Reviewed",
+    "contentSource": "clinician-reviewed",
     "sections": {
       "shiftMode": [
-        "X-ray finds most glass, metal, gravel, and bone \u2014 it's not a rule-out. Small fragments, some glass, and ceramic are missed; a negative film with a persistent story needs ultrasound or CT, not reassurance.",
+        "X-ray finds most glass, metal, gravel, and bone. Small fragments, some glass, and ceramic are missed.",
         "X-ray does not reliably show wood, plastic, or thorns at all. Ultrasound is the bedside tool for those.",
         "Get adequate anesthesia and a bloodless field before starting.",
-        "A digital tourniquet must come off \u2014 use a device you can't miss, note the time, and check the finger after (see equipment and aftercare).",
+        "A digital tourniquet must come off \u2014 use a device you can't miss, note the time, and check the finger after.",
         "If you cannot find it in a reasonable time or it is near critical structures, stop and refer.",
         "Document what you found, what you removed, and what imaging showed. If retained FB is possible, tell the patient.",
         "Tetanus status and wound infection risk should be addressed at every visit."
@@ -5394,10 +5388,10 @@
       "anatomy": [
         "Hand and foot foreign bodies are near tendons, nerves, and vessels in tight compartments.",
         "Plantar foot: flexor tendons, digital nerves, and plantar fascia are at risk during deep exploration.",
-        "The depth and tissue plane of the foreign body dictate the approach. Imaging helps plan."
+        "The depth and tissue plane of the foreign body dictate the approach."
       ],
       "equipment": [
-        "Local anesthetic: 1% or 2% lidocaine, with epinephrine where the field allows it",
+        "Local anesthetic",
         "Syringe and needle for anesthesia (25-27G)",
         "Antiseptic prep",
         "Sterile gloves and drape",
@@ -5420,7 +5414,7 @@
       "steps": [
         "Obtain history: mechanism, timing, material type, symptoms since injury.",
         "Examine the wound. Assess for signs of infection, neurovascular status distally.",
-        "Image the area: X-ray for radiopaque materials, ultrasound for radiolucent objects. A negative X-ray with a story that still fits does not close the question.",
+        "Image the area: X-ray for radiopaque materials, ultrasound for radiolucent objects.",
         "Mark the foreign body location on the skin using imaging guidance if needed.",
         "Anesthetize the area with local or regional block as appropriate.",
         "Prep and drape the wound.",
@@ -5431,27 +5425,26 @@
         "Grasp and remove the foreign body. Inspect it for fragmentation.",
         "Irrigate the wound with normal saline.",
         "Reassess the wound. Obtain post-removal imaging if fragmentation is suspected.",
-        "Remove the tourniquet and say so out loud. Record the removal time and the total tourniquet time.",
+        "Remove the tourniquet. Record the removal time and the total tourniquet time.",
         "Confirm the digit is perfused: capillary refill and color, compared with the neighbouring finger.",
-        "Close the wound if appropriate (clean, non-infected, within time window). Leave contaminated or infected wounds open.",
+        "Close the wound if appropriate (clean and recent) Leave contaminated or infected wounds open.",
         "Apply appropriate dressing - and confirm again that the tourniquet is not under it."
       ],
       "ultrasound": [
         "High-frequency linear probe (10-15 MHz) provides best resolution for superficial foreign bodies.",
         "Foreign bodies appear as hyperechoic structures, often with posterior shadowing (glass, metal) or reverberation artifact.",
         "Wood may appear as a hyperechoic linear structure with dirty shadowing.",
-        "Scan in two orthogonal planes to localize in 3D.",
-        "Real-time ultrasound guidance during extraction improves success for deep or small foreign bodies."
+        "Scan in two orthogonal planes to localize in 3D."
       ],
       "confirmation": [
         "Foreign body visualized and removed intact",
-        "Post-removal imaging shows no retained fragments (if indicated). Negative imaging is not proof of complete removal when the object may be radiolucent or fragmented.",
+        "Post-removal imaging shows no retained fragments.",
         "Wound irrigated and inspected",
         "Tourniquet removed, removal time recorded, and the digit confirmed pink with normal capillary refill",
         "Neurovascular status intact after removal"
       ],
       "troubleshooting": [
-        "Cannot locate foreign body: reimage with ultrasound, try a different scanning plane, consider CT for deep or small objects. Ultrasound sensitivity falls with depth, small size, and operator inexperience; a negative scan is not an answer on its own.",
+        "Cannot locate foreign body: reimage with ultrasound, try a different scanning plane, consider CT for deep or small objects. Ultrasound sensitivity falls with depth, small size, and operator inexperience.",
         "Fragmented foreign body: remove what is accessible, image to assess residual, discuss with patient and consider specialist referral.",
         "Significant bleeding during exploration: apply direct pressure, tourniquet for digits, consider specialist referral for deep structures.",
         "Foreign body near nerve or tendon: stop if safe extraction is not possible. Refer to hand surgery or appropriate specialist.",
@@ -5468,8 +5461,8 @@
       ],
       "aftercare": [
         "Confirm the tourniquet is off before the patient leaves the room. If a handover happens mid-procedure, the tourniquet is the first thing handed over.",
-        "Tetanus: assess the wound as clean-minor or dirty-major and the immunization history separately, and give vaccine, tetanus immune globulin, or both accordingly. See the laceration repair card, which carries the full decision.",
-        "Antibiotics for contaminated wounds, bite wounds, or immunocompromised patients per guidelines.",
+        "Tetanus: assess the wound as clean-minor or dirty-major and the immunization history separately, and give vaccine, tetanus immune globulin, or both accordingly.",
+        "Antibiotics for contaminated wounds, bite wounds, or immunocompromised patients",
         "Wound care instructions: keep clean, dressing changes, elevation.",
         "Return precautions: increasing pain, redness, swelling, drainage, fever, or a cold or discolored digit.",
         "If retained FB is possible: disclose to patient, arrange follow-up, document discussion."
@@ -5488,7 +5481,7 @@
       ],
       "seniorPearls": [
         "If you are digging for more than 15 minutes, stop - further exploration only enlarges the wound.",
-        "Ultrasound finds much of what X-ray misses and misses things too; neither is a rule-out.",
+        "Ultrasound finds much of what X-ray misses and misses things too.",
         "A finger tourniquet turns a bloody mess into a clean field, and costs the finger if it stays on. Write the time down."
       ],
       "references": [

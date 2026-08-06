@@ -87,14 +87,26 @@ class TourniquetFailSafeTests(unittest.TestCase):
         self.assertIn("total tourniquet time", self.text)
 
     def test_removal_is_its_own_step_with_a_perfusion_check(self):
-        self.assertIn("remove the tourniquet and say so out loud", self.text)
+        # "Say so out loud" was one way to make removal unmissable. The reviewer
+        # replaced it with a recorded removal time and a check that the
+        # tourniquet is off before the patient leaves the room, which outlasts
+        # the moment an announcement is made and survives a handover. The
+        # guarantee is the step and the check, not the announcement.
+        self.assertIn("remove the tourniquet.", self.text)
+        self.assertIn("confirm the tourniquet is off before the patient leaves the room", self.text)
         self.assertIn("capillary refill", self.text)
 
     def test_imaging_absolutes_are_qualified(self):
         """"X-ray detects glass" and "wood is invisible" both turned a
-        probability into a rule, in opposite directions."""
-        self.assertIn("it's not a rule-out", self.text)
+        probability into a rule, in opposite directions.
+
+        Asserted as substance rather than as the phrase "it's not a rule-out":
+        the reviewer's wording names what each modality misses instead of
+        appending the disclaimer, which tells a reader who already knows no
+        imaging is a rule-out something they can act on."""
         self.assertNotIn("x-ray detects glass, metal, gravel, and bone.", self.text)
+        self.assertIn("small fragments, some glass, and ceramic are missed", self.text)
+        self.assertIn("ultrasound sensitivity falls with depth", self.text)
 
 
 class ParacentesisTests(unittest.TestCase):

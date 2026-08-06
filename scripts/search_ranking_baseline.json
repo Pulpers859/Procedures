@@ -444,7 +444,7 @@
   "ultrasound_guided_piv|brachial": 2,
   "ultrasound_guided_piv|deep vein": 1,
   "ultrasound_guided_piv|difficult access": 1,
-  "ultrasound_guided_piv|long catheter": 1,
+  "ultrasound_guided_piv|long catheter": 2,
   "ultrasound_guided_piv|peripheral": 1,
   "ultrasound_guided_piv|ultrasound IV": 1
 }

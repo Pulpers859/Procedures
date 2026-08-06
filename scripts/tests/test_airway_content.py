@@ -91,7 +91,12 @@ class IntubationSafetyNumbersTests(unittest.TestCase):
         instruction to put 10 mL in. Cuff pressure is the number that matters."""
         cuff = [line for line in self.lines if "20-30 cmH2O" in line]
         self.assertEqual(len(cuff), 1, self.lines)
-        self.assertIn("Milliliters are not a pressure", cuff[0])
+        # Asserted as substance rather than as the sentence "Milliliters are not
+        # a pressure". The reviewer replaced that with "inflate to the minimum
+        # that stops the leak and measure it", which gives the same instruction
+        # by naming what to do instead - and for a reader already told to
+        # measure a cmH2O number, the denial was a line teaching nothing.
+        self.assertIn("measure it", cuff[0])
         self.assertTrue(
             any("cuff manometer" in line for line in self.record["sections"]["equipment"])
         )
@@ -141,9 +146,17 @@ class IntubationSafetyNumbersTests(unittest.TestCase):
         """DAS assumes a more experienced colleague exists. In a community ED at
         03:00 the reader is that colleague, and "plus one" invites a fourth
         attempt by the same pair of hands."""
-        plus_one = [line for line in self.lines if "The plus-one is a handover" in line]
-        self.assertEqual(len(plus_one), 1, self.lines)
-        self.assertIn("ceiling is three", plus_one[0])
+        # Two claims, and they no longer have to share a sentence: the reviewer
+        # folded the handover requirement into the attempt line itself ("plus
+        # one final attempt by a more experienced colleague only"). What is
+        # still guaranteed is that the plus-one is bound to a more experienced
+        # operator, and that the solo reader is given the ceiling outright.
+        self.assertTrue(
+            any("more experienced" in line for line in self.lines),
+            "the plus-one is not bound to a more experienced operator",
+        )
+        ceiling = [line for line in self.lines if "ceiling is three" in line]
+        self.assertEqual(len(ceiling), 1, self.lines)
 
     def test_awareness_under_paralysis_is_stated_as_a_duration_gap(self):
         """"Do not forget sedation" is not the same claim as "this patient will
