@@ -5593,6 +5593,7 @@
         "The brachial plexus roots (C5-C7) exit between the anterior and middle scalene muscles.",
         "The 'stoplight' sign: three hypoechoic circles (C5, C6, C7 roots) stacked vertically between the scalene muscles.",
         "The phrenic nerve runs anteriorly over the anterior scalene muscle.",
+        "The dorsal scapular and long thoracic nerves course through the middle scalene muscle.",
         "The carotid artery and internal jugular vein are medial to the anterior scalene."
       ],
       "equipment": [
@@ -5651,6 +5652,7 @@
         "Intravascular injection (vertebral or carotid artery) causing LAST",
         "Pneumothorax (if needle advanced too far inferiorly/medially)",
         "Peripheral nerve injury, usually transient, occasionally permanent",
+        "Dorsal scapular or long thoracic nerve injury",
         "Local anesthetic systemic toxicity - see the linked rescue card",
         "Bleeding or hematoma at the injection site",
         "Infection",
@@ -5682,7 +5684,8 @@
       "seniorPearls": [
         "Tracing the plexus up from the supraclavicular fossa is often easier than starting directly at the neck.",
         "You do not need to surround every root - the general fascial plane is usually sufficient.",
-        "Always assume you will block the phrenic nerve; do not do this block bilaterally."
+        "Always assume you will block the phrenic nerve; do not do this block bilaterally.",
+        "The needle path crosses the middle scalene, and the dorsal scapular and long thoracic nerves run through it - a reason to keep the tip in view the whole way rather than advancing to a remembered depth."
       ],
       "references": [
         "Riazi S, et al. Effect of local anaesthetic volume (20 vs 5 mL) on the efficacy and respiratory consequences of ultrasound-guided interscalene brachial plexus block. Br J Anaesth. 2008;101(4):549-556. https://doi.org/10.1093/bja/aen229 \u2014 Found hemidiaphragmatic paresis in 100% of patients at 20 mL versus 45% at 5 mL, demonstrating a volume-dependent effect.",
@@ -5873,7 +5876,7 @@
       ],
       "complications": [
         "Pneumothorax (most feared complication if needle goes too deep/medial)",
-        "Phrenic nerve palsy (less common than interscalene, but still ~50%)",
+        "Phrenic nerve palsy - less common than with interscalene",
         "Intravascular injection (subclavian artery/vein) causing LAST",
         "Peripheral nerve injury, usually transient, occasionally permanent",
         "Horner syndrome",
@@ -6248,8 +6251,9 @@
     "title": "Radial Nerve Block",
     "sections": {
       "shiftMode": [
-        "Target: Radial nerve in the spiral groove of the humerus or at the elbow joint.",
+        "Target: Radial nerve in the proximal forearm, lateral to the radial artery.",
         "Provides anesthesia to the dorsal thumb, index, and lateral middle finger.",
+        "Block as proximal in the forearm as you can still hold the artery and nerve together.",
         "Combine with Median/Ulnar for complete hand anesthesia.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
@@ -6267,13 +6271,14 @@
         "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge it on site compressibility, vascularity, and what a hematoma there would do. Follow local policy; a neuraxial hold interval does not automatically apply."
       ],
       "anatomy": [
-        "At the elbow, the radial nerve is located between the brachialis and brachioradialis muscles.",
-        "Higher up, it wraps around the humerus in the spiral groove."
+        "In the proximal forearm the radial nerve runs deep to the brachioradialis, giving off several articular branches.",
+        "In the mid-forearm it is tightly associated with the lateral side of the radial artery, travelling in the same fascial plane.",
+        "Entering the cubital fossa the nerve splits into a deep branch (motor) and a superficial branch (sensory to the dorsum of the hand)."
       ],
       "equipment": [
         "High-frequency linear ultrasound transducer",
         "25G or 27G needle (1.5 inch)",
-        "Local anesthetic, 5-10 mL: 1% lidocaine for a short block, or 0.25% bupivacaine when the injury needs hours. Calculate the ceiling on this card before drawing up.",
+        "Local anesthetic, 5-7 mL: 1% lidocaine for a short block, or 0.25% bupivacaine when the injury needs hours. Calculate the ceiling on this card before drawing up.",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and sterile gel for ultrasound guidance.",
         "Know where the 20% lipid emulsion is before you inject."
@@ -6282,14 +6287,14 @@
         "Arm supinated and extended, resting comfortably."
       ],
       "steps": [
-        "Identify the nerve in short axis at the level of the elbow crease.",
-        "Confirm the honeycomb nerve between brachialis medially and brachioradialis laterally before inserting the needle.",
+        "Place the probe transversely on the volar forearm and slide it laterally to find the pulsatile radial artery.",
+        "Identify the radial nerve as a hyperechoic structure directly lateral to the artery, then slide as far proximally as you can while holding both in view.",
         "Insert the needle in-plane.",
-        "Aspirate, then inject 5-10 mL of anesthetic around the nerve.",
+        "Aspirate, then inject 5-7 mL of anesthetic around the nerve.",
         "Confirm the anesthetic surrounding the nerve circumferentially before withdrawing."
       ],
       "ultrasound": [
-        "Look for the 'honeycomb' appearance of the nerve between the brachialis (medial) and brachioradialis (lateral)."
+        "Hyperechoic nerve directly lateral to the pulsatile, anechoic radial artery and in the same fascial plane."
       ],
       "confirmation": [
         "Anesthetic surrounding the nerve circumferentially.",
@@ -6299,7 +6304,7 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Nerve hard to find at the elbow: scan proximally up the lateral arm.",
+        "Nerve not immediately visible: slide up and down the radial artery until it appears alongside.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -6329,7 +6334,8 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "Blocking at the elbow covers more branches than blocking at the wrist."
+        "The articular branches leave in the proximal forearm, so the higher you block the more territory the anesthetic covers.",
+        "At 5-7 mL toxicity is unlikely from this block alone. It is the median-plus-ulnar-plus-radial combination at larger volumes that reaches the ceiling."
       ],
       "references": [
         "ACEP Sonoguide. Radial Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/radial-nerve-block",
@@ -6477,12 +6483,13 @@
       "steps": [
         "Identify the nerve in short axis in the mid-forearm.",
         "Have the patient flex and extend their fingers: the FDS and FDP bellies slide and the nerve stays still.",
-        "Insert the needle in-plane or out-of-plane.",
-        "Aspirate, then inject 5-10 mL of anesthetic to separate the fascial planes.",
+        "Insert the needle in-plane.",
+        "Aim for the deep border of the nerve and advance until needle movement moves the nerve, then aspirate and inject 0.5 mL to confirm position.",
+        "Inject the rest of the 5-10 mL in increments to separate the fascial planes around the nerve.",
         "Confirm the anesthetic spreading in the fascial plane around the nerve before withdrawing."
       ],
       "ultrasound": [
-        "Look for a hyperechoic, oval structure between the muscle bellies of the FDS and FDP."
+        "Look for the honeycomb nerve between the muscle bellies of the FDS and FDP."
       ],
       "confirmation": [
         "Anesthetic spreading in the fascial plane around the nerve.",
@@ -6520,7 +6527,9 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "The carpal tunnel is a confined space, so injecting there raises nerve injury risk in a way the mid-forearm does not."
+        "The carpal tunnel is a confined space, so injecting there raises nerve injury risk in a way the mid-forearm does not.",
+        "Aim for the deep border. Injectate follows the path of least resistance and pushes superficially, so a needle underneath the nerve stays out of the way of its own spread.",
+        "Mechanical coupling - needle movement visibly moving the nerve - tells you where the tip is before you commit volume to it."
       ],
       "references": [
         "ACEP Sonoguide. Median Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/median-nerve-block",
@@ -6633,9 +6642,9 @@
     "title": "Ulnar Nerve Block",
     "sections": {
       "shiftMode": [
-        "Target: Ulnar nerve in the mid-to-distal forearm, medial to the ulnar artery.",
+        "Target: Ulnar nerve in the proximal forearm, medial to the ulnar artery.",
         "Provides anesthesia to the 5th digit and medial half of the 4th digit.",
-        "Block high in the forearm to catch the dorsal cutaneous branch.",
+        "Block high in the forearm, not at the wrist.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -6652,7 +6661,7 @@
         "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge it on site compressibility, vascularity, and what a hematoma there would do. Follow local policy; a neuraxial hold interval does not automatically apply."
       ],
       "anatomy": [
-        "In the mid-forearm, the ulnar nerve lies just medial (ulnar) to the ulnar artery, deep to the flexor carpi ulnaris (FCU)."
+        "In the forearm the ulnar nerve lies just medial (ulnar) to the ulnar artery, deep to the flexor carpi ulnaris (FCU), in the same echogenic fascial plane as the artery."
       ],
       "equipment": [
         "High-frequency linear ultrasound transducer",
@@ -6666,14 +6675,14 @@
         "Arm supinated and extended."
       ],
       "steps": [
-        "Identify the ulnar artery in the mid-to-distal forearm.",
-        "Identify the ulnar nerve immediately medial to the artery.",
+        "Place the probe transversely on the volar forearm and slide it medially to find the pulsatile ulnar artery.",
+        "Identify the ulnar nerve directly medial to the artery - oval or triangular - and slide proximally to where the two have separated.",
         "Insert the needle in-plane, approaching from the medial side.",
-        "Aspirate, then inject 5-10 mL of anesthetic around the nerve.",
+        "Aspirate, then inject along the medial surface of the nerve first to open the fascial plane, redirecting to the nerve/artery border for the rest of the 5-10 mL.",
         "Confirm the anesthetic spreading between the nerve and the artery and around the nerve before withdrawing."
       ],
       "ultrasound": [
-        "The nerve is a hyperechoic honeycomb structure next to the pulsatile, anechoic ulnar artery."
+        "The nerve is hyperechoic, oval or triangular, directly medial to the pulsatile anechoic ulnar artery."
       ],
       "confirmation": [
         "Anesthetic spreading between the nerve and the artery, and around the nerve.",
@@ -6685,7 +6694,8 @@
         "Nerve and artery too close: inject a small amount of saline or anesthetic to dissect them apart before fully surrounding the nerve.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder.",
+        "Nerve not immediately visible: slide rapidly up and down the ulnar artery until it appears alongside."
       ],
       "complications": [
         "Intravascular injection (ulnar artery)",
@@ -6712,7 +6722,8 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "The dorsal cutaneous branch leaves the ulnar nerve proximal to the wrist, so a block at the wrist misses the dorsal territory."
+        "The dorsal cutaneous branch leaves the ulnar nerve proximal to the wrist, so a block at the wrist misses the dorsal territory.",
+        "At the wrist the nerve sits nearly against the artery; in the proximal forearm they separate, which is what makes the higher block the safer one."
       ],
       "references": [
         "ACEP Sonoguide. Ulnar Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/ulnar-nerve-block",
@@ -8469,6 +8480,7 @@
       "anatomy": [
         "The sciatic nerve travels down the posterior thigh.",
         "In the popliteal fossa, it bifurcates into the tibial nerve (medial) and common peroneal nerve (lateral).",
+        "The bifurcation sits roughly 6 cm above the popliteal crease.",
         "The popliteal artery and vein are medial and deep to the nerve."
       ],
       "equipment": [
@@ -8482,7 +8494,7 @@
         "20% lipid emulsion located, not assumed."
       ],
       "positioning": [
-        "Patient prone, or lateral decubitus, or supine with the leg elevated."
+        "Patient prone. Lateral decubitus, or supine with the leg elevated, only if prone is not possible."
       ],
       "steps": [
         "Place the transducer transversely over the popliteal crease.",
@@ -8887,7 +8899,8 @@
         "Identify the posterior tibial artery.",
         "Use color Doppler over the artery and its paired veins before you advance.",
         "Identify the nerve immediately posterior/lateral to the artery.",
-        "Insert the needle in-plane or out-of-plane, aspirate, and inject 5-10 mL around the nerve.",
+        "Insert the needle in-plane. Switch to out-of-plane if the Achilles tendon, the malleolus, or the artery blocks the path.",
+        "Aspirate, then inject 5-10 mL around the nerve.",
         "Confirm anechoic fluid surrounding the nerve before withdrawing."
       ],
       "ultrasound": [
@@ -8931,7 +8944,8 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "For a purely plantar laceration, this block is vastly superior to injecting local anesthetic directly into the exquisitely sensitive sole of the foot."
+        "For a purely plantar laceration, this block is vastly superior to injecting local anesthetic directly into the exquisitely sensitive sole of the foot.",
+        "In-plane is the better view but the Achilles tendon, malleolus and artery crowd it here. Out-of-plane is the deliberate workaround, not a shortcut - it drops the needle between nerve and artery when nothing else will."
       ],
       "references": [
         "ACEP Sonoguide. Tibial Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/tibial-nerve-block",
@@ -9078,8 +9092,9 @@
       "steps": [
         "Place transducer transversely behind the lateral malleolus.",
         "Identify the small saphenous vein.",
-        "The nerve is adjacent to the vein.",
+        "The nerve is tiny and echogenic, adjacent to the vein and usually posterior to it.",
         "Compress with the probe to tell the two apart: the vein collapses, the nerve does not.",
+        "If you cannot identify the nerve, target the vein.",
         "Aspirate, then inject 3-5 mL of anesthetic around the nerve/vein.",
         "Confirm fluid surrounding the nerve before withdrawing."
       ],
@@ -9124,7 +9139,8 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "The landmark 'subcutaneous wheal' technique is often faster and just as effective as ultrasound for this specific small nerve."
+        "The landmark 'subcutaneous wheal' technique is often faster and just as effective as ultrasound for this specific small nerve.",
+        "The small saphenous vein is the reliable landmark, not the nerve. Blocking around the vein reaches a nerve too small to chase."
       ],
       "references": [
         "ACEP Sonoguide. Sural Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/sural-nerve-block",
