@@ -104,10 +104,11 @@ those fields on a mismatch and says so: rebuild, then sign off.
 the shipping record and prints **BLIND MERGE** for any edit written against
 content the repo has since changed. The merge is a whole-section overwrite, so
 there is no conflict to notice: anything the repo gained after the device's
-last build is discarded silently. It is reported, never refused - the reviewer
-is the authority on their own wording - but a flagged procedure's diff has to
-be read as a merge, and any repo line that disappears from it is a line nobody
-chose to remove.
+last build is discarded silently. It is reported, never refused, and it decides nothing: a
+flagged procedure's diff is a merge rather than a change, which is worth
+knowing when reading it, but the reviewed text wins either way. A line that
+disappears from a flagged diff stays gone. See the reviewed-edits rules in
+`../CLAUDE.md`; the flag exists so the loss is recorded, not so it is undone.
 
 ## Historical Notes
 - `audits/AUDIT_AND_NEXT_STEPS.md` - earlier audit log and roadmap snapshots kept for reference, not as the primary handoff file

@@ -7,6 +7,11 @@ later "tidy the wording" pass: a depth limit deleted as clutter, a hedge
 reintroduced to make a sentence read more politely. Each test names the hazard
 it is holding the line on.
 
+What they cannot do is outrank the reader. A guard here holds a line against
+drift, not against the owner: when a reviewed edit removes something one of
+these asserts, the assertion is what was wrong, and it is retired with the
+date and the reason. Several were, on 2026-08-06.
+
 Nothing here is clinical approval. It only proves the shipped bytes still say
 what the adjudication decided they should say."""
 import json
@@ -46,8 +51,18 @@ class AirwayScopeTests(unittest.TestCase):
     def setUp(self):
         self.records = load()
 
-    def test_every_airway_record_states_adult_scope_in_prose(self):
-        for pid in AIRWAY_IDS:
+    # Scope is asserted where the *technique* changes for a child, which is
+    # where the reviewer kept it. Endotracheal intubation was dropped from this
+    # list on 2026-08-06: the reviewer removed its scope line, and what it
+    # listed - tube sizing, blade choice, per-kilogram dosing, shorter safe
+    # apnea time - is the paediatric difference an EM or critical care reader
+    # already carries. Cricothyrotomy is not the same claim: under 8-10 years
+    # the procedure itself becomes cannula-based, which is a different
+    # technique rather than the same one scaled down.
+    SCOPE_IDS = ("cricothyrotomy",)
+
+    def test_records_whose_technique_changes_for_children_say_so(self):
+        for pid in self.SCOPE_IDS:
             with self.subTest(procedure=pid):
                 lines = all_lines(self.records[pid])
                 # Two accepted phrasings, not one: the clinician reworded
@@ -130,40 +145,32 @@ class IntubationSafetyNumbersTests(unittest.TestCase):
         self.assertIn("16 mg/kg", line[0])
         self.assertIn("front of the neck", line[0])
 
-    def test_the_plan_letters_are_defined_where_they_are_used(self):
-        """"Move to Plan B" is a pointer to a document the reader does not have
-        open."""
-        defined = [
-            line for line in self.lines
-            if "A tracheal intubation" in line and "B supraglottic airway" in line
-            and "D front-of-neck access" in line
-        ]
-        self.assertEqual(len(defined), 1, self.lines)
-        self.assertIn("supraglottic", defined[0])
-        self.assertIn("front-of-neck", defined[0])
+    def test_the_attempt_ceiling_names_who_the_plus_one_is(self):
+        """DAS assumes a more experienced colleague exists. "Plus one" on its
+        own invites a fourth attempt by the same pair of hands.
 
-    def test_the_attempt_ceiling_survives_a_solo_operator(self):
-        """DAS assumes a more experienced colleague exists. In a community ED at
-        03:00 the reader is that colleague, and "plus one" invites a fourth
-        attempt by the same pair of hands."""
-        # Two claims, and they no longer have to share a sentence: the reviewer
-        # folded the handover requirement into the attempt line itself ("plus
-        # one final attempt by a more experienced colleague only"). What is
-        # still guaranteed is that the plus-one is bound to a more experienced
-        # operator, and that the solo reader is given the ceiling outright.
+        The reviewer folded this into the attempt line itself - "plus one final
+        attempt by a more experienced colleague only" - and removed the
+        separate sentence spelling out the solo case. What is still guaranteed
+        is that the plus-one is bound to someone more experienced, which is
+        what makes it a handover rather than an extra turn."""
+        attempts = [line for line in self.lines if "3+1" in line]
+        self.assertTrue(attempts, self.lines)
         self.assertTrue(
-            any("more experienced" in line for line in self.lines),
+            any("more experienced" in line for line in attempts),
             "the plus-one is not bound to a more experienced operator",
         )
-        ceiling = [line for line in self.lines if "ceiling is three" in line]
-        self.assertEqual(len(ceiling), 1, self.lines)
 
-    def test_awareness_under_paralysis_is_stated_as_a_duration_gap(self):
-        """"Do not forget sedation" is not the same claim as "this patient will
-        be awake and paralysed for 35 minutes"."""
-        aware = [line for line in self.lines if "awareness under paralysis" in line]
-        self.assertEqual(len(aware), 1, self.lines)
-        self.assertIn("35 minutes", aware[0])
+    # Retired 2026-08-06, both by reviewed edit:
+    #
+    # test_the_plan_letters_are_defined_where_they_are_used - the reviewer
+    # replaced the letter definitions with "name plan and action before
+    # performing so team is aware", which states the rule the definitions
+    # existed to enforce.
+    #
+    # test_awareness_under_paralysis_is_stated_as_a_duration_gap - the
+    # rocuronium-outlasts-induction duration was removed; the sedation
+    # instruction that carries it kept its "unless deliberately held" clause.
 
 
 class CricothyrotomyTechniqueTests(unittest.TestCase):

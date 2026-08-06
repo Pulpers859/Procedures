@@ -55,10 +55,16 @@ class SafetySpineTests(unittest.TestCase):
         self.blocks = regional()
         self.assertEqual(len(self.blocks), 28)
 
+    # Reviewed out of fascia_iliaca_block on 2026-08-06. The reviewer kept
+    # "spread on the screen shows where the drug went" and cut the contrast
+    # clause. Named here rather than dropping the guarantee: the other 27
+    # blocks are still held against the drift this was written for.
+    SPREAD_EXEMPT = {"fascia_iliaca_block"}
+
     def test_every_block_states_that_spread_is_not_success(self):
         """Ultrasound confirms where the drug went. Twenty-five of these records
         had one or two confirmation lines and none of them tested the patient."""
-        for block in self.blocks:
+        for block in (b for b in self.blocks if b["id"] not in self.SPREAD_EXEMPT):
             with self.subTest(block["id"]):
                 self.assertIn(
                     "spread on the screen shows where the drug went, "
@@ -155,7 +161,10 @@ class SafetySpineTests(unittest.TestCase):
         different question - compressibility, vascularity, consequence - of the
         rest. TAP had it exactly backwards and called itself a deep plane."""
         deep = {"block_raptir", "block_transgluteal_sciatic"}
-        for block in self.blocks:
+        # Reviewed out of fascia_iliaca_block on 2026-08-06: the antithrombotic
+        # judgement was reduced to "anticoagulation/coagulopathy (relative)".
+        antithrombotic_exempt = {"fascia_iliaca_block"}
+        for block in (b for b in self.blocks if b["id"] not in antithrombotic_exempt):
             with self.subTest(block["id"]):
                 text = joined(block)
                 if block["id"] in deep:

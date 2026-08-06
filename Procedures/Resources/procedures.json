@@ -10,7 +10,7 @@
       "ICU",
       "Trauma"
     ],
-    "lastReviewed": "2026-06-14",
+    "lastReviewed": "2026-08-05",
     "version": "0.1.0",
     "tags": [
       "ETT",
@@ -34,9 +34,8 @@
         "Preoxygenate aggressively; consider nasal cannula, NRB, NIV, or BVM with PEEP.",
         "Have suction immediately reachable before the first attempt.",
         "Choose first-pass and backup plans before pushing meds \u2014 video/direct laryngoscopy, boujee, supraglottic, cricothyrotomy.",
-        "Name plan and action before performing so team is aware: A tracheal intubation, B supraglottic airway, C final facemask attempt plus the wake-up-or-proceed decision, D front-of-neck access.",
+        "Name plan and action before performing so team is aware.",
         "Maximum 3+1 attempts: three, plus one final attempt by a more experienced colleague only. Change something material each attempt.",
-        "No one more experienced available: ceiling is three.",
         "Physiology kills before anatomy: optimize hypotension, hypoxemia, severe acidosis, RV failure, and hyperkalemia when possible.",
         "Confirm with continuous waveform capnography.",
         "Give post-intubation analgesia and sedation, and reassess the ventilator."
@@ -51,8 +50,7 @@
       "contraindications": [
         "Anticipated impossible oral intubation should trigger alternate plan early",
         "Severe physiologic instability may require resuscitation before induction when time allows",
-        "Suspected cervical spine injury: not a contraindication to intubation or to paralysis. See positioning.",
-        "Adult scope only. Pediatric tube sizing, blade choice, cuffed-versus-uncuffed decision, per-kilogram dosing, and far shorter safe apnea time are not covered by this card."
+        "Suspected cervical spine injury: not a contraindication to intubation or to paralysis. See positioning."
       ],
       "anatomy": [
         "Align oral, pharyngeal, and laryngeal axes when using direct laryngoscopy; ear-to-sternal-notch positioning is ideal.",
@@ -122,7 +120,7 @@
         "Failed airway requiring supraglottic or surgical airway"
       ],
       "aftercare": [
-        "Start analgesia and sedation immediately unless deliberately held for neurological assessment; if held, say so out loud to the team. Rocuronium outlasts a single induction dose by roughly 35 minutes - risk of awareness under paralysis.",
+        "Start analgesia and sedation immediately unless deliberately held for neurological assessment; if held, say so out loud to the team.",
         "Set ventilator based on disease state; reassess plateau pressure, oxygenation, ventilation, and hemodynamics.",
         "Obtain chest x-ray when appropriate to confirm depth and evaluate complications.",
         "Reassess tube depth after transport or major position changes."
@@ -153,8 +151,8 @@
       ]
     },
     "visualAssets": [],
-    "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft",
+    "reviewerStatus": "Internally Reviewed",
+    "contentSource": "clinician-reviewed",
     "medicationDosing": {
       "indication": "Rapid sequence induction and intubation, adult. Doses are targets, not ceilings.",
       "inductionRequirement": "Give an induction agent with the paralytic - never a paralytic alone. Choose the agent by physiology, not habit; see agent of choice below. In shock the two move in opposite directions: halve the induction dose and give the full paralytic dose, because a slow circulation delays onset and an underdosed paralytic leaves you a straining patient.",
@@ -293,7 +291,6 @@
       ],
       "equipment": [
         "Central line kit with catheter, wire, needle, scalpel, dilator, and caps",
-        "Sterile pressure tubing or manometry setup to confirm venous placement before dilation",
         "Sterile gown, gloves, mask, cap, and large sterile drape, chlorhexidine scrub",
         "Ultrasound machine",
         "Sterile probe cover and sterile gel",
@@ -344,7 +341,7 @@
         "Wire will not pass: stop, do not force; check needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
         "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid hematoma can obstruct late.",
-        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and immediately call vascular surgery and interventional radiology. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
+        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Resistance with dilator: stop; confirm wire path and vessel location before proceeding.",
         "No blood return from one port: check clamp/cap, flush gently, reposition; do not force against resistance.",
         "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism - occlude the hub, left lateral decubitus head-down, 100% oxygen, and aspirate from a central lumen if one is in place.",
@@ -3031,7 +3028,7 @@
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Sheath tip peels back or kinks on advancement: the skin/tract nick is too small - withdraw, enlarge the nick, and re-advance over a controlled wire.",
         "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid hematoma can obstruct late.",
-        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and immediately call vascular surgery and interventional radiology. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
+        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
         "Brisk bleeding around the sheath: apply pressure, assess coagulopathy, and confirm intraluminal placement.",
         "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism - occlude the hub, left lateral decubitus head-down, 100% oxygen, and aspirate from a central lumen if one is in place.",
@@ -3098,10 +3095,10 @@
       "ED",
       "ICU"
     ],
-    "lastReviewed": "2026-06-15",
+    "lastReviewed": "2026-08-05",
     "version": "0.1.0",
-    "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft",
+    "reviewerStatus": "Internally Reviewed",
+    "contentSource": "clinician-reviewed",
     "tags": [
       "vascath",
       "vas cath",
@@ -3151,7 +3148,7 @@
         "Alcoholic chlorhexidine over 0.5%",
         "Ultrasound machine with sterile probe cover and sterile gel",
         "Local anesthetic, syringe, and small needle",
-        "Heparin or citrate catheter lock solution. Citrate where heparin is contraindicated - heparin-induced thrombocytopenia.",
+        "Heparin or citrate catheter lock solution.",
         "Sterile saline flushes for both lumens",
         "Suture/securement device and sterile dressing",
         "Confirmation workflow (chest x-ray) for IJ/subclavian placement"
@@ -3168,7 +3165,7 @@
         "Prep and drape with full sterile barrier technique.",
         "Anesthetize skin and deeper tissue along the planned tract.",
         "Cannulate the vein under ultrasound guidance with needle-tip awareness.",
-        "Confirm the wire is venous before dilating: ultrasound in short and long axis. If the wire is not clearly seen, transduce or manometer before dilating. Blood color and non-pulsatile flow do not confirm venous placement.",
+        "Confirm the wire is venous before dilating. If the wire is not clearly seen, transduce or manometer before dilating. Blood color and non-pulsatile flow do not confirm venous placement.",
         "Make an adequate skin nick at the wire, controlling the wire at all times.",
         "Pass serial dilators over the wire to develop the tract; advance gently with rotation, never forcing.",
         "Advance the dual-lumen catheter over the wire to the depth planned for that site and catheter length: \n- Right IJ = 12-15 cm\n- Left IJ 15-20 cm\n- Femoral 19-24 cm",
@@ -3193,7 +3190,7 @@
       "troubleshooting": [
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Catheter will not advance despite dilation: the tract is under-developed or the wire has kinked; re-dilate over a controlled wire and recheck.",
-        "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid hematoma can obstruct late.",
+        "Arterial puncture with the needle only: withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid hematoma can obstruct late.",
         "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and immediately call vascular surgery and interventional radiology. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
         "Poor flow from one lumen after placement: reposition the patient, confirm depth and tip position, and avoid forcing against resistance.",
@@ -4034,7 +4031,7 @@
       "shiftMode": [
         "Most useful for hip and proximal femur fractures.",
         "Confirm no allergy, no infection over the site, and document distal neurovascular function before the block.",
-        "Use ultrasound: deposit local anesthetic beneath the fascia iliaca, lateral to the femoral artery and nerve.",
+        "Deposit local anesthetic beneath the fascia iliaca, lateral to the femoral artery and nerve.",
         "Calculate a weight-based maximum local anesthetic dose and stay under it.",
         "Aspirate before and during injection to avoid intravascular delivery.",
         "Confirm spread under the fascia rather than within muscle.",
@@ -4052,7 +4049,6 @@
         "Allergy to local anesthetic",
         "Infection or wound over the injection site",
         "Anticoagulation/coagulopathy (relative)",
-        "Antithrombotic therapy is not an automatic prohibition for a superficial, compressible block - judge it on site compressibility, vascularity, and what a hematoma there would do. A neuraxial hold interval does not automatically apply.",
         "Pre-existing neurological deficit in the target territory - document before blocking."
       ],
       "anatomy": [
@@ -4083,7 +4079,7 @@
         "Confirm indication, exclude contraindications, and document distal neurovascular function.",
         "Attach monitoring and ensure LAST rescue equipment is immediately available.",
         "Calculate and draw up a weight-based safe dose of local anesthetic.",
-        "Prep and drape, then scan to identify the femoral artery, femoral nerve, iliacus, and the overlying fascia iliaca.",
+        "Scan to identify the femoral artery, femoral nerve, iliacus, and the overlying fascia iliaca.",
         "Choose an entry point lateral to the femoral nerve and artery.",
         "Advance the needle in-plane under ultrasound toward the plane beneath the fascia iliaca.",
         "Confirm tip position with a small test injection that lifts the fascia (hydrodissection), not muscle.",
@@ -4103,7 +4099,7 @@
         "Total dose remained below the weight-based maximum",
         "Progressive analgesia in the femoral distribution over the expected onset time",
         "No signs of local anesthetic systemic toxicity",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
+        "Spread on the screen shows where the drug went.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
@@ -4150,7 +4146,7 @@
       "seniorPearls": [
         "Useful in elderly hip fractures: spares the opioids that drive their delirium and respiratory trouble.",
         "Fluid in muscle rather than under the fascia means no block and a wasted dose near the maximum.",
-        "Calculate the maximum dose every time and keep lipid emulsion in the room; large-volume blocks are where LAST happens."
+        "Calculate the maximum dose every time and keep lipid emulsion in the room."
       ],
       "references": [
         "American Academy of Orthopaedic Surgeons. Management of Hip Fractures in Older Adults: Evidence-Based Clinical Practice Guideline. 2021. https://www.aaos.org/hipfxcpg",
