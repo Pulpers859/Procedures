@@ -21,7 +21,11 @@
 - Enforced by `scripts/check_review_state_sources.py`, which fails the build on that phrasing. Explaining the rule in a comment is fine; shipping it in a string is not.
 - Keep the local-versus-upstream distinction in code (`ReviewState.reviewedLocally` vs `.clinicallyReviewed`) — it still drives export and validation. Only the copy collapses.
 - The reader is an EM or critical care resident or attending. Do not restate what they know at a foundational level; that is text they must read to learn nothing. Content earns its place by being specific to this procedure, this kit, or this failure mode.
-- A guard failing because content was trimmed is not by itself evidence a fact was lost. Ask whether the reader needed telling before restoring anything.
+- Reviewed edits are final. A line the reader removed stays removed. Do not restore it, do not reword it back in, do not add an equivalent sentence elsewhere in the record.
+- This holds even when a guard, a test, an audit note, or an earlier commit argues for the removed line. The reader is the clinical authority on this content; those are records of a previous decision, not a veto over the current one.
+- When a guard fails because a reviewed edit removed something it asserts, the guard is what is now wrong. Narrow it to what the reviewed text still guarantees, or retire that assertion, and record the date and the reason in the test. Never edit content to satisfy a guard.
+- If a removal leaves the record contradicting itself - kit dropped that a step still calls for - do not resolve it by restoring. Exempt the record by name, say so, and raise it as a decision for the reader.
+- Report every removal noticed and every guard changed. Say it plainly and move on; do not argue the clinical merits or re-raise a settled one.
 
 ## Core Rules
 - Keep procedure content in `Procedures/Resources/procedures.json`.

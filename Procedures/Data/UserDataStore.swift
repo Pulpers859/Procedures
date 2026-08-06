@@ -356,11 +356,47 @@ final class UserDataStore: ObservableObject {
     /// read "AI draft — not clinically reviewed", because nothing carried the
     /// sign-off off the device. Paired with `scripts/apply_local_reviews.py`,
     /// which promotes reviewerStatus and provenance together.
-    func exportReviewData() throws -> Data {
+    /// Sign-off keys the shipped content already carries.
+    ///
+    /// A promoted review lives in the bundle as `reviewerStatus` plus
+    /// `contentSource`. The local record stays — it is what shows the item as
+    /// reviewed offline, and deleting it would lose the reviewer's own date —
+    /// but re-exporting it asks the repo to promote what it promoted already,
+    /// and that is most of what a second export contains.
+    ///
+    /// All three conditions are required. Provenance alone would drop a sign-off
+    /// for a procedure promoted and then edited; the fingerprint keeps the
+    /// record in the export until the text it covers is the text that shipped,
+    /// and the version check keeps a record the repo still has something to say
+    /// about — a digest from an older field set is exactly the case the
+    /// promoter can narrow to a single section, which it cannot do for a
+    /// record it never sees.
+    ///
+    /// Provenance is the test rather than `reviewerStatus` deliberately. This
+    /// asks what the *repo* did, not what the reader signed, so it is not a
+    /// second source of review state and must not consult one: only
+    /// `apply_local_reviews.py` writes `clinician-reviewed`, it writes the
+    /// status in the same move, and the validator refuses the two apart.
+    func landedReviewKeys(procedures: [Procedure]) -> Set<String> {
+        var landed: Set<String> = []
+        for procedure in procedures {
+            let key = reviewKey(kind: "procedure", id: procedure.id)
+            guard let record = locallyReviewedContent[key],
+                  record.disposition == .reviewed,
+                  procedure.source == .clinicianReviewed,
+                  record.fingerprintVersion == ContentFingerprint.version,
+                  record.materialFingerprint == procedure.materialFingerprint
+            else { continue }
+            landed.insert(key)
+        }
+        return landed
+    }
+
+    func exportReviewData(omitting landed: Set<String> = []) throws -> Data {
         let payload = ReviewExportPayload(
             schema: Self.reviewExportSchema,
             exportedAt: ContentFreshness.todayString(),
-            reviews: locallyReviewedContent
+            reviews: locallyReviewedContent.filter { !landed.contains($0.key) }
         )
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
@@ -368,9 +404,9 @@ final class UserDataStore: ObservableObject {
     }
 
     /// Writes the review export for sharing. Returns nil rather than trapping.
-    func writeReviewExportFile() -> URL? {
+    func writeReviewExportFile(omitting landed: Set<String> = []) -> URL? {
         do {
-            let data = try exportReviewData()
+            let data = try exportReviewData(omitting: landed)
             let url = FileManager.default.temporaryDirectory
                 .appendingPathComponent("procedure-reviews-\(ContentFreshness.todayString()).json")
             try data.write(to: url, options: .atomic)

@@ -236,6 +236,53 @@ final class ProcedureEditStore: ObservableObject {
         }
     }
 
+    /// Drops overrides the bundle has caught up with.
+    ///
+    /// An override exists to keep a correction alive until it reaches the repo.
+    /// Nothing ever retired one, so a correction merged upstream and shipped in
+    /// a later build stayed here forever as a duplicate of the bundled text —
+    /// still marking the procedure edited, still riding in every export. Twelve
+    /// procedures were exported for merge when four of them had already landed
+    /// builds ago, and the round-trip has no way to tell the difference: the
+    /// same corrections get re-sent, re-read, and re-applied as no-ops for as
+    /// long as the app is used.
+    ///
+    /// The bundle is the acknowledgement. A shipped build that already contains
+    /// the correction is proof it was accepted, so no receipt, watermark, or
+    /// manual bookkeeping is needed to know what has landed — and none of those
+    /// could be trusted anyway, since only the bundle knows what the repo took.
+    ///
+    /// Retires only sections whose text is character-identical to what shipped,
+    /// so nothing a clinician wrote is discarded and a section the repo has not
+    /// caught up with is left alone. Reverting the retired section afterwards
+    /// yields the same text either way, which is what makes this lossless.
+    ///
+    /// Only safe on a complete content load: a partial one leaves
+    /// `bundledSections` empty or stale, and comparing against that would
+    /// retire an override against text that never shipped.
+    func retireLandedEdits() {
+        guard !editsByProcedureID.isEmpty else { return }
+        var didRetire = false
+        for (procedureID, edits) in editsByProcedureID {
+            guard let bundled = bundledSections[procedureID] else { continue }
+            var remaining = edits
+            for (key, lines) in edits.sections {
+                guard let section = EditableSection(rawValue: key) else { continue }
+                if section.lines(in: bundled) == lines {
+                    remaining.sections.removeValue(forKey: key)
+                }
+            }
+            guard remaining.sections.count != edits.sections.count else { continue }
+            didRetire = true
+            if remaining.isEmpty {
+                editsByProcedureID.removeValue(forKey: procedureID)
+            } else {
+                editsByProcedureID[procedureID] = remaining
+            }
+        }
+        if didRetire { save() }
+    }
+
     /// Drops overrides for procedures that no longer exist. Only called when
     /// the bundled load was complete, so a transient failure never deletes a
     /// clinician's corrections.

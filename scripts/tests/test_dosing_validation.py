@@ -585,9 +585,12 @@ class VascularAccessRescueTests(unittest.TestCase):
         assertion no longer holds. What is still asserted per record is the
         substance: one gate, both planes named, and transduction offered when
         the wire is not seen."""
+        # Narrowed 2026-08-06. The reviewer rewrote the vascath gate and left
+        # the two planes out, so naming them is no longer a corpus-wide
+        # guarantee. What every record still has to carry is the gate itself
+        # and transduction as the answer when the wire is not clearly seen -
+        # which is the part a reader cannot supply from habit.
         for gate in self._matching("steps", "before dilating"):
-            self.assertIn("short", gate)
-            self.assertIn("long", gate)
             self.assertIn("transduce", gate)
 
     def test_colour_and_pulsatility_are_explicitly_rejected(self):
@@ -613,18 +616,30 @@ class VascularAccessRescueTests(unittest.TestCase):
                     for hedge in ("when possible", "when feasible"):
                         self.assertNotIn(hedge, line, f"{pid}.{section}: {line}")
 
-    def test_the_large_bore_rescue_is_word_for_word_the_same(self):
+    # Narrowed 2026-08-06. The reviewer rewrote the vascath copy and not the
+    # other two, so identity across all three is no longer the guarantee -
+    # editing the untouched records to restore it would be changing content to
+    # satisfy a test. What each copy still has to carry is the substance.
+    def test_the_large_bore_rescue_carries_the_same_substance_everywhere(self):
         rescues = self._matching("troubleshooting", "leave it in place")
-        self.assertEqual(len(set(rescues)), 1, "the arterial rescue has diverged")
-        for phrase in ("Do not remove", "do not compress", "vascular surgery", "interventional radiology"):
-            self.assertIn(phrase, rescues[0])
+        self.assertTrue(rescues)
+        for rescue in rescues:
+            for phrase in ("Do not remove", "do not compress", "vascular surgery",
+                           "interventional radiology"):
+                self.assertIn(phrase, rescue)
+
 
     def test_the_needle_only_branch_is_stated_separately(self):
         """Without the distinction the reader applies leave-in-place to a
-        finder needle, or pull-and-pressure to a dilated artery."""
+        finder needle, or pull-and-pressure to a dilated artery.
+
+        Identity across the three records was retired on 2026-08-06 for the
+        same reason as the rescue above: the reviewer's vascath wording drops
+        the gauge parenthetical, and the other two were not theirs to change."""
         branches = self._matching("troubleshooting", "needle only")
-        self.assertEqual(len(set(branches)), 1)
-        self.assertIn("hold firm pressure", branches[0])
+        self.assertTrue(branches)
+        for branch in branches:
+            self.assertIn("hold firm pressure", branch)
 
     def test_every_record_says_to_transduce_when_unsure(self):
         # Deliberately not "transduce it": the leave-in-place rescue says that
@@ -705,9 +720,15 @@ class DialysisCatheterLengthTests(unittest.TestCase):
         joined = " ".join(self.sections["steps"])
         self.assertIn("printed on that lumen", joined)
 
-    def test_heparin_induced_thrombocytopenia_is_called_out(self):
+    def test_the_lock_solution_offers_both_agents(self):
+        """Retired the heparin-induced-thrombocytopenia clause on 2026-08-06:
+        the reviewer trimmed the equipment line to "heparin or citrate catheter
+        lock solution", and which of the two to pick in HIT is not a fact this
+        reader needs handed to them. Both agents still have to be on the list,
+        because a line naming only heparin leaves no choice to make."""
         joined = " ".join(self.sections["equipment"])
-        self.assertIn("thrombocytopenia", joined)
+        self.assertIn("citrate", joined)
+        self.assertIn("lock", joined)
 
 
 class PeripheralIVLengthTests(unittest.TestCase):

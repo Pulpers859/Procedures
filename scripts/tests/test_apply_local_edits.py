@@ -5,7 +5,9 @@ non-ASCII as escapes ("\\u2013"), so writing with ensure_ascii=False rewrites
 every line containing a dash and buries the real change in hundreds of diff
 lines. These lock that down, plus the refusal rules.
 """
+import contextlib
 import importlib.util
+import io
 import json
 import shutil
 import tempfile
@@ -103,6 +105,66 @@ class ApplyLocalEditsTests(unittest.TestCase):
         self.assertEqual(MODULE.bump_patch("0.2.0"), "0.2.1")
         self.assertEqual(MODULE.bump_patch("1.0"), "1.0")
         self.assertEqual(MODULE.bump_patch("weird"), "weird")
+
+    # -- the blind merge ------------------------------------------------
+    #
+    # An edit replaces a whole section, so a device working from an older
+    # bundle discards whatever the repo gained in between and nothing in the
+    # output says so. That is how the fascia iliaca equipment list, corrected
+    # against ACEP Sonoguide, was quietly replaced by the pre-correction text.
+
+    def _procedure(self):
+        return json.loads(self.copy.read_text(encoding="utf-8"))[0]
+
+    def _run(self, export):
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            MODULE.main([str(export)])
+        return out.getvalue()
+
+    def test_an_edit_written_against_current_content_is_not_flagged(self):
+        procedure = self._procedure()
+        export = self._export({procedure["id"]: {
+            "editedAt": "2026-08-06",
+            "baseMaterialFingerprint": MODULE.review_fingerprint.procedure_fingerprint(procedure),
+            "sections": {"steps": ["A deliberate replacement step"]},
+        }})
+        self.assertNotIn("BLIND MERGE", self._run(export))
+
+    def test_an_edit_written_against_older_content_is_flagged_with_its_material_sections(self):
+        procedure = self._procedure()
+        export = self._export({procedure["id"]: {
+            "editedAt": "2026-08-06",
+            "baseMaterialFingerprint": "0" * 64,
+            "sections": {"steps": ["Written on a stale bundle"], "anatomy": ["Not material"]},
+        }})
+        report = self._run(export)
+        self.assertIn("BLIND MERGE", report)
+        self.assertIn("steps", report)
+        # anatomy is edited but not hashed, so naming it would send the reader
+        # looking for a sign-off consequence that does not exist.
+        self.assertNotIn("anatomy", report.split("BLIND MERGE")[1])
+
+    def test_an_edit_carrying_no_base_is_not_flagged(self):
+        """Exports predate the recorded base, and a warning on every record is
+        a warning the reader learns to skip."""
+        procedure = self._procedure()
+        export = self._export({procedure["id"]: {
+            "editedAt": "2026-08-06",
+            "sections": {"steps": ["No base recorded"]},
+        }})
+        self.assertNotIn("BLIND MERGE", self._run(export))
+
+    def test_flagging_does_not_refuse_the_edit(self):
+        """The reviewer is the authority on their own wording. This reports a
+        merge to read carefully; it never withholds one."""
+        procedure = self._procedure()
+        export = self._export({procedure["id"]: {
+            "editedAt": "2026-08-06",
+            "baseMaterialFingerprint": "0" * 64,
+            "sections": {"steps": ["Written on a stale bundle"]},
+        }})
+        self._run(export)
+        self.assertEqual(self._procedure()["sections"]["steps"], ["Written on a stale bundle"])
 
 
 if __name__ == "__main__":

@@ -60,10 +60,55 @@ Two consequences worth knowing before editing:
 
 - Only the material sections are hashed (`shiftMode`, `contraindications`,
   `equipment`, `steps`, `confirmation`, `troubleshooting`, `complications`,
-  plus the dosing blocks). Changing one of those after a sign-off revokes it.
+  `seniorPearls`, plus `majorBlockMonitoring` and the dosing blocks). Changing
+  one of those after a sign-off revokes it.
 - `tags` are **not** hashed. When an edit costs a procedure its place in search
   - see `check_search_ranking.py` - a tag can carry the missing term back
   without disturbing a sign-off.
+
+### What the two exports repeat, and why
+
+The device is not a fork of the content, but for a long time it behaved like
+one: it could send corrections to the repo and had no way to learn what the
+repo did with them. Three costs came out of that, and each has its own fix.
+
+**Already-landed work is re-sent.** A local edit is an override that survives
+until the repo takes it - and nothing ever retired one, so a correction merged
+and shipped months ago still rode in every export as a duplicate of the bundled
+text. `ProcedureEditStore.retireLandedEdits()` drops any override whose text is
+now character-identical to what shipped, and `UserDataStore.landedReviewKeys`
+leaves promoted sign-offs out of the review export. **The bundle is the
+acknowledgement**: a build that already contains the correction is proof the
+repo took it, so no receipt or watermark is needed - and none could be trusted,
+since only the bundle knows what was accepted. Both need a rebuild to take
+effect, which is the same rebuild that shows the merged content anyway.
+
+**A sign-off is not all-or-nothing when the material set grows.** Adding a
+field bumps `FINGERPRINT_VERSION`, and every prior digest becomes
+incomparable. `SECTIONS_BY_VERSION` keeps what each version hashed, so the
+promoter can recompute an older digest against today's content and answer the
+question the version number cannot: *the fields you signed are unchanged; only
+`seniorPearls` is outside it - re-review that section.* Still a refusal, never
+a promotion - the added fields genuinely have not been reviewed - but the
+repair is one section rather than the whole record.
+
+**Some hashed fields cannot be reached from the app.**
+`majorBlockMonitoring`, `dosing`, and `medicationDosing` are material, are not
+editable, and are not carried by the edit export. A device on an older bundle
+produces a digest that no amount of re-reviewing will fix. The promoter probes
+those fields on a mismatch and says so: rebuild, then sign off.
+
+### Reading a blind merge
+
+`apply_local_edits.py` compares the export's `baseMaterialFingerprint` against
+the shipping record and prints **BLIND MERGE** for any edit written against
+content the repo has since changed. The merge is a whole-section overwrite, so
+there is no conflict to notice: anything the repo gained after the device's
+last build is discarded silently. It is reported, never refused, and it decides nothing: a
+flagged procedure's diff is a merge rather than a change, which is worth
+knowing when reading it, but the reviewed text wins either way. A line that
+disappears from a flagged diff stays gone. See the reviewed-edits rules in
+`../CLAUDE.md`; the flag exists so the loss is recorded, not so it is undone.
 
 ## Historical Notes
 - `audits/AUDIT_AND_NEXT_STEPS.md` - earlier audit log and roadmap snapshots kept for reference, not as the primary handoff file
