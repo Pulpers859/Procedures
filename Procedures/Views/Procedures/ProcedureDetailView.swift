@@ -31,10 +31,6 @@ struct ProcedureDetailView: View {
         repository.procedures.first { $0.id == procedure.id } ?? procedure
     }
 
-    private var relatedRescueCards: [ComplicationRescueCard] {
-        repository.rescueCards.filter { $0.relatedProcedureIDs.contains(procedure.id) }
-    }
-
     private var primarySections: [ProcedureDetailSection] {
         [.shiftMode, .equipment, .steps, .complications]
     }
@@ -50,14 +46,6 @@ struct ProcedureDetailView: View {
                     header
 
                     Section {
-                        // ComplicationContent (the Rescue tab body) renders its
-                        // own full "Open Rescue" card for the same cards, with
-                        // an acuity badge the pinned strip doesn't have. Showing
-                        // both stacks the identical link twice on the one tab
-                        // that exists specifically to reach it.
-                        if !relatedRescueCards.isEmpty, selectedSection != .complications {
-                            rescueShortcuts
-                        }
                         selectedContent
                     } header: {
                         sectionSelector
@@ -247,68 +235,6 @@ struct ProcedureDetailView: View {
         )
         .background(isSelected ? Color.blue.opacity(0.12) : Color.clear, in: RoundedRectangle(cornerRadius: AppLayout.controlRadius, style: .continuous))
         .contentShape(Rectangle())
-    }
-
-    @ViewBuilder
-    private var rescueShortcuts: some View {
-        if let card = relatedRescueCards.first, relatedRescueCards.count == 1 {
-            rescueButton(card: card)
-        } else if dynamicTypeSize.isAccessibilitySize {
-            // A 220pt-wide card truncates the rescue title at accessibility
-            // sizes — on the crash path, where the title is the thing being
-            // read. Stack full width instead of scrolling horizontally.
-            VStack(spacing: 8) {
-                ForEach(relatedRescueCards) { card in
-                    rescueButton(card: card)
-                }
-            }
-            .accessibilityLabel("Related rescue cards")
-        } else {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 8) {
-                    ForEach(relatedRescueCards) { card in
-                        rescueButton(card: card)
-                            .frame(width: 220)
-                    }
-                }
-            }
-            .accessibilityLabel("Related rescue cards")
-        }
-    }
-
-    private func rescueButton(card: ComplicationRescueCard) -> some View {
-        NavigationLink {
-            RescueCardDetailView(card: card)
-        } label: {
-            HStack(spacing: 10) {
-                Image(systemName: "lifepreserver.fill")
-                    .foregroundStyle(.red)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Open rescue")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(.secondary)
-                    Text(card.title)
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.primary)
-                        .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 2)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                Spacer(minLength: 8)
-                Image(systemName: "chevron.right")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(.secondary)
-            }
-            .padding(.horizontal, 12)
-            .frame(maxWidth: .infinity, minHeight: AppLayout.controlMinHeight, alignment: .leading)
-            .background(Color.red.opacity(0.09), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous)
-                    .stroke(Color.red.opacity(0.22), lineWidth: 1)
-            )
-            .accessibilityElement(children: .combine)
-            .accessibilityLabel("Open rescue, \(card.title)")
-        }
-        .buttonStyle(.plain)
     }
 
     @ViewBuilder
