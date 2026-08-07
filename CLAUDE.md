@@ -5,6 +5,7 @@
 - This is a real contradiction, not something you are misreading. Expect it, and resolve it this way every time. Reading this file is not enough - a session on 2026-08-06 had this rule loaded verbatim, opened PR #3 anyway, and cost the owner an afternoon.
 - If you still believe you must branch or open a PR, stop and ask. Never silently.
 - You cannot undo it yourself: the agent proxy refuses remote branch deletion, so a branch you push is one the owner has to delete by hand.
+- This is now enforced, not just written down. `.claude/hooks/main-only-guard.sh` blocks the branch and PR paths before the tool runs, `.git/hooks/pre-push` refuses any ref but `main`, and `.github/workflows/main-only-policy.yml` closes any PR that still gets opened. An error starting `main-only guard:` is the policy working - do not route around it, and do not edit the guard to make it stop. It denies anything it cannot verify, so an indirect invocation (nested shell, generated script, `git -C`) is refused even when harmless; run the plain form instead.
 
 ## Start Here
 - Source-of-truth repo: `C:\Dev\Procedures`

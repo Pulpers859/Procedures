@@ -62,3 +62,145 @@ jobs:
       - name: Report audit drift (advisory)
         continue-on-error: true
         run: python3 scripts/verify_procedure_audit.py
+
+  secret-scan:
+    name: Secret scan
+    # .githooks/pre-commit is committed 0644 and core.hooksPath is unset, so
+    # until install-main-only.sh runs it, that scanner never fires. Even after,
+    # a local hook is skippable with --no-verify and absent on a fresh clone.
+    # This job is the copy that is not load-bearing on any agent's cooperation.
+    # Patterns are the ones already in .githooks/pre-commit.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Scan tracked files for credentials
+        run: |
+          set -uo pipefail
+          pattern='(ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{20,}|AKIA[0-9A-Z]{16}|BEGIN [A-Z ]*PRIVATE KEY|xox[baprs]-[A-Za-z0-9-]{10,})'
+          # The scanner and this workflow both contain the patterns verbatim.
+          hits=0
+          while IFS= read -r f; do
+            case "$f" in
+              .githooks/pre-commit|.github/workflows/validate-content.yml) continue ;;
+            esac
+            [ -f "$f" ] || continue
+            if grep -IEn "$pattern" "$f"; then
+              echo "::error file=$f::Potential credential committed to the repository"
+              hits=1
+            fi
+          done < <(git ls-files)
+          if [ "$hits" = "1" ]; then
+            echo "Secret scan failed. Move live credentials into ignored local config files."
+            exit 1
+          fi
+          echo "Secret scan clean."
+
+  guard-integrity:
+    name: Main-only guard integrity
+    # Hooks are snapshotted at session start, so a session cannot un-hook
+    # itself mid-flight — but .claude/settings.json and the hook scripts are
+    # tracked files it CAN edit and commit, weakening the next session. This
+    # job is what makes the apparatus non-self-revoking.
+    #
+    # Deliberately behavioural rather than a checksum: a checksum manifest can
+    # be updated in the same commit that guts the guard, and it goes stale on
+    # every legitimate edit. These assertions can only be satisfied by a guard
+    # that still blocks.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Assert settings.json still wires the guard
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          cfg = json.load(open(".claude/settings.json"))
+          fail = []
+
+          hooks = cfg.get("hooks", {})
+          pre = hooks.get("PreToolUse") or []
+          cmds = [h.get("command", "") for m in pre for h in (m.get("hooks") or [])]
+          if not any("main-only-guard.sh" in c for c in cmds):
+              fail.append("PreToolUse no longer runs main-only-guard.sh")
+          matchers = [m.get("matcher", "") for m in pre]
+          for needed in ("Bash", "mcp__"):
+              if not any(needed in m for m in matchers):
+                  fail.append(f"PreToolUse matcher no longer covers {needed}")
+
+          start = hooks.get("SessionStart") or []
+          scmds = [h.get("command", "") for m in start for h in (m.get("hooks") or [])]
+          if not any("install-main-only.sh" in c for c in scmds):
+              fail.append("SessionStart no longer runs install-main-only.sh")
+
+          deny = set(cfg.get("permissions", {}).get("deny") or [])
+          for r in ("mcp__github__create_pull_request",
+                    "mcp__github__push_files",
+                    "mcp__github__create_branch",
+                    "Edit(./.claude/hooks/**)"):
+              if r not in deny:
+                  fail.append(f"deny rule removed: {r}")
+
+          for bad in cfg.get("permissions", {}).get("allow") or []:
+              fail.append(f"unexpected allow rule in project settings: {bad}")
+
+          if fail:
+              print("\n".join("::error::" + f for f in fail))
+              sys.exit(1)
+          print("settings.json wiring intact.")
+          PY
+
+      - name: Assert no guard file was renamed into a gitignored name
+        run: |
+          set -euo pipefail
+          for f in .claude/settings.json .claude/hooks/main-only-guard.sh \
+                   .claude/hooks/install-main-only.sh; do
+            test -f "$f" || { echo "::error::missing $f"; exit 1; }
+            git check-ignore -q "$f" && { echo "::error::$f is gitignored"; exit 1; }
+          done
+          test -x .claude/hooks/main-only-guard.sh || { echo "::error::guard not executable"; exit 1; }
+          test -x .claude/hooks/install-main-only.sh || { echo "::error::installer not executable"; exit 1; }
+          echo "Guard files present, tracked, executable."
+
+      - name: Assert the guard still blocks
+        run: |
+          set -uo pipefail
+          G=.claude/hooks/main-only-guard.sh
+          fail=0
+
+          probe() { # expect tool_json description
+            exp="$1"; payload="$2"; desc="$3"
+            printf '%s' "$payload" | bash "$G" >/dev/null 2>&1
+            rc=$?
+            got=ALLOW; [ $rc -eq 2 ] && got=BLOCK
+            if [ "$got" != "$exp" ]; then
+              echo "::error::guard regression — expected $exp got $got: $desc"
+              fail=1
+            else
+              echo "ok   $exp  $desc"
+            fi
+          }
+          b() { printf '{"tool_name":"Bash","cwd":"%s","tool_input":{"command":%s}}' "$PWD" "$1"; }
+
+          probe ALLOW "$(b '"git push origin main"')"                              "push to main"
+          probe ALLOW "$(b '"git status"')"                                        "git status"
+          probe BLOCK "$(b '"git push -u origin claude/x"')"                       "push to claude branch"
+          probe BLOCK "$(b '"git -C . push origin claude/x"')"                     "-C bypass"
+          probe BLOCK "$(b '"git --git-dir=.git push origin claude/x"')"           "--git-dir bypass"
+          probe BLOCK "$(b '"git push origin HEAD:refs/heads/claude/x"')"          "refspec form"
+          probe BLOCK "$(b '"git push --all origin"')"                             "--all"
+          probe BLOCK "$(b '"git push origin --delete main"')"                     "delete main"
+          probe BLOCK "$(b '"bash -c \"git push origin claude/x\""')"              "nested shell"
+          probe BLOCK "$(b '"p=push; git $p origin claude/x"')"                    "variable indirection"
+          probe BLOCK "$(b '"python3 -c \"import subprocess;subprocess.run([1])\"; git push origin claude/x"')" "chained push"
+          probe BLOCK "$(b '"git push mirror main"')"                              "non-origin remote"
+          probe BLOCK "$(b '"rm -f .git/hooks/pre-push"')"                         "tamper with pre-push"
+          probe BLOCK "$(b '"echo x > .claude/settings.json"')"                    "tamper with settings"
+          probe BLOCK "$(b '"gh pr create --draft"')"                              "gh pr create"
+          probe BLOCK '{"tool_name":"mcp__github__create_pull_request","tool_input":{}}'      "MCP create_pull_request"
+          probe BLOCK '{"tool_name":"mcp__github__push_files","tool_input":{}}'               "MCP push_files"
+          probe BLOCK '{"tool_name":"mcp__anyserver__create_pull_request","tool_input":{}}'   "PR tool, unknown server"
+          probe BLOCK '{"tool_name":"Edit","tool_input":{"file_path":".claude/hooks/main-only-guard.sh"}}' "Edit the guard"
+
+          [ "$fail" = "0" ] || { echo "Main-only guard has been weakened."; exit 1; }
+          echo "Guard behaviour intact."

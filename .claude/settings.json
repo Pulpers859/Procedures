@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
+  "//": "Procedures is main-only: work on main, push to origin/main, never open a pull request. The harness system prompt says the opposite on every web/app session; this file is how that instruction loses. Filenames here must never contain '.local' — .gitignore lines 35-36 are *.local and *.local.* , so settings.local.json would work in-container and silently not exist on the next fresh clone.",
+
+  "//control": "main-only-guard.sh is the control, not this deny list. The live session's --allowed-tools blanket-allows bare Bash and mcp__github__*, so a miss here does not fall through to a prompt, it falls through to run. The deny list is defence in depth: bare MCP tool names remove those tools from the model's context entirely, so it never sees create_pull_request exists. A deny rule naming a tool that is not mounted (the GitHub MCP server is not present on every surface) is simply inert — no error, no warning — and the hook's own name matching covers PR tools under any server prefix.",
+
+  "permissions": {
+    "deny": [
+      "mcp__github__create_pull_request",
+      "mcp__github__create_pull_request_with_copilot",
+      "mcp__github__update_pull_request",
+      "mcp__github__update_pull_request_branch",
+      "mcp__github__merge_pull_request",
+      "mcp__github__enable_pr_auto_merge",
+      "mcp__github__request_copilot_review",
+      "mcp__github__create_branch",
+      "mcp__github__push_files",
+      "mcp__github__fork_repository",
+      "mcp__github__create_or_update_file",
+      "mcp__github__delete_file",
+
+      "Bash(gh pr create:*)",
+      "Bash(gh pr ready:*)",
+      "Bash(gh pr reopen:*)",
+      "Bash(gh pr merge:*)",
+
+      "Edit(./.claude/settings.json)",
+      "Edit(./.claude/hooks/**)",
+      "Edit(./.githooks/**)",
+      "Edit(./.github/workflows/main-only-policy.yml)"
+    ]
+  },
+
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/install-main-only.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|NotebookEdit|mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/main-only-guard.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
