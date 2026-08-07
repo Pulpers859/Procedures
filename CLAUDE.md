@@ -50,6 +50,9 @@
 - Use `ui-ux-resource-eval` only for external UI/UX resource decisions.
 
 ## Context Discipline
+- Query the content, do not read it. `python3 scripts/pq.py ls|show|sections|grep|fp|diff|stats` (`-h` for options, `--kind rescue|kit`). Reading `procedures.json` whole costs about 146k tokens; one record is about 2k.
+- Do not hand-roll a python one-liner to inspect content. 688 of those were written across past sessions - 744 KB of throwaway code - and two thirds were re-implementing what `pq.py` does. If it cannot answer your question, extend it.
+- `scripts/session_brief.py` is printed into context at SessionStart. It carries the counts, the fingerprint version, and the material section list, all computed live. Trust it over anything you remember.
 - Search first and open only task-relevant files.
 - Avoid loading full clinical JSON files unless the task requires content inspection or editing.
 - Read deeper docs only when the task needs them; start from `PROJECT_HANDOFF.md` and `docs/README.md`.

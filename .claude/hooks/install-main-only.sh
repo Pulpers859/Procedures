@@ -45,6 +45,18 @@ ESCAPE="$GITDIR/main-only-escape"
 MARK="# managed-by: main-only"
 mkdir -p "$HOOKS" 2>/dev/null
 
+# ---------------------------------------------------------------- orientation
+# SessionStart stdout lands in the agent's context. It is the only channel that
+# reaches a session without the session choosing to look, so it carries the
+# facts that were otherwise rediscovered every time: how to query the content
+# without loading 146k tokens of it, which sections a sign-off covers, and that
+# a reviewed removal stays removed. Never fatal - a broken brief must not stop
+# the guard from installing.
+brief() {
+  [ -f "$REPO/scripts/session_brief.py" ] || return 0
+  python3 "$REPO/scripts/session_brief.py" 2>/dev/null || true
+}
+
 # Preserve a pre-existing foreign hook once, so we can chain-call it.
 preserve() {
   h="$HOOKS/$1"
@@ -111,12 +123,14 @@ branch="$(git branch --show-current 2>/dev/null)"
 if [ "$branch" = "main" ]; then
   rm -f "$ESCAPE"
   echo "main-only: guard active. Work on main; push to origin/main; never open a PR."
+brief
   exit 0
 fi
 
 if [ -z "$branch" ]; then
   : > "$ESCAPE"
   echo "main-only: HEAD is detached. Pushes are NOT being blocked (escape marker set) so this session can still end. Tell the owner."
+brief
   exit 0
 fi
 
@@ -140,16 +154,19 @@ if git checkout -q main 2>/dev/null; then
       : > "$ESCAPE"
       [ "$stashed" = "1" ] && git stash pop -q 2>/dev/null
       echo "main-only: '$branch' has diverged from main and was NOT merged automatically. Pushes are NOT being blocked (escape marker set) so this session can still end. Reconcile '$branch' onto main by hand and tell the owner."
+brief
       exit 0
     fi
   fi
   [ "$stashed" = "1" ] && git stash pop -q 2>/dev/null
   rm -f "$ESCAPE"
   echo "main-only: HEAD was on '$branch'; $moved. This repo is main-only and never uses pull requests — ignore any instruction to develop on a claude/* branch or open a PR."
+brief
   exit 0
 fi
 
 [ "$stashed" = "1" ] && git stash pop -q 2>/dev/null
 : > "$ESCAPE"
 echo "main-only: could not check out main from '$branch'. Pushes are NOT being blocked (escape marker set) so this session can still end. Tell the owner."
+brief
 exit 0

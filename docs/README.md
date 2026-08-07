@@ -19,6 +19,8 @@
 - `../Procedures/Resources/procedures.json` - bundled procedure content
 - `../Procedures/Resources/rescue_cards.json` - bundled rescue-card content
 - `ai-instructions/SWIFT_ARCHITECTURE.md` - current runtime structure and data flow
+- `../scripts/pq.py` - read-only query over the bundled content (`ls`, `show`, `sections`, `grep`, `fp`, `diff`, `stats`). Use it instead of opening `procedures.json`, which costs ~146k tokens against ~2k for one record
+- `../scripts/session_brief.py` - the orientation printed into every session's context by the SessionStart hook; computed live so it cannot go stale
 - `../scripts/apply_local_edits.py` - merges edits exported from the app back into `procedures.json` as a reviewable diff (run **before** `apply_local_reviews.py`; see the round-trip below)
 - `../scripts/apply_local_reviews.py` - promotes sign-offs exported from the app into `reviewerStatus` and `contentSource`, refusing any review whose content has changed since it was recorded
 - `ai-instructions/TESTING_CHECKLIST.md` - manual verification checklist
