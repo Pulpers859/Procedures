@@ -1,0 +1,38 @@
+{
+  "assetId": "canthotomy_inferior_crus",
+  "procedure": "lateral_canthotomy",
+  "title": "Inferior crus release",
+  "view": "Frontal view of the patient's right eye. Lateral is image-left; the caruncle marks medial.",
+  "teachingPoint": "The inferior crus is deep, runs from the lateral end of the lower lid to the inner face of the lateral orbital rim, and sits along the lower edge of the canthotomy wound. Cut it toward the rim, inferiorly, away from the globe.",
+  "claims": [
+    "Frontal view of the patient's right eye: lateral canthus image-left, caruncle image-right.",
+    "The canthotomy incision runs horizontally from the lateral canthus to the lateral orbital rim.",
+    "The lateral orbital rim is drawn about 1 cm lateral to the lateral canthus, inside the 1-2 cm incision the steps give.",
+    "The inferior crus (teal, hatched, dashed = deep) runs from the lateral end of the lower lid to the rim, below the incision.",
+    "The superior crus (grey, dashed) is shown above the incision but not marked as a target.",
+    "The cantholysis cut crosses the inferior crus near the rim; the arrow points inferiorly, away from the globe. The slight posterior direction cannot be shown in a frontal view.",
+    "Only two labels: Lateral orbital rim, Inferior crus."
+  ],
+  "requiredElements": [
+    "lateral-canthus", "medial-canthus", "caruncle", "iris", "lateral-orbital-rim",
+    "inferior-crus", "superior-crus", "canthotomy-incision", "cantholysis-cut", "cut-direction"
+  ],
+  "labels": {
+    "Lateral orbital rim": "lateral-orbital-rim",
+    "Inferior crus": "inferior-crus"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "lateral-canthus", "b": "medial-canthus", "why": "right eye, frontal: lateral canthus is image-left"},
+    {"check": "leftOf", "a": "iris", "b": "caruncle", "why": "caruncle sits medial (image-right)"},
+    {"check": "leftOf", "a": "lateral-orbital-rim", "b": "lateral-canthus", "why": "rim is lateral to the canthus"},
+    {"check": "endNear", "a": "canthotomy-incision", "end": "start", "b": "lateral-canthus", "maxPx": 8, "why": "incision starts at the lateral canthus"},
+    {"check": "endNear", "a": "canthotomy-incision", "end": "end", "b": "lateral-orbital-rim", "maxPx": 4, "why": "incision reaches the lateral orbital rim"},
+    {"check": "below", "a": "inferior-crus", "b": "canthotomy-incision", "why": "inferior crus lies below the incision"},
+    {"check": "below", "a": "canthotomy-incision", "b": "superior-crus", "why": "superior crus lies above the incision"},
+    {"check": "crosses", "a": "cantholysis-cut", "b": "inferior-crus", "why": "cantholysis cut crosses the inferior crus"},
+    {"check": "noOverlap", "a": "cantholysis-cut", "b": "superior-crus", "why": "cut does not touch the superior crus"},
+    {"check": "pointsDown", "a": "cut-direction", "why": "cut direction is inferior"},
+    {"check": "awayFrom", "a": "cut-direction", "b": "iris", "why": "cut direction moves away from the globe"}
+  ],
+  "review": {"status": "draft", "sourceSha256": null, "reviewedOn": null}
+}

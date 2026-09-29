@@ -87,6 +87,16 @@ AI image tools may be used for internal drafts only:
 
 Before release, the final asset should be redrawn, corrected, or explicitly approved by a clinician. Never ship an AI-generated anatomy/procedure diagram solely because it looks plausible.
 
+**Primary lane since 2026-09-29: code-drawn visuals in `visuals/`.** Each image is
+built from named geometry, checked against a spec in the browser, reviewed by
+the owner on a phone review sheet, and bundled only with an approval tied to
+the drawing's hash. See `visuals/README.md`. Real ultrasound stills and rhythm
+strips are not drawn at all: those slots take an image the owner imports on the
+device (Add Image on the empty card).
+
+The older AI lanes below produced two bundled images with rubric-critical
+errors and are reference only.
+
 Two draft render lanes exist, sharing one prompt spec (`docs/visual-assets/gemini_prompts.json`):
 
 - Gemini API: `docs/visual-assets/GEMINI_WORKFLOW.md` and `scripts/generate_visual_assets_gemini.py`.
