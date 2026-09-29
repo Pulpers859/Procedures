@@ -31,8 +31,8 @@
     }
   ],
   "review": {
-    "status": "draft",
-    "sourceSha256": null,
-    "reviewedOn": null
+    "status": "approved",
+    "sourceSha256": "507baafbefbde5e356c5685931c9dcc456dd46684b1be5c9131f47450edceb9a",
+    "reviewedOn": "2026-09-29"
   }
 }

@@ -11,6 +11,7 @@ These assets are wired in `Procedures/Resources/procedures.json` and live in `Pr
 | Asset id | Procedure | Bundle status | Evidence |
 | --- | --- | --- | --- |
 | `canthotomy_inferior_crus` | Lateral Canthotomy & Cantholysis | Bundled and wired, owner-approved 2026-09-29 | Code-drawn: `visuals/canthotomy_inferior_crus/`, approval tied to the SVG hash in `spec.json` |
+| `pigtail_seldinger` | Pigtail Pleural Catheter | Bundled and wired, owner-approved 2026-09-29 | Gemini-painted base plus code labels: `visuals/pigtail_seldinger/`, provenance in `provenance.json` |
 
 ## Removed 2026-09-29
 

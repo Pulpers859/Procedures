@@ -1144,9 +1144,9 @@
         "kind": "Setup",
         "title": "Dilate to chest-wall depth only",
         "subtitle": "Measure chest-wall depth on ultrasound before puncture; dilate only that far, just through the parietal pleura. The wire stays beyond the dilator tip at all times.",
-        "assetName": null,
+        "assetName": "pigtail_seldinger",
         "systemImage": "arrow.down.to.line",
-        "caption": "",
+        "caption": "Cross-section of one intercostal space: head at top, skin on the left.",
         "clinicalWarning": "Driven to the hub, the dilator can lacerate the lung or heart."
       }
     ],
