@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "filename": "canthotomy_inferior_crus.png",
+      "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "canthotomy_inferior_crus-dark.png",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

@@ -10,17 +10,14 @@ These assets are wired in `Procedures/Resources/procedures.json` and live in `Pr
 
 | Asset id | Procedure | Bundle status | Evidence |
 | --- | --- | --- | --- |
-| `cric_membrane` | Cricothyrotomy | Bundled and wired | `cric_membrane.imageset`, `assetName: cric_membrane` |
-
-`cric_membrane` fails its own answer key (2026-09-29 expert review): the vertical
-skin incision sits on the thyroid lamina above the membrane, and the cricoid is
-drawn as a second shield. It stays bundled pending the owner's decision.
+| `canthotomy_inferior_crus` | Lateral Canthotomy & Cantholysis | Bundled and wired, owner-approved 2026-09-29 | Code-drawn: `visuals/canthotomy_inferior_crus/`, approval tied to the SVG hash in `spec.json` |
 
 ## Removed 2026-09-29
 
 | Asset id | Why |
 | --- | --- |
-| `canthotomy_inferior_crus` | Inferior crus drawn as a stalk under the middle of the lower lid, not between the lateral canthal angle and the orbital rim; Gemini watermark in the corner. Slot unwired (`assetName: null`). |
+| `cric_membrane` | Vertical skin incision on the thyroid lamina above the membrane; cricoid drawn as a second shield. Removed at the owner's request; slot unwired. |
+| `canthotomy_inferior_crus` (Gemini version) | Inferior crus drawn as a stalk under the middle of the lower lid, not between the lateral canthal angle and the orbital rim; Gemini watermark in the corner. Slot unwired (`assetName: null`). |
 | `cric_danger_zone` | Thyroid isthmus drawn over the membrane, membrane leader landing on the cricoid, arteries branching off veins. Was bundled but no slot referenced it. |
 
 ## Reviewable Drafts

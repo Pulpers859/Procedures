@@ -786,7 +786,7 @@
         "kind": "Landmark",
         "title": "Cricothyroid membrane palpation",
         "subtitle": "Palpate the thyroid cartilage notch, slide inferiorly to the soft depression before the cricoid ring. This is the cricothyroid membrane \u2014 the incision target.",
-        "assetName": "cric_membrane",
+        "assetName": null,
         "systemImage": "scalpel",
         "caption": "Target: cricothyroid membrane between the thyroid and cricoid cartilage.",
         "clinicalWarning": "Vertical skin incision reduces risk of vessel injury. Horizontal membrane incision."
@@ -3544,7 +3544,7 @@
         "kind": "Landmark",
         "title": "Inferior crus release",
         "subtitle": "The lateral canthal tendon has a superior and an inferior crus; the cantholysis target is the inferior crus at the orbital rim.",
-        "assetName": null,
+        "assetName": "canthotomy_inferior_crus",
         "systemImage": "eye.trianglebadge.exclamationmark",
         "caption": "Cut the inferior crus at the lateral canthus, angling away from the globe toward the orbital rim.",
         "clinicalWarning": "Aim toward the lateral orbital rim, away from the globe."
