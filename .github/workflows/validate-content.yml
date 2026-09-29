@@ -170,8 +170,13 @@ jobs:
 
           probe() { # expect tool_json description
             exp="$1"; payload="$2"; desc="$3"
-            printf '%s' "$payload" | bash "$G" >/dev/null 2>&1
-            rc=$?
+            # Captured with `||`, not read from `$?` on the next line: Actions
+            # runs this step under `bash -e`, so the guard's exit 2 — the very
+            # BLOCK being tested for — ended the step at the first probe that
+            # expected one. Every run from 2026-08-07 failed that way with the
+            # guard itself intact.
+            rc=0
+            printf '%s' "$payload" | bash "$G" >/dev/null 2>&1 || rc=$?
             got=ALLOW; [ $rc -eq 2 ] && got=BLOCK
             if [ "$got" != "$exp" ]; then
               echo "::error::guard regression — expected $exp got $got: $desc"
