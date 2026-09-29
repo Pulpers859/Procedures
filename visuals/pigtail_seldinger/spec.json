@@ -1,0 +1,38 @@
+{
+  "assetId": "pigtail_seldinger",
+  "procedure": "pigtail_catheter",
+  "title": "Dilate to chest-wall depth only",
+  "view": "Sagittal cross-section of one intercostal space, lateral chest wall. Head at top, skin on the left, deep to the right.",
+  "teachingPoint": "The dilator goes only through the measured chest-wall depth, stopping at the parietal pleura. The wire stays beyond its tip, and the lung is not approached.",
+  "claims": [
+    "Head at top, skin on the left; layers run skin, fat, intercostal muscle with ribs, parietal pleura, pleural fluid, lung.",
+    "The neurovascular bundle is three cut ends under the upper rib, vein, artery, nerve from top to bottom.",
+    "The tract crosses the space below the bundle, above the lower rib (mid-space rather than hugging the lower rib).",
+    "The dilator is one continuous piece with a length still outside the skin, so it is not driven to its hub.",
+    "The dilator tip tents the parietal pleura and goes no further; the guidewire exits the tip into the fluid with a J curve that does not touch the lung.",
+    "The cyan bracket spans skin to parietal pleura: the chest-wall depth measured on ultrasound.",
+    "The base art has no text or watermark; the two labels are drawn by code: Parietal pleura, Measured depth."
+  ],
+  "requiredElements": [
+    "parietal-pleura",
+    "measured-depth",
+    "dilator-tip"
+  ],
+  "labels": {
+    "Parietal pleura": "parietal-pleura",
+    "Measured depth": "measured-depth"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "measured-depth",
+      "b": "dilator-tip",
+      "why": "the depth bracket starts at the skin, left of the dilator tip"
+    }
+  ],
+  "review": {
+    "status": "draft",
+    "sourceSha256": null,
+    "reviewedOn": null
+  }
+}

@@ -54,6 +54,22 @@ scripts/tests/test_code_drawn_visuals.py   CI guard (no browser)
    Approval is recorded against the SVG's SHA-256; any later edit voids it, and
    CI fails if a bundled drawing no longer matches its approval.
 
+## Painted base plus code labels
+
+When the art comes from an image model (for example `pigtail_seldinger`,
+painted by Gemini Nano Banana Pro in the Gemini app), the plate is `base.jpg`
+plus a `draw.py` that places it and draws the labels. The anatomy in a raster
+cannot be measured, so:
+
+- the owner iterates the painting in Gemini, and the agent checks it against
+  the claims in `spec.json` by eye, zooming into the instrument and landmarks;
+- label targets are regions hand-traced over the base (`DEBUG=1` shows them),
+  and the renderer checks that each leader lands inside its region;
+- `provenance.json` records the prompt, every repair, what was rejected, and
+  known limits;
+- the base's SHA-256 is written into the SVG, so replacing the painting voids
+  an approval just as editing a drawing does.
+
 ## House style
 
 - 1600 x 1200 canvas (4:3); it shows at about 350 pt wide on the phone.

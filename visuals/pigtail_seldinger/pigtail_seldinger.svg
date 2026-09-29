@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F8F5EC; }</style>
+<defs></defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="anatomy" data-base-sha256="fc52bff6c7de6bde9f0762e31ed3ce0918eb3842d46736d00c906a6e7e83641b">
+  <image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
+  <polygon id="parietal-pleura" points="1013.3,442.8 1014.7,536.7 1024,584.2 1017,614.4 986.2,654.8 956.5,746.5 974.2,752.2 1003.1,662.6 1033.6,623 1042.7,583.8 1033.3,535.3 1032,442.5" fill="#000" fill-opacity="0"/>
+  <polygon id="measured-depth" points="397.3,691.3 1040,691.3 1040,670 397.3,670" fill="#000" fill-opacity="0"/>
+  <circle id="dilator-tip" cx="1024" cy="596" r="6" fill="#000" fill-opacity="0"/>
+</g>
+
+<g id="labels"><g class="label emphasis" data-label="Parietal pleura" data-target="parietal-pleura"><polyline class="leader-halo" points="1150,190 1024,533.3"/><polyline class="leader" points="1150,190 1024,533.3"/><circle class="leader-dot" cx="1024" cy="533.3" r="7"/><text x="1010" y="170" text-anchor="start"><tspan x="1010" dy="0">Parietal pleura</tspan></text></g><g class="label" data-label="Measured depth" data-target="measured-depth"><polyline class="leader-halo" points="200,845 480,680.7"/><polyline class="leader" points="200,845 480,680.7"/><circle class="leader-dot" cx="480" cy="680.7" r="7"/><text x="48" y="900" text-anchor="start"><tspan x="48" dy="0">Measured</tspan><tspan x="48" dy="66">depth</tspan></text></g></g>
+
+</svg>

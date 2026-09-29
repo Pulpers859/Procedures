@@ -1142,12 +1142,12 @@
       {
         "id": "pigtail_seldinger",
         "kind": "Setup",
-        "title": "Seldinger technique setup",
-        "subtitle": "Needle \u2192 wire \u2192 dilator \u2192 pigtail catheter over wire. Confirm wire position with ultrasound before dilation. The pigtail curl should deploy in the pleural space.",
+        "title": "Dilate to chest-wall depth only",
+        "subtitle": "Measure chest-wall depth on ultrasound before puncture; dilate only that far, just through the parietal pleura. The wire stays beyond the dilator tip at all times.",
         "assetName": null,
         "systemImage": "arrow.down.to.line",
         "caption": "",
-        "clinicalWarning": "Never advance the dilator without confirmed wire position."
+        "clinicalWarning": "Driven to the hub, the dilator can lacerate the lung or heart."
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
