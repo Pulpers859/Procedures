@@ -82,8 +82,11 @@ CHECK_JS = r"""
       const [a, b] = lineEnds(id);
       return Array.from({ length: n + 1 }, (_, i) => ({ x: a.x + (b.x - a.x) * i / n, y: a.y + (b.y - a.y) * i / n }));
     }
+    // At least one sample every 4 px, so a long path cannot step over a thin
+    // structure (a 1700 px bougie crossing a 16 px membrane).
     const len = e.getTotalLength();
-    return Array.from({ length: n + 1 }, (_, i) => { const q = e.getPointAtLength(len * i / n); return toCanvas(e, q.x, q.y); });
+    const m = Math.max(n, Math.ceil(len / 4));
+    return Array.from({ length: m + 1 }, (_, i) => { const q = e.getPointAtLength(len * i / m); return toCanvas(e, q.x, q.y); });
   };
   const f = (v) => Math.round(v);
 
@@ -126,7 +129,7 @@ CHECK_JS = r"""
       ok = a.y > b.y; detail = `${f(a.y)} > ${f(b.y)}`;
     } else if (c.check === 'crosses') {
       const hits = samples(c.a, 40).filter((p) => inside(c.b, p.x, p.y)).length;
-      ok = hits > 0; detail = `${hits}/41 samples of #${c.a} inside #${c.b}`;
+      ok = hits > 0; detail = `${hits} samples of #${c.a} inside #${c.b}`;
     } else if (c.check === 'endNear') {
       const ends = lineEnds(c.a);
       const p = c.end === 'start' ? ends[0] : ends[1];
@@ -147,7 +150,7 @@ CHECK_JS = r"""
       ok = db > da; detail = `start ${f(da)} px, end ${f(db)} px from #${c.b}`;
     } else if (c.check === 'noOverlap') {
       const hits = samples(c.a, 40).filter((p) => inside(c.b, p.x, p.y)).length;
-      ok = hits === 0; detail = `${hits}/41 samples of #${c.a} inside #${c.b}`;
+      ok = hits === 0; detail = `${hits} samples of #${c.a} inside #${c.b}`;
     } else {
       detail = `unknown check ${c.check}`;
     }
