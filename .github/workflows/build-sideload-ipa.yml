@@ -1,0 +1,138 @@
+name: Build Sideload IPA
+
+# Builds an installable .ipa for the owner's iPhone, published as a release
+# with a direct link. There is no Mac and no Apple Developer account: the
+# phone installs by re-signing this unsigned .ipa with Signulous. See
+# PROJECT_HANDOFF.md, "READ THIS FIRST".
+#
+# Manual, not on every push. You only want this when you intend to install.
+# Ported from the TimeCapsule repo's workflow of the same name, which is the
+# one this route was proven on.
+on:
+  workflow_dispatch:
+
+permissions:
+  # write, because the .ipa is published as a release so it has a direct link
+  # the phone itself can open.
+  contents: write
+
+concurrency:
+  group: sideload-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ipa:
+    name: Archive, package and publish
+    # The runner ios-tests.yml pins, so this archives with the same toolchain
+    # that already builds and tests the app.
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Report Xcode toolchain
+        run: xcodebuild -version
+
+      # Built unsigned on purpose.
+      #
+      # Signulous re-signs whatever it is given with its own certificate, so
+      # signing here would only be thrown away — and signing properly needs
+      # an Apple Developer account, which is the thing this route exists to
+      # avoid. `CODE_SIGNING_ALLOWED=NO` is what makes that possible.
+      #
+      # Unlike TimeCapsule, nothing has to be ad-hoc signed afterwards: this
+      # app has no entitlements file, no App Group and no extension, so there
+      # is nothing a re-signer would need to find already declared.
+      - name: Archive
+        shell: bash
+        run: |
+          set -o pipefail
+          xcodebuild archive \
+            -project 'Procedures.xcodeproj' \
+            -scheme 'Procedures' \
+            -configuration 'Release' \
+            -destination 'generic/platform=iOS' \
+            -archivePath 'build/Procedures.xcarchive' \
+            -skipMacroValidation \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" 2>&1 | tee archive.log
+          status=${PIPESTATUS[0]}
+          if [[ "$status" -ne 0 ]]; then exit "$status"; fi
+
+      # An .ipa is a zip with the .app inside a folder called Payload. That is
+      # the whole format; no Apple tool is needed to make one.
+      - name: Package IPA
+        shell: bash
+        run: |
+          set -euo pipefail
+          app="build/Procedures.xcarchive/Products/Applications/Procedures.app"
+          if [[ ! -d "$app" ]]; then
+            echo "No .app in the archive at $app" >&2
+            ls -R build/Procedures.xcarchive/Products >&2 || true
+            exit 1
+          fi
+
+          # Checked rather than assumed: an .ipa missing its content still
+          # installs, and would only show up as an empty app on the phone.
+          for resource in procedures.json rescue_cards.json; do
+            if [[ -z "$(find "$app" -name "$resource" -print -quit)" ]]; then
+              echo "$resource is not bundled in the app." >&2
+              exit 1
+            fi
+          done
+          echo "Clinical content bundled: yes"
+
+          mkdir -p out/Payload
+          cp -R "$app" out/Payload/
+          (cd out && zip -qry "Procedures.ipa" Payload)
+          rm -rf out/Payload
+
+          size=$(du -h out/Procedures.ipa | cut -f1)
+          echo "Built out/Procedures.ipa ($size)"
+
+      # Artifacts can only be downloaded from a signed-in desktop browser,
+      # which is no use when the phone doing the installing is the only
+      # device to hand. A release asset on a public repo has a plain direct
+      # link that Safari on the phone can open and Signulous can be pointed
+      # at. Tagged sideload-<N>, which release-readiness.yml's `v*` tag
+      # trigger does not match.
+      - name: Publish as a release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="sideload-${{ github.run_number }}"
+          gh release delete "$tag" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$tag" 'out/Procedures.ipa' \
+            --title "Procedures sideload build ${{ github.run_number }}" \
+            --notes "Unsigned build of ${{ github.sha }} for signing with Signulous." \
+            --prerelease
+          url="${{ github.server_url }}/${{ github.repository }}/releases/download/$tag/Procedures.ipa"
+          echo "IPA_URL=$url" >> "$GITHUB_ENV"
+          echo "Direct link: $url"
+
+      - name: How to install this
+        shell: bash
+        run: |
+          cat <<NOTE
+          ============================================================
+          Download this straight onto the iPhone:
+
+            $IPA_URL
+
+            1. Open that link in Safari on the phone.
+            2. Give it to Signulous and sign it.
+            3. Install from Signulous.
+          ============================================================
+          NOTE
+
+      - name: Upload archive log on failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: sideload-archive-log
+          path: 'archive.log'
+          if-no-files-found: warn
+          retention-days: 7

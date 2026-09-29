@@ -7,6 +7,11 @@
 - You cannot undo it yourself: the agent proxy refuses remote branch deletion, so a branch you push is one the owner has to delete by hand.
 - This is now enforced, not just written down. `.claude/hooks/main-only-guard.sh` blocks the branch and PR paths before the tool runs, `.git/hooks/pre-push` refuses any ref but `main`, and `.github/workflows/main-only-policy.yml` closes any PR that still gets opened. An error starting `main-only guard:` is the policy working - do not route around it, and do not edit the guard to make it stop. It denies anything it cannot verify, so an indirect invocation (nested shell, generated script, `git -C`) is refused even when harmless; run the plain form instead.
 
+## Shipping A Build To The Owner's iPhone
+- No Mac and no Apple Developer account. Builds install by re-signing an unsigned `.ipa` with Signulous on the phone. Xcode, a cable, TestFlight and CI artifacts are all useless here.
+- Trigger `.github/workflows/build-sideload-ipa.yml`, wait for it, and hand over the release link it publishes: `https://github.com/Pulpers859/Procedures/releases/download/sideload-<N>/Procedures.ipa`.
+- Full procedure and the limits of a sideloaded build: `PROJECT_HANDOFF.md`, first section.
+
 ## Start Here
 - Source-of-truth repo: `C:\Dev\Procedures`
 - App source: `C:\Dev\Procedures\Procedures`

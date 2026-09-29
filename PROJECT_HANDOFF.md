@@ -1,5 +1,69 @@
 # Project Handoff
 
+## READ THIS FIRST — How To Get A Build Onto The Owner's iPhone
+
+**The owner has no Apple Developer account and no Mac.** They install builds by
+re-signing an unsigned `.ipa` with **Signulous** on the phone itself. Do not
+tell them to open Xcode, connect a cable, use TestFlight, or download a CI
+*artifact* — none of those work for them.
+
+**There is a workflow that does this. Use it. Do not invent another.** It is
+the same route the TimeCapsule repo uses, where it was proven.
+
+### The whole loop
+
+1. Commit and push to `main` as normal.
+2. Trigger `.github/workflows/build-sideload-ipa.yml` (manual, no inputs) —
+   with the GitHub tools, or:
+   ```bash
+   curl -s -o /dev/null -w "%{http_code}\n" \
+     -X POST \
+     -H "Authorization: Bearer $GITHUB_TOKEN" \
+     -H "Content-Type: application/json" \
+     -H "Accept: application/vnd.github+json" \
+     "https://api.github.com/repos/Pulpers859/Procedures/actions/workflows/build-sideload-ipa.yml/dispatches" \
+     -d '{"ref":"main"}'
+   ```
+   `204` means it started. `415` means `Content-Type: application/json` is missing.
+3. Wait for it to finish. Poll, do not guess:
+   ```bash
+   curl -s "https://api.github.com/repos/Pulpers859/Procedures/actions/workflows/build-sideload-ipa.yml/runs?per_page=1"
+   ```
+4. Hand over the release link, and nothing else to do but tap it:
+   `https://github.com/Pulpers859/Procedures/releases/download/sideload-<N>/Procedures.ipa`
+   (`<N>` is the run number; the newest release shows it.)
+
+They open it in Safari on the phone, sign it in Signulous, and install.
+
+### Why a release and not an artifact
+
+Actions **artifacts cannot be downloaded on a phone**: they need a signed-in
+desktop browser. A **public release asset** has a plain direct URL Safari can
+open and Signulous can be pointed at. The repo is public, so no sign-in is
+needed. Do not revert to artifacts.
+
+### What the workflow does
+
+- Archives the Release configuration **unsigned** (`CODE_SIGNING_ALLOWED=NO`)
+  on the same pinned runner as `ios-tests.yml`. Signulous re-signs with its own
+  certificate.
+- Fails if `procedures.json` or `rescue_cards.json` is not bundled, since an
+  app without its content still installs.
+- Zips `Payload/Procedures.app` into `Procedures.ipa` — that is the whole
+  format — and publishes it as a prerelease tagged `sideload-<N>`, which the
+  `v*` trigger in `release-readiness.yml` does not match.
+
+### Limits of a sideloaded build
+
+- Signulous certificates expire and can be revoked; when that happens the app
+  stops opening until it is re-signed. That is the certificate, not the app.
+- It installs under Signulous's signing identity, not the project's bundle
+  identifier and team. Anything tied to those (App Groups, iCloud, push) would
+  not work, and none of it is used today. Add any of them and this route
+  needs revisiting.
+- CI cannot see the phone. How it looks and behaves on device has to come back
+  from the owner — ask for the specific observation.
+
 ## Project Identity
 - Project name: `Procedures`
 - App/product name: `Procedures`
