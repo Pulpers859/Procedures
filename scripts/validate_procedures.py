@@ -344,7 +344,10 @@ def validate_procedures(data):
         # therefore reader-facing text and is checked as such. Pending artwork
         # is still not a content issue.
         for visual in item.get("visualAssets", []):
-            for field in ["id", "kind", "title", "subtitle"]:
+            # "title" is deliberately absent: optional since 2026-09-29 by
+            # owner decision, because a card whose image describes the step
+            # needs no heading. The subtitle still has to be there.
+            for field in ["id", "kind", "subtitle"]:
                 if not visual.get(field):
                     issues.append(("WARNING", title, f"visual asset missing {field}"))
             # A caption captions an image. With no artwork the card already

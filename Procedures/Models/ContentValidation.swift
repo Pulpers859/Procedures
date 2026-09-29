@@ -159,9 +159,12 @@ enum ContentValidator {
         // Visual assets are an optional enhancement, shown only when a real
         // image is bundled. Validate their structure when present, but do not
         // flag their absence or pending artwork as content issues.
+        // A title is optional (owner decision 2026-09-29: a card whose image
+        // describes the step needs no heading), so the subtitle is what every
+        // card must carry.
         for asset in procedure.visualAssets ?? [] {
-            if asset.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                add(.warning, "visual asset \(asset.id) is missing a title.")
+            if asset.subtitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                add(.warning, "visual asset \(asset.id) is missing a subtitle.")
             }
         }
 

@@ -289,6 +289,13 @@ struct ProcedureVisualAsset: Identifiable, Codable, Hashable {
     let systemImage: String?
     let caption: String
     let clinicalWarning: String?
+
+    /// Titles are optional. Where there is none, screen readers and the
+    /// full-screen viewer fall back to the kind ("Setup", "Landmark").
+    var displayName: String {
+        let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? kind.rawValue : trimmed
+    }
 }
 
 /// Properties are `var` so a locally edited section can replace one field on a

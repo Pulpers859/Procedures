@@ -110,7 +110,7 @@ struct VisualAssetCard: View {
                             .font(.subheadline.weight(.semibold))
                             .frame(minHeight: 44)
                     }
-                    .accessibilityLabel("Add an image for \(asset.title)")
+                    .accessibilityLabel("Add an image for \(asset.displayName)")
                 }
                 .padding(.horizontal, 16)
                 .padding(.bottom, 12)
@@ -118,8 +118,10 @@ struct VisualAssetCard: View {
 
             // Title + subtitle
             VStack(alignment: .leading, spacing: 4) {
-                Text(asset.title)
-                    .font(.subheadline.weight(.semibold))
+                if !asset.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    Text(asset.title)
+                        .font(.subheadline.weight(.semibold))
+                }
                 Text(asset.subtitle)
                     .font(.caption)
                     .foregroundStyle(.secondary)
@@ -208,7 +210,7 @@ struct VisualAssetCard: View {
             Text(importError ?? "")
         }
         .fullScreenCover(item: $fullScreenImage) { visual in
-            ZoomableVisualView(image: visual.image, title: asset.title)
+            ZoomableVisualView(image: visual.image, title: asset.displayName)
         }
     }
 
@@ -225,7 +227,7 @@ struct VisualAssetCard: View {
         .buttonStyle(.plain)
         .padding(.horizontal, 16)
         .padding(.bottom, 12)
-        .accessibilityLabel(asset.title)
+        .accessibilityLabel(asset.displayName)
         .accessibilityHint("Opens full screen with zoom")
     }
 
@@ -335,7 +337,7 @@ struct SchematicPlaceholder<Action: View>: View {
                     .background(Color(.tertiarySystemFill), in: Capsule())
             }
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel("\(asset.kind.rawValue) image: \(asset.title). Image pending.")
+            .accessibilityLabel("\(asset.kind.rawValue) image: \(asset.displayName). Image pending.")
 
             action()
         }
