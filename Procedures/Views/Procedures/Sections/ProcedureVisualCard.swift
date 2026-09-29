@@ -50,11 +50,35 @@ enum ImportedVisualStore {
         return base.appendingPathComponent("ImportedVisuals", isDirectory: true)
     }
 
-    static func fileURL(for assetID: String) -> URL {
+    static func fileURL(for assetID: String, in directory: URL = directory) -> URL {
         let safe = assetID.unicodeScalars
             .map { CharacterSet.alphanumerics.contains($0) || $0 == "_" || $0 == "-" ? String($0) : "_" }
             .joined()
         return directory.appendingPathComponent("\(safe).jpg")
+    }
+
+    /// Every stored image as JPEG bytes keyed by visual asset id, for the
+    /// portable recovery package.
+    static func allImageData(in directory: URL = directory) -> [String: Data] {
+        let urls = (try? FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)) ?? []
+        var result: [String: Data] = [:]
+        for url in urls where url.pathExtension == "jpg" {
+            if let data = try? Data(contentsOf: url) {
+                result[url.deletingPathExtension().lastPathComponent] = data
+            }
+        }
+        return result
+    }
+
+    static func storedData(for assetID: String, in directory: URL = directory) -> Data? {
+        try? Data(contentsOf: fileURL(for: assetID, in: directory))
+    }
+
+    /// Writes already-encoded JPEG bytes back, as restore does.
+    static func writeData(_ data: Data, for assetID: String, in directory: URL = directory) throws {
+        guard UIImage(data: data) != nil else { throw ImportError.unreadable }
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        try data.write(to: fileURL(for: assetID, in: directory), options: [.atomic, .completeFileProtection])
     }
 
     static func image(for assetID: String) -> UIImage? {

@@ -22,6 +22,11 @@ struct ClinicalRecoveryPackage: Codable, Hashable {
     let appVersion: String
     let edits: [String: ProcedureSectionEdits]
     let userData: ClinicalRecoveryUserData
+    /// Images imported onto visual cards, JPEG bytes keyed by visual asset id.
+    /// Only the portable export carries them: automatic snapshots live in the
+    /// same app container as the images and would be lost with it. Optional so
+    /// packages written before images were backed up still decode.
+    var importedVisuals: [String: Data]? = nil
 }
 
 struct ClinicalRecoverySnapshot: Identifiable, Hashable {
@@ -37,12 +42,19 @@ struct ClinicalRecoveryPreview: Identifiable {
     let conflicts: [String]
     let staleProcedureIDs: [String]
     let unknownProcedureIDs: [String]
+    /// Visual ids whose image in the package differs from one already on this
+    /// device. Safe restore keeps the device's image.
+    var imageConflicts: [String] = []
 
     var id: String { package.exportedAt + package.appVersion }
 
+    var imageCount: Int { package.importedVisuals?.count ?? 0 }
+
     /// Nothing about this restore needs a decision: no conflicts, nothing
     /// stale, nothing skipped.
-    var canRestoreSafely: Bool { conflicts.isEmpty && staleProcedureIDs.isEmpty && unknownProcedureIDs.isEmpty }
+    var canRestoreSafely: Bool {
+        conflicts.isEmpty && staleProcedureIDs.isEmpty && unknownProcedureIDs.isEmpty && imageConflicts.isEmpty
+    }
 
     /// Whether the destructive "replace" path has anything to act on.
     ///
@@ -51,7 +63,7 @@ struct ClinicalRecoveryPreview: Identifiable {
     /// button is pressed, so offering to overwrite local work on their account
     /// would be offering a destructive action that fixes nothing. The view
     /// open-coded this test, which is how the two could drift apart.
-    var hasReplaceableConflicts: Bool { !conflicts.isEmpty || !staleProcedureIDs.isEmpty }
+    var hasReplaceableConflicts: Bool { !conflicts.isEmpty || !staleProcedureIDs.isEmpty || !imageConflicts.isEmpty }
 }
 
 enum ClinicalRecoveryError: LocalizedError {
@@ -76,6 +88,7 @@ final class ClinicalRecoveryStore: ObservableObject {
 
     private let fileManager: FileManager
     private let directory: URL
+    private let importedVisualsDirectory: URL
     private var pendingSnapshotTask: Task<Void, Never>?
     private var lastSignature: Data?
     private let now: () -> Date
@@ -86,6 +99,9 @@ final class ClinicalRecoveryStore: ObservableObject {
         let base = directory ?? fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
             ?? fileManager.temporaryDirectory
         self.directory = base.appendingPathComponent("ClinicalRecovery", isDirectory: true)
+        self.importedVisualsDirectory = directory == nil
+            ? ImportedVisualStore.directory
+            : base.appendingPathComponent("ImportedVisuals", isDirectory: true)
         refreshSnapshots()
     }
 
@@ -136,7 +152,9 @@ final class ClinicalRecoveryStore: ObservableObject {
 
     func writePortableExport(userData: UserDataStore, editStore: ProcedureEditStore) -> URL? {
         do {
-            let package = makePackage(userData: userData, editStore: editStore)
+            var package = makePackage(userData: userData, editStore: editStore)
+            let images = ImportedVisualStore.allImageData(in: importedVisualsDirectory)
+            package.importedVisuals = images.isEmpty ? nil : images
             let url = fileManager.temporaryDirectory.appendingPathComponent("procedures-clinician-recovery-\(fileDate()).json")
             try encodedData(for: package).write(to: url, options: .atomic)
             return url
@@ -164,7 +182,14 @@ final class ClinicalRecoveryStore: ObservableObject {
             else { return procedureID }
             return baseline == currentFingerprint ? nil : procedureID
         }.sorted()
-        return ClinicalRecoveryPreview(package: package, conflicts: conflicts, staleProcedureIDs: stale, unknownProcedureIDs: unknown)
+        let imageConflicts = (package.importedVisuals ?? [:]).compactMap { assetID, data -> String? in
+            guard let existing = ImportedVisualStore.storedData(for: assetID, in: importedVisualsDirectory) else { return nil }
+            return existing == data ? nil : assetID
+        }.sorted()
+        return ClinicalRecoveryPreview(
+            package: package, conflicts: conflicts, staleProcedureIDs: stale,
+            unknownProcedureIDs: unknown, imageConflicts: imageConflicts
+        )
     }
 
     /// Safe restore fills only missing state. Replace mode is explicit in the
@@ -191,6 +216,15 @@ final class ClinicalRecoveryStore: ObservableObject {
             editStore.restoreRecoveryEdits(safeEdits, replacingConflicts: false)
         }
         userData.restoreRecoverySnapshot(preview.package.userData, replacingConflicts: replacingConflicts)
+        for (assetID, data) in preview.package.importedVisuals ?? [:] {
+            let exists = ImportedVisualStore.storedData(for: assetID, in: importedVisualsDirectory) != nil
+            guard !exists || replacingConflicts else { continue }
+            do {
+                try ImportedVisualStore.writeData(data, for: assetID, in: importedVisualsDirectory)
+            } catch {
+                lastError = "Could not restore an imported image: \(error.localizedDescription)"
+            }
+        }
         userData.markRecoveryRestored()
         editStore.markRecoveryRestored()
         repository.reapplyEdits()

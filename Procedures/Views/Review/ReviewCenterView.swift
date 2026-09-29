@@ -242,7 +242,7 @@ struct ReviewCenterView: View {
                 }
                 Button("Cancel", role: .cancel) {}
             } message: {
-                Text("Includes local notes. Check them before sharing.")
+                Text("Includes local notes and any images added to visual cards. Check them before sharing.")
             }
 
             if let recoveryExportURL {
@@ -302,7 +302,9 @@ struct ReviewCenterView: View {
         if !preview.conflicts.isEmpty { lines.append("\(preview.conflicts.count) correction(s) conflict with current local edits.") }
         if !preview.staleProcedureIDs.isEmpty { lines.append("\(preview.staleProcedureIDs.count) correction(s) need comparison with the current bundled clinical text.") }
         if !preview.unknownProcedureIDs.isEmpty { lines.append("\(preview.unknownProcedureIDs.count) correction(s) refer to procedures no longer in this build and will be skipped.") }
-        lines.append("Restore Safe Items keeps current or stale corrections unchanged. Replace Conflicting Local Items replaces only matching local records.")
+        if preview.imageCount > 0 { lines.append("It also holds \(preview.imageCount) image(s) for visual cards.") }
+        if !preview.imageConflicts.isEmpty { lines.append("\(preview.imageConflicts.count) image(s) differ from one already on this device.") }
+        lines.append("Restore Safe Items keeps current or stale corrections, and images already on this device, unchanged. Replace Conflicting Local Items replaces only matching local records.")
         return lines.joined(separator: " ")
     }
 

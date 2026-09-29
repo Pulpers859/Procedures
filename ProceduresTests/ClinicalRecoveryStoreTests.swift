@@ -1,3 +1,4 @@
+import UIKit
 import XCTest
 @testable import Procedures
 
@@ -75,6 +76,44 @@ final class ClinicalRecoveryStoreTests: XCTestCase {
         let preview = try recovery.previewImport(from: url, editStore: editStore, procedures: [procedure])
         XCTAssertEqual(preview.conflicts, [procedure.id])
         XCTAssertFalse(preview.canRestoreSafely)
+    }
+
+    func testPortableExportCarriesImportedImagesAndPreviewFlagsDifferences() throws {
+        let (userData, editStore, recovery) = makeStores()
+        let images = directory.appendingPathComponent("backups").appendingPathComponent("ImportedVisuals")
+        let jpeg = try XCTUnwrap(UIGraphicsImageRenderer(size: CGSize(width: 4, height: 4)).image { context in
+            UIColor.red.setFill()
+            context.fill(CGRect(x: 0, y: 0, width: 4, height: 4))
+        }.jpegData(compressionQuality: 0.9))
+        try ImportedVisualStore.writeData(jpeg, for: "pigtail_us_effusion", in: images)
+
+        let url = try XCTUnwrap(recovery.writePortableExport(userData: userData, editStore: editStore))
+        var preview = try recovery.previewImport(from: url, editStore: editStore, procedures: [procedure()])
+        XCTAssertEqual(preview.package.importedVisuals?["pigtail_us_effusion"], jpeg)
+        XCTAssertEqual(preview.imageCount, 1)
+        XCTAssertTrue(preview.imageConflicts.isEmpty, "the same bytes on device are not a conflict")
+
+        let other = try XCTUnwrap(UIGraphicsImageRenderer(size: CGSize(width: 4, height: 4)).image { context in
+            UIColor.blue.setFill()
+            context.fill(CGRect(x: 0, y: 0, width: 4, height: 4))
+        }.jpegData(compressionQuality: 0.9))
+        try ImportedVisualStore.writeData(other, for: "pigtail_us_effusion", in: images)
+        preview = try recovery.previewImport(from: url, editStore: editStore, procedures: [procedure()])
+        XCTAssertEqual(preview.imageConflicts, ["pigtail_us_effusion"])
+        XCTAssertFalse(preview.canRestoreSafely)
+        XCTAssertTrue(preview.hasReplaceableConflicts)
+    }
+
+    func testAutomaticSnapshotsLeaveImagesOut() throws {
+        let (userData, editStore, recovery) = makeStores()
+        let images = directory.appendingPathComponent("backups").appendingPathComponent("ImportedVisuals")
+        let jpeg = try XCTUnwrap(UIGraphicsImageRenderer(size: CGSize(width: 2, height: 2)).image { _ in }.jpegData(compressionQuality: 0.9))
+        try ImportedVisualStore.writeData(jpeg, for: "ij_probe_orientation", in: images)
+        let procedure = procedure()
+        _ = editStore.applyEdits(to: [procedure])
+        editStore.setLines(["Edited step"], for: .steps, in: procedure)
+        recovery.snapshotNow(userData: userData, editStore: editStore)
+        XCTAssertNil(try XCTUnwrap(recovery.snapshots.first).package.importedVisuals)
     }
 
     func testSnapshotsRotateToThreeGenerations() {
