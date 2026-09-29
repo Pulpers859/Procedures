@@ -2553,10 +2553,10 @@
         "No INR or platelet threshold applies. Cirrhosis guidance recommends against routine coagulation testing and against prophylactic plasma or platelets before paracentesis; the INR does not describe bleeding risk in cirrhosis. Assess bleeding risk clinically and follow local procedural policy."
       ],
       "anatomy": [
-        "Standard entry: LLQ 4-6 cm lateral to the midline, midway between umbilicus and anterior superior iliac spine (ASIS).",
+        "Standard entry: LLQ, more than two-thirds of the way along a horizontal line from the midline to the anterior superior iliac spine (ASIS) - lateral to the rectus sheath.",
         "RLQ is acceptable alternative if LLQ is unsafe due to prior surgery, ostomy, or other anatomy.",
         "Avoid the midline: risk of diastasis, recanalized umbilical vein, and thin soft tissue.",
-        "Inferior epigastric vessels run cephalocaudally approximately 3-5 cm medial to the ASIS - confirm with Doppler ultrasound.",
+        "Inferior epigastric vessels run cephalocaudally about 40% of the way from the midline to the ASIS, so an entry midway between umbilicus and ASIS can land on them - confirm with Doppler ultrasound.",
         "Bladder must be empty. Ultrasound-guided entry is standard of care."
       ],
       "equipment": [
@@ -2651,6 +2651,7 @@
         "European Association for the Study of the Liver. EASL Clinical Practice Guidelines for the management of patients with decompensated cirrhosis. J Hepatol. 2018;69(2):406-460. https://doi.org/10.1016/j.jhep.2018.03.024",
         "American Association for the Study of Liver Diseases. Diagnosis, Evaluation, and Management of Ascites, Spontaneous Bacterial Peritonitis and Hepatorenal Syndrome. https://www.aasld.org/practice-guidelines/diagnosis-evaluation-and-management-ascites-spontaneous-bacterial-peritonitis",
         "Aithal GP, et al. Guidelines on the management of ascites in cirrhosis. British Society of Gastroenterology and British Association for the Study of the Liver. Gut. 2021;70(1):9-29. https://doi.org/10.1136/gutjnl-2020-321790",
+        "Epstein J, Arora A, Ellis H. Surface anatomy of the inferior epigastric artery in relation to laparoscopic injury. Clin Anat. 2004;17(5):400-408. https://doi.org/10.1002/ca.10192",
         "Verify local procedural policy on periprocedural coagulation assessment and the albumin preparation stocked."
       ]
     },
@@ -2659,11 +2660,11 @@
         "id": "paracentesis_liq_site",
         "kind": "Landmark",
         "title": "LLQ entry site",
-        "subtitle": "Entry at the midpoint between umbilicus and ASIS; the inferior epigastric vessels run about 3-5 cm medial to the ASIS.",
+        "subtitle": "Entry more than two-thirds of the way from the midline to the ASIS; the inferior epigastric vessels lie about 40% of the way out, medial to it.",
         "assetName": null,
         "systemImage": "circle.dotted",
         "caption": "",
-        "clinicalWarning": "Inferior epigastric vessels run 3-5 cm medial to the ASIS - confirm with Doppler, and avoid the midline."
+        "clinicalWarning": "A midway entry can hit the inferior epigastric vessels - confirm with Doppler, and avoid the midline."
       }
     ],
     "reviewerStatus": "Needs Clinical Review",
@@ -3543,7 +3544,7 @@
         "kind": "Landmark",
         "title": "Inferior crus release",
         "subtitle": "The lateral canthal tendon has a superior and an inferior crus; the cantholysis target is the inferior crus at the orbital rim.",
-        "assetName": "canthotomy_inferior_crus",
+        "assetName": null,
         "systemImage": "eye.trianglebadge.exclamationmark",
         "caption": "Cut the inferior crus at the lateral canthus, angling away from the globe toward the orbital rim.",
         "clinicalWarning": "Aim toward the lateral orbital rim, away from the globe."
@@ -4174,7 +4175,7 @@
         "id": "ficb_anatomy_layers",
         "kind": "Landmark",
         "title": "Inguinal fascial layers",
-        "subtitle": "From superficial to deep: skin, subcutaneous fat, fascia lata, sartorius/iliopsoas, fascia iliaca, then the femoral nerve and iliacus muscle. The block targets the plane between fascia iliaca and iliacus.",
+        "subtitle": "From superficial to deep: skin, subcutaneous fat, fascia lata, fascia iliaca, then iliacus/iliopsoas. The femoral nerve lies deep to the fascia iliaca, lateral to the artery. The block targets the plane between fascia iliaca and iliacus.",
         "assetName": null,
         "systemImage": "square.3.layers.3d",
         "caption": "",
@@ -4661,7 +4662,7 @@
         "Patient refusal"
       ],
       "anatomy": [
-        "Superolateral approach: needle enters 1 cm superior and 1 cm lateral to the superolateral pole of the patella, directed toward the intercondylar notch.",
+        "Superolateral approach: needle enters 1 cm superior and 1 cm lateral to the superolateral pole of the patella, directed medially beneath the patella into the suprapatellar recess.",
         "Medial approach: needle enters at the midpoint of the patella on the medial side, directed posterolaterally.",
         "The suprapatellar bursa communicates with the knee joint and is an alternative US-guided target.",
         "Avoid the popliteal fossa (posterior neurovascular structures)."
@@ -4749,7 +4750,7 @@
         "id": "knee_arthrocentesis_superolateral",
         "kind": "Landmark",
         "title": "Superolateral approach",
-        "subtitle": "1 cm superior and 1 cm lateral to the superolateral pole of the patella. Direct the needle toward the intercondylar notch, posterior and slightly inferior.",
+        "subtitle": "1 cm superior and 1 cm lateral to the superolateral pole of the patella. Direct the needle medially beneath the patella into the suprapatellar recess, posterior and slightly inferior.",
         "assetName": null,
         "systemImage": "figure.walk",
         "caption": "",

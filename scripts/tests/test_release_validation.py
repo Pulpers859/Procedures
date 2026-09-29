@@ -132,7 +132,7 @@ class ReleaseValidationTests(unittest.TestCase):
 
     def test_caption_is_required_only_when_artwork_is_bundled(self):
         """A caption captions an image. With no artwork the card already shows
-        its own 'Illustration Pending' chip, and requiring a caption anyway is
+        its own 'Image Pending' chip, and requiring a caption anyway is
         what pushed placeholder text in front of the reader."""
         base = {"id": "v1", "kind": "Setup", "title": "T", "subtitle": "S"}
 

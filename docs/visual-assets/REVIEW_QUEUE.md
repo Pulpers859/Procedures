@@ -1,6 +1,6 @@
 # Visual Review Queue
 
-Last reconciled: 2026-07-14
+Last reconciled: 2026-09-29
 
 This queue tracks generated procedure visuals that are ready for clinician review or already bundled. A `DECISION: PASS` in a draft folder means the controlling agent found no rubric-critical error and the image is eligible for review. It is not clinical approval.
 
@@ -11,8 +11,17 @@ These assets are wired in `Procedures/Resources/procedures.json` and live in `Pr
 | Asset id | Procedure | Bundle status | Evidence |
 | --- | --- | --- | --- |
 | `cric_membrane` | Cricothyrotomy | Bundled and wired | `cric_membrane.imageset`, `assetName: cric_membrane` |
-| `cric_danger_zone` | Cricothyrotomy | Bundled and wired | `cric_danger_zone.imageset`, `assetName: cric_danger_zone` |
-| `canthotomy_inferior_crus` | Lateral Canthotomy & Cantholysis | Bundled and wired | `canthotomy_inferior_crus.imageset`, `assetName: canthotomy_inferior_crus`, commit `b46ab1e` |
+
+`cric_membrane` fails its own answer key (2026-09-29 expert review): the vertical
+skin incision sits on the thyroid lamina above the membrane, and the cricoid is
+drawn as a second shield. It stays bundled pending the owner's decision.
+
+## Removed 2026-09-29
+
+| Asset id | Why |
+| --- | --- |
+| `canthotomy_inferior_crus` | Inferior crus drawn as a stalk under the middle of the lower lid, not between the lateral canthal angle and the orbital rim; Gemini watermark in the corner. Slot unwired (`assetName: null`). |
+| `cric_danger_zone` | Thyroid isthmus drawn over the membrane, membrane leader landing on the cricoid, arteries branching off veins. Was bundled but no slot referenced it. |
 
 ## Reviewable Drafts
 

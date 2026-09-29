@@ -348,7 +348,7 @@ def validate_procedures(data):
                 if not visual.get(field):
                     issues.append(("WARNING", title, f"visual asset missing {field}"))
             # A caption captions an image. With no artwork the card already
-            # shows its own "Illustration Pending" chip, so requiring a caption
+            # shows its own "Image Pending" chip, so requiring a caption
             # here is what pushed placeholder text in front of the reader.
             if visual.get("assetName") and not visual.get("caption"):
                 issues.append((

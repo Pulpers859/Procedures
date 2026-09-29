@@ -232,8 +232,10 @@ Specifics that have burned us; keep them true in every regeneration.
   tip, or a line over the heart, use the external-entry-plus-inset design: the
   main torso shows the external syringe/needle up to the skin entry only, and
   the inset shows the needle tip in the fluid pocket.
-  If Gemini draws the main needle as lower-right to upper-left, or if a corrected
-  bottom-left to upper-right needle crosses the liver, restart with a simpler
+  The liver's left lobe extends across the midline under the xiphoid, directly
+  beneath the subxiphoid entry. Show it; never draw the liver as a right-sided
+  organ floating clear of the path, which falsely reassures.
+  If Gemini draws the main needle as lower-right to upper-left, restart with a simpler
   reference-first prompt before trying local overlays. The syringe/needle should
   normally be generated as part of the illustration so it matches the plate's
   style and reads like a real procedure, not a post-hoc vector line.
@@ -261,9 +263,11 @@ Specifics that have burned us; keep them true in every regeneration.
 - **lp_position_landmark** — Show interspace labels L3-L4 and L4-L5 only; do
   not add separate vertebral-body labels L3, L4, or L5 unless the asset spec
   requires them.
-- **paracentesis_liq_site** — LLQ entry is lateral to midline and midway between
-  umbilicus and the ASIS on the same side as the entry. Inferior epigastric
-  vessels are medial to the entry, between entry and midline. Spell
+- **paracentesis_liq_site** — LLQ entry is more than two-thirds of the way along
+  a horizontal line from the midline to the ASIS on the same side, lateral to
+  the rectus sheath. Not the umbilicus–ASIS midpoint: the inferior epigastric
+  vessels run about 40% of the way out, so they sit medial to a correct entry,
+  between entry and midline. Spell
   "epigastric" correctly.
 - **thoracentesis_site** — Entry sits over the superior margin of the lower rib,
   above the diaphragm, within pleural fluid. Diaphragm appears and is labeled
