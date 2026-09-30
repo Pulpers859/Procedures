@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "filename": "vascath_tip_position.png",
+      "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "vascath_tip_position-dark.png",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "filename": "ij_landmark_triangle.png",
+      "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "ij_landmark_triangle-dark.png",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

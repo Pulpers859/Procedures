@@ -73,6 +73,8 @@
     }
   ],
   "review": {
-    "status": "draft"
+    "status": "approved",
+    "sourceSha256": "75c40e6f9ae0700c57de10b4b5017c2ebc4ee8328515ffe2cb617fafc6b9db2b",
+    "reviewedOn": "2026-09-30"
   }
 }

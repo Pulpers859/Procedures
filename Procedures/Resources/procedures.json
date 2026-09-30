@@ -404,9 +404,9 @@
         "kind": "Landmark",
         "title": "Sternocleidomastoid triangle",
         "subtitle": "The IJ vein runs deep to the triangle formed by the sternal and clavicular heads of the SCM, with the clavicle as its base. The traditional landmark entry is the apex, where the two heads meet, lateral to the carotid.",
-        "assetName": null,
+        "assetName": "ij_landmark_triangle",
         "systemImage": "triangle",
-        "caption": "",
+        "caption": "Front of the neck, head turned slightly left: the patient's right neck is on the image left.",
         "clinicalWarning": "Always use ultrasound guidance. Landmark-only technique increases complication risk."
       },
       {
@@ -3242,9 +3242,9 @@
         "kind": "Confirmation",
         "title": "Catheter tip position",
         "subtitle": "Right IJ trajectory to the cavoatrial junction and dual-lumen orientation.",
-        "assetName": null,
+        "assetName": "vascath_tip_position",
         "systemImage": "scope",
-        "caption": "",
+        "caption": "Front view in chest X-ray orientation: the patient's right is on the image left.",
         "clinicalWarning": "The tip belongs at the superior vena cava/right atrial junction, not in the atrium."
       }
     ]
