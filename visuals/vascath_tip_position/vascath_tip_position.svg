@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F4F1EA; }</style>
+<defs>
+<linearGradient id="skin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#EBCBB7"/><stop offset="0.5" stop-color="#F7E6DA"/>
+  <stop offset="1" stop-color="#EBCBB7"/></linearGradient>
+<radialGradient id="heart" cx="0.45" cy="0.4" r="0.7"><stop offset="0" stop-color="#E4A597"/><stop offset="1" stop-color="#C47566"/></radialGradient>
+<linearGradient id="bone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F0E2"/><stop offset="1" stop-color="#D8CBAE"/></linearGradient>
+<filter id="lift" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1800" height="1400"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#6B4A3C" flood-opacity="0.2"/></filter>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="anatomy">
+  <rect id="torso" x="-10" y="-10" width="1620" height="1220" fill="url(#skin)"/>
+  <path d="M820,-20 C820,73.3 820,446.7 820,540" stroke="#D9E3EA" stroke-width="90" stroke-linecap="round" opacity="0.8"/>
+  <path d="M820,540 C828.3,551.7 851.7,586.7 870,610 C888.3,633.3 920,668.3 930,680" fill="none" stroke="#D9E3EA" stroke-width="60" stroke-linecap="round" opacity="0.8"/>
+  <path d="M820,540 C811.7,551.7 786.7,585 770,610 C753.3,635 728.3,676.7 720,690" fill="none" stroke="#D9E3EA" stroke-width="65" stroke-linecap="round" opacity="0.8"/>
+
+  <path d="M760,480 C743.3,475.8 693.3,463.3 660,455 C626.7,446.7 590,432.5 560,430 C530,427.5 501.7,430 480,440 C458.3,450 438.3,481.7 430,490" fill="none" stroke="#E2D6BD" stroke-width="30" stroke-linecap="round" opacity="0.8"/>
+  <path d="M880,480 C896.7,475.8 946.7,463.3 980,455 C1013.3,446.7 1050,432.5 1080,430 C1110,427.5 1138.3,430 1160,440 C1181.7,450 1201.7,481.7 1210,490" fill="none" stroke="#E2D6BD" stroke-width="30" stroke-linecap="round" opacity="0.8"/>
+  <path d="M1015,560 C1018.3,573.3 1030.8,600 1035,640 C1039.2,680 1040,740 1040,800 C1040,860 1036.7,926.7 1035,1000 C1033.3,1073.3 1030.8,1200 1030,1240" fill="none" stroke="#C8423A" stroke-width="100" stroke-linecap="round" opacity="0.3"/>
+  <path d="M1015,560 C1018.3,573.3 1030.8,600 1035,640 C1039.2,680 1040,740 1040,800 C1040,860 1036.7,926.7 1035,1000 C1033.3,1073.3 1030.8,1200 1030,1240" fill="none" stroke="#8E2A24" stroke-width="3" stroke-dasharray="14 10" opacity="0.5"/>
+  <path d="M985,760 C997.5,755 1034.2,733.3 1060,730 C1085.8,726.7 1126.7,738.3 1140,740" fill="none" stroke="#6E8FC4" stroke-width="80" stroke-linecap="round" opacity="0.85"/>
+  <path id="pulmonary-trunk" d="M990,960 C987.5,941.7 975.8,883.3 975,850 C974.2,816.7 983.3,775 985,760" fill="none" stroke="#6E8FC4" stroke-width="120" stroke-linecap="round" opacity="0.9"/>
+  <path id="aorta" d="M880,940 C877.7,913.3 867.7,830 866,780 C864.3,730 864.3,676.7 870,640 C875.7,603.3 885,578.3 900,560 C915,541.7 940.8,530 960,530 C979.2,530 1005.8,555 1015,560" fill="none" stroke="#C8423A" stroke-width="120" stroke-linecap="round" opacity="0.9" filter="url(#lift)"/>
+  <path id="heart" d="M770,866 C746.7,869.5 715.2,879 700,890 C684.8,901 649.1,940.2 640,960 C630.9,979.8 620.8,1035.5 622,1060 C623.2,1084.5 638.6,1149 650,1170 C661.4,1191 646.5,1231.8 720,1240 C793.5,1248.2 1213.5,1252.8 1280,1240 C1346.5,1227.2 1295.8,1156.8 1290,1130 C1284.2,1103.2 1249.8,1034.5 1230,1010 C1210.2,985.5 1146.8,935.2 1120,920 C1093.2,904.8 1025.7,887 1000,880 C974.3,873 926.8,861.6 900,860 C873.2,858.4 793.3,862.5 770,866 Z" fill="url(#heart)" stroke="#A85A4C" stroke-width="3" filter="url(#lift)"/>
+  <path id="right-atrium" d="M770,866 C752.5,864.8 715.2,879 700,890 C684.8,901 649.1,940.2 640,960 C630.9,979.8 620.8,1035.5 622,1060 C623.2,1084.5 638.6,1149 650,1170 C661.4,1191 695.5,1231.8 720,1240 C744.5,1248.2 841.3,1261 860,1240 C878.7,1219 881.2,1099.7 880,1060 C878.8,1020.3 862.8,922.6 850,900 C837.2,877.4 787.5,867.2 770,866 Z" fill="#9AA6CF" fill-opacity="0.85" stroke="#6E6F9E" stroke-width="2.5"/>
+
+  <path id="right-subclavian" d="M300,420 C333.3,417.5 433.3,410.8 500,405 C566.7,399.2 666.7,388.3 700,385" fill="none" stroke="#5277B8" stroke-width="55" stroke-linecap="round" stroke-opacity="0.7" />
+  <path id="left-subclavian" d="M1340,420 C1306.7,416.7 1206.7,408 1140,400 C1073.3,392 973.3,376.7 940,372" fill="none" stroke="#5277B8" stroke-width="55" stroke-linecap="round" stroke-opacity="0.7" />
+  <path id="left-ij" d="M1012,-20 C1008.3,8.3 998,96.7 990,150 C982,203.3 972.3,263 964,300 C955.7,337 944,360 940,372" fill="none" stroke="#5277B8" stroke-width="60" stroke-linecap="round" stroke-opacity="0.7" />
+  <path id="left-bcv" d="M940,372 C930,383.3 904.7,415.3 880,440 C855.3,464.7 806.7,506.7 792,520" fill="none" stroke="#5277B8" stroke-width="60" stroke-linecap="round" stroke-opacity="0.8" />
+  <path id="right-ij" d="M628,-20 C631.7,8.3 642,96.7 650,150 C658,203.3 667.7,260.8 676,300 C684.3,339.2 696,370.8 700,385" fill="none" stroke="#5277B8" stroke-width="60" stroke-linecap="round" stroke-opacity="0.85" />
+  <path id="right-bcv" d="M700,385 C707.5,395.8 729.7,427.5 745,450 C760.3,472.5 784.2,508.3 792,520" fill="none" stroke="#5277B8" stroke-width="65" stroke-linecap="round" stroke-opacity="0.85" />
+  <path id="svc" d="M792,520 C792.3,550 794,643 794,700 C794,757 792.3,835 792,862" fill="none" stroke="#4F74B6" stroke-width="100" stroke-linecap="butt" stroke-opacity="0.95" />
+  <circle id="cavoatrial-junction" cx="792" cy="862" r="45" fill="#000" fill-opacity="0"/>
+
+  <path id="manubrium" d="M750,420 C763.3,415.8 876.7,415.8 890,420 C903.3,424.2 910.8,451.7 910,470 C909.2,488.3 892.5,625.8 880,640 C867.5,654.2 772.5,654.2 760,640 C747.5,625.8 730.8,488.3 730,470 C729.2,451.7 736.7,424.2 750,420 Z" fill="url(#bone)" fill-opacity="0.75" stroke="#A8977A" stroke-width="2.5" opacity="0.45"/>
+  <path id="clavicle-right" d="M770,425 C756.7,421.7 725,410 690,405 C655,400 605,400 560,395 C515,390 463.3,385 420,375 C376.7,365 340,345.8 300,335 C260,324.2 200,314.2 180,310" fill="none" stroke="url(#bone)" stroke-width="70" stroke-linecap="round" filter="url(#lift)" opacity="0.9"/>
+  <path d="M870,425 C883.3,421.7 915,410 950,405 C985,400 1035,400 1080,395 C1125,390 1176.7,385 1220,375 C1263.3,365 1300,345.8 1340,335 C1380,324.2 1440,314.2 1460,310" fill="none" stroke="url(#bone)" stroke-width="70" stroke-linecap="round" filter="url(#lift)" opacity="0.9"/>
+
+  <g class="marking">
+    <path id="catheter" d="M688,228 C686,240 674,273.8 676,300 C678,326.2 688.5,360 700,385 C711.5,410 729.7,427.5 745,450 C760.3,472.5 783.8,478.3 792,520 C800.2,561.7 794,643 794,700 C794,757 792.3,835 792,862" fill="none" stroke="#F4F5F2" stroke-width="18" stroke-linecap="round"/>
+    <path d="M688,228 C686,240 674,273.8 676,300 C678,326.2 688.5,360 700,385 C711.5,410 729.7,427.5 745,450 C760.3,472.5 783.8,478.3 792,520 C800.2,561.7 794,643 794,700 C794,757 792.3,835 792,862" fill="none" stroke="#2B3440" stroke-width="3" stroke-dasharray="1 0" opacity="0.6"
+          transform="translate(-4 0)"/>
+    <circle id="catheter-tip" cx="792" cy="862" r="30" fill="none" stroke="#0E8C98" stroke-width="6"/>
+    <circle cx="688" cy="228" r="9" fill="#D8432A"/>
+  </g>
+</g>
+
+<g id="labels"><g class="label" data-label="Superior vena cava" data-target="svc"><polyline class="leader-halo" points="300,652 794,700"/><polyline class="leader" points="300,652 794,700"/><circle class="leader-dot" cx="794" cy="700" r="7"/><text x="40" y="640" text-anchor="start"><tspan x="40" dy="0">Superior</tspan><tspan x="40" dy="66">vena cava</tspan></text></g><g class="label emphasis" data-label="Cavoatrial junction" data-target="cavoatrial-junction"><polyline class="leader-halo" points="1210,342 1100,520 792,862"/><polyline class="leader" points="1210,342 1100,520 792,862"/><circle class="leader-dot" cx="792" cy="862" r="7"/><text x="1200" y="330" text-anchor="start"><tspan x="1200" dy="0">Cavoatrial</tspan><tspan x="1200" dy="66">junction</tspan></text></g><g class="label" data-label="Right atrium" data-target="right-atrium"><polyline class="leader-halo" points="390,1040 700,1040"/><polyline class="leader" points="390,1040 700,1040"/><circle class="leader-dot" cx="700" cy="1040" r="7"/><text x="40" y="1050" text-anchor="start"><tspan x="40" dy="0">Right atrium</tspan></text></g></g>
+
+</svg>

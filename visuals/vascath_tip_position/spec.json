@@ -1,0 +1,32 @@
+{
+  "assetId": "vascath_tip_position",
+  "procedure": "dialysis_catheter_vascath",
+  "title": "Catheter tip position",
+  "view": "Anterior view of the neck and upper chest in the radiograph convention: head at the top, the patient's right on the image left.",
+  "teachingPoint": "A right IJ dialysis catheter runs IJ -> right brachiocephalic -> SVC, and its tip belongs at the cavoatrial junction, not in the atrium. About 13 cm in, inside the record's 12-15 cm.",
+  "claims": [
+    "Anterior view, head at the top, the patient's right on the image left. Skin and chest wall see-through.",
+    "The right IJ joins the right subclavian behind the medial clavicle; the right and left brachiocephalic veins join behind the first right costal cartilage to form the SVC, which runs straight down into the right atrium.",
+    "The catheter (white) enters at the right IJ puncture (red dot) and follows the IJ, the right brachiocephalic vein and the SVC.",
+    "The teal ring is the catheter tip at the cavoatrial junction, not in the atrium.",
+    "At true scale (5 px/mm) the in-body catheter length is about 13 cm, inside the record's right IJ depth of 12-15 cm.",
+    "Three labels: Superior vena cava, Cavoatrial junction, Right atrium."
+  ],
+  "requiredElements": ["svc", "right-atrium", "right-ij", "right-bcv", "left-bcv", "left-ij", "cavoatrial-junction", "catheter", "catheter-tip", "clavicle-right", "aorta", "heart"],
+  "labels": {
+    "Superior vena cava": "svc",
+    "Cavoatrial junction": "cavoatrial-junction",
+    "Right atrium": "right-atrium"
+  },
+  "geometry": [
+    {"check": "below", "a": "right-atrium", "b": "svc", "why": "the atrium is below the SVC"},
+    {"check": "leftOf", "a": "svc", "b": "aorta", "why": "the SVC lies to the patient's right of the aorta"},
+    {"check": "leftOf", "a": "right-ij", "b": "left-ij", "why": "right IJ is on the image left (radiograph convention)"},
+    {"check": "endNear", "a": "catheter", "end": "end", "b": "cavoatrial-junction", "maxPx": 0, "why": "catheter tip ends at the cavoatrial junction"},
+    {"check": "crosses", "a": "catheter", "b": "right-ij", "why": "catheter runs in the right IJ"},
+    {"check": "crosses", "a": "catheter", "b": "svc", "why": "catheter runs in the SVC"},
+    {"check": "noOverlap", "a": "catheter", "b": "left-ij", "why": "catheter stays out of the left IJ"},
+    {"check": "pathLengthRange", "a": "catheter", "min": 600, "max": 750, "why": "in-body length 12-15 cm (5 px/mm)"}
+  ],
+  "review": {"status": "draft"}
+}

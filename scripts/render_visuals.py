@@ -152,6 +152,11 @@ CHECK_JS = r"""
       const [a, b] = lineEnds(c.a);
       const d = Math.hypot(b.x - a.x, b.y - a.y);
       ok = d >= c.min && d <= c.max; detail = `${f(d)} px (allowed ${c.min}-${c.max})`;
+    } else if (c.check === 'pathLengthRange') {
+      // Along the path, not end to end: a catheter's in-body length.
+      const e = el(c.a), m = e.getCTM(), k = Math.hypot(m.a, m.b);
+      const d = e.getTotalLength() * k;
+      ok = d >= c.min && d <= c.max; detail = `${f(d)} px along the path (allowed ${c.min}-${c.max})`;
     } else if (c.check === 'noOverlap') {
       const hits = samples(c.a, 40).filter((p) => inside(c.b, p.x, p.y)).length;
       ok = hits === 0; detail = `${hits} samples of #${c.a} inside #${c.b}`;
