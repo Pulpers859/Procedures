@@ -229,6 +229,7 @@ def build() -> str:
         Label(["Femoral nerve"], anchor=(620, 1010), leader=[(800, 955), c((13.2, 16.4))], target_id="femoral-nerve"),
         Label(["Femoral artery"], anchor=(1150, 300), leader=[(1300, 322), c((0.5, 10.0))], target_id="femoral-artery"),
         Label(["Iliopsoas"], anchor=(480, 880), leader=[(600, 832), c((22, 23))], target_id="iliopsoas"),
+        Label(["Sartorius"], anchor=(40, 488), leader=[(150, 506), (150, 540)], target_id="sartorius"),
     ]
 
     if painted:
