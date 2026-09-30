@@ -19,8 +19,11 @@ patient-position plate (ficb_patient_position) is drawn the same way round,
 so the needle comes from the left in both.
 
 The layout carries texture cues so the repaint reads as a cut face: muscle
-as cut fascicles, fat as small lobules, nerves as fascicle bundles in their
-sheath, vessels as walls round a lumen, bone as cortex over cancellous bone. Superficial to deep
+as flattened fascicle bundles overlapping like scales, edged with pale
+perimysium, with small paired vessels; fat as small orange-gold lobules;
+nerves as a pale sheath round a few large speckled fascicle compartments;
+vessels as walls round a lumen; bone as cortex over cancellous bone. The
+probe dents the skin, and the fat above the fascia lata takes the squeeze. Superficial to deep
 (record subtitle): skin, subcutaneous fat, fascia lata, fascia iliaca, then
 iliopsoas, with bone at the bottom. The femoral vein and artery lie
 superficial to the fascia iliaca, vein medial. The femoral nerve lies deep to
@@ -77,15 +80,31 @@ def curve(fn, x0=X0 - 3, x1=X1 + 3, n=40):
 
 
 def band(top, bottom, x0=X0 - 3, x1=X1 + 3):
-    return curve(top, x0, x1) + list(reversed(curve(bottom, x0, x1)))
+    return curve(top, x0, x1, 90) + list(reversed(curve(bottom, x0, x1, 90)))
+
+
+PROBE = (-5.0, 33.0)                               # footprint, mm
+PRESS_MM = 2.2                                     # the probe dents the skin this deep
+
+
+def press(x):
+    """Depth of the probe's dent at x: flat under the face, rounded at its ends."""
+    x0, x1 = PROBE
+    edge = 4.0
+    if x <= x0 - edge or x >= x1 + edge:
+        return 0.0
+    if x0 + edge <= x <= x1 - edge:
+        return PRESS_MM
+    d = (x - (x0 - edge)) if x < x0 + edge else ((x1 + edge) - x)
+    return PRESS_MM * (1 - math.cos(math.pi * min(d, 2 * edge) / (2 * edge))) / 2
 
 
 def skin_y(x):
-    return 0.0
+    return press(x)
 
 
 def lata_y(x):
-    return 7.8 - 0.035 * x
+    return 7.8 - 0.035 * x + 0.5 * press(x)
 
 
 # Fascia iliaca, traced lateral to medial: under sartorius, over the nerve,
@@ -104,21 +123,32 @@ def iliaca_y(x):
 
 ARTERY = ((0.0, 13.8), 4.8)
 VEIN = ((-11.0, 17.0), 6.0, 5.2)
-NERVE = ((13.2, 16.3), 4.2, 1.6, 6.0)            # centre, rx, ry, rotation (deg)
+NERVE = ((13.2, 16.4), 4.6, 1.5, 6.0)            # centre, rx, ry, rotation (deg)
 LFCN = ((36.5, 18.6), 1.1)
 SARTORIUS = [(31, 12.2), (36, 9.6), (42, 8.9), (X1 + 3, 9.0), (X1 + 3, 16.6), (40, 16.4), (34, 15.4)]
 BONE_Y = 34.5
 ILIOPSOAS = ([(x, y + 0.35) for x, y in ILIACA[:8]] + [(5.4, 21.8), (4.0, 27.5), (3.4, BONE_Y - 0.4)]
              + [(X1 + 3, BONE_Y - 0.4)])
-PROBE = (-5.0, 33.0)                               # footprint, mm
-NEEDLE_OUT, NEEDLE_ENTRY, NEEDLE_TIP = (43.2, -10.4), (34.6, 0.0), (21.5, 16.1)
+NEEDLE_OUT, NEEDLE_TIP = (43.2, -10.4), (21.5, 16.1)
+
+
+def needle_entry():
+    """Where the needle line meets the skin."""
+    (xa, ya), (xb, yb) = NEEDLE_OUT, NEEDLE_TIP
+    lo, hi = 0.0, 1.0
+    for _ in range(40):
+        m = (lo + hi) / 2
+        x, y = xa + (xb - xa) * m, ya + (yb - ya) * m
+        lo, hi = (m, hi) if y < skin_y(x) else (lo, m)
+    return (xa + (xb - xa) * lo, ya + (yb - ya) * lo)
 
 
 def spread():
-    """Lens under the fascia from the lateral nerve to just over the femoral nerve."""
-    xs = [39 - i * 1.5 for i in range(21)]          # 39 .. 9
+    """Lens under the fascia from the lateral nerve, deepening to wrap the femoral nerve."""
+    xs = [39 - i * 1.52 for i in range(21)]         # 39 .. 8.6
     top = [(x, iliaca_y(x) + 0.2) for x in xs]
-    bottom = [(x, iliaca_y(x) + 0.5 + 3.4 * math.sin(math.pi * (39 - x) / 30) ** 0.7) for x in reversed(xs)]
+    bottom = [(x, iliaca_y(x) + 0.5 + 3.0 * math.sin(math.pi * (39 - x) / 30.4) ** 0.7
+               + 2.1 * math.exp(-((x - NERVE[0][0]) / 3.6) ** 2)) for x in reversed(xs)]
     return top + bottom
 
 
@@ -153,35 +183,53 @@ def fat_lobules(seed, y0, y1, colour_a, colour_b):
 
 
 def fascicles(seed, x0, x1, y0, y1):
-    parts = []
-    for x, y, u, v in scatter(seed, x0, x1, y0, y1, 1.15):
-        p = c((x, y))
-        rx, ry = (0.56 + 0.14 * u) * PX_MM, (0.46 + 0.14 * v) * PX_MM
-        parts.append(f'<ellipse cx="{fmt(p[0])}" cy="{fmt(p[1])}" rx="{fmt(rx)}" ry="{fmt(ry)}" '
-                     f'transform="rotate({fmt(u * 180)} {fmt(p[0])} {fmt(p[1])})"/>')
+    """Cut muscle: flattened fascicle bundles overlapping like scales, each edged
+    with a pale streak of perimysium; drawn row by row so each overlaps the last."""
+    rng = random.Random(seed)
+    shades = ("#7E1F1C", "#8C2622", "#701A18", "#962B25")
+    parts, y, row = [], y0, 0
+    while y <= y1:
+        x = x0 - (1.6 if row % 2 else 0)
+        while x <= x1:
+            cx, cy = x + rng.uniform(-0.5, 0.5), y + rng.uniform(-0.15, 0.15)
+            p = c((cx, cy))
+            rx, ry = rng.uniform(1.7, 2.5) * PX_MM, rng.uniform(0.55, 0.8) * PX_MM
+            rot = rng.uniform(-12, 12)
+            parts.append(f'<ellipse cx="{fmt(p[0])}" cy="{fmt(p[1])}" rx="{fmt(rx)}" ry="{fmt(ry)}" '
+                         f'transform="rotate({fmt(rot)} {fmt(p[0])} {fmt(p[1])})" fill="{rng.choice(shades)}" '
+                         f'stroke="#E8C4BC" stroke-width="2.2"/>')
+            x += rng.uniform(2.9, 3.4)
+        y += 1.05
+        row += 1
+    for _ in range(int((x1 - x0) * (y1 - y0) / 55)):
+        vx, vy = rng.uniform(x0, x1), rng.uniform(y0, y1)
+        a, b = c((vx, vy)), c((vx - 0.42, vy))
+        parts.append(f'<circle cx="{fmt(a[0])}" cy="{fmt(a[1])}" r="{fmt(0.24 * PX_MM)}" fill="#C8453A" stroke="#F1D6CF" stroke-width="1.5"/>'
+                     f'<circle cx="{fmt(b[0])}" cy="{fmt(b[1])}" r="{fmt(0.22 * PX_MM)}" fill="#2F4A86" stroke="#D7DDEB" stroke-width="1.5"/>')
     return "".join(parts)
 
 
-def nerve_bundle(center, rx, ry, rot, r, seed):
-    """Fascicles (radius r mm) packed on a hex grid inside a nerve's sheath."""
+def nerve_bundle(center, rx, ry, rot, compartments, seed, clip_id):
+    """A nerve cut across: a pale sheath round a few large fascicle compartments,
+    each finely speckled, divided by thin pale septa."""
     rng = random.Random(seed)
-    a = math.radians(-rot)
-    out, step = [], 2.15 * r
-    ly = -ry
-    row = 0
-    while ly <= ry:
-        lx = -rx + (step / 2 if row % 2 else 0)
-        while lx <= rx:
-            if (lx / (rx - r * 1.15)) ** 2 + (ly / max(ry - r * 1.15, 0.01)) ** 2 <= 1.0 if ry > r * 1.2 else abs(ly) < 0.01 and abs(lx) <= rx - r * 1.2:
-                jx, jy = lx + rng.uniform(-0.08, 0.08), ly + rng.uniform(-0.08, 0.08)
-                px, py = center[0] + jx * math.cos(a) - jy * math.sin(a), center[1] + jx * math.sin(a) + jy * math.cos(a)
-                q = c((px, py))
-                out.append(f'<circle cx="{fmt(q[0])}" cy="{fmt(q[1])}" r="{fmt(r * rng.uniform(0.85, 1.0) * PX_MM)}" '
-                           f'fill="#D9A93A" stroke="#B8862A" stroke-width="2"/>')
-            lx += step
-        ly += step * 0.87
-        row += 1
-    return "".join(out)
+    q = c(center)
+    rot_c = -rot                                     # canvas rotation (the x axis is mirrored)
+    inner_rx, inner_ry = (rx - 0.25) * PX_MM, (ry - 0.25) * PX_MM
+    ell = (f'cx="{fmt(q[0])}" cy="{fmt(q[1])}" rx="{fmt(inner_rx)}" ry="{fmt(inner_ry)}" '
+           f'transform="rotate({fmt(rot_c)} {fmt(q[0])} {fmt(q[1])})"')
+    dots = "".join(
+        f'<circle cx="{fmt(q[0] + rng.uniform(-inner_rx, inner_rx))}" cy="{fmt(q[1] + rng.uniform(-inner_ry, inner_ry) * 1.3)}" '
+        f'r="{fmt(rng.uniform(1.4, 2.6))}"/>' for _ in range(int(inner_rx * inner_ry / 14)))
+    septa = "".join(
+        f'<line x1="{fmt(q[0] + (k / compartments - 0.5) * 2 * inner_rx + rng.uniform(-6, 6))}" y1="{fmt(q[1] - inner_ry * 1.4)}" '
+        f'x2="{fmt(q[0] + (k / compartments - 0.5) * 2 * inner_rx + rng.uniform(-6, 6))}" y2="{fmt(q[1] + inner_ry * 1.4)}"/>'
+        for k in range(1, compartments))
+    return (f'<clipPath id="{clip_id}"><ellipse {ell}/></clipPath>'
+            f'<ellipse {ell} fill="#B9AE4C"/>'
+            f'<g clip-path="url(#{clip_id})" transform="rotate({fmt(rot_c)} {fmt(q[0])} {fmt(q[1])})">'
+            f'<g fill="#8E8634" opacity="0.7">{dots}</g>'
+            f'<g stroke="#F3ECCB" stroke-width="5">{septa}</g></g>')
 
 
 DEFS = """
@@ -199,8 +247,8 @@ def build() -> str:
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
     skin = band(skin_y, lambda x: 60)
-    below_skin = band(lambda x: 1.6, lambda x: 60)
-    sub_fat = band(lambda x: 1.6, lata_y)
+    below_skin = band(lambda x: skin_y(x) + 1.6, lambda x: 60)
+    sub_fat = band(lambda x: skin_y(x) + 1.6, lata_y)
     below_lata = band(lata_y, lambda x: 60)
     bone = band(lambda x: BONE_Y, lambda x: 60)
     cancellous = band(lambda x: BONE_Y + 1.3, lambda x: 60)
@@ -217,7 +265,7 @@ def build() -> str:
         f'<circle cx="{fmt(c((x, y))[0])}" cy="{fmt(c((x, y))[1])}" r="{fmt((0.25 + 0.35 * u) * PX_MM)}"/>'
         for x, y, u, _ in scatter(11, X0 - 2, X1 + 2, BONE_Y + 1.5, 45, 1.3))
 
-    a, e, t = c(NEEDLE_OUT), c(NEEDLE_ENTRY), c(NEEDLE_TIP)
+    a, e, t = c(NEEDLE_OUT), c(needle_entry()), c(NEEDLE_TIP)
     px0, px1 = sorted((c((PROBE[0], 0))[0], c((PROBE[1], 0))[0]))
     art, (vc, vrx, vry) = ARTERY, VEIN
 
@@ -244,15 +292,15 @@ def build() -> str:
   {base_image}
   <g id="layout"{layout_attr}>
   <path id="skin" d="{path(skin, closed=True, tension=0.3)}" fill="#E4B49B"/>
-  <path d="{path(band(lambda x: 0.35, lambda x: 60), closed=True, tension=0.3)}" fill="#EDC7B2"/>
-  <path id="subcutaneous-fat" d="{path(below_skin, closed=True, tension=0.3)}" fill="#E2B955"/>
-  {'' if painted else f'''<g clip-path="url(#clip-sub-fat)">{fat_lobules(1, 1.0, 10.5, "#F6DD8E", "#F1D27A")}</g>'''}
-  {'' if painted else f'''<g clip-path="url(#clip-deep-fat)">{fat_lobules(2, 6.5, 36, "#F2D787", "#ECCB72")}</g>'''}
+  <path d="{path(band(lambda x: skin_y(x) + 0.35, lambda x: 60), closed=True, tension=0.3)}" fill="#EDC7B2"/>
+  <path id="subcutaneous-fat" d="{path(below_skin, closed=True, tension=0.3)}" fill="#C98E32"/>
+  {'' if painted else f'''<g clip-path="url(#clip-sub-fat)">{fat_lobules(1, 1.0, 10.5, "#F2BE52", "#EAB044")}</g>'''}
+  {'' if painted else f'''<g clip-path="url(#clip-deep-fat)">{fat_lobules(2, 6.5, 36, "#F0C560", "#E8B54C")}</g>'''}
 
-  <path id="iliopsoas" d="{path(ILIOPSOAS, closed=True, tension=0.5)}" fill="#E9B8AD" stroke="#6E221E" stroke-width="3"/>
-  {'' if painted else f'''<g clip-path="url(#clip-iliopsoas)" fill="#A63A31">{fascicles(3, -2, X1 + 3, 12, 36)}</g>'''}
-  <path id="sartorius" d="{path(SARTORIUS, closed=True, tension=0.6)}" fill="#E9B8AD" stroke="#6E221E" stroke-width="3"/>
-  {'' if painted else f'''<g clip-path="url(#clip-sartorius)" fill="#A63A31">{fascicles(4, 28, X1 + 3, 7, 18)}</g>'''}
+  <path id="iliopsoas" d="{path(ILIOPSOAS, closed=True, tension=0.5)}" fill="#5E1715" stroke="#4A1210" stroke-width="3"/>
+  {'' if painted else f'''<g clip-path="url(#clip-iliopsoas)">{fascicles(3, -2, X1 + 3, 13, 35)}</g>'''}
+  <path id="sartorius" d="{path(SARTORIUS, closed=True, tension=0.6)}" fill="#5E1715" stroke="#4A1210" stroke-width="3"/>
+  {'' if painted else f'''<g clip-path="url(#clip-sartorius)">{fascicles(4, 28, X1 + 3, 8.5, 17)}</g>'''}
 
   <path id="bone" d="{path(bone, closed=True, tension=0.3)}" fill="#F4EEDF" stroke="#A8977A" stroke-width="5"/>
   <path d="{path(cancellous, closed=True, tension=0.3)}" fill="#E5D5B2"/>
@@ -264,15 +312,15 @@ def build() -> str:
   <path d="{path(ILIACA, tension=0.8)}" fill="none" stroke="#A89C86" stroke-width="2.5"/>
 
   {ellipse(NERVE[0], NERVE[1], NERVE[2], 'id="femoral-nerve" fill="#F4DC92" stroke="#B8962E" stroke-width="4"', NERVE[3])}
-  {'' if painted else f'''{nerve_bundle(NERVE[0], NERVE[1], NERVE[2], NERVE[3], 0.5, 5)}'''}
+  {'' if painted else nerve_bundle(NERVE[0], NERVE[1], NERVE[2], NERVE[3], 4, 5, "clip-fn")}
   {ellipse(LFCN[0], LFCN[1], LFCN[1], 'id="lfcn" fill="#F4DC92" stroke="#B8962E" stroke-width="3"')}
-  {'' if painted else f'''{nerve_bundle(LFCN[0], LFCN[1], LFCN[1], 0, 0.36, 6)}'''}
+  {'' if painted else nerve_bundle(LFCN[0], LFCN[1], LFCN[1], 0, 2, 6, "clip-lfcn")}
   {ellipse(vc, vrx, vry, 'id="femoral-vein" fill="#5B79AC" stroke="#2F4A78" stroke-width="4"')}
   {ellipse(vc, vrx - 0.7, vry - 0.7, 'fill="url(#vein)"')}
   {ellipse(art[0], art[1], art[1], 'id="femoral-artery" fill="#C95A4F" stroke="#8E211D" stroke-width="5"')}
   {ellipse(art[0], art[1] - 1.5, art[1] - 1.5, 'fill="url(#artery)" stroke="#9E2A24" stroke-width="3"')}
-  <line x1="0" y1="{fmt(ORIGIN[1])}" x2="1600" y2="{fmt(ORIGIN[1])}" stroke="#B98A74" stroke-width="4"/>
-  <rect id="probe" x="{fmt(px0)}" y="{fmt(ORIGIN[1] - 150)}" width="{fmt(px1 - px0)}" height="150" rx="26" fill="#8A929B"/>
+  <path d="{path(curve(skin_y, n=80))}" fill="none" stroke="#B98A74" stroke-width="4"/>
+  <rect id="probe" x="{fmt(px0)}" y="{fmt(ORIGIN[1] + PRESS_MM * PX_MM - 150)}" width="{fmt(px1 - px0)}" height="150" rx="26" fill="#8A929B"/>
   </g>
 </g>
 
