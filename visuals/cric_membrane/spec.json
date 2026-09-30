@@ -5,7 +5,7 @@
   "view": "Anterior (A-P) view of the neck, patient supine, head at the top: the operator's view.",
   "teachingPoint": "The membrane is the soft gap between the thyroid cartilage above and the cricoid ring below. Horizontal membrane incision; vertical midline skin incision, 3-5 cm, from over the thyroid cartilage going distally.",
   "claims": [
-    "Anterior view, head at the top: hyoid, thyroid cartilage with its notch, cricothyroid membrane, cricoid ring, tracheal rings.",
+    "Anterior view, head at the top: hyoid, thyroid cartilage with its notch and horns, cricothyroid membrane (teal highlight), cricoid ring, tracheal rings, thyroid lobes and isthmus. Painted by Gemini from the code layout; markings drawn in code.",
     "The cricothyroid membrane lies between the lower border of the thyroid cartilage and the cricoid.",
     "The cricoid is a complete ring, taller than a tracheal ring.",
     "The thyroid isthmus crosses tracheal rings 2 to 4, below the cricoid and clear of the membrane; the lobes lie either side.",
@@ -14,7 +14,6 @@
     "Three labels: Thyroid cartilage, Cricothyroid membrane, Cricoid cartilage."
   ],
   "requiredElements": [
-    "hyoid",
     "thyroid-cartilage",
     "cricothyroid-membrane",
     "cricoid-cartilage",
@@ -29,12 +28,6 @@
     "Cricoid cartilage": "cricoid-cartilage"
   },
   "geometry": [
-    {
-      "check": "below",
-      "a": "thyroid-cartilage",
-      "b": "hyoid",
-      "why": "thyroid cartilage is below the hyoid"
-    },
     {
       "check": "below",
       "a": "cricothyroid-membrane",
@@ -86,9 +79,9 @@
     {
       "check": "lengthRange",
       "a": "vertical-skin-incision",
-      "min": 362,
-      "max": 603,
-      "why": "vertical skin incision is 3-5 cm (9 px/mm, zoomed x1.34)"
+      "min": 382,
+      "max": 636,
+      "why": "vertical skin incision is 3-5 cm (base 9.5 px/mm, scaled x1.339)"
     },
     {
       "check": "endNear",

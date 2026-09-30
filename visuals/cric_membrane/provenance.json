@@ -1,0 +1,13 @@
+{
+  "base": "base.jpg",
+  "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+  "generatedBy": "owner, in the Gemini app",
+  "date": "2026-09-30",
+  "reference": "Unlabelled render of the earlier code-drawn cric_membrane plate (no incisions), attached to the prompt.",
+  "prompt": "The attached image is an exact anatomical layout of the anterior neck, patient supine, head at the top: hyoid, thyroid cartilage with its notch and horns, the blue cricothyroid membrane below it, the cricoid ring, the tracheal rings, and the thyroid gland with its isthmus over the upper rings. Repaint it as a premium medical-atlas illustration. Keep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: soft painted shading, fine crisp outlines, realistic cartilage, gland and skin textures, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, incisions, instruments, hands or blood.",
+  "repairs": [
+    "Keep everything else identical. Restore the thyroid isthmus: a band of the same lobulated pink thyroid tissue joining the two lobes, lying across the front of the second to fourth tracheal rings, below the cricoid and clear of the membrane. Also draw fewer, thicker tracheal rings, each about as tall as the gaps between them are wide, matching the attached layout."
+  ],
+  "rejected": "A later hyoid repair was rejected: it erased the cricothyroid membrane and cricoid and fused an enlarged hyoid onto the thyroid cartilage.",
+  "knownLimits": "Hyoid is small and floats with no thyrohyoid membrane; tracheal rings are thinner and more numerous than real rings. Neither affects the cric landmarks."
+}

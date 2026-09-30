@@ -1,170 +1,94 @@
 """Cricothyrotomy landmarks - anterior (A-P) view, the operator's view.
 
-Patient supine, head at the top of the image. It shows what the operator
-palpates and cuts: the thyroid cartilage, the cricothyroid membrane below it,
-the cricoid ring below that, the tracheal rings, and the thyroid gland with its
-isthmus over the upper rings, clear of the membrane. Incisions: the horizontal
-membrane incision (solid) and the vertical midline skin incision (dashed = skin
-layer), 4 cm, beginning over the thyroid cartilage and running distally - the
-owner's specification (2026-09-30), 3-5 cm.
+Painted base plus code-drawn markings. The art is a Gemini Nano Banana Pro
+repaint of the earlier code-drawn layout (see provenance.json). The anatomy
+regions below are hand-traced over the base in base-image pixels; the
+incisions, the membrane highlight and the labels are drawn here so they are
+exact. Re-trace everything if the base is replaced.
 
-Scale: 9 px per mm in anatomy coordinates. The anatomy is zoomed by VIEW_SCALE
-so the larynx fills the card; labels are unscaled and their leaders are mapped
-through view().
+Incisions: the horizontal membrane incision (solid), and the vertical midline
+skin incision (dashed = skin layer), 4 cm, beginning over the thyroid cartilage
+and running distally - the owner's specification (3-5 cm). Base scale is about
+9.5 px/mm (the membrane is about 90 px tall).
 
-Run: python3 visuals/cric_membrane/draw.py
+Run: python3 visuals/cric_membrane/draw.py   (DEBUG=1 shows the traced regions)
 """
 
 from __future__ import annotations
 
+import hashlib
+import os
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 
-from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
+from visuals_lib import HEIGHT, WIDTH, Label, document, fmt, pts  # noqa: E402
 
 ASSET_ID = "cric_membrane"
-PX_PER_MM = 9.0
-CX = 800.0                      # midline
-
-HYOID_Y = 205.0
-THYROID_TOP, THYROID_NOTCH, THYROID_BOTTOM = 262.0, 306.0, 482.0
-MEMBRANE_TOP, MEMBRANE_BOTTOM = 482.0, 570.0        # about 10 mm
-CRICOID_TOP, CRICOID_BOTTOM = 570.0, 626.0          # about 6 mm arch
-RING_TOP, RING_H, RING_GAP = 646.0, 34.0, 18.0
-MEMBRANE_CENTER_Y = (MEMBRANE_TOP + MEMBRANE_BOTTOM) / 2
-
-SKIN_INCISION_START_Y = 390.0   # over the lower thyroid cartilage
-SKIN_INCISION_MM = 40.0         # owner: 3-5 cm, starting over the thyroid cartilage, going distal
-
-# Zoom so the hyoid-to-ring-7 region fills the 1600 x 1200 card.
-VIEW_SCALE = 1.34
-VIEW_SHIFT = (-272.0, -170.0)
+BASE = "base.jpg"
+BASE_SIZE = (1195.0, 896.0)
+SCALE = WIDTH / BASE_SIZE[0]
+OFFSET_Y = (HEIGHT - BASE_SIZE[1] * SCALE) / 2
+PX_PER_MM = 9.5            # in base pixels
+CX = 597.0                 # midline in base pixels
 
 
-def view(p):
-    return (p[0] * VIEW_SCALE + VIEW_SHIFT[0], p[1] * VIEW_SCALE + VIEW_SHIFT[1])
+def canvas(p):
+    return (p[0] * SCALE, p[1] * SCALE + OFFSET_Y)
 
 
-def ring_path(y0, y1, half_top, half_bottom, sag=10):
-    return (f"M{fmt(CX - half_top)},{fmt(y0)} Q{fmt(CX)},{fmt(y0 + sag)} {fmt(CX + half_top)},{fmt(y0)} "
-            f"L{fmt(CX + half_bottom)},{fmt(y1)} Q{fmt(CX)},{fmt(y1 + sag)} {fmt(CX - half_bottom)},{fmt(y1)} Z")
+# Traced in base-image pixels.
+THYROID = [(402, 140), (600, 180), (790, 140), (770, 250), (720, 330), (600, 352), (478, 330), (425, 250)]
+MEMBRANE = [(492, 354), (702, 354), (712, 440), (480, 440)]
+CRICOID = [(476, 443), (720, 443), (716, 497), (480, 497)]
+RINGS = [(496, 505), (700, 505), (700, 890), (496, 890)]
+ISTHMUS = [(520, 565), (675, 565), (700, 640), (680, 690), (515, 690), (495, 640)]
 
-
-DEFS = """
-<linearGradient id="skinSide" x1="0" x2="1"><stop offset="0" stop-color="#E9C8B4"/><stop offset="0.28" stop-color="#F6E3D6"/>
-  <stop offset="0.5" stop-color="#F9EADF"/><stop offset="0.72" stop-color="#F6E3D6"/><stop offset="1" stop-color="#E9C8B4"/></linearGradient>
-<linearGradient id="cartilage" x1="0" x2="1"><stop offset="0" stop-color="#B9CCDB"/><stop offset="0.5" stop-color="#EEF4F8"/><stop offset="1" stop-color="#B9CCDB"/></linearGradient>
-<linearGradient id="lamina" x1="0" x2="1"><stop offset="0" stop-color="#A9C0D2"/><stop offset="0.42" stop-color="#E6EEF4"/>
-  <stop offset="0.5" stop-color="#F4F8FB"/><stop offset="0.58" stop-color="#E6EEF4"/><stop offset="1" stop-color="#A9C0D2"/></linearGradient>
-<linearGradient id="ringShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#B7CADA"/></linearGradient>
-<linearGradient id="tube" x1="0" x2="1"><stop offset="0" stop-color="#C98E8A"/><stop offset="0.5" stop-color="#EBC1BB"/><stop offset="1" stop-color="#C98E8A"/></linearGradient>
-<radialGradient id="membraneShade" cx="0.5" cy="0.5" r="0.7"><stop offset="0" stop-color="#BFE0F4"/><stop offset="1" stop-color="#6FB0DC"/></radialGradient>
-<radialGradient id="gland" cx="0.4" cy="0.35" r="0.8"><stop offset="0" stop-color="#F6C9BC"/><stop offset="1" stop-color="#DB9585"/></radialGradient>
-<pattern id="lobules" width="18" height="18" patternUnits="userSpaceOnUse">
-  <circle cx="5" cy="6" r="2.2" fill="#C87C6B" opacity="0.35"/><circle cx="13" cy="14" r="1.8" fill="#C87C6B" opacity="0.3"/></pattern>
-<filter id="lift" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#6B4A3C" flood-opacity="0.22"/></filter>
-"""
+SKIN_INCISION_START_Y = 290.0
+SKIN_INCISION_MM = 40.0
+MEMBRANE_CUT = ((545.0, 405.0), (650.0, 405.0))
 
 
 def build() -> str:
-    neck = ("M300,0 C330,120 420,200 470,300 C520,420 520,720 500,860 C480,980 380,1080 180,1140 L0,1160 L0,1200 "
-            "L1600,1200 L1600,1160 L1420,1140 C1220,1080 1120,980 1100,860 C1080,720 1080,420 1130,300 "
-            "C1180,200 1270,120 1300,0 Z")
-    jaw = "M300,0 C420,110 600,150 800,152 C1000,150 1180,110 1300,0"
-    # Sternocleidomastoid contours: faint depth cues from behind the ear to the sternal notch.
-    scm_l = "M470,160 C560,420 680,760 760,1080"
-    scm_r = "M1130,160 C1040,420 920,760 840,1080"
+    debug = os.environ.get("DEBUG") == "1"
+    region = 'fill="#ff00ff" fill-opacity="0.35"' if debug else 'fill="#000" fill-opacity="0"'
+    base_sha = hashlib.sha256(Path(__file__).with_name(BASE).read_bytes()).hexdigest()
 
-    thyroid = smooth_path([
-        (CX - 190, THYROID_TOP + 8), (CX - 90, THYROID_TOP), (CX - 30, THYROID_TOP + 14), (CX, THYROID_NOTCH),
-        (CX + 30, THYROID_TOP + 14), (CX + 90, THYROID_TOP), (CX + 190, THYROID_TOP + 8),
-        (CX + 165, 380), (CX + 118, 452), (CX + 70, THYROID_BOTTOM - 4), (CX, THYROID_BOTTOM),
-        (CX - 70, THYROID_BOTTOM - 4), (CX - 118, 452), (CX - 165, 380),
-    ], closed=True)
-    horns = (f"M{fmt(CX - 182)},{fmt(THYROID_TOP + 10)} L{fmt(CX - 196)},{fmt(HYOID_Y + 16)} "
-             f"M{fmt(CX + 182)},{fmt(THYROID_TOP + 10)} L{fmt(CX + 196)},{fmt(HYOID_Y + 16)}")
-    oblique = (f"M{fmt(CX - 160)},{fmt(THYROID_TOP + 40)} C{fmt(CX - 150)},340 {fmt(CX - 128)},400 {fmt(CX - 100)},{fmt(THYROID_BOTTOM - 20)} "
-               f"M{fmt(CX + 160)},{fmt(THYROID_TOP + 40)} C{fmt(CX + 150)},340 {fmt(CX + 128)},400 {fmt(CX + 100)},{fmt(THYROID_BOTTOM - 20)}")
-    prominence = f"M{fmt(CX)},{fmt(THYROID_NOTCH + 6)} L{fmt(CX)},{fmt(THYROID_BOTTOM - 30)}"
+    def poly(points):
+        return pts([canvas(p) for p in points])
 
-    membrane = (f"M{fmt(CX - 78)},{fmt(MEMBRANE_TOP - 2)} Q{fmt(CX)},{fmt(MEMBRANE_TOP + 4)} {fmt(CX + 78)},{fmt(MEMBRANE_TOP - 2)} "
-                f"L{fmt(CX + 118)},{fmt(MEMBRANE_BOTTOM + 2)} Q{fmt(CX)},{fmt(MEMBRANE_BOTTOM - 8)} {fmt(CX - 118)},{fmt(MEMBRANE_BOTTOM + 2)} Z")
-    cricoid = ring_path(CRICOID_TOP, CRICOID_BOTTOM, 124, 116, sag=-6)
-
-    rings = []
-    y = RING_TOP
-    while y < 1060:
-        rings.append(ring_path(y, y + RING_H, 104, 104, sag=12))
-        y += RING_H + RING_GAP
-    ring2_top = RING_TOP + RING_H + RING_GAP
-    ring4_bottom = RING_TOP + 3 * (RING_H + RING_GAP) + RING_H
-    trachea = f"M{fmt(CX - 100)},{fmt(CRICOID_BOTTOM - 4)} L{fmt(CX + 100)},{fmt(CRICOID_BOTTOM - 4)} L{fmt(CX + 100)},1100 L{fmt(CX - 100)},1100 Z"
-
-    lobe_l = smooth_path([(CX - 128, 560), (CX - 205, 600), (CX - 250, 720), (CX - 232, 860), (CX - 170, 900),
-                          (CX - 118, 840), (CX - 104, 700)], closed=True)
-    lobe_r = smooth_path([(CX + 128, 560), (CX + 205, 600), (CX + 250, 720), (CX + 232, 860), (CX + 170, 900),
-                          (CX + 118, 840), (CX + 104, 700)], closed=True)
-    isthmus = smooth_path([(CX - 116, ring2_top + 6), (CX - 40, ring2_top - 4), (CX + 40, ring2_top - 4),
-                           (CX + 116, ring2_top + 6), (CX + 122, (ring2_top + ring4_bottom) / 2), (CX + 112, ring4_bottom - 4),
-                           (CX + 40, ring4_bottom + 10), (CX - 40, ring4_bottom + 10), (CX - 112, ring4_bottom - 4),
-                           (CX - 122, (ring2_top + ring4_bottom) / 2)], closed=True)
-
-    skin_top = SKIN_INCISION_START_Y
-    skin_bottom = SKIN_INCISION_START_Y + SKIN_INCISION_MM * PX_PER_MM
-    membrane_cut_y = MEMBRANE_CENTER_Y + 6
+    top = canvas((CX, SKIN_INCISION_START_Y))
+    bottom = canvas((CX, SKIN_INCISION_START_Y + SKIN_INCISION_MM * PX_PER_MM))
+    cut_a, cut_b = canvas(MEMBRANE_CUT[0]), canvas(MEMBRANE_CUT[1])
 
     labels = [
-        Label(["Thyroid", "cartilage"], anchor=(48, 250), leader=[(300, 290), view((CX - 128, 360))],
+        Label(["Thyroid", "cartilage"], anchor=(40, 250), leader=[(290, 290), canvas((470, 230))],
               target_id="thyroid-cartilage"),
-        Label(["Cricothyroid", "membrane"], anchor=(36, 560), leader=[(410, 548), view((CX - 64, 540))],
+        Label(["Cricothyroid", "membrane"], anchor=(30, 560), leader=[(400, 548), canvas((505, 400))],
               target_id="cricothyroid-membrane", emphasis=True),
-        Label(["Cricoid", "cartilage"], anchor=(1300, 560), leader=[(1290, 588), view((CX + 112, 600))],
+        Label(["Cricoid", "cartilage"], anchor=(1290, 560), leader=[(1280, 590), canvas((705, 470))],
               target_id="cricoid-cartilage"),
     ]
 
     body = f"""
-<g id="anatomy" transform="translate({fmt(VIEW_SHIFT[0])} {fmt(VIEW_SHIFT[1])}) scale({VIEW_SCALE})">
-  <path d="{neck}" fill="url(#skinSide)" stroke="#D2A994" stroke-width="3"/>
-  <path d="{jaw}" fill="none" stroke="#D2A994" stroke-width="3"/>
-  <path d="{scm_l}" fill="none" stroke="#DDB6A2" stroke-width="10" stroke-linecap="round" opacity="0.45"/>
-  <path d="{scm_r}" fill="none" stroke="#DDB6A2" stroke-width="10" stroke-linecap="round" opacity="0.45"/>
+<g id="anatomy" data-base-sha256="{base_sha}">
+  <image href="{BASE}" x="0" y="{fmt(OFFSET_Y)}" width="{fmt(WIDTH)}" height="{fmt(BASE_SIZE[1] * SCALE)}" preserveAspectRatio="none"/>
+  <polygon id="thyroid-cartilage" points="{poly(THYROID)}" {region}/>
+  <polygon id="cricothyroid-membrane" points="{poly(MEMBRANE)}" fill="#0E8C98" fill-opacity="{0.35 if debug else 0.22}" stroke="#0E8C98" stroke-width="3" stroke-opacity="0.8"/>
+  <polygon id="cricoid-cartilage" points="{poly(CRICOID)}" {region}/>
+  <polygon id="tracheal-rings" points="{poly(RINGS)}" {region}/>
+  <polygon id="thyroid-isthmus" points="{poly(ISTHMUS)}" {region}/>
 
-  <g stroke-linejoin="round">
-    <path d="M{fmt(CX - 150)},{fmt(HYOID_Y + 8)} L{fmt(CX + 150)},{fmt(HYOID_Y + 8)} L{fmt(CX + 184)},{fmt(THYROID_TOP + 8)} L{fmt(CX - 184)},{fmt(THYROID_TOP + 8)} Z"
-          fill="#E3EAF0" opacity="0.8"/>
-    <path id="hyoid" d="M{fmt(CX - 150)},{fmt(HYOID_Y - 14)} Q{fmt(CX)},{fmt(HYOID_Y + 10)} {fmt(CX + 150)},{fmt(HYOID_Y - 14)}"
-          fill="none" stroke="#EDE3CF" stroke-width="26" stroke-linecap="round" filter="url(#lift)"/>
-    <path d="M{fmt(CX - 150)},{fmt(HYOID_Y - 14)} Q{fmt(CX)},{fmt(HYOID_Y + 10)} {fmt(CX + 150)},{fmt(HYOID_Y - 14)}"
-          fill="none" stroke="#A89776" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
-
-    <path d="{trachea}" fill="url(#tube)" filter="url(#lift)"/>
-    <path id="thyroid-gland-left" d="{lobe_l}" fill="url(#gland)" stroke="#C07A69" stroke-width="2.5" filter="url(#lift)"/>
-    <path d="{lobe_l}" fill="url(#lobules)"/>
-    <path id="thyroid-gland-right" d="{lobe_r}" fill="url(#gland)" stroke="#C07A69" stroke-width="2.5" filter="url(#lift)"/>
-    <path d="{lobe_r}" fill="url(#lobules)"/>
-
-    <path d="{horns}" stroke="#8FA9BD" stroke-width="12" stroke-linecap="round"/>
-    <path id="thyroid-cartilage" d="{thyroid}" fill="url(#lamina)" stroke="#557389" stroke-width="3" filter="url(#lift)"/>
-    <path d="{oblique}" fill="none" stroke="#8FA9BD" stroke-width="2.5" opacity="0.7"/>
-    <path d="{prominence}" stroke="#A3B8C8" stroke-width="3"/>
-    <path id="cricothyroid-membrane" d="{membrane}" fill="url(#membraneShade)" stroke="#2F7FB5" stroke-width="3"/>
-    <path id="cricoid-cartilage" d="{cricoid}" fill="url(#ringShade)" stroke="#557389" stroke-width="3" filter="url(#lift)"/>
-    <g id="tracheal-rings" fill="url(#ringShade)" stroke="#6A8599" stroke-width="2.5">{"".join(f'<path d="{r}"/>' for r in rings)}</g>
-    <path id="thyroid-isthmus" d="{isthmus}" fill="url(#gland)" fill-opacity="0.9" stroke="#C07A69" stroke-width="2.5"/>
-    <path d="{isthmus}" fill="url(#lobules)"/>
-  </g>
-
-  <line id="vertical-skin-incision" x1="{fmt(CX)}" y1="{fmt(skin_top)}" x2="{fmt(CX)}" y2="{fmt(skin_bottom)}"
-        stroke="#D8432A" stroke-width="6" stroke-dasharray="20 14" stroke-linecap="round" opacity="0.9"/>
-  <line id="membrane-incision" x1="{fmt(CX - 62)}" y1="{fmt(membrane_cut_y)}" x2="{fmt(CX + 62)}" y2="{fmt(membrane_cut_y)}"
-        stroke="#D8432A" stroke-width="11" stroke-linecap="round"/>
+  <line id="vertical-skin-incision" x1="{fmt(top[0])}" y1="{fmt(top[1])}" x2="{fmt(bottom[0])}" y2="{fmt(bottom[1])}"
+        stroke="#D8432A" stroke-width="7" stroke-dasharray="22 15" stroke-linecap="round" opacity="0.92"/>
+  <line id="membrane-incision" x1="{fmt(cut_a[0])}" y1="{fmt(cut_a[1])}" x2="{fmt(cut_b[0])}" y2="{fmt(cut_b[1])}"
+        stroke="#D8432A" stroke-width="12" stroke-linecap="round"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>
 """
-    return document(body, defs=DEFS, extra_style=".plate-bg { fill: #F7F6F2; }")
+    return document(body, extra_style=".plate-bg { fill: #F4F1EA; }")
 
 
 def main() -> int:

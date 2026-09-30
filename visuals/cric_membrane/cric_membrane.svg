@@ -30,60 +30,24 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 .leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
 .leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
 .label.emphasis .leader-dot { fill: var(--target); }
-.plate-bg { fill: #F7F6F2; }</style>
-<defs>
-<linearGradient id="skinSide" x1="0" x2="1"><stop offset="0" stop-color="#E9C8B4"/><stop offset="0.28" stop-color="#F6E3D6"/>
-  <stop offset="0.5" stop-color="#F9EADF"/><stop offset="0.72" stop-color="#F6E3D6"/><stop offset="1" stop-color="#E9C8B4"/></linearGradient>
-<linearGradient id="cartilage" x1="0" x2="1"><stop offset="0" stop-color="#B9CCDB"/><stop offset="0.5" stop-color="#EEF4F8"/><stop offset="1" stop-color="#B9CCDB"/></linearGradient>
-<linearGradient id="lamina" x1="0" x2="1"><stop offset="0" stop-color="#A9C0D2"/><stop offset="0.42" stop-color="#E6EEF4"/>
-  <stop offset="0.5" stop-color="#F4F8FB"/><stop offset="0.58" stop-color="#E6EEF4"/><stop offset="1" stop-color="#A9C0D2"/></linearGradient>
-<linearGradient id="ringShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#B7CADA"/></linearGradient>
-<linearGradient id="tube" x1="0" x2="1"><stop offset="0" stop-color="#C98E8A"/><stop offset="0.5" stop-color="#EBC1BB"/><stop offset="1" stop-color="#C98E8A"/></linearGradient>
-<radialGradient id="membraneShade" cx="0.5" cy="0.5" r="0.7"><stop offset="0" stop-color="#BFE0F4"/><stop offset="1" stop-color="#6FB0DC"/></radialGradient>
-<radialGradient id="gland" cx="0.4" cy="0.35" r="0.8"><stop offset="0" stop-color="#F6C9BC"/><stop offset="1" stop-color="#DB9585"/></radialGradient>
-<pattern id="lobules" width="18" height="18" patternUnits="userSpaceOnUse">
-  <circle cx="5" cy="6" r="2.2" fill="#C87C6B" opacity="0.35"/><circle cx="13" cy="14" r="1.8" fill="#C87C6B" opacity="0.3"/></pattern>
-<filter id="lift" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#6B4A3C" flood-opacity="0.22"/></filter>
-</defs>
+.plate-bg { fill: #F4F1EA; }</style>
+<defs></defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="anatomy" transform="translate(-272 -170) scale(1.34)">
-  <path d="M300,0 C330,120 420,200 470,300 C520,420 520,720 500,860 C480,980 380,1080 180,1140 L0,1160 L0,1200 L1600,1200 L1600,1160 L1420,1140 C1220,1080 1120,980 1100,860 C1080,720 1080,420 1130,300 C1180,200 1270,120 1300,0 Z" fill="url(#skinSide)" stroke="#D2A994" stroke-width="3"/>
-  <path d="M300,0 C420,110 600,150 800,152 C1000,150 1180,110 1300,0" fill="none" stroke="#D2A994" stroke-width="3"/>
-  <path d="M470,160 C560,420 680,760 760,1080" fill="none" stroke="#DDB6A2" stroke-width="10" stroke-linecap="round" opacity="0.45"/>
-  <path d="M1130,160 C1040,420 920,760 840,1080" fill="none" stroke="#DDB6A2" stroke-width="10" stroke-linecap="round" opacity="0.45"/>
+<g id="anatomy" data-base-sha256="db5588e7884fe5dda007729b835fc940729955137883b0834d2807caffc3d1be">
+  <image href="base.jpg" x="0" y="0.2" width="1600" height="1199.7" preserveAspectRatio="none"/>
+  <polygon id="thyroid-cartilage" points="538.2,187.6 803.3,241.2 1057.7,187.6 1031,334.9 964,442 803.3,471.5 640,442 569,334.9" fill="#000" fill-opacity="0"/>
+  <polygon id="cricothyroid-membrane" points="658.7,474.1 939.9,474.1 953.3,589.3 642.7,589.3" fill="#0E8C98" fill-opacity="0.22" stroke="#0E8C98" stroke-width="3" stroke-opacity="0.8"/>
+  <polygon id="cricoid-cartilage" points="637.3,593.3 964,593.3 958.7,665.6 642.7,665.6" fill="#000" fill-opacity="0"/>
+  <polygon id="tracheal-rings" points="664.1,676.3 937.2,676.3 937.2,1191.8 664.1,1191.8" fill="#000" fill-opacity="0"/>
+  <polygon id="thyroid-isthmus" points="696.2,756.7 903.8,756.7 937.2,857.1 910.5,924 689.5,924 662.8,857.1" fill="#000" fill-opacity="0"/>
 
-  <g stroke-linejoin="round">
-    <path d="M650,213 L950,213 L984,270 L616,270 Z"
-          fill="#E3EAF0" opacity="0.8"/>
-    <path id="hyoid" d="M650,191 Q800,215 950,191"
-          fill="none" stroke="#EDE3CF" stroke-width="26" stroke-linecap="round" filter="url(#lift)"/>
-    <path d="M650,191 Q800,215 950,191"
-          fill="none" stroke="#A89776" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
-
-    <path d="M700,622 L900,622 L900,1100 L700,1100 Z" fill="url(#tube)" filter="url(#lift)"/>
-    <path id="thyroid-gland-left" d="M672,560 C655.2,543.3 615.3,573.3 595,600 C574.7,626.7 554.5,676.7 550,720 C545.5,763.3 554.7,830 568,860 C581.3,890 611,903.3 630,900 C649,896.7 671,873.3 682,840 C693,806.7 697.7,746.7 696,700 C694.3,653.3 688.8,576.7 672,560 Z" fill="url(#gland)" stroke="#C07A69" stroke-width="2.5" filter="url(#lift)"/>
-    <path d="M672,560 C655.2,543.3 615.3,573.3 595,600 C574.7,626.7 554.5,676.7 550,720 C545.5,763.3 554.7,830 568,860 C581.3,890 611,903.3 630,900 C649,896.7 671,873.3 682,840 C693,806.7 697.7,746.7 696,700 C694.3,653.3 688.8,576.7 672,560 Z" fill="url(#lobules)"/>
-    <path id="thyroid-gland-right" d="M928,560 C944.8,543.3 984.7,573.3 1005,600 C1025.3,626.7 1045.5,676.7 1050,720 C1054.5,763.3 1045.3,830 1032,860 C1018.7,890 989,903.3 970,900 C951,896.7 929,873.3 918,840 C907,806.7 902.3,746.7 904,700 C905.7,653.3 911.2,576.7 928,560 Z" fill="url(#gland)" stroke="#C07A69" stroke-width="2.5" filter="url(#lift)"/>
-    <path d="M928,560 C944.8,543.3 984.7,573.3 1005,600 C1025.3,626.7 1045.5,676.7 1050,720 C1054.5,763.3 1045.3,830 1032,860 C1018.7,890 989,903.3 970,900 C951,896.7 929,873.3 918,840 C907,806.7 902.3,746.7 904,700 C905.7,653.3 911.2,576.7 928,560 Z" fill="url(#lobules)"/>
-
-    <path d="M618,272 L604,221 M982,272 L996,221" stroke="#8FA9BD" stroke-width="12" stroke-linecap="round"/>
-    <path id="thyroid-cartilage" d="M610,270 C622.5,250.3 683.3,261 710,262 C736.7,263 755,268.7 770,276 C785,283.3 790,306 800,306 C810,306 815,283.3 830,276 C845,268.7 863.3,263 890,262 C916.7,261 977.5,250.3 990,270 C1002.5,289.7 977,349.7 965,380 C953,410.3 933.8,435.7 918,452 C902.2,468.3 889.7,473 870,478 C850.3,483 823.3,482 800,482 C776.7,482 749.7,483 730,478 C710.3,473 697.8,468.3 682,452 C666.2,435.7 647,410.3 635,380 C623,349.7 597.5,289.7 610,270 Z" fill="url(#lamina)" stroke="#557389" stroke-width="3" filter="url(#lift)"/>
-    <path d="M640,302 C650,340 672,400 700,462 M960,302 C950,340 928,400 900,462" fill="none" stroke="#8FA9BD" stroke-width="2.5" opacity="0.7"/>
-    <path d="M800,312 L800,452" stroke="#A3B8C8" stroke-width="3"/>
-    <path id="cricothyroid-membrane" d="M722,480 Q800,486 878,480 L918,572 Q800,562 682,572 Z" fill="url(#membraneShade)" stroke="#2F7FB5" stroke-width="3"/>
-    <path id="cricoid-cartilage" d="M676,570 Q800,564 924,570 L916,626 Q800,620 684,626 Z" fill="url(#ringShade)" stroke="#557389" stroke-width="3" filter="url(#lift)"/>
-    <g id="tracheal-rings" fill="url(#ringShade)" stroke="#6A8599" stroke-width="2.5"><path d="M696,646 Q800,658 904,646 L904,680 Q800,692 696,680 Z"/><path d="M696,698 Q800,710 904,698 L904,732 Q800,744 696,732 Z"/><path d="M696,750 Q800,762 904,750 L904,784 Q800,796 696,784 Z"/><path d="M696,802 Q800,814 904,802 L904,836 Q800,848 696,836 Z"/><path d="M696,854 Q800,866 904,854 L904,888 Q800,900 696,888 Z"/><path d="M696,906 Q800,918 904,906 L904,940 Q800,952 696,940 Z"/><path d="M696,958 Q800,970 904,958 L904,992 Q800,1004 696,992 Z"/><path d="M696,1010 Q800,1022 904,1010 L904,1044 Q800,1056 696,1044 Z"/></g>
-    <path id="thyroid-isthmus" d="M684,704 C697.7,691.8 734,695.7 760,694 C786,692.3 814,692.3 840,694 C866,695.7 902.3,691.8 916,704 C929.7,716.2 922.7,745.7 922,767 C921.3,788.3 925.7,818.8 912,832 C898.3,845.2 865.3,843.7 840,846 C814.7,848.3 785.3,848.3 760,846 C734.7,843.7 701.7,845.2 688,832 C674.3,818.8 678.7,788.3 678,767 C677.3,745.7 670.3,716.2 684,704 Z" fill="url(#gland)" fill-opacity="0.9" stroke="#C07A69" stroke-width="2.5"/>
-    <path d="M684,704 C697.7,691.8 734,695.7 760,694 C786,692.3 814,692.3 840,694 C866,695.7 902.3,691.8 916,704 C929.7,716.2 922.7,745.7 922,767 C921.3,788.3 925.7,818.8 912,832 C898.3,845.2 865.3,843.7 840,846 C814.7,848.3 785.3,848.3 760,846 C734.7,843.7 701.7,845.2 688,832 C674.3,818.8 678.7,788.3 678,767 C677.3,745.7 670.3,716.2 684,704 Z" fill="url(#lobules)"/>
-  </g>
-
-  <line id="vertical-skin-incision" x1="800" y1="390" x2="800" y2="750"
-        stroke="#D8432A" stroke-width="6" stroke-dasharray="20 14" stroke-linecap="round" opacity="0.9"/>
-  <line id="membrane-incision" x1="738" y1="532" x2="862" y2="532"
-        stroke="#D8432A" stroke-width="11" stroke-linecap="round"/>
+  <line id="vertical-skin-incision" x1="799.3" y1="388.5" x2="799.3" y2="897.2"
+        stroke="#D8432A" stroke-width="7" stroke-dasharray="22 15" stroke-linecap="round" opacity="0.92"/>
+  <line id="membrane-incision" x1="729.7" y1="542.4" x2="870.3" y2="542.4"
+        stroke="#D8432A" stroke-width="12" stroke-linecap="round"/>
 </g>
 
-<g id="labels"><g class="label" data-label="Thyroid cartilage" data-target="thyroid-cartilage"><polyline class="leader-halo" points="300,290 628.5,312.4"/><polyline class="leader" points="300,290 628.5,312.4"/><circle class="leader-dot" cx="628.5" cy="312.4" r="7"/><text x="48" y="250" text-anchor="start"><tspan x="48" dy="0">Thyroid</tspan><tspan x="48" dy="66">cartilage</tspan></text></g><g class="label emphasis" data-label="Cricothyroid membrane" data-target="cricothyroid-membrane"><polyline class="leader-halo" points="410,548 714.2,553.6"/><polyline class="leader" points="410,548 714.2,553.6"/><circle class="leader-dot" cx="714.2" cy="553.6" r="7"/><text x="36" y="560" text-anchor="start"><tspan x="36" dy="0">Cricothyroid</tspan><tspan x="36" dy="66">membrane</tspan></text></g><g class="label" data-label="Cricoid cartilage" data-target="cricoid-cartilage"><polyline class="leader-halo" points="1290,588 950.1,634"/><polyline class="leader" points="1290,588 950.1,634"/><circle class="leader-dot" cx="950.1" cy="634" r="7"/><text x="1300" y="560" text-anchor="start"><tspan x="1300" dy="0">Cricoid</tspan><tspan x="1300" dy="66">cartilage</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Thyroid cartilage" data-target="thyroid-cartilage"><polyline class="leader-halo" points="290,290 629.3,308.1"/><polyline class="leader" points="290,290 629.3,308.1"/><circle class="leader-dot" cx="629.3" cy="308.1" r="7"/><text x="40" y="250" text-anchor="start"><tspan x="40" dy="0">Thyroid</tspan><tspan x="40" dy="66">cartilage</tspan></text></g><g class="label emphasis" data-label="Cricothyroid membrane" data-target="cricothyroid-membrane"><polyline class="leader-halo" points="400,548 676.2,535.7"/><polyline class="leader" points="400,548 676.2,535.7"/><circle class="leader-dot" cx="676.2" cy="535.7" r="7"/><text x="30" y="560" text-anchor="start"><tspan x="30" dy="0">Cricothyroid</tspan><tspan x="30" dy="66">membrane</tspan></text></g><g class="label" data-label="Cricoid cartilage" data-target="cricoid-cartilage"><polyline class="leader-halo" points="1280,590 943.9,629.5"/><polyline class="leader" points="1280,590 943.9,629.5"/><circle class="leader-dot" cx="943.9" cy="629.5" r="7"/><text x="1290" y="560" text-anchor="start"><tspan x="1290" dy="0">Cricoid</tspan><tspan x="1290" dy="66">cartilage</tspan></text></g></g>
 
 </svg>
