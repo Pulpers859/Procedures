@@ -88,6 +88,18 @@ Painting comes from Gemini; geometry, markings and labels come from code.
    - Reject any repair that breaks a landmark and fall back to the
      previous version. The cric hyoid repair erased the membrane and was
      rejected.
+   - **One small area wrong and the rest right: repaint only that area**
+     (owner-approved 2026-09-30), so the rest of the painting cannot drift.
+     `python3 scripts/visual_patch.py crop <id> --box X0 Y0 X1 Y1 --image <painting>`
+     cuts the area out, with clean painting round it, into
+     `render/patch-crop.png`, plus the same area of the layout as
+     `render/patch-reference.png`. The owner repaints only the crop in
+     Gemini, attaching both, with a short literal line. Then
+     `python3 scripts/visual_patch.py merge <id> <repainted crop>` blends it
+     back with a soft edge and matched colour into `render/patched.jpg`. It
+     never overwrites `base.jpg`, refuses a source that changed since the
+     crop, and fails if any pixel outside the box changed. Box the defect
+     itself; the tool adds the margin the fade needs.
    - Accept cosmetic limits and record them.
 6. **Rebuild the plate on the painting.**
    - Copy the chosen file to `visuals/<id>/base.jpg`.

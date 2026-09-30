@@ -1,0 +1,82 @@
+"""visual_patch.py confines a repaint to its box and blends it back cleanly."""
+
+from __future__ import annotations
+
+import importlib.util
+import json
+import tempfile
+import unittest
+from pathlib import Path
+
+from PIL import Image, ImageChops, ImageDraw
+
+SCRIPT = Path(__file__).resolve().parents[1] / "visual_patch.py"
+spec = importlib.util.spec_from_file_location("visual_patch", SCRIPT)
+vp = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(vp)
+
+
+def painting(path: Path) -> Path:
+    img = Image.new("RGB", (400, 300), (236, 224, 200))
+    ImageDraw.Draw(img).ellipse((150, 100, 250, 200), fill=(200, 60, 50))
+    img.save(path)
+    return path
+
+
+class VisualPatchTest(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = Path(self.tmp.name)
+        self.source = painting(self.dir / "base.png")
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_crop_writes_upscaled_area_and_record(self):
+        rec = vp.crop(self.source, (140, 90, 260, 210), self.dir / "render", margin=10)
+        self.assertEqual(rec["box"], [130, 80, 270, 220])
+        crop = Image.open(self.dir / "render" / "patch-crop.png")
+        self.assertGreaterEqual(max(crop.size), vp.MIN_LONG_SIDE)
+        self.assertEqual(json.loads((self.dir / "render" / "patch.json").read_text())["sourceSha256"], rec["sourceSha256"])
+
+    def test_merge_changes_nothing_outside_the_box(self):
+        rec = vp.crop(self.source, (140, 90, 260, 210), self.dir / "render", margin=10)
+        repaint = Image.open(self.dir / "render" / "patch-crop.png").convert("RGB")
+        ImageDraw.Draw(repaint).rectangle((0, 0, repaint.width, repaint.height), fill=(60, 90, 200))
+        repaint.save(self.dir / "repaint.png")
+        result = vp.merge(rec, self.dir / "repaint.png", self.dir / "out.jpg", feather=12, colour_match=False)
+        self.assertEqual(result["changedOutsideBox"], 0)
+        out = Image.open(self.dir / "out.jpg").convert("RGB")
+        centre = out.getpixel((200, 150))
+        self.assertLess(abs(centre[2] - 200), 20, "the centre takes the repaint")
+        self.assertLess(sum(abs(a - b) for a, b in zip(out.getpixel((131, 150)), (236, 224, 200))), 30,
+                        "the box edge fades back to the original")
+
+    def test_identity_repaint_is_nearly_invisible(self):
+        rec = vp.crop(self.source, (140, 90, 260, 210), self.dir / "render", margin=10)
+        result = vp.merge(rec, self.dir / "render" / "patch-crop.png", self.dir / "out.png")
+        self.assertEqual(result["changedOutsideBox"], 0)
+        self.assertLess(result["meanChangeInsideBox"], 3)
+
+    def test_colour_match_pulls_a_tinted_repaint_back(self):
+        rec = vp.crop(self.source, (140, 90, 260, 210), self.dir / "render", margin=10)
+        tinted = Image.open(self.dir / "render" / "patch-crop.png").convert("RGB")
+        tinted = ImageChops.add(tinted, Image.new("RGB", tinted.size, (0, 0, 40)))
+        tinted.save(self.dir / "tinted.png")
+        plain = vp.merge(rec, self.dir / "tinted.png", self.dir / "a.png", colour_match=False)
+        matched = vp.merge(rec, self.dir / "tinted.png", self.dir / "b.png", colour_match=True)
+        self.assertLess(matched["meanChangeInsideBox"], plain["meanChangeInsideBox"])
+
+    def test_merge_refuses_a_changed_source(self):
+        rec = vp.crop(self.source, (140, 90, 260, 210), self.dir / "render")
+        Image.new("RGB", (400, 300), (0, 0, 0)).save(self.source)
+        with self.assertRaises(ValueError):
+            vp.merge(rec, self.dir / "render" / "patch-crop.png", self.dir / "out.png")
+
+    def test_crop_rejects_a_box_outside_the_image(self):
+        with self.assertRaises(ValueError):
+            vp.crop(self.source, (300, 200, 500, 280), self.dir / "render")
+
+
+if __name__ == "__main__":
+    unittest.main()
