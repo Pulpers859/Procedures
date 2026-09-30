@@ -786,7 +786,7 @@
         "kind": "Landmark",
         "title": "Cricothyroid membrane palpation",
         "subtitle": "Palpate the thyroid cartilage notch, slide inferiorly to the soft depression before the cricoid ring. This is the cricothyroid membrane \u2014 the incision target.",
-        "assetName": null,
+        "assetName": "cric_membrane",
         "systemImage": "scalpel",
         "caption": "Target: cricothyroid membrane between the thyroid and cricoid cartilage.",
         "clinicalWarning": "Vertical skin incision reduces risk of vessel injury. Horizontal membrane incision."
