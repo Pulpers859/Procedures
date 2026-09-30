@@ -65,14 +65,14 @@ NECK = [(-90, -72), (-40, -68), (-10, -62), (12, -56), (19, -63), (35, -68), (60
 # Nerve courses: standard anatomy, branching checked against two third-party
 # concept plates the owner shared on 2026-09-30 (Anesthesia Key / Aneskey scalp
 # and face innervation). Used for understanding only; not copied, not committed.
-STA = [(17, -22), (16.5, -10), (16.5, 10), (17.5, 28)]
+STA = [(17, -14), (16.5, -10), (16.5, 10), (17.5, 28)]
 STA_BRANCHES = [[(17.5, 28), (24, 40), (33, 52)], [(17.5, 28), (18.5, 40), (19.5, 52)]]
-ATN = [(12.5, -18), (12, -5), (11.8, 5), (11.5, 18), (12, 28)]
+ATN = [(12.5, -9), (12.2, -3), (11.8, 5), (11.5, 18), (12, 28)]
 ATN_BRANCHES = [[(12, 28), (19, 38), (27, 52)], [(12, 28), (14, 40), (14.5, 52)], [(12, 28), (9, 40), (6, 52)]]
 ATN_TWIGS = [[(11.9, 0), (10, 1)], [(11.6, 16), (8.5, 19)]]
 GAN = [(-40, -80), (-25, -62), (-12, -48), (-6, -42)]
-GAN_BRANCHES = [[(-6, -42), (5, -44), (15, -45), (26, -42)],          # anterior: over the parotid
-                [(-6, -42), (-2, -37), (1, -32)],                     # to the lobe
+GAN_BRANCHES = [[(-6, -42), (4, -45), (13, -47)],                     # anterior: short, over the angle and parotid
+                [(-6, -42), (-3, -38), (-1.5, -34.5)],               # to the lobe
                 [(-6, -42), (-14, -32), (-20, -18), (-22, -4)]]       # posterior: back of the ear, mastoid
 LON = [(-62, -80), (-49, -50), (-39, -20), (-35, 5), (-33, 20)]
 LON_BRANCHES = [[(-33, 20), (-37, 35), (-41, 52)], [(-33, 20), (-27, 36), (-23, 52)]]
