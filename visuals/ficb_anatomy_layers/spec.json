@@ -208,5 +208,10 @@
       "b": "fascia-iliaca",
       "why": "the muscle's own fascia runs inside the fascia iliaca down the medial border, never across it"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "58cfe6459cf4a9fabf1e64f1255e62464e1f8d9f4cf6ef505e61b1353b449a7f",
+    "reviewedOn": "2026-09-30"
+  }
 }

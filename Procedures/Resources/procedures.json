@@ -4186,9 +4186,9 @@
         "kind": "Landmark",
         "title": "Inguinal fascial layers",
         "subtitle": "From superficial to deep: skin, subcutaneous fat, fascia lata, fascia iliaca, then iliacus/iliopsoas. The femoral nerve lies deep to the fascia iliaca, lateral to the artery. The block targets the plane between fascia iliaca and iliacus.",
-        "assetName": null,
+        "assetName": "ficb_anatomy_layers",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right groin in section under the probe, seen from the feet as on ultrasound: lateral (the hip) on the left.",
         "clinicalWarning": "Intravascular injection risk near femoral vessels. Aspirate before injecting."
       }
     ],
