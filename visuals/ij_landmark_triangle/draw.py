@@ -6,11 +6,14 @@ provenance.json): front of the neck, head at the top turned slightly left,
 the right neck on the image left. The IJ shows in the triangle between the
 sternal and clavicular heads of the right SCM, lateral to the carotid.
 
-Markings, drawn here (owner, 2026-09-30: "show the catheter with triple
-lumen coming out of the neck and IJ"): a triple-lumen central line leaving
-the skin at the apex of the triangle, over the IJ, with its hub pointing
-headward as an IJ line lies, three extension lines, clamps and caps. The teal
-ring marks the site. Lumen colours are left neutral, since they vary by kit.
+The triple-lumen line is painted too (owner, 2026-09-30: "show the catheter
+with triple lumen coming out of the neck and IJ"; the owner preferred the
+painted line to a code-drawn one). Gemini ran the shaft on past the triangle
+to a clear stub lying on the clavicle. That tail and stub were erased by
+blending back colour-matched pixels from the owner's clean painting of the
+same anatomy (gemini-line-original.jpg is the unedited file). The shaft now
+ends in the triangle over the IJ, about 1.5 cm below the apex; code draws the
+skin-entry dimple and the teal ring there.
 
 Regions are hand-traced over the base in base-image pixels (DEBUG=1 shows
 them). Re-trace everything if the base is replaced.
@@ -45,58 +48,13 @@ TRIANGLE_IJ = [(582, 552), (566, 652), (620, 652)]           # the IJ as it show
 STERNAL_HEAD = [(586, 545), (625, 655), (690, 740), (735, 740), (700, 640), (640, 500), (600, 470)]
 CLAVICULAR_HEAD = [(445, 690), (562, 662), (580, 548), (560, 480), (462, 480), (442, 600)]
 CAROTID = ([(588, 170), (615, 300), (640, 420), (655, 500)], 22)
-EXIT = (583.0, 560.0)                                        # just inside the apex
-LINE_ANGLE = -27.0                                           # degrees from straight up; negative leans lateral (image left)
+EXIT = (586.0, 624.0)                                        # where the painted shaft enters the skin, in the triangle over the IJ
 
 
-CATHETER_DEFS = """
-<filter id="cath-shadow" filterUnits="userSpaceOnUse" x="-400" y="-600" width="800" height="700">
-  <feDropShadow dx="5" dy="8" stdDeviation="4.5" flood-color="#5A3A2E" flood-opacity="0.32"/></filter>
-<linearGradient id="hub" x1="0" x2="1"><stop offset="0" stop-color="#A7B1B9"/><stop offset="0.45" stop-color="#F3F5F6"/>
-  <stop offset="0.6" stop-color="#E4E8EB"/><stop offset="1" stop-color="#9AA5AE"/></linearGradient>
-<linearGradient id="cap" x1="0" x2="1"><stop offset="0" stop-color="#8E99A3"/><stop offset="0.45" stop-color="#DDE2E6"/><stop offset="1" stop-color="#7F8B96"/></linearGradient>
-"""
-
-
-def catheter(exit_c) -> str:
-    """Triple-lumen line in a local frame pointing up from the exit site, then rotated.
-
-    Shaded as translucent plastic: a grey edge, a pale body and a thin
-    highlight, with a soft contact shadow on the skin and a small dimple where
-    the shaft enters it. Lumen colours are neutral."""
-    ends = [(-95, -430), (0, -455), (95, -430)]
-
-    def tube(d, width):
-        return (f'<path d="{d}" fill="none" stroke-linecap="round" stroke="#7C8690" stroke-width="{width + 5}"/>'
-                f'<path d="{d}" fill="none" stroke-linecap="round" stroke="#E9EDEF" stroke-width="{width}"/>'
-                f'<path d="{d}" fill="none" stroke-linecap="round" stroke="#FFFFFF" stroke-width="{max(width * 0.3, 2)}" '
-                f'opacity="0.9" transform="translate(-{width * 0.22:.1f} 0)"/>')
-
-    lines, clamps, caps = [], [], []
-    for x, y in ends:
-        lines.append(tube(f"M0,-222 C{fmt(x * 0.2)},-290 {fmt(x * 0.9)},{fmt(y + 90)} {fmt(x)},{fmt(y)}", 7))
-        cx, cy = x * 0.82, y + 62
-        clamps.append(f'<rect x="{fmt(cx - 18)}" y="{fmt(cy - 8)}" width="36" height="16" rx="5" fill="#F7F8F8" stroke="#6E7780" stroke-width="2.5"/>'
-                      f'<rect x="{fmt(cx - 12)}" y="{fmt(cy - 3)}" width="24" height="3" rx="1.5" fill="#B8C0C6"/>')
-        caps.append(f'<rect x="{fmt(x - 12)}" y="{fmt(y - 36)}" width="24" height="38" rx="6" fill="url(#cap)" stroke="#56606B" stroke-width="2.5"/>'
-                    f'<path d="M{fmt(x - 12)},{fmt(y - 24)} h24 M{fmt(x - 12)},{fmt(y - 16)} h24" stroke="#6B7580" stroke-width="1.5" opacity="0.7"/>')
-    return f"""
-  <g id="central-line" class="marking" transform="translate({fmt(exit_c[0])} {fmt(exit_c[1])}) rotate({fmt(LINE_ANGLE)})">
-    <ellipse cx="0" cy="2" rx="11" ry="6" fill="#7A4E3E" opacity="0.35"/>
-    <g filter="url(#cath-shadow)">
-      <line id="catheter-shaft" x1="0" y1="0" x2="0" y2="-150" stroke="#7C8690" stroke-width="15" stroke-linecap="round"/>
-      <line x1="0" y1="-3" x2="0" y2="-150" stroke="#E9EDEF" stroke-width="10" stroke-linecap="round"/>
-      <line x1="-2.5" y1="-8" x2="-2.5" y2="-148" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
-      {"".join(lines)}
-      <rect x="-46" y="-197" width="92" height="20" rx="10" fill="url(#hub)" stroke="#56606B" stroke-width="2.5"/>
-      <circle cx="-33" cy="-187" r="4.5" fill="#F4F1EA" stroke="#56606B" stroke-width="2"/>
-      <circle cx="33" cy="-187" r="4.5" fill="#F4F1EA" stroke="#56606B" stroke-width="2"/>
-      <rect id="catheter-hub" x="-20" y="-228" width="40" height="82" rx="10" fill="url(#hub)" stroke="#56606B" stroke-width="2.5"/>
-      <rect x="-9" y="-222" width="5" height="70" rx="2.5" fill="#FFFFFF" opacity="0.75"/>
-      {"".join(clamps)}
-      {"".join(caps)}
-    </g>
-  </g>"""
+# The painted line, traced in base pixels: the shaft from the hub to where it
+# now enters the skin, and the hub itself.
+SHAFT = ([(350, 440), (420, 482), (480, 530), (530, 575), (586, 624)], 12)
+HUB = [(262, 350), (300, 338), (336, 372), (318, 400), (276, 396)]
 
 
 def build() -> str:
@@ -125,13 +83,15 @@ def build() -> str:
   <polygon id="sternal-head" points="{poly(STERNAL_HEAD)}" {region}/>
   <polygon id="clavicular-head" points="{poly(CLAVICULAR_HEAD)}" {region}/>
   <path id="carotid-artery" d="{smooth_path([canvas(p) for p in carotid_points])}" fill="none" stroke-width="{fmt(carotid_width * SCALE)}" {carotid_style}/>
-{catheter(exit_c)}
+  <path id="catheter-shaft" d="{smooth_path([canvas(p) for p in SHAFT[0]])}" fill="none" stroke-width="{fmt(SHAFT[1] * SCALE)}" {carotid_style}/>
+  <polygon id="catheter-hub" points="{poly(HUB)}" {region}/>
+  <ellipse class="marking" cx="{fmt(exit_c[0] + 2)}" cy="{fmt(exit_c[1] + 3)}" rx="13" ry="8" fill="#6A3F33" opacity="0.4" transform="rotate(38 {fmt(exit_c[0])} {fmt(exit_c[1])})"/>
   <circle id="exit-site" class="marking" cx="{fmt(exit_c[0])}" cy="{fmt(exit_c[1])}" r="22" fill="none" stroke="#0E8C98" stroke-width="5"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>
 """
-    return document(body, defs=CATHETER_DEFS, extra_style=".plate-bg { fill: #F4F1EA; }")
+    return document(body, extra_style=".plate-bg { fill: #F4F1EA; }")
 
 
 def main() -> int:

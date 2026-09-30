@@ -5,10 +5,10 @@
   "view": "Anterior view, patient supine, head at the top turned slightly left: the right neck on the image left, with jaw, ear lobe, chin, thyroid cartilage, clavicles and shoulder for orientation.",
   "teachingPoint": "The IJ lies deep to the triangle between the sternal and clavicular heads of the SCM, lateral to the carotid. The landmark site is the apex, where the two heads meet; the line is shown in place there.",
   "claims": [
-    "Front of the neck, head at the top turned slightly left; the patient's right neck is on the image left. Painted by Gemini from the code layout; the catheter and markings are drawn in code.",
+    "Front of the neck, head at the top turned slightly left; the patient's right neck is on the image left. Painted by Gemini, including the catheter; the skin-entry dimple, ring and labels are drawn in code.",
     "The sternal head rises from the manubrium, the clavicular head from the medial clavicle; they meet at the apex of a small triangle whose base is the clavicle.",
     "The internal jugular vein (blue) shows in that triangle, lateral to the common carotid (red).",
-    "A triple-lumen central line leaves the skin at the apex, over the IJ, clear of the carotid, with its hub pointing headward; three extension lines with clamps and caps. Lumen colours are neutral.",
+    "A triple-lumen central line (three extension lines with clamps and caps) enters the skin in the triangle, over the IJ and clear of the carotid, about 1.5 cm below the apex; its hub lies headward and lateral.",
     "The teal ring marks the site.",
     "Three labels: Sternal head, Clavicular head, Internal jugular vein."
   ],
@@ -17,7 +17,6 @@
     "sternal-head",
     "clavicular-head",
     "carotid-artery",
-    "central-line",
     "catheter-shaft",
     "catheter-hub",
     "exit-site"
@@ -39,14 +38,6 @@
       "a": "clavicular-head",
       "b": "sternal-head",
       "why": "clavicular head is lateral to the sternal head"
-    },
-    {
-      "check": "endNear",
-      "a": "catheter-shaft",
-      "end": "start",
-      "b": "internal-jugular",
-      "maxPx": 0,
-      "why": "the line leaves the skin over the IJ in the triangle"
     },
     {
       "check": "crosses",
@@ -71,6 +62,14 @@
       "a": "catheter-shaft",
       "b": "catheter-hub",
       "why": "the hub points headward"
+    },
+    {
+      "check": "endNear",
+      "a": "catheter-shaft",
+      "end": "end",
+      "b": "internal-jugular",
+      "maxPx": 0,
+      "why": "the painted shaft enters the skin over the IJ in the triangle"
     }
   ],
   "review": {
