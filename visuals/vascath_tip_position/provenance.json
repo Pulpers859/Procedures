@@ -1,0 +1,17 @@
+{
+  "base": "base.jpg",
+  "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+  "generatedBy": "owner, in the Gemini app",
+  "date": "2026-09-30",
+  "sourceSize": [
+    1195,
+    896
+  ],
+  "reference": "Unlabelled render of the corrected code-drawn vascath_tip_position layout (commit 5bf9851 draw.py, --reference): SVC along the right sternal border, translucent sternum, faint ribs.",
+  "prompt": "The attached image is an exact anatomical layout of the lower neck and upper chest seen from the front, as on a chest X-ray: head at the top, the patient's right on the image left; skin and chest wall made transparent. It shows: the right and left internal jugular veins coming down the neck and joining the subclavian veins behind the collarbones; the right brachiocephalic vein running almost straight down and the left one crossing behind the top of the breastbone; the two joining to form the superior vena cava, which runs straight down along the right edge of the breastbone into the right atrium; the heart, with the right atrium as its right border tinted bluish; the red ascending aorta and aortic arch, with the descending aorta only faintly visible behind; the blue pulmonary trunk and left pulmonary artery; the pale windpipe in the midline; both collarbones joined to the top of the breastbone; a semi-transparent breastbone through which the vessels still show; and faint ribs behind the heart. Repaint it as a premium medical-atlas illustration. Keep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. The breastbone stays semi-transparent, and the superior vena cava and its junction with the right atrium must stay clearly visible beside it. Change only the rendering: soft painted shading, fine crisp outlines, realistic vessel, heart, bone and skin textures, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything; add no shoulder blades, arm bones, extra vessels or hollow tubes; and add no text, letters, numbers, labels, lines, catheters, tubes, wires, instruments, hands or blood.",
+  "repairs": [
+    "Remove the two dashed lines on the heart. Paint the breastbone as a pale, semi-transparent flat bone, not a glass tube. Add back the windpipe in the midline of the neck, as in the attached layout. Make the vessels that leave the edges of the picture fade out instead of ending in open tube ends. Keep everything else in the image the same."
+  ],
+  "rejected": "Three paintings from the first (wrong) layout, which had the SVC about 5 mm from midline: the sternum hid the SVC-atrial junction, costal cartilages became hollow tubes, the aorta looped in front. The first painting of the corrected layout had no windpipe, a glass-tube sternum, dashed lines across the heart and open-ended vessels.",
+  "knownLimits": "The left pulmonary artery still ends as an open tube. Gemini added the carotids and cervical vertebrae (real anatomy, not in the layout). The ascending aorta is hidden behind the sternum. The catheter is code-drawn; its lumens are not shown."
+}

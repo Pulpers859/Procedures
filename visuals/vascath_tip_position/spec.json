@@ -5,28 +5,23 @@
   "view": "Anterior view of the neck and upper chest in the radiograph convention: head at the top, the patient's right on the image left.",
   "teachingPoint": "A right IJ dialysis catheter runs IJ -> right brachiocephalic -> SVC, and its tip belongs at the cavoatrial junction, not in the atrium. About 13 cm in, inside the record's 12-15 cm.",
   "claims": [
-    "Anterior view, head at the top, the patient's right on the image left. Skin and chest wall see-through.",
-    "The right IJ joins the right subclavian behind the right sternoclavicular joint; the right brachiocephalic vein runs almost straight down and the left crosses obliquely behind the manubrium; they join behind the first right costal cartilage to form the SVC, which runs along the right sternal border into the right atrium.",
-    "The catheter (white) enters at the right IJ puncture (red dot) and follows the IJ, the right brachiocephalic vein and the SVC.",
+    "Anterior view of the neck and upper chest, head at the top, the patient's right on the image left, as on a chest X-ray. Painted by Gemini from the code layout; the catheter and markings are drawn in code.",
+    "The right IJ runs down into the right brachiocephalic vein and the SVC, which runs along the right sternal border and meets the right atrium beside the sternum; the left brachiocephalic vein crosses behind the manubrium.",
+    "The catheter (white) enters at the right IJ puncture (red dot) and follows the IJ and the SVC.",
     "The teal ring is the catheter tip at the cavoatrial junction, not in the atrium.",
-    "At true scale (5 px/mm) the in-body catheter length is about 13 cm, inside the record's right IJ depth of 12-15 cm.",
+    "At true scale the in-body catheter length is about 13 cm, inside the record's right IJ depth of 12-15 cm.",
     "Three labels: Superior vena cava, Cavoatrial junction, Right atrium."
   ],
   "requiredElements": [
     "svc",
     "right-atrium",
     "right-ij",
-    "right-bcv",
-    "left-bcv",
     "left-ij",
+    "aorta",
+    "sternum",
     "cavoatrial-junction",
     "catheter",
-    "catheter-tip",
-    "clavicle-right",
-    "aorta",
-    "heart",
-    "sternum",
-    "rib-cage"
+    "catheter-tip"
   ],
   "labels": {
     "Superior vena cava": "svc",
@@ -45,6 +40,12 @@
       "a": "svc",
       "b": "aorta",
       "why": "the SVC lies to the patient's right of the aorta"
+    },
+    {
+      "check": "leftOf",
+      "a": "svc",
+      "b": "sternum",
+      "why": "the SVC runs along the right sternal border"
     },
     {
       "check": "leftOf",
@@ -83,13 +84,7 @@
       "a": "catheter",
       "min": 600,
       "max": 750,
-      "why": "in-body length 12-15 cm (5 px/mm)"
-    },
-    {
-      "check": "leftOf",
-      "a": "svc",
-      "b": "sternum",
-      "why": "the SVC runs along the right sternal border, right of midline"
+      "why": "in-body length 12-15 cm (5 px/mm canvas scale)"
     }
   ],
   "review": {
