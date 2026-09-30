@@ -103,6 +103,25 @@ class VisualPatchTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             vp.merge(rec, self.dir / "render" / "patch-crop.png", self.dir / "out.png")
 
+    def test_overlay_draws_the_reference_outlines_over_the_painting(self):
+        reference = self.dir / "reference.png"
+        ref = Image.new("RGB", (800, 600), (255, 255, 255))
+        ImageDraw.Draw(ref).rectangle((100, 100, 300, 300), fill=(40, 40, 40))
+        ref.save(reference)
+        result = vp.overlay(self.source, reference, self.dir / "overlay.png")
+        self.assertTrue(result["frameMatches"])
+        out = Image.open(self.dir / "overlay.png").convert("RGB")
+        self.assertEqual(out.size, (800, 600))
+        self.assertEqual(out.getpixel((400, 300)), (200, 60, 50), "the painting shows through, full strength")
+        self.assertEqual(out.getpixel((100, 200)), (255, 0, 200), "the reference's outline is drawn over it")
+
+    def test_overlay_flags_a_recomposed_frame(self):
+        reference = self.dir / "reference.png"
+        Image.new("RGB", (800, 600), (255, 255, 255)).save(reference)
+        wide = self.dir / "wide.png"
+        Image.new("RGB", (1600, 900), (10, 10, 10)).save(wide)       # came back 16:9
+        self.assertFalse(vp.overlay(wide, reference, self.dir / "overlay.png")["frameMatches"])
+
     def test_crop_rejects_a_box_outside_the_image(self):
         with self.assertRaises(ValueError):
             vp.crop(self.source, (300, 200, 500, 280), self.dir / "render")

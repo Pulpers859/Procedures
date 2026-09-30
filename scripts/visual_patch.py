@@ -20,6 +20,10 @@ things it was never asked to touch. This confines a repair to a box:
     #    you let it change.
     python3 scripts/visual_patch.py merge <id> REPAINTED.jpg [--feather 24]
 
+    # Before judging any painting, lay it over the reference it was painted
+    # from. Writes render/overlay.png; fails if the frame's shape changed.
+    python3 scripts/visual_patch.py overlay <id> PAINTING.jpg
+
 Merge refuses a source that changed since the crop, and reports how much
 changed outside the box (it must be zero) so drift cannot slip in.
 
@@ -164,6 +168,23 @@ def merge(record: dict, repaint_path: Path, out: Path, feather: int = 24, colour
             "meanChangeInsideBox": round(sum(inside) / 3, 2), "feather": feather}
 
 
+def overlay(painting: Path, reference: Path, out: Path) -> dict:
+    """The reference's outlines in magenta over the painting, fitted by width as the plates place a base."""
+    ref = Image.open(reference).convert("RGB")
+    image = Image.open(painting).convert("RGB")
+    k = ref.width / image.width
+    shown = image.resize((ref.width, round(image.height * k)), Image.LANCZOS)
+    fitted = Image.new("RGB", ref.size, (255, 255, 255))
+    fitted.paste(shown, (0, round((ref.height - shown.height) / 2)))
+    edges = ref.convert("L").filter(ImageFilter.FIND_EDGES).point(lambda v: 255 if v > 24 else 0)
+    edges = edges.filter(ImageFilter.MaxFilter(3))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    Image.composite(Image.new("RGB", ref.size, (255, 0, 200)), fitted, edges).save(out)
+    aspect, ref_aspect = image.width / image.height, ref.width / ref.height
+    return {"out": str(out), "paintingSize": list(image.size), "aspect": round(aspect, 3),
+            "referenceAspect": round(ref_aspect, 3), "frameMatches": abs(aspect - ref_aspect) < 0.03}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -181,10 +202,24 @@ def main(argv=None) -> int:
     m.add_argument("--no-colour-match", action="store_true")
     m.add_argument("--keep", nargs=4, type=int, metavar=("X0", "Y0", "X1", "Y1"),
                    help="take back only this part of the crop (source pixels); the rest stays as it was")
+    o = sub.add_parser("overlay", help="lay a painting over its reference before judging it")
+    o.add_argument("asset_id")
+    o.add_argument("painting", type=Path)
+    o.add_argument("--reference", type=Path, help="default visuals/<id>/render/<id>-reference.png")
     args = ap.parse_args(argv)
 
     asset = VISUALS / args.asset_id
     render = asset / "render"
+    if args.cmd == "overlay":
+        reference = args.reference or render / f"{args.asset_id}-reference.png"
+        if not reference.exists():
+            print(f"{reference} not found; run render_visuals.py {args.asset_id} --reference first")
+            return 1
+        r = overlay(args.painting, reference, render / "overlay.png")
+        print(f"{args.asset_id}: {r['out']}; painting {r['paintingSize'][0]}x{r['paintingSize'][1]}, aspect "
+              f"{r['aspect']} vs reference {r['referenceAspect']}"
+              + ("" if r["frameMatches"] else " - THE FRAME CHANGED: the painting was recomposed; reject it"))
+        return 0 if r["frameMatches"] else 1
     if args.cmd == "crop":
         source = args.image or asset / "base.jpg"
         rec = crop(source, tuple(args.box), render, args.margin, render / f"{args.asset_id}-reference.png")

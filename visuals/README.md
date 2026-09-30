@@ -54,123 +54,17 @@ scripts/tests/test_code_drawn_visuals.py   CI guard (no browser)
    Approval is recorded against the SVG's SHA-256; any later edit voids it, and
    CI fails if a bundled drawing no longer matches its approval.
 
-## Standard workflow (owner-approved 2026-09-30)
+## Making a plate: read PLAYBOOK.md
 
-This is how every new procedure image is made, unless the owner says
-otherwise. It is the route that produced the approved cricothyrotomy plate.
-Painting comes from Gemini; geometry, markings and labels come from code.
+The owner-approved workflow (code layout, reference, the owner's Gemini
+repaint, review, code-drawn markings and labels, approval, build) is in
+[`PLAYBOOK.md`](PLAYBOOK.md), with the prompts that worked, the repair rules,
+and what failed. This file is the reference for the tools it uses:
 
-1. **Pick the image from the record and ask the owner for the view.**
-   - Read the procedure with `pq.py`, and pick the single miss the image
-     prevents.
-   - Default to the operator's view: what the clinician sees over the
-     patient. A-P for the neck and chest wall is the usual choice.
-   - Propose the view and the slot text. Never claim the owner agreed to
-     something they did not say.
-2. **Draw the layout in code.**
-   - `visuals/<slot id>/draw.py` places every structure at true scale,
-     with a stated px/mm, from the record's own numbers.
-   - Incisions, needle paths and target highlights get `class="marking"`.
-   - `spec.json` states the claims and the geometry checks, including
-     `lengthRange` for any length the record gives.
-   - `python3 scripts/render_visuals.py <id>` must pass. Look at the
-     render too; checks do not judge appearance.
-3. **Export the reference.** Run
-   `python3 scripts/render_visuals.py <id> --reference`. It writes
-   `render/<id>-reference.png` with no labels and no markings. Send that
-   image to the owner.
-4. **The owner repaints it in Gemini** (Nano Banana Pro, a new chat, the
-   reference attached). Use the prompt template below.
-5. **Review the painting against the reference.**
-   - Anything that moved, vanished or appeared is an error. Zoom into the
-     actual file, not a screenshot.
-   - Give one targeted repair line per problem, in the same chat.
-   - Reject any repair that breaks a landmark and fall back to the
-     previous version. The cric hyoid repair erased the membrane and was
-     rejected.
-   - **One small area wrong and the rest right: repaint only that area**
-     (owner-approved 2026-09-30), so the rest of the painting cannot drift.
-     `python3 scripts/visual_patch.py crop <id> --box X0 Y0 X1 Y1 --image <painting>`
-     cuts the area out, with clean painting round it, into
-     `render/patch-crop.png`, plus the same area of the layout as
-     `render/patch-reference.png`. The owner repaints only the crop in
-     Gemini, attaching both, with a short literal line. Then
-     `python3 scripts/visual_patch.py merge <id> <repainted crop>` blends it
-     back with a soft edge and matched colour into `render/patched.jpg`. It
-     never overwrites `base.jpg`, refuses a source that changed since the
-     crop, and fails if any pixel outside the box changed. Box the defect
-     itself; the tool adds the margin the fade needs.
-   - Accept cosmetic limits and record them.
-6. **Rebuild the plate on the painting.**
-   - Copy the chosen file to `visuals/<id>/base.jpg`.
-   - Rewrite `draw.py`: place the base, trace target regions in base
-     pixels (check them with `DEBUG=1`), then redraw the markings and at
-     most 2-3 noun labels in code.
-   - Re-derive the scale from a traced landmark, so lengths stay true.
-   - Stamp the base's SHA-256 into the SVG.
-   - Write `provenance.json`: prompt, repairs, rejected versions, known
-     limits.
-7. **Owner approval, then ship.**
-   - Send `render/review.png`. On approval, run
-     `--record-approval --promote`, set `assetName`, run the gate, and
-     push.
-   - Build the sideload .ipa and give the owner the release link.
-
-Prompt template for step 4:
-
-```
-The attached image is an exact anatomical layout of <view and orientation, e.g. "the anterior neck, patient supine, head at the top">: <every structure in the reference, in plain words>. Repaint it as a premium medical-atlas illustration.
-
-Keep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: soft painted shading, fine crisp outlines, realistic <tissue> textures, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, incisions, instruments, hands or blood.
-```
-
-Prompt rules (adopted 2026-09-30 from Google's Nano Banana prompting
-guides, after the FICB repairs regenerated whole images):
-
-- **Give each attachment a role.** "Use the attached layout as the exact
-  structure" (and, if used, "the second image as the style only").
-- **Say what you want, not what you don't.** The guides call this a
-  semantic negative prompt: "plain intact skin", not "no cut-away".
-  Keep negative lists to a short last line, or leave them out.
-- **Say the frame.** "Same 4:3 landscape framing as the attached image";
-  an edit otherwise may come back 16:9 with the scene recomposed.
-- **Ask for accuracy by name**: "a scientifically accurate cross-section".
-- **Photographs get camera terms**: shot type, lens, lighting.
-- **One change per edit turn.** A repair that names three changes is
-  treated as a new picture. Use the edit form "Using the provided image,
-  change only X to Y. Keep everything else exactly the same, preserving
-  the original style, lighting and composition."
-- **For a local fault, crop first** (`visual_patch.py`): the model cannot
-  move what it is not shown.
-- **Check the model**: Nano Banana Pro ("Thinking" in the Gemini app).
-
-What did not work, so it is not repeated:
-
-- **Text-only prompts** for fixed-geometry views (a midsagittal larynx,
-  for example). They produced structural errors: gland inside the airway,
-  a second puncture, cartilage on the wrong wall.
-- **Letting Gemini draw incisions, instruments or labels.** They drift or
-  misspell. Code draws them.
-- **Copying or restyling a stock or textbook image.** It is copyrighted,
-  and the repo and builds are public. Use only its composition ideas.
-  - *Temporary exception (owner, 2026-09-30, FICB troubleshooting):* a
-    third-party plate may be attached to Gemini as a second image for
-    concept understanding only (how structures relate), with our layout as
-    the structure and our own style described in words. The third-party
-    image is never committed; provenance records that it was attached; a
-    result that reproduces its drawing is rejected. Remove this exception
-    when the troubleshooting ends.
-- **Trusting an AI "PASS".** The owner's approval is the only gate.
-- **Texture drawn into the reference** (FICB, 2026-09-30): dotted or
-  scale-pattern muscle, drawn fat lobules and nerve compartments. Gemini
-  copied the crude texture instead of painting its own, and the owner judged
-  the tissue worse than the flat-colour reference's painting. Keep
-  references flat: shapes, positions and plain colours; describe texture in
-  words if at all.
-- **Multi-change repair lines on a whole image** (FICB, 2026-09-30):
-  "stand the probe up, add a hand, remove a cable" came back as a new
-  16:9 photo with the thigh gone; "make the muscle polygons" ballooned the
-  nerves and put valves in the vein.
+- `render_visuals.py <id>`: render and check; `--reference` exports the
+  unlabelled reference; `--record-approval --promote` after the owner approves.
+- `visual_patch.py overlay | crop | merge`: lay a painting over its reference;
+  repaint one area without letting the rest drift.
 
 ## Painted base plus code labels
 
@@ -191,8 +85,9 @@ cannot be measured, so:
 ## House style
 
 - 1600 x 1200 canvas (4:3); it shows at about 350 pt wide on the phone.
-- Labels: 56 px Inter (about 12 pt on the card), nouns only, at most two to
-  three per image, each leader ending in a dot inside its structure.
+- Labels: 56 px Inter (about 12 pt on the card), nouns only, two to three
+  per image (a nerve-block anatomy plate up to five if the card is not
+  crowded), each leader ending in a dot inside its structure.
 - Colours are CSS variables in `visuals_lib.HOUSE_STYLE`: teal = target,
   red-orange = incision, cut, or danger, dashed or hatched outline = deep
   structure, grey = present but not the target.
