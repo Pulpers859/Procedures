@@ -235,7 +235,8 @@ To take back only part of the crop, add `--keep X0 Y0 X1 Y1` to the merge.
 - **Mirror** to the house laterality (section 1) with `ImageOps.mirror`.
   - The light then comes from the other side; record it.
   - Mirror only when the mirrored image is still the view the caption names.
-  - Mirror the side claims and checks in `spec.json` with it.
+  - Mirror the side claims and checks in `spec.json` with it, and note in
+    provenance that the layout commit is the other way round.
 - **Erase** a wrong part by blending in the same area from a clean painting of
   the same anatomy (the IJ catheter tail). Crop the edited file, then merge the
   clean file.
@@ -243,7 +244,8 @@ To take back only part of the crop, add `--keep X0 Y0 X1 Y1` to the merge.
   a layer that must not move. Diff the result: nothing at or below that layer
   may change.
 
-No clean painting to blend from? Use the crop tool instead.
+No clean painting to blend from? Use the crop tool instead. A painted object
+that code redraws anyway (the FICB probe) needs no erasing: draw over it.
 
 Never move an object by cutting and cloning it. On the FICB probe that left a
 ghost glove and a doubled skin fold.
@@ -286,9 +288,10 @@ ghost glove and a doubled skin fold.
 - The injectate is a smooth teal layer with rounded ends, filling that plane
   around the nerve. Code draws it.
 - In a section under the probe, the probe covers the top of the field from
-  the medial edge to just short of the lateral edge. The needle enters
-  in-plane in that lateral gap, with its tip in the plane lateral to the
-  nerve.
+  the medial edge to just short of the lateral edge, leaving a gap of about
+  1 cm. The needle enters in-plane in that gap, with its tip in the plane
+  lateral to the nerve.
+- Keep the nerve visible inside the teal, drawn over it or showing through.
 - Both images of a block are seen from the same side, and a section under a
   probe runs the way the ultrasound screen shows it. For the right-sided FICB
   both are seen from the feet, with lateral (the hip) on the left.
@@ -298,8 +301,8 @@ ghost glove and a doubled skin fold.
 ## 7. Send, approve, ship
 
 - **Send** `render/review.png` and the full plate (`SendUserFile`). If the
-  review sheet is too big to send, send `render/<id>-phone.png` (the card at
-  phone size) instead. In one message give:
+  review sheet is refused as too big, send `render/<id>-phone.png` (the card
+  at phone size) instead. In one message give:
   - what changed;
   - the known limits;
   - at most one question;
