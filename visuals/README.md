@@ -153,6 +153,13 @@ What did not work, so it is not repeated:
   misspell. Code draws them.
 - **Copying or restyling a stock or textbook image.** It is copyrighted,
   and the repo and builds are public. Use only its composition ideas.
+  - *Temporary exception (owner, 2026-09-30, FICB troubleshooting):* a
+    third-party plate may be attached to Gemini as a second image for
+    concept understanding only (how structures relate), with our layout as
+    the structure and our own style described in words. The third-party
+    image is never committed; provenance records that it was attached; a
+    result that reproduces its drawing is rejected. Remove this exception
+    when the troubleshooting ends.
 - **Trusting an AI "PASS".** The owner's approval is the only gate.
 - **Multi-change repair lines on a whole image** (FICB, 2026-09-30):
   "stand the probe up, add a hand, remove a cable" came back as a new

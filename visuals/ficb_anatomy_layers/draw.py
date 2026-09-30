@@ -34,7 +34,13 @@ deep to the fascia iliaca near it (record: the spread reaches both nerves).
 
 A plain probe is in the painted layer too, so the strip above the skin is
 not an empty margin (an empty strip made Gemini frame the picture); code
-draws the exact probe over it. Markings: the probe, the needle from lateral (tip under the fascia iliaca,
+draws the exact probe over it. The femoral nerve and the lateral femoral cutaneous nerve lie in the fascial
+plane, deep to the fascia iliaca and on the iliopsoas's own thin fascia, not
+in the muscle (owner, 2026-09-30). The layout shows that plane opened by the
+injectate, as a pale fluid layer lifting the fascia iliaca off the muscle and
+wrapping both nerves; code colours it teal.
+
+Markings: the probe, the needle from lateral (tip under the fascia iliaca,
 lateral to the nerve), and the teal spread in the plane between fascia
 iliaca and iliopsoas, lifting the fascia and reaching the femoral nerve
 medially and the lateral femoral cutaneous nerve laterally.
@@ -123,12 +129,10 @@ def iliaca_y(x):
 
 ARTERY = ((0.0, 13.8), 4.8)
 VEIN = ((-11.0, 17.0), 6.0, 5.2)
-NERVE = ((13.2, 16.4), 4.6, 1.5, 6.0)            # centre, rx, ry, rotation (deg)
-LFCN = ((36.5, 18.6), 1.1)
+NERVE = ((13.2, 15.8), 4.3, 1.5, 6.0)            # centre, rx, ry, rotation (deg): just under the fascia iliaca
+LFCN = ((36.5, 18.2), 1.1)
 SARTORIUS = [(31, 12.2), (36, 9.6), (42, 8.9), (X1 + 3, 9.0), (X1 + 3, 16.6), (40, 16.4), (34, 15.4)]
 BONE_Y = 34.5
-ILIOPSOAS = ([(x, y + 0.35) for x, y in ILIACA[:8]] + [(5.4, 21.8), (4.0, 27.5), (3.4, BONE_Y - 0.4)]
-             + [(X1 + 3, BONE_Y - 0.4)])
 NEEDLE_OUT, NEEDLE_TIP = (43.2, -10.4), (21.5, 16.1)
 
 
@@ -143,13 +147,42 @@ def needle_entry():
     return (xa + (xb - xa) * lo, ya + (yb - ya) * lo)
 
 
+SPREAD_LATERAL = 39.0
+SPREAD_MEDIAL = NERVE[0][0] - NERVE[1] - 0.7
+
+
+def _hug(x, centre, rx, ry, pad=0.6):
+    """Depth of the lower edge of an ellipse widened by `pad`, or 0 outside it."""
+    (cx, cy), w = centre, rx + pad
+    if abs(x - cx) >= w:
+        return 0.0
+    return cy + (ry + pad * 0.8) * math.sqrt(1 - ((x - cx) / w) ** 2)
+
+
+def plane_floor(x):
+    """The muscle surface under the opened fascial plane: the spread lifts the
+    fascia iliaca off the iliopsoas, and both nerves lie in that plane."""
+    lens = iliaca_y(x) + 0.5 + 2.6 * max(0.0, math.sin(math.pi * (SPREAD_LATERAL - x) / (SPREAD_LATERAL - SPREAD_MEDIAL))) ** 0.7
+    return max(lens, _hug(x, NERVE[0], NERVE[1], NERVE[2]), _hug(x, LFCN[0], LFCN[1], LFCN[1], 0.5))
+
+
 def spread():
-    """Lens under the fascia from the lateral nerve, deepening to wrap the femoral nerve."""
-    xs = [39 - i * 1.52 for i in range(21)]         # 39 .. 8.6
-    top = [(x, iliaca_y(x) + 0.2) for x in xs]
-    bottom = [(x, iliaca_y(x) + 0.5 + 3.0 * math.sin(math.pi * (39 - x) / 30.4) ** 0.7
-               + 2.1 * math.exp(-((x - NERVE[0][0]) / 3.6) ** 2)) for x in reversed(xs)]
-    return top + bottom
+    """The injectate: the opened plane between the fascia iliaca and the muscle."""
+    n = 40
+    xs = [SPREAD_LATERAL - (SPREAD_LATERAL - SPREAD_MEDIAL) * i / n for i in range(n + 1)]
+    return [(x, iliaca_y(x) + 0.2) for x in xs] + [(x, plane_floor(x)) for x in reversed(xs)]
+
+
+def muscle_top(x):
+    if SPREAD_MEDIAL <= x <= SPREAD_LATERAL:
+        return plane_floor(x)
+    return iliaca_y(x) + 0.35
+
+
+# Iliopsoas: its surface runs under the opened plane, then down its medial
+# border beside the fascia iliaca, to the bone.
+_TOP = [(x, muscle_top(x)) for x in [X1 + 3 - i * (X1 + 3 - SPREAD_MEDIAL) / 60 for i in range(61)]]
+ILIOPSOAS = _TOP + [(6.9, 17.4), (5.4, 21.8), (4.0, 27.5), (3.4, BONE_Y - 0.4), (X1 + 3, BONE_Y - 0.4)]
 
 
 def ellipse(center, rx, ry, attrs, rot=0.0):
@@ -308,6 +341,8 @@ def build() -> str:
 
   <path id="fascia-lata" d="{path(curve(lata_y))}" fill="none" stroke="#FBFAF6" stroke-width="10"/>
   <path d="{path(curve(lata_y))}" fill="none" stroke="#A89C86" stroke-width="2.5"/>
+  <path id="opened-plane" d="{path(spread(), closed=True, tension=0.5)}" fill="#EDEFEA" stroke="#D7D2C4" stroke-width="2"/>
+  <path id="muscle-surface" d="{path(_TOP[:-1] + [(6.9, 17.4), (5.4, 21.8), (4.0, 27.5), (3.4, BONE_Y - 0.4)], tension=0.6)}" fill="none" stroke="#EBD9CF" stroke-width="5"/>
   <path id="fascia-iliaca" d="{path(ILIACA, tension=0.8)}" fill="none" stroke="#FBFAF6" stroke-width="11"/>
   <path d="{path(ILIACA, tension=0.8)}" fill="none" stroke="#A89C86" stroke-width="2.5"/>
 
@@ -325,7 +360,7 @@ def build() -> str:
 </g>
 
 <g class="marking">
-  <path id="spread" d="{path(spread(), closed=True, tension=0.5)}" fill="#7FD3D8" fill-opacity="0.8" stroke="#0E8C98" stroke-width="4"/>
+  <path id="spread" d="{path(spread(), closed=True, tension=0.5)}" fill="#6CCBD2" fill-opacity="0.72" stroke="#0E8C98" stroke-width="4"/>
   <line id="needle" x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="10" stroke-linecap="butt"/>
   <line x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="5" stroke-linecap="butt"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>

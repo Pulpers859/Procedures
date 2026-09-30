@@ -7,8 +7,8 @@
   "claims": [
     "Right groin, transverse, under a linear probe that dents the skin, seen from the feet: lateral left, medial right, skin at the top - the same way round as the patient-position plate. Composition after the classic regional-anaesthesia plate; drawn from scratch.",
     "Superficial to deep: skin, subcutaneous fat, fascia lata, fascia iliaca, iliopsoas; bone at the bottom.",
-    "Femoral vein medial to the artery, both superficial to the fascia iliaca. Femoral nerve deep to the fascia iliaca, lateral to the artery; the fascia turns down the medial border of the iliopsoas, deep and lateral to the artery. Sartorius lateral under the fascia lata; the lateral femoral cutaneous nerve deep to the fascia iliaca near it.",
-    "Needle in-plane from the lateral (left) end of the probe, entering lateral to the nerve and artery; tip under the fascia iliaca, lateral to the nerve. Teal: spread between fascia iliaca and iliopsoas, lifting the fascia, reaching the femoral nerve medially and the lateral femoral cutaneous nerve laterally.",
+    "Femoral vein medial to the artery, both superficial to the fascia iliaca. Femoral nerve in the fascial plane deep to the fascia iliaca, on the iliopsoas and its own thin fascia - not in the muscle - lateral to the artery; the fascia turns down the medial border of the iliopsoas, deep and lateral to the artery. Sartorius lateral under the fascia lata; the lateral femoral cutaneous nerve in the same plane near it.",
+    "Needle in-plane from the lateral (left) end of the probe, entering lateral to the nerve and artery; tip in the plane under the fascia iliaca, lateral to the nerve. Teal: the injectate opening that plane - lifting the fascia iliaca off the iliopsoas and wrapping the femoral nerve medially and the lateral femoral cutaneous nerve laterally.",
     "Four labels: Fascia iliaca, Femoral nerve, Femoral artery, Iliopsoas."
   ],
   "requiredElements": [
@@ -26,7 +26,9 @@
     "probe",
     "needle",
     "needle-entry",
-    "spread"
+    "spread",
+    "opened-plane",
+    "muscle-surface"
   ],
   "labels": {
     "Fascia iliaca": "fascia-iliaca",
@@ -156,6 +158,30 @@
       "a": "needle-entry",
       "b": "probe",
       "why": "needle enters just lateral to the probe's lateral end (in-plane from lateral)"
+    },
+    {
+      "check": "noOverlap",
+      "a": "femoral-nerve",
+      "b": "iliopsoas",
+      "why": "the femoral nerve lies in the fascial plane, not in the muscle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "lfcn",
+      "b": "iliopsoas",
+      "why": "the lateral femoral cutaneous nerve lies in the plane, not in the muscle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "iliopsoas",
+      "why": "the needle tip stays in the plane, out of the muscle"
+    },
+    {
+      "check": "below",
+      "a": "muscle-surface",
+      "b": "fascia-iliaca",
+      "why": "the muscle surface runs deep to the fascia iliaca"
     }
   ]
 }
