@@ -2252,9 +2252,9 @@
         "kind": "Landmark",
         "title": "Radial artery approach",
         "subtitle": "Wrist extended 20-30 degrees over a firm roll. Radial artery palpated 1-2 cm proximal to the wrist crease, lateral to the flexor carpi radialis tendon.",
-        "assetName": null,
+        "assetName": "radial_approach",
         "systemImage": "hand.raised",
-        "caption": "",
+        "caption": "Right wrist from above, palm up over a roll: forearm on the left, thumb side at the top.",
         "clinicalWarning": "Avoid hyperextension \u2014 it can occlude the artery."
       },
       {
