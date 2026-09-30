@@ -9,7 +9,8 @@
     "Red dots: the puncture sites, just below the earlobe and just above the ear (record, steps 2 and 4).",
     "Teal: four subcutaneous tracks - inferior site to in front of the tragus, inferior site to behind the ear over the mastoid, superior site forward and back to meet them (record, steps 2-5).",
     "No track crosses the auricle.",
-    "Three labels: Puncture sites, Tragus, Mastoid."
+    "Arrowheads show the direction of injection: from each puncture, forward in front of the tragus and back over the mastoid, toward where the tracks meet.",
+    "Three labels: Puncture sites (one leader to each site), Tragus, Mastoid."
   ],
   "requiredElements": [
     "ear",

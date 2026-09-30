@@ -56,6 +56,29 @@ TRACKS = {
 }
 
 
+def arrowhead(ps, t=0.6, size=46.0):
+    import math
+    a, m, b = (canvas(p) for p in ps)
+    def at(u):  # quadratic through a, m, b (m at u=0.5)
+        c = (2 * m[0] - (a[0] + b[0]) / 2, 2 * m[1] - (a[1] + b[1]) / 2)
+        return ((1 - u) ** 2 * a[0] + 2 * u * (1 - u) * c[0] + u * u * b[0],
+                (1 - u) ** 2 * a[1] + 2 * u * (1 - u) * c[1] + u * u * b[1])
+    (x0, y0), (x1, y1) = at(t - 0.03), at(t + 0.03)
+    ang = math.atan2(y1 - y0, x1 - x0)
+    tip = (x1 + math.cos(ang) * size * 0.5, y1 + math.sin(ang) * size * 0.5)
+    l = (tip[0] - size * math.cos(ang - 0.45), tip[1] - size * math.sin(ang - 0.45))
+    r = (tip[0] - size * math.cos(ang + 0.45), tip[1] - size * math.sin(ang + 0.45))
+    return (f'<polygon class="arrow" points="{pts([tip, l, r])}" fill="#0E8C98" stroke="#FFFFFF" '
+            f'stroke-width="3" stroke-linejoin="round"/>')
+
+
+def second_leader(label_svg, points):
+    """Give a label a second leader (one name, two identical sites)."""
+    extra = (f'<polyline class="leader-halo" points="{pts(points)}"/><polyline class="leader leader-2" points="{pts(points)}"/>'
+             f'<circle class="leader-dot" cx="{fmt(points[-1][0])}" cy="{fmt(points[-1][1])}" r="7"/>')
+    return label_svg.replace("<text", extra + "<text", 1)
+
+
 def build() -> str:
     debug = os.environ.get("DEBUG") == "1"
     region = 'fill="#ff00ff" fill-opacity="0.35"' if debug else 'fill="#000" fill-opacity="0"'
@@ -70,6 +93,9 @@ def build() -> str:
         f'<path d="{smooth_path([canvas(p) for p in ps])}" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity="0.55"/>'
         f'<path d="{smooth_path([canvas(p) for p in ps])}" fill="none" stroke="#0E8C98" stroke-width="7" stroke-linecap="round"/>'
         for tid, ps in TRACKS.items())
+    # Direction of injection: an arrowhead on each track, pointing away from its puncture
+    # toward the meeting point, placed about 60% of the way along.
+    arrows = "".join(arrowhead(ps) for ps in TRACKS.values())
     sites = "".join(
         f'<circle id="{sid}" cx="{fmt(canvas(p)[0])}" cy="{fmt(canvas(p)[1])}" r="15" fill="#C8322B" stroke="#FFFFFF" stroke-width="4"/>'
         for sid, p in (("site-inferior", INFERIOR_SITE), ("site-superior", SUPERIOR_SITE)))
@@ -87,10 +113,10 @@ def build() -> str:
   <polygon id="ear" points="{poly(EAR)}" {region}/>
   <polygon id="tragus" points="{poly(TRAGUS)}" {region}/>
   <polygon id="mastoid" points="{poly(MASTOID)}" {region}/>
-  {tracks}{sites}
+  {tracks}{arrows}{sites}
 </g>
 
-<g id="labels">{"".join(label.svg() for label in labels)}</g>
+<g id="labels">{second_leader(labels[0].svg(), [(1440, 122), (1500, 122), (1500, 880), canvas((624, 652))])}{"".join(label.svg() for label in labels[1:])}</g>
 """
     return document(body, extra_style=".plate-bg { fill: #F4F1EA; }")
 
