@@ -3,14 +3,14 @@
   "procedure": "cricothyrotomy",
   "title": "Cricothyroid membrane palpation",
   "view": "Anterior (A-P) view of the neck, patient supine, head at the top: the operator's view.",
-  "teachingPoint": "The membrane is the soft gap between the thyroid cartilage above and the cricoid ring below. Horizontal membrane incision; if it cannot be felt, a vertical midline skin incision centred on it first.",
+  "teachingPoint": "The membrane is the soft gap between the thyroid cartilage above and the cricoid ring below. Horizontal membrane incision; vertical midline skin incision, 3-5 cm, from over the thyroid cartilage going distally.",
   "claims": [
     "Anterior view, head at the top: hyoid, thyroid cartilage with its notch, cricothyroid membrane, cricoid ring, tracheal rings.",
     "The cricothyroid membrane lies between the lower border of the thyroid cartilage and the cricoid.",
     "The cricoid is a complete ring, taller than a tracheal ring.",
     "The thyroid isthmus crosses tracheal rings 2 to 4, below the cricoid and clear of the membrane; the lobes lie either side.",
     "The solid red line is the horizontal membrane incision, within the membrane.",
-    "The dashed red line is the vertical midline skin incision for an impalpable membrane, 9 cm long (the record says 8-10 cm). Centring it on the membrane is the drawing's choice; the record gives the length, not the position - confirm or move it.",
+    "The dashed red line is the vertical midline skin incision: 4 cm, beginning over the thyroid cartilage and running distally (owner's specification, 3-5 cm).",
     "Three labels: Thyroid cartilage, Cricothyroid membrane, Cricoid cartilage."
   ],
   "requiredElements": [
@@ -86,9 +86,17 @@
     {
       "check": "lengthRange",
       "a": "vertical-skin-incision",
-      "min": 720,
-      "max": 900,
-      "why": "vertical skin incision is 8-10 cm at 9 px/mm"
+      "min": 362,
+      "max": 603,
+      "why": "vertical skin incision is 3-5 cm (9 px/mm, zoomed x1.34)"
+    },
+    {
+      "check": "endNear",
+      "a": "vertical-skin-incision",
+      "end": "start",
+      "b": "thyroid-cartilage",
+      "maxPx": 0,
+      "why": "vertical skin incision begins over the thyroid cartilage"
     }
   ],
   "review": {
