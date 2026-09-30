@@ -5,28 +5,21 @@
   "view": "Right volar wrist from above, palm up, wrist extended over a rolled towel: the operator's view. Forearm left, hand right, thumb side at the top.",
   "teachingPoint": "Puncture over the radial artery 1-2 cm proximal to the wrist crease, lateral to the FCR tendon - not at the crease, and not medial to FCR, where the median nerve runs.",
   "claims": [
-    "Right wrist, palm up, over a rolled towel. Forearm on the left, hand on the right, so the thumb (radial) side is at the top. Skin drawn see-through.",
-    "The radial artery runs lateral (here: above) to the flexor carpi radialis tendon; at the wrist it turns dorsally around the radial styloid (dashed = deep).",
-    "At the crease, radial to ulnar: brachioradialis tendon over the radial styloid, radial artery, FCR, median nerve (deep, between FCR and palmaris longus), palmaris longus, FDS tendons (deep), ulnar artery, ulnar nerve, and FCU inserting on the pisiform.",
+    "Right wrist, palm up, over a rolled towel: forearm on the left, hand on the right, thumb side at the top. Painted by Gemini from the code layout; markings drawn in code.",
+    "The radial artery runs lateral (here: above) to the flexor carpi radialis tendon and turns toward the back of the wrist at the radial styloid (dashed = deep); a thin superficial palmar branch runs over the thenar eminence.",
+    "The median nerve runs medial to FCR, deep, between FCR and palmaris longus. The ulnar artery lies on the thumb side of the ulnar nerve; FCU inserts on the pisiform.",
     "The teal zone is the puncture target: over the radial artery, from 1 cm to 2 cm proximal to the wrist crease. The bracket spans crease to 2 cm, with a tick at 1 cm.",
     "One wrist crease is drawn on purpose, so the distance has one reference.",
     "Three labels: Radial artery, FCR tendon, Wrist crease."
   ],
   "requiredElements": [
-    "forearm",
-    "roll",
     "radial-artery",
     "fcr-tendon",
     "median-nerve",
-    "palmaris-longus",
     "wrist-crease",
     "target-zone",
     "crease-to-zone",
-    "ulnar-nerve",
-    "ulnar-artery",
-    "fcu-tendon",
-    "pisiform",
-    "radial-styloid"
+    "crease-guide"
   ],
   "labels": {
     "Radial artery": "radial-artery",
@@ -85,23 +78,19 @@
     },
     {
       "check": "endNear",
-      "a": "crease-to-zone",
-      "end": "start",
+      "a": "crease-guide",
+      "end": "end",
       "b": "wrist-crease",
       "maxPx": 0,
-      "why": "bracket starts at the crease"
+      "why": "the bracket's guide line drops onto the painted crease"
     },
     {
-      "check": "below",
-      "a": "ulnar-nerve",
-      "b": "ulnar-artery",
-      "why": "ulnar nerve is ulnar to the ulnar artery"
-    },
-    {
-      "check": "noOverlap",
-      "a": "ulnar-nerve",
-      "b": "pisiform",
-      "why": "ulnar nerve passes radial to the pisiform, not over it"
+      "check": "endNear",
+      "a": "crease-to-zone",
+      "end": "start",
+      "b": "crease-guide",
+      "maxPx": 0,
+      "why": "bracket starts at the crease guide"
     }
   ],
   "review": {
