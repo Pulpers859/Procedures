@@ -790,16 +790,6 @@
         "systemImage": "scalpel",
         "caption": "Target: cricothyroid membrane between the thyroid and cricoid cartilage.",
         "clinicalWarning": "Vertical skin incision reduces risk of vessel injury. Horizontal membrane incision."
-      },
-      {
-        "id": "cric_scalpel_bougie",
-        "kind": "Setup",
-        "title": "",
-        "subtitle": "Stab through the membrane with a number 10 blade, rotate it so the sharp edge points towards the feet, and slide the bougie along the blade into the trachea, angled towards the feet. Advance 10-15 cm and no further.",
-        "assetName": null,
-        "systemImage": "scalpel",
-        "caption": "",
-        "clinicalWarning": "Deeper risks the carina and the posterior tracheal wall."
       }
     ],
     "reviewerStatus": "Internally Reviewed",
