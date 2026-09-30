@@ -1,13 +1,13 @@
 {
   "assetId": "ficb_patient_position",
   "procedure": "fascia_iliaca_block",
-  "title": "Probe and needle on the patient",
+  "title": "Infraligamentous approach",
   "view": "Right groin and upper thigh from above, patient supine, seen from the foot of the bed: head at the top, lateral on the image left, medial on the right. Draped, with a window over the groin.",
   "teachingPoint": "Linear probe transverse at the inguinal crease, just below the inguinal ligament, with the femoral artery under its medial end; needle in-plane from lateral, entering just beyond the probe's lateral end.",
   "claims": [
     "Right groin from above, seen from the foot of the bed: head at the top, lateral left, medial right - the same way round as the anatomy plate. Photograph painted by Gemini from the code layout, the probe area repainted alone; skin markings drawn in code.",
     "Purple: the ASIS, the pubic tubercle and the inguinal ligament between them (dashed). Red dashes: the surface course of the femoral artery from the mid-inguinal point down the thigh.",
-    "Linear probe held upright at the inguinal crease, just below the ligament, lateral to the femoral artery.",
+    "Linear probe held upright at the inguinal crease, below the inguinal ligament (the infraligamentous approach), lateral to the femoral artery.",
     "Needle entering just lateral to the probe, roughly in line with it (in-plane from lateral).",
     "Three labels: ASIS, Inguinal ligament, Femoral artery."
   ],
@@ -88,5 +88,10 @@
       "b": "probe",
       "why": "the probe face lies lateral to the artery, not on it"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "fcfbca20a03b12db3a65b7244552ffae39d7354540b9a43430d8943dcc67958c",
+    "reviewedOn": "2026-09-30"
+  }
 }

@@ -4164,11 +4164,11 @@
       {
         "id": "ficb_patient_position",
         "kind": "Probe Position",
-        "title": "Probe and needle on the patient",
-        "subtitle": "Linear probe at the inguinal crease, lateral to the femoral artery. Needle in-plane from lateral, entering lateral to the artery. Landmarks: the femoral artery medially, the ASIS laterally.",
-        "assetName": null,
+        "title": "Infraligamentous approach",
+        "subtitle": "Linear probe at the inguinal crease, below the inguinal ligament and lateral to the femoral artery. Needle in-plane from lateral, entering lateral to the artery. Landmarks: the femoral artery medially, the ASIS laterally.",
+        "assetName": "ficb_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right groin from the foot of the bed: head at the top, the hip (lateral) on the left.",
         "clinicalWarning": null
       },
       {
