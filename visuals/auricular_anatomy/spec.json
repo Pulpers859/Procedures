@@ -1,0 +1,32 @@
+{
+  "assetId": "auricular_anatomy",
+  "procedure": "block_auricular",
+  "title": "Target anatomy",
+  "view": "Right side of the head, seen from the right: head up, face to the right. Same view and scale as the positioning image. Skin see-through over the superficial nerves.",
+  "teachingPoint": "The auricle is supplied from three directions by superficial nerves that all cross a subcutaneous ring round its base; the concha is supplied deep (vagus) and is not covered by the ring.",
+  "claims": [
+    "Standard adult anatomy, not from the record: auriculotemporal nerve rising just in front of the tragus, behind the superficial temporal artery; great auricular nerve rising from below toward the lobe, with anterior and posterior branches; lesser occipital nerve rising behind the ear with a twig to the upper back of the auricle.",
+    "Teal: the ring of subcutaneous anaesthetic through the two puncture sites (record, steps 2-6). Each of the three nerves crosses it.",
+    "Purple dashed zone: the concha, supplied by the vagus/facial nerves deeper inside and not blocked by the ring (record, troubleshooting).",
+    "Four labels: Auriculotemporal n., Great auricular n., Lesser occipital n., Concha."
+  ],
+  "requiredElements": ["head", "ear", "concha", "tragus", "lobe", "sta", "auriculotemporal-nerve", "great-auricular-nerve",
+    "gan-anterior", "gan-posterior", "lesser-occipital-nerve", "lon-twig",
+    "track-inf-ant", "track-inf-post", "track-sup-ant", "track-sup-post", "concha-zone"],
+  "labels": {"Auriculotemporal n.": "auriculotemporal-nerve", "Great auricular n.": "great-auricular-nerve",
+    "Lesser occipital n.": "lesser-occipital-nerve", "Concha": "concha-zone"},
+  "geometry": [
+    {"check": "leftOf", "a": "tragus", "b": "auriculotemporal-nerve", "why": "auriculotemporal nerve runs in front of the tragus"},
+    {"check": "leftOf", "a": "auriculotemporal-nerve", "b": "sta", "why": "the nerve lies behind the superficial temporal artery"},
+    {"check": "noOverlap", "a": "auriculotemporal-nerve", "b": "ear", "why": "auriculotemporal trunk stays off the auricle"},
+    {"check": "crosses", "a": "auriculotemporal-nerve", "b": "head", "why": "nerve drawn on the head"},
+    {"check": "below", "a": "great-auricular-nerve", "b": "lobe", "why": "great auricular nerve comes from below the lobe"},
+    {"check": "leftOf", "a": "lesser-occipital-nerve", "b": "ear", "why": "lesser occipital nerve runs behind the ear"},
+    {"check": "noOverlap", "a": "track-inf-ant", "b": "ear", "why": "ring is off the auricle"},
+    {"check": "noOverlap", "a": "track-inf-post", "b": "ear", "why": "ring is off the auricle"},
+    {"check": "noOverlap", "a": "track-sup-ant", "b": "ear", "why": "ring is off the auricle"},
+    {"check": "noOverlap", "a": "track-sup-post", "b": "ear", "why": "ring is off the auricle"},
+    {"check": "within", "a": "concha-zone", "b": "ear", "why": "concha zone is inside the auricle"}
+  ],
+  "review": {"status": "draft"}
+}
