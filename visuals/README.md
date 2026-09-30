@@ -124,6 +124,26 @@ The attached image is an exact anatomical layout of <view and orientation, e.g. 
 Keep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: soft painted shading, fine crisp outlines, realistic <tissue> textures, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, incisions, instruments, hands or blood.
 ```
 
+Prompt rules (adopted 2026-09-30 from Google's Nano Banana prompting
+guides, after the FICB repairs regenerated whole images):
+
+- **Give each attachment a role.** "Use the attached layout as the exact
+  structure" (and, if used, "the second image as the style only").
+- **Say what you want, not what you don't.** The guides call this a
+  semantic negative prompt: "plain intact skin", not "no cut-away".
+  Keep negative lists to a short last line, or leave them out.
+- **Say the frame.** "Same 4:3 landscape framing as the attached image";
+  an edit otherwise may come back 16:9 with the scene recomposed.
+- **Ask for accuracy by name**: "a scientifically accurate cross-section".
+- **Photographs get camera terms**: shot type, lens, lighting.
+- **One change per edit turn.** A repair that names three changes is
+  treated as a new picture. Use the edit form "Using the provided image,
+  change only X to Y. Keep everything else exactly the same, preserving
+  the original style, lighting and composition."
+- **For a local fault, crop first** (`visual_patch.py`): the model cannot
+  move what it is not shown.
+- **Check the model**: Nano Banana Pro ("Thinking" in the Gemini app).
+
 What did not work, so it is not repeated:
 
 - **Text-only prompts** for fixed-geometry views (a midsagittal larynx,
@@ -134,6 +154,10 @@ What did not work, so it is not repeated:
 - **Copying or restyling a stock or textbook image.** It is copyrighted,
   and the repo and builds are public. Use only its composition ideas.
 - **Trusting an AI "PASS".** The owner's approval is the only gate.
+- **Multi-change repair lines on a whole image** (FICB, 2026-09-30):
+  "stand the probe up, add a hand, remove a cable" came back as a new
+  16:9 photo with the thigh gone; "make the muscle polygons" ballooned the
+  nerves and put valves in the vein.
 
 ## Painted base plus code labels
 
