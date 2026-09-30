@@ -5,10 +5,10 @@
   "view": "Right groin in cross-section at the inguinal crease under a linear probe, patient supine, seen from the feet as on CT or a transverse ultrasound: lateral on the image left, medial on the right, skin at the top.",
   "teachingPoint": "The target plane is deep to the fascia iliaca, on the iliacus, lateral to the femoral nerve - not above the fascia with the vessels, and not in the muscle.",
   "claims": [
-    "Right groin, transverse, under a linear probe, seen from the feet: lateral left, medial right, skin at the top - the same way round as the patient-position plate. Painted by Gemini (probe included) and mirrored to this orientation; needle, injectate and labels drawn in code.",
+    "Right groin, transverse, under a linear probe covering the whole field, seen from the feet: lateral left, medial right, skin at the top - the same way round as the patient-position plate. Painted by Gemini and mirrored, the probe's dent eased level; probe, needle, injectate, the plane's floor line and labels drawn in code.",
     "Superficial to deep: skin, subcutaneous fat, fascia lata, fascia iliaca, iliopsoas; bone at the bottom.",
     "Femoral vein medial to the artery, both superficial to the fascia iliaca. Femoral nerve in the fascial plane deep to the fascia iliaca, on the iliopsoas and its own thin fascia - not in the muscle - lateral to the artery; the fascia turns down the medial border of the iliopsoas, deep and lateral to the artery. Sartorius lateral under the fascia lata; the lateral femoral cutaneous nerve in the same plane near it.",
-    "Needle in-plane from lateral, entering just lateral to the probe; tip in the opened plane under the fascia iliaca, lateral to the nerve and under the probe. Teal: the injectate filling that plane - between the fascia iliaca and the iliopsoas - around the femoral nerve and the lateral femoral cutaneous nerve. A second pale line, the muscle's own fascia, runs along the floor of the plane below the nerves.",
+    "Needle in-plane from lateral, entering in the gap just beyond the probe's lateral end; tip in the opened plane under the fascia iliaca, lateral to the nerve and under the probe. Teal: the injectate filling that plane - between the fascia iliaca and the iliopsoas - around the femoral nerve and the lateral femoral cutaneous nerve. A second pale line, the muscle's own fascia, runs along the floor of the plane below the nerves.",
     "Four labels: Fascia iliaca, Femoral nerve, Femoral artery, Iliopsoas."
   ],
   "requiredElements": [

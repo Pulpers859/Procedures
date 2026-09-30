@@ -8,8 +8,9 @@ medial-left, so it is mirrored here (gemini-original.jpg is the file as
 painted) to run lateral-left like the patient-position plate and a
 transverse ultrasound. The painting lies on the layout within a few pixels;
 the layout shapes stay as the invisible regions (DEBUG=1 shows them), with
-the muscle surface under the opened plane and the painted probe traced on
-the painting. Re-trace them if the base is replaced.
+the muscle surface under the opened plane traced on the painting. The dent
+under Gemini's narrow probe was eased level in base.jpg and the probe is
+drawn here across the whole field. Re-trace them if the base is replaced.
 
 Transverse section at the inguinal crease, patient supine, seen from the
 feet: lateral on the image left, medial on the right, skin at the top.
@@ -100,36 +101,43 @@ PROBE = (-5.0, 33.0)                               # footprint, mm
 MUSCLE_SURFACE = [(8, 19.36), (10, 19.26), (12, 19.3), (14, 19.31), (16, 19.35), (18, 18.88), (20, 18.69), (22, 18.26),
                   (24, 18.17), (26, 18.26), (28, 18.4), (30, 18.7), (32, 19.12), (34, 19.83), (36, 20.4), (38, 20.5),
                   (40, 20.02), (42, 19.36), (44, 19.1), (48, 19.0)]
-# The painted probe (a narrow one), traced in canvas px on the mirrored painting.
-PAINTED_PROBE = [(607, 0), (993, 0), (993, 150), (980, 178), (620, 178), (607, 150)]
-PAINTED_PROBE_MM = (7.8, 21.6)                     # its face, lateral coordinates
-NEEDLE_OUT = (27.7, -10.0)
+# The probe covers the whole field, as the section is the ultrasound plane
+# (owner, 2026-09-30); it ends just short of the lateral edge, where the
+# needle goes in. The painted dent under Gemini's narrow probe was eased
+# level (provenance.json), so the skin lies flat under this face.
+PROBE_START_PX = 150.0                             # canvas x of the probe's lateral end
+SKIN_UNDER_PROBE_MM = 1.02                         # the flattened skin surface under the face
+SKIN_NATURAL_MM = 0.0
+GAP_START_PX = 53.0                                # the skin eases back up across the gap
 NEEDLE_TIP = (19.6, 16.6)                          # mid-plane, lateral to the nerve, under the probe
+NEEDLE_ENTRY_X = 39.7                              # in the gap at the probe's lateral end
 SPREAD_MEDIAL = NERVE[0][0] - NERVE[1] - 0.7
 
 
+def canvas_x_mm(px):
+    return (1600 - px - ORIGIN[0]) / PX_MM
+
+
 def painted_skin(x):
-    """The painted skin surface: dented about 2 mm under the probe face, easing
-    back to level over the shoulders (traced on the painting)."""
-    (f0, f1), (s0, s1), depth = PAINTED_PROBE_MM, (4.2, 26.2), 2.0
-    if f0 <= x <= f1:
-        return depth
-    if s0 < x < f0:
-        return depth * (1 - math.cos(math.pi * (x - s0) / (f0 - s0))) / 2
-    if f1 < x < s1:
-        return depth * (1 + math.cos(math.pi * (x - f1) / (s1 - f1))) / 2
-    return 0.0
+    """The skin surface on the (flattened) painting, in mm: level under the
+    probe, easing back to its natural height across the lateral gap."""
+    x_probe, x_gap = canvas_x_mm(PROBE_START_PX), canvas_x_mm(GAP_START_PX)
+    if x <= x_probe:
+        return SKIN_UNDER_PROBE_MM
+    if x >= x_gap:
+        return SKIN_NATURAL_MM
+    f = (x - x_probe) / (x_gap - x_probe)
+    return SKIN_UNDER_PROBE_MM + (SKIN_NATURAL_MM - SKIN_UNDER_PROBE_MM) * (1 - math.cos(math.pi * f)) / 2
 
 
 def needle_entry():
-    """Where the needle line meets the painted skin."""
-    (xa, ya), (xb, yb) = NEEDLE_OUT, NEEDLE_TIP
-    lo, hi = 0.0, 1.0
-    for _ in range(40):
-        m = (lo + hi) / 2
-        x, y = xa + (xb - xa) * m, ya + (yb - ya) * m
-        lo, hi = (m, hi) if y < painted_skin(x) else (lo, m)
-    return (xa + (xb - xa) * lo, ya + (yb - ya) * lo)
+    return (NEEDLE_ENTRY_X, painted_skin(NEEDLE_ENTRY_X))
+
+
+def needle_out():
+    """The needle continues 45% of its buried length back out of the skin."""
+    (ex, ey), (tx, ty) = needle_entry(), NEEDLE_TIP
+    return (ex + (ex - tx) * 0.45, ey + (ey - ty) * 0.45)
 
 
 def muscle_top(x):
@@ -174,7 +182,7 @@ def plane_floor_line():
     above the muscle, turning down the muscle's medial border."""
     lateral = X1 + 3
     along = [(lateral - (lateral - 8.0) * i / 40, 0) for i in range(41)]
-    return [(x, floor_smooth(x) + 0.05) for x, _ in along] + [(7.3, 20.2), (6.6, 22.4), (6.0, 24.6)]
+    return [(x, floor_smooth(x) + 0.05) for x, _ in along] + [(7.4, 20.0), (7.0, 21.3)]
 
 
 MUSCLE_TOP = [(x, muscle_top(x)) for x in [X1 + 3 - i * (X1 + 3 - 8.0) / 60 for i in range(61)]]
@@ -207,20 +215,24 @@ def build() -> str:
     skin = band(lambda x: 0.0, lambda x: 60)
     bone = band(lambda x: BONE_Y, lambda x: 60)
 
-    a, e, t = c(NEEDLE_OUT), c(needle_entry()), c(NEEDLE_TIP)
+    a, e, t = c(needle_out()), c(needle_entry()), c(NEEDLE_TIP)
     px0, px1 = sorted((c((PROBE[0], 0))[0], c((PROBE[1], 0))[0]))
 
     labels = [
-        Label(["Fascia iliaca"], anchor=(40, 300), leader=[(300, 322), c((29, iliaca_y(29)))],
+        Label(["Fascia iliaca"], anchor=(40, 800), leader=[(236, 750), c((canvas_x_mm(262), iliaca_y(canvas_x_mm(262))))],
               target_id="fascia-iliaca", emphasis=True),
         Label(["Femoral nerve"], anchor=(620, 1010), leader=[(800, 955), c((13.2, 16.4))], target_id="femoral-nerve"),
         Label(["Femoral artery"], anchor=(1150, 300), leader=[(1300, 322), c((0.5, 10.0))], target_id="femoral-artery"),
-        Label(["Iliopsoas"], anchor=(300, 880), leader=[(420, 832), c((27, 22))], target_id="iliopsoas"),
+        Label(["Iliopsoas"], anchor=(480, 880), leader=[(600, 832), c((22, 23))], target_id="iliopsoas"),
     ]
 
     if painted:
-        probe_marking = (f'<polygon id="probe" points="{" ".join(f"{fmt(x)},{fmt(y)}" for x, y in PAINTED_PROBE)}" '
-                         f'fill="#ff00ff" fill-opacity="{0.35 if debug else 0}"/>')
+        face_y = ORIGIN[1] + SKIN_UNDER_PROBE_MM * PX_MM
+        probe_marking = (
+            f'<rect id="probe" x="{fmt(PROBE_START_PX)}" y="-60" width="{fmt(1700 - PROBE_START_PX)}" height="{fmt(face_y + 60)}" rx="34" '
+            f'fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>'
+            f'<rect x="{fmt(PROBE_START_PX + 18)}" y="{fmt(face_y - 16)}" width="{fmt(1700 - PROBE_START_PX)}" height="14" rx="6" fill="#3E454C"/>'
+            f'<path d="M{fmt(PROBE_START_PX + 34)},{fmt(face_y - 44)} H1600" stroke="#C6CCD2" stroke-width="3" opacity="0.8"/>')
     else:
         probe_marking = (f'<rect id="probe" x="{fmt(px0)}" y="{fmt(ORIGIN[1] - 150)}" width="{fmt(px1 - px0)}" height="150" rx="26" '
                          f'fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>'
