@@ -2,41 +2,160 @@
   "assetId": "ficb_anatomy_layers",
   "procedure": "fascia_iliaca_block",
   "title": "Inguinal fascial layers",
-  "view": "Right groin in cross-section at the inguinal crease, patient supine, seen from the feet: lateral on the image left, medial on the right, skin at the top.",
+  "view": "Right groin in cross-section at the inguinal crease under a linear probe, patient supine: medial on the image left, lateral on the right, skin at the top.",
   "teachingPoint": "The target plane is deep to the fascia iliaca, on the iliacus, lateral to the femoral nerve - not above the fascia with the vessels, and not in the muscle.",
   "claims": [
-    "Right groin, transverse, seen from the feet: lateral left, medial right, skin at the top.",
-    "Superficial to deep: skin, subcutaneous fat, fascia lata, fascia iliaca, iliopsoas; femoral head deep.",
-    "Femoral vein medial to the artery, both superficial to the fascia iliaca. Femoral nerve deep to the fascia iliaca, on the iliopsoas, lateral to the artery. Sartorius lateral within the fascia lata; pectineus deep to the vein.",
-    "Needle in-plane from lateral, entering lateral to the nerve and artery; tip under the fascia iliaca, lateral to the nerve. Teal: spread in the plane between fascia iliaca and iliacus, toward the nerve.",
-    "Three labels: Fascia iliaca, Femoral nerve, Femoral artery."
+    "Right groin, transverse, under a linear probe: medial left, lateral right, skin at the top. Composition after the classic regional-anaesthesia plate; drawn from scratch.",
+    "Superficial to deep: skin, subcutaneous fat, fascia lata, fascia iliaca, iliopsoas; bone at the bottom.",
+    "Femoral vein medial to the artery, both superficial to the fascia iliaca. Femoral nerve deep to the fascia iliaca, lateral to the artery; the fascia turns down the medial border of the iliopsoas, deep and lateral to the artery. Sartorius lateral under the fascia lata; the lateral femoral cutaneous nerve deep to the fascia iliaca near it.",
+    "Needle in-plane from the lateral end of the probe, entering lateral to the nerve and artery; tip under the fascia iliaca, lateral to the nerve. Teal: spread between fascia iliaca and iliopsoas, lifting the fascia, reaching the femoral nerve medially and the lateral femoral cutaneous nerve laterally.",
+    "Four labels: Fascia iliaca, Femoral nerve, Femoral artery, Iliopsoas."
   ],
   "requiredElements": [
-    "skin", "subcutaneous-fat", "fascia-lata", "fascia-iliaca", "iliopsoas", "sartorius", "pectineus", "femoral-head",
-    "femoral-artery", "femoral-vein", "femoral-nerve", "needle", "needle-entry", "spread"
+    "skin",
+    "subcutaneous-fat",
+    "fascia-lata",
+    "fascia-iliaca",
+    "iliopsoas",
+    "sartorius",
+    "bone",
+    "femoral-artery",
+    "femoral-vein",
+    "femoral-nerve",
+    "lfcn",
+    "probe",
+    "needle",
+    "needle-entry",
+    "spread"
   ],
   "labels": {
     "Fascia iliaca": "fascia-iliaca",
     "Femoral nerve": "femoral-nerve",
-    "Femoral artery": "femoral-artery"
+    "Femoral artery": "femoral-artery",
+    "Iliopsoas": "iliopsoas"
   },
   "geometry": [
-    {"check": "leftOf", "a": "femoral-nerve", "b": "femoral-artery", "why": "nerve is lateral to the artery"},
-    {"check": "leftOf", "a": "femoral-artery", "b": "femoral-vein", "why": "vein is medial to the artery"},
-    {"check": "below", "a": "femoral-nerve", "b": "femoral-artery", "why": "nerve lies deeper than the artery, under the fascia iliaca"},
-    {"check": "noOverlap", "a": "fascia-iliaca", "b": "femoral-nerve", "why": "fascia passes over the nerve, not through it"},
-    {"check": "noOverlap", "a": "fascia-iliaca", "b": "femoral-artery", "why": "fascia passes under the artery"},
-    {"check": "crosses", "a": "needle", "b": "fascia-lata", "why": "needle passes the fascia lata"},
-    {"check": "crosses", "a": "needle", "b": "fascia-iliaca", "why": "needle passes the fascia iliaca"},
-    {"check": "noOverlap", "a": "needle", "b": "femoral-nerve", "why": "needle does not touch the nerve"},
-    {"check": "noOverlap", "a": "needle", "b": "femoral-artery", "why": "needle does not touch the artery"},
-    {"check": "noOverlap", "a": "needle", "b": "femoral-vein", "why": "needle does not touch the vein"},
-    {"check": "noOverlap", "a": "needle", "b": "sartorius", "why": "needle passes medial to sartorius"},
-    {"check": "leftOf", "a": "needle-entry", "b": "femoral-nerve", "why": "entry is lateral to the nerve and artery"},
-    {"check": "pointsDown", "a": "needle", "maxLean": 1.4, "why": "needle goes in from the skin, lateral to medial"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "needle tip is in the spread"},
-    {"check": "crosses", "a": "femoral-nerve", "b": "spread", "why": "spread reaches the nerve"},
-    {"check": "noOverlap", "a": "femoral-artery", "b": "spread", "why": "spread is not around the artery, which lies above the fascia"},
-    {"check": "leftOf", "a": "spread", "b": "femoral-artery", "why": "spread is lateral"}
+    {
+      "check": "leftOf",
+      "a": "femoral-artery",
+      "b": "femoral-nerve",
+      "why": "nerve is lateral to the artery"
+    },
+    {
+      "check": "leftOf",
+      "a": "femoral-vein",
+      "b": "femoral-artery",
+      "why": "vein is medial to the artery"
+    },
+    {
+      "check": "below",
+      "a": "femoral-nerve",
+      "b": "femoral-artery",
+      "why": "nerve lies deeper than the artery, under the fascia iliaca"
+    },
+    {
+      "check": "noOverlap",
+      "a": "fascia-iliaca",
+      "b": "femoral-nerve",
+      "why": "fascia passes over the nerve, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "fascia-iliaca",
+      "b": "femoral-artery",
+      "why": "fascia passes under the artery"
+    },
+    {
+      "check": "crosses",
+      "a": "needle",
+      "b": "fascia-lata",
+      "why": "needle passes the fascia lata"
+    },
+    {
+      "check": "crosses",
+      "a": "needle",
+      "b": "fascia-iliaca",
+      "why": "needle passes the fascia iliaca"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "femoral-nerve",
+      "why": "needle does not touch the nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "femoral-artery",
+      "why": "needle does not touch the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "femoral-vein",
+      "why": "needle does not touch the vein"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "sartorius",
+      "why": "needle passes medial to sartorius"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle",
+      "maxLean": 1.3,
+      "why": "needle goes in from the skin, lateral to medial"
+    },
+    {
+      "check": "leftOf",
+      "a": "femoral-nerve",
+      "b": "needle-entry",
+      "why": "entry is lateral to the nerve and artery"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "needle tip is in the spread"
+    },
+    {
+      "check": "crosses",
+      "a": "femoral-nerve",
+      "b": "spread",
+      "why": "spread reaches the femoral nerve"
+    },
+    {
+      "check": "crosses",
+      "a": "lfcn",
+      "b": "spread",
+      "why": "spread reaches the lateral femoral cutaneous nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "femoral-artery",
+      "b": "spread",
+      "why": "spread does not reach the artery, which lies above the fascia"
+    },
+    {
+      "check": "leftOf",
+      "a": "femoral-artery",
+      "b": "spread",
+      "why": "spread is lateral"
+    },
+    {
+      "check": "noOverlap",
+      "a": "fascia-iliaca",
+      "b": "lfcn",
+      "why": "fascia passes over the lateral nerve"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle enters just lateral to the probe's lateral end (in-plane from lateral)"
+    }
   ]
 }
