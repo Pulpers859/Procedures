@@ -31,6 +31,7 @@ import html
 import importlib.util
 import json
 import os
+import re
 import shutil
 import sys
 from datetime import date
@@ -190,8 +191,15 @@ def regenerate(asset_id: str) -> Path:
     module_spec = importlib.util.spec_from_file_location(f"draw_{asset_id}", draw)
     module = importlib.util.module_from_spec(module_spec)
     module_spec.loader.exec_module(module)
+    text = module.build()
+    # A gradient or clip sharing an element's id makes getElementById return
+    # the wrong node and the checks die with an opaque browser error.
+    ids = re.findall(r'\sid="([^"]+)"', text)
+    dupes = sorted({i for i in ids if ids.count(i) > 1})
+    if dupes:
+        raise SystemExit(f"{asset_id}: duplicate element ids {dupes}; rename one of each")
     svg = VISUALS / asset_id / f"{asset_id}.svg"
-    svg.write_text(module.build(), encoding="utf-8")
+    svg.write_text(text, encoding="utf-8")
     return svg
 
 

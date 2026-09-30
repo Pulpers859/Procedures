@@ -2,13 +2,13 @@
   "assetId": "ficb_anatomy_layers",
   "procedure": "fascia_iliaca_block",
   "title": "Inguinal fascial layers",
-  "view": "Right groin in cross-section at the inguinal crease under a linear probe, patient supine: medial on the image left, lateral on the right, skin at the top.",
+  "view": "Right groin in cross-section at the inguinal crease under a linear probe, patient supine, seen from the feet as on CT or a transverse ultrasound: lateral on the image left, medial on the right, skin at the top.",
   "teachingPoint": "The target plane is deep to the fascia iliaca, on the iliacus, lateral to the femoral nerve - not above the fascia with the vessels, and not in the muscle.",
   "claims": [
-    "Right groin, transverse, under a linear probe: medial left, lateral right, skin at the top. Composition after the classic regional-anaesthesia plate; drawn from scratch.",
+    "Right groin, transverse, under a linear probe, seen from the feet: lateral left, medial right, skin at the top - the same way round as the patient-position plate. Composition after the classic regional-anaesthesia plate; drawn from scratch.",
     "Superficial to deep: skin, subcutaneous fat, fascia lata, fascia iliaca, iliopsoas; bone at the bottom.",
     "Femoral vein medial to the artery, both superficial to the fascia iliaca. Femoral nerve deep to the fascia iliaca, lateral to the artery; the fascia turns down the medial border of the iliopsoas, deep and lateral to the artery. Sartorius lateral under the fascia lata; the lateral femoral cutaneous nerve deep to the fascia iliaca near it.",
-    "Needle in-plane from the lateral end of the probe, entering lateral to the nerve and artery; tip under the fascia iliaca, lateral to the nerve. Teal: spread between fascia iliaca and iliopsoas, lifting the fascia, reaching the femoral nerve medially and the lateral femoral cutaneous nerve laterally.",
+    "Needle in-plane from the lateral (left) end of the probe, entering lateral to the nerve and artery; tip under the fascia iliaca, lateral to the nerve. Teal: spread between fascia iliaca and iliopsoas, lifting the fascia, reaching the femoral nerve medially and the lateral femoral cutaneous nerve laterally.",
     "Four labels: Fascia iliaca, Femoral nerve, Femoral artery, Iliopsoas."
   ],
   "requiredElements": [
@@ -37,14 +37,14 @@
   "geometry": [
     {
       "check": "leftOf",
-      "a": "femoral-artery",
-      "b": "femoral-nerve",
+      "a": "femoral-nerve",
+      "b": "femoral-artery",
       "why": "nerve is lateral to the artery"
     },
     {
       "check": "leftOf",
-      "a": "femoral-vein",
-      "b": "femoral-artery",
+      "a": "femoral-artery",
+      "b": "femoral-vein",
       "why": "vein is medial to the artery"
     },
     {
@@ -109,8 +109,8 @@
     },
     {
       "check": "leftOf",
-      "a": "femoral-nerve",
-      "b": "needle-entry",
+      "a": "needle-entry",
+      "b": "femoral-nerve",
       "why": "entry is lateral to the nerve and artery"
     },
     {
@@ -141,8 +141,8 @@
     },
     {
       "check": "leftOf",
-      "a": "femoral-artery",
-      "b": "spread",
+      "a": "spread",
+      "b": "femoral-artery",
       "why": "spread is lateral"
     },
     {
@@ -153,8 +153,8 @@
     },
     {
       "check": "leftOf",
-      "a": "probe",
-      "b": "needle-entry",
+      "a": "needle-entry",
+      "b": "probe",
       "why": "needle enters just lateral to the probe's lateral end (in-plane from lateral)"
     }
   ]
