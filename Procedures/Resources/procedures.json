@@ -567,9 +567,9 @@
         "kind": "Landmark",
         "title": "Digital block injection sites",
         "subtitle": "Digital nerves run along the medial and lateral aspects of the digit with accompanying vessels. Injection at the base can reach both dorsal and volar branches depending on technique.",
-        "assetName": null,
+        "assetName": "digital_block_landmark",
         "systemImage": "hand.raised",
-        "caption": "",
+        "caption": "Left: back of a right hand, thumb on the left. Right: the finger base cut at the dashed line, back of the finger at the top, thumb side on the left.",
         "clinicalWarning": "Avoid circumferential high-volume injection - it creates unnecessary tissue pressure in the digit."
       }
     ],

@@ -210,5 +210,10 @@
       "b": "section-frame",
       "why": "the section sits inside the frame"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "7a04c463a7ddcf6ea80fe5c410e583e60939d20dc8b338a04a82a57de26a7125",
+    "reviewedOn": "2026-09-30"
+  }
 }
