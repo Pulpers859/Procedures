@@ -1,0 +1,15 @@
+{
+  "base": "base.jpg",
+  "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+  "generatedBy": "owner, in the Gemini app",
+  "date": "2026-09-30",
+  "sourceSize": [
+    1195,
+    896
+  ],
+  "reference": "Unlabelled render of the textured, lateral-left ficb_anatomy_layers layout (commit 7c45a2a draw.py, --reference): cut-face texture cues and a plain probe above the skin.",
+  "prompt": "The attached image is an exact layout of a cross-section through the right groin under an ultrasound probe, like a slice of tissue seen straight on. Skin is at the top with a grey probe resting on it; the tissue runs off all four edges. From the top down: skin, subcutaneous fat, a thin white fascia lata line, deeper fat, then a second thin white line (the fascia iliaca) over a large red muscle (iliopsoas) on the left, with a smaller muscle (sartorius) on the far left above it, and bone along the bottom. On the right, above the second line: a red femoral artery and a larger blue femoral vein. Just under the second line: a flat yellow femoral nerve, and a small round nerve further left. Repaint it as a plate from a modern regional-anaesthesia textbook. This is a flat cut face: show only cut surfaces. The muscle shows the cut ends of its fascicles, tightly packed deep-crimson polygons with thin pale septa, not lengthwise fibres. The fat is small, tightly packed golden lobules with fine septa, the same size as in the layout, not large bubbles. The nerves are oval bundles of round fascicles inside a sheath, cut straight across, not cables or cylinders. The artery has a thick muscular wall around a dark lumen; the vein has a thinner wall. The two fascia lines are crisp, glistening pearly-white sheets. The bone shows a smooth cortex over spongy bone. Keep every structure exactly where it is, with the same size, outline and position; exact markings will be laid over it afterwards. Fill the whole canvas edge to edge: no border, frame, margin, shadow or vignette. Rich but natural colours, soft light from the upper left, fine crisp outlines. Add no text, labels, arrows, needles, hands or extra structures.",
+  "repairs": [],
+  "rejected": "First layout (wide groin section, lateral left): owner rejected the composition and asked for the NYSORA-style zoomed plane. Painting of the flat-colour zoomed layout: framed and shrunk inside a border, nerves as angled cables, lengthwise muscle fibres, bubble fat. The owner judged it not good; the reference was given cut-face texture cues and the prompt rewritten from scratch.",
+  "knownLimits": "Muscle fascicles are rounded dots rather than packed polygons. The bone shows red marrow spots. The strip above the skin is white, not the plate background. Needle, spread and entry are code-drawn; the painted probe is Gemini's, within a few pixels of the layout."
+}

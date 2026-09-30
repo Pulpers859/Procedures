@@ -1,5 +1,12 @@
 """Fascia iliaca block - the right groin in section under a linear probe.
 
+Painted base plus code-drawn markings. The art is a Gemini Nano Banana Pro
+repaint of this file's layout (provenance.json). The painting lies on the
+layout within a few pixels, so the layout shapes stay in place as the
+invisible label and check regions (DEBUG=1 shows them) and the texture
+cues are not drawn. The painted probe is kept; its region is the layout's.
+Re-check the regions against the painting if the base is replaced.
+
 Composition after the classic regional-anaesthesia plate (owner's choice,
 2026-09-30): zoomed in on the plane, probe on the skin, needle in-plane from
 lateral. Drawn from scratch here; nothing is traced or copied from any
@@ -37,7 +44,9 @@ Run: python3 visuals/ficb_anatomy_layers/draw.py
 
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import random
 import sys
 from pathlib import Path
@@ -47,6 +56,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "ficb_anatomy_layers"
+BASE = Path(__file__).with_name("base.jpg")
+BASE_SIZE = (1195.0, 896.0)
 PX_MM = 28.0
 ORIGIN = (392.0, 130.0)           # canvas of the skin surface above the artery
 X0, X1 = -16.0, 45.0              # frame edges in mm
@@ -185,6 +196,8 @@ DEFS = """
 
 
 def build() -> str:
+    painted = BASE.exists()
+    debug = os.environ.get("DEBUG") == "1"
     skin = band(skin_y, lambda x: 60)
     below_skin = band(lambda x: 1.6, lambda x: 60)
     sub_fat = band(lambda x: 1.6, lata_y)
@@ -216,22 +229,34 @@ def build() -> str:
         Label(["Iliopsoas"], anchor=(40, 1010), leader=[(250, 955), c((33, 26))], target_id="iliopsoas"),
     ]
 
+    scale = 1600 / BASE_SIZE[0]
+    if painted:
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - BASE_SIZE[1] * scale) / 2)}" width="1600" '
+                      f'height="{fmt(BASE_SIZE[1] * scale)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if debug else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
+
     body = f"""
-<g id="anatomy" clip-path="url(#frame)">
+<g id="anatomy" clip-path="url(#frame)"{base_attr}>
+  {base_image}
+  <g id="layout"{layout_attr}>
   <path id="skin" d="{path(skin, closed=True, tension=0.3)}" fill="#E4B49B"/>
   <path d="{path(band(lambda x: 0.35, lambda x: 60), closed=True, tension=0.3)}" fill="#EDC7B2"/>
   <path id="subcutaneous-fat" d="{path(below_skin, closed=True, tension=0.3)}" fill="#E2B955"/>
-  <g clip-path="url(#clip-sub-fat)">{fat_lobules(1, 1.0, 10.5, "#F6DD8E", "#F1D27A")}</g>
-  <g clip-path="url(#clip-deep-fat)">{fat_lobules(2, 6.5, 36, "#F2D787", "#ECCB72")}</g>
+  {'' if painted else f'''<g clip-path="url(#clip-sub-fat)">{fat_lobules(1, 1.0, 10.5, "#F6DD8E", "#F1D27A")}</g>'''}
+  {'' if painted else f'''<g clip-path="url(#clip-deep-fat)">{fat_lobules(2, 6.5, 36, "#F2D787", "#ECCB72")}</g>'''}
 
   <path id="iliopsoas" d="{path(ILIOPSOAS, closed=True, tension=0.5)}" fill="#E9B8AD" stroke="#6E221E" stroke-width="3"/>
-  <g clip-path="url(#clip-iliopsoas)" fill="#A63A31">{fascicles(3, -2, X1 + 3, 12, 36)}</g>
+  {'' if painted else f'''<g clip-path="url(#clip-iliopsoas)" fill="#A63A31">{fascicles(3, -2, X1 + 3, 12, 36)}</g>'''}
   <path id="sartorius" d="{path(SARTORIUS, closed=True, tension=0.6)}" fill="#E9B8AD" stroke="#6E221E" stroke-width="3"/>
-  <g clip-path="url(#clip-sartorius)" fill="#A63A31">{fascicles(4, 28, X1 + 3, 7, 18)}</g>
+  {'' if painted else f'''<g clip-path="url(#clip-sartorius)" fill="#A63A31">{fascicles(4, 28, X1 + 3, 7, 18)}</g>'''}
 
   <path id="bone" d="{path(bone, closed=True, tension=0.3)}" fill="#F4EEDF" stroke="#A8977A" stroke-width="5"/>
   <path d="{path(cancellous, closed=True, tension=0.3)}" fill="#E5D5B2"/>
-  <g clip-path="url(#clip-cancellous)" fill="#CDB98E">{speckle}</g>
+  {'' if painted else f'''<g clip-path="url(#clip-cancellous)" fill="#CDB98E">{speckle}</g>'''}
 
   <path id="fascia-lata" d="{path(curve(lata_y))}" fill="none" stroke="#FBFAF6" stroke-width="10"/>
   <path d="{path(curve(lata_y))}" fill="none" stroke="#A89C86" stroke-width="2.5"/>
@@ -239,21 +264,20 @@ def build() -> str:
   <path d="{path(ILIACA, tension=0.8)}" fill="none" stroke="#A89C86" stroke-width="2.5"/>
 
   {ellipse(NERVE[0], NERVE[1], NERVE[2], 'id="femoral-nerve" fill="#F4DC92" stroke="#B8962E" stroke-width="4"', NERVE[3])}
-  {nerve_bundle(NERVE[0], NERVE[1], NERVE[2], NERVE[3], 0.5, 5)}
+  {'' if painted else f'''{nerve_bundle(NERVE[0], NERVE[1], NERVE[2], NERVE[3], 0.5, 5)}'''}
   {ellipse(LFCN[0], LFCN[1], LFCN[1], 'id="lfcn" fill="#F4DC92" stroke="#B8962E" stroke-width="3"')}
-  {nerve_bundle(LFCN[0], LFCN[1], LFCN[1], 0, 0.36, 6)}
+  {'' if painted else f'''{nerve_bundle(LFCN[0], LFCN[1], LFCN[1], 0, 0.36, 6)}'''}
   {ellipse(vc, vrx, vry, 'id="femoral-vein" fill="#5B79AC" stroke="#2F4A78" stroke-width="4"')}
   {ellipse(vc, vrx - 0.7, vry - 0.7, 'fill="url(#vein)"')}
   {ellipse(art[0], art[1], art[1], 'id="femoral-artery" fill="#C95A4F" stroke="#8E211D" stroke-width="5"')}
   {ellipse(art[0], art[1] - 1.5, art[1] - 1.5, 'fill="url(#artery)" stroke="#9E2A24" stroke-width="3"')}
   <line x1="0" y1="{fmt(ORIGIN[1])}" x2="1600" y2="{fmt(ORIGIN[1])}" stroke="#B98A74" stroke-width="4"/>
-  <rect x="{fmt(px0)}" y="{fmt(ORIGIN[1] - 150)}" width="{fmt(px1 - px0)}" height="150" rx="26" fill="#8A929B"/>
+  <rect id="probe" x="{fmt(px0)}" y="{fmt(ORIGIN[1] - 150)}" width="{fmt(px1 - px0)}" height="150" rx="26" fill="#8A929B"/>
+  </g>
 </g>
 
 <g class="marking">
   <path id="spread" d="{path(spread(), closed=True, tension=0.5)}" fill="#7FD3D8" fill-opacity="0.8" stroke="#0E8C98" stroke-width="4"/>
-  <rect id="probe" x="{fmt(px0)}" y="{fmt(ORIGIN[1] - 150)}" width="{fmt(px1 - px0)}" height="150" rx="26" fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>
-  <rect x="{fmt(px0 + 10)}" y="{fmt(ORIGIN[1] - 14)}" width="{fmt(px1 - px0 - 20)}" height="12" rx="5" fill="#3E454C"/>
   <line id="needle" x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="10" stroke-linecap="butt"/>
   <line x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="5" stroke-linecap="butt"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>

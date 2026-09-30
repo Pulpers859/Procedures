@@ -13,7 +13,9 @@ things it was never asked to touch. This confines a repair to a box:
     # 2. The owner repaints only patch-crop.png in Gemini.
 
     # 3. Blend the repainted crop back with a feathered edge and matched colour.
-    #    Writes render/patched.jpg; base.jpg is never overwritten.
+    #    Writes render/patched.jpg; base.jpg is never overwritten. REPAINTED
+    #    may also be a whole repainted image the size of the source (a
+    #    same-chat repair): only the box is taken from it.
     python3 scripts/visual_patch.py merge <id> REPAINTED.jpg [--feather 24]
 
 Merge refuses a source that changed since the crop, and reports how much
@@ -102,18 +104,35 @@ def merge(record: dict, repaint_path: Path, out: Path, feather: int = 24, colour
     x0, y0, x1, y1 = record["box"]
     size = (x1 - x0, y1 - y0)
     original = image.crop((x0, y0, x1, y1))
-    repaint = Image.open(repaint_path).convert("RGB").resize(size, Image.LANCZOS)
+    repaint = Image.open(repaint_path).convert("RGB")
+    if repaint.size == image.size:
+        # A whole repainted image (a same-chat repair): take only the box from it.
+        repaint = repaint.crop((x0, y0, x1, y1))
+    repaint = repaint.resize(size, Image.LANCZOS)
 
     feather = max(1, min(feather, min(size) // 4))
+    # Sides lying on the image border are not faded: something that leaves
+    # the frame there (an arm, a cable) must not dissolve at the edge.
+    open_sides = (x0 == 0, y0 == 0, x1 == image.width, y1 == image.height)   # left, top, right, bottom
+    inset = [0 if side else feather for side in open_sides]
     if colour_match:
-        repaint = _match_colour(repaint, original, _ring_mask(size, feather))
+        ring = _ring_mask(size, feather)
+        repaint = _match_colour(repaint, original, ring)
 
-    # Opaque in the middle, fading to zero at the box edge.
-    mask = Image.new("L", size, 0)
-    ImageDraw.Draw(mask).rectangle((feather, feather, size[0] - feather - 1, size[1] - feather - 1), fill=255)
-    mask = mask.filter(ImageFilter.GaussianBlur(feather / 2))
+    # Opaque in the middle, fading to zero at each inner box edge.
+    pad = 2 * feather
+    w, h = size
+    big = Image.new("L", (w + 2 * pad, h + 2 * pad), 0)
+    ImageDraw.Draw(big).rectangle((pad + inset[0] - (pad if open_sides[0] else 0),
+                                   pad + inset[1] - (pad if open_sides[1] else 0),
+                                   pad + w - inset[2] - 1 + (pad if open_sides[2] else 0),
+                                   pad + h - inset[3] - 1 + (pad if open_sides[3] else 0)), fill=255)
+    mask = big.filter(ImageFilter.GaussianBlur(feather / 2)).crop((pad, pad, pad + w, pad + h))
     edge = Image.new("L", size, 255)
-    ImageDraw.Draw(edge).rectangle((0, 0, size[0] - 1, size[1] - 1), outline=0, width=1)
+    draw = ImageDraw.Draw(edge)
+    for i, (is_open, line) in enumerate(zip(open_sides, ((0, 0, 0, h - 1), (0, 0, w - 1, 0), (w - 1, 0, w - 1, h - 1), (0, h - 1, w - 1, h - 1)))):
+        if not is_open:
+            draw.line(line, fill=0)
     mask = ImageChops.multiply(mask, edge)
 
     blended = Image.composite(repaint, original, mask)

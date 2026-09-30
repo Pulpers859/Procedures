@@ -67,6 +67,24 @@ class VisualPatchTest(unittest.TestCase):
         matched = vp.merge(rec, self.dir / "tinted.png", self.dir / "b.png", colour_match=True)
         self.assertLess(matched["meanChangeInsideBox"], plain["meanChangeInsideBox"])
 
+    def test_full_size_repaint_contributes_only_its_box(self):
+        rec = vp.crop(self.source, (140, 90, 260, 210), self.dir / "render", margin=10)
+        whole = Image.new("RGB", (400, 300), (20, 160, 60))          # the whole picture drifted
+        whole.save(self.dir / "whole.png")
+        result = vp.merge(rec, self.dir / "whole.png", self.dir / "out.png", feather=12, colour_match=False)
+        self.assertEqual(result["changedOutsideBox"], 0)
+        self.assertEqual(Image.open(self.dir / "out.png").convert("RGB").getpixel((200, 150)), (20, 160, 60))
+
+    def test_side_on_the_image_border_is_not_faded(self):
+        rec = vp.crop(self.source, (140, 0, 260, 120), self.dir / "render", margin=10)
+        self.assertEqual(rec["box"][1], 0)
+        solid = Image.new("RGB", (400, 300), (20, 160, 60))
+        solid.save(self.dir / "solid.png")
+        vp.merge(rec, self.dir / "solid.png", self.dir / "out.png", feather=12, colour_match=False)
+        out = Image.open(self.dir / "out.png").convert("RGB")
+        self.assertEqual(out.getpixel((200, 0)), (20, 160, 60), "the repaint reaches the top edge")
+        self.assertNotEqual(out.getpixel((131, 60)), (20, 160, 60), "an inner side still fades")
+
     def test_merge_refuses_a_changed_source(self):
         rec = vp.crop(self.source, (140, 90, 260, 210), self.dir / "render")
         Image.new("RGB", (400, 300), (0, 0, 0)).save(self.source)
