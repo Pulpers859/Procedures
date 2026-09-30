@@ -2,19 +2,27 @@
   "assetId": "ij_landmark_triangle",
   "procedure": "central_venous_catheter",
   "title": "Sternocleidomastoid triangle",
-  "view": "Right neck, patient supine, seen from the head of the bed: the operator's view for an IJ line. Head at the bottom, the patient's right on the image right.",
+  "view": "Anterior view, patient supine, head at the top turned slightly left: the right neck on the image left, with jaw, ear lobe, chin, thyroid cartilage, clavicles and shoulder for orientation.",
   "teachingPoint": "The IJ lies deep to the triangle between the sternal and clavicular heads of the SCM, lateral to the carotid. The landmark entry is the apex, where the two heads meet - not the clavicle.",
   "claims": [
-    "Right neck from the head of the bed: the head is at the bottom of the image, the clavicle at the top, and the patient's right is on the image right.",
+    "Anterior view, head at the top turned slightly left; the patient's right neck is on the image left. Jaw, ear lobe, thyroid cartilage, sternal notch, clavicles and shoulder are in frame.",
     "The sternal head rises from the manubrium, the clavicular head from the medial clavicle; they meet at the apex of a triangle whose base is the clavicle.",
     "The internal jugular vein (blue) runs deep to the triangle, lateral to the common carotid (red), which lies deep to the sternal head.",
-    "The external jugular vein is superficial and crosses the SCM belly obliquely.",
+    "The external jugular vein is superficial and crosses the SCM obliquely from near the angle of the jaw toward the mid-clavicle.",
     "The teal ring is the landmark entry point, at the apex of the triangle, over the IJ and clear of the carotid.",
     "Three labels: Sternal head, Clavicular head, Internal jugular vein."
   ],
   "requiredElements": [
-    "neck", "clavicle", "sternal-head", "clavicular-head", "scm-belly",
-    "internal-jugular", "carotid-artery", "external-jugular", "entry-point"
+    "body",
+    "jaw",
+    "clavicle",
+    "scm",
+    "sternal-head",
+    "clavicular-head",
+    "internal-jugular",
+    "carotid-artery",
+    "external-jugular",
+    "entry-point"
   ],
   "labels": {
     "Sternal head": "sternal-head",
@@ -22,14 +30,56 @@
     "Internal jugular vein": "internal-jugular"
   },
   "geometry": [
-    {"check": "leftOf", "a": "carotid-artery", "b": "internal-jugular", "why": "IJ is lateral to the carotid (patient's right on the image right)"},
-    {"check": "leftOf", "a": "sternal-head", "b": "clavicular-head", "why": "clavicular head is lateral to the sternal head"},
-    {"check": "leftOf", "a": "sternal-head", "b": "entry-point", "why": "entry is lateral to the sternal head's centre"},
-    {"check": "leftOf", "a": "entry-point", "b": "clavicular-head", "why": "entry is medial to the clavicular head's centre"},
-    {"check": "below", "a": "entry-point", "b": "clavicle", "why": "head at the bottom: the apex lies headward of the clavicle"},
-    {"check": "below", "a": "scm-belly", "b": "sternal-head", "why": "head at the bottom: the SCM belly runs headward from the heads"},
-    {"check": "crosses", "a": "entry-point", "b": "internal-jugular", "why": "entry point overlies the IJ"},
-    {"check": "noOverlap", "a": "entry-point", "b": "carotid-artery", "why": "entry point is clear of the carotid"}
+    {
+      "check": "leftOf",
+      "a": "internal-jugular",
+      "b": "carotid-artery",
+      "why": "IJ is lateral to the carotid (patient's right on the image left)"
+    },
+    {
+      "check": "leftOf",
+      "a": "clavicular-head",
+      "b": "sternal-head",
+      "why": "clavicular head is lateral to the sternal head"
+    },
+    {
+      "check": "leftOf",
+      "a": "entry-point",
+      "b": "sternal-head",
+      "why": "entry is lateral to the sternal head's centre"
+    },
+    {
+      "check": "leftOf",
+      "a": "clavicular-head",
+      "b": "entry-point",
+      "why": "entry is medial to the clavicular head's centre"
+    },
+    {
+      "check": "below",
+      "a": "clavicle",
+      "b": "entry-point",
+      "why": "the apex lies above the clavicle"
+    },
+    {
+      "check": "below",
+      "a": "entry-point",
+      "b": "jaw",
+      "why": "the apex lies well below the jaw"
+    },
+    {
+      "check": "crosses",
+      "a": "entry-point",
+      "b": "internal-jugular",
+      "why": "entry point overlies the IJ"
+    },
+    {
+      "check": "noOverlap",
+      "a": "entry-point",
+      "b": "carotid-artery",
+      "why": "entry point is clear of the carotid"
+    }
   ],
-  "review": {"status": "draft"}
+  "review": {
+    "status": "draft"
+  }
 }
