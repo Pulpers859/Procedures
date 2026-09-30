@@ -58,7 +58,8 @@ the tools; this file says how to use them.
 - **House laterality:** draw the patient's right side unless the record
   names a side (pericardiocentesis: left of the xiphoid). Front views and
   sections show the patient's right on the image left, as when facing the
-  patient, on a chest X-ray or CT, or on a transverse ultrasound.
+  patient, on a chest X-ray or CT, or on a transverse ultrasound. Draw the
+  layout this way round from the start.
 - **Nerve blocks get two images:**
   - patient positioning: the probe and needle on the patient, painted as a
     photo;
@@ -179,7 +180,9 @@ Rules for every prompt:
 1. **Overlay it first.** Run
    `python3 scripts/visual_patch.py overlay <id> <painting>`. It writes
    `render/overlay.png`, the reference's outlines in magenta over the
-   painting, and fails if the frame's shape changed.
+   painting, and fails if the frame's shape changed. Do it before section 6:
+   once the layout's `draw.py` is replaced, `--reference` exports the
+   painting, not the layout.
    - Judge from that overlay and from the full-size file. Zoom in on every
      area you will mark, and on the corners (watermark).
    - Never judge from memory or a thumbnail. An earlier review called the FICB
@@ -223,11 +226,15 @@ To take back only part of the crop, add `--keep X0 Y0 X1 Y1` to the merge.
 - **Mirror** to the house laterality (section 1) with `ImageOps.mirror`.
   - The light then comes from the other side; record it.
   - Mirror only when the mirrored image is still the view the caption names.
+  - Mirror the side claims and checks in `spec.json` with it.
 - **Erase** a wrong part by blending in the same area from a clean painting of
   the same anatomy (the IJ catheter tail). Crop the edited file, then merge the
   clean file.
 - **Flatten** a small shape change (the FICB probe dent) with a warp kept above
-  a layer that must not move.
+  a layer that must not move. Diff the result: nothing at or below that layer
+  may change.
+
+No clean painting to blend from? Use the crop tool instead.
 
 Never move an object by cutting and cloning it. On the FICB probe that left a
 ghost glove and a doubled skin fold.
@@ -244,7 +251,8 @@ ghost glove and a doubled skin fold.
   draw along a painted structure, in base pixels. Check them with `DEBUG=1`.
   The FICB plane-floor line wandered into the muscle because its border was
   guessed.
-- Re-derive the px/mm from a traced landmark, so lengths stay true.
+- Re-derive the px/mm from a traced landmark whose size the layout fixed
+  (the FICB artery), so lengths stay true.
 - Keep the base's SHA-256 stamp (`data-base-sha256`) that the example plates
   write, so replacing the painting voids an approval.
 - **Code draws:** markings, needles, incisions, injectate, target highlights,
@@ -258,6 +266,7 @@ ghost glove and a doubled skin fold.
   why, pixel edits, known limits, and any third-party concept image attached.
 - Render again. All checks must pass. Look at `render/<id>-phone.png` at card
   size, in light and dark.
+- Run the gate (section 7), then commit and push the plate as a review draft.
 
 **Nerve-block anatomy rules** (owner, FICB, 2026-09-30):
 - The nerve lies in the fascial plane, never inside the muscle. Add a check
@@ -266,9 +275,10 @@ ghost glove and a doubled skin fold.
   along the painted muscle surface.
 - The injectate is a smooth teal layer with rounded ends, filling that plane
   around the nerve. Code draws it.
-- In a section under the probe, the probe covers the whole top of the field.
-  The needle enters in-plane just beyond the probe's lateral end, with its tip
-  in the plane lateral to the nerve.
+- In a section under the probe, the probe covers the top of the field from
+  the medial edge to just short of the lateral edge. The needle enters
+  in-plane in that lateral gap, with its tip in the plane lateral to the
+  nerve.
 - Both images of a block are seen from the same side, and a section under a
   probe runs the way the ultrasound screen shows it. For the right-sided FICB
   both are seen from the feet, with lateral (the hip) on the left.
@@ -278,7 +288,8 @@ ghost glove and a doubled skin fold.
 ## 7. Send, approve, ship
 
 - **Send** `render/review.png` and the full plate (`SendUserFile`). If the
-  review sheet is too big to send, send its card-size crop. In one message give:
+  review sheet is too big to send, send `render/<id>-phone.png` (the card at
+  phone size) instead. In one message give:
   - what changed;
   - the known limits;
   - at most one question;
@@ -314,7 +325,8 @@ Until every nerve-block image is done, a third-party plate (NYSORA) may be
 attached to Gemini as image 2, for concept understanding only (prompt B).
 - It is never committed.
 - Provenance records that it was attached.
-- Any result that reproduces its drawing is rejected.
+- Any result that reproduces its drawing is rejected. Ask the owner to send
+  you the plate in the chat, so you can compare the two.
 
 Outside this exception, never copy or restyle a stock or textbook image: the
 repo and the builds are public.
