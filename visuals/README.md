@@ -161,6 +161,12 @@ What did not work, so it is not repeated:
     result that reproduces its drawing is rejected. Remove this exception
     when the troubleshooting ends.
 - **Trusting an AI "PASS".** The owner's approval is the only gate.
+- **Texture drawn into the reference** (FICB, 2026-09-30): dotted or
+  scale-pattern muscle, drawn fat lobules and nerve compartments. Gemini
+  copied the crude texture instead of painting its own, and the owner judged
+  the tissue worse than the flat-colour reference's painting. Keep
+  references flat: shapes, positions and plain colours; describe texture in
+  words if at all.
 - **Multi-change repair lines on a whole image** (FICB, 2026-09-30):
   "stand the probe up, add a hand, remove a cable" came back as a new
   16:9 photo with the thigh gone; "make the muscle polygons" ballooned the

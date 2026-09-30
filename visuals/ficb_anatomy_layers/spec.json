@@ -5,7 +5,7 @@
   "view": "Right groin in cross-section at the inguinal crease under a linear probe, patient supine, seen from the feet as on CT or a transverse ultrasound: lateral on the image left, medial on the right, skin at the top.",
   "teachingPoint": "The target plane is deep to the fascia iliaca, on the iliacus, lateral to the femoral nerve - not above the fascia with the vessels, and not in the muscle.",
   "claims": [
-    "Right groin, transverse, under a linear probe that dents the skin, seen from the feet: lateral left, medial right, skin at the top - the same way round as the patient-position plate. Composition after the classic regional-anaesthesia plate; drawn from scratch.",
+    "Right groin, transverse, under a linear probe, seen from the feet: lateral left, medial right, skin at the top - the same way round as the patient-position plate. Painted by Gemini from the flat-colour code layout and mirrored to this orientation; needle, probe, spread and labels drawn in code.",
     "Superficial to deep: skin, subcutaneous fat, fascia lata, fascia iliaca, iliopsoas; bone at the bottom.",
     "Femoral vein medial to the artery, both superficial to the fascia iliaca. Femoral nerve in the fascial plane deep to the fascia iliaca, on the iliopsoas and its own thin fascia - not in the muscle - lateral to the artery; the fascia turns down the medial border of the iliopsoas, deep and lateral to the artery. Sartorius lateral under the fascia lata; the lateral femoral cutaneous nerve in the same plane near it.",
     "Needle in-plane from the lateral (left) end of the probe, entering lateral to the nerve and artery; tip in the plane under the fascia iliaca, lateral to the nerve. Teal: the injectate opening that plane - lifting the fascia iliaca off the iliopsoas and wrapping the femoral nerve medially and the lateral femoral cutaneous nerve laterally.",
@@ -27,7 +27,6 @@
     "needle",
     "needle-entry",
     "spread",
-    "opened-plane",
     "muscle-surface"
   ],
   "labels": {
