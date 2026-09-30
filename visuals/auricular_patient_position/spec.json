@@ -1,0 +1,33 @@
+{
+  "assetId": "auricular_patient_position",
+  "procedure": "block_auricular",
+  "title": "Needle entry on the patient",
+  "view": "Right side of the head of a seated patient, seen from the right: head up, face to the right (anterior), occiput to the left. Painted as a photograph.",
+  "teachingPoint": "Two punctures - just below the lobe and just above the ear - and four subcutaneous tracks from them, in front of the tragus and behind the ear over the mastoid, closing a ring round the base of the ear. The tracks stay off the auricle.",
+  "claims": [
+    "Right ear from the side, face to the right. Auricle about 62 x 33 mm, tilted back about 15 degrees; mandibular ramus and angle below and in front of the lobe; hairline above and behind the ear (standard adult anatomy, not from the record).",
+    "Red dots: the puncture sites, just below the earlobe and just above the ear (record, steps 2 and 4).",
+    "Teal: four subcutaneous tracks - inferior site to in front of the tragus, inferior site to behind the ear over the mastoid, superior site forward and back to meet them (record, steps 2-5).",
+    "No track crosses the auricle.",
+    "Three labels: Puncture sites, Tragus, Mastoid."
+  ],
+  "requiredElements": ["head", "hair", "jaw", "ear", "concha", "ear-canal", "tragus", "lobe",
+    "site-inferior", "site-superior", "track-inf-ant", "track-inf-post", "track-sup-ant", "track-sup-post"],
+  "labels": {"Puncture sites": "site-superior", "Tragus": "tragus", "Mastoid": "head"},
+  "geometry": [
+    {"check": "below", "a": "site-inferior", "b": "lobe", "why": "inferior puncture is below the lobe"},
+    {"check": "noOverlap", "a": "site-inferior", "b": "ear", "why": "inferior puncture is off the ear"},
+    {"check": "below", "a": "ear", "b": "site-superior", "why": "superior puncture is above the ear"},
+    {"check": "noOverlap", "a": "site-superior", "b": "ear", "why": "superior puncture is off the ear"},
+    {"check": "noOverlap", "a": "site-superior", "b": "hair", "why": "superior puncture is below the hairline"},
+    {"check": "leftOf", "a": "ear-canal", "b": "track-inf-ant", "why": "anterior track runs in front of the tragus"},
+    {"check": "leftOf", "a": "track-inf-post", "b": "concha", "why": "posterior track runs behind the ear"},
+    {"check": "noOverlap", "a": "track-inf-ant", "b": "ear", "why": "track is subcutaneous, off the auricle"},
+    {"check": "noOverlap", "a": "track-inf-post", "b": "ear", "why": "track is subcutaneous, off the auricle"},
+    {"check": "noOverlap", "a": "track-sup-ant", "b": "ear", "why": "track is subcutaneous, off the auricle"},
+    {"check": "noOverlap", "a": "track-sup-post", "b": "ear", "why": "track is subcutaneous, off the auricle"},
+    {"check": "endNear", "a": "track-sup-ant", "end": "end", "b": "track-inf-ant", "maxPx": 12, "why": "anterior tracks meet"},
+    {"check": "endNear", "a": "track-sup-post", "end": "end", "b": "track-inf-post", "maxPx": 12, "why": "posterior tracks meet"}
+  ],
+  "review": {"status": "draft"}
+}
