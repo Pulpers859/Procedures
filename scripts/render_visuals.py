@@ -148,6 +148,10 @@ CHECK_JS = r"""
       const t = center(c.b);
       const da = Math.hypot(a.x - t.x, a.y - t.y), db = Math.hypot(b.x - t.x, b.y - t.y);
       ok = db > da; detail = `start ${f(da)} px, end ${f(db)} px from #${c.b}`;
+    } else if (c.check === 'lengthRange') {
+      const [a, b] = lineEnds(c.a);
+      const d = Math.hypot(b.x - a.x, b.y - a.y);
+      ok = d >= c.min && d <= c.max; detail = `${f(d)} px (allowed ${c.min}-${c.max})`;
     } else if (c.check === 'noOverlap') {
       const hits = samples(c.a, 40).filter((p) => inside(c.b, p.x, p.y)).length;
       ok = hits === 0; detail = `${hits} samples of #${c.a} inside #${c.b}`;

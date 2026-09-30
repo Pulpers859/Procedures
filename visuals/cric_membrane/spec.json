@@ -1,0 +1,99 @@
+{
+  "assetId": "cric_membrane",
+  "procedure": "cricothyrotomy",
+  "title": "Cricothyroid membrane palpation",
+  "view": "Anterior (A-P) view of the neck, patient supine, head at the top: the operator's view.",
+  "teachingPoint": "The membrane is the soft gap between the thyroid cartilage above and the cricoid ring below. Horizontal membrane incision; if it cannot be felt, a vertical midline skin incision centred on it first.",
+  "claims": [
+    "Anterior view, head at the top: hyoid, thyroid cartilage with its notch, cricothyroid membrane, cricoid ring, tracheal rings.",
+    "The cricothyroid membrane lies between the lower border of the thyroid cartilage and the cricoid.",
+    "The cricoid is a complete ring, taller than a tracheal ring.",
+    "The thyroid isthmus crosses tracheal rings 2 to 4, below the cricoid and clear of the membrane; the lobes lie either side.",
+    "The solid red line is the horizontal membrane incision, within the membrane.",
+    "The dashed red line is the vertical midline skin incision for an impalpable membrane, 9 cm long (the record says 8-10 cm). Centring it on the membrane is the drawing's choice; the record gives the length, not the position - confirm or move it.",
+    "Three labels: Thyroid cartilage, Cricothyroid membrane, Cricoid cartilage."
+  ],
+  "requiredElements": [
+    "hyoid",
+    "thyroid-cartilage",
+    "cricothyroid-membrane",
+    "cricoid-cartilage",
+    "tracheal-rings",
+    "thyroid-isthmus",
+    "vertical-skin-incision",
+    "membrane-incision"
+  ],
+  "labels": {
+    "Thyroid cartilage": "thyroid-cartilage",
+    "Cricothyroid membrane": "cricothyroid-membrane",
+    "Cricoid cartilage": "cricoid-cartilage"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "thyroid-cartilage",
+      "b": "hyoid",
+      "why": "thyroid cartilage is below the hyoid"
+    },
+    {
+      "check": "below",
+      "a": "cricothyroid-membrane",
+      "b": "thyroid-cartilage",
+      "why": "membrane is below the thyroid cartilage"
+    },
+    {
+      "check": "below",
+      "a": "cricoid-cartilage",
+      "b": "cricothyroid-membrane",
+      "why": "cricoid is below the membrane"
+    },
+    {
+      "check": "below",
+      "a": "tracheal-rings",
+      "b": "cricoid-cartilage",
+      "why": "tracheal rings are below the cricoid"
+    },
+    {
+      "check": "below",
+      "a": "thyroid-isthmus",
+      "b": "cricoid-cartilage",
+      "why": "isthmus is below the cricoid"
+    },
+    {
+      "check": "crosses",
+      "a": "membrane-incision",
+      "b": "cricothyroid-membrane",
+      "why": "membrane incision is in the membrane"
+    },
+    {
+      "check": "noOverlap",
+      "a": "membrane-incision",
+      "b": "thyroid-cartilage",
+      "why": "membrane incision does not cut the thyroid cartilage"
+    },
+    {
+      "check": "noOverlap",
+      "a": "membrane-incision",
+      "b": "cricoid-cartilage",
+      "why": "membrane incision does not cut the cricoid"
+    },
+    {
+      "check": "crosses",
+      "a": "vertical-skin-incision",
+      "b": "cricothyroid-membrane",
+      "why": "vertical skin incision runs over the membrane"
+    },
+    {
+      "check": "lengthRange",
+      "a": "vertical-skin-incision",
+      "min": 720,
+      "max": 900,
+      "why": "vertical skin incision is 8-10 cm at 9 px/mm"
+    }
+  ],
+  "review": {
+    "status": "draft",
+    "sourceSha256": null,
+    "reviewedOn": null
+  }
+}
