@@ -20,6 +20,10 @@ and the lateral femoral cutaneous nerve lie in the fascial plane deep to the
 fascia iliaca, on the iliopsoas and its own thin fascia, not in the muscle
 (owner, 2026-09-30); the muscle region is shaped to pass beneath them.
 
+A second pale fascial line, code-drawn along the floor of that plane (the
+muscle's own fascia), shows it as a plane of its own between two layers
+(owner, 2026-09-30).
+
 Markings: the probe, the needle in-plane from lateral (tip in that plane,
 lateral to the nerve), and the teal injectate opening the plane - lifting
 the fascia iliaca off the iliopsoas and wrapping the femoral nerve medially
@@ -140,13 +144,37 @@ def muscle_top(x):
     return pts_[-1][1]
 
 
+def floor_smooth(x):
+    """The plane's floor (muscle surface), smoothed over 4 mm so its edge has
+    no kinks from the tracing."""
+    return sum(muscle_top(x + d) for d in (-2, -1, 0, 1, 2)) / 5
+
+
+CAP_X = 10.5                                       # where the rounded medial end begins
+
+
 def spread():
     """The injectate filling the opened plane between the fascia iliaca and the
-    muscle, from the femoral nerve out to the lateral edge."""
-    n = 50
+    muscle, from a rounded end just medial to the femoral nerve out to the
+    lateral edge."""
     lateral = X1 + 3
-    xs = [lateral - (lateral - SPREAD_MEDIAL) * i / n for i in range(n + 1)]
-    return [(x, iliaca_y(x) + 0.2) for x in xs] + [(x, muscle_top(x) - 0.15) for x in reversed(xs)]
+    n = 40
+    tops = [(lateral - (lateral - CAP_X) * i / n, 0) for i in range(n + 1)]
+    top = [(x, iliaca_y(x) + 0.2) for x, _ in tops]
+    y_top, y_bot = iliaca_y(CAP_X) + 0.2, floor_smooth(CAP_X) - 0.15
+    mid, half = (y_top + y_bot) / 2, (y_bot - y_top) / 2
+    reach = CAP_X - (NERVE[0][0] - NERVE[1] - 0.8)  # rounds out past the nerve's medial tip
+    cap = [(CAP_X - reach * math.sin(math.radians(a)), mid - half * math.cos(math.radians(a))) for a in range(20, 180, 20)]
+    bottom = [(x, floor_smooth(x) - 0.15) for x, _ in reversed(tops)]
+    return top + cap + bottom
+
+
+def plane_floor_line():
+    """The muscle's own fascia: the floor of the plane, below the nerves and
+    above the muscle, turning down the muscle's medial border."""
+    lateral = X1 + 3
+    along = [(lateral - (lateral - 8.0) * i / 40, 0) for i in range(41)]
+    return [(x, floor_smooth(x) + 0.05) for x, _ in along] + [(7.3, 20.2), (6.6, 22.4), (6.0, 24.6)]
 
 
 MUSCLE_TOP = [(x, muscle_top(x)) for x in [X1 + 3 - i * (X1 + 3 - 8.0) / 60 for i in range(61)]]
@@ -231,7 +259,9 @@ def build() -> str:
 </g>
 
 <g class="marking">
-  <path id="spread" d="{path(spread(), closed=True, tension=0.5)}" fill="#6CCBD2" fill-opacity="0.7" stroke="#0E8C98" stroke-width="4"/>
+  <path id="spread" d="{path(spread(), closed=True, tension=0.9)}" fill="#6CCBD2" fill-opacity="0.66" stroke="#0E8C98" stroke-width="3" stroke-opacity="0.8"/>
+  <path id="plane-floor" d="{path(plane_floor_line(), tension=0.9)}" fill="none" stroke="#FBF6F1" stroke-width="9" stroke-linecap="round" opacity="0.95"/>
+  <path d="{path(plane_floor_line(), tension=0.9)}" fill="none" stroke="#C9B6AC" stroke-width="2.5" stroke-linecap="round"/>
   {probe_marking}
   <line id="needle" x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="10" stroke-linecap="butt"/>
   <line x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="5" stroke-linecap="butt"/>
