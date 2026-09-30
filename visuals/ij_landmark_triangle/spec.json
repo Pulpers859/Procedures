@@ -3,26 +3,24 @@
   "procedure": "central_venous_catheter",
   "title": "Sternocleidomastoid triangle",
   "view": "Anterior view, patient supine, head at the top turned slightly left: the right neck on the image left, with jaw, ear lobe, chin, thyroid cartilage, clavicles and shoulder for orientation.",
-  "teachingPoint": "The IJ lies deep to the triangle between the sternal and clavicular heads of the SCM, lateral to the carotid. The landmark entry is the apex, where the two heads meet - not the clavicle.",
+  "teachingPoint": "The IJ lies deep to the triangle between the sternal and clavicular heads of the SCM, lateral to the carotid. The landmark site is the apex, where the two heads meet; the line is shown in place there.",
   "claims": [
-    "Anterior view, head at the top turned slightly left; the patient's right neck is on the image left. Jaw, ear lobe, thyroid cartilage, sternal notch, clavicles and shoulder are in frame.",
-    "The sternal head rises from the manubrium, the clavicular head from the medial clavicle; they meet at the apex of a triangle whose base is the clavicle.",
-    "The internal jugular vein (blue) runs deep to the triangle, lateral to the common carotid (red), which lies deep to the sternal head.",
-    "The external jugular vein is superficial and crosses the SCM obliquely from near the angle of the jaw toward the mid-clavicle.",
-    "The teal ring is the landmark entry point, at the apex of the triangle, over the IJ and clear of the carotid.",
+    "Front of the neck, head at the top turned slightly left; the patient's right neck is on the image left. Painted by Gemini from the code layout; the catheter and markings are drawn in code.",
+    "The sternal head rises from the manubrium, the clavicular head from the medial clavicle; they meet at the apex of a small triangle whose base is the clavicle.",
+    "The internal jugular vein (blue) shows in that triangle, lateral to the common carotid (red).",
+    "A triple-lumen central line leaves the skin at the apex, over the IJ, clear of the carotid, with its hub pointing headward; three extension lines with clamps and caps. Lumen colours are neutral.",
+    "The teal ring marks the site.",
     "Three labels: Sternal head, Clavicular head, Internal jugular vein."
   ],
   "requiredElements": [
-    "body",
-    "jaw",
-    "clavicle",
-    "scm",
+    "internal-jugular",
     "sternal-head",
     "clavicular-head",
-    "internal-jugular",
     "carotid-artery",
-    "external-jugular",
-    "entry-point"
+    "central-line",
+    "catheter-shaft",
+    "catheter-hub",
+    "exit-site"
   ],
   "labels": {
     "Sternal head": "sternal-head",
@@ -43,40 +41,36 @@
       "why": "clavicular head is lateral to the sternal head"
     },
     {
-      "check": "leftOf",
-      "a": "entry-point",
-      "b": "sternal-head",
-      "why": "entry is lateral to the sternal head's centre"
-    },
-    {
-      "check": "leftOf",
-      "a": "clavicular-head",
-      "b": "entry-point",
-      "why": "entry is medial to the clavicular head's centre"
-    },
-    {
-      "check": "below",
-      "a": "clavicle",
-      "b": "entry-point",
-      "why": "the apex lies above the clavicle"
-    },
-    {
-      "check": "below",
-      "a": "entry-point",
-      "b": "jaw",
-      "why": "the apex lies well below the jaw"
+      "check": "endNear",
+      "a": "catheter-shaft",
+      "end": "start",
+      "b": "internal-jugular",
+      "maxPx": 0,
+      "why": "the line leaves the skin over the IJ in the triangle"
     },
     {
       "check": "crosses",
-      "a": "entry-point",
+      "a": "exit-site",
       "b": "internal-jugular",
-      "why": "entry point overlies the IJ"
+      "why": "the site ring overlies the IJ"
     },
     {
       "check": "noOverlap",
-      "a": "entry-point",
+      "a": "exit-site",
       "b": "carotid-artery",
-      "why": "entry point is clear of the carotid"
+      "why": "the site is clear of the carotid"
+    },
+    {
+      "check": "noOverlap",
+      "a": "catheter-shaft",
+      "b": "carotid-artery",
+      "why": "the line does not cross the carotid"
+    },
+    {
+      "check": "below",
+      "a": "catheter-shaft",
+      "b": "catheter-hub",
+      "why": "the hub points headward"
     }
   ],
   "review": {

@@ -31,43 +31,29 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 .leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
 .label.emphasis .leader-dot { fill: var(--target); }
 .plate-bg { fill: #F4F1EA; }</style>
-<defs>
-<linearGradient id="skin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E9C7B2"/><stop offset="0.55" stop-color="#F7E6DA"/>
-  <stop offset="1" stop-color="#EFD5C4"/></linearGradient>
-<linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EECDB9"/><stop offset="1" stop-color="#F3DBCB"/></linearGradient>
-<linearGradient id="bone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F0E2"/><stop offset="1" stop-color="#D8CBAE"/></linearGradient>
-<filter id="lift" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1800" height="1400"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#6B4A3C" flood-opacity="0.22"/></filter>
-</defs>
+<defs></defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="anatomy">
-  <path id="body" d="M-200,590 C-176,530 -9.2,719 40,710 C89.2,701 256,548 292,500 C328,452 384.4,287 400,230 C415.6,173 304,-40 448,-70 C592,-100 1700.8,-208 1840,-70 C1979.2,68 2044,1172 1840,1310 C1636,1448 4,1382 -200,1310 C-404,1238 -224,650 -200,590 Z" fill="url(#skin)" stroke="#C9A08A" stroke-width="3" filter="url(#lift)"/>
-  <path d="M1048,590 C1044,640 1028,840 1024,890" stroke="#E4C6B3" stroke-width="120" stroke-linecap="round" opacity="0.5"/>
-  <path id="thyroid-cartilage" d="M928,434 C932.8,425.6 1000,441.2 1012,446 C1024,450.8 1040.8,482 1048,482 C1055.2,482 1073.2,450.8 1084,446 C1094.8,441.2 1151.2,425.6 1156,434 C1160.8,442.4 1142.8,514.4 1132,530 C1121.2,545.6 1064.8,590 1048,590 C1031.2,590 976,545.6 964,530 C952,514.4 923.2,442.4 928,434 Z" fill="#E6C6B2" stroke="#C49580" stroke-width="3"/>
+<g id="anatomy" data-base-sha256="dd0f39b7a41b3a1fdfa60a83caff6cd99f8717610c87195a6d8659b5b49e4176">
+  <image href="base.jpg" x="0" y="0.2" width="1600" height="1199.7" preserveAspectRatio="none"/>
+  <polygon id="internal-jugular" points="779.2,739.2 757.8,873.1 830.1,873.1" fill="#000" fill-opacity="0"/>
+  <polygon id="sternal-head" points="784.6,729.9 836.8,877.2 923.8,991 984.1,991 937.2,857.1 856.9,669.6 803.3,629.5" fill="#000" fill-opacity="0"/>
+  <polygon id="clavicular-head" points="595.8,924 752.5,886.5 776.6,733.9 749.8,642.8 618.6,642.8 591.8,803.5" fill="#000" fill-opacity="0"/>
+  <path id="carotid-artery" d="M787.3,227.8 C793.3,256.8 811.8,346.1 823.4,401.8 C835,457.6 848,517.9 856.9,562.5 C865.8,607.1 873.6,651.8 877,669.6" fill="none" stroke-width="29.5" stroke="#000" stroke-opacity="0"/>
 
-  <path id="carotid-artery" d="M916,950 C913,920 906,840 898,770 C890,700 881,605 868,530 C855,455 834,372 820,320 C806,268 790,235 784,218" fill="none" stroke="#C8322B" stroke-width="48" stroke-linecap="butt" stroke-opacity="0.6"/>
-  <path id="internal-jugular" d="M808,950 C805,930 794,875 790,830 C786,785 791,740 784,680 C777,620 762,535 748,470 C734,405 714,338 700,290 C686,242 670,200 664,182" fill="none" stroke="#4F78B8" stroke-width="72" stroke-linecap="butt" stroke-opacity="0.6"/>
-
-  <path d="M604,-70 C607,-52.5 631,88 640,110 C649,132 687,183 712,194 C737,205 903.5,237 940,242 C976.5,247 1117.5,256 1150,254 C1182.5,252 1302.5,229 1330,218 C1357.5,207 1457.5,146 1480,122 C1502.5,98 1590,-51.5 1600,-70 C1610,-88.5 1683,-97.5 1600,-100 C1517,-102.5 687,-102.5 604,-100 C521,-97.5 601,-87.5 604,-70 Z" fill="url(#face)"/>
-  <path id="jaw" d="M604,-70 C610,-40 622,66 640,110 C658,154 662,172 712,194 C762,216 867,232 940,242 C1013,252 1085,258 1150,254 C1215,250 1275,240 1330,218 C1385,196 1435,170 1480,122 C1525,74 1580,-38 1600,-70" fill="none" stroke="#C49580" stroke-width="5" filter="url(#lift)"/>
-  <path id="ear-lobe" d="M532,-70 C517.6,-71.6 488.8,-26 484,-10 C479.2,6 486.4,40.4 496,50 C505.6,59.6 543.2,68.4 556,62 C568.8,55.6 595.2,19.6 592,2 C588.8,-15.6 546.4,-68.4 532,-70 Z" fill="#EBC3AD" stroke="#C49580" stroke-width="3"/>
-  <path id="manubrium" d="M856,962 C862.4,937.2 930.4,938.4 940,938 C949.6,937.6 992,956 1000,956 C1008,956 1050.4,937.6 1060,938 C1069.6,938.4 1137.6,937.2 1144,962 C1150.4,986.8 1176,1286.8 1156,1310 C1136,1333.2 864,1333.2 844,1310 C824,1286.8 849.6,986.8 856,962 Z" fill="url(#bone)" opacity="0.7" filter="url(#lift)"/>
-  <path id="clavicle" d="M880,944 C855,939 785,917 730,914 C675,911 610,932 550,926 C490,920 435,900 370,878 C305,856 225,810 160,794 C95,778 10,784 -20,782" fill="none" stroke="url(#bone)" stroke-width="78" stroke-linecap="round" filter="url(#lift)"/>
-  <path d="M1120,944 C1145,939 1215,917 1270,914 C1325,911 1390,932 1450,926 C1510,920 1565,900 1630,878 C1695,856 1775,810 1840,794 C1905,778 1990,784 2020,782" fill="none" stroke="url(#bone)" stroke-width="78" stroke-linecap="round" filter="url(#lift)"/>
-
-  <path d="M1018,986 C1016.4,975.2 1041.2,856.4 1048,830 C1054.8,803.6 1108.8,622 1120,590 C1131.2,558 1203.2,374.8 1216,350 C1228.8,325.2 1297.6,225.2 1312,218 C1326.4,210.8 1432,225.2 1432,242 C1432,258.8 1328,434.8 1312,470 C1296,505.2 1204.4,739.2 1192,770 C1179.6,800.8 1134,917.2 1126,932 C1118,946.8 1079.2,988.4 1072,992 C1064.8,995.6 1019.6,996.8 1018,986 Z" fill="#C97A6E" fill-opacity="0.55" stroke="#9C5046" stroke-width="2.5"/>
-  <path id="scm" d="M982,986 C983.4,976.5 958,853.1 952,830 C946,806.9 891.2,618 880,590 C868.8,562 774.7,374.5 760,350 C745.3,325.5 642,188.2 628,170 C614,151.8 531.9,41.5 520,38 C508.1,34.5 426.1,95.3 424,110 C421.9,124.7 476.3,269 484,290 C491.7,311 549,449 556,470 C563,491 600.5,629 604,650 C607.5,671 617.4,813.9 616,830 C614.6,846.1 577.9,919.7 580,926 C582.1,932.3 643.6,937.6 652,938 C660.4,938.4 718.4,938.3 724,932 C729.6,925.7 744.5,842.2 748,830 C751.5,817.8 779.8,722 784,722 C788.2,722 814.8,817.8 820,830 C825.2,842.2 867.7,922.5 874,932 C880.3,941.5 921.7,988.9 928,992 C934.3,995.1 980.6,995.5 982,986 Z" fill="#C97A6E" fill-opacity="0.82"
-        stroke="#9C5046" stroke-width="3" stroke-linejoin="round" filter="url(#lift)"/>
-  <g fill="#000" fill-opacity="0">
-    <polygon id="sternal-head" points="982,986 952,830 916,698 784,722 820,830 874,932 928,992"/>
-    <polygon id="clavicular-head" points="724,932 748,830 784,722 700,686 616,710 616,830 580,926 652,938"/>
+  <g id="central-line" class="marking" transform="translate(780.6 750) rotate(-27)">
+    <line id="catheter-shaft" x1="0" y1="0" x2="0" y2="-150" stroke="#6E7780" stroke-width="15" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#F7F8F6" stroke-width="10" stroke-linecap="round"/>
+    <path d="M0,-222 C-19,-290 -85.5,-340 -95,-430" fill="none" stroke-linecap="round" stroke="#8C949C" stroke-width="12"/><path d="M0,-222 C-19,-290 -85.5,-340 -95,-430" fill="none" stroke-linecap="round" stroke="#F7F8F6" stroke-width="7"/><path d="M0,-222 C0,-290 0,-365 0,-455" fill="none" stroke-linecap="round" stroke="#8C949C" stroke-width="12"/><path d="M0,-222 C0,-290 0,-365 0,-455" fill="none" stroke-linecap="round" stroke="#F7F8F6" stroke-width="7"/><path d="M0,-222 C19,-290 85.5,-340 95,-430" fill="none" stroke-linecap="round" stroke="#8C949C" stroke-width="12"/><path d="M0,-222 C19,-290 85.5,-340 95,-430" fill="none" stroke-linecap="round" stroke="#F7F8F6" stroke-width="7"/>
+    <rect x="-44" y="-196" width="88" height="18" rx="9" fill="#E3E7EA" stroke="#5E6873" stroke-width="2.5"/>
+    <circle cx="-32" cy="-187" r="4" fill="#5E6873"/><circle cx="32" cy="-187" r="4" fill="#5E6873"/>
+    <rect id="catheter-hub" x="-19" y="-226" width="38" height="80" rx="9" fill="#D5DBE0" stroke="#5E6873" stroke-width="2.5"/>
+    <rect x="-94.9" y="-375" width="34" height="14" rx="4" fill="#E9ECEE" stroke="#6E7780" stroke-width="2.5"/><rect x="-17" y="-400" width="34" height="14" rx="4" fill="#E9ECEE" stroke="#6E7780" stroke-width="2.5"/><rect x="60.9" y="-375" width="34" height="14" rx="4" fill="#E9ECEE" stroke="#6E7780" stroke-width="2.5"/>
+    <rect x="-106" y="-464" width="22" height="36" rx="6" fill="#C9D0D6" stroke="#5E6873" stroke-width="2.5"/><rect x="-11" y="-489" width="22" height="36" rx="6" fill="#C9D0D6" stroke="#5E6873" stroke-width="2.5"/><rect x="84" y="-464" width="22" height="36" rx="6" fill="#C9D0D6" stroke="#5E6873" stroke-width="2.5"/>
   </g>
-  <path id="external-jugular" d="M664,170 C652,205 616,305 592,380 C568,455 542,537 520,620 C498,703 470,835 460,878" fill="none" stroke="#5C84C4" stroke-width="24" stroke-linecap="round" stroke-opacity="0.9"/>
-
-  <circle id="entry-point" class="marking" cx="784" cy="740" r="16"
-          fill="#0E8C98" fill-opacity="0.35" stroke="#0E8C98" stroke-width="5"/>
+  <circle id="exit-site" class="marking" cx="780.6" cy="750" r="22" fill="none" stroke="#0E8C98" stroke-width="5"/>
 </g>
 
-<g id="labels"><g class="label" data-label="Sternal head" data-target="sternal-head"><polyline class="leader-halo" points="1175,800 940,890"/><polyline class="leader" points="1175,800 940,890"/><circle class="leader-dot" cx="940" cy="890" r="7"/><text x="1180" y="820" text-anchor="start"><tspan x="1180" dy="0">Sternal head</tspan></text></g><g class="label" data-label="Clavicular head" data-target="clavicular-head"><polyline class="leader-halo" points="300,1100 652,866"/><polyline class="leader" points="300,1100 652,866"/><circle class="leader-dot" cx="652" cy="866" r="7"/><text x="40" y="1150" text-anchor="start"><tspan x="40" dy="0">Clavicular head</tspan></text></g><g class="label emphasis" data-label="Internal jugular vein" data-target="internal-jugular"><polyline class="leader-halo" points="1175,572 784,782"/><polyline class="leader" points="1175,572 784,782"/><circle class="leader-dot" cx="784" cy="782" r="7"/><text x="1180" y="560" text-anchor="start"><tspan x="1180" dy="0">Internal</tspan><tspan x="1180" dy="66">jugular vein</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Sternal head" data-target="sternal-head"><polyline class="leader-halo" points="1145,910 883.7,857.1"/><polyline class="leader" points="1145,910 883.7,857.1"/><circle class="leader-dot" cx="883.7" cy="857.1" r="7"/><text x="1150" y="930" text-anchor="start"><tspan x="1150" dy="0">Sternal head</tspan></text></g><g class="label" data-label="Clavicular head" data-target="clavicular-head"><polyline class="leader-halo" points="300,1100 669.5,830.3"/><polyline class="leader" points="300,1100 669.5,830.3"/><circle class="leader-dot" cx="669.5" cy="830.3" r="7"/><text x="40" y="1150" text-anchor="start"><tspan x="40" dy="0">Clavicular head</tspan></text></g><g class="label emphasis" data-label="Internal jugular vein" data-target="internal-jugular"><polyline class="leader-halo" points="1145,632 794,837"/><polyline class="leader" points="1145,632 794,837"/><circle class="leader-dot" cx="794" cy="837" r="7"/><text x="1150" y="620" text-anchor="start"><tspan x="1150" dy="0">Internal</tspan><tspan x="1150" dy="66">jugular vein</tspan></text></g></g>
 
 </svg>

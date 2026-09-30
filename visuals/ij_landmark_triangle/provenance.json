@@ -1,0 +1,15 @@
+{
+  "base": "base.jpg",
+  "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+  "generatedBy": "owner, in the Gemini app",
+  "date": "2026-09-30",
+  "sourceSize": [
+    1195,
+    896
+  ],
+  "reference": "Unlabelled render of the code-drawn ij_landmark_triangle layout (commit 88f0c3f draw.py, --reference), attached to the prompt.",
+  "prompt": "The attached image is an exact anatomical layout of the front of the neck of a supine patient, head at the top and turned slightly to the patient's left, so the right side of the neck is on the image left; the skin is made transparent over the neck. It shows: the lower face and jaw line at the top with the right ear lobe; the Adam's apple and windpipe in the midline; both sternocleidomastoid muscles running from behind the ears down to the top of the breastbone, meeting in a V at the notch; on the right, the sternocleidomastoid splitting just above the collarbone into its sternal and clavicular heads, leaving a small triangular gap; the blue internal jugular vein visible through that gap and running up under the muscle; the red carotid artery beside it on the midline side; the thin blue external jugular vein crossing over the muscle; both collarbones and the top of the breastbone; the right shoulder at the lower left. Repaint it as a premium medical-atlas illustration. Keep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: soft painted shading, fine crisp outlines, realistic muscle, vessel, bone and skin textures, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, incisions, instruments, hands or blood.",
+  "repairs": [],
+  "rejected": "An earlier head-of-bed (upside-down) layout was rejected by the owner as unreadable before any painting.",
+  "knownLimits": "The external jugular forks into two branches near the clavicle (not in the layout; EJ anatomy varies). The larynx and manubrium are stylised. The catheter is code-drawn and flat next to the painting."
+}
