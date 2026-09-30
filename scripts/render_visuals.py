@@ -66,7 +66,12 @@ CHECK_JS = r"""
   const center = (id) => { const b = box(id); return { x: b.x + b.width / 2, y: b.y + b.height / 2 }; };
   const inside = (id, x, y) => {
     const target = el(id), p = toLocal(target, x, y);
-    if (target.isPointInFill && target.isPointInFill(p)) return true;
+    // An open path drawn with fill="none" (a fascia line) has no inside: the
+    // browser's fill test would close it and count the area under its chord.
+    // Closed shapes keep their area even unfilled (a callout ring, a frame).
+    const closedShape = ['circle', 'ellipse', 'rect', 'polygon'].includes(target.tagName);
+    const filled = closedShape || getComputedStyle(target).fill !== 'none';
+    if (filled && target.isPointInFill && target.isPointInFill(p)) return true;
     return !!(target.isPointInStroke && target.isPointInStroke(p));
   };
   const localEnds = (e) => {

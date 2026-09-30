@@ -179,14 +179,19 @@ def spread():
 
 def plane_floor_line():
     """The muscle's own fascia: the floor of the plane, below the nerves and
-    above the muscle, turning down the muscle's medial border."""
+    above the muscle, then round the muscle's medial corner and down its
+    medial border."""
     lateral = X1 + 3
     along = [(lateral - (lateral - 8.0) * i / 40, 0) for i in range(41)]
-    return [(x, floor_smooth(x) + 0.05) for x, _ in along] + [(7.4, 20.0), (7.0, 21.3)]
+    # Medially it follows the muscle round its corner and down its medial
+    # border, inside the fascia iliaca, to the bone (traced on the painting).
+    return [(x, floor_smooth(x) + 0.05) for x, _ in along] + MEDIAL_BORDER
 
 
 MUSCLE_TOP = [(x, muscle_top(x)) for x in [X1 + 3 - i * (X1 + 3 - 8.0) / 60 for i in range(61)]]
-MEDIAL_BORDER = [(7.2, 19.6), (6.0, 24.0), (4.6, 29.0), (3.4, BONE_Y - 0.4)]
+# The muscle's medial corner and border, traced on the painting (mm).
+MEDIAL_BORDER = [(7.4, 19.75), (6.5, 20.55), (5.9, 21.5), (5.35, 22.8), (4.95, 24.5), (4.55, 26.2), (4.15, 28.3),
+                 (3.75, 30.2), (3.45, 32.2), (3.25, 33.8)]
 ILIOPSOAS = MUSCLE_TOP + MEDIAL_BORDER + [(X1 + 3, BONE_Y - 0.4)]
 
 

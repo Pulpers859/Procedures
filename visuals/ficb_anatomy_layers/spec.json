@@ -200,6 +200,12 @@
       "a": "plane-floor",
       "b": "lfcn",
       "why": "the floor line passes under the lateral nerve, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "plane-floor",
+      "b": "fascia-iliaca",
+      "why": "the muscle's own fascia runs inside the fascia iliaca down the medial border, never across it"
     }
   ]
 }
