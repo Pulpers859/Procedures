@@ -1,0 +1,18 @@
+{
+  "base": "base.jpg",
+  "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+  "generatedBy": "owner, in the Gemini app",
+  "date": "2026-09-30",
+  "sourceSize": [
+    1195,
+    896
+  ],
+  "reference": "Unlabelled render of the ficb_patient_position layout (commit 7c45a2a draw.py, --reference).",
+  "prompt": "The attached image is an exact layout of a procedure scene seen from directly above: a patient lying on their back, with the right groin and upper thigh exposed through blue sterile drapes. The head end is at the top of the image; the hip is on the left and the draped inner thigh on the right. A white linear ultrasound probe lies across the top of the thigh at the groin crease, with its dark cable running up out of the picture. A block needle with a small white hub and clear extension tubing enters the skin just to the left of the probe, in line with it. Turn this into a realistic clinical photograph of an ultrasound-guided fascia iliaca block. Add the operator's two hands in white sterile gloves, coming in from the left edge: the left hand holding the probe from above, the right hand holding the needle hub. Keep the probe, the needle, the tubing, the drapes, the thigh outline and the groin crease exactly where they are, with the same size and angle. Keep the hands off the skin between the probe and the hip bone at the upper left. Soft, even procedure-room lighting, natural skin with fine texture, shallow depth of field. No text, labels, pen marks, arrows, blood or extra instruments, and no border or frame.",
+  "repairs": [
+    "Local repaint (visual_patch.py crop, box 480,0-880,330 plus margin): 'Using the attached close-up photo, change only the ultrasound probe. Make it the same white linear probe standing upright on the skin: its narrow face pressed flat on the skin in exactly the same place, and the same length, as the probe lying there now, with a thin bead of clear gel along its base, and one grey cable rising from the top of the handle and leaving the picture at the top edge. A hand in a white sterile glove holds it from above, fingers wrapped round the handle, the wrist leaving the picture at the top edge. Where the second cable lay along the skin to the right, show the same smooth skin and fine hair as the skin around it. Keep everything else exactly the same, preserving the original skin, hair, drape, lighting and the needle tip at the left edge. Same 4:3 landscape framing as the attached image.'",
+    "Same chat, single change: 'Move the gloved hand and the probe together to the left and slightly up, so the probe's face sits about a quarter of the way in from the left edge of the picture, level with the needle tip. Where the hand and probe were, show the same skin with fine hair as around it. Keep everything else exactly the same, preserving the skin, drape, lighting, the needle tip and the 4:3 framing.' Blended back with visual_patch.py merge: 0 px changed outside the box."
+  ],
+  "rejected": "First photo as painted: probe lying on its side with two cables and no hand. Whole-image repair ('stand the probe up, add a hand, remove a cable'): came back as a new 16:9 photo with the thigh gone. First crop repaint: probe placed on the femoral artery, medial to where it belongs. A hand-made move of that probe (object mask and clone): left a ghost of the glove and a doubled skin fold.",
+  "knownLimits": "The probe face is short (about 2.5 cm) and turned about 20 degrees off the needle's line. The pubic tubercle ring is placed from the layout; the painting does not show it. Only the needle hand holds the needle; the probe hand is from the repaint."
+}
