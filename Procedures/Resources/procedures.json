@@ -4581,7 +4581,7 @@
         "id": "io_proximal_tibia_landmark",
         "kind": "Landmark",
         "title": "Proximal tibia insertion site",
-        "subtitle": "Palpate the tibial tuberosity. Move 1-2 cm distal and medial to the flat anteromedial tibial surface. This is the insertion point. Needle at 90 degrees to the bone.",
+        "subtitle": "Palpate the tibial tuberosity. Move 1-2 cm distal and medial to the tibial tuberosity, onto the flat anteromedial tibial surface. This is the insertion point. Needle at 90 degrees to the bone.",
         "assetName": null,
         "systemImage": "figure.walk",
         "caption": "",
@@ -4591,7 +4591,7 @@
         "id": "io_humeral_site",
         "kind": "Landmark",
         "title": "Proximal humerus insertion site",
-        "subtitle": "Arm adducted, hand on abdomen (internal rotation). Palpate the greater tubercle \u2014 the most prominent lateral bony point of the shoulder. Needle at 90 degrees to the bone surface.",
+        "subtitle": "Arm adducted, hand on abdomen (internal rotation). Palpate the greater tubercle \u2014 the most prominent lateral bony point of the shoulder. Needle at 45 degrees to the anterior plane, aimed posteromedially - not 90 degrees.",
         "assetName": null,
         "systemImage": "figure.arms.open",
         "caption": "",
@@ -5699,6 +5699,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "interscalene_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine or semi-recumbent, head turned slightly away. Linear probe transverse over the supraclavicular fossa, then trace the plexus cephalad to the interscalene level. Needle in-plane from posterior to anterior (lateral to medial), through the middle scalene.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "interscalene_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "C5-C7 roots stacked between the anterior and middle scalene muscles (the 'stoplight' sign). The phrenic nerve runs over the anterior scalene; the carotid artery and internal jugular vein lie medial to it.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -5927,6 +5949,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "supraclavicular_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine or semi-recumbent, head turned slightly away. Probe transverse in the supraclavicular fossa, aimed caudally. Needle in-plane from lateral to medial.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "supraclavicular_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The plexus lies lateral and superficial to the subclavian artery, which rests on the first rib; the pleura is deep to the rib and medial to the artery. Target the corner pocket: deep to the plexus, superficial to the first rib, lateral to the artery.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -6150,6 +6194,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "raptir_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine, arm adducted on the abdomen. Transducer sagittal over the infraclavicular fossa. Needle inserted posterior to the clavicle, aimed caudally, strictly in-plane.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "raptir_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The cords surround the axillary artery deep to pectoralis major and minor; the axillary vein is usually medial or caudal. Target the posterior aspect of the artery, at about 6 o'clock.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -6348,6 +6414,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "radial_nerve_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Arm supinated and extended. Probe transverse on the volar forearm, slid laterally to the radial artery. Needle in-plane.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "radial_nerve_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "In the mid-forearm the radial nerve lies directly lateral to the radial artery, in the same fascial plane.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -6542,6 +6630,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "median_nerve_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Arm supinated and extended. Nerve in short axis in the mid-forearm. Needle in-plane.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "median_nerve_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "In the mid-forearm the median nerve lies between the FDS and FDP muscle bellies. Aim for the nerve's deep border.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -6736,6 +6846,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "ulnar_nerve_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Arm supinated and extended. Probe transverse on the volar forearm, slid medially to the ulnar artery. Needle in-plane from the medial side.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "ulnar_nerve_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The ulnar nerve lies just medial to the ulnar artery, deep to FCU, in the same fascial plane as the artery.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -6937,6 +7069,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "sc_plexus_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine, head turned away. Transducer transverse over the mid-SCM. Needle in-plane from posterior to anterior, off the external jugular vein.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "sc_plexus_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The plexus wraps around the posterior border of the SCM at about its midpoint; the external jugular vein crosses the SCM near this level.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -7142,6 +7296,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "serratus_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine or lateral decubitus, arm abducted. Transducer sagittal in the mid-axillary line at the 4th or 5th intercostal space. Needle in-plane, cranial to caudal or caudal to cranial.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "serratus_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "Latissimus dorsi, then serratus anterior on the ribs, then pleura. Inject superficial to serratus (between latissimus and serratus) or deep to it (between serratus and ribs). The thoracodorsal artery runs in the superficial plane.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -7347,6 +7523,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "esp_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Sitting or lateral decubitus. Transducer sagittal about 3 cm lateral to the spinous processes. Needle in-plane, usually cranial to caudal.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "esp_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The erector spinae runs vertically over the square, shadowing transverse processes. The needle tip touches a transverse process; injectate spreads deep to the erector spinae.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -7551,6 +7749,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "tap_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine, abdomen exposed. Transducer transverse on the lateral abdominal wall, midway between the costal margin and the iliac crest, in the mid-axillary line. Needle in-plane, anterior to posterior or the reverse.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "tap_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "External oblique, internal oblique and transversus abdominis over the peritoneum. The target is the plane between internal oblique and transversus abdominis.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -7753,6 +7973,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "pecs_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine, arm abducted to 90 degrees. Transducer oblique below the lateral third of the clavicle. Needle in-plane from medial to lateral.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "pecs_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "PECS I: the plane between pectoralis major and minor. PECS II: the pectoserratus plane, between pectoralis minor and serratus anterior; stop there, short of the ribs and pleura.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -7958,6 +8200,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "femoral_nerve_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine, leg extended. Transducer transverse over the femoral crease. Needle in-plane from lateral to medial.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "femoral_nerve_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The femoral nerve lies lateral to the femoral artery, just distal to the inguinal ligament, covered by the fascia iliaca. The needle tip pops through the fascia iliaca beside the nerve.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -8156,6 +8420,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "peng_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine. Transducer transverse over the AIIS, slid caudally to the iliopubic eminence and psoas tendon. Needle in-plane from lateral to medial.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "peng_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The articular branches run between the psoas muscle and tendon and the iliopubic eminence. The needle tip rests on the bony contour of the eminence, deep to the psoas tendon; the femoral vessels are medial.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -8355,6 +8641,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "saphenous_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine, leg slightly externally rotated ('frog leg'). Transducer transverse on the mid-medial thigh. Needle in-plane, anterior to posterior or lateral to medial.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "saphenous_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "In the adductor canal the saphenous nerve travels with the superficial femoral artery, deep to the sartorius. Inject into the fascial plane around the artery.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -8563,6 +8871,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "popliteal_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Prone; lateral decubitus or supine with the leg elevated only if prone is not possible. Transducer transverse over the popliteal crease. Needle in-plane from lateral to medial.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "popliteal_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The sciatic nerve divides about 6 cm above the crease into the tibial (medial) and common peroneal (lateral) nerves; the popliteal artery and vein are medial and deep. Inject into the common paraneural sheath, outside the nerves.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -8760,6 +9090,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "transgluteal_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Lateral decubitus (Sims position) or prone. Transducer transverse below the gluteal fold. Needle in-plane.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "transgluteal_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The sciatic nerve is a large, oval, hyperechoic structure deep to the gluteus maximus. Inject around it.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "3 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -8958,6 +9310,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "tibial_nerve_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine, foot externally rotated. Transducer transverse behind the medial malleolus. Needle in-plane; out-of-plane if the Achilles tendon, the malleolus or the artery blocks the path.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "tibial_nerve_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "Behind the medial malleolus the tibial nerve lies beside the pulsatile artery. Inject around the nerve.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -9153,6 +9527,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "sural_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine, foot internally rotated. Transducer transverse behind the lateral malleolus.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "sural_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The sural nerve travels with the small saphenous vein behind the lateral malleolus; the vein collapses under the probe, the nerve does not. Inject around the nerve and vein.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -9345,6 +9741,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "superficial_peroneal_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine. Transducer transverse on the anterolateral distal leg. Needle in-plane toward the nerve.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "superficial_peroneal_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "In the distal third of the lateral leg the nerve pierces the deep fascia to become superficial. Inject around it.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -9539,6 +9957,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "deep_peroneal_patient_position",
+        "kind": "Probe Position",
+        "title": "Probe and needle on the patient",
+        "subtitle": "Supine. Transducer transverse over the anterior ankle.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "deep_peroneal_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The deep peroneal nerve runs with the anterior tibial artery between the extensor hallucis longus and extensor digitorum longus tendons, usually lateral to the artery. Inject next to the artery.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -9736,6 +10176,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "supraorbital_patient_position",
+        "kind": "Setup",
+        "title": "Needle entry on the patient",
+        "subtitle": "Supine or seated. Needle subcutaneous just above the eyebrow, aimed medially over the notch, with a finger along the orbital rim below the needle.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "supraorbital_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The supraorbital notch lies on the superior orbital rim, in line with the pupil; the supratrochlear nerve exits slightly medial to it. Never direct the needle into the orbit.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -9938,6 +10400,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "infraorbital_patient_position",
+        "kind": "Setup",
+        "title": "Needle entry on the patient",
+        "subtitle": "Supine or seated. Needle into the mucobuccal fold above the canine or first premolar, directed superiorly toward a finger held over the foramen.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "infraorbital_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The infraorbital foramen lies on the maxilla about 1 cm below the inferior orbital rim, directly below the pupil, in line with the supraorbital notch and the mental foramen.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -10134,6 +10618,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "mental_patient_position",
+        "kind": "Setup",
+        "title": "Needle entry on the patient",
+        "subtitle": "Supine or seated. Needle into the mucobuccal fold, directed inferiorly toward the foramen.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "mental_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The mental foramen lies on the anterior mandible, below the first or second premolar, in line with the pupil, the supraorbital notch and the infraorbital foramen.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -10343,6 +10849,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "inferior_alveolar_patient_position",
+        "kind": "Setup",
+        "title": "Needle entry on the patient",
+        "subtitle": "Seated, head firmly supported, mouth open as wide as possible. Needle at the midpoint between the thumb on the coronoid notch and the pterygomandibular raphe, about 1 cm above the occlusal plane of the lower molars.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "inferior_alveolar_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The inferior alveolar nerve enters the mandibular foramen on the medial surface of the ramus; the lingual nerve lies just anterior and medial to it.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -10539,6 +11067,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "superior_alveolar_patient_position",
+        "kind": "Setup",
+        "title": "Needle entry on the patient",
+        "subtitle": "Seated, head firmly supported. Needle at the height of the mucobuccal fold, angled toward the apex of the tooth.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "superior_alveolar_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The roots of the maxillary teeth sit just above the mucobuccal fold; the porous maxilla lets fluid injected there reach the nerve.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
@@ -10734,6 +11284,28 @@
         "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
       ]
     },
+    "visualAssets": [
+      {
+        "id": "auricular_patient_position",
+        "kind": "Setup",
+        "title": "Needle entry on the patient",
+        "subtitle": "Seated, or lateral decubitus with the affected ear up. Punctures just below the earlobe and just above the ear, tracking subcutaneously in front of and behind the ear.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "",
+        "clinicalWarning": null
+      },
+      {
+        "id": "auricular_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "The ear is supplied by several nerves from different directions; a diamond-shaped ring of subcutaneous anaesthetic around the base of the ear blocks them all.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "",
+        "clinicalWarning": null
+      }
+    ],
     "reviewTime": "2 min",
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",

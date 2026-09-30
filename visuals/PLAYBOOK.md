@@ -43,8 +43,9 @@ the tools; this file says how to use them.
     `tvp_capture_confirmation`, `usgiv_short_axis`, `usgiv_needle_tracking`.
   - **Skip as low value unless the owner asks:** `abscess_technique`.
 
-  The `block_*` nerve-block procedures have no image slots yet. Don't add any
-  unless the owner asks.
+  Every nerve block has two slots (owner, 2026-09-30): `<block>_patient_position`
+  and `<block>_anatomy`. Landmark blocks (the face and ear) show the needle
+  entry instead of a probe.
 - Read the record: `pq visuals <procedure id> --full`, then
   `pq show <id> steps equipment troubleshooting`.
 - Pick the one error the image prevents.
