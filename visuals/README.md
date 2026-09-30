@@ -54,6 +54,75 @@ scripts/tests/test_code_drawn_visuals.py   CI guard (no browser)
    Approval is recorded against the SVG's SHA-256; any later edit voids it, and
    CI fails if a bundled drawing no longer matches its approval.
 
+## Standard workflow (owner-approved 2026-09-30)
+
+This is how every new procedure image is made, unless the owner says
+otherwise. It is the route that produced the approved cricothyrotomy plate.
+Painting comes from Gemini; geometry, markings and labels come from code.
+
+1. **Pick the image from the record and ask the owner for the view.**
+   - Read the procedure with `pq.py`, and pick the single miss the image
+     prevents.
+   - Default to the operator's view: what the clinician sees over the
+     patient. A-P for the neck and chest wall is the usual choice.
+   - Propose the view and the slot text. Never claim the owner agreed to
+     something they did not say.
+2. **Draw the layout in code.**
+   - `visuals/<slot id>/draw.py` places every structure at true scale,
+     with a stated px/mm, from the record's own numbers.
+   - Incisions, needle paths and target highlights get `class="marking"`.
+   - `spec.json` states the claims and the geometry checks, including
+     `lengthRange` for any length the record gives.
+   - `python3 scripts/render_visuals.py <id>` must pass. Look at the
+     render too; checks do not judge appearance.
+3. **Export the reference.** Run
+   `python3 scripts/render_visuals.py <id> --reference`. It writes
+   `render/<id>-reference.png` with no labels and no markings. Send that
+   image to the owner.
+4. **The owner repaints it in Gemini** (Nano Banana Pro, a new chat, the
+   reference attached). Use the prompt template below.
+5. **Review the painting against the reference.**
+   - Anything that moved, vanished or appeared is an error. Zoom into the
+     actual file, not a screenshot.
+   - Give one targeted repair line per problem, in the same chat.
+   - Reject any repair that breaks a landmark and fall back to the
+     previous version. The cric hyoid repair erased the membrane and was
+     rejected.
+   - Accept cosmetic limits and record them.
+6. **Rebuild the plate on the painting.**
+   - Copy the chosen file to `visuals/<id>/base.jpg`.
+   - Rewrite `draw.py`: place the base, trace target regions in base
+     pixels (check them with `DEBUG=1`), then redraw the markings and at
+     most 2-3 noun labels in code.
+   - Re-derive the scale from a traced landmark, so lengths stay true.
+   - Stamp the base's SHA-256 into the SVG.
+   - Write `provenance.json`: prompt, repairs, rejected versions, known
+     limits.
+7. **Owner approval, then ship.**
+   - Send `render/review.png`. On approval, run
+     `--record-approval --promote`, set `assetName`, run the gate, and
+     push.
+   - Build the sideload .ipa and give the owner the release link.
+
+Prompt template for step 4:
+
+```
+The attached image is an exact anatomical layout of <view and orientation, e.g. "the anterior neck, patient supine, head at the top">: <every structure in the reference, in plain words>. Repaint it as a premium medical-atlas illustration.
+
+Keep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: soft painted shading, fine crisp outlines, realistic <tissue> textures, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, incisions, instruments, hands or blood.
+```
+
+What did not work, so it is not repeated:
+
+- **Text-only prompts** for fixed-geometry views (a midsagittal larynx,
+  for example). They produced structural errors: gland inside the airway,
+  a second puncture, cartilage on the wrong wall.
+- **Letting Gemini draw incisions, instruments or labels.** They drift or
+  misspell. Code draws them.
+- **Copying or restyling a stock or textbook image.** It is copyrighted,
+  and the repo and builds are public. Use only its composition ideas.
+- **Trusting an AI "PASS".** The owner's approval is the only gate.
+
 ## Painted base plus code labels
 
 When the art comes from an image model (for example `pigtail_seldinger`,

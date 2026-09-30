@@ -254,6 +254,22 @@ def review_sheet(asset_id: str, spec: dict, results: list[dict], out: Path, brow
     page.close()
 
 
+def reference(asset_id: str, browser, out: Path) -> None:
+    """The layout Gemini repaints: the drawing without labels or markings.
+
+    Markings (incisions, needle paths, target highlights) carry class
+    "marking" in draw.py. They are drawn again in code over the painted
+    base, so they must not be in the painting."""
+    svg = VISUALS / asset_id / f"{asset_id}.svg"
+    page = browser.new_page(viewport={"width": 1600, "height": 1200})
+    page.goto(svg.as_uri())
+    page.evaluate("document.fonts.ready")
+    page.evaluate("document.querySelectorAll('#labels, .marking').forEach(e => e.style.display = 'none')")
+    page.screenshot(path=str(out / f"{asset_id}-reference.png"))
+    page.close()
+    print(f"{asset_id}: reference for Gemini -> {(out / f'{asset_id}-reference.png').relative_to(REPO)}")
+
+
 def record_approval(asset_id: str) -> None:
     spec_path = VISUALS / asset_id / "spec.json"
     spec = load_spec(asset_id)
@@ -294,6 +310,8 @@ def main() -> int:
     parser.add_argument("--all", action="store_true")
     parser.add_argument("--record-approval", action="store_true", help="Owner approved: record it against the current SVG.")
     parser.add_argument("--promote", action="store_true", help="Copy an approved render into Assets.xcassets.")
+    parser.add_argument("--reference", action="store_true",
+                        help="Also write render/<id>-reference.png: no labels and no .marking elements, for Gemini to repaint.")
     args = parser.parse_args()
 
     ids = sorted(p.name for p in VISUALS.iterdir() if (p / "draw.py").exists()) if args.all else args.asset_ids
@@ -312,6 +330,8 @@ def main() -> int:
         browser = pw.chromium.launch(**({"executable_path": exe} if exe else {}))
         for asset_id in ids:
             results, out = render(asset_id, browser)
+            if args.reference:
+                reference(asset_id, browser, out)
             bad = [r for r in results if not r["ok"]]
             failed |= bool(bad)
             print(f"{asset_id}: {len(results) - len(bad)}/{len(results)} checks pass -> {out.relative_to(REPO)}/review.png")

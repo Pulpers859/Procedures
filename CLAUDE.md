@@ -39,6 +39,9 @@
 - If a removal leaves the record contradicting itself - kit dropped that a step still calls for - do not resolve it by restoring. Exempt the record by name, say so, and raise it as a decision for the reader.
 - Report every removal noticed and every guard changed. Say it plainly and move on; do not argue the clinical merits or re-raise a settled one.
 
+## Procedure Images
+- New procedure images follow the owner-approved workflow in `visuals/README.md` ("Standard workflow"): code layout, then an unlabeled reference, then the owner's Gemini repaint, then code-drawn markings and labels, then owner approval, then a sideload build. Do not generate anatomy from text prompts alone, and never ship an image the owner has not approved.
+
 ## Core Rules
 - Keep procedure content in `Procedures/Resources/procedures.json`.
 - Keep rescue cards in `Procedures/Resources/rescue_cards.json`.
