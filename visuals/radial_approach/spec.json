@@ -96,6 +96,12 @@
       "a": "ulnar-nerve",
       "b": "ulnar-artery",
       "why": "ulnar nerve is ulnar to the ulnar artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "ulnar-nerve",
+      "b": "pisiform",
+      "why": "ulnar nerve passes radial to the pisiform, not over it"
     }
   ],
   "review": {

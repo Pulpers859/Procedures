@@ -79,8 +79,8 @@ MEDIAN_DEEP = [(0, 4), (15, 4.8), (28, 6.5)]
 FDS = [[(-55, -8), (0, -7), (16, -6)], [(-55, -13), (0, -12.5), (16, -11.5)]]
 ULNAR_ARTERY = [(-85, -13), (-40, -15.5), (0, -17.5), (10, -17)]
 ULNAR_ARTERY_DEEP = [(10, -17), (25, -15), (40, -9), (48, 0)]
-ULNAR_NERVE = [(-85, -17.5), (-40, -19.5), (0, -21), (10, -20.5)]
-FCU_BELLY, FCU = [(-90, -26.5), (-25, -25)], [(-25, -25), (0, -25), (7, -23.3)]
+ULNAR_NERVE = [(-85, -17.5), (-40, -19.5), (0, -20), (10, -18.5)]   # passes radial to the pisiform
+FCU_BELLY, FCU = [(-90, -26.5), (-25, -25)], [(-25, -25), (0, -25.5), (7, -24.5)]
 CREASE = [(0, 27.5), (1, 14), (1.5, 0), (1, -14), (0, -27.5)]
 
 THENAR_CREASE = [(7, 1), (15, 8), (28, 17), (45, 25), (60, 30), (68, 32)]
@@ -166,7 +166,7 @@ def build() -> str:
 
     <ellipse id="radial-styloid" cx="{fmt(c((-3, 25.5))[0])}" cy="{fmt(c((-3, 25.5))[1])}" rx="{fmt(mm(7))}" ry="{fmt(mm(3.5))}"
              fill="#EFE6D2" fill-opacity="0.5" stroke="#A8977A" stroke-width="2.5" stroke-dasharray="10 8"/>
-    <ellipse id="pisiform" cx="{fmt(c((8.5, -23))[0])}" cy="{fmt(c((8.5, -23))[1])}" rx="{fmt(mm(5))}" ry="{fmt(mm(4.5))}"
+    <ellipse id="pisiform" cx="{fmt(c((8.5, -24.5))[0])}" cy="{fmt(c((8.5, -24.5))[1])}" rx="{fmt(mm(5))}" ry="{fmt(mm(4.5))}"
              fill="#EFE6D2" fill-opacity="0.6" stroke="#A8977A" stroke-width="2.5" stroke-dasharray="10 8"/>
 
     {"".join(stroke(t, 4.5, "url(#tendon)", 'opacity="0.35"') for t in FDS)}
