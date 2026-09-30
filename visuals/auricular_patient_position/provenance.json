@@ -1,0 +1,18 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+ "generatedBy": "owner, in the Gemini app",
+ "date": "2026-09-30",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the auricular_patient_position layout (commit a80ec1b draw.py, --reference).",
+ "prompt": "Prompt A (photo variant), new chat, reference attached; full text as sent to the owner on 2026-09-30: realistic clinical photograph of the right side of a seated adult's head, ear in the centre, same 4:3 frame, nothing moved, no text, marks, needles, instruments, hands, jewellery or blood.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None; first painting accepted for review.",
+ "reviewNotes": "Overlay: ear, tragus, canal and lobe line up with the layout. Deviations accepted as cosmetic and away from every marking: hair reaches lower behind the ear than drawn; the jaw-edge line is not painted; a grey backdrop shows at the lower-left edge. No watermark in the corners.",
+ "knownLimits": "The ear is drawn upright, without its usual ~15 degree backward tilt. The 'Puncture sites' leader points at the superior site only; the inferior site is the matching red dot below the lobe. Tracks are drawn on the surface as an outline of the ring, not at true subcutaneous depth.",
+ "thirdPartyConcept": null
+}
