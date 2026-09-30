@@ -38,7 +38,7 @@ scripts/tests/test_code_drawn_visuals.py   CI guard (no browser)
 
 `<asset_id>` is the `visualAssets.id` in `procedures.json`.
 
-## Loop
+## Loop (the render-and-check cycle; for the whole workflow, including Gemini, follow PLAYBOOK.md)
 
 1. Write or edit `draw.py` and `spec.json`. Put the anatomical claims in
    `spec.claims` in plain words; they are what the owner confirms.
@@ -53,6 +53,29 @@ scripts/tests/test_code_drawn_visuals.py   CI guard (no browser)
    then set `visualAssets.assetName` and run `validate_procedures.py`.
    Approval is recorded against the SVG's SHA-256; any later edit voids it, and
    CI fails if a bundled drawing no longer matches its approval.
+
+## spec.json
+
+Copy the `spec.json` of the nearest existing plate and edit it. Its parts:
+`claims` (plain words, for the owner), `labels` (label text to element id),
+`requiredElements`, `review` (written by `--record-approval`), and
+`geometry`, a list of checks, each `{"check", "a", "b", "why"}` on element
+ids:
+
+| check | passes when |
+| --- | --- |
+| `leftOf`, `below` | a's centre is left of / below b's |
+| `crosses` | some of a lies inside b |
+| `within` | all of a lies inside b (a site on a surface, a tip in a plane) |
+| `noOverlap` | none of a lies inside b |
+| `endNear` | a's `end` (`"start"` or `"end"`) is within `maxPx` of b |
+| `pointsDown` | line a runs downward, leaning at most `maxLean` (default 0.36) |
+| `awayFrom` | line a ends farther from b than it starts |
+| `lengthRange` | a's end-to-end length is `min`-`max` px |
+| `pathLengthRange` | a's length along its path is `min`-`max` px |
+
+"Inside" means inside a closed shape or on a stroke; an open path drawn with
+`fill="none"` has no inside.
 
 ## Making a plate: read PLAYBOOK.md
 

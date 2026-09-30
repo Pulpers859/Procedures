@@ -169,6 +169,10 @@ CHECK_JS = r"""
     } else if (c.check === 'noOverlap') {
       const hits = samples(c.a, 40).filter((p) => inside(c.b, p.x, p.y)).length;
       ok = hits === 0; detail = `${hits} samples of #${c.a} inside #${c.b}`;
+    } else if (c.check === 'within') {
+      // Wholly inside: an insertion site on a bone surface, a tip in a plane.
+      const all = samples(c.a, 40), hits = all.filter((p) => inside(c.b, p.x, p.y)).length;
+      ok = hits === all.length; detail = `${hits}/${all.length} samples of #${c.a} inside #${c.b}`;
     } else {
       detail = `unknown check ${c.check}`;
     }

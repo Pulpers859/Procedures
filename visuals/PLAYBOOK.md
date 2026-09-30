@@ -33,14 +33,18 @@ the tools; this file says how to use them.
 
 ## 1. Pick the slot and agree the view
 
-- `python3 scripts/pq.py visuals` lists every slot A–Z. Take the next `empty`
-  slot that is not on one of these two lists:
+- `python3 scripts/pq.py visuals` lists every slot A–Z by procedure. Take the
+  first `empty` slot in that order (any kind, Setup included) that is not on
+  one of these two lists:
   - **Skip; the owner adds real images** (ultrasound and rhythm strips):
     `aline_us_short_axis`, `ij_probe_orientation`, `cvc_wire_confirmation`,
     `ficb_subfascial_spread`, `fb_us_appearance`, `knee_us_effusion`,
     `pericardiocentesis_approach`, `pigtail_us_effusion`,
     `tvp_capture_confirmation`, `usgiv_short_axis`, `usgiv_needle_tracking`.
   - **Skip as low value unless the owner asks:** `abscess_technique`.
+
+  The `block_*` nerve-block procedures have no image slots yet. Don't add any
+  unless the owner asks.
 - Read the record: `pq visuals <procedure id> --full`, then
   `pq show <id> steps equipment troubleshooting`.
 - Pick the one error the image prevents.
@@ -48,9 +52,13 @@ the tools; this file says how to use them.
   drawing. Otherwise draw your default, and say it is your default in the
   message that sends the reference.
 - **Default view:** the orientation an atlas uses, head at the top. Include
-  enough context to read it at a glance (jaw, ear, shoulder, a whole hand). An
-  upside-down "operator's view" (the IJ seen from the head of the bed) was
-  unreadable.
+  enough surrounding anatomy to recognise the region at a glance (the jaw and
+  ear above a neck, the knee above a shin). An upside-down "operator's view"
+  (the IJ seen from the head of the bed) was unreadable.
+- **House laterality:** draw the patient's right side unless the record
+  names a side (pericardiocentesis: left of the xiphoid). Front views and
+  sections show the patient's right on the image left, as when facing the
+  patient, on a chest X-ray or CT, or on a transverse ultrasound.
 - **Nerve blocks get two images:**
   - patient positioning: the probe and needle on the patient, painted as a
     photo;
@@ -59,6 +67,9 @@ the tools; this file says how to use them.
   Ask the owner for a gold-standard plate to set the composition.
 - List anything you add that the record does not say, such as standard
   anatomy or typical depths.
+- If the record contradicts itself, or lacks a number the image needs, draw
+  what its steps say and put the contradiction to the owner as your one
+  question. Never settle it silently.
 - Never say the owner agreed to something they did not say.
 
 ## 2. Draw the layout
@@ -85,11 +96,19 @@ Write `visuals/<slot id>/draw.py` and `spec.json`.
   reference leaves them out.
 - In `spec.json`, write plain-words claims and a geometry check for each one:
   sides, lengths from the record, "tip in the plane", "nerve not in muscle".
+  Copy the nearest plate's `spec.json`. The check types are listed in
+  README.md.
 - Run `python3 scripts/render_visuals.py <id>`. It must pass. Then look at
   `render/<id>.png` yourself.
 - Export the reference with
   `python3 scripts/render_visuals.py <id> --reference`, which writes
-  `render/<id>-reference.png`. Send it with prompt A.
+  `render/<id>-reference.png`.
+- Run the gate (section 7), then commit and push the layout as a draft;
+  nothing reaches the app without approval. Section 6 replaces this `draw.py`,
+  so the layout lives on in that commit. Name the commit in provenance
+  (`reference`). `git show <commit>:visuals/<id>/draw.py` recovers it.
+- Send the reference PNG with prompt A. Send every image to the owner with
+  the `SendUserFile` tool: the owner is on a phone.
 
 ## 3. Prompts
 
@@ -185,7 +204,7 @@ Rules for every prompt:
 | One thing wrong across the image | Prompt C, same chat. |
 | One small area wrong, the rest right | The crop tool (below). |
 | Several things wrong | One prompt C per turn, the most important first. |
-| The layout was wrong | Fix `draw.py`, re-export, then prompt A in a new chat. |
+| The layout was wrong | Fix the layout's `draw.py` (recover it from its commit if section 6 has replaced it), re-export, then prompt A in a new chat. |
 | Gemini fails the same element twice | Stop asking. Draw it in code (the FICB probe; catheters by default) or fix it with a pixel edit (below). Tell the owner why. |
 | The owner prefers Gemini's version of something you drew in code | Use theirs. Correct its clinical fault with a pixel edit. |
 
@@ -201,7 +220,7 @@ To take back only part of the crop, add `--keep X0 Y0 X1 Y1` to the merge.
 
 **Pixel edits you may make yourself.** Keep the untouched file as
 `gemini-original.jpg`, and record every edit in provenance.
-- **Mirror** to the house laterality with `ImageOps.mirror`.
+- **Mirror** to the house laterality (section 1) with `ImageOps.mirror`.
   - The light then comes from the other side; record it.
   - Mirror only when the mirrored image is still the view the caption names.
 - **Erase** a wrong part by blending in the same area from a clean painting of
@@ -258,8 +277,8 @@ ghost glove and a doubled skin fold.
 
 ## 7. Send, approve, ship
 
-- **Send** `render/review.png` and the full plate. If the review sheet is too
-  big to send, send its card-size crop. In one message give:
+- **Send** `render/review.png` and the full plate (`SendUserFile`). If the
+  review sheet is too big to send, send its card-size crop. In one message give:
   - what changed;
   - the known limits;
   - at most one question;
@@ -267,8 +286,12 @@ ghost glove and a doubled skin fold.
 - **Approval is explicit**: "approve", "looks great, commit". Then:
   1. Run `render_visuals.py <id> --record-approval --promote`.
   2. Set the slot's `assetName` and `caption` in `procedures.json`.
-  3. Run the gate from CLAUDE.md, checking each exit code. `pytest | tail`
-     once hid a failure, and it was pushed.
+  3. Run the gate and check each exit code: `pytest | tail` once hid a
+     failure, and it was pushed. The gate is:
+     `python3 scripts/validate_procedures.py`,
+     `python3 scripts/check_search_ranking.py`,
+     `python3 scripts/check_review_state_sources.py`,
+     `python3 -m pytest scripts/tests -q`.
   4. Check that `git status` shows nothing left: the imageset, SVG, base and
      provenance are all committed.
   5. Push to main.
