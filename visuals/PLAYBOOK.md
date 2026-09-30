@@ -75,7 +75,11 @@ the tools; this file says how to use them.
 
 ## 2. Draw the layout
 
-Write `visuals/<slot id>/draw.py` and `spec.json`.
+Write `visuals/<slot id>/draw.py` and `spec.json`. Every shipped plate's
+`draw.py` has been replaced by its painted version, so start from a flat
+layout in git history: `git show 2657ce4:visuals/radial_approach/draw.py`
+(a limb from above) or `git show d7c43c8:visuals/ficb_anatomy_layers/draw.py`
+(a section under a probe), with the matching `spec.json`.
 
 - **True scale.** Place structures from real adult measurements in mm, and
   state the px/mm. The radial wrist drawn as "tubes on a paddle" was
@@ -93,8 +97,11 @@ Write `visuals/<slot id>/draw.py` and `spec.json`.
   no repair fixes them (the ulnar nerve over the pisiform, the SVC on the
   midline). If you find one, fix the layout, re-export it, and have the owner
   start a new chat.
-- Give markings, needles and target highlights `class="marking"`, so the
-  reference leaves them out.
+- Give everything code will draw over the painting `class="marking"`:
+  target zones, needles, incisions, brackets, guide lines. The reference then
+  leaves them out; labels are left out automatically.
+- A target is a zone the size the record gives (a 1 cm IO site), not a whole
+  surface.
 - In `spec.json`, write plain-words claims and a geometry check for each one:
   sides, lengths from the record, "tip in the plane", "nerve not in muscle".
   Copy the nearest plate's `spec.json`. The check types are listed in
@@ -104,10 +111,12 @@ Write `visuals/<slot id>/draw.py` and `spec.json`.
 - Export the reference with
   `python3 scripts/render_visuals.py <id> --reference`, which writes
   `render/<id>-reference.png`.
-- Run the gate (section 7), then commit and push the layout as a draft;
-  nothing reaches the app without approval. Section 6 replaces this `draw.py`,
-  so the layout lives on in that commit. Name the commit in provenance
-  (`reference`). `git show <commit>:visuals/<id>/draw.py` recovers it.
+- Run the gate (below), then commit and push the layout to main. A "draft" is
+  just that: an ordinary commit to main, not a branch or PR; nothing reaches
+  the app without approval. Section 6 replaces this `draw.py`, so the layout
+  lives on in that commit: note its hash, and name it in `provenance.json`
+  (`reference`) when section 6 creates that file.
+  `git show <commit>:visuals/<id>/draw.py` recovers it.
 - Send the reference PNG with prompt A. Send every image to the owner with
   the `SendUserFile` tool: the owner is on a phone.
 
@@ -266,7 +275,8 @@ ghost glove and a doubled skin fold.
   why, pixel edits, known limits, and any third-party concept image attached.
 - Render again. All checks must pass. Look at `render/<id>-phone.png` at card
   size, in light and dark.
-- Run the gate (section 7), then commit and push the plate as a review draft.
+- Run the gate (below), then commit and push the plate to main as a review
+  draft.
 
 **Nerve-block anatomy rules** (owner, FICB, 2026-09-30):
 - The nerve lies in the fascial plane, never inside the muscle. Add a check
@@ -297,16 +307,23 @@ ghost glove and a doubled skin fold.
 - **Approval is explicit**: "approve", "looks great, commit". Then:
   1. Run `render_visuals.py <id> --record-approval --promote`.
   2. Set the slot's `assetName` and `caption` in `procedures.json`.
-  3. Run the gate and check each exit code: `pytest | tail` once hid a
-     failure, and it was pushed. The gate is:
-     `python3 scripts/validate_procedures.py`,
-     `python3 scripts/check_search_ranking.py`,
-     `python3 scripts/check_review_state_sources.py`,
-     `python3 -m pytest scripts/tests -q`.
+  3. Run the gate.
   4. Check that `git status` shows nothing left: the imageset, SVG, base and
      provenance are all committed.
   5. Push to main.
   6. Build and send the link (CLAUDE.md, "Shipping A Build").
+
+## The gate
+
+Before every push, run each of these and check its exit code (`pytest | tail`
+once hid a failure, and it was pushed):
+
+```
+python3 scripts/validate_procedures.py
+python3 scripts/check_search_ranking.py
+python3 scripts/check_review_state_sources.py
+python3 -m pytest scripts/tests -q
+```
 
 ## Traps that cost time
 
