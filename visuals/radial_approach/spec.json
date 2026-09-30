@@ -1,0 +1,93 @@
+{
+  "assetId": "radial_approach",
+  "procedure": "arterial_line",
+  "title": "Radial artery approach",
+  "view": "Right volar wrist from above, palm up, wrist extended over a rolled towel: the operator's view. Forearm left, hand right, thumb side at the top.",
+  "teachingPoint": "Puncture over the radial artery 1-2 cm proximal to the wrist crease, lateral to the FCR tendon - not at the crease, and not medial to FCR, where the median nerve runs.",
+  "claims": [
+    "Right wrist, palm up, over a rolled towel. Forearm on the left, hand on the right, so the thumb (radial) side is at the top. Skin drawn see-through.",
+    "The radial artery runs lateral (here: above) to the flexor carpi radialis tendon; at the wrist it turns dorsally around the radial styloid (dashed = deep).",
+    "The median nerve runs medial to FCR, under palmaris longus. The ulnar artery lies radial to the FCU tendon.",
+    "The teal zone is the puncture target: over the radial artery, from 1 cm to 2 cm proximal to the wrist crease. The bracket spans crease to 2 cm, with a tick at 1 cm.",
+    "One wrist crease is drawn on purpose, so the distance has one reference.",
+    "Three labels: Radial artery, FCR tendon, Wrist crease."
+  ],
+  "requiredElements": [
+    "forearm",
+    "roll",
+    "radial-artery",
+    "fcr-tendon",
+    "median-nerve",
+    "palmaris-longus",
+    "wrist-crease",
+    "target-zone",
+    "crease-to-zone"
+  ],
+  "labels": {
+    "Radial artery": "radial-artery",
+    "FCR tendon": "fcr-tendon",
+    "Wrist crease": "wrist-crease"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "fcr-tendon",
+      "b": "radial-artery",
+      "why": "radial artery is lateral (thumb side, above) to FCR"
+    },
+    {
+      "check": "below",
+      "a": "median-nerve",
+      "b": "fcr-tendon",
+      "why": "median nerve is medial to FCR"
+    },
+    {
+      "check": "crosses",
+      "a": "radial-artery",
+      "b": "target-zone",
+      "why": "target zone is over the radial artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "fcr-tendon",
+      "b": "target-zone",
+      "why": "target zone is not over FCR"
+    },
+    {
+      "check": "noOverlap",
+      "a": "median-nerve",
+      "b": "target-zone",
+      "why": "target zone is not over the median nerve"
+    },
+    {
+      "check": "leftOf",
+      "a": "target-zone",
+      "b": "wrist-crease",
+      "why": "target zone is proximal to the crease"
+    },
+    {
+      "check": "noOverlap",
+      "a": "wrist-crease",
+      "b": "target-zone",
+      "why": "target zone does not touch the crease"
+    },
+    {
+      "check": "lengthRange",
+      "a": "crease-to-zone",
+      "min": 209,
+      "max": 231,
+      "why": "bracket spans crease to 2 cm (11 px/mm)"
+    },
+    {
+      "check": "endNear",
+      "a": "crease-to-zone",
+      "end": "start",
+      "b": "wrist-crease",
+      "maxPx": 0,
+      "why": "bracket starts at the crease"
+    }
+  ],
+  "review": {
+    "status": "draft"
+  }
+}

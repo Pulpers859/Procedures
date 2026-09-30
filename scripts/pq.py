@@ -21,6 +21,8 @@ banner so every session is told it is here.
     pq fp cricothyrotomy                     material fingerprint + what feeds it
     pq diff cricothyrotomy origin/main       what changed in this record since
     pq stats                                 corpus counts
+    pq visuals                               every image slot, A-Z, and its state
+    pq visuals cricothyrotomy --full         one record's slots with their text
 
     --kind rescue|kit                        the other two content files
 
@@ -189,6 +191,20 @@ def cmd_stats(args, items, kind):
         print("categories: " + ", ".join(f"{c}={n}" for c, n in cats.most_common()))
 
 
+def cmd_visuals(args, items, kind):
+    rows = sorted(items, key=lambda i: (i.get("title") or "").lower())
+    if args.id:
+        rows = [find(items, args.id, kind)]
+    for item in rows:
+        for v in item.get("visualAssets") or []:
+            state = f"bundled:{v['assetName']}" if v.get("assetName") else "empty"
+            print(f"{item.get('title')[:34]:34s} {v.get('id'):32s} {v.get('kind', ''):12s} {state}")
+            if args.full:
+                for key in ("title", "subtitle", "caption", "warning"):
+                    if v.get(key):
+                        print(f"    {key}: {v[key]}")
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         prog="pq", description=__doc__,
@@ -226,6 +242,11 @@ def main(argv=None):
     p.add_argument("id")
     p.add_argument("rev")
     p.set_defaults(fn=cmd_diff)
+
+    p = sub.add_parser("visuals", help="image slots (visualAssets), A-Z by title")
+    p.add_argument("id", nargs="?")
+    p.add_argument("--full", action="store_true", help="also print title, subtitle, caption, warning")
+    p.set_defaults(fn=cmd_visuals)
 
     p = sub.add_parser("stats", help="corpus counts")
     p.set_defaults(fn=cmd_stats)
