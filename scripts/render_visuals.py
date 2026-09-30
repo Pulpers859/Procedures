@@ -80,8 +80,11 @@ CHECK_JS = r"""
   const samples = (id, n) => {
     const e = el(id);
     if (e.tagName === 'line') {
+      // At least one sample every 4 px here too: a long needle sampled 41
+      // times stepped over a 10 px fascia.
       const [a, b] = lineEnds(id);
-      return Array.from({ length: n + 1 }, (_, i) => ({ x: a.x + (b.x - a.x) * i / n, y: a.y + (b.y - a.y) * i / n }));
+      const m = Math.max(n, Math.ceil(Math.hypot(b.x - a.x, b.y - a.y) / 4));
+      return Array.from({ length: m + 1 }, (_, i) => ({ x: a.x + (b.x - a.x) * i / m, y: a.y + (b.y - a.y) * i / m }));
     }
     // At least one sample every 4 px, so a long path cannot step over a thin
     // structure (a 1700 px bougie crossing a 16 px membrane).

@@ -15,7 +15,9 @@ things it was never asked to touch. This confines a repair to a box:
     # 3. Blend the repainted crop back with a feathered edge and matched colour.
     #    Writes render/patched.jpg; base.jpg is never overwritten. REPAINTED
     #    may also be a whole repainted image the size of the source (a
-    #    same-chat repair): only the box is taken from it.
+    #    same-chat repair): only the box is taken from it. --keep X0 Y0 X1 Y1
+    #    takes back only part of the crop: show Gemini more context than
+    #    you let it change.
     python3 scripts/visual_patch.py merge <id> REPAINTED.jpg [--feather 24]
 
 Merge refuses a source that changed since the crop, and reports how much
@@ -96,7 +98,8 @@ def _match_colour(repaint: Image.Image, original: Image.Image, ring: Image.Image
     return Image.merge("RGB", bands)
 
 
-def merge(record: dict, repaint_path: Path, out: Path, feather: int = 24, colour_match: bool = True) -> dict:
+def merge(record: dict, repaint_path: Path, out: Path, feather: int = 24, colour_match: bool = True,
+          keep: tuple | None = None) -> dict:
     source = ROOT / record["source"] if not Path(record["source"]).is_absolute() else Path(record["source"])
     if sha256(source) != record["sourceSha256"]:
         raise ValueError(f"{source} changed since the crop; crop again")
@@ -109,6 +112,16 @@ def merge(record: dict, repaint_path: Path, out: Path, feather: int = 24, colour
         # A whole repainted image (a same-chat repair): take only the box from it.
         repaint = repaint.crop((x0, y0, x1, y1))
     repaint = repaint.resize(size, Image.LANCZOS)
+    if keep:
+        # Gemini saw the whole crop for context; take back only this part of it.
+        k0, k1 = max(keep[0], x0), max(keep[1], y0)
+        k2, k3 = min(keep[2], x1), min(keep[3], y1)
+        if not (k0 < k2 and k1 < k3):
+            raise ValueError(f"keep box {keep} does not overlap the crop {record['box']}")
+        repaint = repaint.crop((k0 - x0, k1 - y0, k2 - x0, k3 - y0))
+        x0, y0, x1, y1 = k0, k1, k2, k3
+        size = (x1 - x0, y1 - y0)
+        original = image.crop((x0, y0, x1, y1))
 
     feather = max(1, min(feather, min(size) // 4))
     # Sides lying on the image border are not faded: something that leaves
@@ -166,6 +179,8 @@ def main(argv=None) -> int:
     m.add_argument("--out", type=Path, help="default visuals/<id>/render/patched.jpg")
     m.add_argument("--feather", type=int, default=24, help="soft-edge width, px (default 24)")
     m.add_argument("--no-colour-match", action="store_true")
+    m.add_argument("--keep", nargs=4, type=int, metavar=("X0", "Y0", "X1", "Y1"),
+                   help="take back only this part of the crop (source pixels); the rest stays as it was")
     args = ap.parse_args(argv)
 
     asset = VISUALS / args.asset_id
@@ -178,7 +193,8 @@ def main(argv=None) -> int:
         return 0
 
     record = json.loads((render / "patch.json").read_text(encoding="utf-8"))
-    result = merge(record, args.repaint, args.out or render / "patched.jpg", args.feather, not args.no_colour_match)
+    result = merge(record, args.repaint, args.out or render / "patched.jpg", args.feather, not args.no_colour_match,
+                   tuple(args.keep) if args.keep else None)
     print(f"{args.asset_id}: merged into {result['out']}; changed outside the box: {result['changedOutsideBox']} px; "
           f"mean change inside: {result['meanChangeInsideBox']}")
     return 1 if result["changedOutsideBox"] else 0

@@ -1,14 +1,15 @@
 """Fascia iliaca block - the right groin in section under a linear probe.
 
-Painted base plus code-drawn markings. The art is the owner's Gemini Nano
-Banana Pro repaint of the flat-colour zoomed layout (commit d7c43c8), which
-the owner judged the best tissue rendering of every attempt; textured
-references made later repaints worse. That layout ran medial-left, so the
-painting is mirrored here (gemini-original.jpg is the file as painted) to
-run lateral-left like the patient-position plate and a transverse
-ultrasound. The painting lies on the layout within a few pixels, so the
-layout shapes stay as the invisible label and check regions (DEBUG=1 shows
-them). Re-check them if the base is replaced.
+Painted base plus code-drawn markings. The art descends from the owner's
+Gemini Nano Banana Pro repaint of the flat-colour zoomed layout (commit
+d7c43c8), the best tissue rendering of every attempt, which the owner then
+had Gemini revise with the fascial plane opened (provenance.json). It ran
+medial-left, so it is mirrored here (gemini-original.jpg is the file as
+painted) to run lateral-left like the patient-position plate and a
+transverse ultrasound. The painting lies on the layout within a few pixels;
+the layout shapes stay as the invisible regions (DEBUG=1 shows them), with
+the muscle surface under the opened plane and the painted probe traced on
+the painting. Re-trace them if the base is replaced.
 
 Transverse section at the inguinal crease, patient supine, seen from the
 feet: lateral on the image left, medial on the right, skin at the top.
@@ -44,7 +45,7 @@ from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "ficb_anatomy_layers"
 BASE = Path(__file__).with_name("base.jpg")
-BASE_SIZE = (1195.0, 896.0)
+BASE_SIZE = (1200.0, 896.0)
 PX_MM = 28.0
 ORIGIN = (392.0, 130.0)           # layout origin before the mirror
 X0, X1 = -16.0, 45.0              # frame edges in mm
@@ -91,47 +92,65 @@ LFCN = ((36.5, 18.6), 1.1)
 SARTORIUS = [(31, 12.2), (36, 9.6), (42, 8.9), (X1 + 3, 9.0), (X1 + 3, 16.6), (40, 16.4), (34, 15.4)]
 BONE_Y = 34.5
 PROBE = (-5.0, 33.0)                               # footprint, mm
-NEEDLE_OUT = (43.2, -10.4)
-NEEDLE_TIP = (21.5, iliaca_y(21.5) + 0.3)          # in the plane, just under the fascia
-SPREAD_LATERAL = 39.0
+# The iliopsoas surface under the opened plane, traced on the painting (mm).
+MUSCLE_SURFACE = [(8, 19.36), (10, 19.26), (12, 19.3), (14, 19.31), (16, 19.35), (18, 18.88), (20, 18.69), (22, 18.26),
+                  (24, 18.17), (26, 18.26), (28, 18.4), (30, 18.7), (32, 19.12), (34, 19.83), (36, 20.4), (38, 20.5),
+                  (40, 20.02), (42, 19.36), (44, 19.1), (48, 19.0)]
+# The painted probe (a narrow one), traced in canvas px on the mirrored painting.
+PAINTED_PROBE = [(607, 0), (993, 0), (993, 150), (980, 178), (620, 178), (607, 150)]
+PAINTED_PROBE_MM = (7.8, 21.6)                     # its face, lateral coordinates
+NEEDLE_OUT = (27.7, -10.0)
+NEEDLE_TIP = (19.6, 16.6)                          # mid-plane, lateral to the nerve, under the probe
 SPREAD_MEDIAL = NERVE[0][0] - NERVE[1] - 0.7
 
 
+def painted_skin(x):
+    """The painted skin surface: dented about 2 mm under the probe face, easing
+    back to level over the shoulders (traced on the painting)."""
+    (f0, f1), (s0, s1), depth = PAINTED_PROBE_MM, (4.2, 26.2), 2.0
+    if f0 <= x <= f1:
+        return depth
+    if s0 < x < f0:
+        return depth * (1 - math.cos(math.pi * (x - s0) / (f0 - s0))) / 2
+    if f1 < x < s1:
+        return depth * (1 + math.cos(math.pi * (x - f1) / (s1 - f1))) / 2
+    return 0.0
+
+
 def needle_entry():
-    """Where the needle line meets the skin (y = 0)."""
+    """Where the needle line meets the painted skin."""
     (xa, ya), (xb, yb) = NEEDLE_OUT, NEEDLE_TIP
-    m = -ya / (yb - ya)
-    return (xa + (xb - xa) * m, 0.0)
-
-
-def _hug(x, centre, rx, ry, pad):
-    """Depth of the lower edge of an ellipse widened by `pad`, or 0 outside it."""
-    (cx, cy), w = centre, rx + pad
-    if abs(x - cx) >= w:
-        return 0.0
-    return cy + (ry + pad * 0.8) * math.sqrt(1 - ((x - cx) / w) ** 2)
+    lo, hi = 0.0, 1.0
+    for _ in range(40):
+        m = (lo + hi) / 2
+        x, y = xa + (xb - xa) * m, ya + (yb - ya) * m
+        lo, hi = (m, hi) if y < painted_skin(x) else (lo, m)
+    return (xa + (xb - xa) * lo, ya + (yb - ya) * lo)
 
 
 def muscle_top(x):
-    """The iliopsoas surface: just under the fascia iliaca, passing beneath both
-    nerves, which lie in the fascial plane."""
-    return max(iliaca_y(x) + 0.5, _hug(x, NERVE[0], NERVE[1], NERVE[2], 0.9), _hug(x, LFCN[0], LFCN[1], LFCN[1], 0.6))
-
-
-def spread_floor(x):
-    lens = iliaca_y(x) + 0.5 + 2.6 * max(0.0, math.sin(math.pi * (SPREAD_LATERAL - x) / (SPREAD_LATERAL - SPREAD_MEDIAL))) ** 0.7
-    return max(lens, _hug(x, NERVE[0], NERVE[1], NERVE[2], 0.6), _hug(x, LFCN[0], LFCN[1], LFCN[1], 0.5))
+    """The iliopsoas surface, deep to the opened fascial plane in which both
+    nerves lie (traced on the painting)."""
+    pts_ = MUSCLE_SURFACE
+    if x <= pts_[0][0]:
+        return pts_[0][1]
+    for (xa, ya), (xb, yb) in zip(pts_, pts_[1:]):
+        if xa <= x <= xb:
+            return ya + (yb - ya) * (x - xa) / (xb - xa)
+    return pts_[-1][1]
 
 
 def spread():
-    """The injectate opening the plane between the fascia iliaca and the muscle."""
-    n = 40
-    xs = [SPREAD_LATERAL - (SPREAD_LATERAL - SPREAD_MEDIAL) * i / n for i in range(n + 1)]
-    return [(x, iliaca_y(x) + 0.2) for x in xs] + [(x, spread_floor(x)) for x in reversed(xs)]
+    """The injectate filling the opened plane between the fascia iliaca and the
+    muscle, from the femoral nerve out to the lateral edge."""
+    n = 50
+    lateral = X1 + 3
+    xs = [lateral - (lateral - SPREAD_MEDIAL) * i / n for i in range(n + 1)]
+    return [(x, iliaca_y(x) + 0.2) for x in xs] + [(x, muscle_top(x) - 0.15) for x in reversed(xs)]
 
 
 MUSCLE_TOP = [(x, muscle_top(x)) for x in [X1 + 3 - i * (X1 + 3 - 8.0) / 60 for i in range(61)]]
-MEDIAL_BORDER = [(6.9, 17.4), (5.4, 21.8), (4.0, 27.5), (3.4, BONE_Y - 0.4)]
+MEDIAL_BORDER = [(7.2, 19.6), (6.0, 24.0), (4.6, 29.0), (3.4, BONE_Y - 0.4)]
 ILIOPSOAS = MUSCLE_TOP + MEDIAL_BORDER + [(X1 + 3, BONE_Y - 0.4)]
 
 
@@ -171,6 +190,13 @@ def build() -> str:
         Label(["Iliopsoas"], anchor=(300, 880), leader=[(420, 832), c((27, 22))], target_id="iliopsoas"),
     ]
 
+    if painted:
+        probe_marking = (f'<polygon id="probe" points="{" ".join(f"{fmt(x)},{fmt(y)}" for x, y in PAINTED_PROBE)}" '
+                         f'fill="#ff00ff" fill-opacity="{0.35 if debug else 0}"/>')
+    else:
+        probe_marking = (f'<rect id="probe" x="{fmt(px0)}" y="{fmt(ORIGIN[1] - 150)}" width="{fmt(px1 - px0)}" height="150" rx="26" '
+                         f'fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>'
+                         f'<rect x="{fmt(px0 + 10)}" y="{fmt(ORIGIN[1] - 14)}" width="{fmt(px1 - px0 - 20)}" height="12" rx="5" fill="#3E454C"/>')
     scale = 1600 / BASE_SIZE[0]
     if painted:
         sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
@@ -206,8 +232,7 @@ def build() -> str:
 
 <g class="marking">
   <path id="spread" d="{path(spread(), closed=True, tension=0.5)}" fill="#6CCBD2" fill-opacity="0.7" stroke="#0E8C98" stroke-width="4"/>
-  <rect id="probe" x="{fmt(px0)}" y="{fmt(ORIGIN[1] - 150)}" width="{fmt(px1 - px0)}" height="150" rx="26" fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>
-  <rect x="{fmt(px0 + 10)}" y="{fmt(ORIGIN[1] - 14)}" width="{fmt(px1 - px0 - 20)}" height="12" rx="5" fill="#3E454C"/>
+  {probe_marking}
   <line id="needle" x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="10" stroke-linecap="butt"/>
   <line x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="5" stroke-linecap="butt"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>

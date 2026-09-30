@@ -85,6 +85,18 @@ class VisualPatchTest(unittest.TestCase):
         self.assertEqual(out.getpixel((200, 0)), (20, 160, 60), "the repaint reaches the top edge")
         self.assertNotEqual(out.getpixel((131, 60)), (20, 160, 60), "an inner side still fades")
 
+    def test_keep_takes_back_only_part_of_the_crop(self):
+        rec = vp.crop(self.source, (100, 60, 300, 240), self.dir / "render", margin=0)
+        solid = Image.new("RGB", (400, 300), (20, 160, 60))
+        solid.save(self.dir / "solid.png")
+        result = vp.merge(rec, self.dir / "solid.png", self.dir / "out.png", feather=8, colour_match=False,
+                          keep=(100, 60, 300, 120))
+        out = Image.open(self.dir / "out.png").convert("RGB")
+        self.assertEqual(result["box"], [100, 60, 300, 120])
+        self.assertEqual(out.getpixel((200, 90)), (20, 160, 60), "inside the keep box takes the repaint")
+        self.assertEqual(out.getpixel((200, 150)), (200, 60, 50), "the rest of the crop stays original")
+        self.assertEqual(result["changedOutsideBox"], 0)
+
     def test_merge_refuses_a_changed_source(self):
         rec = vp.crop(self.source, (140, 90, 260, 210), self.dir / "render")
         Image.new("RGB", (400, 300), (0, 0, 0)).save(self.source)
