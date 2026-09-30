@@ -7,6 +7,7 @@
   "claims": [
     "Left: back of a right hand, fingers up, thumb on the left. Painted by Gemini from the code layout; markings drawn in code. Red dots: needle entries at the dorsolateral base of the middle finger, at the level of the webs. Dashed line: the section.",
     "Right: the finger base in section, same way round. Proximal phalanx in the middle; extensor mechanism on its back; flexor tendons (FDS volar to FDP) in their sheath on its front.",
+    "A ring round the cut on the finger, a frame round the section, and two lines joining them mark the right panel as the magnified cut of the left.",
     "Two volar (proper palmar) digital nerves with their arteries at the volar-lateral corners, the nerve on the volar side of the artery; two small dorsal digital nerves at the dorsolateral corners.",
     "Each needle enters at the dorsolateral corner and passes down the side of the bone, ending beside the volar bundle, not in it. Teal: the deposits beside the dorsal nerve and beside the volar bundle.",
     "Two labels: Dorsal digital nerve, Volar digital nerve."
@@ -33,7 +34,11 @@
     "deposit-dorsal-u",
     "deposit-volar-u",
     "deposit-dorsal-r",
-    "deposit-volar-r"
+    "deposit-volar-r",
+    "section-ring",
+    "section-frame",
+    "callout-top",
+    "callout-bottom"
   ],
   "labels": {
     "Dorsal digital nerve": "dorsal-nerve-u",
@@ -160,6 +165,50 @@
       "min": 120,
       "max": 140,
       "why": "section spans the finger base (about 20 mm at 4.5 px/mm) plus 5 mm each side"
+    },
+    {
+      "check": "crosses",
+      "a": "section-line",
+      "b": "section-ring",
+      "why": "the ring encloses the cut"
+    },
+    {
+      "check": "endNear",
+      "a": "callout-top",
+      "end": "start",
+      "b": "section-ring",
+      "maxPx": 2,
+      "why": "callout starts on the ring"
+    },
+    {
+      "check": "endNear",
+      "a": "callout-top",
+      "end": "end",
+      "b": "section-frame",
+      "maxPx": 2,
+      "why": "callout ends on the frame"
+    },
+    {
+      "check": "endNear",
+      "a": "callout-bottom",
+      "end": "start",
+      "b": "section-ring",
+      "maxPx": 2,
+      "why": "callout starts on the ring"
+    },
+    {
+      "check": "endNear",
+      "a": "callout-bottom",
+      "end": "end",
+      "b": "section-frame",
+      "maxPx": 2,
+      "why": "callout ends on the frame"
+    },
+    {
+      "check": "crosses",
+      "a": "skin-cut",
+      "b": "section-frame",
+      "why": "the section sits inside the frame"
     }
   ]
 }

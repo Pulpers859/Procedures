@@ -231,6 +231,25 @@ def build() -> str:
     entry_r, entry_u = (entry_r[0] + inset, entry_r[1]), (entry_u[0] - inset, entry_u[1])
     cut_a, cut_b = h((cut_r[0] - 5, cut_r[1])), h((cut_u[0] + 5, cut_u[1]))
 
+    # Callout: a ring round the cut on the finger, a frame round the section,
+    # and two lines joining them, so the right panel reads as the left's cut.
+    ring_c = ((cut_a[0] + cut_b[0]) / 2, (cut_a[1] + cut_b[1]) / 2)
+    ring_r = (cut_b[0] - cut_a[0]) / 2 + 14
+    frame = (915.0, 315.0, 620.0, 495.0)          # x, y, w, h round the section and needles
+    corners = [(frame[0], frame[1]), (frame[0], frame[1] + frame[3])]
+
+    def tangent(corner, sign):
+        dx, dy = corner[0] - ring_c[0], corner[1] - ring_c[1]
+        d = math.hypot(dx, dy)
+        a = math.atan2(dy, dx) + sign * math.acos(ring_r / d)
+        return (ring_c[0] + ring_r * math.cos(a), ring_c[1] + ring_r * math.sin(a))
+
+    callouts = [(tangent(corners[0], -1), corners[0]), (tangent(corners[1], +1), corners[1])]
+    callout_svg = "".join(
+        f'<line x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(b[0])}" y2="{fmt(b[1])}" stroke="#F6F7F9" stroke-width="9" opacity="0.8"/>'
+        f'<line id="callout-{k}" x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(b[0])}" y2="{fmt(b[1])}" stroke="#1C2530" stroke-width="3" opacity="0.75"/>'
+        for k, (a, b) in zip(("top", "bottom"), callouts))
+
     def side(sign, suffix):
         m = (lambda p: p) if sign > 0 else mirror
         dn, dnr = DORSAL_NERVE
@@ -300,6 +319,11 @@ def build() -> str:
   {deposits(-1, "r")}
 
   <g class="marking">
+    <rect x="{fmt(frame[0])}" y="{fmt(frame[1])}" width="{fmt(frame[2])}" height="{fmt(frame[3])}" rx="28" fill="none" stroke="#F6F7F9" stroke-width="9" opacity="0.8"/>
+    <rect id="section-frame" x="{fmt(frame[0])}" y="{fmt(frame[1])}" width="{fmt(frame[2])}" height="{fmt(frame[3])}" rx="28" fill="none" stroke="#1C2530" stroke-width="3" opacity="0.75"/>
+    {callout_svg}
+    <circle cx="{fmt(ring_c[0])}" cy="{fmt(ring_c[1])}" r="{fmt(ring_r)}" fill="none" stroke="#F6F7F9" stroke-width="9" opacity="0.8"/>
+    <circle id="section-ring" cx="{fmt(ring_c[0])}" cy="{fmt(ring_c[1])}" r="{fmt(ring_r)}" fill="none" stroke="#1C2530" stroke-width="3" opacity="0.75"/>
     <line id="section-line" x1="{fmt(cut_a[0])}" y1="{fmt(cut_a[1])}" x2="{fmt(cut_b[0])}" y2="{fmt(cut_b[1])}"
           stroke="#1C2530" stroke-width="4" stroke-dasharray="14 9" stroke-linecap="butt" opacity="0.8"/>
     {"".join(f'<circle id="entry-hand-{k}" cx="{fmt(h(p)[0])}" cy="{fmt(h(p)[1])}" r="10" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>'

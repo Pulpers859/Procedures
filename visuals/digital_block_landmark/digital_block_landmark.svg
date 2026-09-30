@@ -83,6 +83,11 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <ellipse id="deposit-dorsal-r" class="marking" cx="1073.2" cy="467.2" rx="35.2" ry="30.8" fill="#0E8C98" fill-opacity="0.14" stroke="#0E8C98" stroke-width="4"/><ellipse id="deposit-volar-r" class="marking" cx="1075.4" cy="691.6" rx="44" ry="41.8" fill="#0E8C98" fill-opacity="0.14" stroke="#0E8C98" stroke-width="4"/>
 
   <g class="marking">
+    <rect x="915" y="315" width="620" height="495" rx="28" fill="none" stroke="#F6F7F9" stroke-width="9" opacity="0.8"/>
+    <rect id="section-frame" x="915" y="315" width="620" height="495" rx="28" fill="none" stroke="#1C2530" stroke-width="3" opacity="0.75"/>
+    <line x1="352.5" y1="520.3" x2="915" y2="315" stroke="#F6F7F9" stroke-width="9" opacity="0.8"/><line id="callout-top" x1="352.5" y1="520.3" x2="915" y2="315" stroke="#1C2530" stroke-width="3" opacity="0.75"/><line x1="360.8" y1="673.3" x2="915" y2="810" stroke="#F6F7F9" stroke-width="9" opacity="0.8"/><line id="callout-bottom" x1="360.8" y1="673.3" x2="915" y2="810" stroke="#1C2530" stroke-width="3" opacity="0.75"/>
+    <circle cx="380" cy="595.5" r="80.1" fill="none" stroke="#F6F7F9" stroke-width="9" opacity="0.8"/>
+    <circle id="section-ring" cx="380" cy="595.5" r="80.1" fill="none" stroke="#1C2530" stroke-width="3" opacity="0.75"/>
     <line id="section-line" x1="313.9" y1="595.5" x2="446.1" y2="595.5"
           stroke="#1C2530" stroke-width="4" stroke-dasharray="14 9" stroke-linecap="butt" opacity="0.8"/>
     <circle id="entry-hand-r" cx="343.6" cy="595.5" r="10" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/><circle id="entry-hand-u" cx="416.4" cy="595.5" r="10" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
