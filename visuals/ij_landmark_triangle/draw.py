@@ -49,28 +49,53 @@ EXIT = (583.0, 560.0)                                        # just inside the a
 LINE_ANGLE = -27.0                                           # degrees from straight up; negative leans lateral (image left)
 
 
+CATHETER_DEFS = """
+<filter id="cath-shadow" filterUnits="userSpaceOnUse" x="-400" y="-600" width="800" height="700">
+  <feDropShadow dx="5" dy="8" stdDeviation="4.5" flood-color="#5A3A2E" flood-opacity="0.32"/></filter>
+<linearGradient id="hub" x1="0" x2="1"><stop offset="0" stop-color="#A7B1B9"/><stop offset="0.45" stop-color="#F3F5F6"/>
+  <stop offset="0.6" stop-color="#E4E8EB"/><stop offset="1" stop-color="#9AA5AE"/></linearGradient>
+<linearGradient id="cap" x1="0" x2="1"><stop offset="0" stop-color="#8E99A3"/><stop offset="0.45" stop-color="#DDE2E6"/><stop offset="1" stop-color="#7F8B96"/></linearGradient>
+"""
+
+
 def catheter(exit_c) -> str:
-    """Triple-lumen line in a local frame pointing up from the exit site, then rotated."""
-    tube = 'fill="none" stroke-linecap="round"'
+    """Triple-lumen line in a local frame pointing up from the exit site, then rotated.
+
+    Shaded as translucent plastic: a grey edge, a pale body and a thin
+    highlight, with a soft contact shadow on the skin and a small dimple where
+    the shaft enters it. Lumen colours are neutral."""
     ends = [(-95, -430), (0, -455), (95, -430)]
+
+    def tube(d, width):
+        return (f'<path d="{d}" fill="none" stroke-linecap="round" stroke="#7C8690" stroke-width="{width + 5}"/>'
+                f'<path d="{d}" fill="none" stroke-linecap="round" stroke="#E9EDEF" stroke-width="{width}"/>'
+                f'<path d="{d}" fill="none" stroke-linecap="round" stroke="#FFFFFF" stroke-width="{max(width * 0.3, 2)}" '
+                f'opacity="0.9" transform="translate(-{width * 0.22:.1f} 0)"/>')
+
     lines, clamps, caps = [], [], []
     for x, y in ends:
-        d = f"M0,-222 C{fmt(x * 0.2)},-290 {fmt(x * 0.9)},{fmt(y + 90)} {fmt(x)},{fmt(y)}"
-        lines.append(f'<path d="{d}" {tube} stroke="#8C949C" stroke-width="12"/>'
-                     f'<path d="{d}" {tube} stroke="#F7F8F6" stroke-width="7"/>')
+        lines.append(tube(f"M0,-222 C{fmt(x * 0.2)},-290 {fmt(x * 0.9)},{fmt(y + 90)} {fmt(x)},{fmt(y)}", 7))
         cx, cy = x * 0.82, y + 62
-        clamps.append(f'<rect x="{fmt(cx - 17)}" y="{fmt(cy - 7)}" width="34" height="14" rx="4" fill="#E9ECEE" stroke="#6E7780" stroke-width="2.5"/>')
-        caps.append(f'<rect x="{fmt(x - 11)}" y="{fmt(y - 34)}" width="22" height="36" rx="6" fill="#C9D0D6" stroke="#5E6873" stroke-width="2.5"/>')
+        clamps.append(f'<rect x="{fmt(cx - 18)}" y="{fmt(cy - 8)}" width="36" height="16" rx="5" fill="#F7F8F8" stroke="#6E7780" stroke-width="2.5"/>'
+                      f'<rect x="{fmt(cx - 12)}" y="{fmt(cy - 3)}" width="24" height="3" rx="1.5" fill="#B8C0C6"/>')
+        caps.append(f'<rect x="{fmt(x - 12)}" y="{fmt(y - 36)}" width="24" height="38" rx="6" fill="url(#cap)" stroke="#56606B" stroke-width="2.5"/>'
+                    f'<path d="M{fmt(x - 12)},{fmt(y - 24)} h24 M{fmt(x - 12)},{fmt(y - 16)} h24" stroke="#6B7580" stroke-width="1.5" opacity="0.7"/>')
     return f"""
   <g id="central-line" class="marking" transform="translate({fmt(exit_c[0])} {fmt(exit_c[1])}) rotate({fmt(LINE_ANGLE)})">
-    <line id="catheter-shaft" x1="0" y1="0" x2="0" y2="-150" stroke="#6E7780" stroke-width="15" stroke-linecap="round"/>
-    <line x1="0" y1="0" x2="0" y2="-150" stroke="#F7F8F6" stroke-width="10" stroke-linecap="round"/>
-    {"".join(lines)}
-    <rect x="-44" y="-196" width="88" height="18" rx="9" fill="#E3E7EA" stroke="#5E6873" stroke-width="2.5"/>
-    <circle cx="-32" cy="-187" r="4" fill="#5E6873"/><circle cx="32" cy="-187" r="4" fill="#5E6873"/>
-    <rect id="catheter-hub" x="-19" y="-226" width="38" height="80" rx="9" fill="#D5DBE0" stroke="#5E6873" stroke-width="2.5"/>
-    {"".join(clamps)}
-    {"".join(caps)}
+    <ellipse cx="0" cy="2" rx="11" ry="6" fill="#7A4E3E" opacity="0.35"/>
+    <g filter="url(#cath-shadow)">
+      <line id="catheter-shaft" x1="0" y1="0" x2="0" y2="-150" stroke="#7C8690" stroke-width="15" stroke-linecap="round"/>
+      <line x1="0" y1="-3" x2="0" y2="-150" stroke="#E9EDEF" stroke-width="10" stroke-linecap="round"/>
+      <line x1="-2.5" y1="-8" x2="-2.5" y2="-148" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+      {"".join(lines)}
+      <rect x="-46" y="-197" width="92" height="20" rx="10" fill="url(#hub)" stroke="#56606B" stroke-width="2.5"/>
+      <circle cx="-33" cy="-187" r="4.5" fill="#F4F1EA" stroke="#56606B" stroke-width="2"/>
+      <circle cx="33" cy="-187" r="4.5" fill="#F4F1EA" stroke="#56606B" stroke-width="2"/>
+      <rect id="catheter-hub" x="-20" y="-228" width="40" height="82" rx="10" fill="url(#hub)" stroke="#56606B" stroke-width="2.5"/>
+      <rect x="-9" y="-222" width="5" height="70" rx="2.5" fill="#FFFFFF" opacity="0.75"/>
+      {"".join(clamps)}
+      {"".join(caps)}
+    </g>
   </g>"""
 
 
@@ -106,7 +131,7 @@ def build() -> str:
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>
 """
-    return document(body, extra_style=".plate-bg { fill: #F4F1EA; }")
+    return document(body, defs=CATHETER_DEFS, extra_style=".plate-bg { fill: #F4F1EA; }")
 
 
 def main() -> int:

@@ -31,7 +31,13 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 .leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
 .label.emphasis .leader-dot { fill: var(--target); }
 .plate-bg { fill: #F4F1EA; }</style>
-<defs></defs>
+<defs>
+<filter id="cath-shadow" filterUnits="userSpaceOnUse" x="-400" y="-600" width="800" height="700">
+  <feDropShadow dx="5" dy="8" stdDeviation="4.5" flood-color="#5A3A2E" flood-opacity="0.32"/></filter>
+<linearGradient id="hub" x1="0" x2="1"><stop offset="0" stop-color="#A7B1B9"/><stop offset="0.45" stop-color="#F3F5F6"/>
+  <stop offset="0.6" stop-color="#E4E8EB"/><stop offset="1" stop-color="#9AA5AE"/></linearGradient>
+<linearGradient id="cap" x1="0" x2="1"><stop offset="0" stop-color="#8E99A3"/><stop offset="0.45" stop-color="#DDE2E6"/><stop offset="1" stop-color="#7F8B96"/></linearGradient>
+</defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
 <g id="anatomy" data-base-sha256="dd0f39b7a41b3a1fdfa60a83caff6cd99f8717610c87195a6d8659b5b49e4176">
@@ -42,14 +48,20 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <path id="carotid-artery" d="M787.3,227.8 C793.3,256.8 811.8,346.1 823.4,401.8 C835,457.6 848,517.9 856.9,562.5 C865.8,607.1 873.6,651.8 877,669.6" fill="none" stroke-width="29.5" stroke="#000" stroke-opacity="0"/>
 
   <g id="central-line" class="marking" transform="translate(780.6 750) rotate(-27)">
-    <line id="catheter-shaft" x1="0" y1="0" x2="0" y2="-150" stroke="#6E7780" stroke-width="15" stroke-linecap="round"/>
-    <line x1="0" y1="0" x2="0" y2="-150" stroke="#F7F8F6" stroke-width="10" stroke-linecap="round"/>
-    <path d="M0,-222 C-19,-290 -85.5,-340 -95,-430" fill="none" stroke-linecap="round" stroke="#8C949C" stroke-width="12"/><path d="M0,-222 C-19,-290 -85.5,-340 -95,-430" fill="none" stroke-linecap="round" stroke="#F7F8F6" stroke-width="7"/><path d="M0,-222 C0,-290 0,-365 0,-455" fill="none" stroke-linecap="round" stroke="#8C949C" stroke-width="12"/><path d="M0,-222 C0,-290 0,-365 0,-455" fill="none" stroke-linecap="round" stroke="#F7F8F6" stroke-width="7"/><path d="M0,-222 C19,-290 85.5,-340 95,-430" fill="none" stroke-linecap="round" stroke="#8C949C" stroke-width="12"/><path d="M0,-222 C19,-290 85.5,-340 95,-430" fill="none" stroke-linecap="round" stroke="#F7F8F6" stroke-width="7"/>
-    <rect x="-44" y="-196" width="88" height="18" rx="9" fill="#E3E7EA" stroke="#5E6873" stroke-width="2.5"/>
-    <circle cx="-32" cy="-187" r="4" fill="#5E6873"/><circle cx="32" cy="-187" r="4" fill="#5E6873"/>
-    <rect id="catheter-hub" x="-19" y="-226" width="38" height="80" rx="9" fill="#D5DBE0" stroke="#5E6873" stroke-width="2.5"/>
-    <rect x="-94.9" y="-375" width="34" height="14" rx="4" fill="#E9ECEE" stroke="#6E7780" stroke-width="2.5"/><rect x="-17" y="-400" width="34" height="14" rx="4" fill="#E9ECEE" stroke="#6E7780" stroke-width="2.5"/><rect x="60.9" y="-375" width="34" height="14" rx="4" fill="#E9ECEE" stroke="#6E7780" stroke-width="2.5"/>
-    <rect x="-106" y="-464" width="22" height="36" rx="6" fill="#C9D0D6" stroke="#5E6873" stroke-width="2.5"/><rect x="-11" y="-489" width="22" height="36" rx="6" fill="#C9D0D6" stroke="#5E6873" stroke-width="2.5"/><rect x="84" y="-464" width="22" height="36" rx="6" fill="#C9D0D6" stroke="#5E6873" stroke-width="2.5"/>
+    <ellipse cx="0" cy="2" rx="11" ry="6" fill="#7A4E3E" opacity="0.35"/>
+    <g filter="url(#cath-shadow)">
+      <line id="catheter-shaft" x1="0" y1="0" x2="0" y2="-150" stroke="#7C8690" stroke-width="15" stroke-linecap="round"/>
+      <line x1="0" y1="-3" x2="0" y2="-150" stroke="#E9EDEF" stroke-width="10" stroke-linecap="round"/>
+      <line x1="-2.5" y1="-8" x2="-2.5" y2="-148" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+      <path d="M0,-222 C-19,-290 -85.5,-340 -95,-430" fill="none" stroke-linecap="round" stroke="#7C8690" stroke-width="12"/><path d="M0,-222 C-19,-290 -85.5,-340 -95,-430" fill="none" stroke-linecap="round" stroke="#E9EDEF" stroke-width="7"/><path d="M0,-222 C-19,-290 -85.5,-340 -95,-430" fill="none" stroke-linecap="round" stroke="#FFFFFF" stroke-width="2.1" opacity="0.9" transform="translate(-1.5 0)"/><path d="M0,-222 C0,-290 0,-365 0,-455" fill="none" stroke-linecap="round" stroke="#7C8690" stroke-width="12"/><path d="M0,-222 C0,-290 0,-365 0,-455" fill="none" stroke-linecap="round" stroke="#E9EDEF" stroke-width="7"/><path d="M0,-222 C0,-290 0,-365 0,-455" fill="none" stroke-linecap="round" stroke="#FFFFFF" stroke-width="2.1" opacity="0.9" transform="translate(-1.5 0)"/><path d="M0,-222 C19,-290 85.5,-340 95,-430" fill="none" stroke-linecap="round" stroke="#7C8690" stroke-width="12"/><path d="M0,-222 C19,-290 85.5,-340 95,-430" fill="none" stroke-linecap="round" stroke="#E9EDEF" stroke-width="7"/><path d="M0,-222 C19,-290 85.5,-340 95,-430" fill="none" stroke-linecap="round" stroke="#FFFFFF" stroke-width="2.1" opacity="0.9" transform="translate(-1.5 0)"/>
+      <rect x="-46" y="-197" width="92" height="20" rx="10" fill="url(#hub)" stroke="#56606B" stroke-width="2.5"/>
+      <circle cx="-33" cy="-187" r="4.5" fill="#F4F1EA" stroke="#56606B" stroke-width="2"/>
+      <circle cx="33" cy="-187" r="4.5" fill="#F4F1EA" stroke="#56606B" stroke-width="2"/>
+      <rect id="catheter-hub" x="-20" y="-228" width="40" height="82" rx="10" fill="url(#hub)" stroke="#56606B" stroke-width="2.5"/>
+      <rect x="-9" y="-222" width="5" height="70" rx="2.5" fill="#FFFFFF" opacity="0.75"/>
+      <rect x="-95.9" y="-376" width="36" height="16" rx="5" fill="#F7F8F8" stroke="#6E7780" stroke-width="2.5"/><rect x="-89.9" y="-371" width="24" height="3" rx="1.5" fill="#B8C0C6"/><rect x="-18" y="-401" width="36" height="16" rx="5" fill="#F7F8F8" stroke="#6E7780" stroke-width="2.5"/><rect x="-12" y="-396" width="24" height="3" rx="1.5" fill="#B8C0C6"/><rect x="59.9" y="-376" width="36" height="16" rx="5" fill="#F7F8F8" stroke="#6E7780" stroke-width="2.5"/><rect x="65.9" y="-371" width="24" height="3" rx="1.5" fill="#B8C0C6"/>
+      <rect x="-107" y="-466" width="24" height="38" rx="6" fill="url(#cap)" stroke="#56606B" stroke-width="2.5"/><path d="M-107,-454 h24 M-107,-446 h24" stroke="#6B7580" stroke-width="1.5" opacity="0.7"/><rect x="-12" y="-491" width="24" height="38" rx="6" fill="url(#cap)" stroke="#56606B" stroke-width="2.5"/><path d="M-12,-479 h24 M-12,-471 h24" stroke="#6B7580" stroke-width="1.5" opacity="0.7"/><rect x="83" y="-466" width="24" height="38" rx="6" fill="url(#cap)" stroke="#56606B" stroke-width="2.5"/><path d="M83,-454 h24 M83,-446 h24" stroke="#6B7580" stroke-width="1.5" opacity="0.7"/>
+    </g>
   </g>
   <circle id="exit-site" class="marking" cx="780.6" cy="750" r="22" fill="none" stroke="#0E8C98" stroke-width="5"/>
 </g>
