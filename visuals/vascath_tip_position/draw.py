@@ -4,7 +4,9 @@ Confirmation view, so the radiograph convention: head at the top, the
 patient's right on the image left. Skin and chest wall are see-through,
 showing the right internal jugular, the brachiocephalic veins, the superior
 vena cava and the right atrium, with the clavicles, first ribs, sternum,
-trachea, aorta and pulmonary trunk for orientation.
+trachea, aorta and pulmonary trunk for orientation. The SVC runs along the right
+sternal border (about 2 cm right of midline), as on a chest X-ray; an earlier
+version had it near the midline, where the sternum hid the junction.
 
 Marking (drawn again in code over the painted base): the catheter, from the
 right IJ puncture down the IJ, brachiocephalic vein and SVC, to a tip at the
@@ -28,33 +30,43 @@ from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 ASSET_ID = "vascath_tip_position"
 PX_PER_MM = 5.0
 CX = 820.0                         # midline
-CAJ = (792.0, 862.0)               # cavoatrial junction, about 7 cm of SVC below its origin
-SVC_ORIGIN = (792.0, 520.0)        # behind the first right costal cartilage
+CAJ = (718.0, 862.0)               # cavoatrial junction, about 7 cm of SVC below its origin
+SVC_ORIGIN = (722.0, 520.0)        # behind the first right costal cartilage, about 2 cm right of midline
 
-# Vessel centrelines and widths (mm).
-RIGHT_IJ = ([(628, -20), (650, 150), (676, 300), (700, 385)], 12)
-RIGHT_SUBCLAVIAN = ([(300, 420), (500, 405), (700, 385)], 11)
-RIGHT_BCV = ([(700, 385), (745, 450), (792, 520)], 13)
-LEFT_IJ = ([(1012, -20), (990, 150), (964, 300), (940, 372)], 12)
-LEFT_SUBCLAVIAN = ([(1340, 420), (1140, 400), (940, 372)], 11)
-LEFT_BCV = ([(940, 372), (880, 440), (792, 520)], 12)
-SVC = ([SVC_ORIGIN, (794, 700), CAJ], 20)
-CATHETER = [(688, 228), (676, 300), (700, 385), (745, 450), (792, 520), (794, 700), CAJ]
+# Vessel centrelines and widths (mm). The SVC runs along the right sternal
+# border and forms the right upper mediastinal edge, as on a chest X-ray.
+RIGHT_IJ = ([(610, -20), (640, 150), (668, 300), (690, 395)], 12)
+RIGHT_SUBCLAVIAN = ([(300, 425), (500, 410), (690, 395)], 11)
+RIGHT_BCV = ([(690, 395), (702, 455), (722, 520)], 13)
+LEFT_IJ = ([(1030, -20), (1000, 150), (972, 300), (950, 390)], 12)
+LEFT_SUBCLAVIAN = ([(1340, 425), (1140, 410), (950, 390)], 11)
+LEFT_BCV = ([(950, 390), (860, 440), (722, 520)], 12)
+SVC = ([SVC_ORIGIN, (720, 700), CAJ], 20)
+CATHETER = [(688, 228), (668, 300), (690, 395), (702, 455), (722, 520), (720, 700), CAJ]
 
-RIGHT_ATRIUM = [(770, 866), (700, 890), (640, 960), (622, 1060), (650, 1170), (720, 1240), (860, 1240), (880, 1060), (850, 900)]
-HEART = [(770, 866), (700, 890), (640, 960), (622, 1060), (650, 1170), (720, 1240), (1280, 1240), (1290, 1130), (1230, 1010), (1120, 920), (1000, 880), (900, 860)]
-AORTA = [(880, 940), (866, 780), (870, 640), (900, 560), (960, 530), (1015, 560)]
-DESCENDING_AORTA = [(1015, 560), (1035, 640), (1040, 800), (1035, 1000), (1030, 1240)]
-PULMONARY_TRUNK = [(990, 960), (975, 850), (985, 760)]
-LEFT_PA = [(985, 760), (1060, 730), (1140, 740)]
+RIGHT_ATRIUM = [(700, 866), (650, 900), (610, 980), (600, 1070), (628, 1170), (700, 1240), (820, 1240), (830, 1060), (770, 900)]
+HEART = [(700, 866), (650, 900), (610, 980), (600, 1070), (628, 1170), (700, 1240), (1280, 1240), (1290, 1130), (1230, 1010), (1120, 920), (1000, 880), (860, 860)]
+AORTA = [(835, 940), (812, 780), (815, 640), (850, 555), (920, 525), (975, 560)]
+DESCENDING_AORTA = [(975, 560), (990, 700), (995, 1000), (990, 1240)]
+PULMONARY_TRUNK = [(905, 960), (895, 860), (905, 770)]
+LEFT_PA = [(905, 770), (990, 735), (1080, 745)]
 TRACHEA = [(CX, -20), (CX, 540)]
 CARINA_L, CARINA_R = [(CX, 540), (870, 610), (930, 680)], [(CX, 540), (770, 610), (720, 690)]
-CLAVICLE_R = [(770, 425), (690, 405), (560, 395), (420, 375), (300, 335), (180, 310)]
+CLAVICLE_R = [(700, 432), (620, 410), (500, 395), (380, 372), (270, 338), (170, 318)]
 CLAVICLE_L = [(2 * CX - x, y) for x, y in CLAVICLE_R]
-FIRST_RIB_R = [(760, 480), (660, 455), (560, 430), (480, 440), (430, 490)]
-FIRST_RIB_L = [(2 * CX - x, y) for x, y in FIRST_RIB_R]
-MANUBRIUM = [(750, 420), (890, 420), (910, 470), (880, 640), (760, 640), (730, 470)]
-STERNUM = [(760, 640), (880, 640), (870, 1230), (770, 1230)]
+MANUBRIUM = [(690, 425), (770, 418), (820, 428), (870, 418), (950, 425), (925, 530), (905, 640), (735, 640), (715, 530)]
+STERNUM = [(745, 640), (895, 640), (888, 1000), (880, 1240), (760, 1240), (752, 1000)]
+# Anterior ribs 1-7, right side: sternal end y, as (sternal end, end of cartilage, lateral points).
+RIB_Y = [470, 575, 690, 805, 920, 1035, 1150]
+
+
+def rib(y, side):
+    """One anterior rib: cartilage from the sternal edge, then bone sweeping laterally and upward."""
+    sx = 745 if side < 0 else 895
+    flip = (lambda x: x) if side < 0 else (lambda x: 2 * CX - x)
+    cart = [(flip(sx) if side < 0 else sx, y), (flip(660), y - 12)]
+    bone = [(flip(660), y - 12), (flip(540), y - 40), (flip(420), y - 95), (flip(320), y - 165), (flip(250), y - 250), (flip(215), y - 330)]
+    return cart, bone
 
 
 def mm(v):
@@ -79,25 +91,29 @@ DEFS = """
 
 def build() -> str:
     labels = [
-        Label(["Superior", "vena cava"], anchor=(40, 640), leader=[(300, 652), (794, 700)],
+        Label(["Superior", "vena cava"], anchor=(40, 640), leader=[(300, 652), (720, 700)],
               target_id="svc"),
         Label(["Cavoatrial", "junction"], anchor=(1200, 330), leader=[(1210, 342), (1100, 520), CAJ],
               target_id="cavoatrial-junction", emphasis=True),
-        Label(["Right atrium"], anchor=(40, 1050), leader=[(390, 1040), (700, 1040)],
+        Label(["Right atrium"], anchor=(40, 1120), leader=[(390, 1110), (680, 1060)],
               target_id="right-atrium"),
     ]
 
     bone = 'fill="url(#bone)" fill-opacity="0.75" stroke="#A8977A" stroke-width="2.5"'
-    rib = 'fill="none" stroke="#E2D6BD" stroke-width="30" stroke-linecap="round" opacity="0.8"'
+    ribs = ""
+    for y in RIB_Y:
+        for side in (-1, 1):
+            cart, bone_pts = rib(y, side)
+            ribs += (f'<path d="{smooth_path(cart)}" fill="none" stroke="#DCE6EC" stroke-width="{fmt(mm(9))}" stroke-linecap="round"/>'
+                     f'<path d="{smooth_path(bone_pts)}" fill="none" stroke="#E6DAC0" stroke-width="{fmt(mm(11))}" stroke-linecap="round"/>')
     body = f"""
 <g id="anatomy">
   <rect id="torso" x="-10" y="-10" width="1620" height="1220" fill="url(#skin)"/>
+  <g id="rib-cage" opacity="0.7">{ribs}</g>
   <path d="{smooth_path(TRACHEA)}" stroke="#D9E3EA" stroke-width="{fmt(mm(18))}" stroke-linecap="round" opacity="0.8"/>
   <path d="{smooth_path(CARINA_L)}" fill="none" stroke="#D9E3EA" stroke-width="{fmt(mm(12))}" stroke-linecap="round" opacity="0.8"/>
   <path d="{smooth_path(CARINA_R)}" fill="none" stroke="#D9E3EA" stroke-width="{fmt(mm(13))}" stroke-linecap="round" opacity="0.8"/>
 
-  <path d="{smooth_path(FIRST_RIB_R)}" {rib}/>
-  <path d="{smooth_path(FIRST_RIB_L)}" {rib}/>
   <path d="{smooth_path(DESCENDING_AORTA)}" fill="none" stroke="#C8423A" stroke-width="{fmt(mm(20))}" stroke-linecap="round" opacity="0.3"/>
   <path d="{smooth_path(DESCENDING_AORTA)}" fill="none" stroke="#8E2A24" stroke-width="3" stroke-dasharray="14 10" opacity="0.5"/>
   <path d="{smooth_path(LEFT_PA)}" fill="none" stroke="#6E8FC4" stroke-width="{fmt(mm(16))}" stroke-linecap="round" opacity="0.85"/>
@@ -113,9 +129,13 @@ def build() -> str:
   {vessel("right-ij", RIGHT_IJ, "#5277B8", 0.85)}
   {vessel("right-bcv", RIGHT_BCV, "#5277B8", 0.85)}
   {vessel("svc", SVC, "#4F74B6", 0.95)}
+  <circle cx="{fmt(SVC_ORIGIN[0])}" cy="{fmt(SVC_ORIGIN[1])}" r="{fmt(mm(10))}" fill="#4F74B6" fill-opacity="0.95"/>
   <circle id="cavoatrial-junction" cx="{fmt(CAJ[0])}" cy="{fmt(CAJ[1])}" r="{fmt(mm(9))}" fill="#000" fill-opacity="0"/>
 
-  <path id="manubrium" d="{smooth_path(MANUBRIUM, closed=True, tension=0.5)}" {bone} opacity="0.45"/>
+  <g id="sternum" fill="url(#bone)" stroke="#A8977A" stroke-width="2.5" opacity="0.42">
+    <path d="{smooth_path(MANUBRIUM, closed=True, tension=0.3)}"/>
+    <path d="{smooth_path(STERNUM, closed=True, tension=0.3)}"/>
+  </g>
   <path id="clavicle-right" d="{smooth_path(CLAVICLE_R)}" fill="none" stroke="url(#bone)" stroke-width="{fmt(mm(14))}" stroke-linecap="round" filter="url(#lift)" opacity="0.9"/>
   <path d="{smooth_path(CLAVICLE_L)}" fill="none" stroke="url(#bone)" stroke-width="{fmt(mm(14))}" stroke-linecap="round" filter="url(#lift)" opacity="0.9"/>
 
