@@ -5,42 +5,161 @@
   "view": "Two panels. Left: the back of a right hand, fingers up, thumb on the left. Right: the middle finger cut at its base (the dashed line), back of the finger at the top, thumb side on the left.",
   "teachingPoint": "Enter at the dorsolateral base of the digit on each side. From one entry the needle runs down the side of the bone past the dorsal nerve toward the volar bundle, so one entry can reach both branches on that side.",
   "claims": [
-    "Left: back of a right hand, fingers up, thumb on the left. Red dots: needle entries at the dorsolateral base of the middle finger, at the level of the webs. Dashed line: the section.",
+    "Left: back of a right hand, fingers up, thumb on the left. Painted by Gemini from the code layout; markings drawn in code. Red dots: needle entries at the dorsolateral base of the middle finger, at the level of the webs. Dashed line: the section.",
     "Right: the finger base in section, same way round. Proximal phalanx in the middle; extensor mechanism on its back; flexor tendons (FDS volar to FDP) in their sheath on its front.",
     "Two volar (proper palmar) digital nerves with their arteries at the volar-lateral corners, the nerve on the volar side of the artery; two small dorsal digital nerves at the dorsolateral corners.",
     "Each needle enters at the dorsolateral corner and passes down the side of the bone, ending beside the volar bundle, not in it. Teal: the deposits beside the dorsal nerve and beside the volar bundle.",
     "Two labels: Dorsal digital nerve, Volar digital nerve."
   ],
   "requiredElements": [
-    "hand", "middle-finger", "skin-cut", "phalanx", "extensor", "flexor-sheath", "flexor-tendons",
-    "volar-nerve-u", "volar-nerve-r", "volar-artery-u", "volar-artery-r", "dorsal-nerve-u", "dorsal-nerve-r",
-    "needle-u", "needle-r", "entry-hand-u", "entry-hand-r", "section-line",
-    "deposit-dorsal-u", "deposit-volar-u", "deposit-dorsal-r", "deposit-volar-r"
+    "hand",
+    "middle-finger",
+    "skin-cut",
+    "phalanx",
+    "extensor",
+    "flexor-sheath",
+    "flexor-tendons",
+    "volar-nerve-u",
+    "volar-nerve-r",
+    "volar-artery-u",
+    "volar-artery-r",
+    "dorsal-nerve-u",
+    "dorsal-nerve-r",
+    "needle-u",
+    "needle-r",
+    "entry-hand-u",
+    "entry-hand-r",
+    "section-line",
+    "deposit-dorsal-u",
+    "deposit-volar-u",
+    "deposit-dorsal-r",
+    "deposit-volar-r"
   ],
   "labels": {
     "Dorsal digital nerve": "dorsal-nerve-u",
     "Volar digital nerve": "volar-nerve-u"
   },
   "geometry": [
-    {"check": "below", "a": "flexor-tendons", "b": "phalanx", "why": "flexor tendons are volar to the bone"},
-    {"check": "below", "a": "phalanx", "b": "extensor", "why": "extensor mechanism is dorsal to the bone"},
-    {"check": "below", "a": "volar-nerve-u", "b": "dorsal-nerve-u", "why": "volar nerve is volar, dorsal nerve dorsal"},
-    {"check": "below", "a": "volar-nerve-u", "b": "volar-artery-u", "why": "in the digit the nerve lies volar to the artery"},
-    {"check": "leftOf", "a": "flexor-sheath", "b": "volar-nerve-u", "why": "volar bundle is lateral to the sheath"},
-    {"check": "leftOf", "a": "volar-nerve-r", "b": "flexor-sheath", "why": "volar bundle is lateral to the sheath, both sides"},
-    {"check": "pointsDown", "a": "needle-u", "maxLean": 0.5, "why": "needle runs from dorsal toward volar"},
-    {"check": "pointsDown", "a": "needle-r", "maxLean": 0.5, "why": "needle runs from dorsal toward volar"},
-    {"check": "crosses", "a": "needle-u", "b": "skin-cut", "why": "needle enters the skin"},
-    {"check": "noOverlap", "a": "needle-u", "b": "phalanx", "why": "needle passes beside the bone"},
-    {"check": "noOverlap", "a": "needle-r", "b": "phalanx", "why": "needle passes beside the bone"},
-    {"check": "noOverlap", "a": "needle-u", "b": "volar-nerve-u", "why": "needle is not in the nerve"},
-    {"check": "noOverlap", "a": "needle-u", "b": "volar-artery-u", "why": "needle is not in the artery"},
-    {"check": "noOverlap", "a": "needle-r", "b": "volar-nerve-r", "why": "needle is not in the nerve"},
-    {"check": "noOverlap", "a": "needle-r", "b": "volar-artery-r", "why": "needle is not in the artery"},
-    {"check": "noOverlap", "a": "needle-u", "b": "dorsal-nerve-u", "why": "needle is not in the dorsal nerve"},
-    {"check": "noOverlap", "a": "needle-r", "b": "dorsal-nerve-r", "why": "needle is not in the dorsal nerve"},
-    {"check": "crosses", "a": "section-line", "b": "middle-finger", "why": "the section is through the middle finger"},
-    {"check": "leftOf", "a": "entry-hand-r", "b": "entry-hand-u", "why": "one entry on each side of the finger"},
-    {"check": "lengthRange", "a": "section-line", "min": 120, "max": 140, "why": "section spans the finger base (about 20 mm at 4.5 px/mm) plus 5 mm each side"}
+    {
+      "check": "below",
+      "a": "flexor-tendons",
+      "b": "phalanx",
+      "why": "flexor tendons are volar to the bone"
+    },
+    {
+      "check": "below",
+      "a": "phalanx",
+      "b": "extensor",
+      "why": "extensor mechanism is dorsal to the bone"
+    },
+    {
+      "check": "below",
+      "a": "volar-nerve-u",
+      "b": "dorsal-nerve-u",
+      "why": "volar nerve is volar, dorsal nerve dorsal"
+    },
+    {
+      "check": "below",
+      "a": "volar-nerve-u",
+      "b": "volar-artery-u",
+      "why": "in the digit the nerve lies volar to the artery"
+    },
+    {
+      "check": "leftOf",
+      "a": "flexor-sheath",
+      "b": "volar-nerve-u",
+      "why": "volar bundle is lateral to the sheath"
+    },
+    {
+      "check": "leftOf",
+      "a": "volar-nerve-r",
+      "b": "flexor-sheath",
+      "why": "volar bundle is lateral to the sheath, both sides"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle-u",
+      "maxLean": 0.5,
+      "why": "needle runs from dorsal toward volar"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle-r",
+      "maxLean": 0.5,
+      "why": "needle runs from dorsal toward volar"
+    },
+    {
+      "check": "crosses",
+      "a": "needle-u",
+      "b": "skin-cut",
+      "why": "needle enters the skin"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-u",
+      "b": "phalanx",
+      "why": "needle passes beside the bone"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-r",
+      "b": "phalanx",
+      "why": "needle passes beside the bone"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-u",
+      "b": "volar-nerve-u",
+      "why": "needle is not in the nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-u",
+      "b": "volar-artery-u",
+      "why": "needle is not in the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-r",
+      "b": "volar-nerve-r",
+      "why": "needle is not in the nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-r",
+      "b": "volar-artery-r",
+      "why": "needle is not in the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-u",
+      "b": "dorsal-nerve-u",
+      "why": "needle is not in the dorsal nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-r",
+      "b": "dorsal-nerve-r",
+      "why": "needle is not in the dorsal nerve"
+    },
+    {
+      "check": "crosses",
+      "a": "section-line",
+      "b": "middle-finger",
+      "why": "the section is through the middle finger"
+    },
+    {
+      "check": "leftOf",
+      "a": "entry-hand-r",
+      "b": "entry-hand-u",
+      "why": "one entry on each side of the finger"
+    },
+    {
+      "check": "lengthRange",
+      "a": "section-line",
+      "min": 120,
+      "max": 140,
+      "why": "section spans the finger base (about 20 mm at 4.5 px/mm) plus 5 mm each side"
+    }
   ]
 }

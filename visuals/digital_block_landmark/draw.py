@@ -1,5 +1,11 @@
 """Digital nerve block - the back of the hand, and the finger base in section.
 
+Painted base plus code-drawn markings. The art is a Gemini Nano Banana Pro
+repaint of this file's code layout (provenance.json); the painting lies on
+the layout within a few pixels, so the layout shapes below stay in place as
+the invisible label and check regions (DEBUG=1 shows them). Re-check them
+against the painting if the base is replaced.
+
 Two panels, one plate. Left: the back of a right hand, fingers up, so the
 thumb is on the left; the operator's view for a dorsal approach. The two red
 dots are the entries at the dorsolateral base of the middle finger, at the
@@ -26,7 +32,9 @@ Run: python3 visuals/digital_block_landmark/draw.py
 
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -35,6 +43,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "digital_block_landmark"
+BASE = "base.jpg"
+BASE_SIZE = (1195.0, 896.0)
+BASE_SCALE = 1600 / BASE_SIZE[0]
+BASE_OFFSET_Y = (1200 - BASE_SIZE[1] * BASE_SCALE) / 2
 
 HAND_PX_MM, HAND_ORIGIN = 4.5, (380.0, 690.0)
 CUT_PX_MM, CUT_ORIGIN = 22.0, (1225.0, 575.0)
@@ -195,6 +207,8 @@ DEFS = """
 
 
 def build() -> str:
+    debug = os.environ.get("DEBUG") == "1"
+    base_sha = hashlib.sha256(Path(__file__).with_name(BASE).read_bytes()).hexdigest()
     hand = hpath(hand_outline(), closed=True, tension=0.8)
 
     # Faint extensor tendons on the back of the hand, wrist to each knuckle.
@@ -233,7 +247,7 @@ def build() -> str:
         m = (lambda p: p) if sign > 0 else mirror
         return "".join(
             f'<ellipse id="deposit-{k}-{suffix}" class="marking" cx="{fmt(s(m(c))[0])}" cy="{fmt(s(m(c))[1])}" '
-            f'rx="{fmt(rx * CUT_PX_MM)}" ry="{fmt(ry * CUT_PX_MM)}" fill="#0E8C98" fill-opacity="0.3" stroke="#0E8C98" stroke-width="4"/>'
+            f'rx="{fmt(rx * CUT_PX_MM)}" ry="{fmt(ry * CUT_PX_MM)}" fill="#0E8C98" fill-opacity="0.14" stroke="#0E8C98" stroke-width="4"/>'
             for k, (c, rx, ry) in zip(("dorsal", "volar"), DEPOSITS))
 
     def needle(sign, suffix):
@@ -252,7 +266,9 @@ def build() -> str:
     ]
 
     body = f"""
-<g id="anatomy">
+<g id="anatomy" data-base-sha256="{base_sha}">
+  <image href="{BASE}" x="0" y="{fmt(BASE_OFFSET_Y)}" width="1600" height="{fmt(BASE_SIZE[1] * BASE_SCALE)}" preserveAspectRatio="none"/>
+  <g id="traced" opacity="{0.35 if debug else 0}">
   <g id="hand-panel">
     <path id="hand" d="{hand}" fill="url(#skin)" stroke="#C9A08A" stroke-width="3" filter="url(#lift)"/>
     <g clip-path="url(#hand-clip)">
@@ -275,11 +291,13 @@ def build() -> str:
     {ellipse(FDP, 'id="flexor-tendons" fill="#F7F3EA" stroke="#BDB4A0" stroke-width="2.5"')}
     <path id="phalanx" d="{spath(BONE, closed=True)}" fill="url(#cut-bone)" stroke="#A8977A" stroke-width="6"/>
     <path d="{spath(MARROW, closed=True)}" fill="#E9D9B4" opacity="0.8"/>
-    {deposits(+1, "u")}
-    {deposits(-1, "r")}
     {side(+1, "u")}
     {side(-1, "r")}
   </g>
+  </g>
+
+  {deposits(+1, "u")}
+  {deposits(-1, "r")}
 
   <g class="marking">
     <line id="section-line" x1="{fmt(cut_a[0])}" y1="{fmt(cut_a[1])}" x2="{fmt(cut_b[0])}" y2="{fmt(cut_b[1])}"

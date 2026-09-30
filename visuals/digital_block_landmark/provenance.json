@@ -1,0 +1,17 @@
+{
+  "base": "base.jpg",
+  "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+  "generatedBy": "owner, in the Gemini app",
+  "date": "2026-09-30",
+  "sourceSize": [
+    1195,
+    896
+  ],
+  "reference": "Unlabelled render of the code-drawn digital_block_landmark layout (commit 9d8ec3c draw.py, --reference): back of a right hand, and the middle-finger base in section.",
+  "prompt": "The attached image is an exact anatomical layout in two panels. Left: the back of a right hand, fingers pointing up, thumb on the left, with fingernails and knuckle creases. Right: a cross-section through the base of one finger, back of the finger at the top: skin and yellow subcutaneous fat around the outside, the bone (proximal phalanx) in the middle, a thin white extensor tendon band over the top of the bone, the white flexor tendons in their sheath below the bone, a red artery and a larger yellow nerve at each lower corner, a small yellow nerve at each upper corner, and two small blue veins at the top. Repaint it as a premium medical-atlas illustration. Keep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: soft painted shading, fine crisp outlines, realistic skin, fat, bone and tendon textures, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, arrows, needles, instruments, hands or blood.",
+  "repairs": [
+    "Remove the cut-open window on the back of the hand and paint normal intact skin there instead, like the rest of the hand. Keep everything else in the image the same."
+  ],
+  "rejected": "The first painting opened a window in the back of the hand showing invented bones and tendons (spongy bone texture on the metacarpal shafts). The section panel was already correct and survived the repair unchanged.",
+  "knownLimits": "Gemini added a thin vertical divider between the panels (owner accepted it). The layout's faint extensor tendons and knuckle shading on the back of the hand are gone; the hand is plain skin. The painted flexor tendons are a stylised cluster, not a clear FDS/FDP split. Needles, entries, deposits and the section line are code-drawn."
+}
