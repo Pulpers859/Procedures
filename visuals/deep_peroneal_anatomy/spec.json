@@ -1,0 +1,38 @@
+{
+  "assetId": "deep_peroneal_anatomy",
+  "procedure": "block_deep_peroneal",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right anterior ankle at the malleoli under a linear probe, seen from the feet as on ultrasound: lateral on the image left, medial on the right, skin at the top.",
+  "teachingPoint": "The deep peroneal nerve lies beside the anterior tibial artery, usually lateral to it, between the EHL and EDL tendons; the injectate surrounds the artery and nerve.",
+  "claims": [
+    "Right ankle in section, seen from the feet: lateral on the left, the same way round as the positioning plate.",
+    "Anterior tibial artery with the deep peroneal nerve lateral to it (record, anatomy and steps).",
+    "Artery and nerve lie between the EHL tendon (medial) and the EDL tendons (lateral) (record, anatomy).",
+    "Added standard anatomy: tibialis anterior tendon most medial, venae comitantes, extensor retinaculum, distal tibia.",
+    "Needle in-plane from lateral (added; the record does not name the approach), tip lateral to the nerve beside the artery.",
+    "Teal: injectate next to the artery, around the nerve (record, steps 5).",
+    "Four labels: Deep peroneal n., Anterior tibial a., EHL, EDL."
+  ],
+  "requiredElements": ["skin", "bone", "retinaculum", "tibialis-anterior", "ehl", "edl", "anterior-tibial-artery", "deep-peroneal-nerve", "probe", "needle", "needle-entry", "needle-tip", "spread"],
+  "labels": {
+    "Deep peroneal n.": "deep-peroneal-nerve",
+    "Anterior tibial a.": "anterior-tibial-artery",
+    "EHL": "ehl",
+    "EDL": "edl"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "deep-peroneal-nerve", "b": "anterior-tibial-artery", "why": "nerve lateral to the artery (lateral is left)"},
+    {"check": "leftOf", "a": "anterior-tibial-artery", "b": "ehl", "why": "EHL medial to the bundle"},
+    {"check": "leftOf", "a": "edl", "b": "deep-peroneal-nerve", "why": "EDL lateral to the bundle"},
+    {"check": "leftOf", "a": "ehl", "b": "tibialis-anterior", "why": "tibialis anterior most medial"},
+    {"check": "noOverlap", "a": "deep-peroneal-nerve", "b": "anterior-tibial-artery", "why": "nerve beside, not in, the artery"},
+    {"check": "noOverlap", "a": "anterior-tibial-artery", "b": "bone", "why": "bundle lies on, not in, the bone"},
+    {"check": "leftOf", "a": "needle-entry", "b": "probe", "why": "needle enters lateral to the probe"},
+    {"check": "within", "a": "needle-tip", "b": "spread", "why": "tip in the injectate"},
+    {"check": "leftOf", "a": "needle-tip", "b": "deep-peroneal-nerve", "why": "tip lateral to the nerve"},
+    {"check": "noOverlap", "a": "needle", "b": "deep-peroneal-nerve", "why": "needle stops short of the nerve"},
+    {"check": "noOverlap", "a": "needle", "b": "anterior-tibial-artery", "why": "needle clear of the artery"},
+    {"check": "crosses", "a": "deep-peroneal-nerve", "b": "spread", "why": "injectate reaches the nerve"},
+    {"check": "crosses", "a": "anterior-tibial-artery", "b": "spread", "why": "injectate next to the artery"}
+  ]
+}
