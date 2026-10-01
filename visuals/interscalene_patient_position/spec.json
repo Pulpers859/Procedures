@@ -1,0 +1,75 @@
+{
+  "assetId": "interscalene_patient_position",
+  "procedure": "block_interscalene",
+  "title": "Probe and needle on the patient",
+  "view": "Right neck from above, patient supine, head turned to the left: head at the top, the patient's right (posterior neck) on the image left, as the anatomy plate.",
+  "teachingPoint": "Probe transverse across the lateral border of the sternocleidomastoid, about 3 cm above the clavicle; needle in-plane from the posterior (lateral) end.",
+  "claims": [
+    "Right neck from above, head turned left; lateral on the image left, the same way round as the anatomy plate.",
+    "Linear probe transverse at the interscalene level, across the SCM's lateral border, about 3 cm above the clavicle (record subtitle; NYSORA 2-3 cm, concept).",
+    "Needle entering just beyond the probe's posterior end, in line: in-plane from posterior to anterior (record, steps 6).",
+    "Purple dashes: the SCM's lateral border.",
+    "Three labels: Sternocleidomastoid, Clavicle, External jugular."
+  ],
+  "requiredElements": [
+    "skin",
+    "scm",
+    "scm-border",
+    "clavicle",
+    "ejv",
+    "ear",
+    "jaw",
+    "probe",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Sternocleidomastoid": "scm",
+    "Clavicle": "clavicle",
+    "External jugular": "ejv"
+  },
+  "geometry": [
+    {
+      "check": "crosses",
+      "a": "scm-border",
+      "b": "probe",
+      "why": "probe straddles the SCM's lateral border"
+    },
+    {
+      "check": "below",
+      "a": "clavicle",
+      "b": "probe",
+      "why": "probe is above the clavicle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "clavicle",
+      "b": "probe",
+      "why": "probe is clear of the clavicle"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "needle enters at the posterior (lateral) end"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle",
+      "b": "probe",
+      "why": "needle comes from posterior"
+    },
+    {
+      "check": "leftOf",
+      "a": "ear",
+      "b": "probe",
+      "why": "head is turned away; the ear is up and lateral"
+    },
+    {
+      "check": "crosses",
+      "a": "ejv",
+      "b": "probe",
+      "why": "probe lies over the external jugular, as NYSORA places it"
+    }
+  ]
+}

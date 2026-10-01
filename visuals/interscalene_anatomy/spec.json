@@ -1,0 +1,202 @@
+{
+  "assetId": "interscalene_anatomy",
+  "procedure": "block_interscalene",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right neck at the interscalene level under a linear probe, seen from the feet as on ultrasound: lateral (posterior neck) on the image left, medial (carotid) on the right.",
+  "teachingPoint": "C5-C7 stacked in the groove between the scalenes; needle in-plane from lateral through the middle scalene, tip in the groove beside (not on) the roots; the phrenic nerve sits on the anterior scalene, medial to the target.",
+  "claims": [
+    "Right neck in section, lateral on the left, as on ultrasound (house laterality; NYSORA's plate mirrored).",
+    "C5-C7 roots stacked between anterior and middle scalenes (record, subtitle).",
+    "Phrenic nerve on the anterior scalene; carotid and IJV medial to it (record, subtitle).",
+    "Needle in-plane from lateral through the middle scalene, tip in the groove (record, steps 6-7).",
+    "Teal: spread around C5-C7 (record, steps 9).",
+    "Five labels: Middle scalene, C5-C7 roots, Anterior scalene, Phrenic nerve, Carotid."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "scm",
+    "cervical-fascia",
+    "asm",
+    "msm",
+    "c5",
+    "c6",
+    "c7",
+    "phrenic",
+    "carotid",
+    "ijv",
+    "vertebral",
+    "bone",
+    "probe",
+    "needle",
+    "needle-entry",
+    "spread"
+  ],
+  "labels": {
+    "Middle scalene": "msm",
+    "C5-C7 roots": "c7",
+    "Anterior scalene": "asm",
+    "Phrenic nerve": "phrenic",
+    "Carotid": "carotid"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "msm",
+      "why": "middle scalene is lateral to the roots (lateral is left)",
+      "b": "c6"
+    },
+    {
+      "check": "leftOf",
+      "a": "c6",
+      "why": "anterior scalene is medial to the roots",
+      "b": "asm"
+    },
+    {
+      "check": "below",
+      "a": "c6",
+      "why": "C6 deeper than C5 (stoplight)",
+      "b": "c5"
+    },
+    {
+      "check": "below",
+      "a": "c7",
+      "why": "C7 deeper than C6",
+      "b": "c6"
+    },
+    {
+      "check": "noOverlap",
+      "a": "c5",
+      "why": "root in the groove, not in muscle",
+      "b": "asm"
+    },
+    {
+      "check": "noOverlap",
+      "a": "c6",
+      "why": "root in the groove",
+      "b": "asm"
+    },
+    {
+      "check": "noOverlap",
+      "a": "c7",
+      "why": "root in the groove",
+      "b": "asm"
+    },
+    {
+      "check": "noOverlap",
+      "a": "c5",
+      "why": "root in the groove",
+      "b": "msm"
+    },
+    {
+      "check": "noOverlap",
+      "a": "c6",
+      "why": "root in the groove",
+      "b": "msm"
+    },
+    {
+      "check": "noOverlap",
+      "a": "c7",
+      "why": "root in the groove",
+      "b": "msm"
+    },
+    {
+      "check": "below",
+      "a": "asm",
+      "why": "phrenic lies on the anterior scalene's surface",
+      "b": "phrenic"
+    },
+    {
+      "check": "noOverlap",
+      "a": "phrenic",
+      "why": "phrenic is on, not in, the muscle",
+      "b": "asm"
+    },
+    {
+      "check": "leftOf",
+      "a": "asm",
+      "why": "carotid is medial to the anterior scalene",
+      "b": "carotid"
+    },
+    {
+      "check": "leftOf",
+      "a": "asm",
+      "why": "IJV is medial to the anterior scalene",
+      "b": "ijv"
+    },
+    {
+      "check": "crosses",
+      "a": "needle",
+      "why": "needle passes through the middle scalene",
+      "b": "msm"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "why": "needle stops before the anterior scalene",
+      "b": "asm"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "why": "needle avoids the roots",
+      "b": "c5"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "why": "needle avoids the roots",
+      "b": "c6"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "why": "needle avoids the roots",
+      "b": "c7"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "why": "needle well away from the phrenic",
+      "b": "phrenic"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "why": "entry lateral to the probe (in-plane from lateral)",
+      "b": "probe"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle",
+      "why": "needle runs from skin inward, lateral to medial",
+      "maxLean": 1.6
+    },
+    {
+      "check": "crosses",
+      "a": "c6",
+      "why": "spread surrounds the roots",
+      "b": "spread"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "why": "spread stays in the groove",
+      "b": "carotid"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "why": "spread drawn within the sheath, short of the phrenic",
+      "b": "phrenic"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the spread, in the groove"
+    }
+  ]
+}
