@@ -25,7 +25,9 @@ Run: python3 visuals/inferior_alveolar_patient_position/draw.py
 
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -34,6 +36,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "inferior_alveolar_patient_position"
+BASE = Path(__file__).with_name("base.jpg")
+BASE_SIZE = (1200.0, 896.0)
 PX_MM = 14.5
 ORIGIN = (800.0, 610.0)
 
@@ -65,7 +69,10 @@ LOWER_MOLARS_OCCLUSAL_Y = 4.0                       # top of the lower molars
 TONGUE = [(-15, 13), (-14, 5), (-8, 1.6), (0, 0.6), (8, 1.6), (14, 5), (15, 13), (8, 16.4), (0, 17), (-8, 16.4)]
 PHARYNX = ((0.0, -4.0), 8.6, 7.2)
 UVULA = [(-1.6, -11.4), (1.6, -11.4), (1.4, -6.0), (0, -4.6), (-1.4, -6.0)]
-RAPHE = [(-19.0, -10.6), (-19.4, -6), (-19.4, -1), (-18.8, 3.4)]
+# On the painting the raphe ridge is traced at canvas x 492, 1.7 mm lateral of
+# the layout's; the entry is the midpoint to the traced ridge.
+RAPHE = ([(-21.0, -10.6), (-21.3, -6), (-21.3, -1), (-21.0, 3.4)] if BASE.exists()
+         else [(-19.0, -10.6), (-19.4, -6), (-19.4, -1), (-18.8, 3.4)])
 CHEEK_RIGHT = [(-28.6, -11), (-26.4, -5), (-25.8, 2), (-27.6, 9), (-28.6, 11)]
 
 CORONOID_NOTCH = (-26.4, -5.0)                      # felt through the cheek; the thumb's place
@@ -111,12 +118,25 @@ def build() -> str:
     labels = [
         Label(["Coronoid notch"], anchor=(40, 260), leader=[(200, 290), (notch[0] - 18, notch[1] - 12)],
               target_id="coronoid-notch"),
-        Label(["Pterygomandibular", "raphe"], anchor=(40, 980), leader=[(230, 930), c((-19.6, -1.0))], target_id="raphe",
+        Label(["Pterygomandibular", "raphe"], anchor=(40, 980), leader=[(230, 930), c((RAPHE[2][0], 1.0))], target_id="raphe",
               emphasis=True),
     ]
 
+    painted = BASE.exists()
+    debug = os.environ.get("DEBUG") == "1"
+    scale = 1600 / BASE_SIZE[0]
+    if painted:
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - BASE_SIZE[1] * scale) / 2)}" width="1600" '
+                      f'height="{fmt(BASE_SIZE[1] * scale)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if debug else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
+
     body = f"""
-<g id="anatomy">
+<g id="painting"{base_attr}>{base_image}</g>
+<g id="anatomy"{layout_attr}>
   <rect id="face" x="0" y="0" width="1600" height="1200" fill="url(#skin-grad)"/>
   <path id="lips" d="{path(LIPS, closed=True, tension=0.7)}" fill="url(#lip)" stroke="#9E554F" stroke-width="3"/>
   <path id="oral-cavity" d="{path(oval(*MOUTH), closed=True)}" fill="url(#cavity)" stroke="#8E4A45" stroke-width="3"/>
@@ -133,8 +153,10 @@ def build() -> str:
 </g>
 
 <g class="marking">
-  <circle id="coronoid-notch" cx="{fmt(notch[0])}" cy="{fmt(notch[1])}" r="20" fill="none" stroke="#4A2F7A" stroke-width="6"/>
+  <circle id="coronoid-notch" cx="{fmt(notch[0])}" cy="{fmt(notch[1])}" r="28" fill="none" stroke="#4A2F7A" stroke-width="7"/>
   <polygon id="syringe" points="{' '.join(f'{fmt(x)},{fmt(y)}' for x, y in barrel)}" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
+  <line x1="{fmt(h[0] + U[0] * 18)}" y1="{fmt(h[1] + U[1] * 18)}" x2="{fmt(b0[0])}" y2="{fmt(b0[1])}" stroke="#FFFFFF" stroke-width="7" opacity="0.7" transform="translate({fmt(nx * -bw * 0.45)} {fmt(ny * -bw * 0.45)})"/>
+  <line x1="{fmt(h[0] + U[0] * 14)}" y1="{fmt(h[1] + U[1] * 14)}" x2="{fmt(h[0] + U[0] * 40)}" y2="{fmt(h[1] + U[1] * 40)}" stroke="#6E7780" stroke-width="{fmt(2 * bw + 2)}" stroke-linecap="butt"/>
   <line id="needle" x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(e[0])}" y2="{fmt(e[1])}" stroke="#5E6670" stroke-width="6" stroke-linecap="butt"/>
   <line x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(e[0])}" y2="{fmt(e[1])}" stroke="#D9DEE3" stroke-width="2.5" stroke-linecap="butt"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>

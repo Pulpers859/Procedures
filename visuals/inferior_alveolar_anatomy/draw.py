@@ -30,7 +30,9 @@ Run: python3 visuals/inferior_alveolar_anatomy/draw.py
 
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -39,6 +41,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "inferior_alveolar_anatomy"
+BASE = Path(__file__).with_name("base.jpg")
+BASE_SIZE = (1200.0, 896.0)
 PX_MM = 1600 / 140.0
 ORIGIN = (800.0, 5 * PX_MM)       # canvas of the midline at the incisors
 
@@ -88,12 +92,12 @@ BUCCINATOR = [(-21.0, 58.4), (-26.0, 52.6), (-30.2, 45), (-31.6, 36), (-31.0, 26
 CONSTRICTOR = [(-21.0, 58.4), (-18.8, 66), (-16.4, 74), (-12.0, 80.6), (-5.0, 83.6), (0, 84.2)]
 RAPHE = (-21.0, 58.4)
 PHARYNX = ((0.0, 88.6), 10.6, 4.4)
-IAN = (-40.4, 70.0)                # inferior alveolar nerve at the foramen, with its artery and vein
-IAN_R = 1.5
-IA_ARTERY = (-39.2, 72.6)
-IA_VEIN = (-41.6, 73.0)
+IAN = (-39.8, 70.2)                # inferior alveolar nerve at the foramen, with its artery and vein
+IAN_R = 1.9
+IA_ARTERY = (-38.0, 73.2)
+IA_VEIN = (-41.0, 73.8)
 LINGUAL = (-33.8, 63.0)            # anterior and medial to the inferior alveolar nerve
-LINGUAL_R = 1.2
+LINGUAL_R = 1.5
 
 # The syringe barrel rests over the opposite (left) premolars; the needle runs
 # straight from there to bone, entering the mucosa between the ramus's
@@ -133,8 +137,34 @@ DEFS = """
 <linearGradient id="tongue-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9766E"/><stop offset="1" stop-color="#B9524C"/></linearGradient>
 <linearGradient id="gland" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8C9A0"/><stop offset="1" stop-color="#D9B386"/></linearGradient>
 <linearGradient id="barrel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F6F8"/><stop offset="1" stop-color="#C9D1D8"/></linearGradient>
+<filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2"/></filter>
 <clipPath id="frame"><rect x="0" y="0" width="1600" height="1200"/></clipPath>
 """
+
+
+def painted_nerves():
+    """On the painting the nerves and vessels are drawn here, cut across as
+    the section cuts them: soft round nerves with a pale sheath and fascicles,
+    and the inferior alveolar artery and vein beside the nerve."""
+    def nerve(center, r, n_fasc):
+        p = c(center)
+        R = r * PX_MM
+        fasc = "".join(
+            f'<circle cx="{fmt(p[0] + 0.45 * R * math.cos(2 * math.pi * k / n_fasc))}" '
+            f'cy="{fmt(p[1] + 0.45 * R * math.sin(2 * math.pi * k / n_fasc))}" r="{fmt(0.32 * R)}" fill="#C9B23E" '
+            f'stroke="#8F7A1E" stroke-width="1.5"/>' for k in range(n_fasc))
+        return (f'<circle cx="{fmt(p[0] + 1.5)}" cy="{fmt(p[1] + 2.5)}" r="{fmt(R + 2)}" fill="#000" opacity="0.18" filter="url(#soft)"/>'
+                f'<circle cx="{fmt(p[0])}" cy="{fmt(p[1])}" r="{fmt(R)}" fill="#E6D27A" stroke="#9C8526" stroke-width="2.5"/>{fasc}'
+                f'<circle cx="{fmt(p[0] - 0.35 * R)}" cy="{fmt(p[1] - 0.4 * R)}" r="{fmt(0.22 * R)}" fill="#FFF8D8" opacity="0.7"/>')
+
+    def vessel(center, r, fill, wall):
+        p = c(center)
+        R = r * PX_MM
+        return (f'<circle cx="{fmt(p[0])}" cy="{fmt(p[1])}" r="{fmt(R)}" fill="{wall}"/>'
+                f'<circle cx="{fmt(p[0])}" cy="{fmt(p[1])}" r="{fmt(R * 0.62)}" fill="{fill}"/>'
+                f'<circle cx="{fmt(p[0] - 0.3 * R)}" cy="{fmt(p[1] - 0.35 * R)}" r="{fmt(0.18 * R)}" fill="#fff" opacity="0.5"/>')
+    return ('<g id="nerves-drawn">' + vessel(IA_VEIN, 1.2, "#2B3F73", "#5B78B8") + vessel(IA_ARTERY, 0.95, "#7A1712", "#D2483D")
+            + nerve(IAN, IAN_R, 5) + nerve(LINGUAL, LINGUAL_R, 3) + '</g>')
 
 
 def build() -> str:
@@ -149,20 +179,34 @@ def build() -> str:
               (b0[0] - nx * bw, b0[1] - ny * bw), (h[0] - nx * bw, h[1] - ny * bw)]
 
     labels = [
-        Label(["Inferior alveolar", "nerve"], anchor=(40, 1050), leader=[(230, 1000), c((IAN[0] - 0.4, IAN[1] + 0.6))],
+        Label(["Ramus"], anchor=(40, 480), leader=[(150, 505), c((-45.6, 60.0))], target_id="ramus"),
+        Label(["Lingual nerve"], anchor=(640, 790), leader=[(650, 775), c((LINGUAL[0] + 1.2, LINGUAL[1]))],
+              target_id="lingual-nerve"),
+        Label(["Inferior alveolar", "nerve"], anchor=(40, 990), leader=[(300, 945), c((IAN[0] + 0.6, IAN[1] - 0.6))],
               target_id="ian", emphasis=True),
-        Label(["Lingual nerve"], anchor=(560, 1060), leader=[(620, 1010), c(LINGUAL)], target_id="lingual-nerve"),
-        Label(["Medial pterygoid"], anchor=(560, 960), leader=[(640, 920), c((-31.0, 72.0))], target_id="medial-pterygoid"),
-        Label(["Parotid"], anchor=(40, 870), leader=[(140, 900), c((-56.0, 94.0))], target_id="parotid"),
-        Label(["Ramus"], anchor=(40, 520), leader=[(150, 545), c((-45.6, 66.0))], target_id="ramus"),
+        Label(["Medial pterygoid"], anchor=(600, 1010), leader=[(640, 965), c((-31.0, 74.0))], target_id="medial-pterygoid"),
+        Label(["Parotid"], anchor=(250, 1140), leader=[(244, 1128), c((-55.0, 96.0))], target_id="parotid"),
     ]
 
     teeth = "".join(tooth(ct, a, b_, ang, 'class="tooth" fill="#F7F3E8" stroke="#B9AE95" stroke-width="3"')
                     + tooth((-ct[0], ct[1]), a, b_, -ang, 'fill="#F7F3E8" stroke="#B9AE95" stroke-width="3"')
                     for ct, a, b_, ang in TEETH)
 
+    painted = BASE.exists()
+    debug = os.environ.get("DEBUG") == "1"
+    scale = 1600 / BASE_SIZE[0]
+    if painted:
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - BASE_SIZE[1] * scale) / 2)}" width="1600" '
+                      f'height="{fmt(BASE_SIZE[1] * scale)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if debug else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
+
     body = f"""
-<g id="anatomy" clip-path="url(#frame)">
+<g id="painting"{base_attr}>{base_image}</g>
+<g id="anatomy"{layout_attr} clip-path="url(#frame)">
   <path id="face" d="{path(face, closed=True, tension=0.7)}" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="4"/>
   <path id="subcutaneous-fat" d="{path(both([(0, -0.6), (-12, 0), (-24, 4), (-37, 13), (-48.6, 27.6), (-56.4, 45), (-60.4, 62), (-61.4, 80), (-62.4, 98), (-62.4, 112)]), closed=True, tension=0.7)}" fill="url(#fat)"/>
   <path id="oral-cavity" d="{path(oral, closed=True, tension=0.7)}" fill="#E7A39A" stroke="#C97C73" stroke-width="3"/>
@@ -191,8 +235,12 @@ def build() -> str:
   {circle(LINGUAL, LINGUAL_R, 'id="lingual-nerve" fill="#EFCB5A" stroke="#B8962E" stroke-width="3"')}
 </g>
 
+{painted_nerves() if painted else ""}
+
 <g class="marking">
   <polygon id="syringe" points="{' '.join(f'{fmt(x)},{fmt(y)}' for x, y in barrel)}" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
+  <line x1="{fmt(h[0] - dx * 10)}" y1="{fmt(h[1] - dy * 10)}" x2="{fmt(b0[0])}" y2="{fmt(b0[1])}" stroke="#FFFFFF" stroke-width="6" opacity="0.7"/>
+  <line x1="{fmt(h[0] - dx * 2)}" y1="{fmt(h[1] - dy * 2)}" x2="{fmt(h[0] - dx * 34)}" y2="{fmt(h[1] - dy * 34)}" stroke="#6E7780" stroke-width="{fmt(2 * bw + 2)}" stroke-linecap="butt"/>
   <line id="needle" x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="7" stroke-linecap="butt"/>
   <line x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="3" stroke-linecap="butt"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="8" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>

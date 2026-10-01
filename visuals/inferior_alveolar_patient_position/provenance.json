@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude, sending the prompts and attachments to Antigravity; reviewed by overlay before use",
+ "date": "2026-10-01",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the inferior_alveolar_patient_position layout (commit 8d60899 draw.py, --reference).",
+ "antigravityConversation": "13204970-e62e-4f84-93a5-9885f4183df4",
+ "prompt": "Prompt A (photo variant), new conversation, the layout reference as the only image: The attached image is an exact layout of an adult patient's wide-open mouth seen straight on from the front, filling the frame: the lips round the opening, the upper teeth along the top, the lower teeth along the bottom, the tongue resting on the floor of the mouth, the dark throat with the uvula in the centre, and on each side, behind the last molars, a pale vertical fold of mucosa (the pterygomandibular raphe) running between the upper and lower back teeth, with the pink inner lining of the cheek beyond it. Turn this into a realistic close-up clinical photograph of the open mouth, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural healthy teeth with real shapes and soft enamel sheen, moist pink oral mucosa, a natural tongue, softly lit lips and the surrounding facial skin with fine texture, shot straight on with soft even examination light from a headlamp, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, instruments, syringes, needles, hands, gloves, mouth props or blood, and no border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None; first painting accepted for review.",
+ "reviewNotes": "Overlay: lips, upper and lower teeth, tongue, uvula and throat lie on the layout within a few pixels; the upper back teeth are painted a little lower and narrower than drawn. Gemini painted the pterygomandibular fold as a real mucosal ridge about 1.7 mm lateral of the layout's line; the raphe region and the entry point (the midpoint to it) are traced on the painting. No instruments, hands or mouth prop. No watermark.",
+ "knownLimits": "The syringe and needle are code-drawn; the needle is foreshortened because it runs back into the mouth. The coronoid notch is felt through the cheek, not seen; its ring sits on the cheek lining where the layout placed it. No thumb is shown.",
+ "thirdPartyConcept": "The owner's clinical photograph of an inferior alveolar injection (NYSORA folder, 'Inferior Alveolar_1.png') was read for composition only; not attached and not committed."
+}
