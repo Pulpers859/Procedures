@@ -81,18 +81,24 @@ NECK = [(-90, -72), (-40, -68), (-10, -62), (12, -56), (19, -63), (35, -68), (60
 # Nerve courses: standard anatomy, branching checked against two third-party
 # concept plates the owner shared on 2026-09-30 (Anesthesia Key / Aneskey scalp
 # and face innervation). Used for understanding only; not copied, not committed.
-STA = [(17, -14), (16.5, -10), (16.5, 10), (17.5, 28)]
-STA_BRANCHES = [[(17.5, 28), (24, 40), (33, 52)], [(17.5, 28), (18.5, 40), (19.5, 52)]]
-ATN = [(12.5, -9), (12.2, -3), (11.8, 5), (11.5, 18), (12, 28)]
-ATN_BRANCHES = [[(12, 28), (19, 38), (27, 52)], [(12, 28), (14, 40), (14.5, 52)], [(12, 28), (9, 40), (6, 52)]]
-ATN_TWIGS = [[(11.9, 0), (10, 1)], [(11.6, 16), (8.5, 19)]]
-GAN = [(-40, -80), (-25, -62), (-12, -48), (-6, -42)]
-GAN_BRANCHES = [[(-6, -42), (4, -45), (13, -47)],                     # anterior: short, over the angle and parotid
-                [(-6, -42), (-3, -38), (-1.5, -34.5)],               # to the lobe
-                [(-6, -42), (-14, -32), (-20, -18), (-22, -4)]]       # posterior: back of the ear, mastoid
-LON = [(-62, -80), (-49, -50), (-39, -20), (-35, 5), (-33, 20)]
-LON_BRANCHES = [[(-33, 20), (-37, 35), (-41, 52)], [(-33, 20), (-27, 36), (-23, 52)]]
-LON_TWIG = [(-35, 8), (-27, 14), (-18.5, 18)]
+# Each branch starts with a lead-in point on its parent a few mm before the
+# junction, so it peels off along the parent's line instead of at an angle.
+STA = [(17.5, -14), (16.6, -4), (16.2, 8), (16.8, 20), (18, 28)]
+STA_BRANCHES = [[(17.4, 24), (18, 28), (22, 36), (27, 44), (33.5, 52)],
+                [(17.4, 24), (18, 28), (18.4, 36), (18.9, 44), (19.8, 52)]]
+ATN = [(12.6, -9), (12.1, -2), (11.7, 6), (11.5, 15), (11.8, 23), (12.2, 28)]
+ATN_BRANCHES = [[(11.9, 24.5), (12.2, 28), (15.5, 34), (20.5, 41), (27, 52)],
+                [(11.9, 24.5), (12.2, 28), (13.2, 35), (14, 43), (14.6, 52)],
+                [(11.9, 24.5), (12.2, 28), (11, 35), (8.6, 43), (6, 52)]]
+ATN_TWIGS = [[(11.9, 3), (11.7, 0.5), (10.6, 0.6), (9.8, 1.4)], [(11.6, 19), (11.5, 16.5), (10, 17.8), (8.5, 19.4)]]
+GAN = [(-40, -80), (-31.5, -69.5), (-23, -60), (-15.5, -51.5), (-9.5, -45.2), (-6, -42)]
+GAN_BRANCHES = [[(-8.5, -44.2), (-6, -42), (-1, -43.4), (5, -45.2), (13, -47)],          # anterior: short, over the angle and parotid
+                [(-8.5, -44.2), (-6, -42), (-3.8, -39.2), (-2.3, -36.8), (-1.5, -34.5)],  # to the lobe
+                [(-8.5, -44.2), (-6, -42), (-10.5, -37), (-15.5, -29.5), (-19.3, -20), (-21.3, -11), (-22, -4)]]  # posterior
+LON = [(-62, -80), (-55, -64), (-48.5, -48), (-43, -32), (-38.5, -15), (-35.4, 2), (-33.8, 13), (-33, 20)]
+LON_BRANCHES = [[(-33.4, 16), (-33, 20), (-34.6, 28), (-37.3, 37), (-39.5, 45), (-41, 52)],
+                [(-33.4, 16), (-33, 20), (-30.4, 28), (-27.5, 36.5), (-25, 44.5), (-23, 52)]]
+LON_TWIG = [(-35.2, 4), (-35, 8), (-31, 10.6), (-26.5, 13.8), (-22.3, 16.3), (-18.5, 18)]
 
 INFERIOR_SITE = (-1.5, -37.5)
 SUPERIOR_SITE = (-4, 37.5)
@@ -112,30 +118,63 @@ def build() -> str:
     tracks = "".join(
         f'<path id="{tid}" d="{path(pts)}" fill="none" stroke="#0E8C98" stroke-width="9" stroke-linecap="round" opacity="0.8"/>'
         for tid, pts in TRACKS.items())
-    def cord(pid, ps, w, body, edge, shine):
-        """A soft painted cord: blurred shadow, translucent body, blurred highlight.
-        The owner rejected hard-edged cords (2026-10-01) as clashing with the painting."""
-        d, px = path(ps), w * PX_PER_MM * 0.8
+    def taper(ps, w0, w1):
+        """Closed outline of a cord that narrows from w0 to w1 mm along a smooth spline."""
+        import math
+        pts_ = [c(p) for p in ps]
+        ext = [pts_[0]] + pts_ + [pts_[-1]]
+        line = []
+        for i in range(1, len(ext) - 2):
+            p0, p1, p2, p3 = ext[i - 1], ext[i], ext[i + 1], ext[i + 2]
+            for k in range(12):
+                t = k / 12
+                line.append(tuple(0.5 * (2 * p1[j] + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t * t
+                                         + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t ** 3) for j in (0, 1)))
+        line.append(pts_[-1])
+        n = len(line) - 1
+        left, right = [], []
+        for i, (x, y) in enumerate(line):
+            a_, b_ = line[max(i - 1, 0)], line[min(i + 1, n)]
+            dx, dy = b_[0] - a_[0], b_[1] - a_[1]
+            L = math.hypot(dx, dy) or 1
+            hw = (w0 + (w1 - w0) * (i / n) ** 0.8) * PX_PER_MM / 2
+            left.append((x - dy / L * hw, y + dx / L * hw))
+            right.append((x + dy / L * hw, y - dx / L * hw))
+        ring = left + right[::-1]
+        return "M" + " L".join(f"{fmt(x)} {fmt(y)}" for x, y in ring) + " Z"
+
+    shadow, body, shine = [], [], []
+
+    def cord(pid, ps, w, colour, w_end=None):
+        """A soft painted cord, tapered, drawn into three shared layers (owner, 2026-10-01:
+        hard, uniform cords looked pasted on and rigid)."""
+        d = taper(ps, w, w_end if w_end is not None else w * 0.45)
         ident = f' id="{pid}"' if pid else ""
-        return (f'<path d="{d}" fill="none" stroke="{edge}" stroke-width="{fmt(px + 3)}" stroke-linecap="round" opacity="0.28" filter="url(#soft)" transform="translate(1.5 2)"/>'
-                f'<path{ident} d="{d}" fill="none" stroke="{body}" stroke-width="{fmt(px)}" stroke-linecap="round" opacity="0.82"/>'
-                f'<path d="{d}" fill="none" stroke="{shine}" stroke-width="{fmt(max(px * 0.35, 2))}" stroke-linecap="round" opacity="0.55" filter="url(#soft)" transform="translate(-1 -1)"/>')
+        shadow.append(f'<path d="{d}" fill="{colour[1]}"/>')
+        body.append(f'<path{ident} d="{d}" fill="{colour[0]}"/>')
+        shine.append(f'<path d="{taper(ps, w * 0.28, w * 0.1)}" fill="{colour[2]}"/>')
+        return ""
 
-    def nerve(pid, ps, w):
-        return cord(pid, ps, w, "#E8D08A", "#7A5A2A", "#FFF8E0")
+    NERVE, ARTERY = ("#E8D08A", "#7A5A2A", "#FFF8E0"), ("#B8423A", "#5E1A16", "#F0B0A6")
 
-    def vessel(pid, ps, w):
-        return cord(pid, ps, w, "#B8423A", "#5E1A16", "#F0B0A6")
+    def nerve(pid, ps, w, w_end=None):
+        return cord(pid, ps, w, NERVE, w_end)
 
-    nerves = (vessel("sta", STA, 2.2) + "".join(vessel(None, b, 1.6) for b in STA_BRANCHES)
-              + nerve("auriculotemporal-nerve", ATN, 1.6)
+    def vessel(pid, ps, w, w_end=None):
+        return cord(pid, ps, w, ARTERY, w_end)
+
+    nerves = (vessel("sta", STA, 2.3, 1.8) + "".join(vessel(None, b, 1.6) for b in STA_BRANCHES)
+              + nerve("auriculotemporal-nerve", ATN, 1.7, 1.3)
               + "".join(nerve(f"atn-branch-{i}", t, 1.1) for i, t in enumerate(ATN_BRANCHES))
               + "".join(nerve(f"atn-twig-{i}", t, 0.9) for i, t in enumerate(ATN_TWIGS))
-              + nerve("great-auricular-nerve", GAN, 2.0)
+              + nerve("great-auricular-nerve", GAN, 2.2, 1.6)
               + "".join(nerve(pid, t, 1.3) for pid, t in zip(("gan-anterior", "gan-lobe", "gan-posterior"), GAN_BRANCHES))
-              + nerve("lesser-occipital-nerve", LON, 1.6)
+              + nerve("lesser-occipital-nerve", LON, 1.8, 1.2)
               + "".join(nerve(f"lon-branch-{i}", t, 1.1) for i, t in enumerate(LON_BRANCHES))
               + nerve("lon-twig", LON_TWIG, 0.9))
+    nerves = (f'<g opacity="0.3" filter="url(#soft)" transform="translate(1.5 2)">{"".join(shadow)}</g>'
+              f'<g opacity="0.85">{"".join(body)}</g>'
+              f'<g opacity="0.5" filter="url(#soft)" transform="translate(-0.8 -1)">{"".join(shine)}</g>')
     concha_zone = f'<path id="concha-zone" class="marking" d="{path(CONCHA, closed=True, tension=0.8)}" fill="#7A5AA8" fill-opacity="0.35" stroke="#7A5AA8" stroke-width="4" stroke-dasharray="14 10"/>'
     sites = "".join(
         f'<circle id="{sid}" cx="{fmt(c(p)[0])}" cy="{fmt(c(p)[1])}" r="16" fill="#C8322B" stroke="#FFFFFF" stroke-width="4"/>'
