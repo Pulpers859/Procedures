@@ -5705,9 +5705,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine or semi-recumbent, head turned slightly away. Linear probe transverse over the supraclavicular fossa, then trace the plexus cephalad to the interscalene level. Needle in-plane from posterior to anterior (lateral to medial), through the middle scalene.",
-        "assetName": null,
+        "assetName": "interscalene_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right side, head turned left, lateral on the left: probe transverse at the interscalene level, needle in-plane from the posterior end.",
         "clinicalWarning": null
       },
       {
@@ -5715,9 +5715,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "C5-C7 roots stacked between the anterior and middle scalene muscles (the 'stoplight' sign). The phrenic nerve runs over the anterior scalene; the carotid artery and internal jugular vein lie medial to it.",
-        "assetName": null,
+        "assetName": "interscalene_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right side in section under the probe, seen from the feet: lateral on the left.",
         "clinicalWarning": null
       }
     ],

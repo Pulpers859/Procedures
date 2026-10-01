@@ -69,5 +69,10 @@
       "b": "probe",
       "why": "probe lies over the external jugular, as NYSORA places it"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "7f4fcdcbbb2c720fdbe05129fbc8bf0f0b76de1910debdc4d44ee8a4bd96db55",
+    "reviewedOn": "2026-10-01"
+  }
 }

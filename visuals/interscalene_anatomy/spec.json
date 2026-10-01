@@ -198,5 +198,10 @@
       "maxPx": 0,
       "why": "tip in the spread, in the groove"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "61f447740506009eb09351ef4335818954b59de4037db6fcd261fce70fadb62e",
+    "reviewedOn": "2026-10-01"
+  }
 }
