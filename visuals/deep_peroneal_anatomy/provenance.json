@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+ "generatedBy": "owner, in the Gemini app",
+ "date": "2026-10-01",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the deep_peroneal_anatomy layout (commit d4915f7 draw.py, --reference).",
+ "prompt": "Prompt B, new chat; full text as sent to the owner on 2026-10-01: scientifically accurate cross-section of the front of a right ankle under a linear probe, seen from the feet, lateral left; every outline, position and size from image 1; image 2 for the retinaculum and the bundle's fascial sheath on the tibia only, following image 1 for sides; layers top down: skin, orange-gold fat, extensor retinaculum, striated pearl-white tendons, artery with two venae comitantes in a translucent sheath, olive-yellow nerve with two or three fascicles, tibia with ivory cortex over spongy bone; 'The picture shows only this anatomy.'",
+ "promptAttachments": "Image 1: the layout reference. Image 2: the owner's screenshot of NYSORA's deep peroneal reverse-ultrasound-anatomy panel (Fig-10, right).",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None; first painting accepted for review.",
+ "reviewNotes": "Overlay: every tendon, the artery, both veins, the nerve, the retinaculum and the tibial surface lie on the layout within a few pixels. Gemini painted the skin thinner than drawn and a paler deep fat under the retinaculum; it added the pale fascial sheath round the bundle as asked. No watermark in the corners.",
+ "knownLimits": "The tibial cortex is painted thicker than real (about 2.5 mm at this scale). The probe is a flat code-drawn shape over a painted section, as on the FICB plate. Depths are typical adult values; they vary with habitus.",
+ "thirdPartyConcept": "NYSORA deep peroneal nerve block plate (reverse ultrasound anatomy, Fig-10), shared by the owner on 2026-10-01 and attached as image 2 for understanding the anatomy only. Not committed. It is cut a little higher up the leg, where the EHL tendon still lies lateral to the artery; this plate follows the record (bundle between EHL and EDL) at the malleoli."
+}

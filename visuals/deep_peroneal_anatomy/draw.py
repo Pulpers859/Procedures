@@ -1,6 +1,10 @@
 """Deep peroneal nerve block - the right anterior ankle in section under a linear probe.
 
-Flat code layout for the owner's Gemini repaint (visuals/PLAYBOOK.md). The
+Painted base plus code-drawn markings. base.jpg is the owner's Gemini repaint
+(prompt B, with the owner's NYSORA plate attached for understanding only and
+not committed) of this file's flat layout (commit d4915f7). The painting lies
+on the layout within a few pixels, so the layout shapes stay as the invisible
+regions (DEBUG=1 shows them). Re-trace them if the base is replaced. The
 anatomy half of the pair; deep_peroneal_patient_position shows this probe on
 the patient.
 
@@ -20,7 +24,8 @@ used for understanding only and not committed). Sizes are typical adult
 values: artery about 3 mm, nerve about 2 mm, at about 7 mm deep; depths
 vary with habitus.
 
-Markings: the probe (medial edge to about 1 cm short of the lateral edge),
+Markings: the probe across the top of the field from beyond the medial edge
+to about 1 cm short of the lateral edge,
 the needle in-plane from lateral (owner, 2026-10-01) with its tip lateral
 to the nerve, and the teal injectate around the artery and nerve.
 
@@ -32,7 +37,9 @@ Run: python3 visuals/deep_peroneal_anatomy/draw.py
 
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -41,6 +48,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "deep_peroneal_anatomy"
+BASE = Path(__file__).with_name("base.jpg")
+BASE_SIZE = (1200.0, 896.0)
 PX_MM = 40.0
 ORIGIN = (800.0, 330.0)           # canvas of the skin surface above the artery
 X0, X1 = -20.0, 20.0              # frame edges in mm (lateral positive)
@@ -83,11 +92,13 @@ NEEDLE_OUT, NEEDLE_ENTRY, NEEDLE_TIP = (24.0, -6.3), (14.5, 0.0), (4.4, 6.75)
 
 
 def spread():
-    """Teal pool around the artery and nerve, under the retinaculum, above the bone."""
+    """Teal pool filling the painted sheath round the artery and nerve: rounded
+    over them and at both ends, its floor lying along the tibia."""
     pts = []
-    for i in range(36):
-        t = 2 * math.pi * i / 36
-        pts.append((1.0 + 4.6 * math.cos(t), 7.3 + 1.9 * math.sin(t)))
+    for i in range(48):
+        t = 2 * math.pi * i / 48
+        x = 0.6 + 4.3 * math.cos(t)
+        pts.append((x, min(7.4 + 2.1 * math.sin(t), bone_y(x) - 0.2)))
     return pts
 
 
@@ -114,6 +125,26 @@ def build() -> str:
     a, e, t = c(NEEDLE_OUT), c(NEEDLE_ENTRY), c(NEEDLE_TIP)
     p0, p1 = c((PROBE[0], 0)), c((PROBE[1], 0))
     left, right = min(p0[0], p1[0]), max(p0[0], p1[0])
+    painted = BASE.exists()
+    debug = os.environ.get("DEBUG") == "1"
+    if painted:
+        scale = 1600 / BASE_SIZE[0]
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - BASE_SIZE[1] * scale) / 2)}" width="1600" '
+                      f'height="{fmt(BASE_SIZE[1] * scale)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if debug else 0}"'
+        probe_top = -60.0
+    else:
+        base_attr = base_image = layout_attr = ""
+        probe_top = ORIGIN[1] - 150
+    face_y = ORIGIN[1]
+    # The fluid surrounds the vessels and the nerve: cut them out of the teal
+    # so the painted structures stay crisp inside it.
+    holes = "".join(ellipse(ctr, rx + 0.12, ry + 0.12, 'fill="#000"') for ctr, rx, ry in
+                    [NERVE, (ARTERY[0], ARTERY[1], ARTERY[1])] + VENAE)
+    spread_mask = (f'<mask id="spread-holes" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1200">'
+                   f'<rect width="1600" height="1200" fill="#fff"/>{holes}</mask>')
 
     labels = [
         Label(["Deep peroneal n."], anchor=(150, 980), leader=[(420, 930), c((2.9, 6.8))], target_id="deep-peroneal-nerve",
@@ -124,7 +155,10 @@ def build() -> str:
     ]
 
     body = f"""
-<g id="anatomy" clip-path="url(#frame)">
+{spread_mask}
+<g id="anatomy" clip-path="url(#frame)"{base_attr}>
+  {base_image}
+  <g id="layout"{layout_attr}>
   <path id="skin" d="{path(skin, closed=True, tension=0.3)}" fill="#E7BFA7"/>
   <path id="subcutaneous-fat" d="{path(fat, closed=True, tension=0.3)}" fill="url(#fat)"/>
   <path id="bone" d="{path(bone, closed=True, tension=0.3)}" fill="#EFE6D2" stroke="#A8977A" stroke-width="6"/>
@@ -137,12 +171,14 @@ def build() -> str:
   {ellipse(ARTERY[0], ARTERY[1], ARTERY[1], 'id="anterior-tibial-artery" fill="url(#art-grad)" stroke="#8E211D" stroke-width="5"')}
   {ellipse(*NERVE, 'id="deep-peroneal-nerve" fill="#EFCB5A" stroke="#B8962E" stroke-width="4"')}
   <line x1="0" y1="{fmt(ORIGIN[1])}" x2="1600" y2="{fmt(ORIGIN[1])}" stroke="#B98A74" stroke-width="4"/>
+  </g>
 </g>
 
 <g class="marking">
-  <path id="spread" d="{path(spread(), closed=True, tension=0.5)}" fill="#7FD3D8" fill-opacity="0.55" stroke="#0E8C98" stroke-width="4"/>
-  {ellipse(*NERVE, 'fill="none" stroke="#B8962E" stroke-width="4"')}
-  <rect id="probe" x="{fmt(left)}" y="{fmt(p0[1] - 150)}" width="{fmt(right - left)}" height="150" rx="26" fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>
+  <path id="spread" d="{path(spread(), closed=True, tension=0.6)}" fill="#6CCBD2" fill-opacity="0.62" stroke="#0E8C98" stroke-width="3" stroke-opacity="0.85" mask="url(#spread-holes)"/>
+  <rect id="probe" x="{fmt(left)}" y="{fmt(probe_top)}" width="{fmt(right - left)}" height="{fmt(face_y - probe_top)}" rx="30" fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>
+  <rect x="{fmt(left + 16)}" y="{fmt(face_y - 16)}" width="{fmt(right - left)}" height="14" rx="6" fill="#3E454C"/>
+  <path d="M{fmt(left + 30)},{fmt(face_y - 44)} H1600" stroke="#C6CCD2" stroke-width="3" opacity="0.8"/>
   <line id="needle" x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="10" stroke-linecap="butt"/>
   <line x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="5" stroke-linecap="butt"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
