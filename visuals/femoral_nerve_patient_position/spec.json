@@ -1,0 +1,92 @@
+{
+  "assetId": "femoral_nerve_patient_position",
+  "procedure": "block_femoral_nerve",
+  "title": "Probe and needle on the patient",
+  "view": "Right groin and upper thigh from above, patient supine, seen from the foot of the bed: head at the top, lateral on the image left, medial on the right. Draped, with a window over the groin.",
+  "teachingPoint": "Linear probe transverse over the femoral crease, over the femoral vessels with the nerve lateral to the artery under it; needle in-plane from lateral to medial, entering just beyond the probe's lateral end.",
+  "claims": [
+    "Right groin from above, seen from the foot of the bed: head at the top, lateral left, medial right - the same way round as the anatomy plate. Adapted from the approved FICB layout.",
+    "Purple: the ASIS, the pubic tubercle and the inguinal ligament between them (dashed). Red dashes: the surface course of the femoral artery.",
+    "Linear probe transverse at the femoral crease, just below the inguinal ligament (record, steps 1), over the artery (centring added).",
+    "Needle entering just lateral to the probe, in line with it: in-plane from lateral to medial (record, steps 4).",
+    "Three labels: ASIS, Inguinal ligament, Femoral artery."
+  ],
+  "requiredElements": [
+    "skin",
+    "probe",
+    "needle",
+    "needle-entry",
+    "inguinal-ligament",
+    "asis",
+    "pubic-tubercle",
+    "femoral-artery-course",
+    "inguinal-crease"
+  ],
+  "labels": {
+    "ASIS": "asis",
+    "Inguinal ligament": "inguinal-ligament",
+    "Femoral artery": "femoral-artery-course"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "asis",
+      "b": "pubic-tubercle",
+      "why": "ASIS is lateral (left) of the pubic tubercle"
+    },
+    {
+      "check": "below",
+      "a": "pubic-tubercle",
+      "b": "asis",
+      "why": "the pubic tubercle is caudal to the ASIS"
+    },
+    {
+      "check": "below",
+      "a": "probe",
+      "b": "inguinal-ligament",
+      "why": "probe lies just below the ligament"
+    },
+    {
+      "check": "noOverlap",
+      "a": "inguinal-ligament",
+      "b": "probe",
+      "why": "probe is below the ligament, not on it"
+    },
+    {
+      "check": "crosses",
+      "a": "femoral-artery-course",
+      "b": "probe",
+      "why": "the artery runs under the probe"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "needle enters lateral to the probe"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle",
+      "b": "probe",
+      "why": "needle comes from lateral"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "femoral-artery-course",
+      "why": "needle entry is well lateral to the artery"
+    },
+    {
+      "check": "crosses",
+      "a": "inguinal-crease",
+      "b": "probe",
+      "why": "probe is at the inguinal crease"
+    },
+    {
+      "check": "crosses",
+      "a": "femoral-artery-course",
+      "b": "probe",
+      "why": "probe lies over the femoral artery"
+    }
+  ]
+}
