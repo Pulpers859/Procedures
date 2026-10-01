@@ -8,7 +8,7 @@
     "Right ankle and foot from above, lateral on the left - the same way round as a transverse ultrasound and the anatomy plate.",
     "Linear probe transverse over the anterior ankle (record, steps 1), at the level of the malleoli (added).",
     "Red dashes: the surface course of the anterior tibial artery continuing as the dorsalis pedis to the first intermetatarsal space (standard anatomy, added); the probe crosses it.",
-    "Needle entering just lateral to the probe, in line with it (in-plane from lateral; added - the record does not name the approach).",
+    "Needle entering just lateral to the probe, in line with it (in-plane from lateral; owner, 2026-10-01: "I want the needle coming in plane").",
     "Three labels: Lateral malleolus, Medial malleolus, Dorsalis pedis."
   ],
   "requiredElements": ["skin", "probe", "needle", "needle-entry", "lat-malleolus", "med-malleolus", "artery-course"],

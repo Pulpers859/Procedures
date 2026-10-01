@@ -18,8 +18,7 @@ the distal tibia below. Sizes are typical adult values: artery about 3 mm,
 nerve about 2 mm, at about 7 mm deep; depths vary with habitus.
 
 Markings: the probe (medial edge to about 1 cm short of the lateral edge),
-the needle in-plane from lateral (an addition: the record does not name the
-approach) with its tip lateral to the nerve, and the teal injectate around
+the needle in-plane from lateral (owner, 2026-10-01) with its tip lateral to the nerve, and the teal injectate around
 the artery and nerve.
 
 Millimetres from the artery centre (x lateral, y deep from the skin) at

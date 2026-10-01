@@ -13,10 +13,10 @@ transverse ultrasound and the anatomy plate. A sheet lies under the leg.
 Record: supine; transducer transverse over the anterior ankle; the nerve
 runs with the anterior tibial artery (dorsalis pedis), usually lateral to
 it. Added, not in the record: the probe sits at the level of the malleoli;
-the needle enters in-plane from lateral, just beyond the probe's lateral
-end (the record does not name in-plane or out-of-plane); the dashed red
+the needle enters just beyond the probe's lateral end; the dashed red
 artery course runs from the mid-ankle to the first intermetatarsal space
-(standard anatomy).
+(standard anatomy). In-plane from lateral is the owner's choice
+(2026-10-01: "I want the needle coming in plane").
 
 Code-drawn marking: the dashed artery course. The probe and needle are in
 the painted layer, for the painting to render.
