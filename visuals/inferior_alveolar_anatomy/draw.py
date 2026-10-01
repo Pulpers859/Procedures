@@ -38,7 +38,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 
-from visuals_lib import SYRINGE_DEFS, Label, document, fmt, smooth_path, syringe  # noqa: E402
+from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "inferior_alveolar_anatomy"
 BASE = Path(__file__).with_name("base.jpg")
@@ -130,7 +130,7 @@ def circle(center, r, attrs):
     return f'<circle cx="{fmt(p[0])}" cy="{fmt(p[1])}" r="{fmt(r * PX_MM)}" {attrs}/>'
 
 
-DEFS = SYRINGE_DEFS + """
+DEFS = """
 <linearGradient id="skin-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EBC2A9"/><stop offset="1" stop-color="#E2B497"/></linearGradient>
 <linearGradient id="fat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4D98C"/><stop offset="1" stop-color="#EBC86A"/></linearGradient>
 <linearGradient id="muscle" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B8483F"/><stop offset="1" stop-color="#8A2D28"/></linearGradient>
@@ -238,8 +238,9 @@ def build() -> str:
 {painted_nerves() if painted else ""}
 
 <g class="marking">
-  <polygon id="syringe" points="{' '.join(f'{fmt(x)},{fmt(y)}' for x, y in barrel)}" fill="#000" opacity="0"/>
-  {syringe(h, U, PX_MM, shadow=False)}
+  <polygon id="syringe" points="{' '.join(f'{fmt(x)},{fmt(y)}' for x, y in barrel)}" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
+  <line x1="{fmt(h[0] - dx * 10)}" y1="{fmt(h[1] - dy * 10)}" x2="{fmt(b0[0])}" y2="{fmt(b0[1])}" stroke="#FFFFFF" stroke-width="6" opacity="0.7"/>
+  <line x1="{fmt(h[0] - dx * 2)}" y1="{fmt(h[1] - dy * 2)}" x2="{fmt(h[0] - dx * 34)}" y2="{fmt(h[1] - dy * 34)}" stroke="#6E7780" stroke-width="{fmt(2 * bw + 2)}" stroke-linecap="butt"/>
   <line id="needle" x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="7" stroke-linecap="butt"/>
   <line x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="3" stroke-linecap="butt"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="8" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>

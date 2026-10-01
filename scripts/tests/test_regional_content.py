@@ -387,7 +387,9 @@ class NeedleTargetTests(unittest.TestCase):
         angle points at the orbit."""
         text = joined(self.records["block_infraorbital"])
         self.assertIn("keep the palpating finger over the foramen", text)
-        self.assertIn("long axis of the second premolar", text)
+        # 2026-10-01: the owner changed the landmark tooth to the first
+        # premolar, to match the entry step (above the canine/first premolar).
+        self.assertIn("long axis of the first premolar", text)
         self.assertIn("never advance toward or into the orbit", text)
 
 
