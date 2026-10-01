@@ -88,5 +88,10 @@
       "b": "probe",
       "why": "probe lies over the femoral artery"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "d4f0a92ccc3ed03299d5c2f2bc41c2a981012ee80e509805ac80b77f0e8f94b9",
+    "reviewedOn": "2026-10-01"
+  }
 }

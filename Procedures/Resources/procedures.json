@@ -8206,9 +8206,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine, leg extended. Transducer transverse over the femoral crease. Needle in-plane from lateral to medial.",
-        "assetName": null,
+        "assetName": "femoral_nerve_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right groin from above, head at the top, lateral on the left: probe transverse at the femoral crease over the artery, needle in-plane from lateral.",
         "clinicalWarning": null
       },
       {
@@ -8216,9 +8216,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The femoral nerve lies lateral to the femoral artery, just distal to the inguinal ligament, covered by the fascia iliaca. The needle tip pops through the fascia iliaca beside the nerve.",
-        "assetName": null,
+        "assetName": "femoral_nerve_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right groin in section under the probe, seen from the feet: lateral on the left.",
         "clinicalWarning": null
       }
     ],

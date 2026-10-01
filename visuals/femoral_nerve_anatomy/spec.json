@@ -164,5 +164,10 @@
       "b": "lfcn",
       "why": "spread is local to the femoral nerve"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "cc5ef221189a9500f0b3fddfa3f05a2425de256eb03339590ec70296adddb0b2",
+    "reviewedOn": "2026-10-01"
+  }
 }
