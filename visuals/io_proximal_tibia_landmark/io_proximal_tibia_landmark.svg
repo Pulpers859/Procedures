@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #DDE5EC; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A88C"/><stop offset="0.5" stop-color="#EDC7AE"/>
+  <stop offset="1" stop-color="#DDAE92"/></linearGradient>
+<linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8EEF3"/><stop offset="1" stop-color="#D3DDE6"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="anatomy">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
+  <path id="leg" d="M284,-80 C180,-56 296.8,116 300,160 C303.2,204 309.6,320 316,360 C322.4,400 354.4,516 364,560 C373.6,604 404,752 412,800 C420,848 439.2,992 444,1040 C448.8,1088 376.8,1256 460,1280 C543.2,1304 1196,1304 1276,1280 C1356,1256 1263.2,1088 1260,1040 C1256.8,992 1242.4,848 1244,800 C1245.6,752 1268,604 1276,560 C1284,516 1317.6,400 1324,360 C1330.4,320 1338.4,204 1340,160 C1341.6,116 1445.6,-56 1340,-80 C1234.4,-104 388,-104 284,-80 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <ellipse id="fibular-head" cx="428" cy="512" rx="64" ry="56" fill="#E2B497" stroke="#C49478" stroke-width="3"/>
+  <ellipse id="patella" cx="812" cy="160" rx="176" ry="200" fill="#EFCBB3" stroke="#C49478" stroke-width="3"/>
+  <path id="patellar-tendon" d="M732,344 C737.9,331.7 822.1,331.7 828,344 C833.9,356.3 825.9,515.7 820,528 C814.1,540.3 745.9,540.3 740,528 C734.1,515.7 726.1,356.3 732,344 Z" fill="#E8C0A6" stroke="#C49478" stroke-width="2"/>
+  <ellipse id="tuberosity-bump" cx="780" cy="560" rx="48" ry="40" fill="#EFCBB3" stroke="#C49478" stroke-width="3"/>
+  <path id="tibial-crest" d="M772,600 C769.9,626.7 760.3,741.3 756,800 C751.7,858.7 743.2,976 740,1040 C736.8,1104 733.1,1248 732,1280" fill="none" stroke="#C99A80" stroke-width="5"/>
+</g>
+
+<g class="marking">
+  <circle id="tuberosity" cx="780" cy="560" r="44" fill="none" stroke="#4A2F7A" stroke-width="6"/>
+  <circle id="target" cx="892" cy="680" r="40" fill="#6CCBD2" fill-opacity="0.55" stroke="#0E8C98" stroke-width="5"/>
+  <circle cx="892" cy="680" r="6" fill="#0E8C98"/>
+  <g id="bracket" stroke="#4A2F7A" stroke-width="4" fill="none">
+    <line x1="964" y1="560" x2="964" y2="720"/>
+    <line x1="954" y1="560" x2="974" y2="560"/>
+    <line x1="958" y1="640" x2="970" y2="640"/>
+    <line x1="954" y1="720" x2="974" y2="720"/>
+  </g>
+</g>
+
+<g id="labels"><g class="label" data-label="Tibial tuberosity" data-target="tuberosity"><polyline class="leader-halo" points="330,600 736,560"/><polyline class="leader" points="330,600 736,560"/><circle class="leader-dot" cx="736" cy="560" r="7"/><text x="80" y="640" text-anchor="start"><tspan x="80" dy="0">Tibial tuberosity</tspan></text></g><g class="label emphasis" data-label="Insertion site" data-target="target"><polyline class="leader-halo" points="1090,780 932,686"/><polyline class="leader" points="1090,780 932,686"/><circle class="leader-dot" cx="932" cy="686" r="7"/><text x="1060" y="820" text-anchor="start"><tspan x="1060" dy="0">Insertion site</tspan></text></g><g class="label" data-label="Patella" data-target="patella"><polyline class="leader-halo" points="1080,220 972,160"/><polyline class="leader" points="1080,220 972,160"/><circle class="leader-dot" cx="972" cy="160" r="7"/><text x="1060" y="200" text-anchor="start"><tspan x="1060" dy="0">Patella</tspan></text></g></g>
+
+</svg>

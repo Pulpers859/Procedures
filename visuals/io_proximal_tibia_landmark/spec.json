@@ -1,0 +1,73 @@
+{
+  "assetId": "io_proximal_tibia_landmark",
+  "procedure": "intraosseous_access",
+  "title": "Proximal tibia insertion site",
+  "view": "Right knee and upper shin from the front, patient supine, leg extended: knee at the top, lateral on the image left, medial on the right.",
+  "teachingPoint": "Find the tibial tuberosity, then go 1-2 cm distal and medial onto the flat anteromedial surface: a 1 cm target, not the tuberosity and not the crest.",
+  "claims": [
+    "Right leg from the front, lateral on the image left (house laterality).",
+    "Purple ring: the tibial tuberosity (record, subtitle).",
+    "Teal: a 1 cm target zone 1.5 cm distal and 1.4 cm medial to the tuberosity, on the flat anteromedial surface (record: 1-2 cm distal and medial).",
+    "Bracket: 0 to 2 cm distal to the tuberosity, tick at 1 cm.",
+    "Three labels: Tibial tuberosity, Insertion site, Patella."
+  ],
+  "requiredElements": [
+    "leg",
+    "patella",
+    "patellar-tendon",
+    "tuberosity",
+    "tibial-crest",
+    "fibular-head",
+    "target",
+    "bracket"
+  ],
+  "labels": {
+    "Tibial tuberosity": "tuberosity",
+    "Insertion site": "target",
+    "Patella": "patella"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "tuberosity",
+      "b": "patella",
+      "why": "tuberosity is below the patella"
+    },
+    {
+      "check": "below",
+      "a": "target",
+      "b": "tuberosity",
+      "why": "target is distal to the tuberosity"
+    },
+    {
+      "check": "leftOf",
+      "a": "tuberosity",
+      "b": "target",
+      "why": "target is medial (medial is right)"
+    },
+    {
+      "check": "leftOf",
+      "a": "fibular-head",
+      "b": "tuberosity",
+      "why": "fibular head is lateral"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target",
+      "b": "tuberosity",
+      "why": "not on the tuberosity"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target",
+      "b": "tibial-crest",
+      "why": "on the flat surface, off the crest"
+    },
+    {
+      "check": "within",
+      "a": "target",
+      "b": "leg",
+      "why": "target on the leg"
+    }
+  ]
+}
