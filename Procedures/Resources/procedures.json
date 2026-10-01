@@ -11290,9 +11290,9 @@
         "kind": "Setup",
         "title": "Needle entry on the patient",
         "subtitle": "Seated, or lateral decubitus with the affected ear up. Punctures just below the earlobe and just above the ear, tracking subcutaneously in front of and behind the ear.",
-        "assetName": null,
+        "assetName": "auricular_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right ear from the side, face to the right: two punctures, then four subcutaneous tracks in front of the tragus and behind the ear, meeting as a ring.",
         "clinicalWarning": null
       },
       {
@@ -11300,9 +11300,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The ear is supplied by several nerves from different directions; a diamond-shaped ring of subcutaneous anaesthetic around the base of the ear blocks them all.",
-        "assetName": null,
+        "assetName": "auricular_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right ear from the side, face to the right: three superficial nerves cross the ring round the ear's base; the concha is supplied deep and is not covered.",
         "clinicalWarning": null
       }
     ],
