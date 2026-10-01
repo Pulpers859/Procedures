@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-01",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "reference": "Upright-probe layout (draw.py in the review-draft commit, --reference). First layout: commit 6a33318.",
+ "antigravityConversation": "e65bd7b1-1486-4b82-91a2-72f0689ca7fc",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of a procedure scene: an adult patient lying on their back with the head turned away to the left, showing the right side of the neck between blue sterile drapes, photographed from above and slightly toward the feet. The ear is at the upper left and the jaw line runs across the top; the sternocleidomastoid muscle is a raised diagonal band from behind the ear down to the right; a faint bluish external jugular vein crosses it; along the bottom, above the drape, the collarbone is a gentle natural ridge under the skin, not an object. A white linear ultrasound transducer stands upright on the side of the neck: its wide flat face is pressed on the skin with a thin bead of clear gel, its handle narrows as it rises toward the camera, and its grey cable leaves the top of the handle and runs up out of the picture. A hand in a white sterile glove holds the handle. A block needle with a small white hub enters the skin just to the left of the transducer's face, in line with it, with clear extension tubing curving down to the left. Turn this into a realistic clinical photograph of an ultrasound-guided interscalene block, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and angle, especially the transducer's face on the skin, the needle and the collarbone; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture, the neck's real contours, soft folds in the drapes, soft even procedure-room light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, blood, border or frame.",
+ "promptAttachments": "Image 1: the upright-probe layout reference.",
+ "repairs": [],
+ "rejected": "First layout (flat probe from directly above), conversation c243fc03: owner found the flat bar unreadable as a probe. The collarbone, drawn as a thick pale stroke, was painted as a tube (fixed by one repair). Crop repaints of the probe (conversations 087147f6 quota-failed, 06954e38, 4f98ad47) came back square or zoomed 2x and could not be merged. Whole-image repairs placed the probe 2 cm low, then rotated 50 degrees. Per the playbook the layout was redrawn with an upright probe and repainted in a new chat.",
+ "reviewNotes": "Overlay: the probe face, handle, cable start, needle, hub and tubing lie on the layout within a few pixels. Gemini recomposed the drapes: they cover the collarbone and the external jugular, and the neck's skin window is narrower than drawn. No watermark.",
+ "knownLimits": "The SCM border is not drawn on the photograph: the painted neck does not show it clearly enough to trace. Collarbone and external jugular are under the drape, so they are not labelled; the probe's level (about 3 cm above the clavicle) comes from the layout.",
+ "thirdPartyConcept": "NYSORA interscalene transducer photographs (Fig-5, Fig-6) read for composition only; not attached and not committed."
+}

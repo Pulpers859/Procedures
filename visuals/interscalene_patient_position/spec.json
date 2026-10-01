@@ -8,8 +8,7 @@
     "Right neck from above, head turned left; lateral on the image left, the same way round as the anatomy plate.",
     "Linear probe transverse at the interscalene level, across the SCM's lateral border, about 3 cm above the clavicle (record subtitle; NYSORA 2-3 cm, concept).",
     "Needle entering just beyond the probe's posterior end, in line: in-plane from posterior to anterior (record, steps 6).",
-    "Purple dashes: the SCM's lateral border.",
-    "Three labels: Sternocleidomastoid, Clavicle, External jugular."
+    "Two labels: Block needle, Linear probe. On the photograph the SCM border is not drawn: the painted neck does not show it clearly enough to trace."
   ],
   "requiredElements": [
     "skin",
@@ -24,9 +23,8 @@
     "needle-entry"
   ],
   "labels": {
-    "Sternocleidomastoid": "scm",
-    "Clavicle": "clavicle",
-    "External jugular": "ejv"
+    "Block needle": "needle",
+    "Linear probe": "probe"
   },
   "geometry": [
     {
