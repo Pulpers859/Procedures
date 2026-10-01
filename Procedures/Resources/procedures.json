@@ -4582,9 +4582,9 @@
         "kind": "Landmark",
         "title": "Proximal tibia insertion site",
         "subtitle": "Palpate the tibial tuberosity. Move 1-2 cm distal and medial to the tibial tuberosity, onto the flat anteromedial tibial surface. This is the insertion point. Needle at 90 degrees to the bone.",
-        "assetName": null,
+        "assetName": "io_proximal_tibia_landmark",
         "systemImage": "figure.walk",
-        "caption": "",
+        "caption": "Right knee from the front, lateral on the left: target 1-2 cm distal and medial to the tibial tuberosity, on the flat anteromedial surface.",
         "clinicalWarning": "Do not place your hand behind the limb during drilling."
       },
       {

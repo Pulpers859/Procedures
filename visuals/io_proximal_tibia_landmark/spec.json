@@ -9,7 +9,7 @@
     "Purple ring: the tibial tuberosity (record, subtitle).",
     "Teal: a 1 cm target zone 1.5 cm distal and 1.4 cm medial to the tuberosity, on the flat anteromedial surface (record: 1-2 cm distal and medial).",
     "Bracket: 0 to 2 cm distal to the tuberosity, tick at 1 cm.",
-    "Three labels: Tibial tuberosity, Insertion site, Patella."
+    "Labels: Tibial tuberosity, Insertion site, Patella, and the bracket's 1 cm and 2 cm marks (owner, 2026-10-01)."
   ],
   "requiredElements": [
     "leg",
@@ -19,12 +19,16 @@
     "tibial-crest",
     "fibular-head",
     "target",
-    "bracket"
+    "bracket",
+    "tick-1cm",
+    "tick-2cm"
   ],
   "labels": {
     "Tibial tuberosity": "tuberosity",
     "Insertion site": "target",
-    "Patella": "patella"
+    "Patella": "patella",
+    "1 cm": "tick-1cm",
+    "2 cm": "tick-2cm"
   },
   "geometry": [
     {
@@ -69,5 +73,10 @@
       "b": "leg",
       "why": "target on the leg"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "6d88650da167029fb90cc4d1e83b0262fd769dc569745943cda4d7523958c11c",
+    "reviewedOn": "2026-10-01"
+  }
 }

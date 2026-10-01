@@ -75,8 +75,10 @@ def build() -> str:
     br0, br1 = c((TARGET[0] + 9, 0)), c((TARGET[0] + 9, 20))
     labels = [
         Label(["Tibial tuberosity"], anchor=(80, 640), leader=[(330, 600), (tub[0] - 44, tub[1])], target_id="tuberosity"),
-        Label(["Insertion site"], anchor=(1060, 820), leader=[(1090, 780), (t[0] + TARGET_R * PX_MM, t[1] + 6)],
+        Label(["Insertion site"], anchor=(1000, 920), leader=[(1030, 880), (t[0] + TARGET_R * PX_MM, t[1] + 6)],
               target_id="target", emphasis=True),
+        Label(["1 cm"], anchor=(br0[0] + 70, c((0, 10))[1] + 18), leader=[(br0[0] + 62, c((0, 10))[1]), (br0[0] + 6, c((0, 10))[1])], target_id="tick-1cm"),
+        Label(["2 cm"], anchor=(br1[0] + 70, br1[1] + 18), leader=[(br1[0] + 62, br1[1]), (br1[0] + 8, br1[1])], target_id="tick-2cm"),
         Label(["Patella"], anchor=(1060, 200), leader=[(1080, 220), c((24, -50))], target_id="patella"),
     ]
     painted = BASE.exists()
@@ -113,6 +115,8 @@ def build() -> str:
     <line x1="{fmt(br0[0] - 6)}" y1="{fmt(c((0, 10))[1])}" x2="{fmt(br0[0] + 6)}" y2="{fmt(c((0, 10))[1])}"/>
     <line x1="{fmt(br1[0] - 10)}" y1="{fmt(br1[1])}" x2="{fmt(br1[0] + 10)}" y2="{fmt(br1[1])}"/>
   </g>
+  <rect id="tick-1cm" x="{fmt(br0[0] - 8)}" y="{fmt(c((0, 10))[1] - 6)}" width="16" height="12" fill="#000" opacity="0"/>
+  <rect id="tick-2cm" x="{fmt(br1[0] - 12)}" y="{fmt(br1[1] - 6)}" width="24" height="12" fill="#000" opacity="0"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>
