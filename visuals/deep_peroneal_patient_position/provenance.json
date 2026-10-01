@@ -1,0 +1,21 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+ "generatedBy": "owner, in the Gemini app",
+ "date": "2026-10-01",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the deep_peroneal_patient_position layout (commit 0191e0c draw.py, --reference).",
+ "prompt": "Prompt A (photo variant), new chat, reference attached; full text as sent to the owner on 2026-10-01: realistic clinical photograph of a right ankle and foot from the front on a pale blue-grey sheet, transverse linear probe across the front of the ankle between the malleoli with its cable up the shin, needle on a white syringe entering just beyond the probe's left end in line with it; same 4:3 frame, nothing moved, no text, lines, incisions, hands, gloves or blood.",
+ "repairs": [
+  "Same chat, prompt C: 'Remove the syringe and needle, and paint plain intact skin and sheet where they were. Keep everything else in the image the same.' The syringe had been painted upright along the leg with the needle pointing at the toes. Result: removed cleanly; the foot did not move.",
+  "Same chat, prompt C: 'Move the ultrasound probe straight up the leg, together with the clear gel under it, so that its dark bottom edge sits where the top of the probe's handle is now, level with the two ankle bones, with its cable still running up off the top of the image. Keep everything else in the image the same.' Result: the probe moved up from the dorsum to the ankle crease, about 2 cm short of the malleoli; the gel stayed on the dorsum."
+ ],
+ "pixelEdits": [],
+ "rejected": "None as a base. The probe position was missed twice (on the dorsum, then at the crease); per the playbook Gemini was not asked a third time. The crease position is across the anterior ankle between the malleoli, which is what the record says, so it stays.",
+ "reviewNotes": "Overlay: leg, foot outline and toes lie on the layout within a few pixels across all three versions. The probe, its cover over the skin and the malleoli are traced in base pixels. No watermark in the corners.",
+ "knownLimits": "The probe sits at the ankle crease, about 2 cm below the level the layout drew (the record says only 'anterior ankle'). A smear of gel shines on the dorsum below the probe, and a raised vein crosses the dorsum. The needle and syringe are code-drawn over the photograph; the lateral malleolus is mostly under the probe's lateral wing, so its leader points at the visible edge.",
+ "thirdPartyConcept": "NYSORA deep peroneal nerve block plate (transducer position photographs, Fig-9 and Fig-10), shared by the owner on 2026-10-01 for understanding only. Not committed and not attached to any prompt for this image."
+}
