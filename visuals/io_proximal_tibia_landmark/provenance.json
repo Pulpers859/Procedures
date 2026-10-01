@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-01",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the io_proximal_tibia_landmark layout (commit 4188e23 draw.py, --reference).",
+ "antigravityConversation": "695c009a-0e0e-459f-9a27-c21fcd79b659",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of an adult's right knee and upper shin seen straight on from the front, the leg extended and lying on a pale blue-grey sheet, the leg filling most of the frame from the outline on the left to the outline on the right, as broad as drawn: the kneecap at the top, the patellar tendon running down from it to the small bump of the tibial tuberosity below the knee, the shin bone's crest running straight down from that bump, and the small rounded head of the fibula just inside the outer (left) edge of the leg, level with the tuberosity. Turn this into a realistic clinical photograph of the front of the knee and upper shin, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture and fine hair, the soft real contours of the kneecap, tendon, tuberosity and shin, soft even examination light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, circles, needles, instruments, hands, gloves or blood, and no border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "First painting (conversation c7a3f432): leg half as wide as drawn, patella shrunk, fibular head moved inside the leg; three structural errors, new chat.",
+ "reviewNotes": "Overlay: patella, patellar tendon, tuberosity and tibial crest lie on the layout within a few pixels. The leg is painted narrower than drawn (about 8 cm across the upper shin against the layout's 10 cm), and the fibular head sits on the leg's outer edge rather than inside it. Faint outlines of the patella and fibular head copied from the layout show on the skin. No watermark.",
+ "knownLimits": "The target zone is placed from the tuberosity by the record's distances (1.5 cm distal, 1.4 cm medial), drawn at 8 px/mm from the layout; the painted leg is a little slim for that scale. Needle and driver are not shown.",
+ "thirdPartyConcept": "None."
+}

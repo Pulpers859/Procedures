@@ -38,7 +38,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="anatomy">
+<g id="painting" data-base-sha256="c7b5d26dbc7d0f0e5b3d62f9565a10703c7f726ec46bce6155eacb0a22a7654a"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
   <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
   <path id="leg" d="M284,-80 C180,-56 296.8,116 300,160 C303.2,204 309.6,320 316,360 C322.4,400 354.4,516 364,560 C373.6,604 404,752 412,800 C420,848 439.2,992 444,1040 C448.8,1088 376.8,1256 460,1280 C543.2,1304 1196,1304 1276,1280 C1356,1256 1263.2,1088 1260,1040 C1256.8,992 1242.4,848 1244,800 C1245.6,752 1268,604 1276,560 C1284,516 1317.6,400 1324,360 C1330.4,320 1338.4,204 1340,160 C1341.6,116 1445.6,-56 1340,-80 C1234.4,-104 388,-104 284,-80 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
   <ellipse id="fibular-head" cx="428" cy="512" rx="64" ry="56" fill="#E2B497" stroke="#C49478" stroke-width="3"/>

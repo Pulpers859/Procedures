@@ -22,6 +22,8 @@ Run: python3 visuals/io_proximal_tibia_landmark/draw.py
 
 from __future__ import annotations
 
+import hashlib
+import os
 import sys
 from pathlib import Path
 
@@ -30,6 +32,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "io_proximal_tibia_landmark"
+BASE = Path(__file__).with_name("base.jpg")
+BASE_SIZE = (1200.0, 896.0)
 PX_MM = 8.0
 ORIGIN = (780.0, 560.0)            # canvas of the tibial tuberosity
 
@@ -75,8 +79,21 @@ def build() -> str:
               target_id="target", emphasis=True),
         Label(["Patella"], anchor=(1060, 200), leader=[(1080, 220), c((24, -50))], target_id="patella"),
     ]
+    painted = BASE.exists()
+    debug = os.environ.get("DEBUG") == "1"
+    scale = 1600 / BASE_SIZE[0]
+    if painted:
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - BASE_SIZE[1] * scale) / 2)}" width="1600" '
+                      f'height="{fmt(BASE_SIZE[1] * scale)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if debug else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
+
     body = f"""
-<g id="anatomy">
+<g id="painting"{base_attr}>{base_image}</g>
+<g id="anatomy"{layout_attr}>
   <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
   <path id="leg" d="{path(LATERAL + MEDIAL, closed=True, tension=0.6)}" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
   {ell("fibular-head", FIBULAR_HEAD, 'fill="#E2B497" stroke="#C49478" stroke-width="3"')}
