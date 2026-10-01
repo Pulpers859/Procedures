@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #DDE5EC; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A88C"/><stop offset="0.3" stop-color="#EBC3AA"/>
+  <stop offset="0.7" stop-color="#F0CDB6"/><stop offset="1" stop-color="#E2B69C"/></linearGradient>
+<linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8EEF3"/><stop offset="1" stop-color="#D3DDE6"/></linearGradient>
+<linearGradient id="probe-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9ECEF"/><stop offset="1" stop-color="#B9C0C7"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="anatomy">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
+  <path id="skin" d="M679.2,-70 C663.6,-55 690,86 690,110 C690,134 682.8,202.4 679.2,218 C675.6,233.6 649.8,285.8 646.8,297.2 C643.8,308.6 642.9,343.4 643.2,354.8 C643.5,366.2 651.3,415.4 650.4,434 C649.5,452.6 635.4,552.5 632.4,578 C629.4,603.5 616.5,719 614.4,740 C612.3,761 607.5,815.9 607.2,830 C606.9,844.1 610.2,901.4 610.8,909.2 C611.4,917 613.8,918.2 614.4,923.6 C615,929 616.2,968 618,974 C619.8,980 633,995.6 636,995.6 C639,995.6 652.2,980 654,974 C655.8,968 656.7,927.8 657.6,923.6 C658.5,919.4 663.9,916.4 664.8,923.6 C665.7,930.8 666.6,1001 668.4,1010 C670.2,1019 683.4,1031.6 686.4,1031.6 C689.4,1031.6 702.6,1019 704.4,1010 C706.2,1001 707.1,930.8 708,923.6 C708.9,916.4 714.3,914 715.2,923.6 C716.1,933.2 716.8,1027.4 718.8,1038.8 C720.8,1050.2 735.3,1060.4 738.6,1060.4 C741.9,1060.4 756.4,1050.2 758.4,1038.8 C760.4,1027.4 761.1,933.2 762,923.6 C762.9,914 768.3,912.2 769.2,923.6 C770.1,935 770.7,1047.2 772.8,1060.4 C774.9,1073.6 790.8,1082 794.4,1082 C798,1082 813.9,1073.6 816,1060.4 C818.1,1047.2 818.4,933.8 819.6,923.6 C820.8,913.4 829.2,923 830.4,938 C831.6,953 829.5,1088 834,1103.6 C838.5,1119.2 876,1125.2 884.4,1125.2 C892.8,1125.2 930.3,1119.2 934.8,1103.6 C939.3,1088 937.2,954.8 938.4,938 C939.6,921.2 947.4,914 949.2,902 C951,890 960,815 960,794 C960,773 951.6,674 949.2,650 C946.8,626 933.9,528.5 931.2,506 C928.5,483.5 918.6,398 916.8,380 C915,362 912.6,305 909.6,290 C906.6,275 884.1,215 880.8,200 C877.5,185 870.3,132.5 870,110 C869.7,87.5 893.1,-55 877.2,-70 C861.3,-85 694.8,-85 679.2,-70 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <path d="M659.4,945.2 C659.7,942.2 660.9,930.2 661.2,927.2" stroke="#B98A74" stroke-width="3" fill="none"/><path d="M709.8,945.2 C710.1,942.2 711.3,930.2 711.6,927.2" stroke="#B98A74" stroke-width="3" fill="none"/><path d="M763.8,945.2 C764.1,942.2 765.3,930.2 765.6,927.2" stroke="#B98A74" stroke-width="3" fill="none"/><path d="M821.4,945.2 C821.7,942.2 822.9,930.2 823.2,927.2" stroke="#B98A74" stroke-width="3" fill="none"/>
+  <ellipse id="lat-malleolus" cx="646.8" cy="311.6" rx="22" ry="30" fill="#E2B39A" stroke="#C49379" stroke-width="2"/>
+  <ellipse id="med-malleolus" cx="906" cy="268.4" rx="20" ry="28" fill="#E9BEA4" stroke="#C49379" stroke-width="2"/>
+  <path d="M794.4,261.2 C798,242 800.4,186.2 816,146 C831.6,105.8 852,53 888,20 C924,-13 1008,-40 1032,-52" fill="none" stroke="#3E454C" stroke-width="16" stroke-linecap="round"/>
+  <rect id="probe" x="711.6" y="261.2" width="136.8" height="43.2" rx="16" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <line x1="405.6" y1="232.4" x2="537.6" y2="256.2" stroke="#F4F6F8" stroke-width="26" stroke-linecap="round"/>
+  <rect x="535.6" y="252.2" width="34" height="16" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line id="needle" x1="567.6" y1="261.2" x2="690" y2="282.8" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="690" cy="282.8" r="4" fill="#9E6B5A"/>
+</g>
+
+<g class="marking" fill="none">
+  <path id="artery-course" d="M790.8,74 C790.8,98 789.6,176 790.8,218 C792,260 793.8,284 798,326 C802.2,368 810,422 816,470 C822,518 828.6,573.2 834,614 C839.4,654.8 846,698 848.4,714.8" stroke="#C8322B" stroke-width="7" stroke-dasharray="16 11"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Lateral malleolus" data-target="lat-malleolus"><polyline class="leader-halo" points="330,340 634.8,311.6"/><polyline class="leader" points="330,340 634.8,311.6"/><circle class="leader-dot" cx="634.8" cy="311.6" r="7"/><text x="150" y="300" text-anchor="start"><tspan x="150" dy="0">Lateral</tspan><tspan x="150" dy="66">malleolus</tspan></text></g><g class="label" data-label="Medial malleolus" data-target="med-malleolus"><polyline class="leader-halo" points="1240,280 918,268.4"/><polyline class="leader" points="1240,280 918,268.4"/><circle class="leader-dot" cx="918" cy="268.4" r="7"/><text x="1250" y="240" text-anchor="start"><tspan x="1250" dy="0">Medial</tspan><tspan x="1250" dy="66">malleolus</tspan></text></g><g class="label emphasis" data-label="Dorsalis pedis" data-target="artery-course"><polyline class="leader-halo" points="1140,880 834,614"/><polyline class="leader" points="1140,880 834,614"/><circle class="leader-dot" cx="834" cy="614" r="7"/><text x="1150" y="900" text-anchor="start"><tspan x="1150" dy="0">Dorsalis pedis</tspan></text></g></g>
+
+</svg>

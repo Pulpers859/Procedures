@@ -1,0 +1,31 @@
+{
+  "assetId": "deep_peroneal_patient_position",
+  "procedure": "block_deep_peroneal",
+  "title": "Probe and needle on the patient",
+  "view": "Right ankle and foot of a supine patient from above: leg at the top, toes at the bottom, lateral (little toe) on the image left, medial (big toe) on the right.",
+  "teachingPoint": "Linear probe transverse over the anterior ankle between the malleoli, across the course of the anterior tibial artery; needle in-plane from lateral, entering just beyond the probe's lateral end.",
+  "claims": [
+    "Right ankle and foot from above, lateral on the left - the same way round as a transverse ultrasound and the anatomy plate.",
+    "Linear probe transverse over the anterior ankle (record, steps 1), at the level of the malleoli (added).",
+    "Red dashes: the surface course of the anterior tibial artery continuing as the dorsalis pedis to the first intermetatarsal space (standard anatomy, added); the probe crosses it.",
+    "Needle entering just lateral to the probe, in line with it (in-plane from lateral; added - the record does not name the approach).",
+    "Three labels: Lateral malleolus, Medial malleolus, Dorsalis pedis."
+  ],
+  "requiredElements": ["skin", "probe", "needle", "needle-entry", "lat-malleolus", "med-malleolus", "artery-course"],
+  "labels": {
+    "Lateral malleolus": "lat-malleolus",
+    "Medial malleolus": "med-malleolus",
+    "Dorsalis pedis": "artery-course"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "lat-malleolus", "b": "med-malleolus", "why": "right foot from above: lateral malleolus on the image left"},
+    {"check": "below", "a": "lat-malleolus", "b": "med-malleolus", "why": "the lateral malleolus is more distal"},
+    {"check": "crosses", "a": "probe", "b": "skin", "why": "probe on the anterior ankle"},
+    {"check": "leftOf", "a": "lat-malleolus", "b": "probe", "why": "probe between the malleoli"},
+    {"check": "leftOf", "a": "probe", "b": "med-malleolus", "why": "probe between the malleoli"},
+    {"check": "leftOf", "a": "needle-entry", "b": "probe", "why": "needle enters lateral to the probe"},
+    {"check": "leftOf", "a": "needle", "b": "probe", "why": "needle comes from lateral"},
+    {"check": "noOverlap", "a": "needle", "b": "artery-course", "why": "needle entry is lateral to the artery"},
+    {"check": "within", "a": "needle-entry", "b": "skin", "why": "needle enters through the skin of the ankle"}
+  ]
+}
