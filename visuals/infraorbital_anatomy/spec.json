@@ -1,0 +1,83 @@
+{
+  "assetId": "infraorbital_anatomy",
+  "procedure": "block_infraorbital",
+  "title": "Target anatomy",
+  "view": "The right midface of the skull from the front: head at the top, the patient's right on the image left.",
+  "teachingPoint": "The foramen sits about 1 cm below the orbital rim on the pupil line; from the mucobuccal fold above the first premolar the needle runs up toward it about 1.5-2 cm and stops short of it.",
+  "claims": [
+    "Right maxilla from the front, patient's right on the image left (house laterality).",
+    "Infraorbital foramen about 1 cm below the inferior orbital rim, on the pupil line (record, subtitle).",
+    "Red dashes: the pupil line.",
+    "Needle entry in the mucobuccal fold above the first premolar (record, steps 5); the tip stops 18 mm in, short of the foramen (record: roughly 1.5-2 cm, stop before the foramen).",
+    "Yellow: the infraorbital nerve's branches fanning from the foramen to the lower eyelid, nose and upper lip (standard anatomy, added).",
+    "Three labels: Infraorbital foramen, Orbital rim, First premolar."
+  ],
+  "requiredElements": [
+    "skull",
+    "orbit",
+    "nasal-aperture",
+    "foramen",
+    "teeth",
+    "first-premolar",
+    "nerve",
+    "needle",
+    "needle-entry",
+    "syringe",
+    "pupil-line"
+  ],
+  "labels": {
+    "Infraorbital foramen": "foramen",
+    "Orbital rim": "orbit",
+    "First premolar": "first-premolar"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "foramen",
+      "b": "orbit",
+      "why": "foramen is below the orbital rim"
+    },
+    {
+      "check": "crosses",
+      "a": "pupil-line",
+      "b": "foramen",
+      "why": "foramen is on the pupil line"
+    },
+    {
+      "check": "leftOf",
+      "a": "foramen",
+      "b": "nasal-aperture",
+      "why": "foramen is lateral to the nose (patient's right is left)"
+    },
+    {
+      "check": "below",
+      "a": "needle-entry",
+      "b": "foramen",
+      "why": "entry is in the fold below the foramen"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "foramen",
+      "why": "the needle stops short of the foramen"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "orbit",
+      "why": "never toward the orbit"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle",
+      "b": "nasal-aperture",
+      "why": "needle stays lateral to the nose"
+    },
+    {
+      "check": "below",
+      "a": "first-premolar",
+      "b": "needle-entry",
+      "why": "entry is above the first premolar"
+    }
+  ]
+}

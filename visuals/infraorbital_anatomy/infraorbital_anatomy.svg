@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F4F1EA; }</style>
+<defs>
+<linearGradient id="bone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFE3C8"/><stop offset="1" stop-color="#DCCBA6"/></linearGradient>
+<linearGradient id="barrel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F3F6F8"/><stop offset="1" stop-color="#C9D1D8"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="anatomy">
+  <path id="skull" d="M32,-32 C6.9,-6.9 6.9,1446.9 32,1472 C57.1,1497.1 1510.9,1497.1 1536,1472 C1561.1,1446.9 1561.1,-6.9 1536,-32 C1510.9,-57.1 57.1,-57.1 32,-32 Z" fill="url(#bone)"/>
+  <path id="orbit" d="M928,128 C924.3,161.6 910.9,232.1 896,256 C881.1,279.9 829.9,320.9 800,332.8 C770.1,344.7 677.3,359.1 640,358.4 C602.7,357.7 511.7,340.2 480,326.4 C448.3,312.6 386.7,266.9 368,240 C349.3,213.1 321.9,127.7 320,96 C318.1,64.3 281.1,-17.1 352,-32 C422.9,-46.9 860.8,-50.7 928,-32 C995.2,-13.3 931.7,94.4 928,128 Z" fill="#4B3B2E" stroke="#A8977A" stroke-width="5"/>
+  <path id="nasal-aperture" d="M1152,288 C1133.3,288 1090.7,301.3 1072,320 C1053.3,338.7 1006.2,414.4 992,448 C977.8,481.6 953.4,574.4 950.4,608 C947.4,641.6 954.1,713.6 966.4,736 C978.7,758.4 1034.3,791.4 1056,800 C1077.7,808.6 1129.6,809.6 1152,809.6 C1174.4,809.6 1226.3,808.6 1248,800 C1269.7,791.4 1325.3,758.4 1337.6,736 C1349.9,713.6 1356.6,641.6 1353.6,608 C1350.6,574.4 1326.2,481.6 1312,448 C1297.8,414.4 1250.7,338.7 1232,320 C1213.3,301.3 1170.7,288 1152,288 Z" fill="#3E2F25" stroke="#A8977A" stroke-width="5"/>
+  <path id="canine-eminence" d="M800,992 C793.6,963.2 806.4,732.8 812.8,704 C819.2,675.2 857.6,675.2 864,704 C870.4,732.8 883.2,963.2 876.8,992 C870.4,1020.8 806.4,1020.8 800,992 Z" fill="#E8DBBC" stroke="none"/>
+  <path d="M924.8,992 C921,971.2 933.8,804.8 937.6,784 C941.4,763.2 959.4,763.2 963.2,784 C967,804.8 979.8,971.2 976,992 C972.2,1012.8 928.6,1012.8 924.8,992 Z" fill="#E4D6B6" stroke="#C8B790" stroke-width="2"/><path d="M812.8,992 C809,964.8 821.8,747.2 825.6,720 C829.4,692.8 847.4,692.8 851.2,720 C855,747.2 867.8,964.8 864,992 C860.2,1019.2 816.6,1019.2 812.8,992 Z" fill="#E4D6B6" stroke="#C8B790" stroke-width="2"/><path d="M710.4,992 C706.6,971.2 719.4,804.8 723.2,784 C727,763.2 745,763.2 748.8,784 C752.6,804.8 765.4,971.2 761.6,992 C757.8,1012.8 714.2,1012.8 710.4,992 Z" fill="#E4D6B6" stroke="#C8B790" stroke-width="2"/><path d="M614.4,992 C610.6,971.2 623.4,804.8 627.2,784 C631,763.2 649,763.2 652.8,784 C656.6,804.8 669.4,971.2 665.6,992 C661.8,1012.8 618.2,1012.8 614.4,992 Z" fill="#E4D6B6" stroke="#C8B790" stroke-width="2"/><path d="M508.8,992 C505,971.2 517.8,804.8 521.6,784 C525.4,763.2 543.4,763.2 547.2,784 C551,804.8 563.8,971.2 560,992 C556.2,1012.8 512.6,1012.8 508.8,992 Z" fill="#E4D6B6" stroke="#C8B790" stroke-width="2"/>
+  <ellipse id="foramen" cx="656" cy="496" rx="35.2" ry="44.8" fill="#3E2F25" stroke="#8C7A5E" stroke-width="3"/>
+  <rect id="gum" x="32" y="968" width="1504" height="48" fill="#D9C7A0"/>
+  <g id="teeth"><rect x="1014.4" y="992" width="134.4" height="192" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3"/><rect x="892.8" y="992" width="115.2" height="192" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3"/><rect x="780.8" y="992" width="115.2" height="160" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3"/><rect x="681.6" y="992" width="108.8" height="160" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3" id="first-premolar"/><rect x="585.6" y="992" width="108.8" height="160" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3"/><rect x="460.8" y="992" width="147.2" height="160" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3"/><rect x="345.6" y="992" width="140.8" height="160" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3"/><rect x="1155.2" y="992" width="134.4" height="192" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3"/><rect x="1296" y="992" width="115.2" height="192" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3"/><rect x="1408" y="992" width="115.2" height="160" rx="19.2" fill="#F6F1E4" stroke="#B9AE95" stroke-width="3"/></g>
+</g>
+
+<g class="marking">
+  <path id="nerve" d="M656,496 C663.3,506.7 696.3,550.4 710.4,576 C724.5,601.6 748.8,656 761.6,688 C774.4,720 800.4,798.9 806.4,816" fill="none" stroke="#E8C547" stroke-width="7" stroke-linecap="round"/>
+  <path d="M656,496 C654.7,487.5 650.7,448.2 646.4,432 C642.1,415.8 631.3,386.3 624,374.4 C616.7,362.5 596.3,346.7 592,342.4" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/><path d="M656,496 C666.7,497.3 712.5,500.1 736,505.6 C759.5,511.1 807.7,526.1 832,537.6 C856.3,549.1 906.9,584.7 918.4,592" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/><path d="M656,496 C654.7,508.8 646.4,564.3 646.4,592 C646.4,619.7 652.6,672 656,704 C659.4,736 669.9,814.9 672,832" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/>
+  <polygon id="syringe" points="859.1,1084.1 1014.3,1705 908.8,1731.4 753.6,1110.5" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
+  <line id="needle" x1="806.3" y1="1097.3" x2="682.1" y2="600.6" stroke="#5E6670" stroke-width="7"/>
+  <line x1="806.3" y1="1097.3" x2="682.1" y2="600.6" stroke="#D9DEE3" stroke-width="3"/>
+  <circle id="needle-entry" cx="752" cy="880" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
+  <line id="pupil-line" x1="640" y1="0" x2="640" y2="1200" stroke="#C8322B" stroke-width="4" stroke-dasharray="14 10" opacity="0.7"/>
+</g>
+
+<g id="labels"><g class="label emphasis" data-label="Infraorbital foramen" data-target="foramen"><polyline class="leader-halo" points="250,500 648,496"/><polyline class="leader" points="250,500 648,496"/><circle class="leader-dot" cx="648" cy="496" r="7"/><text x="40" y="470" text-anchor="start"><tspan x="40" dy="0">Infraorbital</tspan><tspan x="40" dy="66">foramen</tspan></text></g><g class="label" data-label="Orbital rim" data-target="orbit"><polyline class="leader-halo" points="240,270 512,336"/><polyline class="leader" points="240,270 512,336"/><circle class="leader-dot" cx="512" cy="336" r="7"/><text x="40" y="250" text-anchor="start"><tspan x="40" dy="0">Orbital rim</tspan></text></g><g class="label" data-label="First premolar" data-target="first-premolar"><polyline class="leader-halo" points="300,1100 720,1104"/><polyline class="leader" points="300,1100 720,1104"/><circle class="leader-dot" cx="720" cy="1104" r="7"/><text x="40" y="1150" text-anchor="start"><tspan x="40" dy="0">First premolar</tspan></text></g></g>
+
+</svg>

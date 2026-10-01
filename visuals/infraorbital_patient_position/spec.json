@@ -1,0 +1,91 @@
+{
+  "assetId": "infraorbital_patient_position",
+  "procedure": "block_infraorbital",
+  "title": "Needle entry on the patient",
+  "view": "The face from the front, head at the top, the patient's right on the image left. The operator's gloved hand comes from the patient's right.",
+  "teachingPoint": "Index fingertip on the foramen below the pupil; thumb lifting the upper lip; needle into the mucobuccal fold above the first premolar, pointing at the fingertip.",
+  "claims": [
+    "Face from the front, patient's right on the image left (house laterality).",
+    "Index fingertip over the infraorbital foramen, about 1 cm below the orbital rim on the pupil line (record, steps 2 and subtitle).",
+    "Thumb lifting the upper lip (record, steps 4).",
+    "Needle entering the mucobuccal fold above the first premolar, directed at the fingertip (record, steps 5).",
+    "Two labels: Infraorbital foramen, Mucobuccal fold."
+  ],
+  "requiredElements": [
+    "face",
+    "eye",
+    "pupil",
+    "nose",
+    "upper-lip",
+    "vestibule",
+    "teeth",
+    "first-premolar",
+    "index-finger",
+    "thumb",
+    "foramen-mark",
+    "pupil-line",
+    "needle",
+    "needle-entry",
+    "syringe"
+  ],
+  "labels": {
+    "Infraorbital foramen": "foramen-mark",
+    "Mucobuccal fold": "vestibule"
+  },
+  "geometry": [
+    {
+      "check": "crosses",
+      "a": "pupil-line",
+      "b": "foramen-mark",
+      "why": "foramen is on the pupil line"
+    },
+    {
+      "check": "below",
+      "a": "foramen-mark",
+      "b": "eye",
+      "why": "foramen is below the eye"
+    },
+    {
+      "check": "crosses",
+      "a": "foramen-mark",
+      "b": "index-finger",
+      "why": "the index fingertip is on the foramen"
+    },
+    {
+      "check": "crosses",
+      "a": "thumb",
+      "b": "upper-lip",
+      "why": "the thumb lifts the upper lip"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "vestibule",
+      "why": "entry is in the mucobuccal fold"
+    },
+    {
+      "check": "below",
+      "a": "first-premolar",
+      "b": "needle-entry",
+      "why": "entry is above the first premolar"
+    },
+    {
+      "check": "below",
+      "a": "needle-entry",
+      "b": "foramen-mark",
+      "why": "needle comes from below the foramen"
+    },
+    {
+      "check": "leftOf",
+      "a": "foramen-mark",
+      "b": "needle-entry",
+      "why": "the fold entry is medial to the foramen, so the needle angles up and laterally"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "eye",
+      "why": "the needle never points at the orbit"
+    }
+  ]
+}
