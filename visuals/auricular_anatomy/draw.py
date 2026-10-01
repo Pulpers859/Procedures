@@ -29,11 +29,18 @@ sites, and the concha zone.
 
 Scale: 10 px per mm.
 
-Run: python3 visuals/auricular_anatomy/draw.py
+Plate (2026-10-01): base.jpg is the owner's Gemini repaint of the head-and-ear
+reference (commit a2e7504). Its ear lies within a few px of the layout, so the
+layout outlines serve as the traced regions (checked with DEBUG=1). Base
+1200x896 scales to 1600 wide with a 2.7 px vertical offset; 10 px/mm holds.
+
+Run: python3 visuals/auricular_anatomy/draw.py   (DEBUG=1 shows the traced regions)
 """
 
 from __future__ import annotations
 
+import hashlib
+import os
 import sys
 from pathlib import Path
 
@@ -43,7 +50,8 @@ from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "auricular_anatomy"
 PX_PER_MM = 10.0
-OX, OY = 800.0, 500.0     # canvas position of the ear centre
+OX, OY = 800.0, 500.0
+OFFSET_Y = (1200 - 896 * 1600 / 1200) / 2   # base.jpg letterbox     # canvas position of the ear centre
 
 
 def c(p):
@@ -104,10 +112,21 @@ def build() -> str:
     tracks = "".join(
         f'<path id="{tid}" d="{path(pts)}" fill="none" stroke="#0E8C98" stroke-width="9" stroke-linecap="round" opacity="0.8"/>'
         for tid, pts in TRACKS.items())
+    def cord(pid, ps, w, body, edge, shine):
+        """A glossy cord: dark edge, body, thin highlight; the id sits on the body."""
+        d, px = path(ps), w * PX_PER_MM
+        ident = f' id="{pid}"' if pid else ""
+        return (f'<path d="{d}" fill="none" stroke="{edge}" stroke-width="{fmt(px + 4)}" stroke-linecap="round" opacity="0.85"/>'
+                f'<path{ident} d="{d}" fill="none" stroke="{body}" stroke-width="{fmt(px)}" stroke-linecap="round"/>'
+                f'<path d="{d}" fill="none" stroke="{shine}" stroke-width="{fmt(max(px * 0.28, 2))}" stroke-linecap="round" opacity="0.7" transform="translate(-1.5 -1.5)"/>')
+
     def nerve(pid, ps, w):
-        return f'<path id="{pid}" d="{path(ps)}" fill="none" stroke="#E8C23A" stroke-width="{fmt(w * PX_PER_MM)}" stroke-linecap="round" stroke-opacity="1"/>'
-    nerves = (f'<path id="sta" d="{path(STA)}" fill="none" stroke="#C8322B" stroke-width="{fmt(2.2 * PX_PER_MM)}" stroke-linecap="round"/>'
-              + "".join(f'<path d="{path(b)}" fill="none" stroke="#C8322B" stroke-width="{fmt(1.6 * PX_PER_MM)}" stroke-linecap="round"/>' for b in STA_BRANCHES)
+        return cord(pid, ps, w, "#E9CD6A", "#9A7A2A", "#FFF6D2")
+
+    def vessel(pid, ps, w):
+        return cord(pid, ps, w, "#C8322B", "#7E1C18", "#F2A39A")
+
+    nerves = (vessel("sta", STA, 2.2) + "".join(vessel(None, b, 1.6) for b in STA_BRANCHES)
               + nerve("auriculotemporal-nerve", ATN, 1.6)
               + "".join(nerve(f"atn-branch-{i}", t, 1.1) for i, t in enumerate(ATN_BRANCHES))
               + "".join(nerve(f"atn-twig-{i}", t, 0.9) for i, t in enumerate(ATN_TWIGS))
@@ -120,7 +139,9 @@ def build() -> str:
     sites = "".join(
         f'<circle id="{sid}" cx="{fmt(c(p)[0])}" cy="{fmt(c(p)[1])}" r="16" fill="#C8322B" stroke="#FFFFFF" stroke-width="4"/>'
         for sid, p in (("site-inferior", INFERIOR_SITE), ("site-superior", SUPERIOR_SITE)))
-    cx, cy = c(CANAL)
+    debug = os.environ.get("DEBUG") == "1"
+    region = 'fill="#ff00ff" fill-opacity="0.35"' if debug else 'fill="#000" fill-opacity="0"'
+    base_sha = hashlib.sha256(Path(__file__).with_name("base.jpg").read_bytes()).hexdigest()
 
     labels = [
         Label(["Auriculotemporal n."], anchor=(1030, 110), leader=[(1100, 130), c((11.5, 18))], target_id="auriculotemporal-nerve"),
@@ -130,19 +151,13 @@ def build() -> str:
     ]
 
     body = f"""
-<g id="anatomy" stroke-linejoin="round">
-  <rect id="head" x="0" y="0" width="1600" height="1200" fill="#EFCDB6"/>
-  <path id="neck" d="{path(NECK, closed=True, tension=0.6)}" fill="#E2B79D"/>
-  <path id="jaw" d="{path(JAW)}" fill="none" stroke="#C99A80" stroke-width="5"/>
-  <path id="hair" d="{path(HAIR, closed=True, tension=0.6)}" fill="#5A4030"/>
-  <path id="ear" d="{path(EAR, closed=True, tension=0.8)}" fill="#EDBBA3" stroke="#B98468" stroke-width="4"/>
-  <path id="helix-rim" d="{path(HELIX_INNER, tension=0.8)}" fill="none" stroke="#B98468" stroke-width="4"/>
-  <path id="antihelix" d="{path(ANTIHELIX, closed=True, tension=0.8)}" fill="#F3CDB8" stroke="#B98468" stroke-width="3"/>
-  <path id="concha" d="{path(CONCHA, closed=True, tension=0.8)}" fill="#D99A83" stroke="#B98468" stroke-width="3"/>
-  <ellipse id="ear-canal" cx="{fmt(cx)}" cy="{fmt(cy)}" rx="{fmt(2.2 * PX_PER_MM)}" ry="{fmt(3.2 * PX_PER_MM)}" fill="#6E3A2E"/>
-  <path id="tragus" d="{path(TRAGUS, closed=True, tension=0.8)}" fill="#EDBBA3" stroke="#B98468" stroke-width="3"/>
-  <path id="antitragus" d="{path(ANTITRAGUS, closed=True, tension=0.8)}" fill="#EDBBA3" stroke="#B98468" stroke-width="3"/>
-  <path id="lobe" d="{path(LOBE, closed=True, tension=0.8)}" fill="#EDB39B" stroke="none"/>
+<g id="anatomy" data-base-sha256="{base_sha}">
+  <image href="base.jpg" x="0" y="{fmt(OFFSET_Y)}" width="1600" height="{fmt(896 * 1600 / 1200)}" preserveAspectRatio="none"/>
+  <rect id="head" x="0" y="0" width="1600" height="1200" fill="none"/>
+  <path id="ear" d="{path(EAR, closed=True, tension=0.8)}" {region}/>
+  <path id="concha" d="{path(CONCHA, closed=True, tension=0.8)}" {region}/>
+  <path id="tragus" d="{path(TRAGUS, closed=True, tension=0.8)}" {region}/>
+  <path id="lobe" d="{path(LOBE, closed=True, tension=0.8)}" {region}/>
 </g>
 <g id="nerves" class="marking">{nerves}</g>
 <g id="markings" class="marking">{tracks}{concha_zone}</g>
