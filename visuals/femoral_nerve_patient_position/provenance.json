@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude, sending the prompt and attachments to Antigravity; reviewed by overlay before use",
+ "date": "2026-10-01",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the femoral_nerve_patient_position layout (commit 542c88e draw.py, --reference).",
+ "antigravityConversation": "355612a8-d3c4-4a29-84ca-5693fe60debc",
+ "prompt": "Prompt A (photo variant), new conversation, the layout reference attached as the only image: The attached image is an exact layout of a procedure scene seen from directly above: a patient lying on their back, with the right groin and upper thigh exposed through blue sterile drapes. The head end is at the top of the image; the hip is on the left and the draped inner thigh on the right. The pale bony prominence at the upper left of the exposed skin is the front of the hip bone. A faint natural skin crease, the groin crease, runs diagonally down to the right across the top of the thigh. A white linear ultrasound probe stands on the skin across the groin crease, seen from above as a short rounded bar, with its dark cable running up out of the top of the picture. A block needle with a small white hub enters the skin just to the left of the probe, in line with it, and clear extension tubing curves from the hub down to the lower left. Turn this into a realistic clinical photograph of an ultrasound-guided femoral nerve block, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and angle; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture and fine hair, soft folds in the drapes, shot from directly above in soft even procedure-room light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, incisions, hands, gloves, blood, border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None; first painting accepted for review.",
+ "reviewNotes": "Overlay: the thigh outline, top drape, probe, cable, needle, hub and tubing lie on the layout within a few pixels. At the groin the medial thigh edge is painted up to about 1.5 cm inside the layout's, under the medial drape; nothing is marked there. The tubing runs off the left edge instead of ending in the drape. No hands, as asked. No watermark in the corners.",
+ "knownLimits": "The pubic tubercle is not visible on the photograph; its ring is placed from the layout, 8 mm higher than the layout drew it, because the probe was painted about 3 mm higher than drawn and the ASIS-to-tubercle line otherwise touched its medial top corner. The ASIS ring sits on the painted prominence, about 8 mm up and lateral of the layout's. The probe is seen from above as a short bar, so its face is not shown. Typical adult proportions.",
+ "thirdPartyConcept": "None attached for this image. The NYSORA femoral nerve block transducer photographs (Fig-3, Fig-4A) were read for understanding only and not attached."
+}
