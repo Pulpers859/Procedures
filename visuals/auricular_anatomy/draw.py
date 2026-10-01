@@ -105,7 +105,7 @@ TRACKS = {
     "track-sup-post": [SUPERIOR_SITE, (-19, 25), POSTERIOR_MEET],
 }
 
-DEFS = ""
+DEFS = '<filter id="soft" x="-20%" y="-20%" width="140%" height="140%" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="2.2"/></filter>'
 
 
 def build() -> str:
@@ -113,18 +113,19 @@ def build() -> str:
         f'<path id="{tid}" d="{path(pts)}" fill="none" stroke="#0E8C98" stroke-width="9" stroke-linecap="round" opacity="0.8"/>'
         for tid, pts in TRACKS.items())
     def cord(pid, ps, w, body, edge, shine):
-        """A glossy cord: dark edge, body, thin highlight; the id sits on the body."""
-        d, px = path(ps), w * PX_PER_MM
+        """A soft painted cord: blurred shadow, translucent body, blurred highlight.
+        The owner rejected hard-edged cords (2026-10-01) as clashing with the painting."""
+        d, px = path(ps), w * PX_PER_MM * 0.8
         ident = f' id="{pid}"' if pid else ""
-        return (f'<path d="{d}" fill="none" stroke="{edge}" stroke-width="{fmt(px + 4)}" stroke-linecap="round" opacity="0.85"/>'
-                f'<path{ident} d="{d}" fill="none" stroke="{body}" stroke-width="{fmt(px)}" stroke-linecap="round"/>'
-                f'<path d="{d}" fill="none" stroke="{shine}" stroke-width="{fmt(max(px * 0.28, 2))}" stroke-linecap="round" opacity="0.7" transform="translate(-1.5 -1.5)"/>')
+        return (f'<path d="{d}" fill="none" stroke="{edge}" stroke-width="{fmt(px + 3)}" stroke-linecap="round" opacity="0.28" filter="url(#soft)" transform="translate(1.5 2)"/>'
+                f'<path{ident} d="{d}" fill="none" stroke="{body}" stroke-width="{fmt(px)}" stroke-linecap="round" opacity="0.82"/>'
+                f'<path d="{d}" fill="none" stroke="{shine}" stroke-width="{fmt(max(px * 0.35, 2))}" stroke-linecap="round" opacity="0.55" filter="url(#soft)" transform="translate(-1 -1)"/>')
 
     def nerve(pid, ps, w):
-        return cord(pid, ps, w, "#E9CD6A", "#9A7A2A", "#FFF6D2")
+        return cord(pid, ps, w, "#E8D08A", "#7A5A2A", "#FFF8E0")
 
     def vessel(pid, ps, w):
-        return cord(pid, ps, w, "#C8322B", "#7E1C18", "#F2A39A")
+        return cord(pid, ps, w, "#B8423A", "#5E1A16", "#F0B0A6")
 
     nerves = (vessel("sta", STA, 2.2) + "".join(vessel(None, b, 1.6) for b in STA_BRANCHES)
               + nerve("auriculotemporal-nerve", ATN, 1.6)
