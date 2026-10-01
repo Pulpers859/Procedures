@@ -4,6 +4,13 @@ Same view, scale and ear as auricular_patient_position (layout commit
 a80ec1b): right side of the head, head up, face to the right. Skin is drawn
 see-through so the superficial nerves show.
 
+The nerves and the artery are drawn in code, not painted (2026-10-01).
+Gemini twice joined the auriculotemporal nerve to the great auricular nerve,
+once also fanning the anterior GAN branch across the face like the facial
+nerve and once turning the jaw line into a nerve, dropping the artery and
+moving the lesser occipital. Per the playbook, an element failed twice is
+drawn in code. The reference for Gemini therefore shows only the head and ear.
+
 Standard adult anatomy, not from the record (listed in spec.json):
 - auriculotemporal nerve (V3) rising just in front of the tragus, behind the
   superficial temporal artery, with twigs to the tragus and the front of the
@@ -16,8 +23,9 @@ Standard adult anatomy, not from the record (listed in spec.json):
 - auricular branch of the vagus (concha and canal): deep, drawn in code as a
   zone over the concha, not in the layout.
 
-Markings (code, over the painting): the diamond ring of subcutaneous
-anaesthetic through the two puncture sites, and the concha zone.
+Markings (code, over the painting): the nerves and the superficial temporal
+artery, the diamond ring of subcutaneous anaesthetic through the two puncture
+sites, and the concha zone.
 
 Scale: 10 px per mm.
 
@@ -136,7 +144,7 @@ def build() -> str:
   <path id="antitragus" d="{path(ANTITRAGUS, closed=True, tension=0.8)}" fill="#EDBBA3" stroke="#B98468" stroke-width="3"/>
   <path id="lobe" d="{path(LOBE, closed=True, tension=0.8)}" fill="#EDB39B" stroke="none"/>
 </g>
-<g id="nerves">{nerves}</g>
+<g id="nerves" class="marking">{nerves}</g>
 <g id="markings" class="marking">{tracks}{concha_zone}</g>
 <g id="labels">{"".join(label.svg() for label in labels)}</g>
 """
