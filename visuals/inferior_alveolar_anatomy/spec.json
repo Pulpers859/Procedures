@@ -1,0 +1,139 @@
+{
+  "assetId": "inferior_alveolar_anatomy",
+  "procedure": "block_inferior_alveolar",
+  "title": "Target anatomy",
+  "view": "Axial section of the lower face at the mandibular foramen, seen from above as on CT: anterior (the lips) at the top, the patient's right on the image left. Block on the right.",
+  "teachingPoint": "From the opposite premolars the needle crosses to the right side, enters between the ramus's anterior border and the raphe, passes the lingual nerve and stops on bone at the medial ramus, just in front of the inferior alveolar nerve. Behind the ramus is the parotid: no bone means too far back.",
+  "claims": [
+    "Axial section at the mandibular foramen, anterior at the top, patient's right on the image left (owner's choice of view, 2026-10-01).",
+    "Syringe barrel over the opposite (left) premolars (record, steps 4).",
+    "Needle entry between the anterior border of the ramus and the pterygomandibular raphe (record, steps 5).",
+    "Needle tip on bone on the medial ramus, 21 mm from the entry (record: usually 20-25 mm).",
+    "Inferior alveolar nerve with its artery and vein in the pterygomandibular space at the foramen; lingual nerve anterior and medial to it (record, subtitle).",
+    "Parotid behind the ramus; masseter lateral and medial pterygoid medial to it (standard anatomy, added).",
+    "Five labels: Inferior alveolar nerve, Lingual nerve, Medial pterygoid, Parotid, Ramus."
+  ],
+  "requiredElements": [
+    "face",
+    "oral-cavity",
+    "tongue",
+    "teeth",
+    "ramus",
+    "masseter",
+    "medial-pterygoid",
+    "pterygomandibular-space",
+    "parotid",
+    "buccinator",
+    "constrictor",
+    "raphe",
+    "pharynx",
+    "ian",
+    "lingual-nerve",
+    "ia-artery",
+    "ia-vein",
+    "needle",
+    "needle-entry",
+    "syringe"
+  ],
+  "labels": {
+    "Inferior alveolar nerve": "ian",
+    "Lingual nerve": "lingual-nerve",
+    "Medial pterygoid": "medial-pterygoid",
+    "Parotid": "parotid",
+    "Ramus": "ramus"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "ian",
+      "b": "lingual-nerve",
+      "why": "lingual nerve is medial to the IAN (medial is right on the patient's right side)"
+    },
+    {
+      "check": "below",
+      "a": "ian",
+      "b": "lingual-nerve",
+      "why": "lingual nerve is anterior to the IAN (anterior is up)"
+    },
+    {
+      "check": "leftOf",
+      "a": "ramus",
+      "b": "medial-pterygoid",
+      "why": "medial pterygoid is medial to the ramus"
+    },
+    {
+      "check": "leftOf",
+      "a": "masseter",
+      "b": "ramus",
+      "why": "masseter is lateral to the ramus"
+    },
+    {
+      "check": "below",
+      "a": "parotid",
+      "b": "ramus",
+      "why": "parotid lies behind the ramus"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "raphe",
+      "why": "entry is lateral to the raphe"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "syringe",
+      "why": "syringe lies over the opposite side"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "ramus",
+      "maxPx": 4,
+      "why": "needle tip is on bone at the medial ramus"
+    },
+    {
+      "check": "crosses",
+      "a": "needle",
+      "b": "buccinator",
+      "why": "needle passes the mucosa and buccinator"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "ian",
+      "why": "needle stops short of the inferior alveolar nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "lingual-nerve",
+      "why": "needle passes beside, not through, the lingual nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "parotid",
+      "why": "a correctly placed needle stays out of the parotid"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "medial-pterygoid",
+      "why": "needle runs in the space lateral to the medial pterygoid"
+    },
+    {
+      "check": "noOverlap",
+      "a": "ian",
+      "b": "medial-pterygoid",
+      "why": "the nerve lies in the space, not in the muscle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "ian",
+      "b": "ramus",
+      "why": "the nerve lies against, not inside, the ramus"
+    }
+  ]
+}

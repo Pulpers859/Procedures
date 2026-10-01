@@ -1,0 +1,78 @@
+{
+  "assetId": "inferior_alveolar_patient_position",
+  "procedure": "block_inferior_alveolar",
+  "title": "Needle entry on the patient",
+  "view": "The open mouth of a seated patient seen from the front, as the operator faces them: head at the top, the patient's right on the image left. Block on the right.",
+  "teachingPoint": "Barrel over the opposite lower premolars; entry midway between the coronoid notch and the pterygomandibular raphe, about 1 cm above the lower molars' biting surfaces.",
+  "claims": [
+    "Open mouth from the front, patient's right on the image left (house laterality; the record names no side).",
+    "Purple ring: the coronoid notch, felt through the cheek (record, steps 2).",
+    "Pale fold: the pterygomandibular raphe, medial to the notch (record, steps 3).",
+    "Red dot: entry at the midpoint between notch and raphe, 1 cm above the lower molars' occlusal plane (record, steps 5).",
+    "Syringe barrel over the patient's left lower premolars (record, steps 4); the needle is foreshortened because it runs back into the mouth.",
+    "Two labels: Coronoid notch, Pterygomandibular raphe."
+  ],
+  "requiredElements": [
+    "face",
+    "lips",
+    "oral-cavity",
+    "tongue",
+    "upper-teeth",
+    "lower-teeth",
+    "premolar-left",
+    "lower-molars-right",
+    "raphe",
+    "coronoid-notch",
+    "needle",
+    "needle-entry",
+    "syringe"
+  ],
+  "labels": {
+    "Coronoid notch": "coronoid-notch",
+    "Pterygomandibular raphe": "raphe"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "coronoid-notch",
+      "b": "needle-entry",
+      "why": "entry is medial to the notch (on the patient's right, medial is right)"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "raphe",
+      "why": "entry is lateral to the raphe"
+    },
+    {
+      "check": "below",
+      "a": "lower-molars-right",
+      "b": "needle-entry",
+      "why": "entry is above the lower molars' occlusal plane"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "oral-cavity",
+      "why": "entry is on the mucosa inside the mouth"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "syringe",
+      "why": "syringe comes from the opposite side"
+    },
+    {
+      "check": "crosses",
+      "a": "premolar-left",
+      "b": "syringe",
+      "why": "barrel rests over the opposite premolars"
+    },
+    {
+      "check": "noOverlap",
+      "a": "coronoid-notch",
+      "b": "raphe",
+      "why": "notch and raphe are distinct landmarks either side of the entry"
+    }
+  ]
+}
