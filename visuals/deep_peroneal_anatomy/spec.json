@@ -132,5 +132,10 @@
       "b": "bone",
       "why": "injectate lies on the tibia, not in it"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "5d593f422197efde58b7ca173693ea5518be1214d300f0a06f6b4a8adc434e21",
+    "reviewedOn": "2026-10-01"
+  }
 }

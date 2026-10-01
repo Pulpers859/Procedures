@@ -80,5 +80,10 @@
       "b": "skin",
       "why": "needle enters through the skin of the ankle"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "4e0f359d0fb1f656080033d0bf3128feb82a0acca18240d16736fe7a87b86dda",
+    "reviewedOn": "2026-10-01"
+  }
 }

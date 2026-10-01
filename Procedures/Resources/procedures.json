@@ -9963,9 +9963,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine. Transducer transverse over the anterior ankle.",
-        "assetName": null,
+        "assetName": "deep_peroneal_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right ankle from the front, lateral on the left: probe transverse across the anterior ankle, needle in-plane from lateral.",
         "clinicalWarning": null
       },
       {
@@ -9973,9 +9973,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The deep peroneal nerve runs with the anterior tibial artery between the extensor hallucis longus and extensor digitorum longus tendons, usually lateral to the artery. Inject next to the artery.",
-        "assetName": null,
+        "assetName": "deep_peroneal_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right anterior ankle in section under the probe, seen from the feet: lateral on the left.",
         "clinicalWarning": null
       }
     ],
