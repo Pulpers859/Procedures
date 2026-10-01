@@ -14,12 +14,15 @@ the extensor hallucis longus and extensor digitorum longus tendons, usually
 lateral to the artery; inject next to the artery. Added, standard anatomy
 not in the record: tibialis anterior tendon most medial; paired venae
 comitantes beside the artery; the extensor retinaculum over the tendons;
-the distal tibia below. Sizes are typical adult values: artery about 3 mm,
-nerve about 2 mm, at about 7 mm deep; depths vary with habitus.
+the distal tibia, its convex anterior surface directly under the
+neurovascular bundle (as in the owner's NYSORA concept plate, 2026-10-01,
+used for understanding only and not committed). Sizes are typical adult
+values: artery about 3 mm, nerve about 2 mm, at about 7 mm deep; depths
+vary with habitus.
 
 Markings: the probe (medial edge to about 1 cm short of the lateral edge),
-the needle in-plane from lateral (owner, 2026-10-01) with its tip lateral to the nerve, and the teal injectate around
-the artery and nerve.
+the needle in-plane from lateral (owner, 2026-10-01) with its tip lateral
+to the nerve, and the teal injectate around the artery and nerve.
 
 Millimetres from the artery centre (x lateral, y deep from the skin) at
 40 px/mm.
@@ -65,7 +68,7 @@ def retinaculum_y(x):
 
 
 def bone_y(x):
-    return 11.6 + 0.006 * x * x
+    return 9.4 + 0.01 * x * x
 
 
 ARTERY = ((0.0, 7.0), 1.5)
@@ -84,7 +87,7 @@ def spread():
     pts = []
     for i in range(36):
         t = 2 * math.pi * i / 36
-        pts.append((1.0 + 4.6 * math.cos(t), 7.3 + 2.0 * math.sin(t)))
+        pts.append((1.0 + 4.6 * math.cos(t), 7.3 + 1.9 * math.sin(t)))
     return pts
 
 
