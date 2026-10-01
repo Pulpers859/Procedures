@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude, sending the prompts and attachments to Antigravity; reviewed by overlay before use",
+ "date": "2026-10-01",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None; first painting accepted for review.",
+ "reference": "Unlabelled render of the infraorbital_anatomy layout (commit 10a790a draw.py, --reference).",
+ "antigravityConversation": "117ceb8e-1119-4475-93c3-bb9dc1ed02b4",
+ "prompt": "Prompt B, new conversation: Image 1 is the exact layout. Use it as the structure for a scientifically accurate front view of the right side of an adult skull, zoomed on the midface: the lower half of the right orbit at the top left, the nasal opening at the right, the infraorbital foramen below the orbit, the faint outlines of the canine and premolar roots in the maxilla, and the upper teeth along the bottom. Keep every outline, position and size exactly as drawn, in the same 4:3 landscape frame, with the bone running to every edge. Exact labels, a nerve, a needle and a syringe will be laid over it afterwards.\n\nImage 2 is for understanding the anatomy only: where the infraorbital foramen sits on the maxilla below the orbital rim, and how the bone of the orbit, the nasal opening and the maxilla look from the front. Take the relationships from image 2; take every position, shape and size from image 1; the drawing itself is new. Leave out its circles and lines.\n\nPaint it as a premium anatomy-atlas plate of dry bone: warm ivory bone with soft glossy highlights and gentle shading, fine crisp edges, lit softly from the upper left. The orbit and the nasal opening are deep shadowed hollows. The infraorbital foramen is a small dark oval opening in the bone. The canine eminence is a gentle vertical ridge over the long canine root. The upper teeth are smooth ivory enamel crowns with a soft sheen, set in the bone of the upper jaw.\n\nThe picture shows only this bone and the teeth.",
+ "promptAttachments": "Image 1: the layout reference. Image 2: a crop of the owner's skull plate ('Orbital Block Anatomy.png', right orbit and maxilla, labels cropped off).",
+ "reviewNotes": "Overlay: orbit, foramen and nasal aperture on the layout within a few pixels; the painted first premolar sits where the layout placed it. Gemini painted no tooth at the far left (the layout's molar there is bare bone in the painting) and natural sutures and small vascular foramina; cosmetic. No watermark.",
+ "knownLimits": "Bone only: the entry in the mucobuccal fold is marked on the bone over the first premolar's root. The nerve branches are code-drawn, standard anatomy. The tip stops 18 mm in, about 7 mm short of the foramen.",
+ "thirdPartyConcept": "The owner's skull plate ('Orbital Block Anatomy.png'), attached as image 2 for the foramen's relationships only. Not committed."
+}

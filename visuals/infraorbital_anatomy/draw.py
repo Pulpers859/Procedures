@@ -25,7 +25,9 @@ Run: python3 visuals/infraorbital_anatomy/draw.py
 
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -34,6 +36,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "infraorbital_anatomy"
+BASE = Path(__file__).with_name("base.jpg")
+BASE_SIZE = (1200.0, 896.0)
 PX_MM = 16.0
 ORIGIN = (800.0 + 22 * 16.0, 22 * 16.0)   # canvas of x = 0 (midline), y = 0 (rim level)
 
@@ -103,8 +107,21 @@ def build() -> str:
         Label(["First premolar"], anchor=(40, 1150), leader=[(300, 1100), c((PM1_X - 1.0, 47))], target_id="first-premolar"),
     ]
 
+    painted = BASE.exists()
+    debug = os.environ.get("DEBUG") == "1"
+    scale = 1600 / BASE_SIZE[0]
+    if painted:
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - BASE_SIZE[1] * scale) / 2)}" width="1600" '
+                      f'height="{fmt(BASE_SIZE[1] * scale)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if debug else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
+
     body = f"""
-<g id="anatomy">
+<g id="painting"{base_attr}>{base_image}</g>
+<g id="anatomy"{layout_attr}>
   <path id="skull" d="{path(SKULL, closed=True, tension=0.1)}" fill="url(#bone)"/>
   <path id="orbit" d="{path(ORBIT, closed=True, tension=0.7)}" fill="#4B3B2E" stroke="#A8977A" stroke-width="5"/>
   <path id="nasal-aperture" d="{path(NASAL + [(-x, y) for x, y in reversed(NASAL)][1:-1], closed=True, tension=0.7)}" fill="#3E2F25" stroke="#A8977A" stroke-width="5"/>
@@ -116,8 +133,13 @@ def build() -> str:
 </g>
 
 <g class="marking">
-  <path id="nerve" d="{path(BRANCHES['labial-medial'], tension=0.8)}" fill="none" stroke="#E8C547" stroke-width="7" stroke-linecap="round"/>
-  {"".join(f'<path d="{path(pts, tension=0.8)}" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/>' for k, pts in BRANCHES.items() if k != 'labial-medial')}
+  <g opacity="0.95">
+  {"".join(f'<path d="{path(pts, tension=0.8)}" fill="none" stroke="#000" stroke-opacity="0.22" stroke-width="12" stroke-linecap="round" transform="translate(2 3)"/>' for pts in BRANCHES.values())}
+  {"".join(f'<path d="{path(pts, tension=0.8)}" fill="none" stroke="#8F7414" stroke-width="10" stroke-linecap="round"/>' for pts in BRANCHES.values())}
+  <path id="nerve" d="{path(BRANCHES['labial-medial'], tension=0.8)}" fill="none" stroke="#EFCF55" stroke-width="7" stroke-linecap="round"/>
+  {"".join(f'<path d="{path(pts, tension=0.8)}" fill="none" stroke="#EFCF55" stroke-width="7" stroke-linecap="round"/>' for k, pts in BRANCHES.items() if k != 'labial-medial')}
+  {"".join(f'<path d="{path(pts, tension=0.8)}" fill="none" stroke="#FFF6C8" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round" transform="translate(-1.5 -1.5)"/>' for pts in BRANCHES.values())}
+  </g>
   <polygon id="syringe" points="{' '.join(f'{fmt(x)},{fmt(y)}' for x, y in barrel)}" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
   <line id="needle" x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="7"/>
   <line x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="3"/>

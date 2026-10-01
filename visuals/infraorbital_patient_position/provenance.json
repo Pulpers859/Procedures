@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude, sending the prompts and attachments to Antigravity; reviewed by overlay before use",
+ "date": "2026-10-01",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None; first painting accepted for review.",
+ "reference": "Unlabelled render of the infraorbital_patient_position layout (commit 10a790a draw.py, --reference).",
+ "antigravityConversation": "35228c87-5829-4f96-9963-ece1332b0101",
+ "prompt": "Prompt A (photo variant), new conversation, the layout reference as the only image: The attached image is an exact layout of a clinical scene seen straight on: an adult patient's face from the front, lying back against a dark grey headrest, eyes open and looking ahead. A clinician's hand in a white sterile glove comes in from the left edge: the index fingertip rests on the cheek just below the left-hand eye, and the thumb lifts the upper lip on that side, showing the pink inner lining of the lip and the gum above the upper teeth. Turn this into a realistic clinical photograph of the infraorbital nerve block, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position, including the gloved index finger and thumb; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture, natural eyes, moist pink oral mucosa and gum, natural teeth, a realistic white nitrile glove with soft folds, soft even examination light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, syringes, needles, instruments, extra fingers or hands, or blood, and no border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "reviewNotes": "Overlay: eyes, brows, nose, lips, teeth and the gloved index finger and thumb lie on the layout within a few pixels; Gemini added the rest of the hand curled at the left edge. The index fingertip sits on the foramen point below the pupil. The thumb covers the fold over the first premolar, so the fold is traced where it shows just past the thumb, above the canine and first premolar, and the entry placed there. No watermark.",
+ "knownLimits": "The entry is about 4 mm medial of the layout's, over the canine/first premolar junction (record: above the canine/first premolar). The syringe and needle are code-drawn; only the needle's external part shows.",
+ "thirdPartyConcept": "The owner's infraorbital sheet ('Orbital Block.png', watermarked) was read for composition only; not attached and not committed."
+}

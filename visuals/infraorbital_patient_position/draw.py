@@ -27,7 +27,9 @@ Run: python3 visuals/infraorbital_patient_position/draw.py
 
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -36,6 +38,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "infraorbital_patient_position"
+BASE = Path(__file__).with_name("base.jpg")
+BASE_SIZE = (1200.0, 896.0)
 PX_MM = 10.0
 ORIGIN = (1060.0, 440.0)
 
@@ -73,7 +77,11 @@ MOUTH = [(-26, 41), (-12, 50.6), (0, 51.4), (12, 50.6), (26, 41), (12, 54), (0, 
 LOWER_LIP = [(-26, 41), (-12, 53.6), (0, 54.6), (12, 53.6), (26, 41), (16, 59), (0, 62), (-16, 59)]
 PM1 = (-23.6, 46.0)
 FOLD = (-21.0, 31.6)                    # mucobuccal fold above the first premolar
-ENTRY = FOLD
+# On the painting the thumb covers the fold over the first premolar; the
+# fold is traced where it shows, just past the thumb, above the canine and
+# first premolar (canvas px), and the entry is placed there.
+VESTIBULE_PX = [(868, 802), (905, 795), (960, 800), (1010, 812), (1000, 830), (940, 829), (880, 831), (866, 818)]
+ENTRY = ((882 - ORIGIN[0]) / PX_MM, (812 - ORIGIN[1]) / PX_MM) if BASE.exists() else FOLD
 U = (lambda dx, dy: (dx / math.hypot(dx, dy), dy / math.hypot(dx, dy)))(FORAMEN[0] - ENTRY[0], FORAMEN[1] - ENTRY[1])
 HUB = (ENTRY[0] - U[0] * 14.0, ENTRY[1] - U[1] * 14.0)
 BARREL_END = (HUB[0] - U[0] * 60.0, HUB[1] - U[1] * 60.0)
@@ -108,8 +116,21 @@ def build() -> str:
         Label(["Mucobuccal", "fold"], anchor=(1240, 1010), leader=[(1230, 980), (e[0] + 18, e[1] + 6)], target_id="vestibule"),
     ]
 
+    painted = BASE.exists()
+    debug = os.environ.get("DEBUG") == "1"
+    scale = 1600 / BASE_SIZE[0]
+    if painted:
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - BASE_SIZE[1] * scale) / 2)}" width="1600" '
+                      f'height="{fmt(BASE_SIZE[1] * scale)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if debug else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
+
     body = f"""
-<g id="anatomy">
+<g id="painting"{base_attr}>{base_image}</g>
+<g id="anatomy"{layout_attr}>
   <rect x="0" y="0" width="1600" height="1200" fill="#5C6670"/>
   <path id="face" d="{path(FACE, closed=True, tension=0.6)}" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
   <path id="brow" d="{path(BROW_R, closed=True, tension=0.6)}" fill="#6B4E3A"/>
@@ -128,7 +149,7 @@ def build() -> str:
   <path id="gum" d="{path(GUM, closed=True, tension=0.5)}" fill="#E39A93" stroke="#C47A72" stroke-width="2"/>
   <g id="teeth">{teeth}</g>
   <path id="upper-lip" d="{path(UPPER_LIP, closed=True, tension=0.6)}" fill="#C47C72" stroke="#9E554F" stroke-width="3"/>
-  <path id="vestibule" d="{path(VESTIBULE, closed=True, tension=0.6)}" fill="#D9786F" stroke="#B85C55" stroke-width="2"/>
+  <path id="vestibule" d="{smooth_path([(float(x), float(y)) for x, y in VESTIBULE_PX], closed=True, tension=0.6) if painted else path(VESTIBULE, closed=True, tension=0.6)}" fill="#D9786F" stroke="#B85C55" stroke-width="2"/>
   <path id="index-finger" d="{path(INDEX, closed=True, tension=0.6)}" fill="url(#glove)" stroke="#9AA6B2" stroke-width="3"/>
   <path id="thumb" d="{path(THUMB, closed=True, tension=0.6)}" fill="url(#glove)" stroke="#9AA6B2" stroke-width="3"/>
 </g>
