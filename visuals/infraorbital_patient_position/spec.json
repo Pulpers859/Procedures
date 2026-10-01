@@ -87,5 +87,10 @@
       "b": "eye",
       "why": "the needle never points at the orbit"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "74a5a7f46046161d07e28b50b0adb551626f3128bfca3377c267376b90bcd825",
+    "reviewedOn": "2026-10-01"
+  }
 }

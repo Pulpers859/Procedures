@@ -10406,9 +10406,9 @@
         "kind": "Setup",
         "title": "Needle entry on the patient",
         "subtitle": "Supine or seated. Needle into the mucobuccal fold above the canine or first premolar, directed superiorly toward a finger held over the foramen.",
-        "assetName": null,
+        "assetName": "infraorbital_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Face from the front, patient's right on the left: index finger on the foramen below the pupil, thumb lifting the lip, needle into the fold above the canine/first premolar.",
         "clinicalWarning": null
       },
       {
@@ -10416,9 +10416,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The infraorbital foramen lies on the maxilla about 1 cm below the inferior orbital rim, directly below the pupil, in line with the supraorbital notch and the mental foramen.",
-        "assetName": null,
+        "assetName": "infraorbital_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right midface of the skull from the front, patient's right on the left: foramen on the pupil line, needle stopping short of it.",
         "clinicalWarning": null
       }
     ],

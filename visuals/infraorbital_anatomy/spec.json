@@ -79,5 +79,10 @@
       "b": "needle-entry",
       "why": "entry is above the first premolar"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "71d82ebf2878707248c263f5f009c775fad07a29a2fcb9f9dfabedb2a35723ca",
+    "reviewedOn": "2026-10-01"
+  }
 }
