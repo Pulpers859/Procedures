@@ -183,3 +183,56 @@ def document(body: str, defs: str = "", extra_style: str = "") -> str:
         f'<rect class="plate-bg" width="{WIDTH}" height="{HEIGHT}"/>\n'
         f"{body}\n</svg>\n"
     )
+
+
+SYRINGE_DEFS = """
+<linearGradient id="syr-barrel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+  <stop offset="0.4" stop-color="#EEF2F5" stop-opacity="0.85"/><stop offset="0.8" stop-color="#CDD5DC" stop-opacity="0.85"/><stop offset="1" stop-color="#A9B3BC"/></linearGradient>
+<linearGradient id="syr-plastic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.6" stop-color="#E9EDF0"/><stop offset="1" stop-color="#BCC4CB"/></linearGradient>
+<linearGradient id="syr-stopper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6A717A"/><stop offset="0.5" stop-color="#3B4148"/><stop offset="1" stop-color="#22272C"/></linearGradient>
+<linearGradient id="syr-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="0.45" stop-color="#B9C1C8"/><stop offset="1" stop-color="#6E777F"/></linearGradient>
+<filter id="syr-soft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+"""
+
+
+def syringe(hub: Point, toward_tip: Point, px_mm: float, shadow: bool = True) -> str:
+    """A 3 mL syringe drawn at true size behind a needle hub: luer hub, clear
+    barrel (9 mm across, 50 mm long) with fluid ahead of a ribbed rubber
+    stopper, finger flange, plunger rod and thumb press. `hub` is where the
+    needle meets the hub (canvas px); `toward_tip` is a unit vector pointing
+    along the needle to its tip. Shaded as a cylinder lit from above in its
+    own frame; the soft shadow seats it on a photograph. Needs SYRINGE_DEFS.
+    Draw the needle shaft separately (with stroke url(#syr-steel) or plain)."""
+    m = px_mm
+    ang = math.degrees(math.atan2(toward_tip[1], toward_tip[0]))
+    r = 4.5 * m
+    hub0, tip0 = -7.0 * m, -12.0 * m
+    barrel_len = 50.0 * m
+    barrel0 = tip0 - barrel_len
+    rod0 = barrel0 - 22.0 * m
+    stop0 = barrel0 + 12.0 * m
+    shade = ""
+    if shadow:
+        shade = (f'<g transform="translate({fmt(0.8 * m)} {fmt(1.4 * m)})" filter="url(#syr-soft)" opacity="0.32" fill="#1B2733">'
+                 f'<rect x="{fmt(rod0)}" y="{fmt(-1.6 * m)}" width="{fmt(barrel0 - rod0)}" height="{fmt(3.2 * m)}" rx="{fmt(0.6 * m)}"/>'
+                 f'<rect x="{fmt(barrel0)}" y="{fmt(-r)}" width="{fmt(barrel_len + 12 * m)}" height="{fmt(2 * r)}" rx="{fmt(m)}"/></g>')
+    ribs = "".join(f'<line x1="{fmt(stop0 + k * 1.6 * m)}" y1="{fmt(-r + 0.6 * m)}" x2="{fmt(stop0 + k * 1.6 * m)}" '
+                   f'y2="{fmt(r - 0.6 * m)}" stroke="#22272C" stroke-width="{fmt(max(1.5, 0.25 * m))}"/>' for k in (1, 2))
+    ticks = "".join(f'<line x1="{fmt(tip0 - k * 5 * m)}" y1="{fmt(-r)}" x2="{fmt(tip0 - k * 5 * m)}" '
+                    f'y2="{fmt(-r + (1.6 if k % 2 == 0 else 1.0) * m)}" stroke="#6E777F" stroke-width="{fmt(max(1.0, 0.18 * m))}"/>'
+                    for k in range(1, 8))
+    sw = fmt(max(1.2, 0.18 * m))
+    parts = [
+        f'<rect x="{fmt(rod0)}" y="{fmt(-1.4 * m)}" width="{fmt(stop0 - rod0)}" height="{fmt(2.8 * m)}" rx="{fmt(0.3 * m)}" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="{sw}"/>',
+        f'<rect x="{fmt(rod0 - 1.4 * m)}" y="{fmt(-6.5 * m)}" width="{fmt(1.6 * m)}" height="{fmt(13 * m)}" rx="{fmt(0.6 * m)}" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="{sw}"/>',
+        f'<rect x="{fmt(barrel0)}" y="{fmt(-r)}" width="{fmt(barrel_len)}" height="{fmt(2 * r)}" rx="{fmt(0.9 * m)}" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="{sw}"/>',
+        f'<rect x="{fmt(stop0 + 3.4 * m)}" y="{fmt(-r + 0.5 * m)}" width="{fmt(tip0 - stop0 - 4.0 * m)}" height="{fmt(2 * r - m)}" rx="{fmt(0.6 * m)}" fill="#BFD8E6" fill-opacity="0.38"/>',
+        f'<rect x="{fmt(stop0)}" y="{fmt(-r + 0.25 * m)}" width="{fmt(3.4 * m)}" height="{fmt(2 * r - 0.5 * m)}" rx="{fmt(0.4 * m)}" fill="url(#syr-stopper)"/>',
+        ribs, ticks,
+        f'<line x1="{fmt(barrel0 + m)}" y1="{fmt(-r + 0.9 * m)}" x2="{fmt(tip0 - m)}" y2="{fmt(-r + 0.9 * m)}" stroke="#FFFFFF" stroke-width="{fmt(max(2, 0.45 * m))}" stroke-opacity="0.8" stroke-linecap="round"/>',
+        f'<rect x="{fmt(barrel0 - 1.0 * m)}" y="{fmt(-r - 3.0 * m)}" width="{fmt(1.4 * m)}" height="{fmt(2 * r + 6.0 * m)}" rx="{fmt(0.6 * m)}" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="{sw}"/>',
+        f'<rect x="{fmt(tip0)}" y="{fmt(-1.1 * m)}" width="{fmt(5.2 * m)}" height="{fmt(2.2 * m)}" rx="{fmt(0.3 * m)}" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="{sw}"/>',
+        f'<path d="M{fmt(hub0 - 0.4 * m)},{fmt(-1.9 * m)} H{fmt(hub0 + 4.6 * m)} L{fmt(0)},{fmt(-0.6 * m)} V{fmt(0.6 * m)} L{fmt(hub0 + 4.6 * m)},{fmt(1.9 * m)} H{fmt(hub0 - 0.4 * m)} Z" fill="#E7EEF3" fill-opacity="0.95" stroke="#9AA3AB" stroke-width="{sw}"/>',
+    ]
+    return (f'<g class="syringe-drawn" transform="translate({fmt(hub[0])} {fmt(hub[1])}) rotate({fmt(ang)})">'
+            f'{shade}{"".join(parts)}</g>')

@@ -32,6 +32,13 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 .label.emphasis .leader-dot { fill: var(--target); }
 .plate-bg { fill: #5C6670; }</style>
 <defs>
+<linearGradient id="syr-barrel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+  <stop offset="0.4" stop-color="#EEF2F5" stop-opacity="0.85"/><stop offset="0.8" stop-color="#CDD5DC" stop-opacity="0.85"/><stop offset="1" stop-color="#A9B3BC"/></linearGradient>
+<linearGradient id="syr-plastic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.6" stop-color="#E9EDF0"/><stop offset="1" stop-color="#BCC4CB"/></linearGradient>
+<linearGradient id="syr-stopper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6A717A"/><stop offset="0.5" stop-color="#3B4148"/><stop offset="1" stop-color="#22272C"/></linearGradient>
+<linearGradient id="syr-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="0.45" stop-color="#B9C1C8"/><stop offset="1" stop-color="#6E777F"/></linearGradient>
+<filter id="syr-soft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+
 <linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9C2A6"/><stop offset="1" stop-color="#DDAE90"/></linearGradient>
 <linearGradient id="glove" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F4F7"/><stop offset="1" stop-color="#D5DCE4"/></linearGradient>
 <linearGradient id="barrel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F3F6F8"/><stop offset="1" stop-color="#C9D1D8"/></linearGradient>
@@ -66,8 +73,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 <g class="marking">
   <line id="pupil-line" x1="740" y1="400" x2="740" y2="530" stroke="#C8322B" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
   <circle id="foramen-mark" cx="750" cy="530" r="24" fill="none" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="10 7"/>
-  <polygon id="syringe" points="977.6,921.8 1231.9,1465.3 1159.5,1499.2 905.1,955.8" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
-  <line x1="941.4" y1="938.8" x2="975.3" y2="1011.3" stroke="#6E7780" stroke-width="82"/>
+  <polygon id="syringe" points="977.6,921.8 1231.9,1465.3 1159.5,1499.2 905.1,955.8" fill="#000" opacity="0"/>
+  <g class="syringe-drawn" transform="translate(941.4 938.8) rotate(-115.1)"><g transform="translate(8 14)" filter="url(#syr-soft)" opacity="0.32" fill="#1B2733"><rect x="-840" y="-16" width="220" height="32" rx="6"/><rect x="-620" y="-45" width="620" height="90" rx="10"/></g><rect x="-840" y="-14" width="340" height="28" rx="3" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="1.8"/><rect x="-854" y="-65" width="16" height="130" rx="6" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="1.8"/><rect x="-620" y="-45" width="500" height="90" rx="9" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="1.8"/><rect x="-466" y="-40" width="340" height="80" rx="6" fill="#BFD8E6" fill-opacity="0.38"/><rect x="-500" y="-42.5" width="34" height="85" rx="4" fill="url(#syr-stopper)"/><line x1="-484" y1="-39" x2="-484" y2="39" stroke="#22272C" stroke-width="2.5"/><line x1="-468" y1="-39" x2="-468" y2="39" stroke="#22272C" stroke-width="2.5"/><line x1="-170" y1="-45" x2="-170" y2="-35" stroke="#6E777F" stroke-width="1.8"/><line x1="-220" y1="-45" x2="-220" y2="-29" stroke="#6E777F" stroke-width="1.8"/><line x1="-270" y1="-45" x2="-270" y2="-35" stroke="#6E777F" stroke-width="1.8"/><line x1="-320" y1="-45" x2="-320" y2="-29" stroke="#6E777F" stroke-width="1.8"/><line x1="-370" y1="-45" x2="-370" y2="-35" stroke="#6E777F" stroke-width="1.8"/><line x1="-420" y1="-45" x2="-420" y2="-29" stroke="#6E777F" stroke-width="1.8"/><line x1="-470" y1="-45" x2="-470" y2="-35" stroke="#6E777F" stroke-width="1.8"/><line x1="-610" y1="-36" x2="-130" y2="-36" stroke="#FFFFFF" stroke-width="4.5" stroke-opacity="0.8" stroke-linecap="round"/><rect x="-630" y="-75" width="14" height="150" rx="6" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="1.8"/><rect x="-120" y="-11" width="52" height="22" rx="3" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="1.8"/><path d="M-74,-19 H-24 L0,-6 V6 L-24,19 H-74 Z" fill="#E7EEF3" fill-opacity="0.95" stroke="#9AA3AB" stroke-width="1.8"/></g>
   <line id="needle" x1="941.4" y1="938.8" x2="882" y2="812" stroke="#5E6670" stroke-width="6"/>
   <line x1="941.4" y1="938.8" x2="882" y2="812" stroke="#D9DEE3" stroke-width="2.5"/>
   <circle id="needle-entry" cx="882" cy="812" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>

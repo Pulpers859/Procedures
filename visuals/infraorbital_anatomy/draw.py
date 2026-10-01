@@ -33,7 +33,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 
-from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
+from visuals_lib import SYRINGE_DEFS, Label, document, fmt, smooth_path, syringe  # noqa: E402
 
 ASSET_ID = "infraorbital_anatomy"
 BASE = Path(__file__).with_name("base.jpg")
@@ -78,7 +78,7 @@ BRANCHES = {
     "labial-lateral": [FORAMEN, (-31.6, 15.0), (-31.0, 22.0), (-30.0, 30.0)],
 }
 
-DEFS = """
+DEFS = SYRINGE_DEFS + """
 <linearGradient id="bone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFE3C8"/><stop offset="1" stop-color="#DCCBA6"/></linearGradient>
 <linearGradient id="barrel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F3F6F8"/><stop offset="1" stop-color="#C9D1D8"/></linearGradient>
 """
@@ -140,7 +140,8 @@ def build() -> str:
   {"".join(f'<path d="{path(pts, tension=0.8)}" fill="none" stroke="#EFCF55" stroke-width="7" stroke-linecap="round"/>' for k, pts in BRANCHES.items() if k != 'labial-medial')}
   {"".join(f'<path d="{path(pts, tension=0.8)}" fill="none" stroke="#FFF6C8" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round" transform="translate(-1.5 -1.5)"/>' for pts in BRANCHES.values())}
   </g>
-  <polygon id="syringe" points="{' '.join(f'{fmt(x)},{fmt(y)}' for x, y in barrel)}" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
+  <polygon id="syringe" points="{' '.join(f'{fmt(x)},{fmt(y)}' for x, y in barrel)}" fill="#000" opacity="0"/>
+  {syringe(h, U, PX_MM, shadow=True)}
   <line id="needle" x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="7"/>
   <line x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="3"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>

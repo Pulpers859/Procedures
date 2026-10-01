@@ -35,7 +35,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 
-from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
+from visuals_lib import SYRINGE_DEFS, Label, document, fmt, smooth_path, syringe  # noqa: E402
 
 ASSET_ID = "infraorbital_patient_position"
 BASE = Path(__file__).with_name("base.jpg")
@@ -91,7 +91,7 @@ INDEX = [(-115, -6), (-60, -2.6), (-40, 2.6), (-33, 4.6), (-28.6, 8.4), (-29.6, 
 THUMB = [(-115, 30), (-60, 28.4), (-38, 25.6), (-24, 22.2), (-17, 22.8), (-14.6, 26.4), (-17, 29.6), (-24, 31.4),
          (-40, 37), (-62, 42.6), (-115, 46)]
 
-DEFS = """
+DEFS = SYRINGE_DEFS + """
 <linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9C2A6"/><stop offset="1" stop-color="#DDAE90"/></linearGradient>
 <linearGradient id="glove" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F4F7"/><stop offset="1" stop-color="#D5DCE4"/></linearGradient>
 <linearGradient id="barrel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F3F6F8"/><stop offset="1" stop-color="#C9D1D8"/></linearGradient>
@@ -157,8 +157,8 @@ def build() -> str:
 <g class="marking">
   <line id="pupil-line" x1="{fmt(c((PUPIL_X, 0))[0])}" y1="{fmt(c((0, -4))[1])}" x2="{fmt(c((PUPIL_X, 0))[0])}" y2="{fmt(fy)}" stroke="#C8322B" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
   <circle id="foramen-mark" cx="{fmt(fx)}" cy="{fmt(fy)}" r="24" fill="none" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="10 7"/>
-  <polygon id="syringe" points="{' '.join(f'{fmt(x)},{fmt(y)}' for x, y in barrel)}" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
-  <line x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(h[0] - U[0] * 8 * PX_MM)}" y2="{fmt(h[1] - U[1] * 8 * PX_MM)}" stroke="#6E7780" stroke-width="{fmt(2 * bw + 2)}"/>
+  <polygon id="syringe" points="{' '.join(f'{fmt(x)},{fmt(y)}' for x, y in barrel)}" fill="#000" opacity="0"/>
+  {syringe(h, U, PX_MM, shadow=True)}
   <line id="needle" x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(e[0])}" y2="{fmt(e[1])}" stroke="#5E6670" stroke-width="6"/>
   <line x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(e[0])}" y2="{fmt(e[1])}" stroke="#D9DEE3" stroke-width="2.5"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
