@@ -10855,9 +10855,9 @@
         "kind": "Setup",
         "title": "Needle entry on the patient",
         "subtitle": "Seated, head firmly supported, mouth open as wide as possible. Needle at the midpoint between the thumb on the coronoid notch and the pterygomandibular raphe, about 1 cm above the occlusal plane of the lower molars.",
-        "assetName": null,
+        "assetName": "inferior_alveolar_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Open mouth from the front, patient's right on the left: entry midway between the coronoid notch and the raphe, barrel over the opposite premolars.",
         "clinicalWarning": null
       },
       {
@@ -10865,9 +10865,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The inferior alveolar nerve enters the mandibular foramen on the medial surface of the ramus; the lingual nerve lies just anterior and medial to it.",
-        "assetName": null,
+        "assetName": "inferior_alveolar_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Lower face in section at the mandibular foramen, seen from above: lips at the top, patient's right on the left.",
         "clinicalWarning": null
       }
     ],

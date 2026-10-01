@@ -135,5 +135,10 @@
       "b": "ramus",
       "why": "the nerve lies against, not inside, the ramus"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "00db59e12115aaeb72665c0d3efc7dba28257e28424dadacdb9f96a3ca59c5b6",
+    "reviewedOn": "2026-10-01"
+  }
 }

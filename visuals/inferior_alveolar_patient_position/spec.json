@@ -74,5 +74,10 @@
       "b": "raphe",
       "why": "notch and raphe are distinct landmarks either side of the entry"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "3e4a7d38215f8179e09825007cc472ddc627253dc6e10715fed95a367e6d1c64",
+    "reviewedOn": "2026-10-01"
+  }
 }
