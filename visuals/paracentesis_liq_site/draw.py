@@ -14,6 +14,15 @@ medially from the mid-inguinal point, crossing the line at 40%; the entry
 zone (1.6 cm) at three-quarters of the way out. Standard adult anatomy: the
 ASIS about 12.5 cm lateral and 7 cm caudal to the umbilicus.
 
+Painted plate: Gemini centred the abdomen, moving the umbilicus about 14 mm
+down and 7 mm right of the layout (commit 681652a); the left ASIS landed
+on the layout. Every marking is placed on the umbilicus and left ASIS
+traced on the painting (TRACED_U, TRACED_A, canvas px): the line between
+them, the 40% and two-thirds ticks, the vessels' crossing at 40% from the
+mid-inguinal point (midway from the ASIS to the pubic symphysis), the entry
+zone at three-quarters. Scale on the painting: about 4 px/mm (12.5 cm
+midline to ASIS).
+
 Millimetres from the umbilicus (x toward the patient's left = image right,
 y toward the feet = image down) at 4.5 px/mm.
 
@@ -63,6 +72,11 @@ IEA = [MID_INGUINAL, (58.0, 80.0), along(0.40), (46.0, 0.0), (42.0, -60.0)]
 TARGET = along(0.75)
 TARGET_R = 8.0
 
+TRACED_U = (793.0, 609.0)          # umbilicus on the painting
+TRACED_A = (1290.0, 786.0)         # left ASIS on the painting
+TRACED_PUBIS = (790.0, 1075.0)     # pubic symphysis at the drape edge
+PAINT_PX_MM = (TRACED_A[0] - TRACED_U[0]) / ASIS_L[0]
+
 DEFS = """
 <radialGradient id="belly" cx="0.5" cy="0.45" r="0.6"><stop offset="0" stop-color="#EDC7AE"/><stop offset="1" stop-color="#D4A286"/></radialGradient>
 <linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8EEF3"/><stop offset="1" stop-color="#D3DDE6"/></linearGradient>
@@ -70,18 +84,33 @@ DEFS = """
 """
 
 
+def lerp(p, q, f):
+    return (p[0] + (q[0] - p[0]) * f, p[1] + (q[1] - p[1]) * f)
+
+
 def build() -> str:
-    u, a = c((0, 0)), c(ASIS_L)
-    t40, t23, t = c(along(0.40)), c(along(2 / 3)), c(TARGET)
-    nx, ny = -ASIS_L[1], ASIS_L[0]
+    painted0 = BASE.exists()
+    if painted0:
+        u, a = TRACED_U, TRACED_A
+        mid = lerp(TRACED_A, TRACED_PUBIS, 0.5)
+        p40 = lerp(u, a, 0.40)
+        iea_pts = [mid, lerp(mid, p40, 0.55), p40, (p40[0] - 24, p40[1] - 140), (p40[0] - 42, p40[1] - 280)]
+        r = TARGET_R * PAINT_PX_MM
+    else:
+        u, a = c((0, 0)), c(ASIS_L)
+        iea_pts = [c(q) for q in IEA]
+        r = TARGET_R * PX_MM
+    t40, t23, t = lerp(u, a, 0.40), lerp(u, a, 2 / 3), lerp(u, a, 0.75)
+    nx, ny = -(a[1] - u[1]), a[0] - u[0]
     n = (nx * nx + ny * ny) ** 0.5
     nx, ny = nx / n * 26, ny / n * 26
+    iea_mid = iea_pts[1]
     labels = [
-        Label(["Umbilicus"], anchor=(330, 360), leader=[(560, 380), (u[0] - 16, u[1])], target_id="umbilicus"),
-        Label(["ASIS"], anchor=(1380, 900), leader=[(1390, 860), (a[0] + 14, a[1] + 12)], target_id="asis-left"),
-        Label(["Inferior epigastric", "vessels"], anchor=(140, 980), leader=[(560, 1000), c((58, 80))], target_id="iea"),
-        Label(["2/3"], anchor=(1150, 470), leader=[(1150, 490), (t23[0] + nx, t23[1] + ny)], target_id="tick-23"),
-        Label(["Entry site"], anchor=(1230, 600), leader=[(1240, 618), (t[0] + 20, t[1] - 24)], target_id="target", emphasis=True),
+        Label(["Umbilicus"], anchor=(330, 560), leader=[(560, 580), (u[0] - 16, u[1])], target_id="mark-umbilicus"),
+        Label(["ASIS"], anchor=(1380, 920), leader=[(1390, 880), (a[0] + 10, a[1] + 12)], target_id="mark-asis"),
+        Label(["Inferior epigastric", "vessels"], anchor=(140, 1000), leader=[(560, 1020), iea_mid], target_id="iea"),
+        Label(["2/3"], anchor=(1070, 560), leader=[(1090, 580), (t23[0] + nx, t23[1] + ny)], target_id="tick-23"),
+        Label(["Entry site"], anchor=(1230, 640), leader=[(1250, 655), (t[0] + r * 0.6, t[1] - r * 0.7)], target_id="target", emphasis=True),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
@@ -110,11 +139,13 @@ def build() -> str:
 </g>
 
 <g class="marking">
+  <circle id="mark-umbilicus" cx="{fmt(u[0])}" cy="{fmt(u[1])}" r="18" fill="#000" opacity="0"/>
+  <circle id="mark-asis" cx="{fmt(a[0])}" cy="{fmt(a[1])}" r="22" fill="none" stroke="#4A2F7A" stroke-width="5"/>
   <line id="spino-umbilical" x1="{fmt(u[0])}" y1="{fmt(u[1])}" x2="{fmt(a[0])}" y2="{fmt(a[1])}" stroke="#4A2F7A" stroke-width="5" stroke-dasharray="20 12"/>
-  <path id="iea" d="{path(IEA, tension=0.7)}" fill="none" stroke="#C8322B" stroke-width="8" stroke-dasharray="18 10" stroke-linecap="round"/>
+  <path id="iea" d="{smooth_path(iea_pts, tension=0.7)}" fill="none" stroke="#C8322B" stroke-width="8" stroke-dasharray="18 10" stroke-linecap="round"/>
   <line id="tick-40" x1="{fmt(t40[0] - nx)}" y1="{fmt(t40[1] - ny)}" x2="{fmt(t40[0] + nx)}" y2="{fmt(t40[1] + ny)}" stroke="#4A2F7A" stroke-width="6"/>
   <line id="tick-23" x1="{fmt(t23[0] - nx)}" y1="{fmt(t23[1] - ny)}" x2="{fmt(t23[0] + nx)}" y2="{fmt(t23[1] + ny)}" stroke="#4A2F7A" stroke-width="6"/>
-  <circle id="target" cx="{fmt(t[0])}" cy="{fmt(t[1])}" r="{fmt(TARGET_R * PX_MM)}" fill="#6CCBD2" fill-opacity="0.55" stroke="#0E8C98" stroke-width="5"/>
+  <circle id="target" cx="{fmt(t[0])}" cy="{fmt(t[1])}" r="{fmt(r)}" fill="#6CCBD2" fill-opacity="0.55" stroke="#0E8C98" stroke-width="5"/>
   <circle cx="{fmt(t[0])}" cy="{fmt(t[1])}" r="5" fill="#0E8C98"/>
 </g>
 

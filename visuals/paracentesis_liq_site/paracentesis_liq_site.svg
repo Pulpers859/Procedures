@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #DDE5EC; }</style>
+<defs>
+<radialGradient id="belly" cx="0.5" cy="0.45" r="0.6"><stop offset="0" stop-color="#EDC7AE"/><stop offset="1" stop-color="#D4A286"/></radialGradient>
+<linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8EEF3"/><stop offset="1" stop-color="#D3DDE6"/></linearGradient>
+<linearGradient id="drape" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5C8DB5"/><stop offset="1" stop-color="#46779F"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="0369b70a7642f39fd07906a2fa1e5dc3fbdd2be7df9754e98d7e898f30acd106"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
+  <path id="abdomen" d="M-67.5,-25 C-228.2,6.5 -96.8,231.5 -99,290 C-101.2,348.5 -96.3,510.5 -90,560 C-83.7,609.5 -49.5,744.5 -36,785 C-22.5,825.5 23.4,933.5 45,965 C66.6,996.5 139.5,1075.2 180,1100 C220.5,1124.8 396,1198.1 450,1212.5 C504,1226.9 666,1244 720,1244 C774,1244 936,1226.9 990,1212.5 C1044,1198.1 1219.5,1124.8 1260,1100 C1300.5,1075.2 1373.4,996.5 1395,965 C1416.6,933.5 1462.5,825.5 1476,785 C1489.5,744.5 1523.7,609.5 1530,560 C1536.3,510.5 1541.2,348.5 1539,290 C1536.8,231.5 1668.2,6.5 1507.5,-25 C1346.8,-56.5 93.2,-56.5 -67.5,-25 Z" fill="url(#belly)" stroke="#B98A74" stroke-width="3"/>
+  <path d="M1309.5,830 C1290.9,849.2 1206.6,941 1170,974 C1133.4,1007 1071,1054.7 1035,1077.5 C999,1100.3 918,1136 900,1145" fill="none" stroke="#B98A74" stroke-width="5"/>
+  <path d="M130.5,830 C149.1,849.2 233.4,941 270,974 C306.6,1007 369,1054.7 405,1077.5 C441,1100.3 522,1136 540,1145" fill="none" stroke="#B98A74" stroke-width="5"/>
+  <ellipse id="asis-left" cx="1290" cy="786" rx="40.5" ry="27" fill="#E8BFA4" stroke="#C49478" stroke-width="3"/>
+  <ellipse cx="157.5" cy="786" rx="40.5" ry="27" fill="#E8BFA4" stroke="#C49478" stroke-width="3"/>
+  <ellipse id="umbilicus" cx="793" cy="609" rx="22.5" ry="27" fill="#A9765F" stroke="#8C5F4B" stroke-width="3"/>
+  <path d="M-180,-70 C-90,-77.2 1530,-77.2 1620,-70 C1710,-62.8 1642.5,65.5 1620,74 C1597.5,82.5 1215,99.2 1170,101 C1125,102.8 765,110 720,110 C675,110 315,102.8 270,101 C225,99.2 -157.5,82.5 -180,74 C-202.5,65.5 -270,-62.8 -180,-70 Z" fill="url(#drape)"/>
+  <path d="M-180,1370 C-139.5,1347.5 157.5,1172.9 225,1145 C292.5,1117.1 445.5,1097.3 495,1091 C544.5,1084.7 675,1082 720,1082 C765,1082 895.5,1084.7 945,1091 C994.5,1097.3 1147.5,1117.1 1215,1145 C1282.5,1172.9 1579.5,1347.5 1620,1370 L1620,1200 L-180,1200 Z" fill="url(#drape)"/>
+</g>
+
+<g class="marking">
+  <circle id="mark-umbilicus" cx="793" cy="609" r="18" fill="#000" opacity="0"/>
+  <circle id="mark-asis" cx="1290" cy="786" r="22" fill="none" stroke="#4A2F7A" stroke-width="5"/>
+  <line id="spino-umbilical" x1="793" y1="609" x2="1290" y2="786" stroke="#4A2F7A" stroke-width="5" stroke-dasharray="20 12"/>
+  <path id="iea" d="M1040,930.5 C1036.9,914.4 1019.1,821.9 1013.5,792.6 C1007.9,763.4 997.1,709.3 991.8,679.8 C986.5,650.3 972.7,572.5 967.8,539.8 C962.9,507.1 951.9,416.1 949.8,399.8" fill="none" stroke="#C8322B" stroke-width="8" stroke-dasharray="18 10" stroke-linecap="round"/>
+  <line id="tick-40" x1="1000.5" y1="655.3" x2="983.1" y2="704.3" stroke="#4A2F7A" stroke-width="6"/>
+  <line id="tick-23" x1="1133.1" y1="702.5" x2="1115.6" y2="751.5" stroke="#4A2F7A" stroke-width="6"/>
+  <circle id="target" cx="1165.8" cy="741.8" r="31.8" fill="#6CCBD2" fill-opacity="0.55" stroke="#0E8C98" stroke-width="5"/>
+  <circle cx="1165.8" cy="741.8" r="5" fill="#0E8C98"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Umbilicus" data-target="mark-umbilicus"><polyline class="leader-halo" points="560,580 777,609"/><polyline class="leader" points="560,580 777,609"/><circle class="leader-dot" cx="777" cy="609" r="7"/><text x="330" y="560" text-anchor="start"><tspan x="330" dy="0">Umbilicus</tspan></text></g><g class="label" data-label="ASIS" data-target="mark-asis"><polyline class="leader-halo" points="1390,880 1300,798"/><polyline class="leader" points="1390,880 1300,798"/><circle class="leader-dot" cx="1300" cy="798" r="7"/><text x="1380" y="920" text-anchor="start"><tspan x="1380" dy="0">ASIS</tspan></text></g><g class="label" data-label="Inferior epigastric vessels" data-target="iea"><polyline class="leader-halo" points="560,1020 1013.5,792.6"/><polyline class="leader" points="560,1020 1013.5,792.6"/><circle class="leader-dot" cx="1013.5" cy="792.6" r="7"/><text x="140" y="1000" text-anchor="start"><tspan x="140" dy="0">Inferior epigastric</tspan><tspan x="140" dy="66">vessels</tspan></text></g><g class="label" data-label="2/3" data-target="tick-23"><polyline class="leader-halo" points="1090,580 1115.6,751.5"/><polyline class="leader" points="1090,580 1115.6,751.5"/><circle class="leader-dot" cx="1115.6" cy="751.5" r="7"/><text x="1070" y="560" text-anchor="start"><tspan x="1070" dy="0">2/3</tspan></text></g><g class="label emphasis" data-label="Entry site" data-target="target"><polyline class="leader-halo" points="1250,655 1184.8,719.5"/><polyline class="leader" points="1250,655 1184.8,719.5"/><circle class="leader-dot" cx="1184.8" cy="719.5" r="7"/><text x="1230" y="640" text-anchor="start"><tspan x="1230" dy="0">Entry site</tspan></text></g></g>
+
+</svg>

@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the paracentesis_liq_site layout (commit 681652a draw.py, --reference).",
+ "antigravityConversation": "5badb845-7bf0-4dab-adc6-766e60047cdb",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of an adult patient lying flat on their back, photographed from directly above: a large, rounded abdomen distended with fluid fills the frame, as broad as drawn, with the umbilicus left of centre, the two hip bones (anterior superior iliac spines) showing as gentle bony prominences low on each side, the groin creases running down towards the middle at the bottom, a blue drape across the lower chest at the top and another over the pelvis at the bottom, and a pale blue-grey sheet at the sides. Turn this into a realistic clinical photograph of the abdomen of a patient with ascites before a paracentesis, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture and the tight, smooth sheen of a distended abdomen, soft folds in the drapes, shot from directly above in soft even procedure-room light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, dots, circles, veins drawn on the skin, needles, instruments, hands, gloves or blood, and no border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "reviewNotes": "Overlay: the abdomen is centred and narrower than drawn; the umbilicus sits about 14 mm lower and 7 mm right of the layout; the left ASIS lands on the layout. Markings are placed on the traced umbilicus and left ASIS (TRACED_U, TRACED_A). Tmp folder also held stale July files from the old lane; iter1 was confirmed fresh by timestamp. No watermark.",
+ "knownLimits": "The inferior epigastric vessels are drawn from the record's 40% figure, not seen; their course varies. Scale on the painting is about 4 px/mm, taken from a 12.5 cm midline-to-ASIS distance.",
+ "thirdPartyConcept": "None."
+}

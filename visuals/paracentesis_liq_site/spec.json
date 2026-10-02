@@ -10,7 +10,8 @@
     "Red dashed: the inferior epigastric vessels running up and medially from the mid-inguinal point, crossing the line at 40% (record: about 40% of the way out).",
     "Teal: a 1.6 cm entry zone three-quarters of the way out, lateral to the vessels (record: more than two-thirds).",
     "Standard adult anatomy: the ASIS about 12.5 cm lateral and 7 cm caudal to the umbilicus.",
-    "Labels: Umbilicus, ASIS, Inferior epigastric vessels, 2/3, Entry site."
+    "Labels: Umbilicus, ASIS, Inferior epigastric vessels, 2/3, Entry site.",
+    "Markings placed on the umbilicus and left ASIS traced on the painting; the vessel path is drawn from the record's 40% figure, not traced (vessels are not visible)."
   ],
   "requiredElements": [
     "abdomen",
@@ -20,11 +21,13 @@
     "iea",
     "tick-40",
     "tick-23",
-    "target"
+    "target",
+    "mark-umbilicus",
+    "mark-asis"
   ],
   "labels": {
-    "Umbilicus": "umbilicus",
-    "ASIS": "asis-left",
+    "Umbilicus": "mark-umbilicus",
+    "ASIS": "mark-asis",
     "Inferior epigastric vessels": "iea",
     "2/3": "tick-23",
     "Entry site": "target"
@@ -32,8 +35,8 @@
   "geometry": [
     {
       "check": "leftOf",
-      "a": "umbilicus",
-      "b": "asis-left",
+      "a": "mark-umbilicus",
+      "b": "mark-asis",
       "why": "left ASIS on the image right"
     },
     {
