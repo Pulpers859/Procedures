@@ -81,5 +81,10 @@
       "maxPx": 40,
       "why": "aimed at the foramen"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "c66cf014bc8b6a10f3c5d959b2ace75b201e0fd0998ec670aaf51cced16c8a09",
+    "reviewedOn": "2026-10-02"
+  }
 }

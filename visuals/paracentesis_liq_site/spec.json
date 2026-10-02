@@ -81,5 +81,10 @@
       "b": "abdomen",
       "why": "on the abdomen"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "49bc77bb8fa10cb019fd3b744f77693c73b1e172d1e932902c39321f20e0f772",
+    "reviewedOn": "2026-10-02"
+  }
 }

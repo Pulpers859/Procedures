@@ -2661,9 +2661,9 @@
         "kind": "Landmark",
         "title": "LLQ entry site",
         "subtitle": "Entry more than two-thirds of the way from the midline to the ASIS; the inferior epigastric vessels lie about 40% of the way out, medial to it.",
-        "assetName": null,
+        "assetName": "paracentesis_liq_site",
         "systemImage": "circle.dotted",
-        "caption": "",
+        "caption": "Supine abdomen from above, patient's left on the right: on the umbilicus-to-ASIS line, enter beyond two-thirds, lateral to the inferior epigastric vessels.",
         "clinicalWarning": "A midway entry can hit the inferior epigastric vessels - confirm with Doppler, and avoid the midline."
       }
     ],
@@ -10624,9 +10624,9 @@
         "kind": "Setup",
         "title": "Needle entry on the patient",
         "subtitle": "Supine or seated. Needle into the mucobuccal fold, directed inferiorly toward the foramen.",
-        "assetName": null,
+        "assetName": "mental_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Face from the front, patient's right on the left: lower lip pulled down, needle into the fold below the premolars, aimed down toward the mental foramen.",
         "clinicalWarning": null
       },
       {
@@ -10634,9 +10634,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The mental foramen lies on the anterior mandible, below the first or second premolar, in line with the pupil, the supraorbital notch and the infraorbital foramen.",
-        "assetName": null,
+        "assetName": "mental_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Skull from the front, patient's right on the left: the mental foramen sits below the second premolar, in line with the pupil, the infraorbital foramen and the supraorbital notch.",
         "clinicalWarning": null
       }
     ],

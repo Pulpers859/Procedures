@@ -62,5 +62,10 @@
       "b": "foramen-mark",
       "why": "the thumb leaves the target visible"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "04a0d049af27696da2d8fa6e66b86f23bd09c9e523b6bdce452439bedd6a9586",
+    "reviewedOn": "2026-10-02"
+  }
 }
