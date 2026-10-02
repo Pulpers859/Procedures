@@ -1,0 +1,60 @@
+{
+  "assetId": "pecs_patient_position",
+  "procedure": "block_pecs",
+  "title": "Probe and needle on the patient",
+  "view": "Right anterior chest and shoulder from above, patient supine with the arm abducted to 90 degrees: head at the top, the patient's right on the image left.",
+  "teachingPoint": "Probe oblique below the lateral third of the clavicle, pointing toward the axilla; needle in-plane from the medial end.",
+  "claims": [
+    "Supine, right arm abducted to 90 degrees (record); patient's right on the image left (house laterality).",
+    "Linear probe below the lateral third of the clavicle, oblique: medial end up toward the clavicle, lateral end down toward the axilla (record: oblique below the lateral third).",
+    "Needle entering beyond the probe's medial end, in line with it: in-plane from medial to lateral (record).",
+    "Labels: Clavicle, Linear probe, Block needle."
+  ],
+  "requiredElements": [
+    "body",
+    "clavicle",
+    "axillary-fold",
+    "nipple",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Clavicle": "clavicle",
+    "Linear probe": "probe",
+    "Block needle": "needle"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "probe",
+      "b": "clavicle",
+      "why": "probe below the clavicle"
+    },
+    {
+      "check": "within",
+      "a": "probe",
+      "b": "body",
+      "why": "probe on the chest"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle enters at the medial end (medial is right)"
+    },
+    {
+      "check": "below",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "the medial end is the upper end"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "nipple",
+      "why": "probe lateral to the nipple line"
+    }
+  ]
+}

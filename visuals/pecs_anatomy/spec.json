@@ -1,0 +1,108 @@
+{
+  "assetId": "pecs_anatomy",
+  "procedure": "block_pecs",
+  "title": "Target anatomy",
+  "view": "Oblique section of the right anterior chest wall at the 3rd-4th rib level under a linear probe: lateral (the axilla) on the image left, medial on the right, skin at the top.",
+  "teachingPoint": "PECS I between pectoralis major and minor; PECS II one plane deeper, between pectoralis minor and serratus anterior - stop there, short of the ribs and pleura.",
+  "claims": [
+    "Right chest wall in section, lateral on the left, the same way round as the positioning plate.",
+    "Upper teal: PECS I, the plane between pectoralis major and minor (record), with the pectoral branch of the thoracoacromial artery in it (standard).",
+    "Lower teal: PECS II, the pectoserratus plane between pectoralis minor and serratus anterior (record).",
+    "Needle in-plane from medial (right) through pectoralis major and minor, tip in the PECS II plane, above serratus, ribs and pleura (record).",
+    "Labels: Pectoralis major, Pectoralis minor, Serratus anterior, PECS I, PECS II."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "pmaj",
+    "pmin",
+    "serratus",
+    "rib-1",
+    "rib-2",
+    "intercostal",
+    "pleura",
+    "lung",
+    "ta-artery",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread-pecs1",
+    "spread-pecs2"
+  ],
+  "labels": {
+    "Pectoralis major": "pmaj",
+    "Pectoralis minor": "pmin",
+    "Serratus anterior": "serratus",
+    "PECS I": "spread-pecs1",
+    "PECS II": "spread-pecs2"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "pmin",
+      "b": "pmaj",
+      "why": "minor deep to major"
+    },
+    {
+      "check": "below",
+      "a": "serratus",
+      "b": "pmin",
+      "why": "serratus deep to minor"
+    },
+    {
+      "check": "below",
+      "a": "rib-1",
+      "b": "serratus",
+      "why": "ribs deep to serratus"
+    },
+    {
+      "check": "below",
+      "a": "spread-pecs2",
+      "b": "spread-pecs1",
+      "why": "PECS II is the deeper plane"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-tip",
+      "b": "serratus",
+      "why": "stop above serratus"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "pleura",
+      "why": "short of the pleura"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "rib-1",
+      "why": "short of the ribs"
+    },
+    {
+      "check": "within",
+      "a": "needle-tip",
+      "b": "spread-pecs2",
+      "why": "tip in the PECS II plane"
+    },
+    {
+      "check": "crosses",
+      "a": "needle",
+      "b": "pmin",
+      "why": "through pectoralis minor"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "in-plane from the medial end (medial is right)"
+    },
+    {
+      "check": "within",
+      "a": "ta-artery",
+      "b": "spread-pecs1",
+      "why": "the artery marks the PECS I plane"
+    }
+  ]
+}

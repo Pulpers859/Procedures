@@ -1,0 +1,103 @@
+{
+  "assetId": "peng_anatomy",
+  "procedure": "block_peng",
+  "title": "Target anatomy",
+  "view": "Transverse-oblique section of the right hip at the AIIS / iliopubic eminence level under a linear probe, seen from the feet as on ultrasound: lateral (the AIIS) on the image left, medial (the femoral vessels) on the right.",
+  "teachingPoint": "Needle in-plane from lateral, tip on the bony eminence deep to the psoas tendon; the femoral vessels stay medial.",
+  "claims": [
+    "Right hip in section, lateral on the left, as on ultrasound (house laterality; NYSORA's image mirrored, concept only).",
+    "Needle in-plane from the lateral end of the probe, tip on the bony contour of the iliopubic eminence, deep to the psoas tendon (record).",
+    "Femoral artery and vein medial (record); femoral nerve on the iliopsoas under the fascia iliaca, lateral to the artery (standard).",
+    "Teal: injectate between the psoas tendon / muscle and the bone (record: the articular branches run there).",
+    "Labels: Iliopubic eminence, Psoas tendon, AIIS, Femoral artery, Iliopsoas."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "bone",
+    "iliopsoas",
+    "psoas-tendon",
+    "sartorius",
+    "pectineus",
+    "fascia-iliaca",
+    "femoral-nerve",
+    "femoral-artery",
+    "femoral-vein",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
+  "labels": {
+    "Iliopubic eminence": "bone",
+    "Psoas tendon": "psoas-tendon",
+    "AIIS": "bone",
+    "Femoral artery": "femoral-artery",
+    "Iliopsoas": "iliopsoas"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "needle-tip",
+      "b": "psoas-tendon",
+      "why": "tip deep to the psoas tendon"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "bone",
+      "maxPx": 30,
+      "why": "tip on the bony contour"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "femoral-artery",
+      "why": "the needle clears the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "femoral-nerve",
+      "why": "the needle clears the femoral nerve"
+    },
+    {
+      "check": "leftOf",
+      "a": "psoas-tendon",
+      "b": "femoral-artery",
+      "why": "vessels are medial (medial is right)"
+    },
+    {
+      "check": "leftOf",
+      "a": "femoral-artery",
+      "b": "femoral-vein",
+      "why": "vein medial to the artery"
+    },
+    {
+      "check": "leftOf",
+      "a": "femoral-nerve",
+      "b": "femoral-artery",
+      "why": "nerve lateral to the artery"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "in-plane from the lateral end"
+    },
+    {
+      "check": "crosses",
+      "a": "spread",
+      "b": "psoas-tendon",
+      "why": "spread under the tendon"
+    },
+    {
+      "check": "crosses",
+      "a": "psoas-tendon",
+      "b": "iliopsoas",
+      "why": "tendon in the deep part of the iliopsoas, at its floor"
+    }
+  ]
+}
