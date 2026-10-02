@@ -1,0 +1,93 @@
+{
+  "assetId": "needle_decompression_danger",
+  "procedure": "needle_decompression",
+  "title": "Medial danger zone",
+  "view": "The right bony thorax from the front, patient's right on the image left; inset: one intercostal space in sagittal section, skin on the left, pleura on the right, head up.",
+  "teachingPoint": "The internal mammary artery runs 1-2 cm lateral to the sternum: stay out at the midclavicular line. Go over the top of the rib below; the bundle runs under the rib above.",
+  "claims": [
+    "Red band: 0-2 cm lateral to the sternal edge, with the internal mammary artery drawn about 1.2 cm out (record: 1-2 cm lateral to the sternum).",
+    "Teal on the dashed MCL: the 2nd intercostal space site, clear of the band (record: stay in the midclavicular line).",
+    "Inset (not to scale): vein, artery and nerve in the costal groove under the upper rib; the catheter passes perpendicular just over the lower rib (record: bundle along the inferior rib margin; steps: over the rib, perpendicular).",
+    "Painting reused from needle_decompression_landmarks.",
+    "Labels: Internal mammary artery, Midclavicular line, 2nd ICS, MCL, Neurovascular bundle, Rib below."
+  ],
+  "requiredElements": [
+    "sternum",
+    "clavicle",
+    "rib-2",
+    "rib-3",
+    "danger-band",
+    "ima",
+    "mcl",
+    "target-2ics",
+    "inset",
+    "upper-rib",
+    "lower-rib",
+    "bundle",
+    "catheter",
+    "pleura"
+  ],
+  "labels": {
+    "Internal mammary artery": "ima",
+    "Midclavicular line": "mcl",
+    "2nd ICS, MCL": "target-2ics",
+    "Neurovascular bundle": "bundle",
+    "Rib below": "lower-rib"
+  },
+  "geometry": [
+    {
+      "check": "noOverlap",
+      "a": "target-2ics",
+      "b": "danger-band",
+      "why": "the MCL site is clear of the danger band"
+    },
+    {
+      "check": "within",
+      "a": "ima",
+      "b": "danger-band",
+      "why": "the artery lies in the band"
+    },
+    {
+      "check": "leftOf",
+      "a": "mcl",
+      "b": "danger-band",
+      "why": "MCL is lateral to the band"
+    },
+    {
+      "check": "leftOf",
+      "a": "danger-band",
+      "b": "sternum",
+      "why": "band is just lateral to the sternum"
+    },
+    {
+      "check": "noOverlap",
+      "a": "catheter",
+      "b": "bundle",
+      "why": "catheter clears the bundle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "catheter",
+      "b": "lower-rib",
+      "why": "catheter passes over the rib, not through it"
+    },
+    {
+      "check": "below",
+      "a": "catheter",
+      "b": "bundle",
+      "why": "catheter is below the bundle, at the lower rib"
+    },
+    {
+      "check": "below",
+      "a": "bundle",
+      "b": "upper-rib",
+      "why": "bundle at the upper rib's inferior margin"
+    },
+    {
+      "check": "crosses",
+      "a": "catheter",
+      "b": "pleura",
+      "why": "catheter reaches the pleura"
+    }
+  ]
+}

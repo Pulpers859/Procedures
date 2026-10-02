@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [],
+ "reference": "Unlabelled render of the mental_anatomy layout (commit 42d1c7c draw.py, --reference). The painting did not follow the layout's crop; every marking is traced on the painting (TRACED in draw.py).",
+ "antigravityConversation": "76ac6377-3a19-42ed-8dbc-fb8813b3dfcb",
+ "prompt": "Prompt A (atlas) with a style image, new conversation: Image 1 is the exact anatomical layout of an adult human skull seen straight on from the front, on a plain warm off-white background: the two orbits, the pear-shaped nasal opening between and below them, the small supraorbital notch on the upper rim of the left-hand orbit, the infraorbital foramen below that orbit, the upper and lower rows of teeth meeting at the bite, and the lower jaw (mandible) with its rami rising at both sides to the chin, with the small mental foramen on the front of the jaw below the premolars on the left-hand side. Repaint it as a premium medical-atlas illustration of the skull, in the same 4:3 landscape frame, rendered exactly like the skull in image 2: the same ivory bone colour, sutures, glossy highlights, dark foramina and natural teeth.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Take only the rendering style from image 2; follow image 1 for every outline and position. Change only the rendering: soft painted shading, fine crisp outlines, natural bone texture, gentle depth and light from the upper left. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, nerves, needles, instruments, hands or blood.",
+ "promptAttachments": "Image 1: the layout reference. Image 2: this repo's approved infraorbital_anatomy/base.jpg, for rendering style only (owner: reuse solved anatomy).",
+ "rejected": "Conversation 4f239e62 (same prompt with the crop spelled out): skull pushed to the right edge, half the frame empty. Iter1 kept: a whole, centred, anatomically accurate skull; owner, 2026-10-02: \"I am fine with a whole centered skull if you are\".",
+ "reviewNotes": "Not on the layout (recomposed). Traced: the supraorbital notch on the rim, the infraorbital foramen, the mental foramen directly below the lower second premolar (teeth counted from the lower canine, mesial to the upper canine). The three openings fall within a vertical band about 9 mm wide under the orbit's centre, drawn as the pupil-line band. A small supraorbital foramen above the notch is painted too and left unlabelled. No watermark.",
+ "knownLimits": "A dry skull: the mucobuccal fold is soft tissue, so the entry is drawn at its level below the premolars. Positions are traced by eye at this scale (about 10 px/mm).",
+ "thirdPartyConcept": "None."
+}

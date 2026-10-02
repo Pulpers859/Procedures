@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [],
+ "reference": "Unlabelled render of the needle_decompression_landmarks layout (commit 42d1c7c draw.py, --reference).",
+ "antigravityConversation": "154e4931-e9e3-4225-9979-a9ae7bc4c883",
+ "prompt": "Prompt A (atlas), new conversation: The attached image is an exact anatomical layout of the bones of the right side of an adult chest seen straight on from the front, on a plain warm off-white background, cropped exactly as drawn: the collarbone running across the top, the sternum as the tall vertical bone at the right with its manubrium at the top, seven ribs curving from the lateral chest wall on the left down and inwards, each joined to the sternum by a pale blue-grey costal cartilage, the gaps between the ribs (the intercostal spaces) left as plain background, and the upper end of the humerus at the top left. Repaint it as a premium medical-atlas illustration of the bony thorax, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: soft painted shading, fine crisp outlines, smooth ivory cortical bone with glossy highlights, translucent bluish-white hyaline cartilage, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, muscles, vessels, needles, instruments, hands or blood.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "rejected": "None.",
+ "reviewNotes": "Overlay: clavicle, sternum, ribs 1-7, costal cartilages and the humerus lie on the layout within a few pixels; Gemini added the manubriosternal joint at the 2nd costal cartilage (correct) and a coracoid and glenoid at the shoulder. No watermark.",
+ "knownLimits": "A schematic bony thorax; MCL and AAL distances are standard adult values. Shared with needle_decompression_danger.",
+ "thirdPartyConcept": "None."
+}

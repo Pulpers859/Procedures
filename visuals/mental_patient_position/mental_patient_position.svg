@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #5C6670; }</style>
+<defs>
+<linearGradient id="syr-barrel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+  <stop offset="0.4" stop-color="#EEF2F5" stop-opacity="0.85"/><stop offset="0.8" stop-color="#CDD5DC" stop-opacity="0.85"/><stop offset="1" stop-color="#A9B3BC"/></linearGradient>
+<linearGradient id="syr-plastic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.6" stop-color="#E9EDF0"/><stop offset="1" stop-color="#BCC4CB"/></linearGradient>
+<linearGradient id="syr-stopper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6A717A"/><stop offset="0.5" stop-color="#3B4148"/><stop offset="1" stop-color="#22272C"/></linearGradient>
+<linearGradient id="syr-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="0.45" stop-color="#B9C1C8"/><stop offset="1" stop-color="#6E777F"/></linearGradient>
+<filter id="syr-soft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9C2A6"/><stop offset="1" stop-color="#DDAE90"/></linearGradient>
+<linearGradient id="glove" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F4F7"/><stop offset="1" stop-color="#D5DCE4"/></linearGradient>
+<linearGradient id="barrel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F3F6F8"/><stop offset="1" stop-color="#C9D1D8"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="64da9bd958f5536d50175f134dc8687d26885b9c5601b696e40099b9dc567d86"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <rect x="0" y="0" width="1600" height="1200" fill="#5C6670"/>
+  <path id="face" d="M440,-370 C308,-310 368,146 360,230 C352,314 356,424 360,470 C364,516 388,646 400,690 C412,734 460,872 480,910 C500,948 564,1042 600,1070 C636,1098 794,1176 840,1190 C886,1204 1016,1210 1060,1210 C1104,1210 1234,1204 1280,1190 C1326,1176 1484,1098 1520,1070 C1556,1042 1620,948 1640,910 C1660,872 1708,734 1720,690 C1732,646 1756,516 1760,470 C1764,424 1768,314 1760,230 C1752,146 1812,-310 1680,-370 C1548,-430 572,-430 440,-370 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <path id="brow" d="M560,90 C569,83.5 638,49.5 660,45 C682,40.5 757,41.5 780,45 C803,48.5 880,74.5 890,80 C900,85.5 892,101 880,100 C868,99 792,73 770,70 C748,67 680,66 660,70 C640,74 580,108 570,110 C560,112 551,96.5 560,90 Z" fill="#6B4E3A"/>
+  <path d="M1560,90 C1551,83.5 1482,49.5 1460,45 C1438,40.5 1363,41.5 1340,45 C1317,48.5 1240,74.5 1230,80 C1220,85.5 1228,101 1240,100 C1252,99 1328,73 1350,70 C1372,67 1440,66 1460,70 C1480,74 1540,108 1550,110 C1560,112 1569,96.5 1560,90 Z" fill="#6B4E3A"/>
+  <path id="eye" d="M590,230 C590,220.9 642.5,187.6 660,180 C677.5,172.4 721.3,165 740,165 C758.7,165 803.7,173.1 820,180 C836.3,186.9 880,215.1 880,224 C880,232.9 836.3,251.1 820,256 C803.7,260.9 758.7,265.8 740,266 C721.3,266.2 677.5,262.2 660,258 C642.5,253.8 590,239.1 590,230 Z" fill="#F4F1EC" stroke="#8C6A58" stroke-width="3"/>
+  <circle cx="740" cy="216" r="50" fill="#6A4E36"/>
+  <circle id="pupil" cx="740" cy="216" r="20" fill="#1E1A18"/>
+  <path d="M1530,230 C1530,220.9 1477.5,187.6 1460,180 C1442.5,172.4 1398.7,165 1380,165 C1361.3,165 1316.3,173.1 1300,180 C1283.7,186.9 1240,215.1 1240,224 C1240,232.9 1283.7,251.1 1300,256 C1316.3,260.9 1361.3,265.8 1380,266 C1398.7,266.2 1442.5,262.2 1460,258 C1477.5,253.8 1530,239.1 1530,230 Z" fill="#F4F1EC" stroke="#8C6A58" stroke-width="3"/>
+  <circle cx="1380" cy="216" r="50" fill="#6A4E36"/>
+  <circle cx="1380" cy="216" r="20" fill="#1E1A18"/>
+  <path id="nose" d="M990,70 C988.8,105 985.8,325.7 980,370 C974.2,414.3 950.5,433.7 940,450 C929.5,466.3 894.7,496 890,510 C885.3,524 890.7,560.2 900,570 C909.3,579.8 951.3,592.8 970,594 C988.7,595.2 1039,580 1060,580 C1081,580 1131.3,595.2 1150,594 C1168.7,592.8 1210.7,579.8 1220,570 C1229.3,560.2 1234.7,524 1230,510 C1225.3,496 1190.5,466.3 1180,450 C1169.5,433.7 1145.8,414.3 1140,370 C1134.2,325.7 1131.2,105 1130,70" fill="#E2B193" stroke="#B98A74" stroke-width="3"/>
+  <path d="M1018,556 C1018,556.9 1017.9,557.9 1017.6,558.8 C1017.3,559.7 1016.9,560.7 1016.3,561.6 C1015.8,562.5 1015.1,563.3 1014.3,564.2 C1013.5,565 1012.5,565.8 1011.5,566.6 C1010.5,567.3 1009.3,568.1 1008,568.7 C1006.8,569.4 1005.4,570 1004,570.6 C1002.6,571.1 1001,571.6 999.4,572 C997.9,572.5 996.2,572.8 994.5,573.1 C992.8,573.4 991.1,573.6 989.3,573.8 C987.6,573.9 985.8,574 984,574 C982.2,574 980.4,573.9 978.7,573.8 C976.9,573.6 975.2,573.4 973.5,573.1 C971.8,572.8 970.1,572.5 968.6,572 C967,571.6 965.4,571.1 964,570.6 C962.6,570 961.2,569.4 960,568.7 C958.7,568.1 957.5,567.3 956.5,566.6 C955.5,565.8 954.5,565 953.7,564.2 C952.9,563.3 952.2,562.5 951.7,561.6 C951.1,560.7 950.7,559.7 950.4,558.8 C950.1,557.9 950,556.9 950,556 C950,555.1 950.1,554.1 950.4,553.2 C950.7,552.3 951.1,551.3 951.7,550.4 C952.2,549.5 952.9,548.7 953.7,547.8 C954.5,547 955.5,546.2 956.5,545.4 C957.5,544.7 958.7,543.9 960,543.3 C961.2,542.6 962.6,542 964,541.4 C965.4,540.9 967,540.4 968.6,540 C970.1,539.5 971.8,539.2 973.5,538.9 C975.2,538.6 976.9,538.4 978.7,538.2 C980.4,538.1 982.2,538 984,538 C985.8,538 987.6,538.1 989.3,538.2 C991.1,538.4 992.8,538.6 994.5,538.9 C996.2,539.2 997.9,539.5 999.4,540 C1001,540.4 1002.6,540.9 1004,541.4 C1005.4,542 1006.8,542.6 1008,543.3 C1009.3,543.9 1010.5,544.7 1011.5,545.4 C1012.5,546.2 1013.5,547 1014.3,547.8 C1015.1,548.7 1015.8,549.5 1016.3,550.4 C1016.9,551.3 1017.3,552.3 1017.6,553.2 C1017.9,554.1 1018,555.1 1018,556 Z" fill="#7A4E3E"/>
+  <path d="M1170,556 C1170,556.9 1169.9,557.9 1169.6,558.8 C1169.3,559.7 1168.9,560.7 1168.3,561.6 C1167.8,562.5 1167.1,563.3 1166.3,564.2 C1165.5,565 1164.5,565.8 1163.5,566.6 C1162.5,567.3 1161.3,568.1 1160,568.7 C1158.8,569.4 1157.4,570 1156,570.6 C1154.6,571.1 1153,571.6 1151.4,572 C1149.9,572.5 1148.2,572.8 1146.5,573.1 C1144.8,573.4 1143.1,573.6 1141.3,573.8 C1139.6,573.9 1137.8,574 1136,574 C1134.2,574 1132.4,573.9 1130.7,573.8 C1128.9,573.6 1127.2,573.4 1125.5,573.1 C1123.8,572.8 1122.1,572.5 1120.6,572 C1119,571.6 1117.4,571.1 1116,570.6 C1114.6,570 1113.2,569.4 1112,568.7 C1110.7,568.1 1109.5,567.3 1108.5,566.6 C1107.5,565.8 1106.5,565 1105.7,564.2 C1104.9,563.3 1104.2,562.5 1103.7,561.6 C1103.1,560.7 1102.7,559.7 1102.4,558.8 C1102.1,557.9 1102,556.9 1102,556 C1102,555.1 1102.1,554.1 1102.4,553.2 C1102.7,552.3 1103.1,551.3 1103.7,550.4 C1104.2,549.5 1104.9,548.7 1105.7,547.8 C1106.5,547 1107.5,546.2 1108.5,545.4 C1109.5,544.7 1110.7,543.9 1112,543.3 C1113.2,542.6 1114.6,542 1116,541.4 C1117.4,540.9 1119,540.4 1120.6,540 C1122.1,539.5 1123.8,539.2 1125.5,538.9 C1127.2,538.6 1128.9,538.4 1130.7,538.2 C1132.4,538.1 1134.2,538 1136,538 C1137.8,538 1139.6,538.1 1141.3,538.2 C1143.1,538.4 1144.8,538.6 1146.5,538.9 C1148.2,539.2 1149.9,539.5 1151.4,540 C1153,540.4 1154.6,540.9 1156,541.4 C1157.4,542 1158.8,542.6 1160,543.3 C1161.3,543.9 1162.5,544.7 1163.5,545.4 C1164.5,546.2 1165.5,547 1166.3,547.8 C1167.1,548.7 1167.8,549.5 1168.3,550.4 C1168.9,551.3 1169.3,552.3 1169.6,553.2 C1169.9,554.1 1170,555.1 1170,556 Z" fill="#7A4E3E"/>
+  <path id="lower-lip" d="M770,856 C782,849.4 891,898.8 920,904 C949,909.2 1032,908 1060,908 C1088,908 1173,909.2 1200,904 C1227,898.8 1320,849.4 1330,856 C1340,862.6 1315,953.6 1300,970 C1285,986.4 1204,1014 1180,1020 C1156,1026 1084,1030 1060,1030 C1036,1030 966,1026 940,1020 C914,1014 817,986.4 800,970 C783,953.6 758,862.6 770,856 Z" fill="#C27A70" stroke="#9E554F" stroke-width="3"/>
+  <path id="lip-mucosa" d="M790,900 C796,894.6 893,905.2 920,906 C947,906.8 1032,908.2 1060,908 C1088,907.8 1176,905.2 1200,904 C1224,902.8 1294,890.4 1300,896 C1306,901.6 1284,951.4 1260,960 C1236,968.6 1100,982 1060,982 C1020,982 887,968.2 860,960 C833,951.8 784,905.4 790,900 Z" fill="#E07F78" stroke="#C0625C" stroke-width="2"/>
+  <path id="mouth" d="M810,736 C818,727.6 915,744.6 940,746 C965,747.4 1036,750 1060,750 C1084,750 1155,747.4 1180,746 C1205,744.6 1302,727.6 1310,736 C1318,744.4 1285,819.6 1260,830 C1235,840.4 1100,840 1060,840 C1020,840 885,840.4 860,830 C835,819.6 802,744.4 810,736 Z" fill="#5A2626"/>
+  <g id="teeth"><rect id="second-premolar" x="811" y="750" width="46" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="858" y="750" width="48" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="907" y="750" width="50" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="958" y="750" width="52" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1009" y="750" width="50" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1061" y="750" width="50" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1110" y="750" width="52" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1163" y="750" width="50" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1214" y="750" width="48" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1263" y="750" width="46" height="70" rx="9" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/></g>
+  <path id="gum" d="M800,814 C810,810 898.3,817.3 920,818 C941.7,818.7 1036.7,822 1060,822 C1083.3,822 1178.3,818.7 1200,818 C1221.7,817.3 1310,810 1320,814 C1330,818 1341.7,861.3 1320,866 C1298.3,870.7 1103.3,870 1060,870 C1016.7,870 821.7,870.7 800,866 C778.3,861.3 790,818 800,814 Z" fill="#E39A93" stroke="#C47A72" stroke-width="2"/>
+  <path id="vestibule" d="M780,864 C793,860.8 892,867.4 920,868 C948,868.6 1032,870 1060,870 C1088,870 1176,868.6 1200,868 C1224,867.4 1300,860.4 1300,864 C1300,867.6 1224,899.6 1200,904 C1176,908.4 1088,907.8 1060,908 C1032,908.2 947,906.8 920,906 C893,905.2 804,904.2 790,900 C776,895.8 767,867.2 780,864 Z" fill="#D9786F" stroke="#B85C55" stroke-width="2"/>
+  <path id="upper-lip" d="M810,736 C806,728.4 881,677.6 900,670 C919,662.4 984,659.6 1000,660 C1016,660.4 1048,674 1060,674 C1072,674 1104,660.4 1120,660 C1136,659.6 1201,662.4 1220,670 C1239,677.6 1314,728.4 1310,736 C1306,743.6 1205,744.6 1180,746 C1155,747.4 1084,750 1060,750 C1036,750 965,747.4 940,746 C915,744.6 814,743.6 810,736 Z" fill="#C47C72" stroke="#9E554F" stroke-width="3"/>
+  <path id="index-finger" d="M1020,1530 C1008,1510 1066,1358 1080,1330 C1094,1302 1142,1260 1160,1250 C1178,1240 1244,1228 1260,1230 C1276,1232 1318,1256 1320,1270 C1322,1284 1292,1344 1280,1370 C1268,1396 1226,1514 1200,1530 C1174,1546 1032,1550 1020,1530 Z" fill="url(#glove)" stroke="#9AA6B2" stroke-width="3"/>
+  <path id="thumb" d="M800,1530 C782,1506 829,1332 840,1290 C851,1248 898,1136.4 910,1110 C922,1083.6 948,1036.6 960,1026 C972,1015.4 1017,1004.4 1030,1004 C1043,1003.6 1083.4,1013.4 1090,1022 C1096.6,1030.6 1100,1063.2 1096,1090 C1092,1116.8 1057.6,1246 1050,1290 C1042.4,1334 1045,1506 1020,1530 C995,1554 818,1554 800,1530 Z" fill="url(#glove)" stroke="#9AA6B2" stroke-width="3"/>
+</g>
+
+<g class="marking">
+  <line id="pupil-line" x1="740" y1="290" x2="740" y2="1060" stroke="#C8322B" stroke-width="4" stroke-dasharray="14 10" opacity="0.8"/>
+  <circle id="foramen-mark" cx="765" cy="1020" r="30" fill="none" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="10 7"/>
+  <polygon id="syringe" points="850,811.4 994.6,583.4 1062.1,626.2 917.5,854.2" fill="#000" opacity="0"/>
+  <g class="syringe-drawn" transform="translate(883.7 832.8) rotate(122.4) scale(0.45 1)"><g transform="translate(8 14)" filter="url(#syr-soft)" opacity="0.32" fill="#1B2733"><rect x="-840" y="-16" width="220" height="32" rx="6"/><rect x="-620" y="-45" width="620" height="90" rx="10"/></g><rect x="-840" y="-14" width="340" height="28" rx="3" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="1.8"/><rect x="-854" y="-65" width="16" height="130" rx="6" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="1.8"/><rect x="-620" y="-45" width="500" height="90" rx="9" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="1.8"/><rect x="-466" y="-40" width="340" height="80" rx="6" fill="#BFD8E6" fill-opacity="0.38"/><rect x="-500" y="-42.5" width="34" height="85" rx="4" fill="url(#syr-stopper)"/><line x1="-484" y1="-39" x2="-484" y2="39" stroke="#22272C" stroke-width="2.5"/><line x1="-468" y1="-39" x2="-468" y2="39" stroke="#22272C" stroke-width="2.5"/><line x1="-170" y1="-45" x2="-170" y2="-35" stroke="#6E777F" stroke-width="1.8"/><line x1="-220" y1="-45" x2="-220" y2="-29" stroke="#6E777F" stroke-width="1.8"/><line x1="-270" y1="-45" x2="-270" y2="-35" stroke="#6E777F" stroke-width="1.8"/><line x1="-320" y1="-45" x2="-320" y2="-29" stroke="#6E777F" stroke-width="1.8"/><line x1="-370" y1="-45" x2="-370" y2="-35" stroke="#6E777F" stroke-width="1.8"/><line x1="-420" y1="-45" x2="-420" y2="-29" stroke="#6E777F" stroke-width="1.8"/><line x1="-470" y1="-45" x2="-470" y2="-35" stroke="#6E777F" stroke-width="1.8"/><line x1="-610" y1="-36" x2="-130" y2="-36" stroke="#FFFFFF" stroke-width="4.5" stroke-opacity="0.8" stroke-linecap="round"/><rect x="-630" y="-75" width="14" height="150" rx="6" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="1.8"/><rect x="-120" y="-11" width="52" height="22" rx="3" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="1.8"/><path d="M-74,-19 H-24 L0,-6 V6 L-24,19 H-74 Z" fill="#E7EEF3" fill-opacity="0.95" stroke="#9AA3AB" stroke-width="1.8"/></g>
+  <line id="needle" x1="883.7" y1="832.8" x2="850" y2="886" stroke="#5E6670" stroke-width="6"/>
+  <line x1="883.7" y1="832.8" x2="850" y2="886" stroke="#D9DEE3" stroke-width="2.5"/>
+  <circle id="needle-entry" cx="850" cy="886" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
+</g>
+
+<g id="labels"><g class="label emphasis" data-label="Mental foramen" data-target="foramen-mark"><polyline class="leader-halo" points="300,930 741,1020"/><polyline class="leader" points="300,930 741,1020"/><circle class="leader-dot" cx="741" cy="1020" r="7"/><text x="80" y="900" text-anchor="start"><tspan x="80" dy="0">Mental</tspan><tspan x="80" dy="66">foramen</tspan></text></g><g class="label" data-label="Mucobuccal fold" data-target="vestibule"><polyline class="leader-halo" points="1200,970 1200,888"/><polyline class="leader" points="1200,970 1200,888"/><circle class="leader-dot" cx="1200" cy="888" r="7"/><text x="1190" y="1000" text-anchor="start"><tspan x="1190" dy="0">Mucobuccal</tspan><tspan x="1190" dy="66">fold</tspan></text></g></g>
+
+</svg>

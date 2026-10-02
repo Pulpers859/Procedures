@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [],
+ "reference": "Unlabelled render of the mental_patient_position layout (commit 42d1c7c draw.py, --reference); face geometry reused from the approved infraorbital_patient_position layout.",
+ "antigravityConversation": "43cfd894-e3f1-47bf-84a5-2fce2fff0b17",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of a close-up clinical photograph of an adult patient's face seen straight on, the face filling the frame and set to the right of centre exactly as drawn, against a dark grey headrest on the left: the eyebrows and eyes at the top, the nose, the closed upper lip, and the lower lip pulled far down and turned inside out by the operator's white-gloved thumb coming up from below the chin, so that the lower front teeth, the pink lower gum and a wide band of deep pink, moist mucosa (the fold between the gum and the turned-out inner lip) are all fully exposed, exactly as wide and as deep as drawn. Turn this into a realistic clinical photograph in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture, natural moist lip mucosa and gum, a white nitrile glove, soft even clinical light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, circles, needles, syringes, instruments, blood, border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "rejected": "Conversation ada73596 (with the approved infraorbital photo attached as a style image): copied that photo's centred framing instead of the layout and barely pulled the lip down. Retried without the style image.",
+ "reviewNotes": "Overlay: eyes, brows, nose, lips, lower teeth and the thumb lie on the layout. The lower fold is exposed less widely than drawn but clearly between the gum and the everted lip, where the entry sits. No watermark.",
+ "knownLimits": "The syringe is the shared true-size syringe foreshortened to 45% along its axis, because it points toward the camera.",
+ "thirdPartyConcept": "None."
+}

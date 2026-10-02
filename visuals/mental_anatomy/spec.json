@@ -2,92 +2,84 @@
   "assetId": "mental_anatomy",
   "procedure": "block_mental",
   "title": "Target anatomy",
-  "view": "Front view of the skull, head at the top, the patient's right on the image left: the right orbit, both dental arches and the mandible to the chin.",
+  "view": "Front view of the whole skull, head at the top, the patient's right on the image left.",
   "teachingPoint": "The mental foramen sits on the anterior mandible below the premolars, on the same vertical line as the pupil, the supraorbital notch and the infraorbital foramen; the needle aims down toward it from the fold and stops short.",
   "claims": [
     "Front view, patient's right on the image left (house laterality).",
-    "Dashed red: the pupil line through the supraorbital notch, the infraorbital foramen and the mental foramen (record).",
-    "Mental foramen below the second premolar, midway between the alveolar crest and the lower border of the mandible (record: below the first or second premolar; height standard anatomy).",
-    "Needle from the mucobuccal fold below the premolars, directed inferiorly toward the foramen and stopping short of it (record).",
+    "Red band: the pupil line; on this skull the supraorbital notch, infraorbital foramen and mental foramen all fall within a vertical band about 9 mm wide (record: in line with the pupil).",
+    "Mental foramen directly below the lower second premolar, below the roots (record: below the first or second premolar).",
+    "Needle from the fold level below the premolars, directed inferiorly toward the foramen, stopping short (record).",
     "Yellow: mental nerve branches to the lower lip and chin (standard anatomy).",
-    "Labels: Supraorbital notch, Infraorbital foramen, Mental foramen, Second premolar."
+    "Markings traced on the painting (owner accepted the whole, centred skull, 2026-10-02).",
+    "Labels: Supraorbital notch, Infraorbital foramen, Second premolar, Mental foramen, Pupil line."
   ],
   "requiredElements": [
-    "cranium",
-    "mandible",
-    "orbit",
-    "nasal-aperture",
-    "supraorbital",
-    "infraorbital",
-    "mental",
-    "second-premolar",
-    "pupil-line",
+    "pupil-band",
+    "mark-supraorbital",
+    "mark-infraorbital",
+    "mark-mental",
+    "mark-pm2",
     "needle",
     "needle-entry",
     "needle-tip"
   ],
   "labels": {
-    "Supraorbital notch": "supraorbital",
-    "Infraorbital foramen": "infraorbital",
-    "Mental foramen": "mental",
-    "Second premolar": "second-premolar"
+    "Supraorbital notch": "mark-supraorbital",
+    "Infraorbital foramen": "mark-infraorbital",
+    "Second premolar": "mark-pm2",
+    "Mental foramen": "mark-mental",
+    "Pupil line": "pupil-band"
   },
   "geometry": [
     {
       "check": "crosses",
-      "a": "pupil-line",
-      "b": "mental",
-      "why": "mental foramen on the pupil line"
+      "a": "mark-mental",
+      "b": "pupil-band",
+      "why": "mental foramen in the pupil band"
     },
     {
       "check": "crosses",
-      "a": "pupil-line",
-      "b": "infraorbital",
-      "why": "infraorbital foramen on the pupil line"
+      "a": "mark-infraorbital",
+      "b": "pupil-band",
+      "why": "infraorbital foramen in the pupil band"
     },
     {
       "check": "crosses",
-      "a": "pupil-line",
-      "b": "supraorbital",
-      "why": "supraorbital notch on the pupil line"
+      "a": "mark-supraorbital",
+      "b": "pupil-band",
+      "why": "supraorbital notch in the pupil band"
     },
     {
       "check": "below",
-      "a": "mental",
-      "b": "second-premolar",
-      "why": "foramen below the premolar"
+      "a": "mark-mental",
+      "b": "mark-pm2",
+      "why": "foramen below the second premolar"
     },
     {
-      "check": "within",
-      "a": "mental",
-      "b": "mandible",
-      "why": "foramen on the mandible"
+      "check": "below",
+      "a": "mark-mental",
+      "b": "mark-infraorbital",
+      "why": "mental below infraorbital"
     },
     {
       "check": "pointsDown",
       "a": "needle",
-      "maxLean": 0.6,
+      "maxLean": 0.4,
       "why": "needle directed inferiorly"
     },
     {
       "check": "noOverlap",
       "a": "needle-tip",
-      "b": "mental",
+      "b": "mark-mental",
       "why": "stops short of the foramen"
     },
     {
       "check": "endNear",
       "a": "needle",
       "end": "end",
-      "b": "mental",
+      "b": "mark-mental",
       "maxPx": 40,
       "why": "aimed at the foramen"
-    },
-    {
-      "check": "leftOf",
-      "a": "mental",
-      "b": "nasal-aperture",
-      "why": "right side (right is image left)"
     }
   ]
 }

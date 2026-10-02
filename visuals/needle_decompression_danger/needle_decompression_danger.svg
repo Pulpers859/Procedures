@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F4F1EA; }</style>
+<defs>
+<linearGradient id="bone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFE3C8"/><stop offset="1" stop-color="#DCCBA6"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="30b0e405df1b0696ed2a52d144482a39df7d0e977240895cbb80b5bb356055bc"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <rect x="0" y="0" width="1600" height="1200" fill="#F4F1EA"/>
+  <path id="humerus" d="M174,-14 C164.4,-33.2 76.8,-53.6 54,-50 C31.2,-46.4 -44.4,1.6 -54,22 C-63.6,42.4 -48,119.2 -42,154 C-36,188.8 -3.6,318.4 6,370 C15.6,421.6 40.8,638.8 54,670 C67.2,701.2 132,712 138,682 C144,652 112.8,424 114,370 C115.2,316 144,180.4 150,142 C156,103.6 183.6,5.2 174,-14 Z" fill="url(#bone)" stroke="#A8977A" stroke-width="4"/>
+  <path d="M1134,238 C1122.6,240.4 1031.4,259.6 1020,262 C1008.6,264.4 1020,262 1020,262" fill="none" stroke="#C9D6DC" stroke-width="57.6" stroke-linecap="round"/><path id="rib-1" d="M1020,262 C1006.2,257.2 906.6,223.6 882,214 C857.4,204.4 784.8,170.8 774,166" fill="none" stroke="#E8DCC0" stroke-width="72" stroke-linecap="round"/><path d="M1128,430 C1102.2,431.2 895.8,440.8 870,442 C844.2,443.2 870,442 870,442" fill="none" stroke="#C9D6DC" stroke-width="57.6" stroke-linecap="round"/><path id="rib-2" d="M870,442 C840,434.8 628.8,382 570,370 C511.2,358 319.2,322 282,322 C244.8,322 206.4,365.2 198,370" fill="none" stroke="#E8DCC0" stroke-width="72" stroke-linecap="round"/><path d="M1128,580 C1099.2,583 868.8,607 840,610 C811.2,613 840,610 840,610" fill="none" stroke="#C9D6DC" stroke-width="57.6" stroke-linecap="round"/><path id="rib-3" d="M840,610 C810,601.6 598.2,540.4 540,526 C481.8,511.6 294.6,466 258,466 C221.4,466 182.4,520 174,526" fill="none" stroke="#E8DCC0" stroke-width="72" stroke-linecap="round"/><path d="M1128,730 C1096.2,733.6 841.8,762.4 810,766 C778.2,769.6 810,766 810,766" fill="none" stroke="#C9D6DC" stroke-width="57.6" stroke-linecap="round"/><path id="rib-4" d="M810,766 C780,756.4 567,685.6 510,670 C453,654.4 274.8,608.8 240,610 C205.2,611.2 169.8,674.8 162,682" fill="none" stroke="#E8DCC0" stroke-width="72" stroke-linecap="round"/><path d="M1128,862 C1093.2,866.8 814.8,905.2 780,910 C745.2,914.8 780,910 780,910" fill="none" stroke="#C9D6DC" stroke-width="57.6" stroke-linecap="round"/><path id="rib-5" d="M780,910 C751.8,900.4 553.2,829.6 498,814 C442.8,798.4 262.8,752.2 228,754 C193.2,755.8 157.8,824.2 150,832" fill="none" stroke="#E8DCC0" stroke-width="72" stroke-linecap="round"/><path d="M1128,982 C1090.2,988 787.8,1036 750,1042 C712.2,1048 750,1042 750,1042" fill="none" stroke="#C9D6DC" stroke-width="57.6" stroke-linecap="round"/><path id="rib-6" d="M750,1042 C723.6,1033.6 538.8,972.4 486,958 C433.2,943.6 256.2,895.6 222,898 C187.8,900.4 151.8,973.6 144,982" fill="none" stroke="#E8DCC0" stroke-width="72" stroke-linecap="round"/><path d="M1128,1090 C1087.2,1097.2 760.8,1154.8 720,1162 C679.2,1169.2 720,1162 720,1162" fill="none" stroke="#C9D6DC" stroke-width="57.6" stroke-linecap="round"/><path id="rib-7" d="M720,1162 C695.4,1154.8 523.8,1102 474,1090 C424.2,1078 255,1038.4 222,1042 C189,1045.6 151.8,1117.6 144,1126" fill="none" stroke="#E8DCC0" stroke-width="72" stroke-linecap="round"/>
+  <path id="sternum" d="M1326,142 C1333,168 1315.5,361 1314,430 C1312.5,499 1311,907.5 1308,970 C1305,1032.5 1284.5,1157 1278,1180 C1271.5,1203 1238,1246 1230,1246 C1222,1246 1188.5,1203 1182,1180 C1175.5,1157 1155,1032.5 1152,970 C1149,907.5 1147.5,499 1146,430 C1144.5,361 1127,168 1134,142 C1141,116 1214,118 1230,118 C1246,118 1319,116 1326,142 Z" fill="url(#bone)" stroke="#A8977A" stroke-width="4"/>
+  <path id="clavicle" d="M1182,154 C1159.6,151.2 1040.4,137 990,130 C939.6,123 806,96.8 750,94 C694,91.2 559,108.8 510,106 C461,103.2 362.2,77 330,70 C297.8,63 245.2,48.8 234,46" fill="none" stroke="#E8DCC0" stroke-width="84" stroke-linecap="round"/>
+</g>
+
+<g class="marking">
+  <rect id="danger-band" x="1014" y="178" width="120" height="1092" fill="#D8432A" fill-opacity="0.22" stroke="#D8432A" stroke-width="3" stroke-dasharray="12 8"/>
+  <path id="ima" d="M1062,178 C1062,203.6 1062,312.4 1062,370 C1062,427.6 1062,546 1062,610 C1062,674 1062,786 1062,850 C1062,914 1062,1034 1062,1090 C1062,1146 1062,1246 1062,1270" fill="none" stroke="#C8322B" stroke-width="9" stroke-linecap="round"/>
+  <line id="mcl" x1="660" y1="46" x2="660" y2="850" stroke="#4A2F7A" stroke-width="5" stroke-dasharray="20 12"/>
+  <ellipse id="target-2ics" cx="660" cy="475.6" rx="36" ry="27" fill="#6CCBD2" fill-opacity="0.6" stroke="#0E8C98" stroke-width="5"/>
+  
+  <g id="inset">
+    <rect x="30" y="690" width="570" height="480" rx="28" fill="#FBF8F2" stroke="#9AA6B2" stroke-width="3"/>
+    <rect x="100" y="704" width="40" height="452" fill="#E7A79A"/>
+    <rect x="140" y="704" width="60" height="452" fill="#F2D27A"/>
+    <rect id="inset-muscle" x="200" y="704" width="222" height="452" fill="#B65A55"/>
+    <rect x="430" y="704" width="156" height="452" rx="6" fill="#F1C7C0"/>
+    <line id="pleura" x1="426" y1="704" x2="426" y2="1156" stroke="#8FA3B8" stroke-width="7"/>
+    <ellipse id="upper-rib" cx="300" cy="800" rx="78" ry="56" fill="#EFE6D2" stroke="#A8977A" stroke-width="5"/>
+    <ellipse id="lower-rib" cx="300" cy="1072" rx="78" ry="56" fill="#EFE6D2" stroke="#A8977A" stroke-width="5"/>
+    <circle id="iv-vein" cx="352" cy="866" r="13" fill="#5876B0" stroke="#34528A" stroke-width="3"/>
+    <circle id="iv-artery" cx="356" cy="892" r="10" fill="#D8432A" stroke="#8E211D" stroke-width="3"/>
+    <circle id="iv-nerve" cx="352" cy="915" r="9" fill="#EFCB5A" stroke="#B8962E" stroke-width="3"/>
+    <rect id="bundle" x="336" y="850" width="34" height="76" fill="#000" opacity="0"/>
+    <line id="catheter" x1="54" y1="1000" x2="450" y2="1000" stroke="#7B848C" stroke-width="12" stroke-linecap="round"/>
+    <line x1="54" y1="1000" x2="450" y2="1000" stroke="#E6EAEE" stroke-width="4"/>
+  </g>
+</g>
+
+<g id="labels"><g class="label" data-label="Internal mammary artery" data-target="ima"><polyline class="leader-halo" points="1060,1112 1064,1090"/><polyline class="leader" points="1060,1112 1064,1090"/><circle class="leader-dot" cx="1064" cy="1090" r="7"/><text x="900" y="1160" text-anchor="start"><tspan x="900" dy="0">Internal mammary artery</tspan></text></g><g class="label" data-label="Midclavicular line" data-target="mcl"><polyline class="leader-halo" points="700,106 660,160"/><polyline class="leader" points="700,106 660,160"/><circle class="leader-dot" cx="660" cy="160" r="7"/><text x="560" y="90" text-anchor="start"><tspan x="560" dy="0">Midclavicular line</tspan></text></g><g class="label emphasis" data-label="2nd ICS, MCL" data-target="target-2ics"><polyline class="leader-halo" points="710,520 690,485.6"/><polyline class="leader" points="710,520 690,485.6"/><circle class="leader-dot" cx="690" cy="485.6" r="7"/><text x="700" y="560" text-anchor="start"><tspan x="700" dy="0">2nd ICS, MCL</tspan></text></g><g class="label" data-label="Neurovascular bundle" data-target="bundle"><polyline class="leader-halo" points="630,880 370,888"/><polyline class="leader" points="630,880 370,888"/><circle class="leader-dot" cx="370" cy="888" r="7"/><text x="640" y="860" text-anchor="start"><tspan x="640" dy="0">Neurovascular</tspan><tspan x="640" dy="66">bundle</tspan></text></g><g class="label" data-label="Rib below" data-target="lower-rib"><polyline class="leader-halo" points="630,1090 378,1072"/><polyline class="leader" points="630,1090 378,1072"/><circle class="leader-dot" cx="378" cy="1072" r="7"/><text x="640" y="1110" text-anchor="start"><tspan x="640" dy="0">Rib below</tspan></text></g></g>
+
+</svg>

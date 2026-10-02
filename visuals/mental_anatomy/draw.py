@@ -17,8 +17,18 @@ Standard adult anatomy added: the mental foramen midway between the
 alveolar crest and the lower border of the mandible; the mental nerve's
 branches to the lower lip and chin (code-drawn).
 
-Code-drawn markings: the pupil line through the three foramina, the mental
-nerve branches, the needle from the fold toward the foramen, stopping short.
+Painted plate: Gemini painted a whole, centred skull instead of the layout's
+crop (owner, 2026-10-02: "fine with a whole centered skull"), so every
+marking is traced on the painting in canvas px (TRACED below), not taken
+from the layout (commit 42d1c7c). On the painting the three foramina fall
+within a vertical band about 9 mm wide under the orbit's centre, so the
+pupil line is drawn as that band. Lower teeth identified from the canine
+(mesial to the upper canine): the mental foramen lies directly below the
+lower second premolar.
+
+Code-drawn markings: the pupil-line band, rings on the three foramina, the
+mental nerve branches, the needle from the fold toward the foramen,
+stopping short.
 
 Millimetres from the midline (x toward the patient's left = image right) and
 the inferior orbital rim's level (y down) at 8 px/mm.
@@ -83,6 +93,16 @@ BRANCHES = [
     [MENTAL, (-28.6, 76.0), (-25.0, 81.0), (-19.0, 85.0)],
 ]
 
+# Traced on the painting (canvas px): centre x, centre y, radius.
+TRACED = {"supraorbital": (607, 122, 10), "infraorbital": (551, 506, 18), "mental": (621, 1044, 16),
+          "pm2": (616, 885, 16)}
+BAND = (546, 636)
+NEEDLE_HUB_PX, NEEDLE_TIP_PX = (638.0, 900.0), (623.0, 1012.0)
+ENTRY_PX = (631.0, 952.0)
+BRANCHES_PX = [[(621, 1044), (650, 1020), (690, 1005), (740, 1000)],
+               [(621, 1044), (660, 1048), (710, 1060), (760, 1075)],
+               [(621, 1044), (640, 1080), (670, 1110), (705, 1135)]]
+
 DEFS = """
 <linearGradient id="bone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFE3C8"/><stop offset="1" stop-color="#DCCBA6"/></linearGradient>
 """
@@ -113,11 +133,13 @@ def build() -> str:
     mx, my = c(MENTAL)
     ix, iy = c(INFRAORBITAL)
     sx, sy = c(SUPRAORBITAL)
+    T = TRACED
     labels = [
-        Label(["Supraorbital", "notch"], anchor=(40, 90), leader=[(250, 170), (sx - 10, sy)], target_id="supraorbital"),
-        Label(["Infraorbital", "foramen"], anchor=(40, 380), leader=[(250, 410), (ix - 12, iy)], target_id="infraorbital"),
-        Label(["Mental", "foramen"], anchor=(40, 900), leader=[(250, 930), (mx - 14, my)], target_id="mental", emphasis=True),
-        Label(["Second premolar"], anchor=(1060, 1150), leader=[(1060, 1100), c((PM2_L + 1.0, GUM_L - 3.0))], target_id="second-premolar"),
+        Label(["Supraorbital", "notch"], anchor=(40, 90), leader=[(250, 140), (T["supraorbital"][0] - 12, T["supraorbital"][1])], target_id="mark-supraorbital"),
+        Label(["Infraorbital", "foramen"], anchor=(40, 470), leader=[(260, 500), (T["infraorbital"][0] - 20, T["infraorbital"][1])], target_id="mark-infraorbital"),
+        Label(["Second premolar"], anchor=(40, 800), leader=[(450, 816), (T["pm2"][0] - 10, T["pm2"][1])], target_id="mark-pm2"),
+        Label(["Mental", "foramen"], anchor=(40, 1010), leader=[(220, 1040), (T["mental"][0] - 18, T["mental"][1])], target_id="mark-mental", emphasis=True),
+        Label(["Pupil line"], anchor=(660, 300), leader=[(670, 318), (BAND[1] - 6, 330)], target_id="pupil-band"),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
@@ -148,13 +170,17 @@ def build() -> str:
 </g>
 
 <g class="marking">
-  <line id="pupil-line" x1="{fmt(c((PUPIL_X, 0))[0])}" y1="0" x2="{fmt(c((PUPIL_X, 0))[0])}" y2="1200" stroke="#C8322B" stroke-width="4" stroke-dasharray="14 10" opacity="0.75"/>
-  {"".join(f'<path d="{path(b, tension=0.8)}" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/>' for b in BRANCHES)}
-  <line x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(h[0] - U[0] * 40)}" y2="{fmt(h[1] - U[1] * 40)}" stroke="#E7EEF3" stroke-width="18" stroke-linecap="round"/>
-  <line id="needle" x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="7"/>
-  <line x1="{fmt(h[0])}" y1="{fmt(h[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="3"/>
-  <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="8" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
-  <circle id="needle-tip" cx="{fmt(t[0])}" cy="{fmt(t[1])}" r="3" fill="#000" opacity="0"/>
+  <rect id="pupil-band" x="{BAND[0]}" y="0" width="{BAND[1] - BAND[0]}" height="1200" fill="#C8322B" fill-opacity="0.10"/>
+  <line x1="{BAND[0]}" y1="0" x2="{BAND[0]}" y2="1200" stroke="#C8322B" stroke-width="3" stroke-dasharray="14 10" opacity="0.7"/>
+  <line x1="{BAND[1]}" y1="0" x2="{BAND[1]}" y2="1200" stroke="#C8322B" stroke-width="3" stroke-dasharray="14 10" opacity="0.7"/>
+  {"".join(f'<circle id="mark-{k}" cx="{x}" cy="{y}" r="{r + 9}" fill="none" stroke="#4A2F7A" stroke-width="5"/>' for k, (x, y, r) in TRACED.items() if k != "pm2")}
+  <ellipse id="mark-pm2" cx="{TRACED['pm2'][0]}" cy="{TRACED['pm2'][1]}" rx="{TRACED['pm2'][2]}" ry="{TRACED['pm2'][2] * 2}" fill="#000" opacity="0"/>
+  {"".join(f'<path d="{smooth_path([(float(x), float(y)) for x, y in b], tension=0.8)}" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/>' for b in BRANCHES_PX)}
+  <line x1="{fmt(NEEDLE_HUB_PX[0])}" y1="{fmt(NEEDLE_HUB_PX[1])}" x2="{fmt(NEEDLE_HUB_PX[0] + 5)}" y2="{fmt(NEEDLE_HUB_PX[1] - 38)}" stroke="#E7EEF3" stroke-width="18" stroke-linecap="round"/>
+  <line id="needle" x1="{fmt(NEEDLE_HUB_PX[0])}" y1="{fmt(NEEDLE_HUB_PX[1])}" x2="{fmt(NEEDLE_TIP_PX[0])}" y2="{fmt(NEEDLE_TIP_PX[1])}" stroke="#5E6670" stroke-width="7"/>
+  <line x1="{fmt(NEEDLE_HUB_PX[0])}" y1="{fmt(NEEDLE_HUB_PX[1])}" x2="{fmt(NEEDLE_TIP_PX[0])}" y2="{fmt(NEEDLE_TIP_PX[1])}" stroke="#D9DEE3" stroke-width="3"/>
+  <circle id="needle-entry" cx="{fmt(ENTRY_PX[0])}" cy="{fmt(ENTRY_PX[1])}" r="8" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
+  <circle id="needle-tip" cx="{fmt(NEEDLE_TIP_PX[0])}" cy="{fmt(NEEDLE_TIP_PX[1])}" r="3" fill="#000" opacity="0"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>

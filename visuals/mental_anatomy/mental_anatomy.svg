@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F4F1EA; }</style>
+<defs>
+<linearGradient id="bone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFE3C8"/><stop offset="1" stop-color="#DCCBA6"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="fd400dabe992f712e4b2d52617b0895211b6c5ece0e9972b90005d2f4934909a"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <rect x="0" y="0" width="1600" height="1200" fill="#F4F1EA"/>
+  <path id="mandible" d="M522,428 C517.7,440.8 520.4,595.5 522,620 C523.6,644.5 541.2,775.7 546,796 C550.8,816.3 585.5,909.6 594,924 C602.5,938.4 660.7,1002.7 674,1012 C687.3,1021.3 778,1059 794,1064 C810,1069 899.6,1085.3 914,1087.2 C928.4,1089.1 997.2,1092 1010,1092 C1022.8,1092 1091.6,1089.1 1106,1087.2 C1120.4,1085.3 1210,1069 1226,1064 C1242,1059 1332.7,1021.3 1346,1012 C1359.3,1002.7 1417.5,938.4 1426,924 C1434.5,909.6 1469.2,816.3 1474,796 C1478.8,775.7 1496.4,644.5 1498,620 C1499.6,595.5 1503.9,420.5 1498,428 C1492.1,435.5 1418,704.8 1410,732 C1402,759.2 1388.7,828.2 1378,836 C1367.3,843.8 1274.5,847.7 1250,848.8 C1225.5,849.9 1042,852 1010,852 C978,852 794.5,849.9 770,848.8 C745.5,847.7 652.7,843.8 642,836 C631.3,828.2 613.7,759.2 610,732 C606.3,704.8 591.9,448.3 586,428 C580.1,407.7 526.3,415.2 522,428 Z" fill="url(#bone)" stroke="#A8977A" stroke-width="4"/>
+  <path id="cranium" d="M402,-20 C462.8,-45.6 1557.2,-45.6 1618,-20 C1678.8,5.6 1621.2,460 1618,492 C1614.8,524 1561.2,609.6 1554,620 C1546.8,630.4 1524.4,696 1474,700 C1423.6,704 596.4,704 546,700 C495.6,696 473.2,630.4 466,620 C458.8,609.6 405.2,524 402,492 C398.8,460 341.2,5.6 402,-20 Z" fill="url(#bone)" stroke="#A8977A" stroke-width="3"/>
+  <path id="orbit" d="M898,268 C895.2,284.8 889.5,320.1 882,332 C874.5,343.9 848.9,364.4 834,370.4 C819.1,376.4 772.7,383.6 754,383.2 C735.3,382.8 689.9,374.1 674,367.2 C658.1,360.3 627.3,337.4 618,324 C608.7,310.6 595.9,269.7 594,252 C592.1,234.3 596.4,188.8 602,172 C607.6,155.2 628,120.1 642,108 C656,95.9 701.5,73 722,68 C742.5,63 799.3,60.1 818,64.8 C836.7,69.5 871.7,93.6 882,108 C892.3,122.4 904.1,169.3 906,188 C907.9,206.7 900.8,251.2 898,268 Z" fill="#4B3B2E" stroke="#A8977A" stroke-width="5"/>
+  <path d="M1122,268 C1124.8,284.8 1130.5,320.1 1138,332 C1145.5,343.9 1171.1,364.4 1186,370.4 C1200.9,376.4 1247.3,383.6 1266,383.2 C1284.7,382.8 1330.1,374.1 1346,367.2 C1361.9,360.3 1392.7,337.4 1402,324 C1411.3,310.6 1424.1,269.7 1426,252 C1427.9,234.3 1423.6,188.8 1418,172 C1412.4,155.2 1392,120.1 1378,108 C1364,95.9 1318.5,73 1298,68 C1277.5,63 1220.7,60.1 1202,64.8 C1183.3,69.5 1148.3,93.6 1138,108 C1127.7,122.4 1115.9,169.3 1114,188 C1112.1,206.7 1119.2,251.2 1122,268 Z" fill="#4B3B2E" stroke="#A8977A" stroke-width="5"/>
+  <path id="nasal-aperture" d="M1010,348 C1000.7,348 979.3,354.7 970,364 C960.7,373.3 937.1,411.2 930,428 C922.9,444.8 910.7,491.2 909.2,508 C907.7,524.8 911,560.8 917.2,572 C923.4,583.2 951.2,599.7 962,604 C972.8,608.3 998.8,608.8 1010,608.8 C1021.2,608.8 1047.2,608.3 1058,604 C1068.8,599.7 1096.6,583.2 1102.8,572 C1109,560.8 1112.3,524.8 1110.8,508 C1109.3,491.2 1097.1,444.8 1090,428 C1082.9,411.2 1059.3,373.3 1050,364 C1040.7,354.7 1019.3,348 1010,348 Z" fill="#3E2F25" stroke="#A8977A" stroke-width="5"/>
+  <ellipse id="supraorbital" cx="760.4" cy="56.8" rx="14.4" ry="11.2" fill="#3E2F25" stroke="#8C7A5E" stroke-width="3"/>
+  <ellipse id="infraorbital" cx="762" cy="452" rx="17.6" ry="22.4" fill="#3E2F25" stroke="#8C7A5E" stroke-width="3"/>
+  <ellipse id="mental" cx="770" cy="956" rx="17.6" ry="14.4" fill="#3E2F25" stroke="#8C7A5E" stroke-width="3"/>
+  <g id="upper-teeth"><rect x="941.2" y="700" width="67.2" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="880.4" y="700" width="57.6" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="824.4" y="700" width="57.6" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="774.8" y="700" width="54.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="726.8" y="700" width="54.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="664.4" y="700" width="73.6" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="606.8" y="700" width="70.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1011.6" y="700" width="67.2" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1082" y="700" width="57.6" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1138" y="700" width="57.6" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1190.8" y="700" width="54.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1238.8" y="700" width="54.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1282" y="700" width="73.6" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1342.8" y="700" width="70.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/></g>
+  <g id="lower-teeth"><rect x="963.6" y="780" width="44.8" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="915.6" y="780" width="48" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="864.4" y="780" width="51.2" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="810.8" y="780" width="52.8" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect id="second-premolar" x="758" y="780" width="52.8" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="686.8" y="780" width="70.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="614.8" y="780" width="70.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1011.6" y="780" width="44.8" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1056.4" y="780" width="48" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1104.4" y="780" width="51.2" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1156.4" y="780" width="52.8" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1209.2" y="780" width="52.8" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1262.8" y="780" width="70.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/><rect x="1334.8" y="780" width="70.4" height="80" rx="8" fill="#F6F1E4" stroke="#B9AE95" stroke-width="2"/></g>
+</g>
+
+<g class="marking">
+  <rect id="pupil-band" x="546" y="0" width="90" height="1200" fill="#C8322B" fill-opacity="0.10"/>
+  <line x1="546" y1="0" x2="546" y2="1200" stroke="#C8322B" stroke-width="3" stroke-dasharray="14 10" opacity="0.7"/>
+  <line x1="636" y1="0" x2="636" y2="1200" stroke="#C8322B" stroke-width="3" stroke-dasharray="14 10" opacity="0.7"/>
+  <circle id="mark-supraorbital" cx="607" cy="122" r="19" fill="none" stroke="#4A2F7A" stroke-width="5"/><circle id="mark-infraorbital" cx="551" cy="506" r="27" fill="none" stroke="#4A2F7A" stroke-width="5"/><circle id="mark-mental" cx="621" cy="1044" r="25" fill="none" stroke="#4A2F7A" stroke-width="5"/>
+  <ellipse id="mark-pm2" cx="616" cy="885" rx="16" ry="32" fill="#000" opacity="0"/>
+  <path d="M621,1044 C624.9,1040.8 640.8,1025.2 650,1020 C659.2,1014.8 678,1007.7 690,1005 C702,1002.3 733.3,1000.7 740,1000" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/><path d="M621,1044 C626.2,1044.5 648.1,1045.9 660,1048 C671.9,1050.1 696.7,1056.4 710,1060 C723.3,1063.6 753.3,1073 760,1075" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/><path d="M621,1044 C623.5,1048.8 633.5,1071.2 640,1080 C646.5,1088.8 661.3,1102.7 670,1110 C678.7,1117.3 700.3,1131.7 705,1135" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/>
+  <line x1="638" y1="900" x2="643" y2="862" stroke="#E7EEF3" stroke-width="18" stroke-linecap="round"/>
+  <line id="needle" x1="638" y1="900" x2="623" y2="1012" stroke="#5E6670" stroke-width="7"/>
+  <line x1="638" y1="900" x2="623" y2="1012" stroke="#D9DEE3" stroke-width="3"/>
+  <circle id="needle-entry" cx="631" cy="952" r="8" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
+  <circle id="needle-tip" cx="623" cy="1012" r="3" fill="#000" opacity="0"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Supraorbital notch" data-target="mark-supraorbital"><polyline class="leader-halo" points="250,140 595,122"/><polyline class="leader" points="250,140 595,122"/><circle class="leader-dot" cx="595" cy="122" r="7"/><text x="40" y="90" text-anchor="start"><tspan x="40" dy="0">Supraorbital</tspan><tspan x="40" dy="66">notch</tspan></text></g><g class="label" data-label="Infraorbital foramen" data-target="mark-infraorbital"><polyline class="leader-halo" points="260,500 531,506"/><polyline class="leader" points="260,500 531,506"/><circle class="leader-dot" cx="531" cy="506" r="7"/><text x="40" y="470" text-anchor="start"><tspan x="40" dy="0">Infraorbital</tspan><tspan x="40" dy="66">foramen</tspan></text></g><g class="label" data-label="Second premolar" data-target="mark-pm2"><polyline class="leader-halo" points="450,816 606,885"/><polyline class="leader" points="450,816 606,885"/><circle class="leader-dot" cx="606" cy="885" r="7"/><text x="40" y="800" text-anchor="start"><tspan x="40" dy="0">Second premolar</tspan></text></g><g class="label emphasis" data-label="Mental foramen" data-target="mark-mental"><polyline class="leader-halo" points="220,1040 603,1044"/><polyline class="leader" points="220,1040 603,1044"/><circle class="leader-dot" cx="603" cy="1044" r="7"/><text x="40" y="1010" text-anchor="start"><tspan x="40" dy="0">Mental</tspan><tspan x="40" dy="66">foramen</tspan></text></g><g class="label" data-label="Pupil line" data-target="pupil-band"><polyline class="leader-halo" points="670,318 630,330"/><polyline class="leader" points="670,318 630,330"/><circle class="leader-dot" cx="630" cy="330" r="7"/><text x="660" y="300" text-anchor="start"><tspan x="660" dy="0">Pupil line</tspan></text></g></g>
+
+</svg>

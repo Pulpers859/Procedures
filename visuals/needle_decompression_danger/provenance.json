@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [],
+ "reference": "Same painting as needle_decompression_landmarks (layout commit 42d1c7c); reused, not repainted.",
+ "antigravityConversation": "154e4931-e9e3-4225-9979-a9ae7bc4c883",
+ "prompt": "None for this plate: the approved needle_decompression_landmarks painting is reused (owner, 2026-10-02: reuse solved anatomy).",
+ "promptAttachments": "None.",
+ "rejected": "None.",
+ "reviewNotes": "Markings drawn in the layout's frame, which the shared painting matches within a few pixels.",
+ "knownLimits": "The internal mammary artery runs deep to the costal cartilages; it is drawn projected onto the front view. The intercostal inset is code-drawn and not to scale.",
+ "thirdPartyConcept": "None."
+}
