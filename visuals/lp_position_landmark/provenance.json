@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "reference": "Unlabelled render of the lp_position_landmark layout (commit 236e717 draw.py, --reference).",
+ "antigravityConversation": "9aa0d4e1-6d60-430e-99dc-a696051d7b1c",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of an adult patient lying on their left side on a pale blue-grey sheet, back curled forward, photographed squarely from behind: the bare lower back fills the frame, with the spine running straight across the middle from the buttocks on the left to the upper back on the right, where a light blue hospital gown covers it. The shallow midline furrow of the spine runs along the middle; the top of the cleft between the buttocks starts at the left; two small dimples sit either side of the spine just right of it; and the hip bones show as two gentle curved ridges under the skin, one arching up towards the upper flank and one down towards the flank on the bed. Turn this into a realistic clinical photograph of the lower back of a patient positioned for a lumbar puncture, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture, the real soft contours of the back muscles either side of the spine and of the hip bones under the skin, soft folds in the sheet and gown, soft even examination light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, dots, circles, needles, instruments, hands, gloves or blood, and no border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "rejected": "None.",
+ "reviewNotes": "Overlay: the back's outline, midline furrow, gluteal cleft, dimples and gown lie on the layout. The iliac crests are not visible on the painted skin (as in life), so the plate draws them as pen-style markings from the layout. The dimples are painted a little deeper and more lateral than drawn. No watermark.",
+ "knownLimits": "Spinous process positions and crest heights are standard adult values, not traced from visible anatomy. Tuffier's line is a guide: it can sit a level higher or lower.",
+ "thirdPartyConcept": "None."
+}

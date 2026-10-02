@@ -1,0 +1,22 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "reference": "Unlabelled render of the median_nerve_anatomy layout (commit 236e717 draw.py, --reference).",
+ "antigravityConversation": "bc1f96af-c65a-40b1-88a4-622b40071085",
+ "prompt": "Prompt B (concept plate), new conversation: Image 1 is the exact layout. Use it as the structure for a scientifically accurate cross-section of the right forearm at mid-forearm level under a linear ultrasound probe, seen straight on as a cut face: keep every outline, position and size exactly as drawn, in the same 4:3 landscape frame, with the tissue running to the left, right and bottom edges and the plain off-white space above the skin left plain. Exact labels, a probe, a needle and injected fluid will be laid over it afterwards.\n\nImage 2 is for understanding the anatomy only: how the median nerve lies in the thin fascial plane between the superficial and deep flexor muscles, wrapped in a pale sheath, with the muscles separated by glistening white fascia. Image 2 is drawn the other way round; follow image 1 for every side. Take the relationships from image 2; take every position, shape and size from image 1; the drawing itself is new. Leave out its needle, its blue fluid and its lettering.\n\nPaint it as a premium regional-anaesthesia atlas plate: a rich, deep, saturated palette with soft glossy highlights, fine crisp outlines and gentle depth, lit softly from the upper left.\n\nWork from the top down:\n1. The skin is a thin pink layer; under it, a thin layer of orange-gold fat lobules with fine pale septa, then a thin white investing fascia.\n2. Below that the forearm is packed with deep maroon muscle bellies cut across their fibres, fitting tightly against each other and separated only by thin glistening white fascia lines; the small pale ovals inside the muscles are flexor tendons forming, white and fibrous.\n3. The flattened oval in the middle is the median nerve, lying in the thin pale fascial plane between the large upper muscle (flexor digitorum superficialis) and the deep muscles below (flexor pollicis longus on the left, flexor digitorum profundus on the right): olive-yellow, in a thin pale sheath, packed with fine speckled fascicles.\n4. The small round red shapes are arteries with thick layered walls around dark lumens; the small yellow oval at the right is the ulnar nerve.\n5. At the bottom, the two large pale ovals are the radius (left) and the ulna (right): smooth ivory cortex over pink spongy bone, joined by a thin white interosseous membrane.\n\nThe picture shows only this anatomy.",
+ "promptAttachments": "Image 1: the layout reference. Image 2: NYSORA Nerve Block Manual p.98 Fig-5 (reverse ultrasound anatomy of the median nerve at the mid-forearm), concept only, not committed.",
+ "repairs": [
+  "Prompt C, same chat: Paint the bumpy cobbled patch in the middle-left muscle with the same smooth, fine muscle-fibre texture as the rest of that muscle. Keep everything else in the image the same, in the same 4:3 landscape frame."
+ ],
+ "rejected": "Conversation 313a5c0c (first layout): painted on the layout exactly, but the layout left fat lobules between every muscle, so the nerve floated in fat; the owner flagged it as off against NYSORA. Layout redrawn as a packed compartment with thin fascia, zoomed to 34 px/mm, tendons added. Painting 2 had a cobbled patch in FPL, repaired once.",
+ "reviewNotes": "Overlay: every muscle border, tendon, vessel, nerve and bone lies on the layout within a few pixels. The nerve sits in a thin pale plane between FDS and the deep muscles, as in NYSORA's plate (mirrored). No watermark.",
+ "knownLimits": "Schematic proportions; the median artery that sometimes runs with the nerve is not drawn. Needle, probe and injectate are code-drawn.",
+ "thirdPartyConcept": "NYSORA Nerve Block Manual, p.98 Fig-5, attached as image 2 for concept only under the owner's temporary exception (PLAYBOOK, Third-party plates); not committed, drawing not reproduced."
+}

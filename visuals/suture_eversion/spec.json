@@ -22,7 +22,8 @@
     "entry-angle",
     "loop-b",
     "top-b",
-    "knot"
+    "knot",
+    "cut-line"
   ],
   "labels": {
     "90° entry": "entry-angle",

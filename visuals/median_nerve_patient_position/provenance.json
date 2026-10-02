@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "reference": "Unlabelled render of the median_nerve_patient_position layout (commit 236e717 draw.py, --reference). Probe and handle shapes reused from the approved interscalene positioning layout.",
+ "antigravityConversation": "7fa2603c-1630-46dd-9780-d604240e77f2",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of a procedure scene seen from directly above: an adult's right forearm lying palm up and straight on blue sterile drapes, the elbow end at the top and the heel of the hand at the bottom, with the wrist crease and the fleshy pad at the base of the thumb at the lower left. A white linear ultrasound probe lies across the middle of the forearm, its handle standing up towards the elbow and its dark cable running up out of the picture. A block needle with a small white hub enters the skin just to the left of the probe, in line with it, with clear extension tubing curving down to the left over the drape. Turn this into a realistic clinical photograph of an ultrasound-guided median nerve block at the forearm, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and angle; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture, the forearm's real soft contours, soft folds in the drapes, shot from directly above in soft even procedure-room light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, hands, gloves, blood, border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "rejected": "None.",
+ "reviewNotes": "Overlay: forearm outline, probe, handle, cable, needle, hub and tubing lie on the layout within a few pixels; gel painted around the probe. No watermark.",
+ "knownLimits": "The needle's shaft under the skin is not shown; the section plate carries the path.",
+ "thirdPartyConcept": "None."
+}

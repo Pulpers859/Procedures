@@ -15,7 +15,7 @@ sides, through the dermis into the top of the fat; tied, the wider base
 pushes the edges up into a slight ridge.
 
 Code-drawn markings: the suture (blue monofilament), the right-angle mark at
-entry, the knot.
+entry, the knot, and the closed cut line in the tied panel.
 
 Millimetres from the wound centre (x across the wound, y deep from the
 skin) at 40 px/mm. Dermis 2.5 mm.
@@ -131,6 +131,8 @@ def build() -> str:
 <g class="marking">
   <path id="bite-a" d="{path(BITE_A, ya, tension=0.7)}" fill="none" stroke="#2F4FA8" stroke-width="9" stroke-linecap="round"/>
   <path id="entry-angle" d="M{fmt(e[0] - sq)},{fmt(e[1])} L{fmt(e[0] - sq)},{fmt(e[1] - sq)} L{fmt(e[0])},{fmt(e[1] - sq)}" fill="none" stroke="#4A2F7A" stroke-width="5"/>
+  <path id="cut-line" d="M{fmt(CX - 9)},{fmt(c((0, -0.95), yb)[1])} L{fmt(CX)},{fmt(c((0, -0.6), yb)[1])} L{fmt(CX + 9)},{fmt(c((0, -0.95), yb)[1])} M{fmt(CX)},{fmt(c((0, -0.6), yb)[1])} L{fmt(CX)},{fmt(c((0, 4.0), yb)[1])}"
+        fill="none" stroke="#7A2E28" stroke-width="5" stroke-linecap="round"/>
   <path id="loop-b" d="{path(LOOP_B, yb, tension=0.7)}" fill="none" stroke="#2F4FA8" stroke-width="9" stroke-linecap="round"/>
   <path id="top-b" d="{path(TOP_B, yb, tension=0.8)}" fill="none" stroke="#2F4FA8" stroke-width="9" stroke-linecap="round"/>
   <ellipse id="knot" cx="{fmt(knot[0])}" cy="{fmt(knot[1])}" rx="26" ry="18" fill="#2F4FA8" stroke="#1C2F66" stroke-width="3"/>

@@ -1,0 +1,24 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the suture_eversion layout (commit 236e717 draw.py, --reference).",
+ "antigravityConversation": "9afa42b8-d311-49cf-91cf-8d732485820c",
+ "prompt": "Prompt A (atlas), new conversation: Image 1 is the exact anatomical layout of two side-on cut-away sections through skin, one above the other, each with plain off-white space above the skin. Top: a thin pink skin surface over a thick pink dermis and yellow subcutaneous fat, with a clean V-shaped laceration cutting straight down through the dermis into the fat, its gap open. Bottom: the same skin with the laceration closed, its two edges pressed together along a thin line and raised into a gentle rounded ridge on the surface. Repaint it as a premium medical-atlas illustration, in the same 4:3 landscape frame, matching the rendering style of image 2: its skin layers, fat lobules with fine septa, palette and light.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Take only the rendering style from image 2, nothing of its content. Change only the rendering: soft painted shading, fine crisp outlines, a fibrous dermis, fat lobules, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, sutures, threads, needles, instruments, hands or blood.",
+ "promptAttachments": "Image 1: the layout reference. Image 2: this repo's approved cordis_dilator_unit/base.jpg (skin-section painting), for rendering style only (owner, 2026-10-02: reuse solved anatomy).",
+ "repairs": [
+  "Prompt C, same chat (rejected, see below): In the lower section, replace the grey shadow above the skin with the skin itself: the pink skin and dermis rise smoothly into that same gentle ridge in the middle, with the closed cut as a thin dark line running straight down through the centre of the ridge into the fat. Keep everything else in the image the same, in the same 4:3 landscape frame."
+ ],
+ "pixelEdits": [
+  "gemini-original.jpg is the untouched first painting. In the tied (lower) panel: rows 540-609 above the skin, where Gemini painted a grey shadow band, filled with the per-column background from rows 470-530; then a smooth vertical warp lifts the skin and upper fat into the layout's ridge (height 0.9 mm x exp(-(x/3.2 mm)^2) at the surface, fading to zero 6 mm deep; 30 base px/mm). The top panel is untouched."
+ ],
+ "rejected": "Repair iter2 (same chat): added a second skin layer above the original, doubling the dermis. Gemini had failed the ridge twice, so the ridge was made by the warp above and the closed cut is code-drawn.",
+ "reviewNotes": "Overlay: the top panel's skin, dermis, fat and the V laceration lie on the layout within a few pixels. After the edit the lower panel's surface follows the layout's ridge.",
+ "knownLimits": "Schematic; standard technique (90-degree entry, flask-shaped bite about 4 mm from the edge) is drawn from general practice, not stated in the record. The closed cut line, suture, knot and right-angle mark are code-drawn.",
+ "thirdPartyConcept": "None."
+}

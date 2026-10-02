@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F6F4F0; }</style>
+<defs>
+<linearGradient id="fat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6DC8E"/><stop offset="1" stop-color="#EBC565"/></linearGradient>
+<clipPath id="frame"><rect x="0" y="0" width="1600" height="1200"/></clipPath>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="9ef441349dcddc6f0909c67de6698d7a7614fed784da7a8bfe4499a2725a205f"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0" clip-path="url(#frame)">
+  <rect x="0" y="0" width="1600" height="1200" fill="#F6F4F0"/>
+  <rect id="fat-a" x="0" y="300" width="1600" height="260" fill="url(#fat)"/><rect id="dermis-a" x="0" y="200" width="1600" height="100" fill="#E7A79A"/><rect x="0" y="197" width="1600" height="8" fill="#D98F7E"/><path id="wound" d="M736,196 L864,196 L810,440 L790,440 Z" fill="#F6F4F0"/>
+  <path id="fat-b" d="M-200,820 C-132,820 400,820.6 480,820 C560,819.4 578,816.2 600,814 C622,811.8 683.2,801 700,798 C716.8,795 758.6,784.8 768,784 C777.4,783.2 790.8,788.6 794,790 C797.2,791.4 798.8,798 800,798 C801.2,798 802.8,791.4 806,790 C809.2,788.6 822.6,783.2 832,784 C841.4,784.8 883.2,795 900,798 C916.8,801 978,811.8 1000,814 C1022,816.2 1040,819.4 1120,820 C1200,820.6 1732,820 1800,820 L1600,1200 L0,1200 Z" fill="url(#fat)"/><path id="dermis-b" d="M-200,820 C-132,810 400,820.6 480,820 C560,819.4 578,816.2 600,814 C622,811.8 683.2,801 700,798 C716.8,795 758.6,784.8 768,784 C777.4,783.2 790.8,788.6 794,790 C797.2,791.4 798.8,798 800,798 C801.2,798 802.8,791.4 806,790 C809.2,788.6 822.6,783.2 832,784 C841.4,784.8 883.2,795 900,798 C916.8,801 978,811.8 1000,814 C1022,816.2 1040,819.4 1120,820 C1200,820.6 1732,810 1800,820 C1868,830 1868,910 1800,920 C1732,930 1204,920.8 1120,920 C1036,919.2 987.2,914.2 960,912 C932.8,909.8 864,899.6 848,898 C832,896.4 809.6,896 800,896 C790.4,896 768,896.4 752,898 C736,899.6 667.2,909.8 640,912 C612.8,914.2 564,919.2 480,920 C396,920.8 -132,930 -200,920 C-268,910 -268,830 -200,820 Z" fill="#E7A79A"/><path d="M-200,820 C-132,820 400,820.6 480,820 C560,819.4 578,816.2 600,814 C622,811.8 683.2,801 700,798 C716.8,795 758.6,784.8 768,784 C777.4,783.2 790.8,788.6 794,790 C797.2,791.4 798.8,798 800,798 C801.2,798 802.8,791.4 806,790 C809.2,788.6 822.6,783.2 832,784 C841.4,784.8 883.2,795 900,798 C916.8,801 978,811.8 1000,814 C1022,816.2 1040,819.4 1120,820 C1200,820.6 1732,820 1800,820" fill="none" stroke="#D98F7E" stroke-width="8"/><line id="wound-line" x1="800" y1="798" x2="800" y2="980" stroke="#B0675C" stroke-width="5"/>
+  <rect x="0" y="560" width="1600" height="120" fill="#F6F4F0"/>
+</g>
+
+<g class="marking">
+  <path id="bite-a" d="M576,136 C576,143.5 577.4,185.1 576,200 C574.6,214.9 571.9,247.2 564,264 C556.1,280.8 506.6,327.7 508,344 C509.4,360.3 541.9,395.6 576,404 C610.1,412.4 747.7,416 800,416 C852.3,416 989.9,412.4 1024,404 C1058.1,395.6 1090.6,360.3 1092,344 C1093.4,327.7 1043.9,280.8 1036,264 C1028.1,247.2 1025.4,214.9 1024,200 C1022.6,185.1 1024,143.5 1024,136" fill="none" stroke="#2F4FA8" stroke-width="9" stroke-linecap="round"/>
+  <path id="entry-angle" d="M542,200 L542,166 L576,166" fill="none" stroke="#4A2F7A" stroke-width="5"/>
+  <path id="cut-line" d="M791,782 L800,796 L809,782 M800,796 L800,980"
+        fill="none" stroke="#7A2E28" stroke-width="5" stroke-linecap="round"/>
+  <path id="loop-b" d="M972,802 C972,806.9 970.6,833.5 972,844 C973.4,854.5 978.9,878.5 984,892 C989.1,905.5 1018.8,946.9 1016,960 C1013.2,973.1 985.2,997 960,1004 C934.8,1011 837.3,1020 800,1020 C762.7,1020 665.2,1011 640,1004 C614.8,997 586.8,973.1 584,960 C581.2,946.9 610.9,905.5 616,892 C621.1,878.5 626.6,854.5 628,844 C629.4,833.5 628,806.9 628,802" fill="none" stroke="#2F4FA8" stroke-width="9" stroke-linecap="round"/>
+  <path id="top-b" d="M628,802 C634.9,797.2 657.1,771.9 680,766 C702.9,760.1 768,758 800,758 C832,758 897.1,760.1 920,766 C942.9,771.9 965.1,797.2 972,802" fill="none" stroke="#2F4FA8" stroke-width="9" stroke-linecap="round"/>
+  <ellipse id="knot" cx="624" cy="790" rx="26" ry="18" fill="#2F4FA8" stroke="#1C2F66" stroke-width="3"/>
+  <path d="M614,778 l-34,-40 M620,776 l-10,-48" stroke="#2F4FA8" stroke-width="7" stroke-linecap="round"/>
+</g>
+
+<g id="labels"><g class="label" data-label="90° entry" data-target="entry-angle"><polyline class="leader-halo" points="420,140 542,183"/><polyline class="leader" points="420,140 542,183"/><circle class="leader-dot" cx="542" cy="183" r="7"/><text x="170" y="120" text-anchor="start"><tspan x="170" dy="0">90° entry</tspan></text></g><g class="label" data-label="Dermis" data-target="dermis-a"><polyline class="leader-halo" points="1250,140 1200,248"/><polyline class="leader" points="1250,140 1200,248"/><circle class="leader-dot" cx="1200" cy="248" r="7"/><text x="1220" y="120" text-anchor="start"><tspan x="1220" dy="0">Dermis</tspan></text></g><g class="label emphasis" data-label="Wider at depth" data-target="bite-a"><polyline class="leader-halo" points="1160,476 1092,344"/><polyline class="leader" points="1160,476 1092,344"/><circle class="leader-dot" cx="1092" cy="344" r="7"/><text x="1150" y="520" text-anchor="start"><tspan x="1150" dy="0">Wider at depth</tspan></text></g><g class="label emphasis" data-label="Everted edges" data-target="dermis-b"><polyline class="leader-halo" points="1120,748 840,806"/><polyline class="leader" points="1120,748 840,806"/><circle class="leader-dot" cx="840" cy="806" r="7"/><text x="1110" y="730" text-anchor="start"><tspan x="1110" dy="0">Everted edges</tspan></text></g><g class="label" data-label="Knot" data-target="knot"><polyline class="leader-halo" points="270,756 624,792"/><polyline class="leader" points="270,756 624,792"/><circle class="leader-dot" cx="624" cy="792" r="7"/><text x="130" y="740" text-anchor="start"><tspan x="130" dy="0">Knot</tspan></text></g></g>
+
+</svg>

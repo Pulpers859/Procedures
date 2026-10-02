@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "reference": "Unlabelled render of the lp_needle_trajectory layout (commit 236e717 draw.py, --reference).",
+ "antigravityConversation": "9ff63690-c187-4a9b-8b1b-b2d202023386",
+ "prompt": "Prompt A (atlas), new conversation: The attached image is an exact anatomical layout of a midline sagittal cut-away through the lower back and lumbar spine, the back's skin at the top: plain off-white space above; a thin pink skin layer; yellow subcutaneous fat; a band of white fibrous supraspinous ligament running along the tips of the spinous processes; the ivory spinous processes of three lumbar vertebrae (and part of a fourth at the right edge) standing side by side, with pale fibrous interspinous ligament filling the gaps between them; a small block of yellow ligamentum flavum bridging the gap between the bases of the two middle processes; a layer of yellow epidural fat; a thin blue-grey dura; the pale blue CSF-filled thecal sac with three fine yellow nerve roots of the cauda equina running through it; a thin white posterior longitudinal ligament; and the ivory vertebral bodies at the bottom with a pale blue-white intervertebral disc between them. Repaint it as a premium medical-atlas illustration, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: soft painted shading, fine crisp outlines, smooth ivory cortical bone over pink spongy bone, glistening fibrous ligaments, fat lobules with fine septa, clear fluid in the thecal sac, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, needles, instruments, hands or blood.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "rejected": "None.",
+ "reviewNotes": "Overlay: skin, fat, supraspinous ligament, spinous processes, interspinous ligament, ligamentum flavum, epidural fat, dura, thecal sac and roots lie on the layout. Gemini split the drawn vertebral body band into bodies with a disc every 3.8 cm, in step with the spinous processes (an anatomical improvement, kept). No watermark.",
+ "knownLimits": "Midline sagittal schematic; depths are average adult values. The needle and introducer are code-drawn.",
+ "thirdPartyConcept": "None."
+}
