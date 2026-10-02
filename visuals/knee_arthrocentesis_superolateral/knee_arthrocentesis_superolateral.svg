@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #DDE5EC; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A88C"/><stop offset="0.5" stop-color="#EDC7AE"/>
+  <stop offset="1" stop-color="#DDAE92"/></linearGradient>
+<linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8EEF3"/><stop offset="1" stop-color="#D3DDE6"/></linearGradient>
+<marker id="arrowhead" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+  <path d="M0,0 L10,5 L0,10 Z" fill="#0E8C98"/></marker>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting"></g>
+<g id="anatomy">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
+  <path id="leg" d="M221.5,-195 C91.3,-166.5 228.2,33 231,90 C233.8,147 245.2,318 250,375 C254.8,432 272.8,612.5 278.5,660 C284.2,707.5 300.4,807.2 307,850 C313.6,892.8 338.4,1040 345,1087.5 C351.6,1135 369.7,1282.2 373.5,1325 C377.3,1367.8 287.1,1496 383,1515 C478.9,1534 1237,1534 1333,1515 C1429,1496 1338.7,1367.8 1342.5,1325 C1346.3,1282.2 1364.3,1135 1371,1087.5 C1377.7,1040 1399.5,897.5 1409,850 C1418.5,802.5 1455.5,660 1466,612.5 C1476.5,565 1506.8,427.2 1513.5,375 C1520.2,322.8 1530.6,147 1532.5,90 C1534.4,33 1663.6,-166.5 1532.5,-195 C1401.4,-223.5 351.6,-223.5 221.5,-195 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <path id="vastus-lateralis" d="M535,-195 C565.4,-147.5 571.1,207.8 573,280 C574.9,352.2 569.2,506.1 554,527 C538.8,547.9 445.7,513.7 421,489 C396.3,464.3 322.2,348.4 307,280 C291.8,211.6 246.2,-147.5 269,-195 C291.8,-242.5 504.6,-242.5 535,-195 Z" fill="#E4B89D"/>
+  <path id="vastus-medialis" d="M972,641 C983.4,658.1 1078.4,620.1 1105,603 C1131.6,585.9 1215.2,504.2 1238,470 C1260.8,435.8 1319.7,308.5 1333,261 C1346.3,213.5 1388.1,27.3 1371,-5 C1353.9,-37.3 1196.2,-81 1162,-62 C1127.8,-43 1046.1,135.6 1029,185 C1011.9,234.4 996.7,386.4 991,432 C985.3,477.6 960.6,623.9 972,641 Z" fill="#E9C0A6"/>
+  <path id="quadriceps-tendon" d="M687,660 C668,634.7 670.5,330.7 668,280 C665.5,229.3 627.5,-74.7 649,-100 C670.5,-125.3 969.5,-125.3 991,-100 C1012.5,-74.7 974.5,229.3 972,280 C969.5,330.7 972,634.7 953,660 C934,685.3 706,685.3 687,660 Z" fill="#EBC6AE"/>
+  <path id="patellar-tendon" d="M744,1068.5 C753.5,1045.1 886.5,1045.1 896,1068.5 C905.5,1091.9 896,1396.6 886.5,1420 C877,1443.4 763,1443.4 753.5,1420 C744,1396.6 734.5,1091.9 744,1068.5 Z" fill="#E8C0A6" stroke="#C49478" stroke-width="2"/>
+  <ellipse id="patella" cx="820" cy="850" rx="209" ry="237.5" fill="#F0CDB5" stroke="#C49478" stroke-width="3"/>
+</g>
+
+<g class="marking">
+  <path id="recess" d="M630,650.5 C604.5,629.4 599.3,481.9 601.5,432 C603.7,382.1 623.5,258.5 649,223 C674.5,187.5 780.1,128 820,128 C859.9,128 965.5,187.5 991,223 C1016.5,258.5 1036.3,382.1 1038.5,432 C1040.7,481.9 1035.5,629.4 1010,650.5 C984.5,671.6 864.3,612.5 820,612.5 C775.7,612.5 655.5,671.6 630,650.5 Z" fill="#6CCBD2" fill-opacity="0.14" stroke="#0E8C98" stroke-width="4" stroke-dasharray="14 12" stroke-opacity="0.8"/>
+  <g id="dimension" stroke="#4A2F7A" stroke-width="4" fill="none">
+    <line id="dim-lateral-line" x1="672.2" y1="682.1" x2="577.2" y2="682.1"/>
+    <line id="dim-superior-line" x1="577.2" y1="682.1" x2="577.2" y2="587.1"/>
+  </g>
+  <circle cx="672.2" cy="682.1" r="7" fill="#4A2F7A"/>
+  <rect id="dim-superior" x="569.2" y="587.1" width="16" height="95" fill="#000" opacity="0"/>
+  <rect id="dim-lateral" x="577.2" y="674.1" width="95" height="16" fill="#000" opacity="0"/>
+  <line id="needle-direction" x1="612.9" y1="607.8" x2="801" y2="717"
+        stroke="#0E8C98" stroke-width="8" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <circle id="target" cx="577.2" cy="587.1" r="33.2" fill="#6CCBD2" fill-opacity="0.55" stroke="#0E8C98" stroke-width="5"/>
+  <circle cx="577.2" cy="587.1" r="6" fill="#0E8C98"/>
+</g>
+
+<g id="labels"><g class="label emphasis" data-label="Insertion site" data-target="target"><polyline class="leader-halo" points="320,452 544,587.1"/><polyline class="leader" points="320,452 544,587.1"/><circle class="leader-dot" cx="544" cy="587.1" r="7"/><text x="60" y="430" text-anchor="start"><tspan x="60" dy="0">Insertion site</tspan></text></g><g class="label" data-label="1 cm superior" data-target="dim-superior"><polyline class="leader-halo" points="539.2,654.1 575.2,652.1"/><polyline class="leader" points="539.2,654.1 575.2,652.1"/><circle class="leader-dot" cx="575.2" cy="652.1" r="7"/><text x="533.2" y="676.1" text-anchor="end"><tspan x="533.2" dy="0">1 cm superior</tspan></text></g><g class="label" data-label="1 cm lateral" data-target="dim-lateral"><polyline class="leader-halo" points="560,806.1 624.7,685.1"/><polyline class="leader" points="560,806.1 624.7,685.1"/><circle class="leader-dot" cx="624.7" cy="685.1" r="7"/><text x="300" y="852.1" text-anchor="start"><tspan x="300" dy="0">1 cm lateral</tspan></text></g><g class="label" data-label="Patella" data-target="patella"><polyline class="leader-halo" points="1196,968 953,926"/><polyline class="leader" points="1196,968 953,926"/><circle class="leader-dot" cx="953" cy="926" r="7"/><text x="1190" y="1010" text-anchor="start"><tspan x="1190" dy="0">Patella</tspan></text></g><g class="label" data-label="Suprapatellar recess" data-target="recess"><polyline class="leader-halo" points="1220,188 953,280"/><polyline class="leader" points="1220,188 953,280"/><circle class="leader-dot" cx="953" cy="280" r="7"/><text x="1190" y="100" text-anchor="start"><tspan x="1190" dy="0">Suprapatellar</tspan><tspan x="1190" dy="66">recess</tspan></text></g></g>
+
+</svg>

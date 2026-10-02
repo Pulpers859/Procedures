@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #DDE5EC; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A88C"/><stop offset="0.5" stop-color="#EDC7AE"/>
+  <stop offset="1" stop-color="#DDAE92"/></linearGradient>
+<linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8EEF3"/><stop offset="1" stop-color="#D3DDE6"/></linearGradient>
+<linearGradient id="gown-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A9C3D8"/><stop offset="1" stop-color="#8FAEC7"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting"></g>
+<g id="anatomy">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
+  <path id="shoulder" d="M1700,-80 C1658.3,-196.7 1253.3,-92.5 1200,-80 C1146.7,-67.5 1085.8,49.2 1060,70 C1034.2,90.8 920,158.3 890,170 C860,181.7 729.2,205.8 700,210 C670.8,214.2 563.3,217.9 540,220 C516.7,222.1 436.2,230.4 420,235 C403.8,239.6 355,265.4 345,275 C335,284.6 305,334.6 300,350 C295,365.4 285.8,440 285,460 C284.2,480 288.3,564.2 290,590 C291.7,615.8 302.1,738.3 305,770 C307.9,801.7 322.5,936.7 325,970 C327.5,1003.3 333.8,1140.8 335,1170 C336.2,1199.2 226.2,1307.5 340,1320 C453.8,1332.5 1586.7,1436.7 1700,1320 C1813.3,1203.3 1741.7,36.7 1700,-80 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <path id="clavicle" d="M530,260 C546,258.7 617.3,249.3 650,250 C682.7,250.7 735,260.3 775,265 C815,269.7 926.7,282.3 950,285" fill="none" stroke="#F0CFBA" stroke-width="22" stroke-linecap="round" opacity="0.7"/>
+  <ellipse id="acromion" cx="460" cy="265" rx="65" ry="30" fill="#F0CDB5" stroke="#D2A588" stroke-width="2"/>
+  <path id="deltopectoral-groove" d="M790,260 C786,276 768.7,346.7 760,380 C751.3,413.3 729.7,492.7 725,510" fill="none" stroke="#D2A084" stroke-width="6" opacity="0.8"/>
+  <path id="gown" d="M1700,-80 C1653.3,-196.7 1198.3,-100.8 1140,-80 C1081.7,-59.2 1020.8,132.5 1000,170 C979.2,207.5 905,336.7 890,370 C875,403.3 830.8,536.7 820,570 C809.2,603.3 768.3,736.7 760,770 C751.7,803.3 725,924.2 720,970 C715,1015.8 618.3,1290.8 700,1320 C781.7,1349.2 1616.7,1436.7 1700,1320 C1783.3,1203.3 1746.7,36.7 1700,-80 Z" fill="url(#gown-grad)" stroke="#7896B0" stroke-width="3"/>
+</g>
+
+<g class="marking">
+  <circle id="target" cx="500" cy="470" r="25" fill="#6CCBD2" fill-opacity="0.55" stroke="#0E8C98" stroke-width="5"/>
+  <circle cx="500" cy="470" r="5" fill="#0E8C98"/>
+
+  <g id="inset">
+    <rect x="1030" y="640" width="540" height="530" rx="28" fill="#F6F7F9" fill-opacity="0.96" stroke="#9AA6B2" stroke-width="3"/>
+    <path id="inset-soft-tissue" d="M1170,965 C1168.7,931.7 1180,860.3 1200,835 C1220,809.7 1285.3,780.3 1320,775 C1354.7,769.7 1431.3,781.7 1460,795 C1488.7,808.3 1523,847 1535,875 C1547,903 1554.7,971.7 1550,1005 C1545.3,1038.3 1528,1106.3 1500,1125 C1472,1143.7 1378.7,1150.3 1340,1145 C1301.3,1139.7 1232.7,1109 1210,1085 C1187.3,1061 1171.3,998.3 1170,965 Z" fill="#F1D3C1" stroke="#C99A80" stroke-width="3"/>
+    <path id="inset-glenoid" d="M1481,913 Q1459,975 1481,1037 L1525,1005 L1542,1025 L1542,969 L1525,941 Z" fill="#EFE6D2" stroke="#A8977A" stroke-width="3"/>
+    <circle id="humeral-head" cx="1370" cy="975" r="95" fill="#EFE6D2" stroke="#A8977A" stroke-width="4"/>
+    <circle cx="1370" cy="975" r="81" fill="#E8C9B8"/>
+    <path id="inset-tubercle" d="M1282.5,949.9 C1281.7,946.5 1275,926.2 1275.6,920.5 C1276.2,914.8 1283.5,904.7 1287.5,900.7 C1291.5,896.7 1304.2,887.6 1310.2,886.3 C1316.2,885 1335.5,889.1 1338.9,889.5 Z" fill="#EFE6D2" stroke="#A8977A" stroke-width="4"/>
+    <line id="anterior-plane" x1="1054" y1="900.7" x2="1317.5" y2="900.7"
+          stroke="#4A2F7A" stroke-width="4" stroke-dasharray="14 10"/>
+    <path id="angle-arc" d="M1217.5,900.7 A70,70 0 0 1 1238,851.2"
+          fill="none" stroke="#4A2F7A" stroke-width="5"/>
+    <line id="inset-needle" x1="1153.2" y1="766.4" x2="1305.9" y2="919.1"
+          stroke="#7B848C" stroke-width="9" stroke-linecap="round"/>
+    <line x1="1153.2" y1="766.4" x2="1305.9" y2="919.1" stroke="#E6EAEE" stroke-width="3" stroke-linecap="round"/>
+    <rect x="-34" y="-11" width="40" height="22" rx="5" fill="#C9D0D6" stroke="#7B848C" stroke-width="3"
+          transform="translate(1153.2 766.4) rotate(45)"/>
+  </g>
+</g>
+
+<g id="labels"><g class="label emphasis" data-label="Greater tubercle" data-target="target"><polyline class="leader-halo" points="250,712 490,489"/><polyline class="leader" points="250,712 490,489"/><circle class="leader-dot" cx="490" cy="489" r="7"/><text x="40" y="760" text-anchor="start"><tspan x="40" dy="0">Greater tubercle</tspan></text></g><g class="label" data-label="Acromion" data-target="acromion"><polyline class="leader-halo" points="200,168 450,265"/><polyline class="leader" points="200,168 450,265"/><circle class="leader-dot" cx="450" cy="265" r="7"/><text x="60" y="150" text-anchor="start"><tspan x="60" dy="0">Acromion</tspan></text></g><g class="label" data-label="45°" data-target="angle-arc"><polyline class="leader-halo" points="1205.5,864.7 1221.8,878"/><polyline class="leader" points="1205.5,864.7 1221.8,878"/><circle class="leader-dot" cx="1221.8" cy="878" r="7"/><text x="1097.5" y="878.7" text-anchor="start"><tspan x="1097.5" dy="0">45°</tspan></text></g><g class="label" data-label="Anterior plane" data-target="anterior-plane"><polyline class="leader-halo" points="1068,1104 1061,900.7"/><polyline class="leader" points="1068,1104 1061,900.7"/><circle class="leader-dot" cx="1061" cy="900.7" r="7"/><text x="1050" y="1150" text-anchor="start"><tspan x="1050" dy="0">Anterior plane</tspan></text></g></g>
+
+</svg>

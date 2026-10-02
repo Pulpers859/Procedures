@@ -1,0 +1,102 @@
+{
+  "assetId": "knee_arthrocentesis_superolateral",
+  "procedure": "knee_arthrocentesis",
+  "title": "Superolateral approach",
+  "view": "Right knee and lower thigh from the front, patient supine: thigh at the top, lateral on the image left, medial on the right.",
+  "teachingPoint": "Enter 1 cm superior and 1 cm lateral to the patella's superolateral pole and aim medially, under the patella, into the suprapatellar recess.",
+  "claims": [
+    "Right knee from the front, lateral on the image left (house laterality).",
+    "Purple dot: the patella's superolateral pole.",
+    "Teal: a 7 mm insertion zone 1 cm lateral and 1 cm superior to that pole (record; the zone size is drawn, not from the record).",
+    "Arrow: the needle aimed medially, under the patella (record).",
+    "Dashed teal: the suprapatellar recess above the patella, under the quadriceps tendon (standard anatomy, drawn about 4.4 cm wide and 5.5 cm deep).",
+    "Labels: Insertion site, 1 cm superior, 1 cm lateral, Patella, Suprapatellar recess."
+  ],
+  "requiredElements": [
+    "leg",
+    "patella",
+    "quadriceps-tendon",
+    "vastus-medialis",
+    "vastus-lateralis",
+    "patellar-tendon",
+    "recess",
+    "target",
+    "dimension",
+    "dim-superior",
+    "dim-lateral",
+    "needle-direction"
+  ],
+  "labels": {
+    "Insertion site": "target",
+    "1 cm superior": "dim-superior",
+    "1 cm lateral": "dim-lateral",
+    "Patella": "patella",
+    "Suprapatellar recess": "recess"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "target",
+      "b": "patella",
+      "why": "insertion is lateral (lateral is left)"
+    },
+    {
+      "check": "below",
+      "a": "patella",
+      "b": "target",
+      "why": "insertion is superior to the patella"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target",
+      "b": "patella",
+      "why": "insertion is off the patella"
+    },
+    {
+      "check": "within",
+      "a": "target",
+      "b": "leg",
+      "why": "insertion on the leg"
+    },
+    {
+      "check": "leftOf",
+      "a": "vastus-lateralis",
+      "b": "vastus-medialis",
+      "why": "vastus lateralis is lateral"
+    },
+    {
+      "check": "below",
+      "a": "patella",
+      "b": "recess",
+      "why": "the recess lies above the patella"
+    },
+    {
+      "check": "awayFrom",
+      "a": "needle-direction",
+      "b": "target",
+      "why": "the needle runs from the insertion site"
+    },
+    {
+      "check": "crosses",
+      "a": "needle-direction",
+      "b": "patella",
+      "why": "the arrow ends under the patella"
+    },
+    {
+      "check": "lengthRange",
+      "a": "dim-superior-line",
+      "b": "dim-superior-line",
+      "min": 91,
+      "max": 99,
+      "why": "1 cm at 9.5 px/mm"
+    },
+    {
+      "check": "lengthRange",
+      "a": "dim-lateral-line",
+      "b": "dim-lateral-line",
+      "min": 91,
+      "max": 99,
+      "why": "1 cm at 9.5 px/mm"
+    }
+  ]
+}
