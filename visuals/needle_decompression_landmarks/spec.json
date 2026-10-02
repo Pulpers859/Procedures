@@ -1,0 +1,106 @@
+{
+  "assetId": "needle_decompression_landmarks",
+  "procedure": "needle_decompression",
+  "title": "Decompression landmarks",
+  "view": "The right bony thorax from the front, head at the top, the patient's right on the image left: clavicle, sternum, ribs 1-7.",
+  "teachingPoint": "Preferred: the 4th or 5th intercostal space at the anterior axillary line; alternate: the 2nd intercostal space at the midclavicular line.",
+  "claims": [
+    "Right hemithorax from the front, patient's right on the image left (house laterality; the record says choose the side clinically).",
+    "Teal at the AAL: the 4th and 5th intercostal spaces (record, preferred site).",
+    "Teal at the MCL: the 2nd intercostal space, below the 2nd rib whose cartilage meets the sternal angle (record, alternate site).",
+    "Dashed: the midclavicular line through the clavicle's midpoint, about 9.5 cm from the midline, and the anterior axillary line about 14 cm out (standard adult anatomy).",
+    "Labels: Clavicle, 2nd ICS, MCL, 4th–5th ICS, AAL, Midclavicular line, Anterior axillary line."
+  ],
+  "requiredElements": [
+    "sternum",
+    "clavicle",
+    "humerus",
+    "rib-1",
+    "rib-2",
+    "rib-3",
+    "rib-4",
+    "rib-5",
+    "rib-6",
+    "rib-7",
+    "mcl",
+    "aal",
+    "target-2ics",
+    "target-4ics",
+    "target-5ics"
+  ],
+  "labels": {
+    "Clavicle": "clavicle",
+    "2nd ICS, MCL": "target-2ics",
+    "4th–5th ICS, AAL": "target-5ics",
+    "Midclavicular line": "mcl",
+    "Anterior axillary line": "aal"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "target-2ics",
+      "b": "rib-2",
+      "why": "2nd ICS is below the 2nd rib"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target-2ics",
+      "b": "rib-2",
+      "why": "in the space, not on the rib"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target-2ics",
+      "b": "rib-3",
+      "why": "in the space, not on the rib"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target-4ics",
+      "b": "rib-4",
+      "why": "in the space"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target-4ics",
+      "b": "rib-5",
+      "why": "in the space"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target-5ics",
+      "b": "rib-5",
+      "why": "in the space"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target-5ics",
+      "b": "rib-6",
+      "why": "in the space"
+    },
+    {
+      "check": "crosses",
+      "a": "mcl",
+      "b": "target-2ics",
+      "why": "the 2nd ICS site is on the MCL"
+    },
+    {
+      "check": "crosses",
+      "a": "aal",
+      "b": "target-5ics",
+      "why": "the 5th ICS site is on the AAL"
+    },
+    {
+      "check": "leftOf",
+      "a": "aal",
+      "b": "mcl",
+      "why": "AAL is lateral (lateral is left)"
+    },
+    {
+      "check": "leftOf",
+      "a": "mcl",
+      "b": "sternum",
+      "why": "MCL is lateral to the sternum"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "assetId": "mental_anatomy",
+  "procedure": "block_mental",
+  "title": "Target anatomy",
+  "view": "Front view of the skull, head at the top, the patient's right on the image left: the right orbit, both dental arches and the mandible to the chin.",
+  "teachingPoint": "The mental foramen sits on the anterior mandible below the premolars, on the same vertical line as the pupil, the supraorbital notch and the infraorbital foramen; the needle aims down toward it from the fold and stops short.",
+  "claims": [
+    "Front view, patient's right on the image left (house laterality).",
+    "Dashed red: the pupil line through the supraorbital notch, the infraorbital foramen and the mental foramen (record).",
+    "Mental foramen below the second premolar, midway between the alveolar crest and the lower border of the mandible (record: below the first or second premolar; height standard anatomy).",
+    "Needle from the mucobuccal fold below the premolars, directed inferiorly toward the foramen and stopping short of it (record).",
+    "Yellow: mental nerve branches to the lower lip and chin (standard anatomy).",
+    "Labels: Supraorbital notch, Infraorbital foramen, Mental foramen, Second premolar."
+  ],
+  "requiredElements": [
+    "cranium",
+    "mandible",
+    "orbit",
+    "nasal-aperture",
+    "supraorbital",
+    "infraorbital",
+    "mental",
+    "second-premolar",
+    "pupil-line",
+    "needle",
+    "needle-entry",
+    "needle-tip"
+  ],
+  "labels": {
+    "Supraorbital notch": "supraorbital",
+    "Infraorbital foramen": "infraorbital",
+    "Mental foramen": "mental",
+    "Second premolar": "second-premolar"
+  },
+  "geometry": [
+    {
+      "check": "crosses",
+      "a": "pupil-line",
+      "b": "mental",
+      "why": "mental foramen on the pupil line"
+    },
+    {
+      "check": "crosses",
+      "a": "pupil-line",
+      "b": "infraorbital",
+      "why": "infraorbital foramen on the pupil line"
+    },
+    {
+      "check": "crosses",
+      "a": "pupil-line",
+      "b": "supraorbital",
+      "why": "supraorbital notch on the pupil line"
+    },
+    {
+      "check": "below",
+      "a": "mental",
+      "b": "second-premolar",
+      "why": "foramen below the premolar"
+    },
+    {
+      "check": "within",
+      "a": "mental",
+      "b": "mandible",
+      "why": "foramen on the mandible"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle",
+      "maxLean": 0.6,
+      "why": "needle directed inferiorly"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-tip",
+      "b": "mental",
+      "why": "stops short of the foramen"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "mental",
+      "maxPx": 40,
+      "why": "aimed at the foramen"
+    },
+    {
+      "check": "leftOf",
+      "a": "mental",
+      "b": "nasal-aperture",
+      "why": "right side (right is image left)"
+    }
+  ]
+}

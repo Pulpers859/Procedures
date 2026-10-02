@@ -1,0 +1,66 @@
+{
+  "assetId": "mental_patient_position",
+  "procedure": "block_mental",
+  "title": "Needle entry on the patient",
+  "view": "The face from the front, head at the top, the patient's right on the image left; a gloved thumb from below pulls the lower lip down.",
+  "teachingPoint": "Retract the lower lip, enter the mucobuccal fold below the premolars, and aim down toward the mental foramen on the pupil line; stop short.",
+  "claims": [
+    "Front view, patient's right on the image left (house laterality).",
+    "Gloved thumb retracting the lower lip to expose the mucobuccal fold (record).",
+    "Needle into the fold below the first/second premolar, directed inferiorly toward the foramen (record).",
+    "Dashed ring: the mental foramen, below the premolars toward the pupil line (record).",
+    "Labels: Mental foramen, Mucobuccal fold."
+  ],
+  "requiredElements": [
+    "face",
+    "upper-lip",
+    "lower-lip",
+    "lip-mucosa",
+    "teeth",
+    "second-premolar",
+    "gum",
+    "vestibule",
+    "thumb",
+    "pupil-line",
+    "foramen-mark",
+    "syringe",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Mental foramen": "foramen-mark",
+    "Mucobuccal fold": "vestibule"
+  },
+  "geometry": [
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "vestibule",
+      "why": "entry in the fold"
+    },
+    {
+      "check": "below",
+      "a": "foramen-mark",
+      "b": "needle-entry",
+      "why": "directed inferiorly toward the foramen"
+    },
+    {
+      "check": "below",
+      "a": "vestibule",
+      "b": "second-premolar",
+      "why": "the fold is below the premolars"
+    },
+    {
+      "check": "crosses",
+      "a": "pupil-line",
+      "b": "foramen-mark",
+      "why": "foramen toward the pupil line"
+    },
+    {
+      "check": "noOverlap",
+      "a": "thumb",
+      "b": "foramen-mark",
+      "why": "the thumb leaves the target visible"
+    }
+  ]
+}
