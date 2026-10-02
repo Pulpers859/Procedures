@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [],
+ "reference": "Unlabelled render of the pecs_patient_position layout (commit 4d4c927 draw.py, --reference).",
+ "antigravityConversation": "4abb74d0-03a5-4e2c-b6ad-5f6eec9e2321",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of a procedure scene seen from directly above: an adult man lying on his back with his right arm stretched out sideways on an arm board (the arm runs off the left edge), blue drapes above the shoulder and below the arm, the base of the neck at the top right, the collarbone as a faint ridge running across under the skin, the bare right chest below it with the nipple and the fold of the armpit. A white linear ultrasound probe lies on the chest below the outer part of the collarbone, tilted steeply so that its upper end is to the right and its lower end points down-left towards the armpit; its handle stands up off the skin and its dark cable runs up out of the top of the picture. A block needle with a small white hub enters the skin just beyond the probe's upper end, in line with the probe, with clear extension tubing curving away to the right. Turn this into a realistic clinical photograph of an ultrasound-guided chest wall block, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and angle; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture and light chest hair, the real contours of the shoulder, collarbone and chest muscle, a little clear gel under the probe, soft folds in the drapes, shot from directly above in soft even procedure-room light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, circles, hands, gloves, blood, face, border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "rejected": "None.",
+ "reviewNotes": "Overlay: the probe, handle, cable, needle and tubing land on the layout; the arm, shoulder and chest are painted larger than drawn, so the nipple sits about 5 cm lower and the clavicle ridge is faint. Labels point at the probe, the needle and the clavicle line. No watermark.",
+ "knownLimits": "The probe sits below the lateral third of the clavicle near the anterior axillary fold; the painted torso is larger than the layout, so chest landmarks other than the clavicle are not to the layout's scale.",
+ "thirdPartyConcept": "None."
+}

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #4F80A8; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9C2A6"/><stop offset="1" stop-color="#DDAE90"/></linearGradient>
+<linearGradient id="drape" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5C8DB5"/><stop offset="1" stop-color="#46779F"/></linearGradient>
+<linearGradient id="probe-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9ECEF"/><stop offset="1" stop-color="#B9C0C7"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="a5e4639b346f8a006fb59f08fb8b8dd8996e02ba3fc96acda867a9de0146f652"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#drape)"/>
+  <path id="body" d="M1664,-34 C1631.7,-140.3 1310.5,-45 1276.8,-34 C1243.1,-23 1281.9,84.1 1259.2,98 C1236.5,111.9 1054.6,128.1 1004,133.2 C953.4,138.3 696,155.9 652,159.6 C608,163.3 505.3,177.9 476,177.2 C446.7,176.5 358.7,153.7 300,150.8 C241.3,147.9 -184,109 -228,142 C-272,175 -272,513.8 -228,546.8 C-184,579.8 241.3,534.3 300,538 C358.7,541.7 454,575.4 476,590.8 C498,606.2 555.9,694.2 564,722.8 C572.1,751.4 570.6,890.7 572.8,934 C575,977.3 499.5,1216.3 590.4,1242 C681.3,1267.7 1574.5,1348.3 1664,1242 C1753.5,1135.7 1696.3,72.3 1664,-34 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <path id="clavicle" d="M1153.6,238.8 C1133.7,236.5 1047.4,227.1 1004,221.2 C960.6,215.3 872,197.1 828,194.8 C784,192.5 715.1,204.8 674,203.6 C632.9,202.4 540.5,188.3 520,186" fill="none" stroke="#F0CFBA" stroke-width="24" stroke-linecap="round" opacity="0.8"/>
+  <path id="axillary-fold" d="M476,582 C487.7,589 541.7,621.9 564,634.8 C586.3,647.7 622.1,667.1 643.2,678.8 C664.3,690.5 711.8,716.9 722.4,722.8" fill="none" stroke="#C99A80" stroke-width="6"/>
+  <path d="M1180,265.2 C1180,295.7 1180,428.3 1180,494 C1180,559.7 1180,687.6 1180,758 C1180,828.4 1180,986.8 1180,1022" fill="none" stroke="#D2A084" stroke-width="5" opacity="0.6"/>
+  <circle id="nipple" cx="810.4" cy="687.6" r="26.4" fill="#B87F6C"/>
+  <path d="M799.4,197.6 C849.4,167.6 959.4,217.6 1019.4,457.6" fill="none" stroke="#E9EEF2" stroke-width="8" stroke-linecap="round"/>
+  <rect x="-4" y="-8" width="36" height="16" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2" transform="translate(799.4 197.6) rotate(300)"/>
+  <line id="needle" x1="799.4" y1="197.6" x2="742.2" y2="296.7" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="742.2" cy="296.7" r="4" fill="#9E6B5A"/>
+  <path d="M573.8,263.6 C553.8,223.6 513.8,193.6 453.8,-20" fill="none" stroke="#3E454C" stroke-width="12" stroke-linecap="round"/>
+  <path id="probe-handle" d="M704.4,362.2 Q648.5,296.5 591.4,233.1 L556.2,294.1 Q599.3,381.9 643.6,467.4 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <rect id="probe" x="-101.2" y="-19.8" width="202.4" height="39.6" rx="19.8" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3" transform="translate(674 414.8) rotate(120)"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Clavicle" data-target="clavicle"><polyline class="leader-halo" points="780,110 916,208"/><polyline class="leader" points="780,110 916,208"/><circle class="leader-dot" cx="916" cy="208" r="7"/><text x="760" y="90" text-anchor="start"><tspan x="760" dy="0">Clavicle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="260,720 644,462.8"/><polyline class="leader" points="260,720 644,462.8"/><circle class="leader-dot" cx="644" cy="462.8" r="7"/><text x="40" y="760" text-anchor="start"><tspan x="40" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="920,530 770.8,248.1"/><polyline class="leader" points="920,530 770.8,248.1"/><circle class="leader-dot" cx="770.8" cy="248.1" r="7"/><text x="900" y="560" text-anchor="start"><tspan x="900" dy="0">Block needle</tspan></text></g></g>
+
+</svg>

@@ -1,0 +1,22 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [
+  "Prompt C, same chat: Fill the whole inside of the bone at the bottom with even pink spongy bone, the same fine honeycomb texture all the way across, in place of the large smooth pink lobes. Keep everything else in the image the same, in the same 4:3 landscape frame."
+ ],
+ "reference": "Unlabelled render of the peng_anatomy layout (commit 4d4c927 draw.py, --reference).",
+ "antigravityConversation": "3e805c5d-f67d-4f1b-a521-1f188f24aabf",
+ "prompt": "Prompt B-style with a style image, new conversation: Image 1 is the exact layout. Use it as the structure for a scientifically accurate cross-section of the front of the right hip at the level of the iliopubic eminence under a linear ultrasound probe, seen straight on as a cut face: keep every outline, position and size exactly as drawn, in the same 4:3 landscape frame, with the tissue running to the left, right and bottom edges and the plain off-white space above the skin left plain. Exact labels, a probe, a needle and injected fluid will be laid over it afterwards.\n\nImage 2 is a section of the neighbouring groin painted earlier for the same atlas: match its rendering exactly - its fat lobules, muscle texture, fascia, vessel walls and palette. Take only the style from image 2; take every position, shape and size from image 1.\n\nWork from the top down:\n1. The skin is a thin pink layer; under it, orange-gold fat lobules with fine pale septa, then the thin white fascia lata.\n2. The small muscle at the upper left is the sartorius and the large muscle in the middle is the iliopsoas: deep maroon muscle cut across its fibres, wrapped in thin glistening fascia; the thin white line over the iliopsoas is the fascia iliaca.\n3. The small pale oval at the bottom of the iliopsoas is the psoas tendon: glistening white, fibrous.\n4. To the right, the small yellow oval is the femoral nerve, packed with fine fascicles; the red circle is the femoral artery with a thick layered wall; the larger blue oval is the femoral vein. The muscle at the lower right is the pectineus.\n5. The large pale shape across the bottom is the bone of the pelvis: a smooth ivory cortex with a glossy edge over pink spongy bone, rising to a rounded hump at the left (the anterior inferior iliac spine), dipping into a groove under the iliopsoas, and rising to a low rounded eminence just right of the tendon.\n\nThe picture shows only this anatomy.",
+ "promptAttachments": "Image 1: the layout reference. Image 2: this repo's approved femoral_nerve_anatomy/base.jpg, style only. NYSORA Nerve Block Manual p.119 Fig-3 (PENG sonoanatomy) used to draw the layout, concept only, not attached or committed.",
+ "rejected": "Iter1 bone interior had large smooth pink lobes; repaired once.",
+ "reviewNotes": "Overlay: every muscle, the tendon, nerve, vessels and the bony contour lie on the layout within a few pixels. The bone interior keeps some inner cortical contours (cosmetic, away from the markings). No watermark.",
+ "knownLimits": "Schematic transverse-oblique section; depths are average adult values.",
+ "thirdPartyConcept": "NYSORA Nerve Block Manual p.119 Fig-3, consulted for the layout only (owner's temporary exception); not attached to Gemini, not committed."
+}

@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [],
+ "reference": "Unlabelled render of the peng_patient_position layout (commit 4d4c927 draw.py, --reference), itself the approved femoral block layout (commit 542c88e) with the probe and needle moved.",
+ "antigravityConversation": "6df351cc-fc0b-4f10-8c0e-dbf1f2927a06",
+ "prompt": "Prompt A (photo variant, the approved femoral wording), new conversation: The attached image is an exact layout of a procedure scene seen from directly above: a patient lying on their back, with the right groin and upper thigh exposed through blue sterile drapes. The head end is at the top of the image; the hip is on the left and the draped inner thigh on the right. The pale bony prominence at the upper left of the exposed skin is the front of the hip bone. A faint natural skin crease, the groin crease, runs diagonally down to the right across the top of the thigh. A white linear ultrasound probe stands upright on the skin just below the hip bone, above the groin crease, seen from above as a short rounded bar tilted with its right end lower, exactly as drawn, with its dark cable running straight up out of the top of the picture; nothing of the probe extends beyond that short bar. A block needle with a small white hub enters the skin just beyond the bar's upper-left end, in line with it, and clear extension tubing curves from the hub down the left side. Turn this into a realistic clinical photograph of an ultrasound-guided hip block, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and angle; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture and fine hair, soft folds in the drapes, shot from directly above in soft even procedure-room light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, incisions, hands, gloves, blood, border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "rejected": "Conversation f97b9686 (femoral photo attached as style image 2): copied the femoral photo with the probe in its old place. Conversation cbd5ffbd: painted the whole probe lying flat with its footprint over the groin crease.",
+ "reviewNotes": "Overlay: thigh, drapes, hip prominence, probe, cable, needle and tubing lie on the layout within a few pixels. No watermark.",
+ "knownLimits": "The AIIS ring is placed from standard anatomy (about 3 cm below the ASIS), not palpated on the photo.",
+ "thirdPartyConcept": "None."
+}

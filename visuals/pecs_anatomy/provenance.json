@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [],
+ "reference": "Unlabelled render of the pecs_anatomy layout (commit 4d4c927 draw.py, --reference).",
+ "antigravityConversation": "a8d1f5c9-6b40-4429-82cd-3a1fbade4d13",
+ "prompt": "Prompt B-style with a style image, new conversation: Image 1 is the exact layout. Use it as the structure for a scientifically accurate cross-section of the front chest wall below the collarbone under a linear ultrasound probe, seen straight on as a cut face: keep every outline, position and size exactly as drawn, in the same 4:3 landscape frame, with the tissue running to the left, right and bottom edges and the plain off-white space above the skin left plain. Exact labels, a probe, a needle and injected fluid will be laid over it afterwards.\n\nImage 2 is another section painted for the same atlas: match its rendering exactly - its fat lobules, packed muscle bellies cut across their fibres, thin glistening white fascia between muscles, bone and palette. Take only the style from image 2; take every position, shape and size from image 1.\n\nWork from the top down:\n1. The skin is a thin pink layer; under it, a layer of orange-gold fat lobules with fine pale septa.\n2. The thick upper muscle is the pectoralis major; the muscle below it, whose outer end tapers to a point on the left, is the pectoralis minor; the muscle below that, lying over the ribs, is the serratus anterior. All three are deep maroon muscle cut across its fibres, separated only by thin glistening white fascial lines exactly where drawn.\n3. The small round red shape in the line between the two pectoral muscles is a small artery with a thick wall.\n4. The two large pale ovals are ribs cut across: smooth ivory cortex over pink spongy bone, with the dark red intercostal muscle filling the space between and around them.\n5. The thin white line under the ribs is the pleura, and the grey band at the bottom is the lung.\n\nThe picture shows only this anatomy.",
+ "promptAttachments": "Image 1: the layout reference. Image 2: this repo's approved median_nerve_anatomy/base.jpg, style only.",
+ "rejected": "None.",
+ "reviewNotes": "Overlay: skin, fat, pectoralis major and minor, serratus, the artery in the PECS I plane, ribs, intercostal muscle, pleura and lung lie on the layout within a few pixels. No watermark.",
+ "knownLimits": "Schematic oblique section; layer thicknesses are average adult values.",
+ "thirdPartyConcept": "None."
+}

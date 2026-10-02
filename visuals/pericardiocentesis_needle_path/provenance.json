@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [],
+ "reference": "No new painting: the approved needle_decompression_landmarks torso photograph (conversation e1d3db3a) is reused with its fitted rib-cage overlay.",
+ "antigravityConversation": "e1d3db3a-c9aa-4957-bc2a-ce1fa391c6f3",
+ "prompt": "None for this plate (owner, 2026-10-02: reuse solved anatomy).",
+ "promptAttachments": "None.",
+ "rejected": "None.",
+ "reviewNotes": "Xiphoid and costal margins are drawn in the decompression plate's fitted frame; the arrow aims at the painted left shoulder (traced, canvas 1500, 175).",
+ "knownLimits": "Costal margins and xiphoid are drawn at standard proportions, not traced from this patient. The sagittal inset is code-drawn and not to scale.",
+ "thirdPartyConcept": "None."
+}

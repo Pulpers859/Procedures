@@ -1,0 +1,87 @@
+{
+  "assetId": "pericardiocentesis_needle_path",
+  "procedure": "pericardiocentesis",
+  "title": "Subxiphoid needle geometry (no-ultrasound fallback)",
+  "view": "Supine male chest and upper abdomen from above, the patient's right on the image left, the rib cage drawn over it; inset: sagittal section, head to the right, skin at the top (not to scale).",
+  "teachingPoint": "Blind fallback only: enter 1 cm below the left costal margin beside the xiphoid, stay shallow under the margin at 30-45 degrees, and aim at the left shoulder.",
+  "claims": [
+    "Entry zone 1 cm below the left costal margin, just left of the xiphoid (record).",
+    "Dashed arrow from the entry toward the left shoulder (record).",
+    "Inset: needle at about 35 degrees to the skin (record: 30-45), passing under the costal cartilage into the pericardial effusion (record: tracks shallowly under the costal margin).",
+    "Rib cage, xiphoid and costal margins drawn over the approved decompression torso photo (reused).",
+    "Labels: Xiphoid, Entry site, Toward left shoulder, 30–45°, Effusion."
+  ],
+  "requiredElements": [
+    "torso",
+    "rib-cage",
+    "sternum",
+    "xiphoid",
+    "costal-margin-left",
+    "entry",
+    "direction",
+    "inset",
+    "angle-arc",
+    "inset-needle",
+    "inset-cartilage",
+    "effusion",
+    "heart",
+    "inset-tip"
+  ],
+  "labels": {
+    "Xiphoid": "xiphoid",
+    "Entry site": "entry",
+    "Toward left shoulder": "direction",
+    "30–45°": "angle-arc",
+    "Effusion": "effusion"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "xiphoid",
+      "b": "entry",
+      "why": "entry just left of the xiphoid (patient's left is image right)"
+    },
+    {
+      "check": "leftOf",
+      "a": "entry",
+      "b": "direction",
+      "why": "aim toward the left shoulder (image right)"
+    },
+    {
+      "check": "below",
+      "a": "entry",
+      "b": "direction",
+      "why": "aim upward toward the shoulder"
+    },
+    {
+      "check": "within",
+      "a": "inset-tip",
+      "b": "effusion",
+      "why": "inset: tip in the effusion"
+    },
+    {
+      "check": "noOverlap",
+      "a": "inset-needle",
+      "b": "inset-cartilage",
+      "why": "inset: under the costal margin, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "inset-tip",
+      "b": "heart",
+      "why": "inset: tip short of the myocardium"
+    },
+    {
+      "check": "noOverlap",
+      "a": "entry",
+      "b": "costal-margin-left",
+      "why": "entry off the margin, below it"
+    },
+    {
+      "check": "below",
+      "a": "entry",
+      "b": "xiphoid",
+      "why": "entry at or below the xiphoid tip level"
+    }
+  ]
+}

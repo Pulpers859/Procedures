@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #4F80A8; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A88C"/><stop offset="0.25" stop-color="#EBC3AA"/>
+  <stop offset="0.7" stop-color="#F0CDB6"/><stop offset="1" stop-color="#E2B69C"/></linearGradient>
+<linearGradient id="drape" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5C8DB5"/><stop offset="1" stop-color="#46779F"/></linearGradient>
+<radialGradient id="asis-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#F6DCCB"/><stop offset="1" stop-color="#F6DCCB" stop-opacity="0"/></radialGradient>
+<linearGradient id="probe-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9ECEF"/><stop offset="1" stop-color="#B9C0C7"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="f0252141740ad71d90db3595ec3cd811a1e00a92477953ee9b0ab4908b9b6a94"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#drape)"/>
+  <path id="skin" d="M256,-20 C148.8,4 247.2,172 248,220 C248.8,268 259.2,408 264,460 C268.8,512 288.8,684 296,740 C303.2,796 329.6,970 336,1020 C342.4,1070 292,1218 360,1240 C428,1262 948.4,1266 1016,1240 C1083.6,1214 1031.2,1030 1036,980 C1040.8,930 1056.4,782 1064,740 C1071.6,698 1102.4,587.2 1112,560 C1121.6,532.8 1139.2,526 1160,468 C1180.8,410 1410.4,28.8 1320,-20 C1229.6,-68.8 363.2,-44 256,-20 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <ellipse cx="520" cy="160" rx="70" ry="46" fill="url(#asis-glow)"/>
+  <path id="inguinal-crease" d="M568,260 C586.7,269.3 641.3,297.3 680,316 C718.7,334.7 761.3,354.7 800,372 C838.7,389.3 881.3,405.3 912,420 C942.7,434.7 972,453.3 984,460" fill="none" stroke="#B98A74" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <rect id="top-drape" x="0" y="0" width="1600" height="36" fill="url(#drape)"/>
+  <rect id="medial-drape" x="1160" y="0" width="440" height="1200" fill="url(#drape)"/>
+  <g fill="none" stroke="#3B6A92" stroke-width="4" opacity="0.6" stroke-linecap="round">
+    <path d="M40,-4 C400,-34 900,16 1560,-19"/>
+    <path d="M1220,420 C1190,700 1250,900 1210,1180"/>
+  </g>
+  <path d="M716,296 C718,280 735.3,239.3 728,200 C720.7,160.7 700,103.3 672,60 C644,16.7 578.7,-40 560,-60" fill="none" stroke="#3E454C" stroke-width="16" stroke-linecap="round"/>
+  <rect id="probe" x="600" y="292" width="200" height="64" rx="22" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3" transform="rotate(24.6 700 324)"/>
+  <path d="M429.1,201 C424.2,204.2 416.8,190.2 400,220 C383.2,249.8 345.3,313.3 328,380 C310.7,446.7 317.3,533.3 296,620 C274.7,706.7 216,853.3 200,900" fill="none" stroke="#E9EEF2" stroke-width="10" stroke-linecap="round" opacity="0.95"/>
+  <rect x="413.1" y="200" width="40" height="18" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2" transform="rotate(24.6 449.1 209)"/>
+  <line id="needle" x1="449.1" y1="209" x2="576.4" y2="267.3" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="576.4" cy="267.3" r="4" fill="#9E6B5A"/>
+  <path id="femoral-artery-course" d="M810,296 C812.3,323.3 817.7,392.7 824,460 C830.3,527.3 839.3,613.3 848,700 C856.7,786.7 868,890 876,980 C884,1070 892.7,1196.7 896,1240" fill="none" stroke="#000" stroke-opacity="0" stroke-width="22"/>
+</g>
+
+<g class="marking" fill="none" stroke-linecap="butt">
+  <line id="inguinal-ligament" x1="520" y1="160" x2="1000" y2="380" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
+  <circle id="asis" cx="520" cy="160" r="18" stroke="#4A2F7A" stroke-width="6"/>
+  <circle id="aiis" cx="544" cy="280" r="16" stroke="#4A2F7A" stroke-width="5" stroke-dasharray="8 6"/>
+  <circle id="pubic-tubercle" cx="1000" cy="380" r="14" stroke="#4A2F7A" stroke-width="6"/>
+  <path d="M810,296 C810.2,298.3 810.8,305.1 811.2,309.7 C811.6,314.2 811.9,318.8 812.3,323.3 C812.7,327.9 813.1,332.4 813.5,337 C813.9,341.6 814.3,346.1 814.7,350.7 C815.1,355.2 815.4,359.8 815.8,364.3 C816.2,368.9 816.6,373.4 817,378 C817.4,382.6 817.8,387.1 818.2,391.7 C818.6,396.2 818.9,400.8 819.3,405.3 C819.7,409.9 820.1,414.4 820.5,419 C820.9,423.6 821.3,428.1 821.7,432.7 C822.1,437.2 822.4,441.8 822.8,446.3 C823.2,450.9 823.5,454.4 824,460 C824.5,465.6 825.3,473.3 826,480 C826.7,486.7 827.3,493.3 828,500 C828.7,506.7 829.3,513.3 830,520 C830.7,526.7 831.3,533.3 832,540 C832.7,546.7 833.3,553.3 834,560 C834.7,566.7 835.3,573.3 836,580 C836.7,586.7 837.3,593.3 838,600 C838.7,606.7 839.3,613.3 840,620 C840.7,626.7 841.3,633.3 842,640 C842.7,646.7 843.3,653.3 844,660 C844.7,666.7 845.3,673.3 846,680 C846.7,686.7 847.3,692.8 848,700 C848.7,707.2 849.6,715.6 850.3,723.3 C851.1,731.1 851.9,738.9 852.7,746.7 C853.4,754.4 854.2,762.2 855,770 C855.8,777.8 856.6,785.6 857.3,793.3 C858.1,801.1 858.9,808.9 859.7,816.7 C860.4,824.4 861.2,832.2 862,840 C862.8,847.8 863.6,855.6 864.3,863.3 C865.1,871.1 865.9,878.9 866.7,886.7 C867.4,894.4 868.2,902.2 869,910 C869.8,917.8 870.6,925.6 871.3,933.3 C872.1,941.1 872.9,948.9 873.7,956.7 C874.4,964.4 875.3,972.5 876,980 C876.7,987.5 877.1,994.4 877.7,1001.7 C878.2,1008.9 878.8,1016.1 879.3,1023.3 C879.9,1030.6 880.4,1037.8 881,1045 C881.6,1052.2 882.1,1059.4 882.7,1066.7 C883.2,1073.9 883.8,1081.1 884.3,1088.3 C884.9,1095.6 885.4,1102.8 886,1110 C886.6,1117.2 887.1,1124.4 887.7,1131.7 C888.2,1138.9 888.8,1146.1 889.3,1153.3 C889.9,1160.6 890.4,1167.8 891,1175 C891.6,1182.2 892.1,1189.4 892.7,1196.7 C893.2,1203.9 893.8,1211.1 894.3,1218.3 C894.9,1225.6 895.7,1236.4 896,1240" stroke="#C8322B" stroke-width="7" stroke-dasharray="16 11"/>
+</g>
+
+<g id="labels"><g class="label" data-label="ASIS" data-target="asis"><polyline class="leader-halo" points="180,110 504,150"/><polyline class="leader" points="180,110 504,150"/><circle class="leader-dot" cx="504" cy="150" r="7"/><text x="60" y="90" text-anchor="start"><tspan x="60" dy="0">ASIS</tspan></text></g><g class="label" data-label="Inguinal ligament" data-target="inguinal-ligament"><polyline class="leader-halo" points="1180,236 880,325"/><polyline class="leader" points="1180,236 880,325"/><circle class="leader-dot" cx="880" cy="325" r="7"/><text x="1150" y="110" text-anchor="start"><tspan x="1150" dy="0">Inguinal</tspan><tspan x="1150" dy="66">ligament</tspan></text></g><g class="label" data-label="Femoral artery" data-target="femoral-artery-course"><polyline class="leader-halo" points="1060,1060 864,860"/><polyline class="leader" points="1060,1060 864,860"/><circle class="leader-dot" cx="864" cy="860" r="7"/><text x="1050" y="1110" text-anchor="start"><tspan x="1050" dy="0">Femoral artery</tspan></text></g><g class="label" data-label="AIIS" data-target="aiis"><polyline class="leader-halo" points="190,440 532,290"/><polyline class="leader" points="190,440 532,290"/><circle class="leader-dot" cx="532" cy="290" r="7"/><text x="80" y="470" text-anchor="start"><tspan x="80" dy="0">AIIS</tspan></text></g></g>
+
+</svg>
