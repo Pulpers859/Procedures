@@ -3079,9 +3079,9 @@
         "kind": "Setup",
         "title": "Dilator-sheath assembly",
         "subtitle": "The assembled dilator and sheath advance together over a controlled wire, through an adequate skin nick.",
-        "assetName": null,
+        "assetName": "cordis_dilator_unit",
         "systemImage": "arrow.down.to.line",
-        "caption": "",
+        "caption": "Side-on cut-away, any site: dilator tip in the vein, sheath riding behind it through a nick wider than the sheath, wire tail held out of the back of the hub (inset).",
         "clinicalWarning": "Control the wire at all times; an 8.5 Fr sheath needs a real skin nick."
       }
     ]
@@ -4592,9 +4592,9 @@
         "kind": "Landmark",
         "title": "Proximal humerus insertion site",
         "subtitle": "Arm adducted, hand on abdomen (internal rotation). Palpate the greater tubercle \u2014 the most prominent lateral bony point of the shoulder. Needle at 45 degrees to the anterior plane, aimed posteromedially - not 90 degrees.",
-        "assetName": null,
+        "assetName": "io_humeral_site",
         "systemImage": "figure.arms.open",
-        "caption": "",
+        "caption": "Right shoulder from the front, lateral on the left, hand on the abdomen: target the greater tubercle. Inset from the head of the bed: needle 45 degrees to the anterior plane, aimed posteromedially.",
         "clinicalWarning": "Humeral IO flows faster than tibial in adults. Secure well \u2014 humeral IOs dislodge more easily."
       }
     ],
@@ -4761,9 +4761,9 @@
         "kind": "Landmark",
         "title": "Superolateral approach",
         "subtitle": "1 cm superior and 1 cm lateral to the superolateral pole of the patella. Direct the needle medially beneath the patella into the suprapatellar recess, posterior and slightly inferior.",
-        "assetName": null,
+        "assetName": "knee_arthrocentesis_superolateral",
         "systemImage": "figure.walk",
-        "caption": "",
+        "caption": "Right knee from the front, lateral on the left: enter 1 cm superior and 1 cm lateral to the patella's superolateral pole, aiming medially under the patella.",
         "clinicalWarning": "Avoid posterior approach (popliteal neurovascular bundle)."
       },
       {

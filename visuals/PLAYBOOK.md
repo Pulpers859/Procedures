@@ -339,6 +339,13 @@ python3 -m pytest scripts/tests -q
   `pq visuals <procedure id> --full`.
 - **A `spec.json` for a slot that is not in `procedures.json`** fails the
   tests. Add the slot first.
+- **Re-solving a body part that is already solved.** The superolateral knee
+  took three new chats (the leg painted too slim, the kneecap unreadable)
+  while the IO tibia plate already had an approved right knee from the front.
+  Before drawing, check the shipped `visuals/*/base.jpg` for the same region
+  and view. Reuse it: build on it directly, or attach it to Gemini as image 2
+  for the region's proportions. Record the reuse in provenance
+  (owner, 2026-10-02).
 
 ## Third-party plates (owner's temporary exception, 2026-09-30)
 

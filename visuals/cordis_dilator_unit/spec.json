@@ -93,5 +93,10 @@
       "b": "inset-valve",
       "why": "inset: the wire tail comes out behind the hub"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "7cdcd139e53627e1f310c33327ee4b21455b27986b6dec85aee3532861b51fcd",
+    "reviewedOn": "2026-10-02"
+  }
 }

@@ -9,7 +9,7 @@
     "Teal: a 1 cm insertion zone on the greater tubercle, below the acromion on the lateral shoulder (record: the most prominent lateral bony point; zone size drawn as at the tibia).",
     "Inset, seen from the head of the bed (anterior up, lateral left): the needle enters the anterolateral greater tubercle at 45 degrees to the dashed anterior plane, aimed posteromedially (record).",
     "Standard anatomy added: acromion about 4 cm above the tubercle, clavicle, deltopectoral groove, the glenoid medial in the inset; arm internally rotated so the tubercle faces anterolaterally.",
-    "Labels: Greater tubercle, Acromion, 45°, Anterior plane."
+    "Labels: Greater tubercle, Acromion, 45\u00b0, Anterior plane."
   ],
   "requiredElements": [
     "shoulder",
@@ -29,18 +29,70 @@
   "labels": {
     "Greater tubercle": "target",
     "Acromion": "acromion",
-    "45°": "angle-arc",
+    "45\u00b0": "angle-arc",
     "Anterior plane": "anterior-plane"
   },
   "geometry": [
-    {"check": "within", "a": "target", "b": "shoulder", "why": "insertion on the shoulder"},
-    {"check": "below", "a": "target", "b": "acromion", "why": "the tubercle is below the acromion"},
-    {"check": "noOverlap", "a": "target", "b": "acromion", "why": "not on the acromion"},
-    {"check": "leftOf", "a": "target", "b": "deltopectoral-groove", "why": "the site is lateral to the deltopectoral groove"},
-    {"check": "noOverlap", "a": "target", "b": "gown", "why": "the site is exposed"},
-    {"check": "leftOf", "a": "humeral-head", "b": "inset-glenoid", "why": "inset: the glenoid is medial (medial is right)"},
-    {"check": "endNear", "a": "inset-needle", "end": "end", "b": "inset-tubercle", "maxPx": 30, "why": "inset: the needle tip is at the greater tubercle"},
-    {"check": "pointsDown", "a": "inset-needle", "maxLean": 1.05, "why": "inset: the needle runs anterior to posterior at 45 degrees, not 90"},
-    {"check": "crosses", "a": "inset-needle", "b": "inset-tubercle", "why": "inset: the needle enters the tubercle"}
-  ]
+    {
+      "check": "within",
+      "a": "target",
+      "b": "shoulder",
+      "why": "insertion on the shoulder"
+    },
+    {
+      "check": "below",
+      "a": "target",
+      "b": "acromion",
+      "why": "the tubercle is below the acromion"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target",
+      "b": "acromion",
+      "why": "not on the acromion"
+    },
+    {
+      "check": "leftOf",
+      "a": "target",
+      "b": "deltopectoral-groove",
+      "why": "the site is lateral to the deltopectoral groove"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target",
+      "b": "gown",
+      "why": "the site is exposed"
+    },
+    {
+      "check": "leftOf",
+      "a": "humeral-head",
+      "b": "inset-glenoid",
+      "why": "inset: the glenoid is medial (medial is right)"
+    },
+    {
+      "check": "endNear",
+      "a": "inset-needle",
+      "end": "end",
+      "b": "inset-tubercle",
+      "maxPx": 30,
+      "why": "inset: the needle tip is at the greater tubercle"
+    },
+    {
+      "check": "pointsDown",
+      "a": "inset-needle",
+      "maxLean": 1.05,
+      "why": "inset: the needle runs anterior to posterior at 45 degrees, not 90"
+    },
+    {
+      "check": "crosses",
+      "a": "inset-needle",
+      "b": "inset-tubercle",
+      "why": "inset: the needle enters the tubercle"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "6199abfb47029dd14e66f65a760db59cfb04751c3a72b095862c0c3bfdcdfd71",
+    "reviewedOn": "2026-10-02"
+  }
 }

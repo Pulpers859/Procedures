@@ -98,5 +98,10 @@
       "max": 99,
       "why": "1 cm at 9.5 px/mm"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "4d2f3f7f90cd0cc259c1c63ba0d5651f84c1469cf2ad92efa28725af39398f3b",
+    "reviewedOn": "2026-10-02"
+  }
 }
