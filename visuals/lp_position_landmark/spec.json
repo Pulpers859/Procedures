@@ -1,0 +1,102 @@
+{
+  "assetId": "lp_position_landmark",
+  "procedure": "lumbar_puncture",
+  "title": "LP interspace landmarks",
+  "view": "Lower back from behind, patient in the left lateral decubitus position: spine across the image, head to the right, the upper (right) flank at the top, the bed side at the bottom.",
+  "teachingPoint": "Join the tops of the iliac crests: Tuffier's line crosses the spine at about L4; go in at L3-L4 or L4-L5, below the conus.",
+  "claims": [
+    "Left lateral decubitus, seen from behind, head to the right (the record's opening-pressure position).",
+    "Dashed: Tuffier's line through the highest points of both iliac crests, perpendicular to the spine, crossing at the L4 spinous process (record).",
+    "Purple lines: the iliac crests as palpated and marked, from the posterior superior iliac spines to their highest points at the flanks.",
+    "Teal: the L3-L4 and L4-L5 interspaces, either side of L4 (record).",
+    "Purple dots: spinous processes L2-S1, about 3.8 cm apart (standard adult anatomy); L4 ringed.",
+    "Standard anatomy added: the iliac crests rising from the posterior superior iliac spine dimples to their highest point at the flanks, about 14 cm either side of the spine; the midline furrow.",
+    "Labels: Iliac crest, Tuffier's line, L4, L3–L4, L4–L5."
+  ],
+  "requiredElements": [
+    "back",
+    "iliac-crest",
+    "iliac-crest-lower",
+    "midline-furrow",
+    "gluteal-cleft",
+    "tuffier",
+    "l2",
+    "l3",
+    "l4",
+    "l5",
+    "s1",
+    "target-l3l4",
+    "target-l4l5",
+    "crest-mark-upper",
+    "crest-mark-lower"
+  ],
+  "labels": {
+    "Iliac crest": "crest-mark-upper",
+    "Tuffier's line": "tuffier",
+    "L4": "l4",
+    "L3–L4": "target-l3l4",
+    "L4–L5": "target-l4l5"
+  },
+  "geometry": [
+    {
+      "check": "crosses",
+      "a": "tuffier",
+      "b": "l4",
+      "why": "Tuffier's line crosses at L4"
+    },
+    {
+      "check": "crosses",
+      "a": "tuffier",
+      "b": "iliac-crest",
+      "why": "the line touches the upper crest"
+    },
+    {
+      "check": "leftOf",
+      "a": "l4",
+      "b": "l3",
+      "why": "L3 is toward the head (head is right)"
+    },
+    {
+      "check": "leftOf",
+      "a": "target-l4l5",
+      "b": "l4",
+      "why": "L4-L5 is caudal to L4"
+    },
+    {
+      "check": "leftOf",
+      "a": "l4",
+      "b": "target-l3l4",
+      "why": "L3-L4 is cranial to L4"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target-l3l4",
+      "b": "l4",
+      "why": "target is the interspace, not the process"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target-l4l5",
+      "b": "l4",
+      "why": "target is the interspace, not the process"
+    },
+    {
+      "check": "within",
+      "a": "target-l3l4",
+      "b": "back",
+      "why": "on the back"
+    },
+    {
+      "check": "leftOf",
+      "a": "gluteal-cleft",
+      "b": "l5",
+      "why": "the buttocks are caudal"
+    },
+    {
+      "check": "crosses",
+      "a": "tuffier",
+      "b": "crest-mark-lower",
+      "why": "the line reaches the lower crest"
+    }
+  ]
+}

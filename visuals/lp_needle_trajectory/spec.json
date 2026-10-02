@@ -1,0 +1,101 @@
+{
+  "assetId": "lp_needle_trajectory",
+  "procedure": "lumbar_puncture",
+  "title": "Needle trajectory",
+  "view": "Midline sagittal section of the lumbar spine at L3-L4: the back's skin at the top, the head to the right, the vertebral bodies at the bottom.",
+  "teachingPoint": "Stay midline and angle slightly toward the head: through the supraspinous and interspinous ligaments, the ligamentum flavum and the dura into the CSF, between the spinous processes and through the interlaminar window.",
+  "claims": [
+    "Midline sagittal section, head to the right (the landmark plate's way round).",
+    "Needle angled about 12 degrees cephalad from the perpendicular (record: slightly cephalad).",
+    "Layers in order: skin, subcutaneous fat, supraspinous ligament, interspinous ligament, ligamentum flavum, epidural fat, dura, CSF (record).",
+    "Introducer to about 2.6 cm, then the pencil-point spinal needle through it, tip in the CSF (record: introducer, atraumatic needle).",
+    "Standard anatomy added: spinous processes 3.8 cm apart, the dura about 5 cm deep, a 1.4 cm thecal sac with cauda equina roots, the L3-L4 disc and vertebral bodies.",
+    "Labels: Supraspinous ligament, Interspinous ligament, Ligamentum flavum, Dura, CSF."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "supraspinous",
+    "interspinous",
+    "ligamentum-flavum",
+    "epidural-fat",
+    "dura",
+    "csf",
+    "l3",
+    "l4",
+    "disc",
+    "introducer",
+    "spinal-needle",
+    "needle-tip",
+    "needle-entry"
+  ],
+  "labels": {
+    "Supraspinous ligament": "supraspinous",
+    "Interspinous ligament": "interspinous",
+    "Ligamentum flavum": "ligamentum-flavum",
+    "Dura": "dura",
+    "CSF": "csf"
+  },
+  "geometry": [
+    {
+      "check": "within",
+      "a": "needle-tip",
+      "b": "csf",
+      "why": "tip in the CSF"
+    },
+    {
+      "check": "crosses",
+      "a": "spinal-needle",
+      "b": "ligamentum-flavum",
+      "why": "the needle passes the ligamentum flavum"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spinal-needle",
+      "b": "l3",
+      "why": "clears the L3 spinous process and lamina"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spinal-needle",
+      "b": "l4",
+      "why": "clears the L4 spinous process and lamina"
+    },
+    {
+      "check": "noOverlap",
+      "a": "introducer",
+      "b": "l3",
+      "why": "introducer clears bone"
+    },
+    {
+      "check": "noOverlap",
+      "a": "introducer",
+      "b": "l4",
+      "why": "introducer clears bone"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "needle-tip",
+      "why": "angled toward the head (head is right)"
+    },
+    {
+      "check": "pointsDown",
+      "a": "spinal-needle",
+      "maxLean": 0.3,
+      "why": "only slightly cephalad"
+    },
+    {
+      "check": "leftOf",
+      "a": "l4",
+      "b": "l3",
+      "why": "L3 is toward the head"
+    },
+    {
+      "check": "below",
+      "a": "dura",
+      "b": "ligamentum-flavum",
+      "why": "dura deep to the flavum"
+    }
+  ]
+}

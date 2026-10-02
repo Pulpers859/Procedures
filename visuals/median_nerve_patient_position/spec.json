@@ -1,0 +1,59 @@
+{
+  "assetId": "median_nerve_patient_position",
+  "procedure": "block_median_nerve",
+  "title": "Probe and needle on the patient",
+  "view": "Right forearm from above, supinated and extended on a drape: elbow at the top, the heel of the hand at the bottom, thumb (radial) side on the image left.",
+  "teachingPoint": "Probe transverse across the mid-forearm for the nerve in short axis; needle in-plane from the radial end of the probe.",
+  "claims": [
+    "Right forearm supinated and extended, radial on the image left (house laterality), the same way round as the section.",
+    "Linear probe transverse across the mid-forearm, about 11 cm above the wrist crease (record: short axis in the mid-forearm).",
+    "Needle in-plane, entering just beyond the probe's radial end, in line with it (record: in-plane; side chosen to match the section).",
+    "Labels: Block needle, Linear probe, Thenar eminence."
+  ],
+  "requiredElements": [
+    "forearm",
+    "thenar",
+    "wrist-crease",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Block needle": "needle",
+    "Linear probe": "probe",
+    "Thenar eminence": "thenar"
+  },
+  "geometry": [
+    {
+      "check": "within",
+      "a": "probe",
+      "b": "forearm",
+      "why": "the probe sits on the forearm"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "needle enters at the radial end (radial is left)"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "forearm",
+      "why": "the entry is on the skin"
+    },
+    {
+      "check": "below",
+      "a": "wrist-crease",
+      "b": "probe",
+      "why": "probe is proximal to the wrist"
+    },
+    {
+      "check": "leftOf",
+      "a": "thenar",
+      "b": "wrist-crease",
+      "why": "thenar on the radial side"
+    }
+  ]
+}

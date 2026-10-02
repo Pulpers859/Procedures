@@ -1,0 +1,66 @@
+{
+  "assetId": "suture_eversion",
+  "procedure": "laceration_repair",
+  "title": "Everting interrupted suture",
+  "view": "Two cut-away sections through skin across a laceration, skin surface up: the bite placed with the wound open (top) and the same suture tied (bottom).",
+  "teachingPoint": "Enter at 90 degrees and take a bite wider at its base than at the surface, the same depth on both sides; tied, the edges rise into a slight everted ridge.",
+  "claims": [
+    "Needle entry at 90 degrees to the skin about 4 mm from the edge (standard technique; record: entry angle sets eversion).",
+    "Bite flask-shaped: wider at its base than at the surface, through the dermis into the top of the fat, equal depth both sides (standard technique; record: bite depth sets eversion).",
+    "Tied: the edges meet and rise into a slight ridge (record: edge eversion).",
+    "Dermis drawn 2.5 mm; 40 px/mm.",
+    "Labels: 90° entry, Dermis, Wider at depth, Everted edges, Knot."
+  ],
+  "requiredElements": [
+    "dermis-a",
+    "fat-a",
+    "wound",
+    "dermis-b",
+    "fat-b",
+    "wound-line",
+    "bite-a",
+    "entry-angle",
+    "loop-b",
+    "top-b",
+    "knot"
+  ],
+  "labels": {
+    "90° entry": "entry-angle",
+    "Dermis": "dermis-a",
+    "Wider at depth": "bite-a",
+    "Everted edges": "dermis-b",
+    "Knot": "knot"
+  },
+  "geometry": [
+    {
+      "check": "crosses",
+      "a": "bite-a",
+      "b": "fat-a",
+      "why": "the bite reaches the fat"
+    },
+    {
+      "check": "crosses",
+      "a": "bite-a",
+      "b": "wound",
+      "why": "the bite crosses the wound"
+    },
+    {
+      "check": "crosses",
+      "a": "loop-b",
+      "b": "fat-b",
+      "why": "tied loop reaches the fat"
+    },
+    {
+      "check": "below",
+      "a": "loop-b",
+      "b": "knot",
+      "why": "the knot sits on the surface"
+    },
+    {
+      "check": "below",
+      "a": "fat-b",
+      "b": "dermis-a",
+      "why": "the tied panel is below the open one"
+    }
+  ]
+}

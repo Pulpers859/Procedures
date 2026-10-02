@@ -1,0 +1,132 @@
+{
+  "assetId": "median_nerve_anatomy",
+  "procedure": "block_median_nerve",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right mid-forearm, palm up, under a linear probe, seen from the hand as on ultrasound: radial (thumb side) on the image left, ulnar on the right, volar skin at the top.",
+  "teachingPoint": "The median nerve sits in the fascial plane between FDS above and FDP below; needle in-plane from the radial side, tip at the nerve's deep border, spread wrapping the nerve in that plane.",
+  "claims": [
+    "Right forearm in section, radial on the left, as on ultrasound seen from the hand (house laterality; NYSORA's plate mirrored, concept only).",
+    "Median nerve between the FDS and FDP bellies, about 15 mm deep (record, subtitle; depth standard).",
+    "Needle in-plane from the radial end of the probe, tip at the nerve's deep border (record, steps 3-4); the probe stops 1 cm short of the radial edge so the entry shows.",
+    "Teal: injectate in the FDS-FDP plane around the nerve (record, steps 5-6).",
+    "Standard anatomy added: a packed flexor compartment with thin fascia between bellies; brachioradialis and the radial artery at the radial edge, FCR, the palmaris longus tendon and FCU superficially, FPL deep radially with FDP deep ulnarly, flexor tendons forming inside FDS and FPL, the ulnar artery and nerve under FCU, radius and ulna.",
+    "Labels: Median nerve, FDS, FDP, FPL, Radial artery."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "fds",
+    "fdp",
+    "fpl",
+    "fcr",
+    "pl",
+    "br",
+    "fcu",
+    "radius",
+    "ulna",
+    "median-nerve",
+    "radial-artery",
+    "ulnar-artery",
+    "ulnar-nerve",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
+  "labels": {
+    "Median nerve": "median-nerve",
+    "FDS": "fds",
+    "FDP": "fdp",
+    "FPL": "fpl",
+    "Radial artery": "radial-artery"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "median-nerve",
+      "b": "fds",
+      "why": "the nerve is deep to FDS"
+    },
+    {
+      "check": "below",
+      "a": "fdp",
+      "b": "median-nerve",
+      "why": "FDP is deep to the nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "median-nerve",
+      "b": "fds",
+      "why": "the nerve lies in the plane, not inside FDS"
+    },
+    {
+      "check": "noOverlap",
+      "a": "median-nerve",
+      "b": "fdp",
+      "why": "the nerve lies in the plane, not inside FDP"
+    },
+    {
+      "check": "leftOf",
+      "a": "radius",
+      "b": "ulna",
+      "why": "radius is lateral (lateral is left)"
+    },
+    {
+      "check": "leftOf",
+      "a": "radial-artery",
+      "b": "median-nerve",
+      "why": "radial artery is lateral to the nerve"
+    },
+    {
+      "check": "leftOf",
+      "a": "median-nerve",
+      "b": "ulnar-artery",
+      "why": "ulnar artery is medial to the nerve"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "in-plane entry from the radial end of the probe"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "median-nerve",
+      "maxPx": 40,
+      "why": "tip at the nerve's border"
+    },
+    {
+      "check": "below",
+      "a": "needle-tip",
+      "b": "median-nerve",
+      "why": "tip at the deep border"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "radial-artery",
+      "why": "the needle path clears the radial artery"
+    },
+    {
+      "check": "crosses",
+      "a": "median-nerve",
+      "b": "spread",
+      "why": "spread wraps the nerve"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle",
+      "maxLean": 2.2,
+      "why": "the needle runs down into the forearm"
+    },
+    {
+      "check": "leftOf",
+      "a": "fpl",
+      "b": "fdp",
+      "why": "FPL is the radial deep muscle"
+    }
+  ]
+}
