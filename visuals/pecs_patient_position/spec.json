@@ -62,5 +62,10 @@
       "b": "probe",
       "why": "probe above the nipple level (3rd-4th rib)"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "410593571ab896deaab1e30485e9275d34ca7b3c86c944845f00bb02fd857da4",
+    "reviewedOn": "2026-10-02"
+  }
 }
