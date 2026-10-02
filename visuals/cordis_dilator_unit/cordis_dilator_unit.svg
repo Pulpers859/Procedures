@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F6F4F0; }</style>
+<defs>
+<linearGradient id="g-sheath" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9F1F7"/><stop offset="0.35" stop-color="#C3D6E4"/>
+  <stop offset="1" stop-color="#7E9AB0"/></linearGradient>
+<linearGradient id="g-dilator" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.45" stop-color="#EEF1F4"/>
+  <stop offset="1" stop-color="#A9B3BC"/></linearGradient>
+<linearGradient id="g-hub" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FB2DA"/><stop offset="0.45" stop-color="#3F7FB5"/>
+  <stop offset="1" stop-color="#245782"/></linearGradient>
+<linearGradient id="g-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="0.45" stop-color="#B9C1C8"/>
+  <stop offset="1" stop-color="#6E777F"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="381efee5e1bae1cddaf863629073bcc8bed4d6d6d08e4ca4772e51665bcf158b"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <rect x="0" y="0" width="1600" height="1200" fill="#F6F4F0"/>
+  <rect id="muscle" x="0" y="932" width="1600" height="268" fill="#B65A55"/>
+  <rect id="fat" x="0" y="575" width="1600" height="357" fill="#F2D27A"/>
+  <rect id="fascia" x="0" y="691" width="1600" height="6" fill="#F4EFE6"/>
+  <rect id="vein-wall" x="0" y="688.4" width="1600" height="207.2" fill="#6D7FB2"/>
+  <rect id="vein" x="0" y="701" width="1600" height="182" fill="#3E4F8C"/>
+  <rect id="dermis" x="0" y="540" width="1600" height="35" fill="#E7A79A"/>
+  <rect id="epidermis" x="0" y="538" width="1600" height="6" fill="#D98F7E"/>
+  <path id="nick" d="M704,538 L816,538 L790.8,579 L729.2,579 Z"
+        fill="#8E2F2A"/>
+</g>
+
+<g class="marking">
+  <path id="side-tubing" d="M-515.6,-183.1 C-575.6,-103.1 -665.6,-63.1 -40,-33.1" fill="none" stroke="#DDE6EC" stroke-width="16" stroke-linecap="round" opacity="0.95"/>
+  <path d="M-515.6,-183.1 C-575.6,-103.1 -665.6,-63.1 -40,-33.1" fill="none" stroke="#A9B8C4" stroke-width="16" stroke-linecap="round" opacity="0.35" transform="translate(0 4)"/>
+  <path id="guidewire-in-vein" d="M1017.4,756 C1081.7,810 1121.7,806 1191.7,806 L1640,806" fill="none" stroke="url(#g-steel)" stroke-width="12.6" stroke-linecap="round"/>
+  <path d="M1017.4,756 C1081.7,810 1121.7,806 1191.7,806 L1640,806" fill="none" stroke="#6E777F" stroke-width="12.6" stroke-linecap="round" opacity="0.6"/>
+  <g id="device" transform="translate(760 540) rotate(40)">
+    <line x1="-2136" y1="0" x2="336" y2="0" stroke="url(#g-steel)" stroke-width="12.6"/>
+    <path id="dilator" d="M82,-19.6 L112,-19.6 L336,-7.3 L336,7.3 L112,19.6 L82,19.6 Z"
+          fill="url(#g-dilator)" stroke="#8D98A3" stroke-width="2"/>
+    <path id="sheath" d="M-1316,-23.1 L63,-23.1 L84,-19.6 L84,19.6 L63,23.1 L-1316,23.1 Z"
+          fill="url(#g-sheath)" stroke="#5F7C93" stroke-width="2" fill-opacity="0.95"/>
+    <line x1="-1312" y1="-18.1" x2="70" y2="-18.1" stroke="#FFFFFF" stroke-width="3" stroke-opacity="0.75" stroke-linecap="round"/>
+    <rect x="-1491" y="68" width="98" height="198" rx="6" fill="url(#g-hub)" stroke="#1E4A70" stroke-width="2"/>
+    <path id="valve" d="M-1652,-70 H-1358 L-1316,-27.1 V27.1 L-1358,70 H-1652 Z"
+          fill="url(#g-hub)" stroke="#1E4A70" stroke-width="2"/>
+    <rect x="-1654" y="-74" width="56" height="148" rx="6" fill="#E4E9EE" stroke="#8D98A3" stroke-width="2"/>
+    <rect id="dilator-hub" x="-1876" y="-49" width="224" height="98" rx="8" fill="url(#g-dilator)" stroke="#8D98A3" stroke-width="2"/>
+    <line x1="-1842.4" y1="-49" x2="-1842.4" y2="49" stroke="#A9B3BC" stroke-width="2"/><line x1="-1808.8" y1="-49" x2="-1808.8" y2="49" stroke="#A9B3BC" stroke-width="2"/><line x1="-1775.2" y1="-49" x2="-1775.2" y2="49" stroke="#A9B3BC" stroke-width="2"/></g>
+  <circle id="dilator-tip" cx="1017.4" cy="756" r="5" fill="#000" opacity="0"/>
+  <circle id="sheath-tip" cx="824.3" cy="594" r="5" fill="#000" opacity="0"/>
+  <g id="inset">
+    <clipPath id="inset-clip"><rect x="1000" y="30" width="570" height="350" rx="28"/></clipPath>
+    <rect x="1000" y="30" width="570" height="350" rx="28" fill="#FFFFFF" fill-opacity="0.96" stroke="#9AA6B2" stroke-width="3"/>
+    <g clip-path="url(#inset-clip)">
+      <path d="M1320,220 C1320,280 1260,310 1180,390" fill="none" stroke="#DDE6EC" stroke-width="14" stroke-linecap="round"/>
+      <path d="M1320,220 C1320,280 1260,310 1180,390" fill="none" stroke="#A9B8C4" stroke-width="3" opacity="0.8"/>
+      <rect x="1300" y="206" width="40" height="40" rx="6" fill="url(#g-hub)" stroke="#1E4A70" stroke-width="2"/>
+      <rect id="inset-sheath" x="1350" y="181" width="260" height="18" rx="4" fill="url(#g-sheath)" stroke="#5F7C93" stroke-width="2"/>
+      <path id="inset-valve" d="M1236,160 H1330 L1354,177 V203 L1330,220 H1236 Z" fill="url(#g-hub)" stroke="#1E4A70" stroke-width="2"/>
+      <rect x="1226" y="156" width="18" height="68" rx="5" fill="#E4E9EE" stroke="#8D98A3" stroke-width="2"/>
+      <rect x="1150" y="170" width="78" height="40" rx="8" fill="url(#g-dilator)" stroke="#8D98A3" stroke-width="2"/>
+      <line x1="1168" y1="170" x2="1168" y2="210" stroke="#A9B3BC" stroke-width="2"/><line x1="1186" y1="170" x2="1186" y2="210" stroke="#A9B3BC" stroke-width="2"/><line x1="1204" y1="170" x2="1204" y2="210" stroke="#A9B3BC" stroke-width="2"/>
+      <path id="wire-tail" d="M1150,190 C1100,190 1060,180 1030,130 C1010,95 980,80 960,70"
+            fill="none" stroke="url(#g-steel)" stroke-width="7" stroke-linecap="round"/>
+      <path d="M1150,190 C1100,190 1060,180 1030,130 C1010,95 980,80 960,70"
+            fill="none" stroke="#6E777F" stroke-width="7" stroke-linecap="round" opacity="0.5"/>
+    </g>
+  </g>
+</g>
+
+<g id="labels"><g class="label" data-label="Sheath" data-target="sheath"><polyline class="leader-halo" points="580,252 549.5,356"/><polyline class="leader" points="580,252 549.5,356"/><circle class="leader-dot" cx="549.5" cy="356" r="7"/><text x="560" y="230" text-anchor="start"><tspan x="560" dy="0">Sheath</tspan></text></g><g class="label" data-label="Skin nick" data-target="nick"><polyline class="leader-halo" points="600,484 712.4,548.4"/><polyline class="leader" points="600,484 712.4,548.4"/><circle class="leader-dot" cx="712.4" cy="548.4" r="7"/><text x="330" y="470" text-anchor="start"><tspan x="330" dy="0">Skin nick</tspan></text></g><g class="label" data-label="Dilator" data-target="dilator"><polyline class="leader-halo" points="1140,484 924.9,675"/><polyline class="leader" points="1140,484 924.9,675"/><circle class="leader-dot" cx="924.9" cy="675" r="7"/><text x="1130" y="470" text-anchor="start"><tspan x="1130" dy="0">Dilator</tspan></text></g><g class="label" data-label="Guidewire" data-target="guidewire-in-vein"><polyline class="leader-halo" points="1400,1066 1450,806"/><polyline class="leader" points="1400,1066 1450,806"/><circle class="leader-dot" cx="1450" cy="806" r="7"/><text x="1250" y="1110" text-anchor="start"><tspan x="1250" dy="0">Guidewire</tspan></text></g><g class="label" data-label="Wire tail" data-target="wire-tail"><polyline class="leader-halo" points="1100,296 1108,187"/><polyline class="leader" points="1100,296 1108,187"/><circle class="leader-dot" cx="1108" cy="187" r="7"/><text x="1040" y="340" text-anchor="start"><tspan x="1040" dy="0">Wire tail</tspan></text></g></g>
+
+</svg>

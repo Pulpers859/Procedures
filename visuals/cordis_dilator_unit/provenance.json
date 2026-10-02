@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the cordis_dilator_unit layout (commit 5df1e17 draw.py, --reference). Tissue and nick only; the device and inset are code-drawn markings.",
+ "antigravityConversation": "c6792484-281e-4441-a112-22d51b87c970",
+ "prompt": "Prompt A (atlas), new conversation: The attached image is an exact anatomical layout of a side-on cut-away section through the skin and a large vein running in its long axis, seen straight on as a cut face: plain off-white space above; the skin as a thin pink band straight across the middle, with a small, clean scalpel cut through it (the dark red notch); yellow subcutaneous fat below it; a thin white fascia line; the vein as a broad dark blue band of blood running straight from the left edge to the right edge, with a thin pale blue-grey wall above and below; a thin layer of fat; and deep red muscle filling the bottom. Repaint it as a premium medical-atlas illustration, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: soft painted shading, fine crisp outlines, realistic skin layers, fat lobules with fine septa, a glossy vein wall over dark venous blood, muscle fibres cut across, gentle depth and light from the upper left. Calm, restrained palette on the same off-white background. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, lines, needles, instruments, hands or blood outside the vein.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "reviewNotes": "Overlay: skin, fat, fascia, vein wall and lumen, deep fat and muscle lie on the layout's lines within a few pixels; the nick is painted as a clean cup-shaped cut in the same place and size. No watermark.",
+ "knownLimits": "Site-neutral section. The device (sheath, dilator, wire, hub, valve, side arm) is code-drawn from the record's kit and standard sizes; the hub end is shown in an inset, not to scale. The vein is drawn as a straight horizontal tube for clarity.",
+ "thirdPartyConcept": "None."
+}

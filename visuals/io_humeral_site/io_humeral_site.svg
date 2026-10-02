@@ -39,8 +39,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy">
+<g id="painting" data-base-sha256="dafc116d3cfcf1257fd6f0ff297001934880ff10f68f1a9280b77872c569325d"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
   <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
   <path id="shoulder" d="M1700,-80 C1658.3,-196.7 1253.3,-92.5 1200,-80 C1146.7,-67.5 1085.8,49.2 1060,70 C1034.2,90.8 920,158.3 890,170 C860,181.7 729.2,205.8 700,210 C670.8,214.2 563.3,217.9 540,220 C516.7,222.1 436.2,230.4 420,235 C403.8,239.6 355,265.4 345,275 C335,284.6 305,334.6 300,350 C295,365.4 285.8,440 285,460 C284.2,480 288.3,564.2 290,590 C291.7,615.8 302.1,738.3 305,770 C307.9,801.7 322.5,936.7 325,970 C327.5,1003.3 333.8,1140.8 335,1170 C336.2,1199.2 226.2,1307.5 340,1320 C453.8,1332.5 1586.7,1436.7 1700,1320 C1813.3,1203.3 1741.7,36.7 1700,-80 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
   <path id="clavicle" d="M530,260 C546,258.7 617.3,249.3 650,250 C682.7,250.7 735,260.3 775,265 C815,269.7 926.7,282.3 950,285" fill="none" stroke="#F0CFBA" stroke-width="22" stroke-linecap="round" opacity="0.7"/>

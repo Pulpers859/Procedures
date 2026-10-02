@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the knee_arthrocentesis_superolateral layout (commit 3d1a2c0 draw.py at 9.5 px/mm, then a radial relief shading on the patella, --reference). The layout's patella centre was (820, 850); the plate's ORIGIN is the centre traced on the painting.",
+ "antigravityConversation": "bfaebdc3-a556-4269-acc0-5f7cc74c705b",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of an adult's right knee and lower thigh seen straight on from the front, a broad, muscular leg lying straight on a pale blue-grey sheet, photographed close up so that it fills the frame, exactly as wide as drawn, with only a narrow strip of sheet showing on each side: the kneecap, a large, clearly raised, rounded bony prominence in the lower middle, exactly that size and in exactly that place, with soft hollows on either side of it, the quadriceps tendon running straight up from the top of the kneecap, the soft bulge of the inner thigh muscle (vastus medialis) above and to the right of the kneecap, the outer thigh muscle (vastus lateralis) along the left side, and the patellar tendon running down from the bottom of the kneecap to the bottom edge. Turn this into a realistic clinical photograph of the front of the knee and lower thigh, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture and fine hair, the soft real contours of the kneecap, tendons and thigh muscles, soft even examination light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, circles, needles, instruments, hands, gloves or blood, and no border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "Conversation 35a6caa6 (layout at 10 px/mm, leg running off the right edge): leg painted at about 60% of the drawn width, kneecap not recognisable. Conversation 664c3307 (layout at 9.5 px/mm, true adult width): same two faults. Both new chats.",
+ "reviewNotes": "Overlay: the painted kneecap matches the layout's size (about 4.4 x 5 cm at 9.5 px/mm) but sits about 8 mm higher; the plate re-anchors every marking on the kneecap traced on the painting (centre 829, 776 canvas). The leg is painted at about 75% of the drawn width, so the knee is slim for the patella. No watermark.",
+ "knownLimits": "The 1 cm dimensions are scaled from the patella, which matches the layout; the thigh outline does not. The insertion zone size (7 mm) and the recess outline are drawn, not from the record. The needle and syringe are not shown; the arrow gives the direction.",
+ "thirdPartyConcept": "None."
+}

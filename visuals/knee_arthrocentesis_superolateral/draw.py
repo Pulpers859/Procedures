@@ -40,7 +40,7 @@ ASSET_ID = "knee_arthrocentesis_superolateral"
 BASE = Path(__file__).with_name("base.jpg")
 BASE_SIZE = (1200.0, 896.0)
 PX_MM = 9.5
-ORIGIN = (820.0, 850.0)            # canvas of the patella's centre
+ORIGIN = (829.0, 776.0)            # canvas of the patella's centre, traced on the painting (layout: 820, 850)
 
 
 def c(p):
@@ -68,6 +68,8 @@ ARROW_END = (-2.0, -14.0)                             # under the patella's uppe
 DEFS = """
 <linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A88C"/><stop offset="0.5" stop-color="#EDC7AE"/>
   <stop offset="1" stop-color="#DDAE92"/></linearGradient>
+<radialGradient id="patella-relief" cx="0.42" cy="0.38" r="0.7"><stop offset="0" stop-color="#F8DCC8"/><stop offset="0.6" stop-color="#EDC5AB"/>
+  <stop offset="1" stop-color="#C99579"/></radialGradient>
 <linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8EEF3"/><stop offset="1" stop-color="#D3DDE6"/></linearGradient>
 <marker id="arrowhead" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
   <path d="M0,0 L10,5 L0,10 Z" fill="#0E8C98"/></marker>
@@ -114,11 +116,11 @@ def build() -> str:
   <path id="vastus-medialis" d="{path(VMO, closed=True, tension=0.6)}" fill="#E9C0A6"/>
   <path id="quadriceps-tendon" d="{path(QUAD_TENDON, closed=True, tension=0.4)}" fill="#EBC6AE"/>
   <path id="patellar-tendon" d="{path(PATELLAR_TENDON, closed=True, tension=0.4)}" fill="#E8C0A6" stroke="#C49478" stroke-width="2"/>
-  <ellipse id="patella" cx="{fmt(ORIGIN[0])}" cy="{fmt(ORIGIN[1])}" rx="{fmt(PATELLA[1] * PX_MM)}" ry="{fmt(PATELLA[2] * PX_MM)}" fill="#F0CDB5" stroke="#C49478" stroke-width="3"/>
+  <ellipse id="patella" cx="{fmt(ORIGIN[0])}" cy="{fmt(ORIGIN[1])}" rx="{fmt(PATELLA[1] * PX_MM)}" ry="{fmt(PATELLA[2] * PX_MM)}" fill="url(#patella-relief)" stroke="#B88468" stroke-width="3"/>
 </g>
 
 <g class="marking">
-  <path id="recess" d="{path(RECESS, closed=True, tension=0.7)}" fill="#6CCBD2" fill-opacity="0.14" stroke="#0E8C98" stroke-width="4" stroke-dasharray="14 12" stroke-opacity="0.8"/>
+  <path id="recess" d="{path(RECESS, closed=True, tension=0.7)}" fill="#6CCBD2" fill-opacity="0.08" stroke="#0E8C98" stroke-width="4" stroke-dasharray="14 12" stroke-opacity="0.8"/>
   <g id="dimension" stroke="#4A2F7A" stroke-width="4" fill="none">
     <line id="dim-lateral-line" x1="{fmt(pole[0])}" y1="{fmt(pole[1])}" x2="{fmt(corner[0])}" y2="{fmt(corner[1])}"/>
     <line id="dim-superior-line" x1="{fmt(corner[0])}" y1="{fmt(corner[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}"/>

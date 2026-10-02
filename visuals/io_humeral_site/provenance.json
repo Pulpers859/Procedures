@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the io_humeral_site layout (commit 3d1a2c0 draw.py, --reference).",
+ "antigravityConversation": "a30e9567-d077-4d79-9930-2580930ece18",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of an adult patient lying on their back, seen from directly above, showing the right shoulder and upper arm: the rounded cap of the shoulder (deltoid) at the upper left, the bony point of the acromion at the top of the shoulder, the collarbone as a gentle ridge under the skin running from it towards the neck, the arm lying straight down at the patient's side and running off the bottom edge, a light blue hospital gown pulled off the shoulder covering the chest on the right, and a pale blue-grey sheet beside the arm on the left. Turn this into a realistic clinical photograph of the front of the right shoulder and upper arm, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture, the soft real contours of the deltoid, acromion and collarbone, soft folds in the gown, shot from directly above in soft even examination light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, circles, needles, instruments, hands, gloves or blood, and no border or frame.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "reviewNotes": "Overlay: the shoulder outline, acromion bump, collarbone ridge and gown edge lie on the layout within a few pixels. Gemini added an armpit crease where the arm meets the gown (not in the layout, away from every marking). The arm is painted slim. No watermark.",
+ "knownLimits": "The insertion zone is placed on the front of the deltoid below the acromion where the layout put the greater tubercle (standard anatomy, not traced from bone); the tubercle is palpated, not seen. The inset is a code-drawn schematic, not to scale. Hand-on-abdomen positioning is in the caption; the forearm is out of frame.",
+ "thirdPartyConcept": "None."
+}
