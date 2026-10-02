@@ -6420,9 +6420,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Arm supinated and extended. Probe transverse on the volar forearm, slid laterally to the radial artery. Needle in-plane.",
-        "assetName": null,
+        "assetName": "radial_nerve_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right forearm palm up, thumb side on the left: probe across the radial side of the mid-forearm over the radial artery; needle in-plane from the radial border.",
         "clinicalWarning": null
       },
       {
@@ -6430,9 +6430,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "In the mid-forearm the radial nerve lies directly lateral to the radial artery, in the same fascial plane.",
-        "assetName": null,
+        "assetName": "radial_nerve_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right mid-forearm in section, thumb side on the left: the radial nerve lies just lateral to the radial artery under brachioradialis; needle from lateral.",
         "clinicalWarning": null
       }
     ],

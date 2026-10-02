@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "filename": "radial_nerve_anatomy.png",
+      "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "radial_nerve_anatomy-dark.png",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

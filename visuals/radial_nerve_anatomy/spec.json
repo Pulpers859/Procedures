@@ -99,5 +99,10 @@
       "b": "radial-artery",
       "why": "radius lateral"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "538ee48fd331c12725ca2ccbe070189e584f78c8c24d838aea16fdd2843a41a9",
+    "reviewedOn": "2026-10-02"
+  }
 }
