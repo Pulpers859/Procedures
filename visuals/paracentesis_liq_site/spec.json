@@ -1,0 +1,82 @@
+{
+  "assetId": "paracentesis_liq_site",
+  "procedure": "paracentesis",
+  "title": "LLQ entry site",
+  "view": "A distended abdomen from directly above, patient supine, head at the top, the patient's left on the image right.",
+  "teachingPoint": "On the line from the umbilicus to the left ASIS, the inferior epigastric vessels cross about 40% of the way out; enter beyond two-thirds, lateral to them.",
+  "claims": [
+    "Supine abdomen from above, patient's left on the image right (house laterality).",
+    "Dashed purple: the line from the umbilicus (on the midline) to the left ASIS, ticked at 40% and two-thirds (record).",
+    "Red dashed: the inferior epigastric vessels running up and medially from the mid-inguinal point, crossing the line at 40% (record: about 40% of the way out).",
+    "Teal: a 1.6 cm entry zone three-quarters of the way out, lateral to the vessels (record: more than two-thirds).",
+    "Standard adult anatomy: the ASIS about 12.5 cm lateral and 7 cm caudal to the umbilicus.",
+    "Labels: Umbilicus, ASIS, Inferior epigastric vessels, 2/3, Entry site."
+  ],
+  "requiredElements": [
+    "abdomen",
+    "umbilicus",
+    "asis-left",
+    "spino-umbilical",
+    "iea",
+    "tick-40",
+    "tick-23",
+    "target"
+  ],
+  "labels": {
+    "Umbilicus": "umbilicus",
+    "ASIS": "asis-left",
+    "Inferior epigastric vessels": "iea",
+    "2/3": "tick-23",
+    "Entry site": "target"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "umbilicus",
+      "b": "asis-left",
+      "why": "left ASIS on the image right"
+    },
+    {
+      "check": "leftOf",
+      "a": "tick-40",
+      "b": "tick-23",
+      "why": "40% is medial to two-thirds"
+    },
+    {
+      "check": "leftOf",
+      "a": "tick-23",
+      "b": "target",
+      "why": "entry is beyond two-thirds"
+    },
+    {
+      "check": "leftOf",
+      "a": "iea",
+      "b": "target",
+      "why": "the vessels are medial to the entry"
+    },
+    {
+      "check": "noOverlap",
+      "a": "target",
+      "b": "iea",
+      "why": "the entry is clear of the vessels"
+    },
+    {
+      "check": "crosses",
+      "a": "iea",
+      "b": "tick-40",
+      "why": "the vessels cross the line at 40%"
+    },
+    {
+      "check": "crosses",
+      "a": "target",
+      "b": "spino-umbilical",
+      "why": "entry on the line"
+    },
+    {
+      "check": "within",
+      "a": "target",
+      "b": "abdomen",
+      "why": "on the abdomen"
+    }
+  ]
+}
