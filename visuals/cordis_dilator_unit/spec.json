@@ -1,0 +1,97 @@
+{
+  "assetId": "cordis_dilator_unit",
+  "procedure": "introducer_sheath_cordis",
+  "title": "Dilator-sheath assembly",
+  "view": "Side-on cut-away through the skin and a vein in its long axis: air and the hub above, the skin across the middle, the vein below, muscle at the bottom. Site-neutral.",
+  "teachingPoint": "The dilator and sheath go in together as one unit over a wire that is held at the back, through a nick that is wider than the sheath.",
+  "claims": [
+    "The dilator tip leads, inside the vein; the sheath rides on the dilator just behind its taper (record: advance the assembled unit).",
+    "The wire runs on along the vein ahead of the dilator, and its tail comes out of the back of the dilator hub, where it is held (inset, not to scale; record: a controlled wire).",
+    "The skin nick goes through the dermis into the fat and is wider at the surface than the sheath's footprint (record).",
+    "Sizes drawn from the record's 8.5-9 Fr, 10 cm kit and standard dimensions: sheath 3.3 mm, dilator 2.8 mm tapering over 16 mm to the 0.89 mm wire; vein 13 mm across, 18 mm deep; device at 40 degrees to the skin. Zoomed to the entry site at 14 px/mm; the hub is out of frame.",
+    "Labels: Sheath, Skin nick, Dilator, Guidewire, Wire tail."
+  ],
+  "requiredElements": [
+    "dermis",
+    "fat",
+    "vein",
+    "muscle",
+    "nick",
+    "device",
+    "sheath",
+    "dilator",
+    "valve",
+    "dilator-hub",
+    "side-tubing",
+    "guidewire-in-vein",
+    "dilator-tip",
+    "sheath-tip",
+    "inset",
+    "inset-valve",
+    "inset-sheath",
+    "wire-tail"
+  ],
+  "labels": {
+    "Sheath": "sheath",
+    "Skin nick": "nick",
+    "Dilator": "dilator",
+    "Guidewire": "guidewire-in-vein",
+    "Wire tail": "wire-tail"
+  },
+  "geometry": [
+    {
+      "check": "within",
+      "a": "dilator-tip",
+      "b": "vein",
+      "why": "the dilator tip is in the vein lumen"
+    },
+    {
+      "check": "noOverlap",
+      "a": "sheath-tip",
+      "b": "vein",
+      "why": "the sheath tip trails the dilator, not yet in the vein"
+    },
+    {
+      "check": "crosses",
+      "a": "sheath",
+      "b": "nick",
+      "why": "the sheath passes through the nick"
+    },
+    {
+      "check": "crosses",
+      "a": "nick",
+      "b": "dermis",
+      "why": "the nick goes through the dermis"
+    },
+    {
+      "check": "noOverlap",
+      "a": "nick",
+      "b": "vein",
+      "why": "the nick is superficial"
+    },
+    {
+      "check": "crosses",
+      "a": "guidewire-in-vein",
+      "b": "vein",
+      "why": "the wire runs on in the vein"
+    },
+    {
+      "check": "below",
+      "a": "vein",
+      "b": "nick",
+      "why": "the vein is deep to the skin"
+    },
+    {
+      "check": "leftOf",
+      "a": "dilator-hub",
+      "b": "nick",
+      "why": "the hub end is outside, up the device"
+    },
+    {
+      "check": "leftOf",
+      "a": "wire-tail",
+      "b": "inset-valve",
+      "why": "inset: the wire tail comes out behind the hub"
+    }
+  ]
+}
