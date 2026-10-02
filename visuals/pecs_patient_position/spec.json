@@ -3,10 +3,10 @@
   "procedure": "block_pecs",
   "title": "Probe and needle on the patient",
   "view": "Right anterior chest and shoulder from above, patient supine with the arm abducted to 90 degrees: head at the top, the patient's right on the image left.",
-  "teachingPoint": "Probe oblique below the lateral third of the clavicle, pointing toward the axilla; needle in-plane from the medial end.",
+  "teachingPoint": "Start oblique below the lateral third of the clavicle, then slide inferolaterally to the 3rd-4th rib at the anterior axillary line for PECS II; needle in-plane from the medial end.",
   "claims": [
     "Supine, right arm abducted to 90 degrees (record); patient's right on the image left (house laterality).",
-    "Linear probe below the lateral third of the clavicle, oblique: medial end up toward the clavicle, lateral end down toward the axilla (record: oblique below the lateral third).",
+    "Linear probe at the PECS II position: oblique over the 3rd-4th rib at the anterior axillary line, at the front edge of the armpit fold, above and lateral to the nipple (record, updated 2026-10-02).",
     "Needle entering beyond the probe's medial end, in line with it: in-plane from medial to lateral (record).",
     "Labels: Clavicle, Linear probe, Block needle."
   ],
@@ -55,6 +55,12 @@
       "a": "probe",
       "b": "nipple",
       "why": "probe lateral to the nipple line"
+    },
+    {
+      "check": "below",
+      "a": "nipple",
+      "b": "probe",
+      "why": "probe above the nipple level (3rd-4th rib)"
     }
   ]
 }

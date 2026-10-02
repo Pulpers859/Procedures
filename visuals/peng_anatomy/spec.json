@@ -99,5 +99,10 @@
       "b": "iliopsoas",
       "why": "tendon in the deep part of the iliopsoas, at its floor"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "313f6839e9b98579c4a2017d6bd20a5e2b4ec68825081aba0fdffd8dad8ce2ee",
+    "reviewedOn": "2026-10-02"
+  }
 }

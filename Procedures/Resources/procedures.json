@@ -1477,9 +1477,9 @@
         "kind": "Landmark",
         "title": "Subxiphoid needle geometry (no-ultrasound fallback)",
         "subtitle": "Blind fallback route only, for when no machine is available. Needle enters 1 cm below the costal margin just left of the xiphoid, tracks shallowly under the costal margin at about 30-45 degrees, and aims toward the left shoulder.",
-        "assetName": null,
+        "assetName": "pericardiocentesis_needle_path",
         "systemImage": "scope",
-        "caption": "",
+        "caption": "Blind fallback: enter 1 cm below the left costal margin beside the xiphoid and aim at the left shoulder; inset: shallow under the costal margin at 30-45 degrees into the effusion.",
         "clinicalWarning": "With ultrasound available, the safest pocket sets the trajectory, not this geometry. Steep or deep trajectories risk myocardium or liver."
       }
     ],
@@ -7915,7 +7915,7 @@
         "Identify the pectoralis major, pectoralis minor, and the ribs/pleura deep to them.",
         "Insert the needle in-plane from medial to lateral.",
         "For PECS I: Advance the needle into the fascial plane between the pectoralis major and minor. Inject 10 mL.",
-        "For PECS II: advance through pectoralis minor into the pectoserratus plane, between pectoralis minor and serratus anterior. Inject 15-20 mL. Stop at that plane - passing through serratus onto the ribs enters a deeper chest-wall plane with the pleura behind it."
+        "For PECS II: slide the transducer inferolaterally to the 3rd-4th rib at the anterior axillary line, where serratus anterior comes into view over the ribs, then advance through pectoralis minor into the pectoserratus plane, between pectoralis minor and serratus anterior. Inject 15-20 mL. Stop at that plane - passing through serratus onto the ribs enters a deeper chest-wall plane with the pleura behind it."
       ],
       "ultrasound": [
         "Pectoralis major (thickest, superficial), Pectoralis minor (deep to major), Serratus anterior/ribs (deepest)."
@@ -7978,7 +7978,7 @@
         "id": "pecs_patient_position",
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
-        "subtitle": "Supine, arm abducted to 90 degrees. Transducer oblique below the lateral third of the clavicle. Needle in-plane from medial to lateral.",
+        "subtitle": "Supine, arm abducted to 90 degrees. Transducer oblique below the lateral third of the clavicle, then slid inferolaterally to the 3rd-4th rib at the anterior axillary line for PECS II. Needle in-plane from medial to lateral.",
         "assetName": null,
         "systemImage": "hand.point.up.left",
         "caption": "",
@@ -7989,9 +7989,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "PECS I: the plane between pectoralis major and minor. PECS II: the pectoserratus plane, between pectoralis minor and serratus anterior; stop there, short of the ribs and pleura.",
-        "assetName": null,
+        "assetName": "pecs_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right chest wall in section, lateral on the left: PECS I between pectoralis major and minor; PECS II between pectoralis minor and serratus anterior, short of the ribs and pleura.",
         "clinicalWarning": null
       }
     ],
@@ -8426,9 +8426,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine. Transducer transverse over the AIIS, slid caudally to the iliopubic eminence and psoas tendon. Needle in-plane from lateral to medial.",
-        "assetName": null,
+        "assetName": "peng_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right groin from above, lateral on the left: probe just below and parallel to the inguinal ligament over the AIIS and iliopubic eminence, lateral to the femoral artery; needle in-plane from lateral.",
         "clinicalWarning": null
       },
       {
@@ -8436,9 +8436,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The articular branches run between the psoas muscle and tendon and the iliopubic eminence. The needle tip rests on the bony contour of the eminence, deep to the psoas tendon; the femoral vessels are medial.",
-        "assetName": null,
+        "assetName": "peng_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right hip in section, lateral on the left as on the screen: needle tip on the iliopubic eminence deep to the psoas tendon; femoral vessels medial.",
         "clinicalWarning": null
       }
     ],

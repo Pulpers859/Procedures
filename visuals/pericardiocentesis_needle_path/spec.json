@@ -9,7 +9,7 @@
     "Dashed arrow from the entry toward the left shoulder (record).",
     "Inset: needle at about 35 degrees to the skin (record: 30-45), passing under the costal cartilage into the pericardial effusion (record: tracks shallowly under the costal margin).",
     "Rib cage, xiphoid and costal margins drawn over the approved decompression torso photo (reused).",
-    "Labels: Xiphoid, Entry site, Toward left shoulder, 30–45°, Effusion."
+    "Labels: Xiphoid, Entry site, Toward left shoulder, 30\u201345\u00b0, Effusion."
   ],
   "requiredElements": [
     "torso",
@@ -31,7 +31,7 @@
     "Xiphoid": "xiphoid",
     "Entry site": "entry",
     "Toward left shoulder": "direction",
-    "30–45°": "angle-arc",
+    "30\u201345\u00b0": "angle-arc",
     "Effusion": "effusion"
   },
   "geometry": [
@@ -83,5 +83,10 @@
       "b": "xiphoid",
       "why": "entry at or below the xiphoid tip level"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "fb94e55d759f3e1f54f0c62e70feae50164ad3a61eb50c1f85d010e90d79c816",
+    "reviewedOn": "2026-10-02"
+  }
 }

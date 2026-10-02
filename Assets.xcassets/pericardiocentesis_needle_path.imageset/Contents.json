@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "filename": "pericardiocentesis_needle_path.png",
+      "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "pericardiocentesis_needle_path-dark.png",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

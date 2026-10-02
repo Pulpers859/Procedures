@@ -104,5 +104,10 @@
       "b": "spread-pecs1",
       "why": "the artery marks the PECS I plane"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "c0a8c0435e446c50e1f5ee364ae580fc89f7f022c92e3c650c457c7ec7f08c40",
+    "reviewedOn": "2026-10-02"
+  }
 }

@@ -96,5 +96,10 @@
       "b": "asis",
       "why": "AIIS below the ASIS"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "ebe6cbe824370c14fd4d5788188330f491f4e4336f5dc7bb00113f418952b5f9",
+    "reviewedOn": "2026-10-02"
+  }
 }

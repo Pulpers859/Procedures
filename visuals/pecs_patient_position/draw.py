@@ -6,10 +6,14 @@ patient's right on the image left (house laterality), so the abducted arm
 runs off the left edge and the sternum is at the right.
 
 Record: supine, arm abducted to 90 degrees; transducer oblique below the
-lateral third of the clavicle; needle in-plane from medial to lateral.
+lateral third of the clavicle, then slid inferolaterally to the 3rd-4th rib
+at the anterior axillary line for PECS II (owner, 2026-10-02: the probe
+belongs at the PECS II position, matching the section); needle in-plane
+from medial to lateral.
 
-Drawn: the linear probe below the lateral third of the clavicle, about 5 cm
-down at the 3rd-4th rib level, its long axis oblique - the medial end up
+Drawn: the linear probe at the PECS II position, over the 3rd-4th rib at
+the anterior axillary line, at the front edge of the armpit fold, above and
+lateral to the nipple, its long axis oblique - the medial end up
 and toward the clavicle, the lateral end down toward the axilla, across the
 ribs - with an upright handle and cable (the approved interscalene probe
 style); the needle entering just beyond the probe's medial (upper-right)
@@ -57,7 +61,7 @@ CLAVICLE = [(-6, 2), (-40, -2), (-80, -8), (-115, -6), (-150, -10)]
 AX_FOLD = [(-160, 80), (-140, 92), (-122, 102), (-104, 112)]
 NIPPLE = (-84.0, 104.0)
 STERNUM = [(0, 8), (0, 60), (0, 120), (0, 180)]
-PROBE_C, PROBE_LEN, PROBE_W = (-115.0, 42.0), 46.0, 9.0
+PROBE_C, PROBE_LEN, PROBE_W = (-128.0, 78.0), 46.0, 9.0
 DIR = (-0.5, 0.866)                # medial end -> lateral end (image: down and left)
 ANG = math.degrees(math.atan2(DIR[1], DIR[0]))
 MED_END = (PROBE_C[0] - DIR[0] * PROBE_LEN / 2, PROBE_C[1] - DIR[1] * PROBE_LEN / 2)

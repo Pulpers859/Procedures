@@ -1,8 +1,8 @@
 """PECS I / II block - the right chest wall in section under a linear probe (layout).
 
 Oblique section of the right anterior chest wall at the 3rd-4th rib level,
-along the probe of the positioning plate (below the lateral third of the
-clavicle, pointing toward the axilla): lateral (the axilla) on the image
+along the probe of the positioning plate (the PECS II position: the 3rd-4th
+rib at the anterior axillary line, pointing toward the axilla): lateral (the axilla) on the image
 left, medial on the right, skin at the top - the same way round as the
 positioning plate, where the needle comes in from the medial end.
 
