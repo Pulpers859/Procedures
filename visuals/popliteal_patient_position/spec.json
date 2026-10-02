@@ -1,0 +1,65 @@
+{
+  "assetId": "popliteal_patient_position",
+  "procedure": "block_popliteal_sciatic",
+  "title": "Probe and needle on the patient",
+  "view": "Prone right leg seen from above and the lateral side (after NYSORA's patient view, pulled back): thigh on the left, knee and calf on the right; the broad upper surface is the back of the leg, the lower band the lateral thigh.",
+  "teachingPoint": "Find the popliteal crease and the biceps femoris tendon, scan up about 6 cm to where the nerves join, and go in-plane from the lateral thigh just below the probe.",
+  "claims": [
+    "Prone right leg, posterolateral view after NYSORA's patient photo (concept only; owner, 2026-10-02), widened to show the back of the knee.",
+    "Dashed: the popliteal crease and the biceps femoris tendon (standard anatomy; the lateral border of the fossa).",
+    "Bracket: the probe about 6 cm above the crease, where the nerves join (record).",
+    "Needle entering the lateral thigh directly below the probe, in line with it: in-plane from lateral (record).",
+    "Labels: Popliteal crease, Biceps femoris tendon, 6 cm, Linear probe, Block needle."
+  ],
+  "requiredElements": [
+    "leg",
+    "lateral-thigh",
+    "crease",
+    "crease-mark",
+    "biceps-mark",
+    "bracket",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Popliteal crease": "crease-mark",
+    "Biceps femoris tendon": "biceps-mark",
+    "6 cm": "bracket-hit",
+    "Linear probe": "probe-handle",
+    "Block needle": "needle"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "crease-mark",
+      "why": "probe proximal to the crease (thigh is left)"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "lateral-thigh",
+      "why": "entry on the lateral thigh"
+    },
+    {
+      "check": "below",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "entry below the probe"
+    },
+    {
+      "check": "crosses",
+      "a": "probe",
+      "b": "leg",
+      "why": "probe on the back of the thigh"
+    },
+    {
+      "check": "below",
+      "a": "biceps-mark",
+      "b": "probe",
+      "why": "biceps tendon on the lateral (lower) edge"
+    }
+  ]
+}

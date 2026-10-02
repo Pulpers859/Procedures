@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-02",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "pixelEdits": [],
+ "repairs": [],
+ "rejected": "None.",
+ "reference": "Unlabelled render of the radial_nerve_anatomy layout (--reference).",
+ "antigravityConversation": "8ec6fa8b-5133-46af-ba3b-690dbda90a5b",
+ "prompt": "Prompt B-style with a style image, new conversation: Image 1 is the exact layout. Use it as the structure for a scientifically accurate cross-section of the forearm at mid-forearm level on the thumb side, under a linear ultrasound probe, seen straight on as a cut face: keep every outline, position and size exactly as drawn, in the same 4:3 landscape frame, with the tissue running to the left, right and bottom edges and the plain off-white space above the skin left plain. Exact labels, a probe, a needle and injected fluid will be laid over it afterwards.\n\nImage 2 is a neighbouring section painted earlier for the same atlas: match its rendering exactly - its fat lobules, packed muscle bellies cut across their fibres, thin glistening white fascia between muscles, nerve fascicles, vessel walls, bone and palette. Take only the style from image 2; take every position, shape and size from image 1.\n\nWork from the top down:\n1. The skin is a thin pink layer; under it, a thin layer of orange-gold fat lobules, then a thin white investing fascia.\n2. The muscles fill the forearm, packed against each other and separated only by thin glistening white fascial lines: deep maroon muscle cut across its fibres.\n3. In the narrow pale strip of fat under the upper middle muscle lie, side by side, the small flattened oval radial nerve (olive-yellow, packed with fine fascicles) and, to its right, the radial artery (red, thick layered wall, dark lumen) with two tiny blue veins either side.\n4. At the lower left, the large pale oval is the radius cut across: smooth ivory cortex over pink spongy bone.\n\nThe picture shows only this anatomy.",
+ "promptAttachments": "Image 1: the layout reference. Image 2: this repo's approved median_nerve_anatomy/base.jpg, style only. NYSORA Nerve Block Manual p.100 Fig-9 (superficial radial nerve at the mid-forearm) consulted for the layout, mirrored, concept only, not attached or committed.",
+ "reviewNotes": "Overlay: every muscle border, the neurovascular plane, nerve, artery, venae comitantes and the radius lie on the layout within a few pixels. No watermark.",
+ "knownLimits": "Schematic section; layer thicknesses are average adult values.",
+ "thirdPartyConcept": "NYSORA Nerve Block Manual p.100 Fig-9, consulted for the layout only (owner's temporary exception); not attached to Gemini, not committed."
+}

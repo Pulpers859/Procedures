@@ -1,0 +1,107 @@
+{
+  "assetId": "popliteal_anatomy",
+  "procedure": "block_popliteal_sciatic",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right thigh about 6 cm above the crease, patient prone, skin at the top: lateral (biceps femoris) on the image right, medial on the left - as the positioning plate.",
+  "teachingPoint": "Tibial and common peroneal nerves side by side in one paraneural sheath; needle in-plane from lateral, tip inside the sheath between the nerves, outside both; the popliteal vessels are medial and deep.",
+  "claims": [
+    "Prone right thigh in section, lateral on the right (matches the positioning plate; NYSORA's prone figure, concept only).",
+    "Tibial nerve medial, common peroneal lateral, in one common paraneural sheath (record).",
+    "Popliteal vein deep and medial to the tibial nerve, the artery deepest (record).",
+    "Needle in-plane from lateral, tip in the sheath between the nerves, outside both (record).",
+    "Teal: spread filling the sheath around both nerves (record).",
+    "Labels: Tibial nerve, Common peroneal nerve, Popliteal vein, Popliteal artery, Biceps femoris."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "semitendinosus",
+    "semimembranosus",
+    "biceps",
+    "sheath",
+    "tibial-nerve",
+    "peroneal-nerve",
+    "popliteal-vein",
+    "popliteal-artery",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
+  "labels": {
+    "Tibial nerve": "tibial-nerve",
+    "Common peroneal nerve": "peroneal-nerve",
+    "Popliteal vein": "popliteal-vein",
+    "Popliteal artery": "popliteal-artery",
+    "Biceps femoris": "biceps"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "tibial-nerve",
+      "b": "peroneal-nerve",
+      "why": "tibial medial, peroneal lateral (lateral is right)"
+    },
+    {
+      "check": "below",
+      "a": "popliteal-vein",
+      "b": "tibial-nerve",
+      "why": "vein deep to the nerves"
+    },
+    {
+      "check": "below",
+      "a": "popliteal-artery",
+      "b": "popliteal-vein",
+      "why": "artery deepest"
+    },
+    {
+      "check": "leftOf",
+      "a": "popliteal-artery",
+      "b": "tibial-nerve",
+      "why": "vessels medial"
+    },
+    {
+      "check": "within",
+      "a": "needle-tip",
+      "b": "sheath",
+      "why": "tip in the paraneural sheath"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-tip",
+      "b": "tibial-nerve",
+      "why": "outside the tibial nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-tip",
+      "b": "peroneal-nerve",
+      "why": "outside the peroneal nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "peroneal-nerve",
+      "why": "the needle path clears the peroneal nerve"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "in-plane from the lateral end"
+    },
+    {
+      "check": "within",
+      "a": "tibial-nerve",
+      "b": "spread",
+      "why": "spread surrounds the tibial nerve"
+    },
+    {
+      "check": "within",
+      "a": "peroneal-nerve",
+      "b": "spread",
+      "why": "spread surrounds the peroneal nerve"
+    }
+  ]
+}

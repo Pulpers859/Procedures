@@ -1,0 +1,103 @@
+{
+  "assetId": "radial_nerve_anatomy",
+  "procedure": "block_radial_nerve",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right mid-forearm, palm up, as on the screen: radial (thumb side) on the image left, ulnar on the right, volar skin at the top - as the median plates.",
+  "teachingPoint": "The radial nerve sits directly lateral to the radial artery in the same fascial plane under brachioradialis; needle in-plane from lateral, spread around the nerve.",
+  "claims": [
+    "Right forearm in section, radial on the left (house laterality; NYSORA's plate mirrored, concept only).",
+    "Radial nerve directly lateral to the radial artery, same fascial plane (record).",
+    "Needle in-plane from the lateral (radial) end, tip at the nerve's lateral border, the artery beyond it (record: in-plane; side as NYSORA).",
+    "Teal: spread around the nerve (record: circumferential).",
+    "Standard anatomy added: brachioradialis over the plane, ECR, FCR, pronator teres, FPL, radius.",
+    "Labels: Radial nerve, Radial artery, Brachioradialis, Pronator teres, Radius."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "brachioradialis",
+    "ecr",
+    "fcr",
+    "pronator-teres",
+    "fpl",
+    "radius",
+    "radial-nerve",
+    "radial-artery",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
+  "labels": {
+    "Radial nerve": "radial-nerve",
+    "Radial artery": "radial-artery",
+    "Brachioradialis": "brachioradialis",
+    "Pronator teres": "pronator-teres",
+    "Radius": "radius"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "radial-nerve",
+      "b": "radial-artery",
+      "why": "nerve lateral to the artery (lateral is left)"
+    },
+    {
+      "check": "noOverlap",
+      "a": "radial-nerve",
+      "b": "brachioradialis",
+      "why": "nerve in the plane, not in muscle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "radial-nerve",
+      "b": "pronator-teres",
+      "why": "nerve in the plane, not in muscle"
+    },
+    {
+      "check": "below",
+      "a": "radial-nerve",
+      "b": "brachioradialis",
+      "why": "under brachioradialis"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "in-plane from the lateral end"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "radial-artery",
+      "why": "needle clears the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-tip",
+      "b": "radial-nerve",
+      "why": "tip beside, not in, the nerve"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "radial-nerve",
+      "maxPx": 40,
+      "why": "tip at the nerve"
+    },
+    {
+      "check": "within",
+      "a": "radial-nerve",
+      "b": "spread",
+      "why": "spread around the nerve"
+    },
+    {
+      "check": "leftOf",
+      "a": "radius",
+      "b": "radial-artery",
+      "why": "radius lateral"
+    }
+  ]
+}

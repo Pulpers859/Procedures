@@ -1,0 +1,109 @@
+{
+  "assetId": "raptir_anatomy",
+  "procedure": "block_raptir",
+  "title": "Target anatomy",
+  "view": "Parasagittal section of the right infraclavicular fossa under a sagittal probe, as on the screen: cranial (the clavicle) on the image left, caudal on the right, skin at the top.",
+  "teachingPoint": "Enter behind the clavicle, pass under it into the beam, and put the tip at the artery's posterior aspect (6 o'clock), by the posterior cord, for a U-shaped spread.",
+  "claims": [
+    "Sagittal section, cranial on the left as on the screen (NYSORA's infraclavicular plate, concept only).",
+    "Cords around the axillary artery deep to pectoralis major and minor; the vein caudal (record).",
+    "Needle from behind (cranial to) the clavicle, passing under it, strictly in-plane, tip at the artery's posterior aspect about 6 o'clock (record).",
+    "Teal: U-shaped spread around the deep half of the artery, lateral to medial cord (record).",
+    "Labels: Clavicle, Pectoralis minor, Axillary artery, Axillary vein, Posterior cord."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "clavicle",
+    "pmaj",
+    "pmin",
+    "axillary-artery",
+    "axillary-vein",
+    "lateral-cord",
+    "posterior-cord",
+    "medial-cord",
+    "serratus",
+    "rib-1",
+    "pleura",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
+  "labels": {
+    "Clavicle": "clavicle",
+    "Pectoralis minor": "pmin",
+    "Axillary artery": "axillary-artery",
+    "Axillary vein": "axillary-vein",
+    "Posterior cord": "posterior-cord"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "axillary-artery",
+      "b": "pmin",
+      "why": "artery deep to pectoralis minor"
+    },
+    {
+      "check": "leftOf",
+      "a": "axillary-artery",
+      "b": "axillary-vein",
+      "why": "vein caudal (caudal is right)"
+    },
+    {
+      "check": "below",
+      "a": "posterior-cord",
+      "b": "axillary-artery",
+      "why": "posterior cord deep, 6 o'clock"
+    },
+    {
+      "check": "leftOf",
+      "a": "lateral-cord",
+      "b": "axillary-artery",
+      "why": "lateral cord cranial"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "clavicle",
+      "why": "needle passes under the clavicle"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "clavicle",
+      "why": "entry cranial to (behind) the clavicle"
+    },
+    {
+      "check": "below",
+      "a": "needle-tip",
+      "b": "axillary-artery",
+      "why": "tip at the posterior aspect"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "axillary-artery",
+      "why": "needle clears the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-tip",
+      "b": "posterior-cord",
+      "why": "tip beside, not in, the cord"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "pleura",
+      "why": "short of the pleura"
+    },
+    {
+      "check": "crosses",
+      "a": "spread",
+      "b": "posterior-cord",
+      "why": "spread reaches the posterior cord"
+    }
+  ]
+}
