@@ -72,7 +72,24 @@ NIPPLE_R = (MCL_X, 103.0)
 PEC_R = [(150, 66), (120, 112), (84, 124), (40, 118), (12, 108)]
 
 
+# Fit to the painting (traced): the nipples land on the layout (MCL 8.4 cm),
+# the sternal notch is 12.5 mm higher (canvas y 220) and the chest is
+# narrower (lateral wall about 13.8 cm out). So y runs notch-to-nipple at
+# 4.48 px/mm from y 220, and x is unchanged to the nipple line and compressed
+# by 0.72 beyond it, so the ribs end at the painted chest wall.
+FIT_ORIGIN_Y, FIT_PX_Y, FIT_X0, FIT_K = 220.0, 4.48, 84.0, 0.72
+
+
+def fit_x(x):
+    ax = abs(x)
+    if ax > FIT_X0:
+        ax = FIT_X0 + (ax - FIT_X0) * FIT_K
+    return ax if x >= 0 else -ax
+
+
 def c(p):
+    if BASE.exists():
+        return (ORIGIN[0] - fit_x(p[0]) * PX_MM, FIT_ORIGIN_Y + p[1] * FIT_PX_Y)
     return (ORIGIN[0] - p[0] * PX_MM, ORIGIN[1] + p[1] * PX_MM)
 
 

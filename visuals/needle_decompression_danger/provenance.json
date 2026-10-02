@@ -7,14 +7,14 @@
   1200,
   896
  ],
- "pixelEdits": [],
+ "reference": "Unlabelled render of the needle_decompression_landmarks torso layout (commit bb45dce draw.py, --reference). Shared painting with needle_decompression_landmarks.",
+ "antigravityConversation": "e1d3db3a-c9aa-4957-bc2a-ce1fa391c6f3",
+ "prompt": "Prompt A (photo variant), new conversation: The attached image is an exact layout of an adult man lying flat on his back on a pale blue-grey stretcher sheet, photographed from directly above, cropped exactly as drawn: the base of the neck at the top centre, the shoulders reaching to the top corners, the arms lying at his sides along the left and right edges (separated from the chest by the faint lines), and the bare chest filling the middle down to the upper abdomen, with the small dip of the sternal notch at the top of the chest, the two nipples exactly where drawn, and the gentle lower borders of the chest muscles. Turn this into a realistic clinical photograph of the bare chest of a supine adult male patient, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and position; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture and light chest hair, the soft real contours of the collarbones, sternum, chest muscles and ribs under the skin, soft even emergency-room light from above, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, dots, electrodes, tubes, needles, instruments, hands, gloves, tattoos or blood, and no face, border or frame.",
+ "promptAttachments": "Image 1: the layout reference. The owner's example photo (rib drawing over a supine male chest) set the composition only; it was not attached or committed.",
  "repairs": [],
- "reference": "Same painting as needle_decompression_landmarks (layout commit 42d1c7c); reused, not repainted.",
- "antigravityConversation": "154e4931-e9e3-4225-9979-a9ae7bc4c883",
- "prompt": "None for this plate: the approved needle_decompression_landmarks painting is reused (owner, 2026-10-02: reuse solved anatomy).",
- "promptAttachments": "None.",
- "rejected": "None.",
- "reviewNotes": "Markings drawn in the layout's frame, which the shared painting matches within a few pixels.",
- "knownLimits": "The internal mammary artery runs deep to the costal cartilages; it is drawn projected onto the front view. The intercostal inset is code-drawn and not to scale.",
+ "pixelEdits": [],
+ "rejected": "Conversation 2c77c535 hit the Gemini quota (429) before painting. The earlier bone-only atlas painting (commit e8d3263) was withdrawn at the owner's request (2026-10-02) for this torso version.",
+ "reviewNotes": "Overlay: the nipples land on the layout; the sternal notch is about 12 mm higher and the chest narrower (lateral wall about 13.8 cm from the midline). The code-drawn rib cage is fitted to the painting (FIT_* in draw.py): y scaled from the traced notch to the nipples, x unchanged to the nipple line and compressed beyond it. No watermark, no face.",
+ "knownLimits": "The rib cage is a drawn overlay at standard adult proportions fitted to the visible landmarks, not traced from the patient's bones. Ribs 1-7 only. The internal mammary arteries run deep to the costal cartilages and are drawn projected. The intercostal inset is code-drawn and not to scale.",
  "thirdPartyConcept": "None."
 }
