@@ -92,5 +92,10 @@
       "b": "pleura",
       "why": "catheter reaches the pleura"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "e306a573d006ea7ffa2dc5453228a5d80623df6549911c7f900f8bb4b45de89a",
+    "reviewedOn": "2026-10-02"
+  }
 }

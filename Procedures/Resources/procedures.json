@@ -1299,9 +1299,9 @@
         "kind": "Landmark",
         "title": "Decompression landmarks",
         "subtitle": "2nd intercostal space, midclavicular line (anterior) or 4th\u20135th intercostal space, anterior axillary line (lateral). Lateral approach preferred in muscular or obese patients.",
-        "assetName": null,
+        "assetName": "needle_decompression_landmarks",
         "systemImage": "target",
-        "caption": "",
+        "caption": "Supine male chest from above, patient's right on the left, ribs drawn over it: preferred site 4th-5th intercostal space at the anterior axillary line; alternate 2nd space at the midclavicular line.",
         "clinicalWarning": "Standard 5 cm catheter may be insufficient in obese patients. Consider longer catheter or finger thoracostomy."
       },
       {
@@ -1309,9 +1309,9 @@
         "kind": "Danger Zone",
         "title": "Medial danger zone",
         "subtitle": "Internal mammary artery runs 1-2 cm lateral to the sternum. Stay in the midclavicular line to avoid it. The intercostal bundle runs along the inferior rib margin.",
-        "assetName": null,
+        "assetName": "needle_decompression_danger",
         "systemImage": "exclamationmark.triangle",
-        "caption": "",
+        "caption": "Ribs drawn over a supine male chest: the internal mammary arteries run just lateral to the sternum, so stay out at the midclavicular line; inset: go over the rib below, away from the bundle under the rib above.",
         "clinicalWarning": "Too medial risks internal mammary artery. Too low risks abdominal contents."
       }
     ],

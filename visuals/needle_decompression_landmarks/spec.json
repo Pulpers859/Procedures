@@ -10,7 +10,7 @@
     "Teal at the AAL: the 4th and 5th intercostal spaces (record, preferred site).",
     "Teal at the MCL: the 2nd intercostal space, below the 2nd rib whose cartilage meets the sternal angle (record, alternate site).",
     "Nipple at the 4th intercostal space on the MCL (standard male anatomy).",
-    "Labels: Clavicle, 2nd ICS, MCL, 4th–5th ICS, AAL, Midclavicular line, Anterior axillary line."
+    "Labels: Clavicle, 2nd ICS, MCL, 4th\u20135th ICS, AAL, Midclavicular line, Anterior axillary line."
   ],
   "requiredElements": [
     "torso",
@@ -34,7 +34,7 @@
   "labels": {
     "Clavicle": "clavicle",
     "2nd ICS, MCL": "target-2ics",
-    "4th–5th ICS, AAL": "target-5ics",
+    "4th\u20135th ICS, AAL": "target-5ics",
     "Midclavicular line": "mcl",
     "Anterior axillary line": "aal"
   },
@@ -111,5 +111,10 @@
       "b": "nipple-right",
       "why": "the nipple lies on the MCL"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "06c51f6bc02022b487551dd6d61a921fbd0e56394c93bfa1720de70654f08102",
+    "reviewedOn": "2026-10-02"
+  }
 }
