@@ -2,19 +2,22 @@
   "assetId": "needle_decompression_landmarks",
   "procedure": "needle_decompression",
   "title": "Decompression landmarks",
-  "view": "The right bony thorax from the front, head at the top, the patient's right on the image left: clavicle, sternum, ribs 1-7.",
+  "view": "Adult male supine, from directly above, head at the top, the patient's right on the image left; the rib cage drawn over the chest.",
   "teachingPoint": "Preferred: the 4th or 5th intercostal space at the anterior axillary line; alternate: the 2nd intercostal space at the midclavicular line.",
   "claims": [
-    "Right hemithorax from the front, patient's right on the image left (house laterality; the record says choose the side clinically).",
+    "Male torso from above, patient's right on the image left (house laterality; the record says choose the side clinically).",
+    "Translucent bones: clavicles, sternum, ribs 1-7 and costal cartilages drawn over the chest (owner, 2026-10-02), from the approved bone layout narrowed 12%.",
     "Teal at the AAL: the 4th and 5th intercostal spaces (record, preferred site).",
     "Teal at the MCL: the 2nd intercostal space, below the 2nd rib whose cartilage meets the sternal angle (record, alternate site).",
-    "Dashed: the midclavicular line through the clavicle's midpoint, about 9.5 cm from the midline, and the anterior axillary line about 14 cm out (standard adult anatomy).",
+    "Nipple at the 4th intercostal space on the MCL (standard male anatomy).",
     "Labels: Clavicle, 2nd ICS, MCL, 4th–5th ICS, AAL, Midclavicular line, Anterior axillary line."
   ],
   "requiredElements": [
+    "torso",
+    "nipple-right",
+    "rib-cage",
     "sternum",
     "clavicle",
-    "humerus",
     "rib-1",
     "rib-2",
     "rib-3",
@@ -101,6 +104,12 @@
       "a": "mcl",
       "b": "sternum",
       "why": "MCL is lateral to the sternum"
+    },
+    {
+      "check": "crosses",
+      "a": "mcl",
+      "b": "nipple-right",
+      "why": "the nipple lies on the MCL"
     }
   ]
 }

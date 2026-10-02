@@ -2,22 +2,25 @@
   "assetId": "needle_decompression_danger",
   "procedure": "needle_decompression",
   "title": "Medial danger zone",
-  "view": "The right bony thorax from the front, patient's right on the image left; inset: one intercostal space in sagittal section, skin on the left, pleura on the right, head up.",
+  "view": "Adult male supine from directly above, patient's right on the image left, the rib cage drawn over the chest; inset: one intercostal space in sagittal section, skin on the left, pleura on the right, head up.",
   "teachingPoint": "The internal mammary artery runs 1-2 cm lateral to the sternum: stay out at the midclavicular line. Go over the top of the rib below; the bundle runs under the rib above.",
   "claims": [
-    "Red band: 0-2 cm lateral to the sternal edge, with the internal mammary artery drawn about 1.2 cm out (record: 1-2 cm lateral to the sternum).",
-    "Teal on the dashed MCL: the 2nd intercostal space site, clear of the band (record: stay in the midclavicular line).",
+    "Red bands: 0-2 cm lateral to each sternal edge, with the internal mammary arteries drawn about 1.2 cm out (record: 1-2 cm lateral to the sternum); drawn projected, they run deep to the cartilages.",
+    "Teal on the dashed right MCL: the 2nd intercostal space site, clear of the band (record: stay in the midclavicular line).",
     "Inset (not to scale): vein, artery and nerve in the costal groove under the upper rib; the catheter passes perpendicular just over the lower rib (record: bundle along the inferior rib margin; steps: over the rib, perpendicular).",
-    "Painting reused from needle_decompression_landmarks.",
+    "Torso photograph shared with needle_decompression_landmarks; rib cage drawn over it (owner, 2026-10-02).",
     "Labels: Internal mammary artery, Midclavicular line, 2nd ICS, MCL, Neurovascular bundle, Rib below."
   ],
   "requiredElements": [
+    "torso",
+    "rib-cage",
     "sternum",
     "clavicle",
     "rib-2",
     "rib-3",
     "danger-band",
     "ima",
+    "ima-left",
     "mcl",
     "target-2ics",
     "inset",
@@ -28,7 +31,7 @@
     "pleura"
   ],
   "labels": {
-    "Internal mammary artery": "ima",
+    "Internal mammary artery": "ima-left",
     "Midclavicular line": "mcl",
     "2nd ICS, MCL": "target-2ics",
     "Neurovascular bundle": "bundle",
