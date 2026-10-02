@@ -128,5 +128,10 @@
       "b": "fdp",
       "why": "FPL is the radial deep muscle"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "b8fcd2d89bb745909dacab3299526cebb70a4ab1b55b80e1189e28514baacba9",
+    "reviewedOn": "2026-10-02"
+  }
 }

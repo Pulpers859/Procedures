@@ -11,7 +11,7 @@
     "Teal: the L3-L4 and L4-L5 interspaces, either side of L4 (record).",
     "Purple dots: spinous processes L2-S1, about 3.8 cm apart (standard adult anatomy); L4 ringed.",
     "Standard anatomy added: the iliac crests rising from the posterior superior iliac spine dimples to their highest point at the flanks, about 14 cm either side of the spine; the midline furrow.",
-    "Labels: Iliac crest, Tuffier's line, L4, L3–L4, L4–L5."
+    "Labels: Iliac crest, Tuffier's line, L4, L3\u2013L4, L4\u2013L5."
   ],
   "requiredElements": [
     "back",
@@ -34,8 +34,8 @@
     "Iliac crest": "crest-mark-upper",
     "Tuffier's line": "tuffier",
     "L4": "l4",
-    "L3–L4": "target-l3l4",
-    "L4–L5": "target-l4l5"
+    "L3\u2013L4": "target-l3l4",
+    "L4\u2013L5": "target-l4l5"
   },
   "geometry": [
     {
@@ -98,5 +98,10 @@
       "b": "crest-mark-lower",
       "why": "the line reaches the lower crest"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "e10e57f325de5ac6bc350eb90c1679e3923e6a1777ca455303272933b8759445",
+    "reviewedOn": "2026-10-02"
+  }
 }

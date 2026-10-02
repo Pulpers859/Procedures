@@ -55,5 +55,10 @@
       "b": "wrist-crease",
       "why": "thenar on the radial side"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "ae4c92b6d3edfe3e5b715768ee8ce4a2a1c3a922ed5b66ccde4d31a1ae68339b",
+    "reviewedOn": "2026-10-02"
+  }
 }

@@ -97,5 +97,10 @@
       "b": "ligamentum-flavum",
       "why": "dura deep to the flavum"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "8e54b3e55bebd95bfb503ea6972586e572ff584c7d7b3e065459183c40e8d47d",
+    "reviewedOn": "2026-10-02"
+  }
 }

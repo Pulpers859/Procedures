@@ -9,7 +9,7 @@
     "Bite flask-shaped: wider at its base than at the surface, through the dermis into the top of the fat, equal depth both sides (standard technique; record: bite depth sets eversion).",
     "Tied: the edges meet and rise into a slight ridge (record: edge eversion).",
     "Dermis drawn 2.5 mm; 40 px/mm.",
-    "Labels: 90° entry, Dermis, Wider at depth, Everted edges, Knot."
+    "Labels: 90\u00b0 entry, Dermis, Wider at depth, Everted edges, Knot."
   ],
   "requiredElements": [
     "dermis-a",
@@ -26,7 +26,7 @@
     "cut-line"
   ],
   "labels": {
-    "90° entry": "entry-angle",
+    "90\u00b0 entry": "entry-angle",
     "Dermis": "dermis-a",
     "Wider at depth": "bite-a",
     "Everted edges": "dermis-b",
@@ -63,5 +63,10 @@
       "b": "dermis-a",
       "why": "the tied panel is below the open one"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "cd4471afde060d0febc172204625c853a824ed2e37509eac8b733b28fa9f982f",
+    "reviewedOn": "2026-10-02"
+  }
 }

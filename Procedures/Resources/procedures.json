@@ -2036,9 +2036,9 @@
         "kind": "Landmark",
         "title": "LP interspace landmarks",
         "subtitle": "Tuffier's line (a line connecting the iliac crests) crosses at approximately the L4 spinous process. L3\u2013L4 or L4\u2013L5 interspaces are the target, below the conus medullaris.",
-        "assetName": null,
+        "assetName": "lp_position_landmark",
         "systemImage": "figure.seated.side",
-        "caption": "",
+        "caption": "Left lateral decubitus from behind, head to the right: Tuffier's line joins the iliac crests at about L4; target L3-L4 or L4-L5.",
         "clinicalWarning": "The conus medullaris typically ends at L1\u2013L2. Do not insert above L3."
       },
       {
@@ -2046,9 +2046,9 @@
         "kind": "Setup",
         "title": "Needle trajectory",
         "subtitle": "Midline approach: needle angled slightly cephalad, passing through skin, subcutaneous tissue, supraspinous ligament, interspinous ligament, ligamentum flavum, then dura. Pop felt at dura entry.",
-        "assetName": null,
+        "assetName": "lp_needle_trajectory",
         "systemImage": "arrow.up.forward",
-        "caption": "",
+        "caption": "Midline sagittal section, head to the right: needle angled slightly cephalad through the supraspinous and interspinous ligaments, ligamentum flavum and dura into the CSF.",
         "clinicalWarning": "If bone is hit, withdraw and redirect \u2014 do not force through."
       }
     ],
@@ -3744,9 +3744,9 @@
         "kind": "Setup",
         "title": "Everting interrupted suture",
         "subtitle": "Needle entry angle and bite depth set the edge eversion that gives a tension-free closure.",
-        "assetName": null,
+        "assetName": "suture_eversion",
         "systemImage": "bandage.fill",
-        "caption": "",
+        "caption": "Cut-away across a laceration: enter perpendicular to the skin, bite wider at its base than at the surface and equal both sides (top); tied, the edges evert into a slight ridge (bottom).",
         "clinicalWarning": "Close without tension - evert the edges, and use deep dermal sutures where the depth requires them."
       }
     ],
@@ -6636,9 +6636,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Arm supinated and extended. Nerve in short axis in the mid-forearm. Needle in-plane.",
-        "assetName": null,
+        "assetName": "median_nerve_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right forearm palm up, elbow at the top, thumb side on the left: probe across the mid-forearm, needle in-plane from the thumb side.",
         "clinicalWarning": null
       },
       {
@@ -6646,9 +6646,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "In the mid-forearm the median nerve lies between the FDS and FDP muscle bellies. Aim for the nerve's deep border.",
-        "assetName": null,
+        "assetName": "median_nerve_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right mid-forearm in section, thumb side on the left: the median nerve lies in the plane between FDS and FDP; needle tip at its deep border.",
         "clinicalWarning": null
       }
     ],
