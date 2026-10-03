@@ -2,18 +2,19 @@
   "assetId": "serratus_patient_position",
   "procedure": "block_serratus_anterior",
   "title": "Probe and needle on the patient",
-  "view": "Right lateral chest wall from the patient's right side, supine with the arm raised beside the head: head to the left, front of the chest toward the top, back toward the bed.",
-  "teachingPoint": "Probe sagittal on the mid-axillary line at the 4th-5th rib, below the armpit; needle in-plane from cranial.",
+  "view": "Right lateral chest wall face-on, cranial at the top, anterior on the image left, posterior on the right (NYSORA's view).",
+  "teachingPoint": "Probe across the mid-axillary line at the 4th-5th ribs, lying anterior-posterior; needle in-plane from the anterior end, superior-anterior to posterior-inferior.",
   "claims": [
-    "Supine, arm abducted (record); camera after NYSORA's patient photo (concept only).",
-    "Probe upright, sagittal, on the mid-axillary line at the 4th-5th intercostal space (record).",
-    "Needle entering just cranial to the probe, in line with it: in-plane cranial to caudal (record).",
+    "Lateral chest face-on, cranial up, anterior left (owner, 2026-10-03: follow NYSORA Fig-8/9; concept only).",
+    "Probe on the mid-axillary line at the 4th-5th ribs, its long axis anterior-posterior (NYSORA: transverse; record says sagittal - raised with the owner).",
+    "Needle entering just anterior to the probe, from slightly superior, in line with it (NYSORA: superior-anterior to posterior-inferior).",
     "Dashed: the mid-axillary line.",
     "Labels: Mid-axillary line, Linear probe, Block needle."
   ],
   "requiredElements": [
     "chest",
-    "arm",
+    "breast",
+    "drape",
     "probe",
     "probe-handle",
     "needle",
@@ -30,7 +31,7 @@
       "check": "leftOf",
       "a": "needle-entry",
       "b": "probe",
-      "why": "needle enters cranial to the probe (head is left)"
+      "why": "needle from the anterior end (anterior is left)"
     },
     {
       "check": "crosses",
@@ -39,16 +40,16 @@
       "why": "probe on the mid-axillary line"
     },
     {
-      "check": "within",
-      "a": "needle-entry",
-      "b": "chest",
-      "why": "entry on the skin"
+      "check": "below",
+      "a": "probe",
+      "b": "breast",
+      "why": "probe below the pectoral/breast contour"
     },
     {
       "check": "below",
-      "a": "probe",
-      "b": "arm",
-      "why": "probe below the armpit"
+      "a": "needle-entry",
+      "b": "needle",
+      "why": "needle comes from slightly superior"
     }
   ]
 }
