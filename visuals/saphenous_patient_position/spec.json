@@ -50,5 +50,10 @@
       "b": "knee-mark",
       "why": "probe proximal to the knee (knee at the top)"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "c08702d7bc5db72e0e5ef64f5d76cb9518bea621f679ed879711e2068b2b7bd0",
+    "reviewedOn": "2026-10-03"
+  }
 }

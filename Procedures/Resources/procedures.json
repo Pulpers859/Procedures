@@ -8647,9 +8647,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine, leg slightly externally rotated ('frog leg'). Transducer transverse on the mid-medial thigh. Needle in-plane, anterior to posterior or lateral to medial.",
-        "assetName": null,
+        "assetName": "saphenous_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right thigh from the hip, knee at the top: probe square across the medial thigh above the knee; needle in-plane from the anterior (lateral) side.",
         "clinicalWarning": null
       },
       {
