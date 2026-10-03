@@ -54,5 +54,10 @@
       "b": "probe",
       "why": "needle from the lateral side"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "9dd5baf641c6e177409c78d94f8ab7545d422bc42ddce404ca3619ee3e367abc",
+    "reviewedOn": "2026-10-03"
+  }
 }

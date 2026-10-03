@@ -105,5 +105,10 @@
       "b": "posterior-cord",
       "why": "spread reaches the posterior cord"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "1f005b4901d8970ff7c9f6b1a11343264267fc0c634a28853a77ae3f89771c7b",
+    "reviewedOn": "2026-10-03"
+  }
 }

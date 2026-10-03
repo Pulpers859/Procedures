@@ -6210,9 +6210,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The cords surround the axillary artery deep to pectoralis major and minor; the axillary vein is usually medial or caudal. Target the posterior aspect of the artery, at about 6 o'clock.",
-        "assetName": null,
+        "assetName": "raptir_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Sagittal section below the right clavicle, head on the left: needle from behind the clavicle passes under it to the axillary artery's 6 o'clock, by the posterior cord.",
         "clinicalWarning": null
       }
     ],
@@ -8877,9 +8877,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Prone; lateral decubitus or supine with the leg elevated only if prone is not possible. Transducer transverse over the popliteal crease. Needle in-plane from lateral to medial.",
-        "assetName": null,
+        "assetName": "popliteal_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Prone, right leg from the lateral side: probe square across the back of the thigh about 6 cm above the popliteal crease; needle in-plane from the lateral thigh.",
         "clinicalWarning": null
       },
       {
@@ -8887,9 +8887,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The sciatic nerve divides about 6 cm above the crease into the tibial (medial) and common peroneal (lateral) nerves; the popliteal artery and vein are medial and deep. Inject into the common paraneural sheath, outside the nerves.",
-        "assetName": null,
+        "assetName": "popliteal_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right thigh in section above the knee, prone, lateral on the right: tibial and common peroneal nerves in one sheath; needle tip inside the sheath between them, vessels deep and medial.",
         "clinicalWarning": null
       }
     ],

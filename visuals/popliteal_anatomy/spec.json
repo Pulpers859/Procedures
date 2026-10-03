@@ -103,5 +103,10 @@
       "b": "spread",
       "why": "spread surrounds the peroneal nerve"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "2b8305aae266b299c8aa2089a833bdd6b26defa07cd5860e58354f25a53d14e4",
+    "reviewedOn": "2026-10-03"
+  }
 }
