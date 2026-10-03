@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, run by hand while the Antigravity quota was exhausted)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay before use",
+ "date": "2026-10-03",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the saphenous_patient_position layout (commit e61a952 draw.py, --reference).",
+ "prompt": "Photo-variant prompt from the session's prompt list, new chat, pasted by the owner.",
+ "promptAttachments": "Image 1: the layout reference. Layout camera after NYSORA's patient photo (concept only, not committed).",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "reviewNotes": "The painting came back flipped against the layout: knee at the top, groin drape at the bottom, the probe square across the thigh just above the knee (matches the owner's reference photo of the block). Probe and needle land near the layout; the knee label is traced on the painted kneecap; the needle tip stopped at the thigh's edge, so the last few mm into the skin are code-drawn. No watermark.",
+ "knownLimits": "Probe position is the distal adductor canal just above the knee (owner's photo); the record says mid-medial thigh.",
+ "thirdPartyConcept": "NYSORA patient photo and an owner-supplied clinical photo used for the composition only; not attached, not committed."
+}

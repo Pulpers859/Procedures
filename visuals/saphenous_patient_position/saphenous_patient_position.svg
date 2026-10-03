@@ -38,8 +38,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy">
+<g id="painting" data-base-sha256="65d682ecd29d155c033654c0d3d1d7b1c410f4b220f2fdcd518637211aa257a0"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
   <rect x="0" y="0" width="1600" height="1200" fill="#F2F4F6"/>
   <path id="lateral-thigh" d="M370,1240 C370.8,1203.3 376.2,870 380,800 C383.8,730 408.3,470 415,400 C421.7,330 456.2,-3.3 460,-40 L550,-40 L510,400 L480,800 L470,1240 Z" fill="#C79579" stroke="#A9765F" stroke-width="3"/>
   <path id="leg" d="M470,1240 C470.8,1203.3 476.7,870 480,800 C483.3,730 504.2,470 510,400 C515.8,330 546.7,-3.3 550,-40 L1240,-40 L1270,400 L1300,800 L1310,1240 Z" fill="url(#post-skin)" stroke="#B98A74" stroke-width="3"/>
@@ -55,9 +55,10 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </g>
 
 <g class="marking">
-  <path id="crease-mark" d="M590,1060 C610,1060 748,1060 790,1060 C832,1060 970,1060 1010,1060 C1050,1060 1172,1060 1190,1060" fill="none" stroke="#4A2F7A" stroke-width="7" stroke-dasharray="16 10"/>
+  
+  <ellipse id="knee-mark" cx="880.0" cy="150.0" rx="150" ry="110" fill="#000" opacity="0"/><line x1="450.0" y1="520.0" x2="560.0" y2="521.0" stroke="#A9B0B7" stroke-width="4"/><circle cx="560.0" cy="521.0" r="4" fill="#9E6B5A"/>
 </g>
 
-<g id="labels"><g class="label" data-label="Knee joint line" data-target="crease-mark"><polyline class="leader-halo" points="420,1110 590,1060"/><polyline class="leader" points="420,1110 590,1060"/><circle class="leader-dot" cx="590" cy="1060" r="7"/><text x="40" y="1150" text-anchor="start"><tspan x="40" dy="0">Knee joint line</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="1030,190 920,300"/><polyline class="leader" points="1030,190 920,300"/><circle class="leader-dot" cx="920" cy="300" r="7"/><text x="1020" y="170" text-anchor="start"><tspan x="1020" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,640 350,520"/><polyline class="leader" points="200,640 350,520"/><circle class="leader-dot" cx="350" cy="520" r="7"/><text x="40" y="680" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Knee" data-target="knee-mark"><polyline class="leader-halo" points="1220,170 1000,150"/><polyline class="leader" points="1220,170 1000,150"/><circle class="leader-dot" cx="1000" cy="150" r="7"/><text x="1230" y="190" text-anchor="start"><tspan x="1230" dy="0">Knee</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="1120,480 920,380"/><polyline class="leader" points="1120,480 920,380"/><circle class="leader-dot" cx="920" cy="380" r="7"/><text x="1110" y="520" text-anchor="start"><tspan x="1110" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,640 350,520"/><polyline class="leader" points="200,640 350,520"/><circle class="leader-dot" cx="350" cy="520" r="7"/><text x="40" y="680" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g></g>
 
 </svg>

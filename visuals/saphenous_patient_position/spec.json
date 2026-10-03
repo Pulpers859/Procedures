@@ -2,26 +2,26 @@
   "assetId": "saphenous_patient_position",
   "procedure": "block_saphenous_nerve",
   "title": "Probe and needle on the patient",
-  "view": "Supine, right leg slightly externally rotated, seen from the foot looking up the medial thigh: knee at the bottom, groin drape at the top.",
+  "view": "Supine, right leg slightly externally rotated, seen from the hip looking down the thigh to the knee (knee at the top), as in the owner's reference photo.",
   "teachingPoint": "Probe transverse on the mid-medial thigh; needle in-plane from the anterior (lateral) side toward the probe.",
   "claims": [
     "Supine, leg slightly externally rotated (record); camera after NYSORA's patient photo (concept only).",
-    "Probe transverse, square across the mid-medial thigh (record).",
+    "Probe transverse, square across the medial thigh above the knee, the distal adductor canal (owner's reference photo; record: mid-medial thigh).",
     "Needle entering the anterior thigh in the probe's plane, level: lateral to medial (record).",
-    "Dashed: the medial knee joint line for orientation.",
-    "Labels: Knee joint line, Linear probe, Block needle."
+    "The needle's last few millimetres into the skin are code-drawn (the painting stopped the tip at the thigh's edge).",
+    "Labels: Knee, Linear probe, Block needle."
   ],
   "requiredElements": [
     "leg",
     "lateral-thigh",
-    "crease-mark",
     "probe",
     "probe-handle",
     "needle",
-    "needle-entry"
+    "needle-entry",
+    "knee-mark"
   ],
   "labels": {
-    "Knee joint line": "crease-mark",
+    "Knee": "knee-mark",
     "Linear probe": "probe-handle",
     "Block needle": "needle"
   },
@@ -31,12 +31,6 @@
       "a": "needle-entry",
       "b": "lateral-thigh",
       "why": "entry on the anterior thigh"
-    },
-    {
-      "check": "below",
-      "a": "crease-mark",
-      "b": "probe",
-      "why": "probe proximal to the knee"
     },
     {
       "check": "within",
@@ -49,6 +43,12 @@
       "a": "needle-entry",
       "b": "probe",
       "why": "needle from the anterior/lateral side"
+    },
+    {
+      "check": "below",
+      "a": "probe",
+      "b": "knee-mark",
+      "why": "probe proximal to the knee (knee at the top)"
     }
   ]
 }

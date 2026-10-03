@@ -58,6 +58,11 @@ FOOT = [off(off(PROBE_C, PERP, -110), AXIS, -26), off(off(PROBE_C, PERP, 110), A
 HANDLE = [off(PROBE_C, PERP, -90), off(PROBE_C, PERP, 90), (PROBE_C[0] + 70, 300), (PROBE_C[0] + 60, -40),
           (PROBE_C[0] - 60, -40), (PROBE_C[0] - 70, 300)]
 NEEDLE_ENTRY = off(PROBE_C, PERP, -400)
+# Painted (owner's Gemini, 2026-10-03): the view came back flipped, knee at the top and the groin drape at the
+# bottom, the probe just above the knee as in the owner's reference photo. Traced: the kneecap; the needle tip
+# stopped in the air at the thigh's edge, so the shaft is code-drawn into the skin.
+KNEE_PX = (880.0, 150.0)
+NEEDLE_TIP_PX, NEEDLE_SKIN_PX = (480.0, 520.0), (560.0, 521.0)
 NEEDLE_HUB = off(PROBE_C, PERP, -660)
 
 DEFS = """
@@ -79,8 +84,9 @@ def build() -> str:
     t0, t1 = t(b0), t(b1)
     bm = ((b0[0] + b1[0]) / 2, (b0[1] + b1[1]) / 2)
     labels = [
-        Label(["Knee joint line"], anchor=(40, 1150), leader=[(420, 1110), off(CREASE_C, PERP, -300)], target_id="crease-mark"),
-        Label(["Linear probe"], anchor=(1020, 170), leader=[(1030, 190), (PROBE_C[0] + 40, 300)], target_id="probe-handle"),
+        (Label(["Knee"], anchor=(1230, 190), leader=[(1220, 170), (KNEE_PX[0] + 120, KNEE_PX[1])], target_id="knee-mark") if BASE.exists()
+         else Label(["Knee joint line"], anchor=(40, 1150), leader=[(420, 1110), off(CREASE_C, PERP, -300)], target_id="crease-mark")),
+        Label(["Linear probe"], anchor=(1110, 520), leader=[(1120, 480), (PROBE_C[0] + 40, 380)], target_id="probe-handle"),
         Label(["Block needle"], anchor=(40, 680), leader=[(200, 640), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
     ]
     painted = BASE.exists()
@@ -115,7 +121,8 @@ def build() -> str:
 </g>
 
 <g class="marking">
-  <path id="crease-mark" d="{smooth_path(CREASE, tension=0.6)}" fill="none" stroke="#4A2F7A" stroke-width="7" stroke-dasharray="16 10"/>
+  {'' if BASE.exists() else f'<path id="crease-mark" d="{smooth_path(CREASE, tension=0.6)}" fill="none" stroke="#4A2F7A" stroke-width="7" stroke-dasharray="16 10"/>'}
+  {f'<ellipse id="knee-mark" cx="{KNEE_PX[0]}" cy="{KNEE_PX[1]}" rx="150" ry="110" fill="#000" opacity="0"/><line x1="{NEEDLE_TIP_PX[0] - 30}" y1="{NEEDLE_TIP_PX[1]}" x2="{NEEDLE_SKIN_PX[0]}" y2="{NEEDLE_SKIN_PX[1]}" stroke="#A9B0B7" stroke-width="4"/><circle cx="{NEEDLE_SKIN_PX[0]}" cy="{NEEDLE_SKIN_PX[1]}" r="4" fill="#9E6B5A"/>' if BASE.exists() else ''}
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>

@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, run by hand while the Antigravity quota was exhausted)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay before use",
+ "date": "2026-10-03",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the serratus_patient_position layout (commit e61a952 draw.py, --reference).",
+ "prompt": "Photo-variant prompt from the session's prompt list, new chat, pasted by the owner.",
+ "promptAttachments": "Image 1: the layout reference. Layout camera after NYSORA's patient photo (concept only, not committed).",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "reviewNotes": "Overlay: arm, armpit, nipple, probe, needle and tubing lie on the layout within a few pixels; the mid-axillary line is drawn through the probe. No watermark.",
+ "knownLimits": "The 4th-5th rib level is placed below the armpit by standard anatomy, not counted on the photo.",
+ "thirdPartyConcept": "NYSORA patient photo and an owner-supplied clinical photo used for the composition only; not attached, not committed."
+}
