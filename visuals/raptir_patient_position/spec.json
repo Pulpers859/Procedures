@@ -7,9 +7,9 @@
   "claims": [
     "Supine, arm adducted (record); side view with the head to the left, after three clinical RAPTIR photos the owner shared (concept only).",
     "Linear probe upright, sagittal, in the infraclavicular fossa just medial to the coracoid (record: sagittal over the infraclavicular fossa; coracoid standard anatomy).",
-    "Needle entering above the clavicle, cranial to the probe and in line with it, shallow, aimed caudally (record: posterior to the clavicle, caudal, strictly in-plane).",
+    "Needle entering in the supraclavicular hollow, angled down (posteriorly) and caudally; its path under the skin (dashed teal) passes posterior to the clavicle toward the probe's beam (record: posterior to the clavicle, caudal, strictly in-plane; owner, 2026-10-03).",
     "Dashed clavicle; ring on the coracoid.",
-    "Labels: Clavicle, Coracoid, Linear probe, Block needle, Deltoid."
+    "Labels: Clavicle, Coracoid, Linear probe, Block needle, Path behind clavicle, Deltoid."
   ],
   "requiredElements": [
     "skin",
@@ -19,14 +19,16 @@
     "needle",
     "needle-entry",
     "clavicle-mark",
-    "coracoid-mark"
+    "coracoid-mark",
+    "needle-path"
   ],
   "labels": {
     "Clavicle": "clavicle-mark",
     "Coracoid": "coracoid-mark",
     "Linear probe": "probe-handle",
     "Block needle": "needle",
-    "Deltoid": "deltoid"
+    "Deltoid": "deltoid",
+    "Path behind clavicle": "needle-path"
   },
   "geometry": [
     {
@@ -52,6 +54,12 @@
       "a": "needle-entry",
       "b": "skin",
       "why": "entry on the skin"
+    },
+    {
+      "check": "below",
+      "a": "needle-path",
+      "b": "clavicle-mark",
+      "why": "the path runs posterior to (below, in this view) the clavicle"
     }
   ]
 }

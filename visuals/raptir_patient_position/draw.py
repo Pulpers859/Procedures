@@ -14,7 +14,11 @@ fossa; needle inserted posterior to the clavicle, aimed caudally, strictly
 in-plane. Standard anatomy added: the coracoid just lateral to the probe,
 the deltopectoral groove, the deltoid and pectoralis major.
 
-Code-drawn: the dashed clavicle and a ring on the coracoid. Perspective
+Code-drawn: the dashed clavicle, a ring on the coracoid, and the needle's
+path under the skin (dashed teal) diving from the supraclavicular entry
+posterior to (below, in this view) the clavicle toward the probe's beam.
+Owner, 2026-10-03: the needle must pass POSTERIOR to the clavicle; an
+earlier draft ran it level over the front of the clavicle. Perspective
 layout; markings traced on the painting.
 
 Run: python3 visuals/raptir_patient_position/draw.py
@@ -46,7 +50,8 @@ NIPPLE = (1480.0, 760.0)
 FOOT = [(880, 770), (1060, 770), (1056, 812), (884, 812)]
 HANDLE = [(892, 772), (1048, 772), (1030, 520), (1012, 260), (1006, -40), (928, -40), (922, 260), (906, 520)]
 NEEDLE_ENTRY = (560.0, 700.0)
-NEEDLE_HUB = (250.0, 690.0)
+NEEDLE_HUB = (400.0, 520.0)                # outside the skin: up (anterior) and cranial
+DEEP_PATH = [(560, 700), (585, 790), (630, 860), (740, 920), (880, 950), (960, 956)]   # under the skin, posterior to the clavicle
 
 DEFS = """
 <linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9C2A6"/><stop offset="1" stop-color="#C9967A"/></linearGradient>
@@ -65,7 +70,8 @@ def build() -> str:
         Label(["Clavicle"], anchor=(330, 900), leader=[(460, 860), (420, 735)], target_id="clavicle-mark"),
         Label(["Coracoid"], anchor=(560, 1060), leader=[(700, 1020), (CORACOID[0] - 20, CORACOID[1])], target_id="coracoid-mark"),
         Label(["Linear probe"], anchor=(1100, 330), leader=[(1100, 310), (1010, 300)], target_id="probe-handle"),
-        Label(["Block needle"], anchor=(40, 560), leader=[(240, 580), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
+        Label(["Block needle"], anchor=(40, 470), leader=[(260, 490), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
+        Label(["Path behind clavicle"], anchor=(60, 1150), leader=[(400, 1110), DEEP_PATH[2]], target_id="needle-path", emphasis=True),
         Label(["Deltoid"], anchor=(1220, 1160), leader=[(1230, 1120), (1080, 1000)], target_id="deltoid"),
     ]
     painted = BASE.exists()
@@ -93,7 +99,7 @@ def build() -> str:
   <path d="{smooth_path(DP_GROOVE, tension=0.7)}" fill="none" stroke="#B98A74" stroke-width="6" opacity="0.8"/>
   <circle cx="{fmt(NIPPLE[0])}" cy="{fmt(NIPPLE[1])}" r="22" fill="#B87F6C"/>
   <path d="M{fmt(nh[0])},{fmt(nh[1])} C{fmt(nh[0] - 80)},{fmt(nh[1] + 10)} {fmt(nh[0] - 140)},{fmt(nh[1] + 160)} {fmt(nh[0] - 290)},1240" fill="none" stroke="#E9EEF2" stroke-width="8" stroke-linecap="round"/>
-  <rect x="{fmt(nh[0] - 40)}" y="{fmt(nh[1] - 9)}" width="44" height="18" rx="6" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <rect x="{fmt(nh[0] - 22)}" y="{fmt(nh[1] - 9)}" width="44" height="18" rx="6" fill="#F2F2F2" stroke="#8A9199" stroke-width="2" transform="rotate(46 {fmt(nh[0])} {fmt(nh[1])})"/>
   <line id="needle" x1="{fmt(nh[0])}" y1="{fmt(nh[1])}" x2="{fmt(ne[0])}" y2="{fmt(ne[1])}" stroke="#8E969E" stroke-width="5"/>
   <circle id="needle-entry" cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" r="5" fill="#9E6B5A"/>
   <path d="M967,-40 C970,-100 1040,-140 1110,-160" fill="none" stroke="#3E454C" stroke-width="18"/>
@@ -103,6 +109,7 @@ def build() -> str:
 
 <g class="marking">
   <path id="clavicle-mark" d="{smooth_path(CLAVICLE, tension=0.7)}" fill="none" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
+  <path id="needle-path" d="{smooth_path([(float(x), float(y)) for x, y in DEEP_PATH], tension=0.6)}" fill="none" stroke="#0E8C98" stroke-width="6" stroke-dasharray="14 10"/>
   <circle id="coracoid-mark" cx="{fmt(CORACOID[0])}" cy="{fmt(CORACOID[1])}" r="20" fill="none" stroke="#4A2F7A" stroke-width="5"/>
 </g>
 
