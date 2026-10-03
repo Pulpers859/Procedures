@@ -38,17 +38,17 @@ ASSET_ID = "serratus_patient_position"
 BASE = Path(__file__).with_name("base.jpg")
 BASE_SIZE = (1200.0, 896.0)
 
-PEC_BORDER = [(500, 600), (700, 640), (900, 600), (1080, 520), (1200, 420)]   # lower border of pectoralis major
-NIPPLE = (850.0, 470.0)
-ARM = [(1180, -40), (1640, -40), (1640, 470), (1450, 450), (1330, 400), (1250, 300), (1190, 150)]
-AXILLA = [(1190, 150), (1250, 300), (1300, 400)]
-MAL_X = 1300.0                     # mid-axillary line, straight down from the axillary apex
-STERNUM_SHADOW = [(-40, -40), (360, -40), (300, 300), (240, 700), (-40, 760)]
-DRAPE = [(-40, 900), (500, 890), (1000, 870), (1300, 850), (1640, 820), (1640, 1240), (-40, 1240)]
-PROBE = [(1300, 565), (1360, 550), (1420, 553), (1640, 600), (1640, 740), (1420, 695), (1360, 699), (1300, 685)]
-HEAD = [(1270, 563), (1300, 559), (1300, 691), (1270, 687)]
-NEEDLE_ENTRY = (1232.0, 625.0)
-NEEDLE_HUB = (880.0, 612.0)
+PEC_BORDER = [(120, 600), (320, 640), (520, 600), (700, 520), (820, 420)]   # lower border of pectoralis major
+NIPPLE = (470, 470.0)
+ARM = [(800, -40), (1640, -40), (1640, 470), (1070, 450), (950, 400), (870, 300), (810, 150)]
+AXILLA = [(810, 150), (870, 300), (920, 400)]
+MAL_X = 920.0                     # mid-axillary line, straight down from the axillary apex
+STERNUM_SHADOW = [(-40, -40), (110, -40), (90, 300), (70, 700), (-40, 760)]   # the sternum toward the midline
+DRAPE = [(-40, 900), (120, 890), (620, 870), (920, 850), (1640, 820), (1640, 1240), (-40, 1240)]
+PROBE = [(920, 565), (980, 550), (1040, 553), (1640, 600), (1640, 740), (1040, 695), (980, 699), (920, 685)]
+HEAD = [(890, 563), (920, 559), (920, 691), (890, 687)]
+NEEDLE_ENTRY = (852, 625.0)
+NEEDLE_HUB = (500, 612.0)
 
 DEFS = """
 <linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E7BFA2"/><stop offset="1" stop-color="#C9967A"/></linearGradient>
@@ -64,10 +64,10 @@ def pts(points):
 def build() -> str:
     ne, nh = NEEDLE_ENTRY, NEEDLE_HUB
     labels = [
-        Label(["Linear probe"], anchor=(1200, 820), leader=[(1300, 780), (1500, 660)], target_id="probe"),
+        Label(["Linear probe"], anchor=(1100, 880), leader=[(1180, 840), (1150, 680)], target_id="probe"),
         Label(["Block needle"], anchor=(40, 760), leader=[(300, 720), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
-        Label(["Axilla"], anchor=(1000, 200), leader=[(1150, 220), (1250, 300)], target_id="axilla"),
-        Label(["Mid-axillary line"], anchor=(860, 1120), leader=[(1100, 1080), (MAL_X, 800)], target_id="mal"),
+        Label(["Axilla"], anchor=(600, 200), leader=[(760, 220), (870, 300)], target_id="axilla"),
+        Label(["Mid-axillary line"], anchor=(980, 1120), leader=[(1050, 1080), (MAL_X, 790)], target_id="mal"),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
