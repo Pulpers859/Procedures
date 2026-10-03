@@ -8,9 +8,9 @@ centre (a male chest: owner, 2026-10-03), the left arm abducted out to the
 image right with the armpit visible. NYSORA's axes: cranial up, anterior toward the camera/left,
 posterior toward the arm/right.
 
-The probe's head rests on the mid-axillary line (straight down from the
-axillary apex) just below nipple level, the 4th-5th ribs; its body lies along the chest wall
-running off to the right (posterior) toward the operator. The needle comes
+The probe's face rests on the mid-axillary line (straight down from the
+axillary apex) just below nipple level, the 4th-5th ribs; its body runs diagonally down to the
+lower right (about 35 degrees) toward the operator, as in NYSORA. The needle comes
 in level from the left (anterior), entering just in front of the probe head.
 
 Record (follows NYSORA, owner 2026-10-03): transducer transverse over the
@@ -45,10 +45,25 @@ AXILLA = [(1190, 150), (1250, 300), (1300, 400)]
 MAL_X = 1300.0                     # mid-axillary line, straight down from the axillary apex
 STERNUM_SHADOW = [(-40, -40), (360, -40), (300, 300), (240, 700), (-40, 760)]
 DRAPE = [(340, 900), (500, 890), (1000, 870), (1300, 850), (1640, 820), (2020, 790), (2020, 1240), (340, 1240)]
-PROBE = [(1300, 565), (1360, 550), (1420, 553), (2020, 681), (2020, 818), (1420, 695), (1360, 699), (1300, 685)]
-HEAD = [(1270, 563), (1300, 559), (1300, 691), (1270, 687)]
-NEEDLE_ENTRY = (1232.0, 625.0)
-NEEDLE_HUB = (880.0, 612.0)
+import math  # noqa: E402
+
+# NYSORA Fig-9: the probe's face is pressed into the side of the chest and its body runs diagonally down
+# to the lower right toward the operator (owner, 2026-10-03: not horizontal).
+HEAD_C = (1285.0, 625.0)
+PROBE_ANG = 35.0                   # degrees below horizontal, toward the lower right
+
+
+def rot(p):
+    a = math.radians(PROBE_ANG)
+    return (HEAD_C[0] + p[0] * math.cos(a) - p[1] * math.sin(a), HEAD_C[1] + p[0] * math.sin(a) + p[1] * math.cos(a))
+
+
+HEAD = [rot(q) for q in [(-15, -66), (15, -66), (15, 66), (-15, 66)]]
+PROBE = [rot(q) for q in [(15, -62), (70, -74), (130, -72), (1100, -62), (1100, 62), (130, 72), (70, 74), (15, 62)]]
+# The needle comes in level from the anterior side and its tip goes into the skin right at the probe's
+# anterior edge (owner: the painted tip stopped short of the skin).
+NEEDLE_ENTRY = (rot((-15, -40))[0] - 6, rot((-15, -40))[1] + 4)
+NEEDLE_HUB = (880.0, NEEDLE_ENTRY[1] - 8)
 CAM_DX = -380.0
 AXILLA_PX = (985.0, 400.0)          # traced on the owner's painting: the armpit hollow                    # owner, 2026-10-03: pan the camera toward the axilla; a pure shift, nothing else changes
 
@@ -67,7 +82,7 @@ def build() -> str:
     ne, nh = NEEDLE_ENTRY, NEEDLE_HUB
     dx = CAM_DX
     labels = [
-        Label(["Linear probe"], anchor=(1100, 880), leader=[(1180, 840), (1150, 680)], target_id="probe"),
+        Label(["Linear probe"], anchor=(1180, 1000), leader=[(1200, 960), (rot((300, 0))[0] + dx, rot((300, 0))[1])], target_id="probe"),
         Label(["Block needle"], anchor=(40, 760), leader=[(300, 720), ((ne[0] + nh[0]) / 2 + dx, (ne[1] + nh[1]) / 2)], target_id="needle"),
         Label(["Axilla"], anchor=(600, 200), leader=[(760, 220), AXILLA_PX if BASE.exists() else (1250 + dx, 300)], target_id="axilla-mark" if BASE.exists() else "axilla"),
         Label(["Mid-axillary line"], anchor=(980, 1120), leader=[(1050, 1080), (MAL_X + dx, 790)], target_id="mal"),
@@ -97,6 +112,7 @@ def build() -> str:
   <path d="M{fmt(nh[0])},{fmt(nh[1])} C{fmt(nh[0] - 60)},{fmt(nh[1] + 10)} {fmt(nh[0] - 140)},{fmt(nh[1] + 200)} {fmt(nh[0] - 260)},1240" fill="none" stroke="#E9EEF2" stroke-width="8" stroke-linecap="round"/>
   <rect x="{fmt(nh[0] - 50)}" y="{fmt(nh[1] - 11)}" width="54" height="22" rx="6" fill="#2FA58A" stroke="#1E7A66" stroke-width="2"/>
   <line id="needle" x1="{fmt(nh[0])}" y1="{fmt(nh[1])}" x2="{fmt(ne[0])}" y2="{fmt(ne[1])}" stroke="#8E969E" stroke-width="5"/>
+  <ellipse cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" rx="12" ry="6" fill="#C9907A" opacity="0.8"/>
   <circle id="needle-entry" cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" r="5" fill="#9E6B5A"/>
   <path id="probe" d="{smooth_path(PROBE, closed=True, tension=0.3)}" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
   <polygon id="probe-head" points="{pts(HEAD)}" fill="#C9D0D6" stroke="#7D868F" stroke-width="3"/>
