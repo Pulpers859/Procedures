@@ -40,8 +40,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy">
+<g id="painting" data-base-sha256="f28e8009a69c5bbc8c90e09daa55e0b43f0046cf32df356dd9f4aed3bc53cdd5"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
   <rect x="0" y="0" width="1600" height="1200" fill="url(#drape)"/>
   <path id="leg" d="M-40,330 C-6,328.6 226,317.2 300,316 C374,314.8 630,316.6 700,318 C770,319.4 952,326.8 1000,330 C1048,333.2 1144,350 1180,350 C1216,350 1314,329 1360,330 C1406,331 1612,357 1640,360 L1640,700 L1360,690 L1240,668 L1100,650 L800,640 L400,650 L-40,664 Z" fill="url(#back-skin)" stroke="#B98A74" stroke-width="3"/>
   <path id="lateral-thigh" d="M-40,664 C4,662.6 316,652.4 400,650 C484,647.6 730,640 800,640 C870,640 1056,647.2 1100,650 C1144,652.8 1214,664 1240,668 C1266,672 1320,686.8 1360,690 C1400,693.2 1612,699 1640,700 L1640,1010 L1200,990 L600,1000 L-40,1010 Z" fill="url(#side-skin)" stroke="#B98A74" stroke-width="3"/>

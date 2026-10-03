@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #D3DDE6; }</style>
+<defs></defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="c7b01405d0bc15263e4ec3b85e465984084f9b7de76b2068649c3d60fdeb6d6a"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <rect x="0" y="0" width="1600" height="1200" fill="#D3DDE6"/>
+  <path id="torso" d="M1252,-348 C1232.7,-348 1042.2,-372.2 1020,-348 C997.8,-323.8 999.7,-95.7 985.2,-58 C970.7,-20.3 886.6,86 846,104.4 C805.4,122.8 550.2,151.8 498,162.4 C445.8,173 255.4,214.6 219.6,232 C183.8,249.4 86.2,337.4 68.8,371.2 C51.4,405 14.7,577.1 10.8,638 C6.9,698.9 20.5,1024.7 22.4,1102 C24.3,1179.3 32.1,1498.3 34,1566 C35.9,1633.7 -55.9,1885 45.6,1914 C147.1,1943 1050.9,1914 1252,1914 C1453.1,1914 2356.9,1943 2458.4,1914 C2559.9,1885 2468.1,1633.7 2470,1566 C2471.9,1498.3 2479.7,1179.3 2481.6,1102 C2483.5,1024.7 2497.1,698.9 2493.2,638 C2489.3,577.1 2452.6,405 2435.2,371.2 C2417.8,337.4 2320.2,249.4 2284.4,232 C2248.6,214.6 2058.2,173 2006,162.4 C1953.8,151.8 1698.6,122.8 1658,104.4 C1617.4,86 1533.3,-20.3 1518.8,-58 C1504.3,-95.7 1506.2,-323.8 1484,-348 C1461.8,-372.2 1271.3,-348 1252,-348 C1232.7,-348 1271.3,-348 1252,-348 Z" fill="#E7BFA4" stroke="#B98A74" stroke-width="3"/>
+  <path d="M231.2,812 C229.7,866.1 222.7,1109.7 219.6,1218 C216.5,1326.3 209.5,1569.9 208,1624" fill="none" stroke="#B98A74" stroke-width="5"/>
+  <path d="M2272.8,812 C2274.3,866.1 2281.3,1109.7 2284.4,1218 C2287.5,1326.3 2294.5,1569.9 2296,1624" fill="none" stroke="#B98A74" stroke-width="5"/>
+  <path d="M382,788.8 C405.2,824.4 505,1010.7 556,1055.6 C607,1100.5 702.9,1120.6 764.8,1125.2 C826.7,1129.8 964.3,1102.8 1020,1090.4 C1075.7,1078 1160.7,1040.1 1182.4,1032.4" fill="none" stroke="#D2A084" stroke-width="5" opacity="0.8"/>
+  <path d="M2122,788.8 C2098.8,824.4 1999,1010.7 1948,1055.6 C1897,1100.5 1801.1,1120.6 1739.2,1125.2 C1677.3,1129.8 1539.7,1102.8 1484,1090.4 C1428.3,1078 1343.3,1040.1 1321.6,1032.4" fill="none" stroke="#D2A084" stroke-width="5" opacity="0.8"/>
+  <ellipse cx="1252" cy="406" rx="26" ry="16" fill="#D7A88E"/>
+  <circle id="nipple-right" cx="767.1" cy="1003.4" r="34.8" fill="#B87F6C"/>
+  <circle cx="1736.9" cy="1003.4" r="34.8" fill="#B87F6C"/>
+  <path id="clavicle-ridge" d="M1205.6,429.2 C1183.9,426.5 1068.7,412.8 1020,406 C971.3,399.2 842.1,373.9 788,371.2 C733.9,368.5 603.4,385.5 556,382.8 C508.6,380.1 410.4,354.8 382,348 C353.6,341.2 320.5,327.5 312.4,324.8" fill="none" stroke="#F0CFBA" stroke-width="22" stroke-linecap="round" opacity="0.7"/>
+  <path d="M672,104.4 C672,64.4 592,54.4 472,-20" fill="none" stroke="#E9EEF2" stroke-width="8" stroke-linecap="round"/>
+  <rect x="664" y="74.4" width="16" height="34" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line id="needle" x1="672" y1="104.4" x2="672" y2="307.4" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="672" cy="307.4" r="4" fill="#9E6B5A"/>
+  <path d="M495.9,574.2 C425.9,574.2 385.9,454.2 345.9,-20" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
+  <path id="probe-handle" d="M647.9,514.2 L495.9,540.2 L495.9,608.2 L647.9,634.2 Z" fill="#D5DADF" stroke="#7D868F" stroke-width="3"/>
+  <rect id="probe" x="645.9" y="452.4" width="52.2" height="243.6" rx="16" fill="#E9ECEF" stroke="#7D868F" stroke-width="3"/>
+</g>
+
+<g class="marking">
+  <path id="clavicle-mark" d="M1205.6,429.2 C1183.9,426.5 1068.7,412.8 1020,406 C971.3,399.2 842.1,373.9 788,371.2 C733.9,368.5 603.4,385.5 556,382.8 C508.6,380.1 410.4,354.8 382,348 C353.6,341.2 320.5,327.5 312.4,324.8" fill="none" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Clavicle" data-target="clavicle-mark"><polyline class="leader-halo" points="1030,320 1020,406"/><polyline class="leader" points="1030,320 1020,406"/><circle class="leader-dot" cx="1020" cy="406" r="7"/><text x="1020" y="300" text-anchor="start"><tspan x="1020" dy="0">Clavicle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="200,820 525.9,594.2"/><polyline class="leader" points="200,820 525.9,594.2"/><circle class="leader-dot" cx="525.9" cy="594.2" r="7"/><text x="40" y="860" text-anchor="start"><tspan x="40" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="770,170 672,205.9"/><polyline class="leader" points="770,170 672,205.9"/><circle class="leader-dot" cx="672" cy="205.9" r="7"/><text x="780" y="150" text-anchor="start"><tspan x="780" dy="0">Block needle</tspan></text></g></g>
+
+</svg>
