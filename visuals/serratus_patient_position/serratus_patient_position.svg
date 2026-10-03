@@ -38,27 +38,28 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy">
-  <rect id="chest" x="0" y="0" width="1600" height="1200" fill="url(#skin-grad)"/>
-  <path d="M-40,-40 C-27.5,-106.7 99.2,-68.3 110,-40 C120.8,-11.7 93.3,238.3 90,300 C86.7,361.7 80.8,661.7 70,700 C59.2,738.3 -30.8,821.7 -40,760 C-49.2,698.3 -52.5,26.7 -40,-40 Z" fill="#B98266" opacity="0.5"/>
-  <path id="arm" d="M800,-40 C869.2,-55.8 1570,-82.5 1640,-40 C1710,2.5 1687.5,429.2 1640,470 C1592.5,510.8 1127.5,455.8 1070,450 C1012.5,444.2 966.7,412.5 950,400 C933.3,387.5 881.7,320.8 870,300 C858.3,279.2 815.8,178.3 810,150 C804.2,121.7 730.8,-24.2 800,-40 Z" fill="#E2B497" stroke="#B98A74" stroke-width="3"/>
-  <path id="axilla" d="M810,150 C817,167.5 857.2,270.8 870,300 C882.8,329.2 914.2,388.3 920,400" fill="none" stroke="#A9765F" stroke-width="10" stroke-linecap="round"/>
-  <path id="pec-border" d="M120,600 C140,604 280,640 320,640 C360,640 482,612 520,600 C558,588 670,538 700,520 C730,502 808,430 820,420" fill="none" stroke="#B98A74" stroke-width="6" opacity="0.8"/>
-  <circle id="nipple" cx="470" cy="470" r="22" fill="#B87F6C"/>
-  <path id="drape" d="M-40,900 C-32,882.5 87,891.5 120,890 C153,888.5 580,872 620,870 C660,868 869,852.5 920,850 C971,847.5 1604,800.5 1640,820 C1676,839.5 1724,1219 1640,1240 C1556,1261 44,1257 -40,1240 C-124,1223 -48,917.5 -40,900 Z" fill="#3F6B6E"/>
-  <path d="M500,612 C440,622 360,812 240,1240" fill="none" stroke="#E9EEF2" stroke-width="8" stroke-linecap="round"/>
-  <rect x="450" y="601" width="54" height="22" rx="6" fill="#2FA58A" stroke="#1E7A66" stroke-width="2"/>
-  <line id="needle" x1="500" y1="612" x2="852" y2="625" stroke="#8E969E" stroke-width="5"/>
-  <circle id="needle-entry" cx="852" cy="625" r="5" fill="#9E6B5A"/>
-  <path id="probe" d="M920,565 C923,558.2 974,550.6 980,550 C986,549.4 1007,550.5 1040,553 C1073,555.5 1610,590.6 1640,600 C1670,609.4 1670,735.2 1640,740 C1610,744.8 1073,697 1040,695 C1007,693 986,699.5 980,699 C974,698.5 923,691.7 920,685 C917,678.3 917,571.8 920,565 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
-  <polygon id="probe-head" points="890,563 920,559 920,691 890,687" fill="#C9D0D6" stroke="#7D868F" stroke-width="3"/>
+<g id="painting" data-base-sha256="ff8488fa70898024c86998450a7c3bc0557891569c123cde957b90bafd604e49"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0"><g transform="translate(-380 0)">
+  <rect id="chest" x="380" y="0" width="1600" height="1200" fill="url(#skin-grad)"/>
+  <path d="M-40,-40 C-6.7,-106.7 331.7,-68.3 360,-40 C388.3,-11.7 310,238.3 300,300 C290,361.7 268.3,661.7 240,700 C211.7,738.3 -16.7,821.7 -40,760 C-63.3,698.3 -73.3,26.7 -40,-40 Z" fill="#B98266" opacity="0.5"/>
+  <path id="arm" d="M1180,-40 C1249.2,-55.8 1950,-85.8 2020,-40 C2090,5.8 2067.5,469.2 2020,510 C1972.5,550.8 1507.5,459.2 1450,450 C1392.5,440.8 1346.7,412.5 1330,400 C1313.3,387.5 1261.7,320.8 1250,300 C1238.3,279.2 1195.8,178.3 1190,150 C1184.2,121.7 1110.8,-24.2 1180,-40 Z" fill="#E2B497" stroke="#B98A74" stroke-width="3"/>
+  <path id="axilla" d="M1190,150 C1197,167.5 1237.2,270.8 1250,300 C1262.8,329.2 1294.2,388.3 1300,400" fill="none" stroke="#A9765F" stroke-width="10" stroke-linecap="round"/>
+  <path id="pec-border" d="M500,600 C520,604 660,640 700,640 C740,640 862,612 900,600 C938,588 1050,538 1080,520 C1110,502 1188,430 1200,420" fill="none" stroke="#B98A74" stroke-width="6" opacity="0.8"/>
+  <circle id="nipple" cx="850" cy="470" r="22" fill="#B87F6C"/>
+  <path id="drape" d="M340,900 C348,882.5 467,891.5 500,890 C533,888.5 960,872 1000,870 C1040,868 1268,852.5 1300,850 C1332,847.5 1604,823 1640,820 C1676,817 2001,769 2020,790 C2039,811 2104,1217.5 2020,1240 C1936,1262.5 424,1257 340,1240 C256,1223 332,917.5 340,900 Z" fill="#3F6B6E"/>
+  <path d="M880,612 C820,622 740,812 620,1240" fill="none" stroke="#E9EEF2" stroke-width="8" stroke-linecap="round"/>
+  <rect x="830" y="601" width="54" height="22" rx="6" fill="#2FA58A" stroke="#1E7A66" stroke-width="2"/>
+  <line id="needle" x1="880" y1="612" x2="1232" y2="625" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="1232" cy="625" r="5" fill="#9E6B5A"/>
+  <path id="probe" d="M1300,565 C1303,558.2 1354,550.6 1360,550 C1366,549.4 1387,546.5 1420,553 C1453,559.5 1990,667.8 2020,681 C2050,694.2 2050,817.3 2020,818 C1990,818.7 1453,701 1420,695 C1387,689 1366,699.5 1360,699 C1354,698.5 1303,691.7 1300,685 C1297,678.3 1297,571.8 1300,565 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <polygon id="probe-head" points="1270,563 1300,559 1300,691 1270,687" fill="#C9D0D6" stroke="#7D868F" stroke-width="3"/>
+</g></g>
+
+<circle id="axilla-mark" cx="985.0" cy="400.0" r="40" fill="#000" opacity="0"/>
+<g class="marking" transform="translate(-380 0)">
+  <line id="mal" x1="1300" y1="420" x2="1300" y2="840" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
 </g>
 
-<g class="marking">
-  <line id="mal" x1="920" y1="420" x2="920" y2="840" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
-</g>
-
-<g id="labels"><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1180,840 1150,680"/><polyline class="leader" points="1180,840 1150,680"/><circle class="leader-dot" cx="1150" cy="680" r="7"/><text x="1100" y="880" text-anchor="start"><tspan x="1100" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="300,720 676,618.5"/><polyline class="leader" points="300,720 676,618.5"/><circle class="leader-dot" cx="676" cy="618.5" r="7"/><text x="40" y="760" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Axilla" data-target="axilla"><polyline class="leader-halo" points="760,220 870,300"/><polyline class="leader" points="760,220 870,300"/><circle class="leader-dot" cx="870" cy="300" r="7"/><text x="600" y="200" text-anchor="start"><tspan x="600" dy="0">Axilla</tspan></text></g><g class="label" data-label="Mid-axillary line" data-target="mal"><polyline class="leader-halo" points="1050,1080 920,790"/><polyline class="leader" points="1050,1080 920,790"/><circle class="leader-dot" cx="920" cy="790" r="7"/><text x="980" y="1120" text-anchor="start"><tspan x="980" dy="0">Mid-axillary line</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1180,840 1150,680"/><polyline class="leader" points="1180,840 1150,680"/><circle class="leader-dot" cx="1150" cy="680" r="7"/><text x="1100" y="880" text-anchor="start"><tspan x="1100" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="300,720 676,618.5"/><polyline class="leader" points="300,720 676,618.5"/><circle class="leader-dot" cx="676" cy="618.5" r="7"/><text x="40" y="760" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Axilla" data-target="axilla-mark"><polyline class="leader-halo" points="760,220 985,400"/><polyline class="leader" points="760,220 985,400"/><circle class="leader-dot" cx="985" cy="400" r="7"/><text x="600" y="200" text-anchor="start"><tspan x="600" dy="0">Axilla</tspan></text></g><g class="label" data-label="Mid-axillary line" data-target="mal"><polyline class="leader-halo" points="1050,1080 920,790"/><polyline class="leader" points="1050,1080 920,790"/><circle class="leader-dot" cx="920" cy="790" r="7"/><text x="980" y="1120" text-anchor="start"><tspan x="980" dy="0">Mid-axillary line</tspan></text></g></g>
 
 </svg>

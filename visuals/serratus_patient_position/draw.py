@@ -38,17 +38,19 @@ ASSET_ID = "serratus_patient_position"
 BASE = Path(__file__).with_name("base.jpg")
 BASE_SIZE = (1200.0, 896.0)
 
-PEC_BORDER = [(120, 600), (320, 640), (520, 600), (700, 520), (820, 420)]   # lower border of pectoralis major
-NIPPLE = (470, 470.0)
-ARM = [(800, -40), (1640, -40), (1640, 470), (1070, 450), (950, 400), (870, 300), (810, 150)]
-AXILLA = [(810, 150), (870, 300), (920, 400)]
-MAL_X = 920.0                     # mid-axillary line, straight down from the axillary apex
-STERNUM_SHADOW = [(-40, -40), (110, -40), (90, 300), (70, 700), (-40, 760)]   # the sternum toward the midline
-DRAPE = [(-40, 900), (120, 890), (620, 870), (920, 850), (1640, 820), (1640, 1240), (-40, 1240)]
-PROBE = [(920, 565), (980, 550), (1040, 553), (1640, 600), (1640, 740), (1040, 695), (980, 699), (920, 685)]
-HEAD = [(890, 563), (920, 559), (920, 691), (890, 687)]
-NEEDLE_ENTRY = (852, 625.0)
-NEEDLE_HUB = (500, 612.0)
+PEC_BORDER = [(500, 600), (700, 640), (900, 600), (1080, 520), (1200, 420)]   # lower border of pectoralis major
+NIPPLE = (850.0, 470.0)
+ARM = [(1180, -40), (2020, -40), (2020, 510), (1450, 450), (1330, 400), (1250, 300), (1190, 150)]
+AXILLA = [(1190, 150), (1250, 300), (1300, 400)]
+MAL_X = 1300.0                     # mid-axillary line, straight down from the axillary apex
+STERNUM_SHADOW = [(-40, -40), (360, -40), (300, 300), (240, 700), (-40, 760)]
+DRAPE = [(340, 900), (500, 890), (1000, 870), (1300, 850), (1640, 820), (2020, 790), (2020, 1240), (340, 1240)]
+PROBE = [(1300, 565), (1360, 550), (1420, 553), (2020, 681), (2020, 818), (1420, 695), (1360, 699), (1300, 685)]
+HEAD = [(1270, 563), (1300, 559), (1300, 691), (1270, 687)]
+NEEDLE_ENTRY = (1232.0, 625.0)
+NEEDLE_HUB = (880.0, 612.0)
+CAM_DX = -380.0
+AXILLA_PX = (985.0, 400.0)          # traced on the owner's painting: the armpit hollow                    # owner, 2026-10-03: pan the camera toward the axilla; a pure shift, nothing else changes
 
 DEFS = """
 <linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E7BFA2"/><stop offset="1" stop-color="#C9967A"/></linearGradient>
@@ -63,11 +65,12 @@ def pts(points):
 
 def build() -> str:
     ne, nh = NEEDLE_ENTRY, NEEDLE_HUB
+    dx = CAM_DX
     labels = [
         Label(["Linear probe"], anchor=(1100, 880), leader=[(1180, 840), (1150, 680)], target_id="probe"),
-        Label(["Block needle"], anchor=(40, 760), leader=[(300, 720), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
-        Label(["Axilla"], anchor=(600, 200), leader=[(760, 220), (870, 300)], target_id="axilla"),
-        Label(["Mid-axillary line"], anchor=(980, 1120), leader=[(1050, 1080), (MAL_X, 790)], target_id="mal"),
+        Label(["Block needle"], anchor=(40, 760), leader=[(300, 720), ((ne[0] + nh[0]) / 2 + dx, (ne[1] + nh[1]) / 2)], target_id="needle"),
+        Label(["Axilla"], anchor=(600, 200), leader=[(760, 220), AXILLA_PX if BASE.exists() else (1250 + dx, 300)], target_id="axilla-mark" if BASE.exists() else "axilla"),
+        Label(["Mid-axillary line"], anchor=(980, 1120), leader=[(1050, 1080), (MAL_X + dx, 790)], target_id="mal"),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
@@ -83,8 +86,8 @@ def build() -> str:
 
     body = f"""
 <g id="painting"{base_attr}>{base_image}</g>
-<g id="anatomy"{layout_attr}>
-  <rect id="chest" x="0" y="0" width="1600" height="1200" fill="url(#skin-grad)"/>
+<g id="anatomy"{layout_attr}><g transform="translate({fmt(CAM_DX)} 0)">
+  <rect id="chest" x="{fmt(-CAM_DX)}" y="0" width="1600" height="1200" fill="url(#skin-grad)"/>
   <path d="{smooth_path(STERNUM_SHADOW, closed=True, tension=0.5)}" fill="#B98266" opacity="0.5"/>
   <path id="arm" d="{smooth_path(ARM, closed=True, tension=0.5)}" fill="#E2B497" stroke="#B98A74" stroke-width="3"/>
   <path id="axilla" d="{smooth_path(AXILLA, tension=0.7)}" fill="none" stroke="#A9765F" stroke-width="10" stroke-linecap="round"/>
@@ -97,9 +100,10 @@ def build() -> str:
   <circle id="needle-entry" cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" r="5" fill="#9E6B5A"/>
   <path id="probe" d="{smooth_path(PROBE, closed=True, tension=0.3)}" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
   <polygon id="probe-head" points="{pts(HEAD)}" fill="#C9D0D6" stroke="#7D868F" stroke-width="3"/>
-</g>
+</g></g>
 
-<g class="marking">
+{f'<circle id="axilla-mark" cx="{AXILLA_PX[0]}" cy="{AXILLA_PX[1]}" r="40" fill="#000" opacity="0"/>' if BASE.exists() else ""}
+<g class="marking" transform="translate({fmt(CAM_DX)} 0)">
   <line id="mal" x1="{fmt(MAL_X)}" y1="420" x2="{fmt(MAL_X)}" y2="840" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
 </g>
 

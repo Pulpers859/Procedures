@@ -21,12 +21,13 @@
     "probe-head",
     "needle",
     "needle-entry",
-    "mal"
+    "mal",
+    "axilla-mark"
   ],
   "labels": {
     "Linear probe": "probe",
     "Block needle": "needle",
-    "Axilla": "axilla",
+    "Axilla": "axilla-mark",
     "Mid-axillary line": "mal"
   },
   "geometry": [
