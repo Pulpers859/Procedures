@@ -43,15 +43,19 @@ SKIN_TOP = [(-40, 330), (180, 360), (330, 470), (430, 600), (600, 640), (800, 63
 NECK_EDGE = [(330, 470), (380, 640), (420, 780), (430, 900)]
 SUPRACLAV = [(400, 640), (560, 650), (640, 690), (560, 720), (430, 720)]
 CLAVICLE = [(420, 735), (560, 742), (700, 744), (820, 736)]
-CORACOID = (890.0, 832.0)
-DELTOID = [(640, 1240), (700, 1010), (820, 900), (980, 890), (1180, 960), (1340, 1100), (1420, 1240)]
+if BASE.exists():   # traced on the painting
+    CLAVICLE = [(600, 800), (650, 758), (710, 702), (770, 655), (840, 625)]
+CORACOID = (850.0, 795.0) if BASE.exists() else (890.0, 832.0)
+DELTOID = ([(480, 1240), (520, 980), (600, 880), (720, 860), (880, 880), (1000, 950), (1080, 1060), (1120, 1240)] if BASE.exists()
+           else [(640, 1240), (700, 1010), (820, 900), (980, 890), (1180, 960), (1340, 1100), (1420, 1240)])
 DP_GROOVE = [(930, 840), (1010, 900), (1110, 990), (1200, 1100)]
 NIPPLE = (1480.0, 760.0)
 FOOT = [(880, 770), (1060, 770), (1056, 812), (884, 812)]
 HANDLE = [(892, 772), (1048, 772), (1030, 520), (1012, 260), (1006, -40), (928, -40), (922, 260), (906, 520)]
 NEEDLE_ENTRY = (560.0, 700.0)
 NEEDLE_HUB = (400.0, 520.0)                # outside the skin: up (anterior) and cranial
-DEEP_PATH = [(560, 700), (585, 790), (630, 860), (740, 920), (880, 950), (960, 956)]   # under the skin, posterior to the clavicle
+DEEP_PATH = ([(560, 700), (600, 770), (660, 840), (780, 885), (920, 905), (965, 908)] if BASE.exists()
+             else [(560, 700), (585, 790), (630, 860), (740, 920), (880, 950), (960, 956)])   # under the skin, posterior to the clavicle
 
 DEFS = """
 <linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9C2A6"/><stop offset="1" stop-color="#C9967A"/></linearGradient>
@@ -67,12 +71,12 @@ def pts(points):
 def build() -> str:
     ne, nh = NEEDLE_ENTRY, NEEDLE_HUB
     labels = [
-        Label(["Clavicle"], anchor=(330, 900), leader=[(460, 860), (420, 735)], target_id="clavicle-mark"),
+        Label(["Clavicle"], anchor=(330, 900), leader=[(460, 860), CLAVICLE[0]], target_id="clavicle-mark"),
         Label(["Coracoid"], anchor=(560, 1060), leader=[(700, 1020), (CORACOID[0] - 20, CORACOID[1])], target_id="coracoid-mark"),
         Label(["Linear probe"], anchor=(1100, 330), leader=[(1100, 310), (1010, 300)], target_id="probe-handle"),
         Label(["Block needle"], anchor=(40, 470), leader=[(260, 490), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
         Label(["Path behind clavicle"], anchor=(60, 1150), leader=[(400, 1110), DEEP_PATH[2]], target_id="needle-path", emphasis=True),
-        Label(["Deltoid"], anchor=(1220, 1160), leader=[(1230, 1120), (1080, 1000)], target_id="deltoid"),
+        Label(["Deltoid"], anchor=(1220, 1160), leader=[(1230, 1120), (820, 980)], target_id="deltoid"),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
@@ -108,8 +112,9 @@ def build() -> str:
 </g>
 
 <g class="marking">
-  <path id="clavicle-mark" d="{smooth_path(CLAVICLE, tension=0.7)}" fill="none" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
   <path id="needle-path" d="{smooth_path([(float(x), float(y)) for x, y in DEEP_PATH], tension=0.6)}" fill="none" stroke="#0E8C98" stroke-width="6" stroke-dasharray="14 10"/>
+  <path d="{smooth_path(CLAVICLE, tension=0.7)}" fill="none" stroke="#E6BFA5" stroke-width="22" stroke-linecap="round" opacity="0.9"/>
+  <path id="clavicle-mark" d="{smooth_path(CLAVICLE, tension=0.7)}" fill="none" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
   <circle id="coracoid-mark" cx="{fmt(CORACOID[0])}" cy="{fmt(CORACOID[1])}" r="20" fill="none" stroke="#4A2F7A" stroke-width="5"/>
 </g>
 

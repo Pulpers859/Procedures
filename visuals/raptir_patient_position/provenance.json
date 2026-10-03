@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, run by hand while the Antigravity quota was exhausted)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay before use",
+ "date": "2026-10-03",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the RAPTIR side-view layout (commit 5dbf530 draw.py, --reference).",
+ "prompt": "Prompt A (photo variant), new chat, pasted by the owner (needle angled steeply down from the supraclavicular hollow).",
+ "promptAttachments": "Image 1: the layout reference. The layout follows three clinical RAPTIR photos the owner shared (Highland Ultrasound), concept only, not committed.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "Four earlier paintings (overhead and oblique) rejected by the owner; one side-view draft ran the needle level over the front of the clavicle (owner: it must pass POSTERIOR).",
+ "reviewNotes": "Overlay: probe, needle entry and hub land near the layout; the painted shoulder sits lower and the deltoid further left, so the clavicle ridge, coracoid ring, deltoid region and the needle's path behind the clavicle are traced on the painting. The clavicle is drawn over the path so the path reads as passing under it. No watermark.",
+ "knownLimits": "Side view: 'posterior' is down in the picture. The coracoid ring and the deep needle path are drawn from standard anatomy, not seen on the photo.",
+ "thirdPartyConcept": "Owner-supplied clinical photos used for the composition only; not attached to Gemini, not committed."
+}
