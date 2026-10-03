@@ -47,7 +47,7 @@ _a = (0.0, -1.0)                                                      # the thig
 _n = math.hypot(*_a)
 AXIS = (_a[0] / _n, _a[1] / _n)                                      # knee to hip
 PERP = (-AXIS[1], AXIS[0])                                           # across the thigh, lateral to medial
-CREASE_C = (890.0, 1060.0)
+CREASE_C = (890.0, 1022.0) if BASE.exists() else (890.0, 1060.0)   # traced on the painting
 PROBE_C = (880.0, 560.0)
 
 

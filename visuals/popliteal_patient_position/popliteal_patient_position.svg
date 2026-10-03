@@ -38,13 +38,13 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy">
+<g id="painting" data-base-sha256="abebc59003f7df5f756a24c6d71b2f9c87348c5ec13b26ac576e5afdcc9d0253"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
   <rect x="0" y="0" width="1600" height="1200" fill="#F2F4F6"/>
   <path id="lateral-thigh" d="M370,1240 C370.8,1203.3 376.2,870 380,800 C383.8,730 408.3,470 415,400 C421.7,330 456.2,-3.3 460,-40 L550,-40 L510,400 L480,800 L470,1240 Z" fill="#C79579" stroke="#A9765F" stroke-width="3"/>
   <path id="leg" d="M470,1240 C470.8,1203.3 476.7,870 480,800 C483.3,730 504.2,470 510,400 C515.8,330 546.7,-3.3 550,-40 L1240,-40 L1270,400 L1300,800 L1310,1240 Z" fill="url(#post-skin)" stroke="#B98A74" stroke-width="3"/>
   <path d="M1050,-40 C1150,120 1300,200 1640,180 L1640,-40 Z" fill="#FFFFFF" stroke="#C9D2DA" stroke-width="3"/>
-  <path id="crease" d="M590,1060 C610,1060 748,1060 790,1060 C832,1060 970,1060 1010,1060 C1050,1060 1172,1060 1190,1060" fill="none" stroke="#A9765F" stroke-width="7" stroke-linecap="round"/>
+  <path id="crease" d="M590,1022 C610,1022 748,1022 790,1022 C832,1022 970,1022 1010,1022 C1050,1022 1172,1022 1190,1022" fill="none" stroke="#A9765F" stroke-width="7" stroke-linecap="round"/>
   <path d="M220,560 C140,590 100,760 -40,1240" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
   <polygon points="174,572 220,572 220,548 174,548" fill="#2FA58A" stroke="#1E7A66" stroke-width="2"/>
   <line id="needle" x1="220" y1="560" x2="480" y2="560" stroke="#8E969E" stroke-width="5"/>
@@ -55,15 +55,15 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </g>
 
 <g class="marking">
-  <path id="crease-mark" d="M590,1060 C610,1060 748,1060 790,1060 C832,1060 970,1060 1010,1060 C1050,1060 1172,1060 1190,1060" fill="none" stroke="#4A2F7A" stroke-width="7" stroke-dasharray="16 10"/>
-  <polygon id="bracket-hit" points="1130,1060 1120,560 1140,560 1150,1060" fill="#000" opacity="0"/>
+  <path id="crease-mark" d="M590,1022 C610,1022 748,1022 790,1022 C832,1022 970,1022 1010,1022 C1050,1022 1172,1022 1190,1022" fill="none" stroke="#4A2F7A" stroke-width="7" stroke-dasharray="16 10"/>
+  <polygon id="bracket-hit" points="1130,1022 1120,560 1140,560 1150,1022" fill="#000" opacity="0"/>
   <g id="bracket" stroke="#4A2F7A" stroke-width="5" fill="none">
-    <line x1="1140" y1="1060" x2="1130" y2="560"/>
-    <line x1="1126" y1="1060" x2="1154" y2="1060"/>
+    <line x1="1140" y1="1022" x2="1130" y2="560"/>
+    <line x1="1126" y1="1022" x2="1154" y2="1022"/>
     <line x1="1116" y1="560" x2="1144" y2="560"/>
   </g>
 </g>
 
-<g id="labels"><g class="label" data-label="Popliteal crease" data-target="crease-mark"><polyline class="leader-halo" points="420,1110 590,1060"/><polyline class="leader" points="420,1110 590,1060"/><circle class="leader-dot" cx="590" cy="1060" r="7"/><text x="40" y="1150" text-anchor="start"><tspan x="40" dy="0">Popliteal crease</tspan></text></g><g class="label" data-label="6 cm" data-target="bracket-hit"><polyline class="leader-halo" points="1340,780 1135,810"/><polyline class="leader" points="1340,780 1135,810"/><circle class="leader-dot" cx="1135" cy="810" r="7"/><text x="1340" y="760" text-anchor="start"><tspan x="1340" dy="0">6 cm</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="1030,190 920,300"/><polyline class="leader" points="1030,190 920,300"/><circle class="leader-dot" cx="920" cy="300" r="7"/><text x="1020" y="170" text-anchor="start"><tspan x="1020" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,680 350,560"/><polyline class="leader" points="200,680 350,560"/><circle class="leader-dot" cx="350" cy="560" r="7"/><text x="40" y="720" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Popliteal crease" data-target="crease-mark"><polyline class="leader-halo" points="420,1110 590,1022"/><polyline class="leader" points="420,1110 590,1022"/><circle class="leader-dot" cx="590" cy="1022" r="7"/><text x="40" y="1150" text-anchor="start"><tspan x="40" dy="0">Popliteal crease</tspan></text></g><g class="label" data-label="6 cm" data-target="bracket-hit"><polyline class="leader-halo" points="1340,780 1135,791"/><polyline class="leader" points="1340,780 1135,791"/><circle class="leader-dot" cx="1135" cy="791" r="7"/><text x="1340" y="760" text-anchor="start"><tspan x="1340" dy="0">6 cm</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="1030,190 920,300"/><polyline class="leader" points="1030,190 920,300"/><circle class="leader-dot" cx="920" cy="300" r="7"/><text x="1020" y="170" text-anchor="start"><tspan x="1020" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,680 350,560"/><polyline class="leader" points="200,680 350,560"/><circle class="leader-dot" cx="350" cy="560" r="7"/><text x="40" y="720" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g></g>
 
 </svg>

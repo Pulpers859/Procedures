@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, run by hand while the Antigravity quota was exhausted)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay before use",
+ "date": "2026-10-03",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the prone transverse popliteal layout (commit 3fbf747 draw.py, --reference).",
+ "prompt": "Prompt A (photo variant), new chat, pasted by the owner: The attached image is an exact layout of a clinical photograph of an adult patient lying face down on a white sheet, taken from beside the right leg near the foot and looking up along the back of the thigh: the back of the right thigh fills the middle of the frame, running straight up the picture from the knee at the bottom towards a white drape over the buttock at the top; the narrow darker band along its left edge is the outer side of the thigh resting on the sheet; the crease behind the knee runs across the back of the leg near the bottom. A white linear ultrasound probe stands upright on the back of the thigh in the middle of the picture, its flat head lying straight across the leg at a right angle to the thigh (exactly level, as drawn) and its handle rising straight up out of the top of the picture with its dark cable. A thin block needle with a green hub enters the outer side of the thigh to the left of the probe, level, pointing straight across towards the probe, with clear extension tubing curving down to the lower left. Turn this into a realistic clinical photograph of an ultrasound-guided popliteal sciatic nerve block in a prone patient, in the same 4:3 landscape frame.\n\nKeep every structure exactly where it is, with the same size, outline and angle; the image will be overlaid with exact markings afterwards, so nothing may move. Change only the rendering: natural skin with fine texture and fine leg hair, the real rounded contours of the back of the thigh and knee, a little clear gel under the probe head, soft folds in the sheets, soft even procedure-room light, shallow depth of field. Do not add, remove, move or resize anything, and add no text, letters, numbers, labels, pen marks, lines, hands, fingers, gloves, syringes, blood, border or frame.",
+ "promptAttachments": "Image 1: the layout reference. The layout follows a clinical photo the owner shared (prone popliteal block), concept only, not committed.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "Supine/leg-elevated and diagonal-thigh versions (my misreading of the owner's example); an Antigravity painting with the probe about 30 degrees off transverse (owner, 2026-10-03).",
+ "reviewNotes": "Overlay: thigh, probe (square across the thigh), gel, needle, hub and tubing lie on the layout within a few pixels; the painted crease sits about 1 cm above the layout's, so the dashed crease and the bracket's lower end are traced on it. No watermark.",
+ "knownLimits": "Perspective view: the 6 cm bracket is drawn from the painted crease to the probe, not measured.",
+ "thirdPartyConcept": "Owner-supplied clinical photo used for the composition only; not attached to Gemini, not committed."
+}

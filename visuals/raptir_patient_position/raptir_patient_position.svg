@@ -31,34 +31,34 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 .leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
 .label.emphasis .leader-dot { fill: var(--target); }
 .plate-bg { fill: #D3DDE6; }</style>
-<defs>
-<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ECC8AE"/><stop offset="1" stop-color="#D3A386"/></linearGradient>
-<linearGradient id="probe-body" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B9C0C7"/><stop offset="0.5" stop-color="#E9ECEF"/>
-  <stop offset="1" stop-color="#C3CAD1"/></linearGradient>
-</defs>
+<defs></defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
 <g id="painting"></g>
 <g id="anatomy">
-  <rect id="chest" x="0" y="0" width="1600" height="1200" fill="url(#skin-grad)"/>
-  <path d="M-40,-40 C6.7,-93.3 485,-55 520,-40 C555,-25 405,109.2 380,140 C355,170.8 246.7,298.3 220,330 C193.3,361.7 81.7,497.5 60,520 C38.3,542.5 -31.7,646.7 -40,600 C-48.3,553.3 -86.7,13.3 -40,-40 Z" fill="#D3DDE6" stroke="#B98A74" stroke-width="3"/>
-  <path id="neck" d="M1640,860 C1611.7,831.7 1346.7,888.3 1300,900 C1253.3,911.7 1106.7,971.7 1080,1000 C1053.3,1028.3 933.3,1220 980,1240 C1026.7,1260 1585,1271.7 1640,1240 C1695,1208.3 1668.3,888.3 1640,860 Z" fill="#DDB194" stroke="#B98A74" stroke-width="3"/>
-  <path id="shoulder" d="M-40,600 C-31.7,540 40,528.3 60,520 C80,511.7 177.5,496.7 200,500 C222.5,503.3 313.3,543.3 330,560 C346.7,576.7 395.8,673.3 400,700 C404.2,726.7 388.3,850 380,880 C371.7,910 313.3,1030 300,1060 C286.7,1090 248.3,1225 220,1240 C191.7,1255 -18.3,1293.3 -40,1240 C-61.7,1186.7 -48.3,660 -40,600 Z" fill="#E6BB9F" stroke="#B98A74" stroke-width="3"/>
-  <path id="clavicle-ridge" d="M260,760 C279.8,758.8 388,748.8 430,750 C472,751.2 574.5,764.2 620,770 C665.5,775.8 774.5,789.5 820,800 C865.5,810.5 987.8,853 1010,860" fill="none" stroke="#F2D3BF" stroke-width="26" stroke-linecap="round" opacity="0.8"/>
-  <circle id="nipple" cx="1180" cy="230" r="24" fill="#B87F6C"/>
-  <path d="M470,1010 C430,1090 310,1130 170,1240" fill="none" stroke="#E9EEF2" stroke-width="8" stroke-linecap="round"/>
-  <rect x="460" y="1006" width="20" height="40" rx="6" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
-  <line id="needle" x1="470" y1="1010" x2="500" y2="830" stroke="#8E969E" stroke-width="5"/>
-  <circle id="needle-entry" cx="500" cy="830" r="5" fill="#9E6B5A"/>
-  <path d="M570,-40 C580,-100 640,-140 700,-160" fill="none" stroke="#3E454C" stroke-width="18"/>
-  <path id="probe-handle" d="M480,605 C484.2,616.2 549.5,616.2 555,605 C560.5,593.8 587.2,402.2 590,380 C592.8,357.8 608.5,181 610,160 C611.5,139 624.5,-30 620,-40 C615.5,-50 526,-50 520,-40 C514,-30 502.5,139 500,160 C497.5,181 471,357.8 470,380 C469,402.2 475.8,593.8 480,605 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
-  <polygon id="probe" points="470,600 560,600 575,700 480,700" fill="#D5DADF" stroke="#7D868F" stroke-width="3"/>
+  <rect x="0" y="0" width="1600" height="1200" fill="#D3DDE6"/>
+  <path id="torso" d="M1252,-348 C1232.7,-348 1042.2,-372.2 1020,-348 C997.8,-323.8 999.7,-95.7 985.2,-58 C970.7,-20.3 886.6,86 846,104.4 C805.4,122.8 550.2,151.8 498,162.4 C445.8,173 255.4,214.6 219.6,232 C183.8,249.4 86.2,337.4 68.8,371.2 C51.4,405 14.7,577.1 10.8,638 C6.9,698.9 20.5,1024.7 22.4,1102 C24.3,1179.3 32.1,1498.3 34,1566 C35.9,1633.7 -55.9,1885 45.6,1914 C147.1,1943 1050.9,1914 1252,1914 C1453.1,1914 2356.9,1943 2458.4,1914 C2559.9,1885 2468.1,1633.7 2470,1566 C2471.9,1498.3 2479.7,1179.3 2481.6,1102 C2483.5,1024.7 2497.1,698.9 2493.2,638 C2489.3,577.1 2452.6,405 2435.2,371.2 C2417.8,337.4 2320.2,249.4 2284.4,232 C2248.6,214.6 2058.2,173 2006,162.4 C1953.8,151.8 1698.6,122.8 1658,104.4 C1617.4,86 1533.3,-20.3 1518.8,-58 C1504.3,-95.7 1506.2,-323.8 1484,-348 C1461.8,-372.2 1271.3,-348 1252,-348 C1232.7,-348 1271.3,-348 1252,-348 Z" fill="#E7BFA4" stroke="#B98A74" stroke-width="3"/>
+  <path d="M231.2,812 C229.7,866.1 222.7,1109.7 219.6,1218 C216.5,1326.3 209.5,1569.9 208,1624" fill="none" stroke="#B98A74" stroke-width="5"/>
+  <path d="M2272.8,812 C2274.3,866.1 2281.3,1109.7 2284.4,1218 C2287.5,1326.3 2294.5,1569.9 2296,1624" fill="none" stroke="#B98A74" stroke-width="5"/>
+  <path d="M382,788.8 C405.2,824.4 505,1010.7 556,1055.6 C607,1100.5 702.9,1120.6 764.8,1125.2 C826.7,1129.8 964.3,1102.8 1020,1090.4 C1075.7,1078 1160.7,1040.1 1182.4,1032.4" fill="none" stroke="#D2A084" stroke-width="5" opacity="0.8"/>
+  <path d="M2122,788.8 C2098.8,824.4 1999,1010.7 1948,1055.6 C1897,1100.5 1801.1,1120.6 1739.2,1125.2 C1677.3,1129.8 1539.7,1102.8 1484,1090.4 C1428.3,1078 1343.3,1040.1 1321.6,1032.4" fill="none" stroke="#D2A084" stroke-width="5" opacity="0.8"/>
+  <ellipse cx="1252" cy="406" rx="26" ry="16" fill="#D7A88E"/>
+  <circle id="nipple-right" cx="767.1" cy="1003.4" r="34.8" fill="#B87F6C"/>
+  <circle cx="1736.9" cy="1003.4" r="34.8" fill="#B87F6C"/>
+  <path id="clavicle-ridge" d="M1205.6,429.2 C1183.9,426.5 1068.7,412.8 1020,406 C971.3,399.2 842.1,373.9 788,371.2 C733.9,368.5 603.4,385.5 556,382.8 C508.6,380.1 410.4,354.8 382,348 C353.6,341.2 320.5,327.5 312.4,324.8" fill="none" stroke="#F0CFBA" stroke-width="22" stroke-linecap="round" opacity="0.7"/>
+  <path d="M672,104.4 C672,64.4 592,54.4 472,-20" fill="none" stroke="#E9EEF2" stroke-width="8" stroke-linecap="round"/>
+  <rect x="664" y="74.4" width="16" height="34" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line id="needle" x1="672" y1="104.4" x2="672" y2="307.4" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="672" cy="307.4" r="4" fill="#9E6B5A"/>
+  <path d="M672,794.2 C672,904.2 552,954.2 372,1240" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
+  <rect id="probe" x="645.9" y="452.4" width="52.2" height="243.6" rx="16" fill="#E9ECEF" stroke="#7D868F" stroke-width="3"/>
+  <path id="probe-handle" d="M638,574.2 L706,574.2 L698,804.2 L646,804.2 Z" fill="#D5DADF" stroke="#7D868F" stroke-width="3"/>
 </g>
 
 <g class="marking">
-  <path id="clavicle-mark" d="M260,760 C279.8,758.8 388,748.8 430,750 C472,751.2 574.5,764.2 620,770 C665.5,775.8 774.5,789.5 820,800 C865.5,810.5 987.8,853 1010,860" fill="none" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
+  <path id="clavicle-mark" d="M1205.6,429.2 C1183.9,426.5 1068.7,412.8 1020,406 C971.3,399.2 842.1,373.9 788,371.2 C733.9,368.5 603.4,385.5 556,382.8 C508.6,380.1 410.4,354.8 382,348 C353.6,341.2 320.5,327.5 312.4,324.8" fill="none" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
 </g>
 
-<g id="labels"><g class="label" data-label="Clavicle" data-target="clavicle-mark"><polyline class="leader-halo" points="760,910 620,770"/><polyline class="leader" points="760,910 620,770"/><circle class="leader-dot" cx="620" cy="770" r="7"/><text x="700" y="960" text-anchor="start"><tspan x="700" dy="0">Clavicle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="780,400 560,330"/><polyline class="leader" points="780,400 560,330"/><circle class="leader-dot" cx="560" cy="330" r="7"/><text x="780" y="420" text-anchor="start"><tspan x="780" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="260,1110 485,920"/><polyline class="leader" points="260,1110 485,920"/><circle class="leader-dot" cx="485" cy="920" r="7"/><text x="40" y="1150" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Clavicle" data-target="clavicle-mark"><polyline class="leader-halo" points="1030,320 1020,406"/><polyline class="leader" points="1030,320 1020,406"/><circle class="leader-dot" cx="1020" cy="406" r="7"/><text x="1020" y="300" text-anchor="start"><tspan x="1020" dy="0">Clavicle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="200,820 662,724.2"/><polyline class="leader" points="200,820 662,724.2"/><circle class="leader-dot" cx="662" cy="724.2" r="7"/><text x="40" y="860" text-anchor="start"><tspan x="40" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="770,170 672,205.9"/><polyline class="leader" points="770,170 672,205.9"/><circle class="leader-dot" cx="672" cy="205.9" r="7"/><text x="780" y="150" text-anchor="start"><tspan x="780" dy="0">Block needle</tspan></text></g></g>
 
 </svg>
