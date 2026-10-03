@@ -49,7 +49,7 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <rect x="264" y="620" width="50" height="20" rx="6" fill="#2FA58A" stroke="#1E7A66" stroke-width="2" transform="rotate(16 310 630)"/>
   <line id="needle" x1="310" y1="630" x2="605" y2="714" stroke="#8E969E" stroke-width="5"/>
   <circle id="needle-entry" cx="605" cy="714" r="5" fill="#9E6B5A"/>
-  <path id="probe-handle" d="M690,700 C696.7,710.8 863.3,710.8 870,700 C876.7,689.2 851.2,470.8 850,440 C848.8,409.2 845.4,-20 840,-40 C834.6,-60 725.4,-60 720,-40 C714.6,-20 711.2,409.2 710,440 C708.8,470.8 683.3,689.2 690,700 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path id="probe-handle" d="M670,740 C668.8,726.7 872.9,728.3 890,740 C907.1,751.7 1062.9,999.2 1080,1020 C1097.1,1040.8 1297.5,1230.8 1300,1240 C1302.5,1249.2 1155.8,1247.5 1140,1240 C1124.2,1232.5 939.6,1080.8 920,1060 C900.4,1039.2 671.2,753.3 670,740 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
   <polygon id="probe" points="650,690 910,690 910,750 650,750" fill="#D5DADF" stroke="#7D868F" stroke-width="3"/>
 </g>
 
@@ -57,6 +57,6 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <line id="mal" x1="780" y1="140" x2="780" y2="960" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
 </g>
 
-<g id="labels"><g class="label" data-label="Mid-axillary line" data-target="mal"><polyline class="leader-halo" points="880,1110 780,900"/><polyline class="leader" points="880,1110 780,900"/><circle class="leader-dot" cx="780" cy="900" r="7"/><text x="860" y="1150" text-anchor="start"><tspan x="860" dy="0">Mid-axillary line</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="1050,300 810,300"/><polyline class="leader" points="1050,300 810,300"/><circle class="leader-dot" cx="810" cy="300" r="7"/><text x="1040" y="330" text-anchor="start"><tspan x="1040" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="260,820 457.5,672"/><polyline class="leader" points="260,820 457.5,672"/><circle class="leader-dot" cx="457.5" cy="672" r="7"/><text x="40" y="860" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Mid-axillary line" data-target="mal"><polyline class="leader-halo" points="880,140 780,300"/><polyline class="leader" points="880,140 780,300"/><circle class="leader-dot" cx="780" cy="300" r="7"/><text x="860" y="120" text-anchor="start"><tspan x="860" dy="0">Mid-axillary line</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="1190,720 980,940"/><polyline class="leader" points="1190,720 980,940"/><circle class="leader-dot" cx="980" cy="940" r="7"/><text x="1180" y="760" text-anchor="start"><tspan x="1180" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="260,820 457.5,672"/><polyline class="leader" points="260,820 457.5,672"/><circle class="leader-dot" cx="457.5" cy="672" r="7"/><text x="40" y="860" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g></g>
 
 </svg>
