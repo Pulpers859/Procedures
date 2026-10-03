@@ -2,14 +2,14 @@
   "assetId": "serratus_anatomy",
   "procedure": "block_serratus_anterior",
   "title": "Target anatomy",
-  "view": "Sagittal section of the right lateral chest wall in the mid-axillary line at the 4th-5th ribs, as on the screen: cranial on the image left, skin at the top.",
+  "view": "Section of the right lateral chest wall at the 4th-5th ribs under the probe, as on the screen: anterior on the image left, skin at the top (record updated to NYSORA's transverse probe, 2026-10-03).",
   "teachingPoint": "Latissimus over serratus over the ribs: inject in the superficial plane (between latissimus and serratus, with the thoracodorsal artery) or the deep plane (between serratus and the ribs).",
   "claims": [
-    "Sagittal section, cranial on the left (NYSORA's serratus plate, concept only).",
+    "Section under the probe, anterior on the left (NYSORA's serratus plate, concept only).",
     "Layers: latissimus dorsi, serratus anterior, ribs, pleura (record).",
     "Thoracodorsal artery in the superficial plane (record).",
     "Solid teal: the superficial plane; dashed teal: the deep plane under serratus (record: either option).",
-    "Needle in-plane from cranial, tip in the superficial plane short of the artery (record: cranial to caudal).",
+    "Needle in-plane from the anterior end, tip in the superficial plane short of the artery (record: from the superior-anterior end).",
     "Labels: Latissimus dorsi, Serratus anterior, Thoracodorsal artery, Superficial plane, Deep plane."
   ],
   "requiredElements": [
@@ -78,7 +78,7 @@
       "check": "leftOf",
       "a": "needle-entry",
       "b": "probe",
-      "why": "in-plane from the cranial end (cranial is left)"
+      "why": "in-plane from the anterior end (anterior is left)"
     }
   ],
   "review": {

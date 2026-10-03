@@ -9,12 +9,13 @@ runs down the right side, and the drape lies below.
 
 NYSORA: transducer transverse over the mid-axillary line at the 4th-5th ribs
 (its long axis anterior-posterior); needle in-plane from superior-anterior
-to posterior-inferior. (The record currently says sagittal, cranial to
-caudal; raised with the owner.)
+to posterior-inferior. The record follows NYSORA
+(owner, 2026-10-03).
 
 Drawn: the probe on the mid-axillary line, its footprint lying anterior-
-posterior (horizontal here), its handle angled down and posterior toward
-the operator; the needle entering just anterior (left) of the probe's
+posterior (horizontal here), its handle standing straight up out of the top
+(owner, 2026-10-03: a handle drawn angled across the skin was painted as a
+probe lying on its side); the needle entering just anterior (left) of the probe's
 anterior end, from slightly superior, in line with it. Code-drawn: the
 dashed mid-axillary line. Perspective layout; markings traced on the
 painting.
@@ -45,8 +46,8 @@ MAL_X = 780.0
 PROBE_C = (780.0, 720.0)
 FOOT = [(PROBE_C[0] - 130, PROBE_C[1] - 30), (PROBE_C[0] + 130, PROBE_C[1] - 30), (PROBE_C[0] + 130, PROBE_C[1] + 30),
         (PROBE_C[0] - 130, PROBE_C[1] + 30)]
-HANDLE = [(PROBE_C[0] - 110, PROBE_C[1] + 20), (PROBE_C[0] + 110, PROBE_C[1] + 20), (PROBE_C[0] + 300, PROBE_C[1] + 300),
-          (PROBE_C[0] + 520, 1240), (PROBE_C[0] + 360, 1240), (PROBE_C[0] + 140, PROBE_C[1] + 340)]
+HANDLE = [(PROBE_C[0] - 90, PROBE_C[1] - 20), (PROBE_C[0] + 90, PROBE_C[1] - 20), (PROBE_C[0] + 70, 440), (PROBE_C[0] + 60, -40),
+          (PROBE_C[0] - 60, -40), (PROBE_C[0] - 70, 440)]
 NEEDLE_ENTRY = (PROBE_C[0] - 175, PROBE_C[1] - 6)
 NEEDLE_HUB = (PROBE_C[0] - 470, PROBE_C[1] - 90)
 
@@ -64,8 +65,8 @@ def pts(points):
 def build() -> str:
     ne, nh = NEEDLE_ENTRY, NEEDLE_HUB
     labels = [
-        Label(["Mid-axillary line"], anchor=(860, 120), leader=[(880, 140), (MAL_X, 300)], target_id="mal"),
-        Label(["Linear probe"], anchor=(1180, 760), leader=[(1190, 720), (PROBE_C[0] + 200, PROBE_C[1] + 220)], target_id="probe-handle"),
+        Label(["Mid-axillary line"], anchor=(860, 1150), leader=[(880, 1110), (MAL_X, 900)], target_id="mal"),
+        Label(["Linear probe"], anchor=(1040, 330), leader=[(1050, 300), (PROBE_C[0] + 30, 300)], target_id="probe-handle"),
         Label(["Block needle"], anchor=(40, 860), leader=[(260, 820), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
     ]
     painted = BASE.exists()

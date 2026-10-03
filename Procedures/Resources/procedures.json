@@ -7228,9 +7228,9 @@
         "Patient supine or lateral decubitus, arm abducted to expose the lateral chest (axilla)."
       ],
       "steps": [
-        "Place the transducer in the mid-axillary line at the 4th or 5th intercostal space (sagittal orientation).",
+        "Place the transducer in a transverse orientation over the mid-axillary line, then slide it toward the back until latissimus dorsi is seen superficial to serratus anterior at the level of the 4th and 5th ribs.",
         "Identify the latissimus dorsi, serratus anterior, ribs, and pleura.",
-        "Insert the needle in-plane from cranial to caudal (or caudal to cranial).",
+        "Insert the needle in-plane from the superior-anterior end, directed inferiorly and toward the back.",
         "Advance into the fascial plane either superficial to the serratus anterior (between latissimus and serratus) OR deep to the serratus anterior (between serratus and ribs).",
         "Aspirate, then inject 20-30 mL of anesthetic."
       ],
@@ -7301,7 +7301,7 @@
         "id": "serratus_patient_position",
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
-        "subtitle": "Supine or lateral decubitus, arm abducted. Transducer sagittal in the mid-axillary line at the 4th or 5th intercostal space. Needle in-plane, cranial to caudal or caudal to cranial.",
+        "subtitle": "Supine or lateral decubitus, arm abducted. Transducer transverse over the mid-axillary line at the 4th-5th ribs, slid back until latissimus lies over serratus. Needle in-plane from the superior-anterior end.",
         "assetName": null,
         "systemImage": "hand.point.up.left",
         "caption": "",
@@ -7314,7 +7314,7 @@
         "subtitle": "Latissimus dorsi, then serratus anterior on the ribs, then pleura. Inject superficial to serratus (between latissimus and serratus) or deep to it (between serratus and ribs). The thoracodorsal artery runs in the superficial plane.",
         "assetName": "serratus_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "Sagittal section of the right lateral chest wall, head on the left: inject between latissimus and serratus (with the thoracodorsal artery) or under serratus on the ribs.",
+        "caption": "Section of the right lateral chest wall under the probe, anterior on the left: inject between latissimus and serratus (with the thoracodorsal artery) or under serratus on the ribs.",
         "clinicalWarning": null
       }
     ],
