@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "femoral_nerve_patient_position.png",
+      "filename": "femoral_nerve_patient_position.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "femoral_nerve_patient_position-dark.png",
+      "filename": "femoral_nerve_patient_position-dark.jpg",
       "idiom": "universal"
     }
   ],

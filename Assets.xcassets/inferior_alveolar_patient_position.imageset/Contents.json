@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "inferior_alveolar_patient_position.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "inferior_alveolar_patient_position-dark.png",
+      "filename": "inferior_alveolar_patient_position.jpg",
       "idiom": "universal"
     }
   ],

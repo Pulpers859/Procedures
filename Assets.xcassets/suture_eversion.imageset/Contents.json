@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "suture_eversion.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "suture_eversion-dark.png",
+      "filename": "suture_eversion.jpg",
       "idiom": "universal"
     }
   ],

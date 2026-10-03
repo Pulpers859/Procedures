@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "pecs_anatomy.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "pecs_anatomy-dark.png",
+      "filename": "pecs_anatomy.jpg",
       "idiom": "universal"
     }
   ],

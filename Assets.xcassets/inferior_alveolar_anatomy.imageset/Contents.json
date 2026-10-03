@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "inferior_alveolar_anatomy.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "inferior_alveolar_anatomy-dark.png",
+      "filename": "inferior_alveolar_anatomy.jpg",
       "idiom": "universal"
     }
   ],

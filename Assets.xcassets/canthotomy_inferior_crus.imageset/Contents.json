@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "canthotomy_inferior_crus.png",
+      "filename": "canthotomy_inferior_crus.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "canthotomy_inferior_crus-dark.png",
+      "filename": "canthotomy_inferior_crus-dark.jpg",
       "idiom": "universal"
     }
   ],

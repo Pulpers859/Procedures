@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "femoral_nerve_anatomy.png",
+      "filename": "femoral_nerve_anatomy.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "femoral_nerve_anatomy-dark.png",
+      "filename": "femoral_nerve_anatomy-dark.jpg",
       "idiom": "universal"
     }
   ],

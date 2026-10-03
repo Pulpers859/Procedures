@@ -304,6 +304,34 @@ def record_approval(asset_id: str) -> None:
     print(f"{asset_id}: approval recorded against svg {spec['review']['sourceSha256'][:12]}")
 
 
+JPEG_QUALITY = 88          # owner, 2026-10-02: PNGs made the app ~140 MB; q88 looks the same on the card
+DARK_SAME_THRESHOLD = 0.5  # mean channel difference below which the dark render is a duplicate
+
+
+def write_catalog_images(imageset: Path, asset_id: str, light_png: Path, dark_png: Path) -> dict:
+    """Write the light render, and the dark one only when it differs, as JPEG;
+    remove stale image files; return the imageset's Contents.json. A plate
+    whose painting is not dimmed in dark mode renders identically, so a second
+    file would only add size; iOS uses the light image in dark mode when there
+    is no dark variant."""
+    from PIL import Image, ImageChops, ImageStat
+
+    light = Image.open(light_png).convert("RGB")
+    dark = Image.open(dark_png).convert("RGB") if dark_png.exists() else None
+    if dark is not None and sum(ImageStat.Stat(ImageChops.difference(light, dark)).mean) / 3 < DARK_SAME_THRESHOLD:
+        dark = None
+    for stale in imageset.iterdir():
+        if stale.suffix.lower() in (".png", ".jpg", ".jpeg"):
+            stale.unlink()
+    light.save(imageset / f"{asset_id}.jpg", "JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
+    images = [{"filename": f"{asset_id}.jpg", "idiom": "universal"}]
+    if dark is not None:
+        dark.save(imageset / f"{asset_id}-dark.jpg", "JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
+        images.append({"appearances": [{"appearance": "luminosity", "value": "dark"}],
+                       "filename": f"{asset_id}-dark.jpg", "idiom": "universal"})
+    return {"images": images, "info": {"author": "xcode", "version": 1}}
+
+
 def promote(asset_id: str, out: Path) -> None:
     spec = load_spec(asset_id)
     svg = VISUALS / asset_id / f"{asset_id}.svg"
@@ -314,16 +342,7 @@ def promote(asset_id: str, out: Path) -> None:
         raise SystemExit(f"{asset_id}: drawing changed since approval; re-review before promoting")
     imageset = ASSETS / f"{asset_id}.imageset"
     imageset.mkdir(exist_ok=True)
-    shutil.copyfile(out / f"{asset_id}.png", imageset / f"{asset_id}.png")
-    shutil.copyfile(out / f"{asset_id}-dark.png", imageset / f"{asset_id}-dark.png")
-    contents = {
-        "images": [
-            {"filename": f"{asset_id}.png", "idiom": "universal"},
-            {"appearances": [{"appearance": "luminosity", "value": "dark"}],
-             "filename": f"{asset_id}-dark.png", "idiom": "universal"},
-        ],
-        "info": {"author": "xcode", "version": 1},
-    }
+    contents = write_catalog_images(imageset, asset_id, out / f"{asset_id}.png", out / f"{asset_id}-dark.png")
     (imageset / "Contents.json").write_text(json.dumps(contents, indent=2) + "\n", encoding="utf-8")
     print(f"{asset_id}: promoted to {imageset.relative_to(REPO)}. "
           f"Set visualAssets.assetName to \"{asset_id}\" and run validate_procedures.py.")
@@ -334,7 +353,7 @@ def main() -> int:
     parser.add_argument("asset_ids", nargs="*")
     parser.add_argument("--all", action="store_true")
     parser.add_argument("--record-approval", action="store_true", help="Owner approved: record it against the current SVG.")
-    parser.add_argument("--promote", action="store_true", help="Copy an approved render into Assets.xcassets.")
+    parser.add_argument("--promote", action="store_true", help="Copy an approved render into Assets.xcassets as JPEG (a dark file only if it differs).")
     parser.add_argument("--reference", action="store_true",
                         help="Also write render/<id>-reference.png: no labels and no .marking elements, for Gemini to repaint.")
     args = parser.parse_args()

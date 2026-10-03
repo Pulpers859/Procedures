@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "mental_patient_position.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "mental_patient_position-dark.png",
+      "filename": "mental_patient_position.jpg",
       "idiom": "universal"
     }
   ],

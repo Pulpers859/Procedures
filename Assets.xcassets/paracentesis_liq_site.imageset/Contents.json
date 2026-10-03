@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "paracentesis_liq_site.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "paracentesis_liq_site-dark.png",
+      "filename": "paracentesis_liq_site.jpg",
       "idiom": "universal"
     }
   ],

@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "radial_nerve_patient_position.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "radial_nerve_patient_position-dark.png",
+      "filename": "radial_nerve_patient_position.jpg",
       "idiom": "universal"
     }
   ],

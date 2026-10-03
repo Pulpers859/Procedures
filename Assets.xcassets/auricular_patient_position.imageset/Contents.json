@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "auricular_patient_position.png",
+      "filename": "auricular_patient_position.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "auricular_patient_position-dark.png",
+      "filename": "auricular_patient_position-dark.jpg",
       "idiom": "universal"
     }
   ],

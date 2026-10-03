@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "cordis_dilator_unit.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "cordis_dilator_unit-dark.png",
+      "filename": "cordis_dilator_unit.jpg",
       "idiom": "universal"
     }
   ],

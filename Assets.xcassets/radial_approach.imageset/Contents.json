@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "radial_approach.png",
+      "filename": "radial_approach.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "radial_approach-dark.png",
+      "filename": "radial_approach-dark.jpg",
       "idiom": "universal"
     }
   ],

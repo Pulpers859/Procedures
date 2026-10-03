@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "cric_membrane.png",
+      "filename": "cric_membrane.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "cric_membrane-dark.png",
+      "filename": "cric_membrane-dark.jpg",
       "idiom": "universal"
     }
   ],

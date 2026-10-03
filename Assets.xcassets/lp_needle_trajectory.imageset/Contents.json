@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "lp_needle_trajectory.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "lp_needle_trajectory-dark.png",
+      "filename": "lp_needle_trajectory.jpg",
       "idiom": "universal"
     }
   ],

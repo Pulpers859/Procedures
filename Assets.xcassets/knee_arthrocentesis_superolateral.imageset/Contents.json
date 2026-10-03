@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "knee_arthrocentesis_superolateral.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "knee_arthrocentesis_superolateral-dark.png",
+      "filename": "knee_arthrocentesis_superolateral.jpg",
       "idiom": "universal"
     }
   ],

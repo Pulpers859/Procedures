@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "vascath_tip_position.png",
+      "filename": "vascath_tip_position.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "vascath_tip_position-dark.png",
+      "filename": "vascath_tip_position-dark.jpg",
       "idiom": "universal"
     }
   ],

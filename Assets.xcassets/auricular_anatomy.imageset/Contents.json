@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "auricular_anatomy.png",
+      "filename": "auricular_anatomy.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "auricular_anatomy-dark.png",
+      "filename": "auricular_anatomy-dark.jpg",
       "idiom": "universal"
     }
   ],

@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "digital_block_landmark.png",
+      "filename": "digital_block_landmark.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "digital_block_landmark-dark.png",
+      "filename": "digital_block_landmark-dark.jpg",
       "idiom": "universal"
     }
   ],

@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "infraorbital_anatomy.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "infraorbital_anatomy-dark.png",
+      "filename": "infraorbital_anatomy.jpg",
       "idiom": "universal"
     }
   ],

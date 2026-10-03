@@ -1,7 +1,7 @@
 {
   "images": [
     {
-      "filename": "pigtail_seldinger.png",
+      "filename": "pigtail_seldinger.jpg",
       "idiom": "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value": "dark"
         }
       ],
-      "filename": "pigtail_seldinger-dark.png",
+      "filename": "pigtail_seldinger-dark.jpg",
       "idiom": "universal"
     }
   ],

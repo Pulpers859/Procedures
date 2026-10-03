@@ -60,6 +60,19 @@ class CodeDrawnVisualsTest(unittest.TestCase):
                 for element in spec["requiredElements"]:
                     self.assertIn(f'id="{element}"', svg)
 
+    def test_bundled_plates_ship_as_jpeg(self):
+        """Owner, 2026-10-02: lossless PNG pairs made the app ~140 MB. Plates
+        ship as JPEG, with a dark file only when the dark render differs."""
+        for asset_dir in asset_dirs():
+            imageset = ASSETS / f"{asset_dir.name}.imageset"
+            if not imageset.exists():
+                continue
+            with self.subTest(asset=asset_dir.name):
+                self.assertEqual(list(imageset.glob("*.png")), [], "re-promote: plates ship as JPEG")
+                images = json.loads((imageset / "Contents.json").read_text(encoding="utf-8"))["images"]
+                for image in images:
+                    self.assertTrue((imageset / image["filename"]).is_file(), image["filename"])
+
     def test_bundled_drawing_is_the_approved_one(self):
         for asset_dir in asset_dirs():
             imageset = ASSETS / f"{asset_dir.name}.imageset"

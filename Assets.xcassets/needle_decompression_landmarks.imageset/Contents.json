@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "needle_decompression_landmarks.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "needle_decompression_landmarks-dark.png",
+      "filename": "needle_decompression_landmarks.jpg",
       "idiom": "universal"
     }
   ],

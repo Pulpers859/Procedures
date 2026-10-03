@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "median_nerve_anatomy.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "median_nerve_anatomy-dark.png",
+      "filename": "median_nerve_anatomy.jpg",
       "idiom": "universal"
     }
   ],

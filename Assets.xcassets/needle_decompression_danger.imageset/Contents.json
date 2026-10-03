@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "needle_decompression_danger.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "needle_decompression_danger-dark.png",
+      "filename": "needle_decompression_danger.jpg",
       "idiom": "universal"
     }
   ],

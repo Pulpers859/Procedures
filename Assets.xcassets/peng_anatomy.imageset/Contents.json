@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "peng_anatomy.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "peng_anatomy-dark.png",
+      "filename": "peng_anatomy.jpg",
       "idiom": "universal"
     }
   ],

@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "mental_anatomy.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "mental_anatomy-dark.png",
+      "filename": "mental_anatomy.jpg",
       "idiom": "universal"
     }
   ],

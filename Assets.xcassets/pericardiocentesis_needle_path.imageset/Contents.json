@@ -1,17 +1,7 @@
 {
   "images": [
     {
-      "filename": "pericardiocentesis_needle_path.png",
-      "idiom": "universal"
-    },
-    {
-      "appearances": [
-        {
-          "appearance": "luminosity",
-          "value": "dark"
-        }
-      ],
-      "filename": "pericardiocentesis_needle_path-dark.png",
+      "filename": "pericardiocentesis_needle_path.jpg",
       "idiom": "universal"
     }
   ],
