@@ -2,30 +2,32 @@
   "assetId": "serratus_patient_position",
   "procedure": "block_serratus_anterior",
   "title": "Probe and needle on the patient",
-  "view": "NYSORA's serratus patient view: the patient's left side from the front, head at the top, feet at the bottom, left arm abducted to the image right with the armpit visible.",
-  "teachingPoint": "Probe head on the lateral chest wall below the breast toward the armpit, the probe lying front-to-back; needle in-plane, level, from the anterior side.",
+  "view": "NYSORA's serratus patient view, male chest: the patient's left side from the front, head at the top, left arm abducted to the image right with the armpit visible.",
+  "teachingPoint": "Probe head on the mid-axillary line just below nipple level (4th-5th ribs), the probe lying front-to-back; needle in-plane, level, from the anterior side.",
   "claims": [
     "Copies NYSORA Fig-9's composition: patient's left side, head up, arm abducted to the right (owner, 2026-10-03; concept only, not committed; NYSORA's side used instead of the house right at the owner's direction).",
-    "Probe head on the lateral chest wall below the breast on the mid-axillary line, the probe lying anterior-posterior toward the arm side (record: transverse over the mid-axillary line at the 4th-5th ribs).",
+    "Probe head on the mid-axillary line, straight down from the axillary apex, just below nipple level at the 4th-5th ribs (record: transverse over the mid-axillary line at the 4th-5th ribs).",
     "Needle entering just anterior to the probe head, level, in line with it (record: in-plane from the superior-anterior end).",
-    "Labels: Linear probe, Block needle, Axilla, Breast."
+    "Dashed: the mid-axillary line. Labels: Linear probe, Block needle, Axilla, Mid-axillary line."
   ],
   "requiredElements": [
     "chest",
-    "breast",
+    "pec-border",
+    "nipple",
     "arm",
     "axilla",
     "drape",
     "probe",
     "probe-head",
     "needle",
-    "needle-entry"
+    "needle-entry",
+    "mal"
   ],
   "labels": {
     "Linear probe": "probe",
     "Block needle": "needle",
     "Axilla": "axilla",
-    "Breast": "breast"
+    "Mid-axillary line": "mal"
   },
   "geometry": [
     {
@@ -35,22 +37,28 @@
       "why": "needle from the anterior side"
     },
     {
-      "check": "below",
-      "a": "probe-head",
-      "b": "breast",
-      "why": "probe head below the breast"
+      "check": "crosses",
+      "a": "mal",
+      "b": "probe-head",
+      "why": "probe head on the mid-axillary line"
     },
     {
-      "check": "leftOf",
-      "a": "breast",
-      "b": "arm",
-      "why": "arm abducted to the image right"
+      "check": "below",
+      "a": "probe-head",
+      "b": "nipple",
+      "why": "probe at or just below nipple level (4th-5th ribs)"
     },
     {
       "check": "below",
       "a": "probe",
       "b": "axilla",
       "why": "probe below the armpit"
+    },
+    {
+      "check": "leftOf",
+      "a": "nipple",
+      "b": "probe-head",
+      "why": "probe lateral to the nipple"
     },
     {
       "check": "within",
