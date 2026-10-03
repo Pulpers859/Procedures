@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F2F4F6; }</style>
+<defs>
+<linearGradient id="post-skin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E7BFA4"/><stop offset="1" stop-color="#D9AA8E"/></linearGradient>
+<linearGradient id="probe-body" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B9C0C7"/><stop offset="0.5" stop-color="#E9ECEF"/>
+  <stop offset="1" stop-color="#C3CAD1"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting"></g>
+<g id="anatomy">
+  <rect x="0" y="0" width="1600" height="1200" fill="#F2F4F6"/>
+  <path id="lateral-thigh" d="M370,1240 C370.8,1203.3 376.2,870 380,800 C383.8,730 408.3,470 415,400 C421.7,330 456.2,-3.3 460,-40 L550,-40 L510,400 L480,800 L470,1240 Z" fill="#C79579" stroke="#A9765F" stroke-width="3"/>
+  <path id="leg" d="M470,1240 C470.8,1203.3 476.7,870 480,800 C483.3,730 504.2,470 510,400 C515.8,330 546.7,-3.3 550,-40 L1240,-40 L1270,400 L1300,800 L1310,1240 Z" fill="url(#post-skin)" stroke="#B98A74" stroke-width="3"/>
+  <path d="M1050,-40 C1150,120 1300,200 1640,180 L1640,-40 Z" fill="#FFFFFF" stroke="#C9D2DA" stroke-width="3"/>
+  <path id="crease" d="M590,1060 C610,1060 748,1060 790,1060 C832,1060 970,1060 1010,1060 C1050,1060 1172,1060 1190,1060" fill="none" stroke="#A9765F" stroke-width="7" stroke-linecap="round"/>
+  <path d="M220,520 C140,550 100,720 -40,1240" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
+  <polygon points="174,532 220,532 220,508 174,508" fill="#2FA58A" stroke="#1E7A66" stroke-width="2"/>
+  <line id="needle" x1="220" y1="520" x2="480" y2="520" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="480" cy="520" r="5" fill="#9E6B5A"/>
+  <path d="M880,-40 C890,-100 1000,-140 1080,-160" fill="none" stroke="#3E454C" stroke-width="18"/>
+  <path id="probe-handle" d="M790,520 C796.7,529.2 963.3,529.2 970,520 C976.7,510.8 951.2,323.3 950,300 C948.8,276.7 945.4,-25.8 940,-40 C934.6,-54.2 825.4,-54.2 820,-40 C814.6,-25.8 811.2,276.7 810,300 C808.8,323.3 783.3,510.8 790,520 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <polygon id="probe" points="770,546 990,546 990,494 770,494" fill="#D5DADF" stroke="#7D868F" stroke-width="3"/>
+</g>
+
+<g class="marking">
+  <path id="crease-mark" d="M590,1060 C610,1060 748,1060 790,1060 C832,1060 970,1060 1010,1060 C1050,1060 1172,1060 1190,1060" fill="none" stroke="#4A2F7A" stroke-width="7" stroke-dasharray="16 10"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Knee joint line" data-target="crease-mark"><polyline class="leader-halo" points="420,1110 590,1060"/><polyline class="leader" points="420,1110 590,1060"/><circle class="leader-dot" cx="590" cy="1060" r="7"/><text x="40" y="1150" text-anchor="start"><tspan x="40" dy="0">Knee joint line</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe-handle"><polyline class="leader-halo" points="1030,190 920,300"/><polyline class="leader" points="1030,190 920,300"/><circle class="leader-dot" cx="920" cy="300" r="7"/><text x="1020" y="170" text-anchor="start"><tspan x="1020" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,640 350,520"/><polyline class="leader" points="200,640 350,520"/><circle class="leader-dot" cx="350" cy="520" r="7"/><text x="40" y="680" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g></g>
+
+</svg>

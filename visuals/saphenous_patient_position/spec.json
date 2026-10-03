@@ -1,0 +1,54 @@
+{
+  "assetId": "saphenous_patient_position",
+  "procedure": "block_saphenous_nerve",
+  "title": "Probe and needle on the patient",
+  "view": "Supine, right leg slightly externally rotated, seen from the foot looking up the medial thigh: knee at the bottom, groin drape at the top.",
+  "teachingPoint": "Probe transverse on the mid-medial thigh; needle in-plane from the anterior (lateral) side toward the probe.",
+  "claims": [
+    "Supine, leg slightly externally rotated (record); camera after NYSORA's patient photo (concept only).",
+    "Probe transverse, square across the mid-medial thigh (record).",
+    "Needle entering the anterior thigh in the probe's plane, level: lateral to medial (record).",
+    "Dashed: the medial knee joint line for orientation.",
+    "Labels: Knee joint line, Linear probe, Block needle."
+  ],
+  "requiredElements": [
+    "leg",
+    "lateral-thigh",
+    "crease-mark",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Knee joint line": "crease-mark",
+    "Linear probe": "probe-handle",
+    "Block needle": "needle"
+  },
+  "geometry": [
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "lateral-thigh",
+      "why": "entry on the anterior thigh"
+    },
+    {
+      "check": "below",
+      "a": "crease-mark",
+      "b": "probe",
+      "why": "probe proximal to the knee"
+    },
+    {
+      "check": "within",
+      "a": "probe",
+      "b": "leg",
+      "why": "probe on the medial thigh"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "needle from the anterior/lateral side"
+    }
+  ]
+}

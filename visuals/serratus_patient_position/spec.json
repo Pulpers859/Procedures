@@ -1,0 +1,54 @@
+{
+  "assetId": "serratus_patient_position",
+  "procedure": "block_serratus_anterior",
+  "title": "Probe and needle on the patient",
+  "view": "Right lateral chest wall from the patient's right side, supine with the arm raised beside the head: head to the left, front of the chest toward the top, back toward the bed.",
+  "teachingPoint": "Probe sagittal on the mid-axillary line at the 4th-5th rib, below the armpit; needle in-plane from cranial.",
+  "claims": [
+    "Supine, arm abducted (record); camera after NYSORA's patient photo (concept only).",
+    "Probe upright, sagittal, on the mid-axillary line at the 4th-5th intercostal space (record).",
+    "Needle entering just cranial to the probe, in line with it: in-plane cranial to caudal (record).",
+    "Dashed: the mid-axillary line.",
+    "Labels: Mid-axillary line, Linear probe, Block needle."
+  ],
+  "requiredElements": [
+    "chest",
+    "arm",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry",
+    "mal"
+  ],
+  "labels": {
+    "Mid-axillary line": "mal",
+    "Linear probe": "probe-handle",
+    "Block needle": "needle"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "needle enters cranial to the probe (head is left)"
+    },
+    {
+      "check": "crosses",
+      "a": "mal",
+      "b": "probe",
+      "why": "probe on the mid-axillary line"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "chest",
+      "why": "entry on the skin"
+    },
+    {
+      "check": "below",
+      "a": "probe",
+      "b": "arm",
+      "why": "probe below the armpit"
+    }
+  ]
+}
