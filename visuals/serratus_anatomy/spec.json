@@ -80,5 +80,10 @@
       "b": "probe",
       "why": "in-plane from the cranial end (cranial is left)"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "fbe56843fd91ea30970bf5aa7acb3c3043f8d53a724aa6e38a21b7746c1f8808",
+    "reviewedOn": "2026-10-03"
+  }
 }

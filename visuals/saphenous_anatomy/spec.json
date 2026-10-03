@@ -96,5 +96,10 @@
       "b": "femoral-artery",
       "why": "spread reaches the artery"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "f8b103c8efa1900eb29f8c9b7d99bf041489419d79ec50d96b0231de676b1175",
+    "reviewedOn": "2026-10-03"
+  }
 }

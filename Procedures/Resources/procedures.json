@@ -6200,9 +6200,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine, arm adducted on the abdomen. Transducer sagittal over the infraclavicular fossa. Needle inserted posterior to the clavicle, aimed caudally, strictly in-plane.",
-        "assetName": null,
+        "assetName": "raptir_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Supine, seen from the right side, head on the left: probe upright below the clavicle beside the coracoid; needle in above the clavicle, passing behind it toward the probe.",
         "clinicalWarning": null
       },
       {
@@ -7312,9 +7312,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "Latissimus dorsi, then serratus anterior on the ribs, then pleura. Inject superficial to serratus (between latissimus and serratus) or deep to it (between serratus and ribs). The thoracodorsal artery runs in the superficial plane.",
-        "assetName": null,
+        "assetName": "serratus_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Sagittal section of the right lateral chest wall, head on the left: inject between latissimus and serratus (with the thoracodorsal artery) or under serratus on the ribs.",
         "clinicalWarning": null
       }
     ],
@@ -8657,9 +8657,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "In the adductor canal the saphenous nerve travels with the superficial femoral artery, deep to the sartorius. Inject into the fascial plane around the artery.",
-        "assetName": null,
+        "assetName": "saphenous_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right thigh at the adductor canal, lateral on the left: under the sartorius the saphenous nerve lies beside the femoral artery, vein deep; needle from lateral.",
         "clinicalWarning": null
       }
     ],

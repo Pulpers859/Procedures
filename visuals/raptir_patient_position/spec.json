@@ -61,5 +61,10 @@
       "b": "clavicle-mark",
       "why": "the path runs posterior to (below, in this view) the clavicle"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "2c4dd931de040482d6156dcd347eb2602d2461a9b0b0214dff27d6a920df5792",
+    "reviewedOn": "2026-10-03"
+  }
 }
