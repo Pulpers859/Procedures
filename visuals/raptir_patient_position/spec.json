@@ -2,51 +2,55 @@
   "assetId": "raptir_patient_position",
   "procedure": "block_raptir",
   "title": "Probe and needle on the patient",
-  "view": "Supine adult male from above, head at the top, the patient's right on the image left, arms adducted at the sides.",
-  "teachingPoint": "Probe sagittal in the infraclavicular fossa; needle in just above (behind) the clavicle, directly cranial to the probe, aimed caudally, strictly in-plane.",
+  "view": "Supine, seen from the patient's right side with the head to the left, looking across the right shoulder; arm at the side.",
+  "teachingPoint": "Probe upright and sagittal just medial to the coracoid below the clavicle; needle in from above (behind) the clavicle, long and shallow, in line with the probe, aimed caudally.",
   "claims": [
-    "Supine, arm adducted (record); patient's right on the image left; reuses the approved decompression torso layout.",
-    "Linear probe standing upright, sagittal, in the right infraclavicular fossa below the lateral third of the clavicle; handle drawn foreshortened toward the feet (record: sagittal over the infraclavicular fossa).",
-    "Needle entering just above the clavicle, directly cranial to the probe and in line with it, aimed caudally (record: posterior to the clavicle, caudal, strictly in-plane).",
-    "Dashed: the clavicle.",
-    "Labels: Clavicle, Linear probe, Block needle."
+    "Supine, arm adducted (record); side view with the head to the left, after three clinical RAPTIR photos the owner shared (concept only).",
+    "Linear probe upright, sagittal, in the infraclavicular fossa just medial to the coracoid (record: sagittal over the infraclavicular fossa; coracoid standard anatomy).",
+    "Needle entering above the clavicle, cranial to the probe and in line with it, shallow, aimed caudally (record: posterior to the clavicle, caudal, strictly in-plane).",
+    "Dashed clavicle; ring on the coracoid.",
+    "Labels: Clavicle, Coracoid, Linear probe, Block needle, Deltoid."
   ],
   "requiredElements": [
-    "torso",
+    "skin",
+    "deltoid",
     "probe",
     "probe-handle",
     "needle",
     "needle-entry",
-    "clavicle-mark"
+    "clavicle-mark",
+    "coracoid-mark"
   ],
   "labels": {
     "Clavicle": "clavicle-mark",
+    "Coracoid": "coracoid-mark",
     "Linear probe": "probe-handle",
-    "Block needle": "needle"
+    "Block needle": "needle",
+    "Deltoid": "deltoid"
   },
   "geometry": [
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "needle enters cranial to the probe (head is left)"
+    },
     {
       "check": "below",
       "a": "probe",
       "b": "needle-entry",
-      "why": "needle enters cranial to the probe"
+      "why": "probe lower on the curve, below the clavicle"
     },
     {
       "check": "below",
-      "a": "probe",
+      "a": "coracoid-mark",
       "b": "clavicle-mark",
-      "why": "probe below the clavicle"
-    },
-    {
-      "check": "pointsDown",
-      "a": "needle",
-      "maxLean": 0.2,
-      "why": "aimed caudally, in line with the sagittal probe"
+      "why": "coracoid below the clavicle"
     },
     {
       "check": "within",
       "a": "needle-entry",
-      "b": "torso",
+      "b": "skin",
       "why": "entry on the skin"
     }
   ]

@@ -1,0 +1,84 @@
+{
+  "assetId": "serratus_anatomy",
+  "procedure": "block_serratus_anterior",
+  "title": "Target anatomy",
+  "view": "Sagittal section of the right lateral chest wall in the mid-axillary line at the 4th-5th ribs, as on the screen: cranial on the image left, skin at the top.",
+  "teachingPoint": "Latissimus over serratus over the ribs: inject in the superficial plane (between latissimus and serratus, with the thoracodorsal artery) or the deep plane (between serratus and the ribs).",
+  "claims": [
+    "Sagittal section, cranial on the left (NYSORA's serratus plate, concept only).",
+    "Layers: latissimus dorsi, serratus anterior, ribs, pleura (record).",
+    "Thoracodorsal artery in the superficial plane (record).",
+    "Solid teal: the superficial plane; dashed teal: the deep plane under serratus (record: either option).",
+    "Needle in-plane from cranial, tip in the superficial plane short of the artery (record: cranial to caudal).",
+    "Labels: Latissimus dorsi, Serratus anterior, Thoracodorsal artery, Superficial plane, Deep plane."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "latissimus",
+    "serratus",
+    "rib-1",
+    "rib-2",
+    "intercostal",
+    "pleura",
+    "lung",
+    "tda",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread-superficial",
+    "spread-deep"
+  ],
+  "labels": {
+    "Latissimus dorsi": "latissimus",
+    "Serratus anterior": "serratus",
+    "Thoracodorsal artery": "tda",
+    "Superficial plane": "spread-superficial",
+    "Deep plane": "spread-deep"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "serratus",
+      "b": "latissimus",
+      "why": "serratus deep to latissimus"
+    },
+    {
+      "check": "below",
+      "a": "rib-1",
+      "b": "serratus",
+      "why": "ribs deep to serratus"
+    },
+    {
+      "check": "below",
+      "a": "spread-deep",
+      "b": "spread-superficial",
+      "why": "deep plane under serratus"
+    },
+    {
+      "check": "within",
+      "a": "needle-tip",
+      "b": "spread-superficial",
+      "why": "tip in the superficial plane"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "tda",
+      "why": "needle short of the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "pleura",
+      "why": "short of the pleura"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "in-plane from the cranial end (cranial is left)"
+    }
+  ]
+}

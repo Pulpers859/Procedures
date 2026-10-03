@@ -1,0 +1,100 @@
+{
+  "assetId": "saphenous_anatomy",
+  "procedure": "block_saphenous_nerve",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right thigh at the adductor canal, as on the screen with the probe on the medial thigh: vastus medialis (lateral) on the image left, adductor longus on the right.",
+  "teachingPoint": "Under the sartorius, the saphenous nerve lies beside the femoral artery in the canal; needle in-plane from lateral, spread in the plane around the artery and nerve.",
+  "claims": [
+    "Right thigh at the adductor canal, lateral on the left (NYSORA's plate, concept only).",
+    "Saphenous nerve with the femoral artery deep to the sartorius, anterolateral to the artery (record).",
+    "Femoral vein deep to the artery; vastus medialis lateral, adductor longus medial (standard anatomy).",
+    "Needle in-plane from lateral, tip beside the nerve at the artery's plane (record).",
+    "Teal: spread in the fascial plane around the nerve, against the artery's lateral wall (record: the plane around the artery).",
+    "Labels: Sartorius, Saphenous nerve, Femoral artery, Femoral vein, Vastus medialis."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "sartorius",
+    "vmm",
+    "alm",
+    "canal",
+    "femoral-artery",
+    "femoral-vein",
+    "saphenous-nerve",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
+  "labels": {
+    "Sartorius": "sartorius",
+    "Saphenous nerve": "saphenous-nerve",
+    "Femoral artery": "femoral-artery",
+    "Femoral vein": "femoral-vein",
+    "Vastus medialis": "vmm"
+  },
+  "geometry": [
+    {
+      "check": "below",
+      "a": "femoral-artery",
+      "b": "sartorius",
+      "why": "artery deep to sartorius"
+    },
+    {
+      "check": "leftOf",
+      "a": "saphenous-nerve",
+      "b": "femoral-artery",
+      "why": "nerve lateral to the artery (lateral is left)"
+    },
+    {
+      "check": "below",
+      "a": "femoral-vein",
+      "b": "femoral-artery",
+      "why": "vein deep to the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "saphenous-nerve",
+      "b": "sartorius",
+      "why": "nerve in the canal, not in muscle"
+    },
+    {
+      "check": "leftOf",
+      "a": "vmm",
+      "b": "alm",
+      "why": "vastus medialis lateral"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "in-plane from the lateral end"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "femoral-artery",
+      "why": "needle clears the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-tip",
+      "b": "saphenous-nerve",
+      "why": "tip beside, not in, the nerve"
+    },
+    {
+      "check": "within",
+      "a": "saphenous-nerve",
+      "b": "spread",
+      "why": "spread around the nerve"
+    },
+    {
+      "check": "crosses",
+      "a": "spread",
+      "b": "femoral-artery",
+      "why": "spread reaches the artery"
+    }
+  ]
+}
