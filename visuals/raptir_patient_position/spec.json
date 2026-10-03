@@ -2,17 +2,18 @@
   "assetId": "raptir_patient_position",
   "procedure": "block_raptir",
   "title": "Probe and needle on the patient",
-  "view": "Supine adult male from above, head at the top, the patient's right on the image left, arms adducted at the sides.",
+  "view": "Oblique view from the patient's head and right side looking toward the feet (NYSORA's camera): chest and nipple toward the top, clavicle across the lower third, shoulder at the left, neck at the lower right.",
   "teachingPoint": "Probe sagittal in the infraclavicular fossa; needle in just above (behind) the clavicle, directly cranial to the probe, aimed caudally, strictly in-plane.",
   "claims": [
-    "Supine, arm adducted (record); patient's right on the image left; reuses the approved decompression torso layout.",
-    "Linear probe sagittal in the right infraclavicular fossa, below the lateral third of the clavicle (record: sagittal over the infraclavicular fossa).",
-    "Needle entering just above the clavicle, directly cranial to the probe and in line with it, aimed caudally (record: posterior to the clavicle, caudal, strictly in-plane).",
+    "Supine, arm adducted (record); oblique view after NYSORA's infraclavicular patient photo (owner, 2026-10-02; concept only).",
+    "Linear probe standing upright, sagittal, on the infraclavicular fossa below the lateral third of the clavicle (record).",
+    "Needle entering just above the clavicle, cranial to the probe and in line with it, aimed caudally under the clavicle (record: posterior to the clavicle, caudal, strictly in-plane).",
     "Dashed: the clavicle.",
     "Labels: Clavicle, Linear probe, Block needle."
   ],
   "requiredElements": [
-    "torso",
+    "chest",
+    "shoulder",
     "probe",
     "probe-handle",
     "needle",
@@ -27,27 +28,27 @@
   "geometry": [
     {
       "check": "below",
-      "a": "probe",
-      "b": "needle-entry",
-      "why": "needle enters cranial to the probe"
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "needle enters cranial to the probe (cranial is down)"
     },
     {
       "check": "below",
-      "a": "probe",
-      "b": "clavicle-mark",
-      "why": "probe below the clavicle"
+      "a": "clavicle-mark",
+      "b": "probe",
+      "why": "probe caudal to the clavicle"
     },
     {
-      "check": "pointsDown",
-      "a": "needle",
-      "maxLean": 0.2,
-      "why": "aimed caudally, in line with the sagittal probe"
-    },
-    {
-      "check": "within",
+      "check": "below",
       "a": "needle-entry",
-      "b": "torso",
-      "why": "entry on the skin"
+      "b": "clavicle-mark",
+      "why": "entry cranial to (behind) the clavicle"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "neck",
+      "why": "probe at the lateral third, away from the neck"
     }
   ]
 }

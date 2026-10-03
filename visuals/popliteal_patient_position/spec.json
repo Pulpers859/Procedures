@@ -2,22 +2,22 @@
   "assetId": "popliteal_patient_position",
   "procedure": "block_popliteal_sciatic",
   "title": "Probe and needle on the patient",
-  "view": "Prone right leg seen from above and the lateral side (after NYSORA's patient view, pulled back): thigh on the left, knee and calf on the right; the broad upper surface is the back of the leg, the lower band the lateral thigh.",
-  "teachingPoint": "Find the popliteal crease and the biceps femoris tendon, scan up about 6 cm to where the nerves join, and go in-plane from the lateral thigh just below the probe.",
+  "view": "Prone right leg seen from the lateral side near the foot, looking up the back of the thigh: the knee at the bottom, the thigh rising to the upper right; the upper face is the posterior thigh, the left strip the lateral thigh.",
+  "teachingPoint": "Probe transverse on the back of the thigh about 6 cm above the crease, where the nerves join; needle in-plane from the lateral thigh toward the probe's beam.",
   "claims": [
-    "Prone right leg, posterolateral view after NYSORA's patient photo (concept only; owner, 2026-10-02), widened to show the back of the knee.",
-    "Dashed: the popliteal crease and the biceps femoris tendon (standard anatomy; the lateral border of the fossa).",
-    "Bracket: the probe about 6 cm above the crease, where the nerves join (record).",
-    "Needle entering the lateral thigh directly below the probe, in line with it: in-plane from lateral (record).",
-    "Labels: Popliteal crease, Biceps femoris tendon, 6 cm, Linear probe, Block needle."
+    "Prone (record's first position), after a clinical photo the owner shared (concept only).",
+    "Probe standing upright, transverse on the posterior thigh about 6 cm above the popliteal crease (record).",
+    "Needle entering the lateral thigh in the probe's plane, level, toward the probe: in-plane from lateral (record).",
+    "Dashed crease and a 6 cm bracket from the crease to the probe.",
+    "Labels: Popliteal crease, 6 cm, Linear probe, Block needle."
   ],
   "requiredElements": [
     "leg",
     "lateral-thigh",
     "crease",
     "crease-mark",
-    "biceps-mark",
     "bracket",
+    "bracket-hit",
     "probe",
     "probe-handle",
     "needle",
@@ -25,18 +25,11 @@
   ],
   "labels": {
     "Popliteal crease": "crease-mark",
-    "Biceps femoris tendon": "biceps-mark",
     "6 cm": "bracket-hit",
     "Linear probe": "probe-handle",
     "Block needle": "needle"
   },
   "geometry": [
-    {
-      "check": "leftOf",
-      "a": "probe",
-      "b": "crease-mark",
-      "why": "probe proximal to the crease (thigh is left)"
-    },
     {
       "check": "within",
       "a": "needle-entry",
@@ -45,21 +38,21 @@
     },
     {
       "check": "below",
-      "a": "needle-entry",
+      "a": "crease-mark",
       "b": "probe",
-      "why": "entry below the probe"
+      "why": "probe proximal to the crease (knee at the bottom)"
     },
     {
-      "check": "crosses",
+      "check": "within",
       "a": "probe",
       "b": "leg",
-      "why": "probe on the back of the thigh"
+      "why": "probe on the posterior thigh"
     },
     {
-      "check": "below",
-      "a": "biceps-mark",
+      "check": "leftOf",
+      "a": "needle-entry",
       "b": "probe",
-      "why": "biceps tendon on the lateral (lower) edge"
+      "why": "needle from the lateral side"
     }
   ]
 }
