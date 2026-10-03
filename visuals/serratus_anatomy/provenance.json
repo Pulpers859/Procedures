@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, run by hand while the Antigravity quota was exhausted)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay before use",
+ "date": "2026-10-03",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the serratus_anatomy layout (commit 4344b0d draw.py, --reference).",
+ "prompt": "Atlas-section prompt (see the session's prompt list), new chat, pasted by the owner.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "reviewNotes": "Overlay: skin, fat, latissimus, the superficial plane with the thoracodorsal artery, serratus, ribs, intercostal muscle and pleura lie on the layout within a few pixels; Gemini added a cross-cut texture patch in the middle of both muscles (cosmetic). No watermark.",
+ "knownLimits": "Schematic section; depths are average adult values. Probe, needle and injectate are code-drawn.",
+ "thirdPartyConcept": "NYSORA Nerve Block Manual p.214 Fig-9 (serratus plane reverse ultrasound anatomy), consulted for the layout only (owner's temporary exception); not attached, not committed."
+}
