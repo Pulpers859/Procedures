@@ -1,0 +1,22 @@
+{
+  "assetId": "superficial_peroneal_patient_position",
+  "procedure": "block_superficial_peroneal",
+  "title": "Probe and needle on the patient",
+  "view": "Right distal leg and ankle of a supine patient from above, foot at the bottom, lateral on the image left (the deep peroneal plate's camera, zoomed out).",
+  "teachingPoint": "Probe transverse on the anterolateral distal leg, about 7.5 cm above the lateral malleolus; needle in-plane from the anterior end.",
+  "claims": [
+    "Supine; right leg from above, lateral on the left, as the anatomy plate (record positioning; house laterality).",
+    "Probe transverse on the anterolateral distal leg in the distal third, about 7.5 cm above the lateral malleolus (record steps 1; NYSORA 5-10 cm, concept).",
+    "Needle entering just beyond the probe's anterior end, in line: in-plane from anterior (record step 3; NYSORA in-plane).",
+    "Labels: Lateral malleolus, Linear probe, Block needle."
+  ],
+  "requiredElements": ["leg", "lat-malleolus", "med-malleolus", "probe", "probe-handle", "needle", "needle-entry"],
+  "labels": {"Lateral malleolus": "lat-malleolus", "Linear probe": "probe", "Block needle": "needle"},
+  "geometry": [
+    {"check": "within", "a": "probe", "b": "leg", "why": "probe on the leg"},
+    {"check": "below", "a": "lat-malleolus", "b": "probe", "why": "probe proximal to the lateral malleolus"},
+    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle enters at the anterior (shin) end"},
+    {"check": "leftOf", "a": "lat-malleolus", "b": "med-malleolus", "why": "lateral on the image left"},
+    {"check": "within", "a": "needle-entry", "b": "leg", "why": "needle enters the skin"}
+  ]
+}

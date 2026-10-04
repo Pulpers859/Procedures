@@ -1,0 +1,40 @@
+{
+  "assetId": "superficial_peroneal_anatomy",
+  "procedure": "block_superficial_peroneal",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right distal leg about 7 cm above the lateral malleolus, under a probe on the anterolateral leg, as on ultrasound: lateral (peroneus brevis, fibula) on the image left, anterior (EDL) on the right. Composition after NYSORA's plate (concept only), mirrored to the house laterality.",
+  "teachingPoint": "The nerve lies just deep to the crural fascia where the septum between the peroneal and extensor compartments meets it; the needle comes in-plane from anterior and the spread surrounds the nerve under the fascia.",
+  "claims": [
+    "Distal third of the right leg in section, lateral on the left (record: distal third of the lateral leg; NYSORA 5-10 cm above the lateral malleolus).",
+    "Nerve at the junction of the crural fascia and the septum between peroneus brevis and extensor digitorum longus, just deep to the fascia (record anatomy; NYSORA).",
+    "Fibula deep in the lateral compartment; muscles packed with thin septa (standard anatomy).",
+    "Needle in-plane from the anterior side, tip beside the nerve under the fascia (record step 3; NYSORA in-plane).",
+    "Teal: spread around the nerve under the fascia (record step 4).",
+    "Labels: Crural fascia, Superficial peroneal nerve, Peroneus brevis, Extensor digitorum longus, Fibula."
+  ],
+  "requiredElements": [
+    "skin", "subcutaneous-fat", "crural-fascia", "septum", "edl", "pbm", "fibula", "junction-fat", "nerve",
+    "probe", "needle", "needle-entry", "needle-tip", "spread"
+  ],
+  "labels": {
+    "Crural fascia": "crural-fascia",
+    "Superficial peroneal nerve": "nerve",
+    "Peroneus brevis": "pbm",
+    "Extensor digitorum longus": "edl",
+    "Fibula": "fibula"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "pbm", "b": "edl", "why": "lateral compartment on the left, anterior on the right"},
+    {"check": "below", "a": "nerve", "b": "crural-fascia", "why": "nerve just deep to the crural fascia"},
+    {"check": "within", "a": "nerve", "b": "junction-fat", "why": "nerve in the fat where the septum meets the fascia"},
+    {"check": "noOverlap", "a": "nerve", "b": "edl", "why": "nerve not in muscle"},
+    {"check": "noOverlap", "a": "nerve", "b": "pbm", "why": "nerve not in muscle"},
+    {"check": "leftOf", "a": "fibula", "b": "nerve", "why": "fibula posterolateral to the nerve"},
+    {"check": "below", "a": "fibula", "b": "nerve", "why": "fibula deep"},
+    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle in-plane from the anterior end"},
+    {"check": "noOverlap", "a": "needle", "b": "nerve", "why": "tip beside, not into, the nerve"},
+    {"check": "noOverlap", "a": "needle", "b": "fibula", "why": "needle stays superficial"},
+    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
+    {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread surrounds the nerve"}
+  ]
+}
