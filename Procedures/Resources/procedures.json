@@ -7302,9 +7302,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine or lateral decubitus, arm abducted. Transducer transverse over the mid-axillary line at the 4th-5th ribs, slid back until latissimus lies over serratus. Needle in-plane from the superior-anterior end.",
-        "assetName": null,
+        "assetName": "serratus_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Patient's left side, head toward the upper right, arm abducted: probe across the side of the chest on the mid-axillary line below the axilla at the 4th-5th ribs; needle in line from the anterior end.",
         "clinicalWarning": null
       },
       {

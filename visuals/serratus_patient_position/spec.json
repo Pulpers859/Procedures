@@ -50,5 +50,10 @@
       "b": "probe",
       "why": "needle from the anterior side"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "572883d82c8ea81887158b7c2840483012c37f69d8c6c3e02051e4eba595ee79",
+    "reviewedOn": "2026-10-04"
+  }
 }
