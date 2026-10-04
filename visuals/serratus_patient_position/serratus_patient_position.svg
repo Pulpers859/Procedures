@@ -38,8 +38,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy"><g transform="translate(-380 0)">
+<g id="painting" data-base-sha256="b35469ddca05fe57771e87535e97582dca311a4bc22e8333f231edd9b6620872"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0"><g transform="translate(-380 0)">
   <rect id="chest" x="380" y="0" width="1600" height="1200" fill="url(#skin-grad)"/>
   <path d="M-40,-40 C-6.7,-106.7 331.7,-68.3 360,-40 C388.3,-11.7 310,238.3 300,300 C290,361.7 268.3,661.7 240,700 C211.7,738.3 -16.7,821.7 -40,760 C-63.3,698.3 -73.3,26.7 -40,-40 Z" fill="#B98266" opacity="0.5"/>
   <path id="arm" d="M1180,-40 C1249.2,-55.8 1950,-85.8 2020,-40 C2090,5.8 2067.5,469.2 2020,510 C1972.5,550.8 1507.5,459.2 1450,450 C1392.5,440.8 1346.7,412.5 1330,400 C1313.3,387.5 1261.7,320.8 1250,300 C1238.3,279.2 1195.8,178.3 1190,150 C1184.2,121.7 1110.8,-24.2 1180,-40 Z" fill="#E2B497" stroke="#B98A74" stroke-width="3"/>
@@ -56,11 +56,11 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <polygon id="probe-head" points="1310.6,562.3 1335.1,579.5 1259.4,687.7 1234.9,670.5" fill="#C9D0D6" stroke="#7D868F" stroke-width="3"/>
 </g></g>
 
-
+<circle id="axilla-mark" cx="985.0" cy="400.0" r="40" fill="#000" opacity="0"/>
 <g class="marking" transform="translate(-380 0)">
   <line id="mal" x1="1300" y1="420" x2="1300" y2="840" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
 </g>
 
-<g id="labels"><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1200,960 1150.7,797.1"/><polyline class="leader" points="1200,960 1150.7,797.1"/><circle class="leader-dot" cx="1150.7" cy="797.1" r="7"/><text x="1180" y="1000" text-anchor="start"><tspan x="1180" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="300,720 704.8,583.6"/><polyline class="leader" points="300,720 704.8,583.6"/><circle class="leader-dot" cx="704.8" cy="583.6" r="7"/><text x="40" y="760" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Axilla" data-target="axilla"><polyline class="leader-halo" points="760,220 870,300"/><polyline class="leader" points="760,220 870,300"/><circle class="leader-dot" cx="870" cy="300" r="7"/><text x="600" y="200" text-anchor="start"><tspan x="600" dy="0">Axilla</tspan></text></g><g class="label" data-label="Mid-axillary line" data-target="mal"><polyline class="leader-halo" points="1050,1080 920,790"/><polyline class="leader" points="1050,1080 920,790"/><circle class="leader-dot" cx="920" cy="790" r="7"/><text x="980" y="1120" text-anchor="start"><tspan x="980" dy="0">Mid-axillary line</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1200,960 1150.7,797.1"/><polyline class="leader" points="1200,960 1150.7,797.1"/><circle class="leader-dot" cx="1150.7" cy="797.1" r="7"/><text x="1180" y="1000" text-anchor="start"><tspan x="1180" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="300,720 704.8,583.6"/><polyline class="leader" points="300,720 704.8,583.6"/><circle class="leader-dot" cx="704.8" cy="583.6" r="7"/><text x="40" y="760" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Axilla" data-target="axilla-mark"><polyline class="leader-halo" points="760,220 985,400"/><polyline class="leader" points="760,220 985,400"/><circle class="leader-dot" cx="985" cy="400" r="7"/><text x="600" y="200" text-anchor="start"><tspan x="600" dy="0">Axilla</tspan></text></g><g class="label" data-label="Mid-axillary line" data-target="mal"><polyline class="leader-halo" points="1050,1080 920,790"/><polyline class="leader" points="1050,1080 920,790"/><circle class="leader-dot" cx="920" cy="790" r="7"/><text x="980" y="1120" text-anchor="start"><tspan x="980" dy="0">Mid-axillary line</tspan></text></g></g>
 
 </svg>

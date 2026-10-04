@@ -7,13 +7,13 @@
   1200,
   896
  ],
- "reference": "Unlabelled render of the serratus layout: commit 20ffe8f's NYSORA-Fig-9 composition (male chest, patient's left side, head up, arm abducted to the right) shifted toward the axilla by a pure camera move (CAM_DX = -380), --reference.",
- "prompt": "Photo-variant prompt (male chest, probe pressed on the side of the chest below the armpit, needle level from the anterior side), new chat, pasted by the owner.",
+ "reference": "Unlabelled render of the serratus layout at commit 48b7bda (NYSORA Fig-9 composition, male chest, probe angled 35 degrees down to the lower right, needle tip at the probe's anterior edge), --reference.",
+ "prompt": "Photo-variant prompt (probe body diagonal down to the lower right, needle tip into the skin beside the probe's flat end), new chat, pasted by the owner.",
  "promptAttachments": "Image 1: the layout reference. Composition copies NYSORA Nerve Block Manual p.214 Fig-9 (owner's direction), concept only, not attached or committed.",
  "repairs": [],
  "pixelEdits": [],
- "rejected": "A side view with an upright probe (not NYSORA's view); a female-breast version (owner: use a male chest); a panned version that changed the probe angle (owner: rotated); an upright-handle variant and a probe painted lying on its side.",
- "reviewNotes": "Checked by rendering the layout over the painting (the overlay tool ignores the camera-shift transform): probe head, probe body and needle lie on the layout; the probe head sits on the mid-axillary line below the axillary apex. The axilla label is traced on the painted armpit hollow. No watermark.",
+ "rejected": "A side view with an upright probe (not NYSORA's view); a female-breast version (owner: use a male chest); a panned version that changed the probe angle (owner: rotated); an upright-handle variant and a probe painted lying on its side. A painting with the probe horizontal and the needle tip short of the skin (owner, 2026-10-03).",
+ "reviewNotes": "Checked by rendering the layout over the painting (the overlay tool ignores the camera-shift transform): probe face, probe body angle, needle and hub lie on the layout; the needle enters the skin with a small puncture just anterior to the probe face. The axilla label is traced on the painted armpit hollow. No watermark.",
  "knownLimits": "The patient's left side, as NYSORA shows it, not the house right (owner's direction). The 4th-5th rib level is placed by standard anatomy (just below nipple level on the mid-axillary line), not counted on the photo.",
  "thirdPartyConcept": "NYSORA Nerve Block Manual p.214 Fig-9 patient photo used for the composition only; not attached, not committed."
 }
