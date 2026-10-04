@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #3A3F46; }</style>
+<defs>
+<linearGradient id="syr-barrel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+  <stop offset="0.4" stop-color="#EEF2F5" stop-opacity="0.85"/><stop offset="0.8" stop-color="#CDD5DC" stop-opacity="0.85"/><stop offset="1" stop-color="#A9B3BC"/></linearGradient>
+<linearGradient id="syr-plastic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.6" stop-color="#E9EDF0"/><stop offset="1" stop-color="#BCC4CB"/></linearGradient>
+<linearGradient id="syr-stopper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6A717A"/><stop offset="0.5" stop-color="#3B4148"/><stop offset="1" stop-color="#22272C"/></linearGradient>
+<linearGradient id="syr-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="0.45" stop-color="#B9C1C8"/><stop offset="1" stop-color="#6E777F"/></linearGradient>
+<filter id="syr-soft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A88C"/><stop offset="0.5" stop-color="#EBC3AA"/>
+  <stop offset="1" stop-color="#E2B69C"/></linearGradient>
+<linearGradient id="glove" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F2EC"/><stop offset="1" stop-color="#DCD8CE"/></linearGradient>
+<linearGradient id="enamel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5F1E6"/><stop offset="1" stop-color="#E7E0CC"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting"></g>
+<g id="anatomy">
+  <rect id="face" x="0" y="0" width="1600" height="1200" fill="url(#skin-grad)"/>
+  <path id="nose" d="M656,-104 C653.6,-94.4 642.8,-22.4 632,-8 C621.2,6.4 555.2,28 548,40 C540.8,52 552.8,99.4 560,112 C567.2,124.6 603.2,160.6 620,166 C636.8,171.4 710,164.2 728,166 C746,167.8 785.6,184 800,184 C814.4,184 854,167.8 872,166 C890,164.2 963.2,171.4 980,166 C996.8,160.6 1032.8,124.6 1040,112 C1047.2,99.4 1059.2,52 1052,40 C1044.8,28 978.8,6.4 968,-8 C957.2,-22.4 946.4,-94.4 944,-104 L944,0 L656,0 Z" fill="#E6B9A0" stroke="#B98A74" stroke-width="3"/>
+  <ellipse cx="704" cy="154" rx="40" ry="18" fill="#8E5A48"/>
+  <ellipse cx="896" cy="154" rx="40" ry="18" fill="#8E5A48"/>
+  <ellipse id="mouth" cx="824" cy="736" rx="408" ry="180" fill="#5A2A2A"/>
+  <path id="lower-lip" d="M392,880 C430.4,872.2 716,934 800,934 C884,934 1191.2,872.2 1232,880 C1272.8,887.8 1251.2,994 1208,1012 C1164.8,1030 879.2,1060 800,1060 C720.8,1060 456.8,1030 416,1012 C375.2,994 353.6,887.8 392,880 Z" fill="#C9787A" stroke="#A55C5E" stroke-width="3"/>
+  <path d="M545.6,904 C550.6,907.2 611.4,907.2 616.4,904 C621.4,900.8 620.4,862.4 620,856 C619.6,849.6 613,811 610.4,808 C607.8,805 584.9,811.6 581,811.6 C577.1,811.6 554.2,805 551.6,808 C549,811 542.4,849.6 542,856 C541.6,862.4 540.6,900.8 545.6,904 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M623.6,904 C628.6,907.2 689.4,907.2 694.4,904 C699.4,900.8 698.4,862.4 698,856 C697.6,849.6 691,811 688.4,808 C685.8,805 662.9,811.6 659,811.6 C655.1,811.6 632.2,805 629.6,808 C627,811 620.4,849.6 620,856 C619.6,862.4 618.6,900.8 623.6,904 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M701.6,904 C708.2,907.2 789.8,907.2 796.4,904 C803,900.8 800.4,862.4 800,856 C799.6,849.6 793.8,811 790.4,808 C787,805 754.5,811.6 749,811.6 C743.5,811.6 711,805 707.6,808 C704.2,811 698.4,849.6 698,856 C697.6,862.4 695,900.8 701.6,904 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M803.6,904 C810.2,907.2 891.8,907.2 898.4,904 C905,900.8 902.4,862.4 902,856 C901.6,849.6 895.8,811 892.4,808 C889,805 856.5,811.6 851,811.6 C845.5,811.6 813,805 809.6,808 C806.2,811 800.4,849.6 800,856 C799.6,862.4 797,900.8 803.6,904 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M905.6,904 C910.6,907.2 971.4,907.2 976.4,904 C981.4,900.8 980.4,862.4 980,856 C979.6,849.6 973,811 970.4,808 C967.8,805 944.9,811.6 941,811.6 C937.1,811.6 914.2,805 911.6,808 C909,811 902.4,849.6 902,856 C901.6,862.4 900.6,900.8 905.6,904 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M983.6,904 C988.6,907.2 1049.4,907.2 1054.4,904 C1059.4,900.8 1058.4,862.4 1058,856 C1057.6,849.6 1051,811 1048.4,808 C1045.8,805 1022.9,811.6 1019,811.6 C1015.1,811.6 992.2,805 989.6,808 C987,811 980.4,849.6 980,856 C979.6,862.4 978.6,900.8 983.6,904 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/>
+  <path id="gum" d="M356,316 C368.8,300.6 538.4,331.4 560,337.6 C581.6,343.8 668.5,400.3 680,409.6 C691.5,418.9 724.8,469.8 732.8,476.8 C740.8,483.8 765.1,509.4 800,515.2 C834.9,521 1227.2,558.9 1256,563.2 C1284.8,567.5 1262.4,581.3 1232,580 C1201.6,578.7 857.6,544.8 800,544 C742.4,543.2 397.6,583.2 368,568 C338.4,552.8 343.2,331.4 356,316 Z" fill="#E58C8C" stroke="#C46A6C" stroke-width="3"/>
+  <path d="M419.6,544 C423.4,541.2 468.6,541.2 472.4,544 C476.2,546.8 476.4,580.4 476,586 C475.6,591.6 468.4,625 466.4,628 C464.4,631 448.7,631.6 446,631.6 C443.3,631.6 427.6,631 425.6,628 C423.6,625 416.4,591.6 416,586 C415.6,580.4 415.8,546.8 419.6,544 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M479.6,536.8 C483.8,533.8 534.2,533.8 538.4,536.8 C542.6,539.8 542.4,576.3 542,582.4 C541.6,588.5 534.6,624.7 532.4,628 C530.2,631.3 512.1,631.6 509,631.6 C505.9,631.6 487.8,631.3 485.6,628 C483.4,624.7 476.4,588.5 476,582.4 C475.6,576.3 475.4,539.8 479.6,536.8 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path id="canine" d="M545.6,508 C550.6,503.4 611.4,503.4 616.4,508 C621.4,512.6 620.4,568.3 620,577.6 C619.6,586.9 613,642.3 610.4,647.2 C607.8,652.1 584.9,650.8 581,650.8 C577.1,650.8 554.2,652.1 551.6,647.2 C549,642.3 542.4,586.9 542,577.6 C541.6,568.3 540.6,512.6 545.6,508 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M623.6,532 C628.6,528.8 689.4,528.8 694.4,532 C699.4,535.2 698.4,573.6 698,580 C697.6,586.4 691,624.6 688.4,628 C685.8,631.4 662.9,631.6 659,631.6 C655.1,631.6 632.2,631.4 629.6,628 C627,624.6 620.4,586.4 620,580 C619.6,573.6 618.6,535.2 623.6,532 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M701.6,514 C708.2,509.8 789.8,509.8 796.4,514 C803,518.2 800.4,568.6 800,577 C799.6,585.4 793.8,635.6 790.4,640 C787,644.4 754.5,643.6 749,643.6 C743.5,643.6 711,644.4 707.6,640 C704.2,635.6 698.4,585.4 698,577 C697.6,568.6 695,518.2 701.6,514 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M803.6,514 C810.2,509.8 891.8,509.8 898.4,514 C905,518.2 902.4,568.6 902,577 C901.6,585.4 895.8,635.6 892.4,640 C889,644.4 856.5,643.6 851,643.6 C845.5,643.6 813,644.4 809.6,640 C806.2,635.6 800.4,585.4 800,577 C799.6,568.6 797,518.2 803.6,514 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M905.6,532 C910.6,528.8 971.4,528.8 976.4,532 C981.4,535.2 980.4,573.6 980,580 C979.6,586.4 973,624.6 970.4,628 C967.8,631.4 944.9,631.6 941,631.6 C937.1,631.6 914.2,631.4 911.6,628 C909,624.6 902.4,586.4 902,580 C901.6,573.6 900.6,535.2 905.6,532 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M983.6,508 C988.6,503.4 1049.4,503.4 1054.4,508 C1059.4,512.6 1058.4,568.3 1058,577.6 C1057.6,586.9 1051,642.3 1048.4,647.2 C1045.8,652.1 1022.9,650.8 1019,650.8 C1015.1,650.8 992.2,652.1 989.6,647.2 C987,642.3 980.4,586.9 980,577.6 C979.6,568.3 978.6,512.6 983.6,508 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M1061.6,536.8 C1065.8,533.8 1116.2,533.8 1120.4,536.8 C1124.6,539.8 1124.4,576.3 1124,582.4 C1123.6,588.5 1116.6,624.7 1114.4,628 C1112.2,631.3 1094.1,631.6 1091,631.6 C1087.9,631.6 1069.8,631.3 1067.6,628 C1065.4,624.7 1058.4,588.5 1058,582.4 C1057.6,576.3 1057.4,539.8 1061.6,536.8 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/><path d="M1127.6,544 C1131.4,541.2 1176.6,541.2 1180.4,544 C1184.2,546.8 1184.4,580.4 1184,586 C1183.6,591.6 1176.4,625 1174.4,628 C1172.4,631 1156.7,631.6 1154,631.6 C1151.3,631.6 1135.6,631 1133.6,628 C1131.6,625 1124.4,591.6 1124,586 C1123.6,580.4 1123.8,546.8 1127.6,544 Z" fill="url(#enamel)" stroke="#BDB49E" stroke-width="3"/>
+  <path id="fold" d="M392,328 C403.2,329.4 465.6,336.6 488,340 C510.4,343.4 563,350.6 584,356.8 C605,363 649.8,380.8 668,392.8 C686.2,404.8 731.6,452.2 740,460" fill="none" stroke="#B85660" stroke-width="5"/>
+  <path id="upper-lip" d="M1280,568 C1258,570.4 1080,529.4 1040,524.8 C1000,520.2 826,517.2 800,512.8 C774,508.4 738,481 728,472 C718,463 694,416.4 680,404.8 C666,393.2 588,340.6 560,332.8 C532,325 362,322.1 344,311.2 C326,300.3 326,210 344,202 C362,194 530,208.7 560,215.2 C590,221.7 684,265.6 704,280 C724,294.4 772,375.5 800,388 C828,400.5 998,421 1040,430 C1082,439 1284,484.5 1304,496 C1324,507.5 1302,565.6 1280,568 Z" fill="#C9787A" stroke="#A55C5E" stroke-width="3"/>
+  <path id="finger" d="M-40,148 C-20.8,136.2 222.8,146 248,148 C273.2,150 329.2,171.6 338,178 C346.8,184.4 379.6,235.4 380,244 C380.4,252.6 352.8,301 344,306.4 C335.2,311.8 273.6,324.3 248,325.6 C222.4,326.9 -20.8,337.4 -40,325.6 C-59.2,313.8 -59.2,159.8 -40,148 Z" fill="url(#glove)" stroke="#B9B2A4" stroke-width="3"/>
+</g>
+
+<g class="marking">
+  <path id="root" d="M545,508 C541.2,496.4 558.8,347.6 560.6,334 C562.4,320.4 570,304 571.4,304 C572.8,304 579.2,320.4 582.2,334 C585.2,347.6 619.5,496.4 617,508 C614.5,519.6 548.8,519.6 545,508 Z" fill="#FFFFFF" fill-opacity="0.22" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="12 8"/>
+  <circle id="apex" cx="571.4" cy="304" r="12" fill="#6CCBD2" fill-opacity="0.6" stroke="#0E8C98" stroke-width="4"/>
+  <line x1="581" y1="361.6" x2="575" y2="340" stroke="#0E8C98" stroke-width="5" stroke-dasharray="10 7"/>
+  <g class="syringe-drawn" transform="translate(597.8 568) rotate(-94.7)"><g transform="translate(9.6 16.8)" filter="url(#syr-soft)" opacity="0.32" fill="#1B2733"><rect x="-1008" y="-19.2" width="264" height="38.4" rx="7.2"/><rect x="-744" y="-54" width="744" height="108" rx="12"/></g><rect x="-1008" y="-16.8" width="408" height="33.6" rx="3.6" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="2.2"/><rect x="-1024.8" y="-78" width="19.2" height="156" rx="7.2" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="2.2"/><rect x="-744" y="-54" width="600" height="108" rx="10.8" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="2.2"/><rect x="-559.2" y="-48" width="408" height="96" rx="7.2" fill="#BFD8E6" fill-opacity="0.38"/><rect x="-600" y="-51" width="40.8" height="102" rx="4.8" fill="url(#syr-stopper)"/><line x1="-580.8" y1="-46.8" x2="-580.8" y2="46.8" stroke="#22272C" stroke-width="3"/><line x1="-561.6" y1="-46.8" x2="-561.6" y2="46.8" stroke="#22272C" stroke-width="3"/><line x1="-204" y1="-54" x2="-204" y2="-42" stroke="#6E777F" stroke-width="2.2"/><line x1="-264" y1="-54" x2="-264" y2="-34.8" stroke="#6E777F" stroke-width="2.2"/><line x1="-324" y1="-54" x2="-324" y2="-42" stroke="#6E777F" stroke-width="2.2"/><line x1="-384" y1="-54" x2="-384" y2="-34.8" stroke="#6E777F" stroke-width="2.2"/><line x1="-444" y1="-54" x2="-444" y2="-42" stroke="#6E777F" stroke-width="2.2"/><line x1="-504" y1="-54" x2="-504" y2="-34.8" stroke="#6E777F" stroke-width="2.2"/><line x1="-564" y1="-54" x2="-564" y2="-42" stroke="#6E777F" stroke-width="2.2"/><line x1="-732" y1="-43.2" x2="-156" y2="-43.2" stroke="#FFFFFF" stroke-width="5.4" stroke-opacity="0.8" stroke-linecap="round"/><rect x="-756" y="-90" width="16.8" height="180" rx="7.2" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="2.2"/><rect x="-144" y="-13.2" width="62.4" height="26.4" rx="3.6" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="2.2"/><path d="M-88.8,-22.8 H-28.8 L0,-7.2 V7.2 L-28.8,22.8 H-88.8 Z" fill="#E7EEF3" fill-opacity="0.95" stroke="#9AA3AB" stroke-width="2.2"/></g>
+  <line id="needle" x1="597.8" y1="568" x2="581" y2="361.6" stroke="url(#syr-steel)" stroke-width="5" stroke-linecap="round"/>
+  <circle id="needle-entry" cx="581" cy="361.6" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Mucobuccal fold" data-target="fold"><polyline class="leader-halo" points="250,392 440,332.8"/><polyline class="leader" points="250,392 440,332.8"/><circle class="leader-dot" cx="440" cy="332.8" r="7"/><text x="40" y="440" text-anchor="start"><tspan x="40" dy="0">Mucobuccal</tspan><tspan x="40" dy="66">fold</tspan></text></g><g class="label emphasis" data-label="Root apex" data-target="apex"><polyline class="leader-halo" points="990,186 579.4,304"/><polyline class="leader" points="990,186 579.4,304"/><circle class="leader-dot" cx="579.4" cy="304" r="7"/><text x="1000" y="200" text-anchor="start"><tspan x="1000" dy="0">Root apex</tspan></text></g><g class="label" data-label="Needle" data-target="needle"><polyline class="leader-halo" points="748,504 589.4,464.8"/><polyline class="leader" points="748,504 589.4,464.8"/><circle class="leader-dot" cx="589.4" cy="464.8" r="7"/><text x="760" y="520" text-anchor="start"><tspan x="760" dy="0">Needle</tspan></text></g></g>
+
+</svg>

@@ -1,0 +1,24 @@
+{
+  "assetId": "superior_alveolar_patient_position",
+  "procedure": "block_superior_alveolar",
+  "title": "Needle entry on the patient",
+  "view": "Close-up of the lower face from the front, seated, patient's right on the image left; the right upper lip lifted by a gloved finger.",
+  "teachingPoint": "Enter at the height of the mucobuccal fold above the tooth, the needle angled up along the tooth toward its root apex.",
+  "claims": [
+    "Seated, face from the front, patient's right on the left (record positioning; house laterality).",
+    "Upper lip retracted to open the mucobuccal fold (record step 3).",
+    "Entry at the height of the fold above the right maxillary canine (record step 4; the canine is the default tooth).",
+    "Needle angled toward the root apex; its path under the mucosa dashed to just short of the apex (record steps 4-5).",
+    "Canine root about 17 mm long, its apex above the fold (standard anatomy; record: roots sit just above the fold).",
+    "Labels: Mucobuccal fold, Root apex, Needle."
+  ],
+  "requiredElements": ["face", "mouth", "canine", "gum", "fold", "upper-lip", "finger", "root", "apex", "needle", "needle-entry"],
+  "labels": {"Mucobuccal fold": "fold", "Root apex": "apex", "Needle": "needle"},
+  "geometry": [
+    {"check": "below", "a": "canine", "b": "fold", "why": "the fold is above the tooth crown"},
+    {"check": "below", "a": "fold", "b": "apex", "why": "the root apex sits above the fold"},
+    {"check": "crosses", "a": "needle-entry", "b": "fold", "why": "entry at the height of the fold"},
+    {"check": "crosses", "a": "apex", "b": "root", "why": "the apex is the tip of the canine root"},
+    {"check": "below", "a": "needle", "b": "needle-entry", "why": "the syringe comes up from below; the needle runs up toward the apex"}
+  ]
+}

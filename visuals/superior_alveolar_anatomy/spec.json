@@ -1,0 +1,26 @@
+{
+  "assetId": "superior_alveolar_anatomy",
+  "procedure": "block_superior_alveolar",
+  "title": "Target anatomy",
+  "view": "Sagittal section through the right maxillary canine seen from the patient's right: the lip on the image right, the palate on the left, the nasal floor at the top.",
+  "teachingPoint": "The root apex sits above the mucobuccal fold inside porous maxilla; the needle enters at the fold and runs up along the tooth to the bone surface level with the apex, and the fluid soaks through to the nerve.",
+  "claims": [
+    "Canine root above the mucobuccal fold (record anatomy).",
+    "Porous (cancellous) maxilla behind a thin labial plate (record anatomy; standard anatomy).",
+    "Needle from the fold, angled toward the apex, tip at the bone surface level with the apex, outside the bone (record steps 4-5).",
+    "Teal: injectate along the bone surface near the apex (record steps 6; supraperiosteal).",
+    "Branch of the superior alveolar nerve reaching the apex (standard anatomy).",
+    "Labels: Root apex, Mucobuccal fold, Porous maxilla, Superior alveolar nerve, Upper lip."
+  ],
+  "requiredElements": ["bone", "canine", "pulp", "gingiva", "lip", "nerve", "apex-mark", "fold-mark", "needle", "needle-tip", "spread"],
+  "labels": {"Root apex": "apex-mark", "Mucobuccal fold": "fold-mark", "Porous maxilla": "bone",
+             "Superior alveolar nerve": "nerve", "Upper lip": "lip"},
+  "geometry": [
+    {"check": "below", "a": "fold-mark", "b": "apex-mark", "why": "the apex sits above the fold"},
+    {"check": "noOverlap", "a": "needle", "b": "canine", "why": "the needle stays off the tooth"},
+    {"check": "noOverlap", "a": "needle-tip", "b": "bone", "why": "tip outside the bone (supraperiosteal)"},
+    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the injectate"},
+    {"check": "below", "a": "needle", "b": "needle-tip", "why": "the needle comes up from the fold toward the apex"},
+    {"check": "crosses", "a": "nerve", "b": "bone", "why": "the nerve runs in the bone"}
+  ]
+}
