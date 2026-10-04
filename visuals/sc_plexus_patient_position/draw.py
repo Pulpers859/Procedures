@@ -8,7 +8,11 @@ whose layout this reuses (commit 4f71784), with the probe moved to the midpoint 
 the sternocleidomastoid. Owner, 2026-10-04: the first painting put the probe
 up by the angle of the jaw; the probe now sits halfway between the mastoid
 and the clavicle (about the thyroid cartilage), as in NYSORA's patient photo
-(concept only).
+(concept only). Owner, 2026-10-04 (second painting): still read as high;
+measured on it, the probe face sat about 5 mm above the mastoid-clavicle
+midpoint (NYSORA: transverse over the SCM at the midpoint between the
+mastoid process and clavicle, C4 level). Moved down about 5 mm further so it
+sits at or just below that midpoint.
 
 Record: supine, head turned away; transducer transverse over the mid-SCM;
 needle in-plane from posterior to anterior; find the external jugular vein
@@ -61,11 +65,11 @@ CLAVICLE = [(-90, CLAVICLE_Y + 4), (-50, CLAVICLE_Y + 1), (-10, CLAVICLE_Y), (30
 # Sternocleidomastoid band, mastoid (upper left) to sternoclavicular joint (lower right).
 SCM_LATERAL = [(-48, -70), (-30, -40), (-8, -10), (6, 10), (22, 36)]
 SCM_MEDIAL = [(-28, -76), (-8, -46), (14, -16), (30, 8), (48, 38)]
-EJV = [(6, -78), (6, -45), (5, -9), (0, 6), (-8, 20), (-12, 32)]
+EJV = [(8, -78), (8, -45), (8, -4), (3.5, 10), (-6, 24), (-10, 32)]
 JAW = [(-50, -78), (-20, -77), (20, -72), (60, -62), (90, -56)]
 EAR = (-62.0, -70.0)
 PROBE_LEN, PROBE_W = 50.0, 9.0
-PC = (-1.5, -9.0)                   # probe centre: across the SCM's posterior border, halfway mastoid to clavicle
+PC = (2.0, -4.0)                    # probe centre: across the SCM's posterior border, at or just below halfway mastoid to clavicle
 PROBE = ((PC[0] - PROBE_LEN / 2, PC[1] - PROBE_W / 2), (PC[0] + PROBE_LEN / 2, PC[1] + PROBE_W / 2))
 NEEDLE_ENTRY = (PC[0] - PROBE_LEN / 2 - 9, PC[1])
 NEEDLE_HUB = (PC[0] - PROBE_LEN / 2 - 40, PC[1])
@@ -88,9 +92,9 @@ def build() -> str:
     ne, nh = c(NEEDLE_ENTRY), c(NEEDLE_HUB)
     scm = path(SCM_LATERAL + list(reversed(SCM_MEDIAL)), closed=True, tension=0.6)
     labels = [
-        Label(["Block needle"], anchor=(40, 440), leader=[(200, 470), ((ne[0] + nh[0]) / 2, ne[1] - 2)], target_id="needle"),
-        Label(["Linear probe"], anchor=(1080, 700), leader=[(1100, 660), (p1[0] - 30, (p0[1] + p1[1]) / 2)], target_id="probe"),
-        Label(["External jugular vein"], anchor=(760, 800), leader=[(820, 760), c((-4, 13))], target_id="ejv"),
+        Label(["Block needle"], anchor=(40, 480), leader=[(200, 510), ((ne[0] + nh[0]) / 2, ne[1] - 2)], target_id="needle"),
+        Label(["Linear probe"], anchor=(1100, 740), leader=[(1120, 700), (p1[0] - 30, (p0[1] + p1[1]) / 2)], target_id="probe"),
+        Label(["External jugular vein"], anchor=(760, 860), leader=[(820, 820), c((-1.5, 17))], target_id="ejv"),
         Label(["SCM posterior border"], anchor=(40, 260), leader=[(300, 280), c((-30, -40))], target_id="scm-border"),
     ]
     painted = BASE.exists()
