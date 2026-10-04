@@ -47,10 +47,11 @@ STERNUM_SHADOW = [(-40, -40), (360, -40), (300, 300), (240, 700), (-40, 760)]
 DRAPE = [(340, 900), (500, 890), (1000, 870), (1300, 850), (1640, 820), (2020, 790), (2020, 1240), (340, 1240)]
 import math  # noqa: E402
 
-# NYSORA Fig-9: the probe's face is pressed into the side of the chest and its body runs diagonally down
-# to the lower right toward the operator (owner, 2026-10-03: not horizontal).
+# NYSORA Fig-9 (owner, 2026-10-03): needle and probe on ONE line - the needle comes in toward the probe's
+# head end and the probe continues along the same line, tilted down to the lower right (in-plane). A normal
+# linear-probe silhouette: head, shoulder, handle.
 HEAD_C = (1285.0, 625.0)
-PROBE_ANG = 35.0                   # degrees below horizontal, toward the lower right
+PROBE_ANG = 22.0                   # the shared needle/probe line, degrees below horizontal
 
 
 def rot(p):
@@ -58,12 +59,12 @@ def rot(p):
     return (HEAD_C[0] + p[0] * math.cos(a) - p[1] * math.sin(a), HEAD_C[1] + p[0] * math.sin(a) + p[1] * math.cos(a))
 
 
-HEAD = [rot(q) for q in [(-15, -66), (15, -66), (15, 66), (-15, 66)]]
-PROBE = [rot(q) for q in [(15, -62), (70, -74), (130, -72), (1100, -62), (1100, 62), (130, 72), (70, 74), (15, 62)]]
-# The needle comes in level from the anterior side and its tip goes into the skin right at the probe's
-# anterior edge (owner: the painted tip stopped short of the skin).
-NEEDLE_ENTRY = (rot((-15, -40))[0] - 6, rot((-15, -40))[1] + 4)
-NEEDLE_HUB = (880.0, NEEDLE_ENTRY[1] - 8)
+_OUTLINE = [(0, 56), (40, 60), (110, 46), (200, 40), (1100, 40)]
+PROBE = [rot(q) for q in _OUTLINE] + [rot((u, -v)) for u, v in reversed(_OUTLINE)]
+HEAD = [rot(q) for q in [(-12, -56), (0, -56), (0, 56), (-12, 56)]]
+GROOVE = [rot(q) for q in [(90, -14), (190, -12), (190, 12), (90, 14)]]
+NEEDLE_ENTRY = rot((-26, 0))
+NEEDLE_HUB = rot((-300, 0))
 CAM_DX = -380.0
 AXILLA_PX = (985.0, 400.0)          # traced on the owner's painting: the armpit hollow                    # owner, 2026-10-03: pan the camera toward the axilla; a pure shift, nothing else changes
 
@@ -82,7 +83,7 @@ def build() -> str:
     ne, nh = NEEDLE_ENTRY, NEEDLE_HUB
     dx = CAM_DX
     labels = [
-        Label(["Linear probe"], anchor=(1180, 1000), leader=[(1200, 960), (rot((300, 0))[0] + dx, rot((300, 0))[1])], target_id="probe"),
+        Label(["Linear probe"], anchor=(1180, 1000), leader=[(1200, 960), (rot((400, 0))[0] + dx, rot((400, 0))[1])], target_id="probe"),
         Label(["Block needle"], anchor=(40, 760), leader=[(300, 720), ((ne[0] + nh[0]) / 2 + dx, (ne[1] + nh[1]) / 2)], target_id="needle"),
         Label(["Axilla"], anchor=(600, 200), leader=[(760, 220), AXILLA_PX if BASE.exists() else (1250 + dx, 300)], target_id="axilla-mark" if BASE.exists() else "axilla"),
         Label(["Mid-axillary line"], anchor=(980, 1120), leader=[(1050, 1080), (MAL_X + dx, 790)], target_id="mal"),
@@ -114,8 +115,9 @@ def build() -> str:
   <line id="needle" x1="{fmt(nh[0])}" y1="{fmt(nh[1])}" x2="{fmt(ne[0])}" y2="{fmt(ne[1])}" stroke="#8E969E" stroke-width="5"/>
   <ellipse cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" rx="12" ry="6" fill="#C9907A" opacity="0.8"/>
   <circle id="needle-entry" cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" r="5" fill="#9E6B5A"/>
-  <path id="probe" d="{smooth_path(PROBE, closed=True, tension=0.3)}" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path id="probe" d="{smooth_path(PROBE, closed=True, tension=0.2)}" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
   <polygon id="probe-head" points="{pts(HEAD)}" fill="#C9D0D6" stroke="#7D868F" stroke-width="3"/>
+  <polygon points="{pts(GROOVE)}" fill="#D3D8DD" stroke="#A9B0B7" stroke-width="2"/>
 </g></g>
 
 {f'<circle id="axilla-mark" cx="{AXILLA_PX[0]}" cy="{AXILLA_PX[1]}" r="40" fill="#000" opacity="0"/>' if BASE.exists() else ""}

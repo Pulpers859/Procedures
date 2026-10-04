@@ -6,8 +6,8 @@
   "teachingPoint": "Probe head on the mid-axillary line just below nipple level (4th-5th ribs), the probe lying front-to-back; needle in-plane, level, from the anterior side.",
   "claims": [
     "Copies NYSORA Fig-9's composition: patient's left side, head up, arm abducted to the right (owner, 2026-10-03; concept only, not committed; NYSORA's side used instead of the house right at the owner's direction).",
-    "Probe face pressed on the mid-axillary line just below nipple level (4th-5th ribs), its body running diagonally down to the lower right toward the operator, as in NYSORA Fig-9 (record: transverse over the mid-axillary line).",
-    "Needle level from the anterior side, its tip entering the skin right at the probe's anterior edge (record: in-plane from the superior-anterior end).",
+    "Probe head on the mid-axillary line just below nipple level, the probe tilted down to the lower right along the same line as the needle - in-plane, as in NYSORA Fig-9 (record: transverse over the mid-axillary line).",
+    "Needle coming in along the probe's line from the anterior side, its tip entering the skin at the probe's head end (record: in-plane from the superior-anterior end).",
     "Dashed: the mid-axillary line. Labels: Linear probe, Block needle, Axilla, Mid-axillary line."
   ],
   "requiredElements": [
@@ -21,14 +21,13 @@
     "probe-head",
     "needle",
     "needle-entry",
-    "mal",
-    "axilla-mark"
+    "mal"
   ],
   "labels": {
     "Linear probe": "probe",
     "Block needle": "needle",
     "Mid-axillary line": "mal",
-    "Axilla": "axilla-mark"
+    "Axilla": "axilla"
   },
   "geometry": [
     {
