@@ -63,7 +63,7 @@ def band(top, bottom, n=40):
 SCM = [(-1.5, 8.5), (1, 6.0), (6, 4.8), (14, 4.4), (24, 4.4), (R, 4.6), (R, 16.4), (24, 16.2), (14, 14.8),
        (6, 12.4), (1, 10.4)]
 FASCIA = [(L, 13.2), (-10, 13.2), (0, 13.2), (8, 13.6), (14, 15.0)]
-LEVATOR = [(L, 13.8), (-16, 13.6), (-10, 14.0), (-9, 20), (-10, 30), (L, 31)]
+LEVATOR = [(L, 14.6), (-16, 14.0), (-10, 14.4), (-9, 20), (-10, 30), (L, 31)]
 MSM = [(-8.0, 14.2), (-2, 13.8), (3, 14.4), (4, 20), (2, 30), (-7, 31), (-8.2, 22)]
 ASM = [(5.4, 15.0), (9, 15.2), (12.6, 16.6), (12, 24), (9.4, 28.6), (6, 26), (5.2, 20)]
 BONE = [(-6, 34), (2, 32.4), (10, 33.6), (14, 37), (14, 44), (-8, 44), (-8, 37)]
@@ -131,7 +131,7 @@ def build() -> str:
   <path id="skin" d="{path(band(0, 60), closed=True, tension=0.2)}" fill="#E7BFA7"/>
   <path id="subcutaneous-fat" d="{path(band(1.6, 60), closed=True, tension=0.2)}" fill="url(#fat)"/>
   <path id="bone" d="{path(BONE, closed=True, tension=0.6)}" fill="#EFE6D2" stroke="#A8977A" stroke-width="6"/>
-  <path id="levator" d="{path(LEVATOR, closed=True, tension=0.8)}" {M}/>
+  <path id="levator" d="{path(LEVATOR, closed=True, tension=0.4)}" {M}/>
   <path id="msm" d="{path(MSM, closed=True, tension=0.8)}" {M}/>
   <path id="asm" d="{path(ASM, closed=True, tension=0.8)}" {M}/>
   <path id="prevertebral-fascia" d="{path(FASCIA, tension=0.6)}" fill="none" stroke="#F8F6F0" stroke-width="8"/>
