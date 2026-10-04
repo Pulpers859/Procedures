@@ -7085,9 +7085,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The plexus wraps around the posterior border of the SCM at about its midpoint; the external jugular vein crosses the SCM near this level.",
-        "assetName": null,
+        "assetName": "sc_plexus_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right neck in section at mid-SCM, posterior on the left: the plexus lies inside the cervical fascia at the posterior border of the SCM; needle in-plane from posterior, spread along that plane.",
         "clinicalWarning": null
       }
     ],

@@ -43,21 +43,108 @@
     "Middle scalene": "msm"
   },
   "geometry": [
-    {"check": "within", "a": "plexus", "b": "cervical-fascia", "why": "the nerves lie inside the cervical fascia"},
-    {"check": "noOverlap", "a": "plexus", "b": "scm", "why": "nerves deep to the SCM, not in it"},
-    {"check": "noOverlap", "a": "plexus", "b": "msm", "why": "nerves superficial to the deep muscles"},
-    {"check": "below", "a": "plexus", "b": "ejv", "why": "plexus deep, EJV superficial"},
-    {"check": "leftOf", "a": "levator", "b": "msm", "why": "levator scapulae posterior to the middle scalene"},
-    {"check": "below", "a": "msm", "b": "cervical-fascia", "why": "deep muscles under the fascia"},
-    {"check": "leftOf", "a": "needle-entry", "b": "probe", "why": "needle in-plane from posterior"},
-    {"check": "pointsDown", "a": "needle", "maxLean": 2.2, "why": "needle runs from skin inward, posterior to anterior"},
-    {"check": "noOverlap", "a": "needle", "b": "scm", "why": "needle stays under the posterior border, not through the muscle"},
-    {"check": "noOverlap", "a": "needle", "b": "ejv", "why": "needle path off the external jugular"},
-    {"check": "noOverlap", "a": "needle", "b": "plexus", "why": "tip beside, not into, the nerves"},
-    {"check": "noOverlap", "a": "needle", "b": "levator", "why": "needle superficial to the deep muscles"},
-    {"check": "within", "a": "needle-tip", "b": "cervical-fascia", "why": "tip in the fascial plane"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
-    {"check": "crosses", "a": "plexus", "b": "spread", "why": "spread reaches the plexus"},
-    {"check": "noOverlap", "a": "spread", "b": "vertebral-artery", "why": "spread stays superficial"}
-  ]
+    {
+      "check": "within",
+      "a": "plexus",
+      "b": "cervical-fascia",
+      "why": "the nerves lie inside the cervical fascia"
+    },
+    {
+      "check": "noOverlap",
+      "a": "plexus",
+      "b": "scm",
+      "why": "nerves deep to the SCM, not in it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "plexus",
+      "b": "msm",
+      "why": "nerves superficial to the deep muscles"
+    },
+    {
+      "check": "below",
+      "a": "plexus",
+      "b": "ejv",
+      "why": "plexus deep, EJV superficial"
+    },
+    {
+      "check": "leftOf",
+      "a": "levator",
+      "b": "msm",
+      "why": "levator scapulae posterior to the middle scalene"
+    },
+    {
+      "check": "below",
+      "a": "msm",
+      "b": "cervical-fascia",
+      "why": "deep muscles under the fascia"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "needle in-plane from posterior"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle",
+      "maxLean": 2.2,
+      "why": "needle runs from skin inward, posterior to anterior"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "scm",
+      "why": "needle stays under the posterior border, not through the muscle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "ejv",
+      "why": "needle path off the external jugular"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "plexus",
+      "why": "tip beside, not into, the nerves"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "levator",
+      "why": "needle superficial to the deep muscles"
+    },
+    {
+      "check": "within",
+      "a": "needle-tip",
+      "b": "cervical-fascia",
+      "why": "tip in the fascial plane"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the spread"
+    },
+    {
+      "check": "crosses",
+      "a": "plexus",
+      "b": "spread",
+      "why": "spread reaches the plexus"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "vertebral-artery",
+      "why": "spread stays superficial"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "56ebf5df244629e4bc2c70e17d4d222c32768ac46c58e68b671ad19b955eb8a8",
+    "reviewedOn": "2026-10-04"
+  }
 }
