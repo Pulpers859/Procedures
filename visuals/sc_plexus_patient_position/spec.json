@@ -1,0 +1,41 @@
+{
+  "assetId": "sc_plexus_patient_position",
+  "procedure": "block_superficial_cervical_plexus",
+  "title": "Probe and needle on the patient",
+  "view": "Right neck from above, patient supine, head turned to the left: head at the top, the patient's right (posterior neck) on the image left, as the anatomy plate and the interscalene plate.",
+  "teachingPoint": "Probe transverse over the mid-SCM, across its posterior border; needle in-plane from the posterior end, its path clear of the external jugular vein.",
+  "claims": [
+    "Right neck from above, head turned left; posterior on the image left, the same way round as the anatomy plate (camera reused from the approved interscalene plate).",
+    "Linear probe transverse over the midpoint of the SCM, across its posterior border (record subtitle and steps 1-2; plexus at the SCM's midpoint, record anatomy).",
+    "External jugular vein crossing the SCM near this level, over the posterior border about 1 cm below the probe (record anatomy, step 3; exact crossing point is a drawn assumption).",
+    "Needle entering just beyond the probe's posterior end, in line: in-plane from posterior to anterior, off the external jugular (record, steps 3-4).",
+    "Labels: Block needle, Linear probe, External jugular vein, SCM posterior border."
+  ],
+  "requiredElements": [
+    "skin",
+    "scm",
+    "scm-border",
+    "clavicle",
+    "ejv",
+    "ear",
+    "jaw",
+    "probe",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Block needle": "needle",
+    "Linear probe": "probe",
+    "External jugular vein": "ejv",
+    "SCM posterior border": "scm-border"
+  },
+  "geometry": [
+    {"check": "crosses", "a": "scm-border", "b": "probe", "why": "probe straddles the SCM's posterior border"},
+    {"check": "below", "a": "clavicle", "b": "probe", "why": "probe well above the clavicle, at mid-SCM"},
+    {"check": "leftOf", "a": "needle-entry", "b": "probe", "why": "needle enters at the posterior end"},
+    {"check": "leftOf", "a": "needle", "b": "probe", "why": "needle comes from posterior"},
+    {"check": "leftOf", "a": "ear", "b": "probe", "why": "head turned away; the ear is up and posterior"},
+    {"check": "noOverlap", "a": "needle", "b": "ejv", "why": "needle path off the external jugular"},
+    {"check": "crosses", "a": "ejv", "b": "scm-border", "why": "the external jugular crosses the SCM near this level"}
+  ]
+}

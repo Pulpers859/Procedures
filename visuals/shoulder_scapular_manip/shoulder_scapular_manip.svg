@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #C9D3DC; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDCDB8"/><stop offset="1" stop-color="#D9AE95"/></linearGradient>
+<linearGradient id="sheet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4E9EE"/><stop offset="1" stop-color="#F4F6F8"/></linearGradient>
+<marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+  <path d="M0,0 L10,5 L0,10 Z" fill="#0E8C98"/></marker>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting"></g>
+<g id="anatomy">
+  <rect x="0" y="0" width="1600" height="1200" fill="#C9D3DC"/>
+  <rect x="0" y="660" width="1600" height="540" fill="#9AA6B1"/>
+  <rect id="mattress" x="-10" y="230" width="1620" height="350" fill="url(#sheet)" stroke="#B9C2CB" stroke-width="3"/>
+  <rect x="-10" y="580" width="1620" height="80" fill="#5E6E7C"/>
+  <path id="back" d="M-40,330 C-11.7,305.5 238.3,314.5 300,312 C361.7,309.5 645,301.3 700,300 C755,298.7 925.8,295 960,296 C994.2,297 1091.2,306.7 1110,312 C1128.8,317.3 1176.2,349.3 1185,360 C1193.8,370.7 1211.7,426.7 1215,440 C1218.3,453.3 1230.4,506.7 1225,520 C1219.6,533.3 1168.8,592.3 1150,600 C1131.2,607.7 1037.5,610.5 1000,612 C962.5,613.5 758.3,618 700,618 C641.7,618 361.7,613 300,612 C238.3,611 -11.7,629.5 -40,606 C-68.3,582.5 -68.3,354.5 -40,330 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <path d="M1150,330 C1157,317.5 1236.5,336 1250,345 C1263.5,354 1285,404.5 1285,420 C1285,435.5 1260.5,495 1250,500 C1239.5,505 1190,487 1180,470 C1170,453 1143,342.5 1150,330 Z" fill="#E3BCA4" stroke="#B98A74" stroke-width="3"/>
+  <ellipse id="head" cx="1390" cy="420" rx="130" ry="105" fill="#5A4234" stroke="#3E2C22" stroke-width="3"/>
+  <ellipse id="ear" cx="1400" cy="470" rx="26" ry="38" fill="#D9A88C" stroke="#A9765F" stroke-width="3"/>
+  <path id="shorts" d="M-40,320 C-26.5,305 215.5,295.2 230,310 C244.5,324.8 263.5,600 250,615 C236.5,630 -25.5,624.8 -40,610 C-54.5,595.2 -53.5,335 -40,320 Z" fill="#3F5F7F" stroke="#2E4660" stroke-width="3"/>
+  <path id="arm" d="M1120,540 C1128.7,525 1221.8,506.7 1232,520 C1242.2,533.3 1241.7,670 1242,700 C1242.3,730 1237.3,835 1236,880 C1234.7,925 1233.5,1210 1226,1240 C1218.5,1270 1153.2,1270 1146,1240 C1138.8,1210 1141.5,925 1140,880 C1138.5,835 1129.7,728.3 1128,700 C1126.3,671.7 1111.3,555 1120,540 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+</g>
+
+<g class="marking">
+  <path id="scapula" d="M1070,430 C1053.3,424 968.8,444 950,448 C931.2,452 849.2,472 845,478 C840.8,484 886.2,513.8 900,520 C913.8,526.2 991.7,548.7 1010,552 C1028.3,555.3 1108.3,562.7 1120,560 C1131.7,557.3 1154.2,530.8 1150,520 C1145.8,509.2 1086.7,436 1070,430 Z" fill="#FFFFFF" fill-opacity="0.30" stroke="#8C7458" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M1060,436 C1065,439.4 1098.5,463.6 1110,470 C1121.5,476.4 1168.5,497 1175,500" fill="none" stroke="#8C7458" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <path id="spine-line" d="M150,420 C185,419 435,411.6 500,410 C565,408.4 744,405 800,404 C856,403 1023,399.4 1060,400 C1097,400.6 1159,409 1170,410" fill="none" stroke="#4A2F7A" stroke-width="5" stroke-dasharray="18 12"/>
+  <path id="tip-arrow" d="M835,548 C775,498 775,428 825,398" fill="none" stroke="#0E8C98" stroke-width="12" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <line id="traction" x1="1186" y1="760" x2="1186" y2="1080" stroke="#0E8C98" stroke-width="12" stroke-linecap="round" marker-end="url(#arrow)"/>
+</g>
+
+<g id="labels"><g class="label emphasis" data-label="Rotate the tip toward the spine" data-target="tip-arrow"><polyline class="leader-halo" points="560,210 793,458"/><polyline class="leader" points="560,210 793,458"/><circle class="leader-dot" cx="793" cy="458" r="7"/><text x="300" y="150" text-anchor="start"><tspan x="300" dy="0">Rotate the tip</tspan><tspan x="300" dy="66">toward the spine</tspan></text></g><g class="label" data-label="Spine" data-target="spine-line"><polyline class="leader-halo" points="110,710 150,420"/><polyline class="leader" points="110,710 150,420"/><circle class="leader-dot" cx="150" cy="420" r="7"/><text x="40" y="760" text-anchor="start"><tspan x="40" dy="0">Spine</tspan></text></g><g class="label" data-label="Scapula" data-target="scapula"><polyline class="leader-halo" points="960,170 1000,470"/><polyline class="leader" points="960,170 1000,470"/><circle class="leader-dot" cx="1000" cy="470" r="7"/><text x="860" y="150" text-anchor="start"><tspan x="860" dy="0">Scapula</tspan></text></g><g class="label" data-label="Arm hangs, gentle traction" data-target="traction"><polyline class="leader-halo" points="1110,850 1186,960"/><polyline class="leader" points="1110,850 1186,960"/><circle class="leader-dot" cx="1186" cy="960" r="7"/><text x="720" y="860" text-anchor="start"><tspan x="720" dy="0">Arm hangs,</tspan><tspan x="720" dy="66">gentle traction</tspan></text></g></g>
+
+</svg>

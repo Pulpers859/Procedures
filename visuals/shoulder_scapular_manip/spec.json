@@ -1,0 +1,31 @@
+{
+  "assetId": "shoulder_scapular_manip",
+  "procedure": "shoulder_reduction",
+  "title": "Scapular manipulation",
+  "view": "Patient prone across the frame, seen from the right side and above: head on the image right, hips on the left, the right arm hanging off the near edge of the stretcher.",
+  "teachingPoint": "Prone, the arm hanging with gentle traction; rotate the inferior tip of the scapula toward the spine with low, steady force.",
+  "claims": [
+    "Prone, the affected (right) arm hanging off the stretcher with gentle traction (record, positioning).",
+    "Right scapula outlined on the back: medial border, inferior tip, spine and acromion (standard anatomy, traced on the painting).",
+    "Curved arrow: the inferior tip rotated medially toward the spine (record: rotate the scapular tip; the medial direction is standard technique, added).",
+    "Straight arrow down the arm: gentle traction (record).",
+    "No hands drawn.",
+    "Labels: Rotate the tip toward the spine; Spine; Scapula; Arm hangs, gentle traction."
+  ],
+  "requiredElements": ["mattress", "back", "head", "arm", "scapula", "spine-line", "tip-arrow", "traction"],
+  "labels": {
+    "Rotate the tip toward the spine": "tip-arrow",
+    "Spine": "spine-line",
+    "Scapula": "scapula",
+    "Arm hangs, gentle traction": "traction"
+  },
+  "geometry": [
+    {"check": "within", "a": "scapula", "b": "back", "why": "the scapula is on the back"},
+    {"check": "below", "a": "scapula", "b": "spine-line", "why": "the right scapula is on the near (right) half of the back"},
+    {"check": "leftOf", "a": "tip-arrow", "b": "arm", "why": "the tip lies toward the feet from the shoulder"},
+    {"check": "awayFrom", "a": "tip-arrow", "b": "arm", "why": "the tip is rotated away from the shoulder"},
+    {"check": "pointsDown", "a": "traction", "why": "traction straight down the hanging arm"},
+    {"check": "within", "a": "traction", "b": "arm", "why": "the traction arrow lies along the arm"},
+    {"check": "below", "a": "arm", "b": "back", "why": "the arm hangs below the stretcher edge"}
+  ]
+}

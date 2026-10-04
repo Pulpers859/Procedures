@@ -1,0 +1,43 @@
+{
+  "assetId": "edt_pericardiotomy",
+  "procedure": "resuscitative_thoracotomy",
+  "title": "Pericardiotomy & phrenic nerve",
+  "view": "Adult male supine, from directly above, head at the top, the patient's right on the image left; the approved decompression torso with a cutaway window over the left chest.",
+  "teachingPoint": "Left anterolateral incision in the 4th-5th space on the upper edge of the rib below; open the pericardium longitudinally, anterior to the phrenic nerve.",
+  "claims": [
+    "Male torso from above, the left chest on the image right (house laterality; the record names the left side).",
+    "Incision along the 5th intercostal space on the upper edge of the 6th rib, from the left sternal edge to the lateral chest wall (record: 4th-5th space, superior rib margin, sternal edge to the table).",
+    "Phrenic nerve along the lateral surface of the pericardium (record, anatomy).",
+    "Pericardiotomy longitudinal and anterior (medial in this view) to the phrenic nerve, about 2 cm from it (record, step 5; the spacing is drawn).",
+    "Pericardium outline: left border from the 2nd space near the sternum to the apex at the 5th space near the midclavicular line (standard anatomy, added).",
+    "Translucent rib cage: the decompression plate's fitted geometry (owner-approved, 2026-10-02).",
+    "Labels: Incision, 4th-5th ICS; Phrenic nerve; Pericardiotomy; Pericardium."
+  ],
+  "requiredElements": [
+    "lung",
+    "window",
+    "pericardium",
+    "phrenic",
+    "rib-cage",
+    "rib-4",
+    "rib-5",
+    "rib-6",
+    "sternum",
+    "incision",
+    "pericardiotomy"
+  ],
+  "labels": {
+    "Incision, 4th–5th ICS": "incision",
+    "Phrenic nerve": "phrenic",
+    "Pericardiotomy": "pericardiotomy",
+    "Pericardium": "pericardium"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "pericardiotomy", "b": "phrenic", "why": "the opening is anterior (medial in this view) to the phrenic nerve"},
+    {"check": "noOverlap", "a": "pericardiotomy", "b": "phrenic", "why": "the opening stays clear of the nerve"},
+    {"check": "within", "a": "pericardiotomy", "b": "pericardium", "why": "the opening is on the pericardium"},
+    {"check": "below", "a": "incision", "b": "rib-5", "why": "incision below the 5th rib (5th space)"},
+    {"check": "noOverlap", "a": "incision", "b": "rib-5", "why": "incision in the space, not on the 5th rib"},
+    {"check": "lengthRange", "a": "pericardiotomy", "min": 250, "max": 450, "why": "a long longitudinal opening, apex toward the great vessels"}
+  ]
+}

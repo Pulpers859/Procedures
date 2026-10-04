@@ -1,0 +1,59 @@
+{
+  "assetId": "sc_plexus_anatomy",
+  "procedure": "block_superficial_cervical_plexus",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right neck at mid-SCM under a linear probe, as on ultrasound: posterior (lateral) on the image left, anterior (carotid) on the right, skin at the top.",
+  "teachingPoint": "The plexus is a small cluster at the posterior border of the SCM; the needle comes in-plane from posterior, the tip in the plane just deep to that border, and the spread runs along it.",
+  "claims": [
+    "Right neck in section, posterior on the left, as on ultrasound (house laterality, matches the interscalene plate).",
+    "SCM is the large superficial muscle; levator scapulae and scalenes lie deep to it (record, ultrasound).",
+    "Plexus as a small cluster at the posterior border of the SCM, deep to it (record, anatomy and ultrasound).",
+    "External jugular vein on the SCM near this level (record, anatomy).",
+    "Needle in-plane from posterior to anterior, tip in the plane just deep to the posterior border (record, steps 4-5).",
+    "Teal: spread along the posterior border, between SCM and the prevertebral fascia (record, step 6).",
+    "Labels: Sternocleidomastoid, External jugular vein, Superficial cervical plexus, Levator scapulae, Carotid."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "scm",
+    "prevertebral-fascia",
+    "levator",
+    "msm",
+    "asm",
+    "ejv",
+    "ijv",
+    "carotid",
+    "plexus",
+    "bone",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
+  "labels": {
+    "Sternocleidomastoid": "scm",
+    "External jugular vein": "ejv",
+    "Superficial cervical plexus": "plexus",
+    "Levator scapulae": "levator",
+    "Carotid": "carotid"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "levator", "b": "carotid", "why": "levator posterior, carotid anterior"},
+    {"check": "below", "a": "plexus", "b": "ejv", "why": "plexus deep, EJV superficial"},
+    {"check": "noOverlap", "a": "plexus", "b": "scm", "why": "plexus deep to the SCM, not in it"},
+    {"check": "noOverlap", "a": "plexus", "b": "levator", "why": "plexus superficial to the deep muscles"},
+    {"check": "noOverlap", "a": "plexus", "b": "msm", "why": "plexus superficial to the deep muscles"},
+    {"check": "below", "a": "levator", "b": "plexus", "why": "deep muscles under the plexus"},
+    {"check": "leftOf", "a": "needle-entry", "b": "probe", "why": "needle in-plane from posterior"},
+    {"check": "pointsDown", "a": "needle", "maxLean": 2.0, "why": "needle runs from skin inward, posterior to anterior"},
+    {"check": "noOverlap", "a": "needle", "b": "scm", "why": "needle stays under the posterior border, not through the muscle"},
+    {"check": "noOverlap", "a": "needle", "b": "ejv", "why": "needle path off the external jugular"},
+    {"check": "noOverlap", "a": "needle", "b": "plexus", "why": "tip beside, not into, the nerves"},
+    {"check": "noOverlap", "a": "needle", "b": "levator", "why": "needle superficial to the prevertebral fascia"},
+    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
+    {"check": "crosses", "a": "plexus", "b": "spread", "why": "spread reaches the plexus"},
+    {"check": "noOverlap", "a": "spread", "b": "carotid", "why": "spread stays superficial"}
+  ]
+}
