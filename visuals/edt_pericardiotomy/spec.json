@@ -27,17 +27,53 @@
     "pericardiotomy"
   ],
   "labels": {
-    "Incision, 4th–5th ICS": "incision",
+    "Incision, 4th\u20135th ICS": "incision",
     "Phrenic nerve": "phrenic",
     "Pericardiotomy": "pericardiotomy",
     "Pericardium": "pericardium"
   },
   "geometry": [
-    {"check": "leftOf", "a": "pericardiotomy", "b": "phrenic", "why": "the opening is anterior (medial in this view) to the phrenic nerve"},
-    {"check": "noOverlap", "a": "pericardiotomy", "b": "phrenic", "why": "the opening stays clear of the nerve"},
-    {"check": "within", "a": "pericardiotomy", "b": "pericardium", "why": "the opening is on the pericardium"},
-    {"check": "below", "a": "incision", "b": "rib-5", "why": "incision below the 5th rib (5th space)"},
-    {"check": "noOverlap", "a": "incision", "b": "rib-5", "why": "incision in the space, not on the 5th rib"},
-    {"check": "lengthRange", "a": "pericardiotomy", "min": 250, "max": 450, "why": "a long longitudinal opening, apex toward the great vessels"}
-  ]
+    {
+      "check": "leftOf",
+      "a": "pericardiotomy",
+      "b": "phrenic",
+      "why": "the opening is anterior (medial in this view) to the phrenic nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "pericardiotomy",
+      "b": "phrenic",
+      "why": "the opening stays clear of the nerve"
+    },
+    {
+      "check": "within",
+      "a": "pericardiotomy",
+      "b": "pericardium",
+      "why": "the opening is on the pericardium"
+    },
+    {
+      "check": "below",
+      "a": "incision",
+      "b": "rib-5",
+      "why": "incision below the 5th rib (5th space)"
+    },
+    {
+      "check": "noOverlap",
+      "a": "incision",
+      "b": "rib-5",
+      "why": "incision in the space, not on the 5th rib"
+    },
+    {
+      "check": "lengthRange",
+      "a": "pericardiotomy",
+      "min": 250,
+      "max": 450,
+      "why": "a long longitudinal opening, apex toward the great vessels"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "e46aa50788de07764b701cbd39a1d543ca46a1bbdfd7a386465273f76657a66b",
+    "reviewedOn": "2026-10-04"
+  }
 }

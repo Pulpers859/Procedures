@@ -12,7 +12,16 @@
     "No hands drawn.",
     "Labels: Rotate the tip toward the spine; Spine; Scapula; Arm hangs, gentle traction."
   ],
-  "requiredElements": ["mattress", "back", "head", "arm", "scapula", "spine-line", "tip-arrow", "traction"],
+  "requiredElements": [
+    "mattress",
+    "back",
+    "head",
+    "arm",
+    "scapula",
+    "spine-line",
+    "tip-arrow",
+    "traction"
+  ],
   "labels": {
     "Rotate the tip toward the spine": "tip-arrow",
     "Spine": "spine-line",
@@ -20,12 +29,51 @@
     "Arm hangs, gentle traction": "traction"
   },
   "geometry": [
-    {"check": "within", "a": "scapula", "b": "back", "why": "the scapula is on the back"},
-    {"check": "below", "a": "scapula", "b": "spine-line", "why": "the right scapula is on the near (right) half of the back"},
-    {"check": "leftOf", "a": "tip-arrow", "b": "arm", "why": "the tip lies toward the feet from the shoulder"},
-    {"check": "awayFrom", "a": "tip-arrow", "b": "arm", "why": "the tip is rotated away from the shoulder"},
-    {"check": "pointsDown", "a": "traction", "why": "traction straight down the hanging arm"},
-    {"check": "within", "a": "traction", "b": "arm", "why": "the traction arrow lies along the arm"},
-    {"check": "below", "a": "arm", "b": "back", "why": "the arm hangs below the stretcher edge"}
-  ]
+    {
+      "check": "within",
+      "a": "scapula",
+      "b": "back",
+      "why": "the scapula is on the back"
+    },
+    {
+      "check": "below",
+      "a": "scapula",
+      "b": "spine-line",
+      "why": "the right scapula is on the near (right) half of the back"
+    },
+    {
+      "check": "leftOf",
+      "a": "tip-arrow",
+      "b": "arm",
+      "why": "the tip lies toward the feet from the shoulder"
+    },
+    {
+      "check": "awayFrom",
+      "a": "tip-arrow",
+      "b": "arm",
+      "why": "the tip is rotated away from the shoulder"
+    },
+    {
+      "check": "pointsDown",
+      "a": "traction",
+      "why": "traction straight down the hanging arm"
+    },
+    {
+      "check": "within",
+      "a": "traction",
+      "b": "arm",
+      "why": "the traction arrow lies along the arm"
+    },
+    {
+      "check": "below",
+      "a": "arm",
+      "b": "back",
+      "why": "the arm hangs below the stretcher edge"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "15b56baf8960a6d20050adfa47d7a7509fbb9870db66e40d48ff162a8e7f7031",
+    "reviewedOn": "2026-10-04"
+  }
 }

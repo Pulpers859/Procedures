@@ -3945,9 +3945,9 @@
         "kind": "Setup",
         "title": "Scapular manipulation",
         "subtitle": "Scapular manipulation: rotate the scapular tip with slow, steady traction using low force.",
-        "assetName": null,
+        "assetName": "shoulder_scapular_manip",
         "systemImage": "figure.arms.open",
-        "caption": "",
+        "caption": "Prone, right arm hanging off the stretcher with gentle traction; rotate the inferior tip of the scapula toward the spine with low, steady force.",
         "clinicalWarning": "Slow, steady force - escalating force abruptly can displace the humeral head further."
       }
     ],
@@ -4427,9 +4427,9 @@
         "kind": "Landmark",
         "title": "Pericardiotomy & phrenic nerve",
         "subtitle": "Anterolateral incision, entry at the rib margin, and a longitudinal pericardial opening anterior to the phrenic nerve.",
-        "assetName": null,
+        "assetName": "edt_pericardiotomy",
         "systemImage": "heart.fill",
-        "caption": "",
+        "caption": "Supine male chest from above, patient's left on the right: incision in the 4th-5th intercostal space on the upper edge of the rib below; window shows the pericardium opened longitudinally, anterior to the phrenic nerve.",
         "clinicalWarning": "Open the pericardium longitudinally and anterior to the phrenic nerve."
       }
     ]
