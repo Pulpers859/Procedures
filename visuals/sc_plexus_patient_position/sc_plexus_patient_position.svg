@@ -47,24 +47,24 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <path d="M360,0 L360,16 L600,24 L920,64 L1240,144 L1480,192 L1600,192 L1600,0 Z" fill="#D9A88C"/>
   <ellipse id="ear" cx="264" cy="80" rx="70" ry="110" fill="#D79E86" stroke="#A9765F" stroke-width="3"/>
   <path id="scm" d="M376,80 C374.4,108.8 488,272 520,320 C552,368 667.2,520 696,560 C724.8,600 784,683.2 808,720 C832,756.8 902.4,905.6 936,928 C969.6,950.4 1137.6,966.4 1144,944 C1150.4,921.6 1027.2,747.2 1000,704 C972.8,660.8 902.4,555.2 872,512 C841.6,468.8 729.6,320 696,272 C662.4,224 568,51.2 536,32 C504,12.8 377.6,51.2 376,80 Z" fill="#E3B49A" stroke="#C49478" stroke-width="3"/>
-  <path id="ejv" d="M728,16 C728,51.2 729.1,220.3 728,280 C726.9,339.7 724.3,422.4 720,464 C715.7,505.6 705.6,549.3 696,592 C686.4,634.7 658.7,743.5 648,784 C637.3,824.5 620.3,881.1 616,896" fill="none" stroke="#8C94B4" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+  <path id="ejv" d="M808,16 C808,51.2 809.1,206.4 808,280 C806.9,353.6 806.4,513.6 800,568 C793.6,622.4 773.9,657.1 760,688 C746.1,718.9 708.8,772.3 696,800 C683.2,827.7 668.3,883.2 664,896" fill="none" stroke="#8C94B4" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
   <path id="clavicle" d="M40,944 C82.7,940.8 274.7,924.3 360,920 C445.3,915.7 594.7,910.9 680,912 C765.3,913.1 925.3,921.6 1000,928 C1074.7,934.4 1208,955.7 1240,960" fill="none" stroke="#EED8C6" stroke-width="26" stroke-linecap="round"/>
   <rect x="0" y="1040" width="1600" height="400" fill="url(#drape)"/>
-  <path id="probe-handle" d="M512,432 C544,360 600,240 616,80 L728,80 C744,240 800,360 832,432 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
-  <path d="M672,80 C688,32 784,16 992,-20" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
-  <rect id="probe" x="472" y="428" width="400" height="72" rx="20" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
-  <path d="M152,464 C72,464 12,544 60,884" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
-  <rect x="118" y="455" width="38" height="18" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
-  <line id="needle" x1="152" y1="464" x2="400" y2="464" stroke="#8E969E" stroke-width="5"/>
-  <circle id="needle-entry" cx="400" cy="464" r="4" fill="#9E6B5A"/>
+  <path id="probe-handle" d="M588,536 C620,464 676,344 692,184 L804,184 C820,344 876,464 908,536 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path d="M748,184 C764,136 860,120 1068,-20" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
+  <rect id="probe" x="548" y="532" width="400" height="72" rx="20" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path d="M228,568 C148,568 88,648 60,988" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
+  <rect x="194" y="559" width="38" height="18" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line id="needle" x1="228" y1="568" x2="476" y2="568" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="476" cy="568" r="4" fill="#9E6B5A"/>
 </g>
 
 <mask id="skin-visible" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1200"><rect width="1600" height="1200" fill="#fff"/>
-  <rect x="466" y="422" width="412" height="84" rx="24" fill="#000"/></mask>
+  <rect x="542" y="526" width="412" height="84" rx="24" fill="#000"/></mask>
 <g class="marking" fill="none" mask="url(#skin-visible)">
   <path id="scm-border" d="M376,80 C395.2,112 477.3,256 520,320 C562.7,384 657.6,506.7 696,560 C734.4,613.3 776,670.9 808,720 C840,769.1 918.9,900.3 936,928" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12" opacity="1"/>
 </g>
 
-<g id="labels"><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,360 276,462"/><polyline class="leader" points="200,360 276,462"/><circle class="leader-dot" cx="276" cy="462" r="7"/><text x="40" y="330" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1080,560 842,464"/><polyline class="leader" points="1080,560 842,464"/><circle class="leader-dot" cx="842" cy="464" r="7"/><text x="1060" y="600" text-anchor="start"><tspan x="1060" dy="0">Linear probe</tspan></text></g><g class="label" data-label="External jugular vein" data-target="ejv"><polyline class="leader-halo" points="820,720 672,688"/><polyline class="leader" points="820,720 672,688"/><circle class="leader-dot" cx="672" cy="688" r="7"/><text x="760" y="760" text-anchor="start"><tspan x="760" dy="0">External jugular vein</tspan></text></g><g class="label" data-label="SCM posterior border" data-target="scm-border"><polyline class="leader-halo" points="300,720 520,320"/><polyline class="leader" points="300,720 520,320"/><circle class="leader-dot" cx="520" cy="320" r="7"/><text x="40" y="760" text-anchor="start"><tspan x="40" dy="0">SCM posterior border</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,470 352,566"/><polyline class="leader" points="200,470 352,566"/><circle class="leader-dot" cx="352" cy="566" r="7"/><text x="40" y="440" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1100,660 918,568"/><polyline class="leader" points="1100,660 918,568"/><circle class="leader-dot" cx="918" cy="568" r="7"/><text x="1080" y="700" text-anchor="start"><tspan x="1080" dy="0">Linear probe</tspan></text></g><g class="label" data-label="External jugular vein" data-target="ejv"><polyline class="leader-halo" points="820,760 728,744"/><polyline class="leader" points="820,760 728,744"/><circle class="leader-dot" cx="728" cy="744" r="7"/><text x="760" y="800" text-anchor="start"><tspan x="760" dy="0">External jugular vein</tspan></text></g><g class="label" data-label="SCM posterior border" data-target="scm-border"><polyline class="leader-halo" points="300,280 520,320"/><polyline class="leader" points="300,280 520,320"/><circle class="leader-dot" cx="520" cy="320" r="7"/><text x="40" y="260" text-anchor="start"><tspan x="40" dy="0">SCM posterior border</tspan></text></g></g>
 
 </svg>
