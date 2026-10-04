@@ -40,19 +40,19 @@ BASE = Path(__file__).with_name("base.jpg")
 BASE_SIZE = (1200.0, 896.0)
 
 MATTRESS_FAR, MATTRESS_NEAR, MATTRESS_SIDE = 230.0, 580.0, 660.0
-BACK = [(-40, 330), (300, 312), (700, 300), (960, 296), (1110, 312), (1185, 360), (1215, 440), (1225, 520),
-        (1150, 600), (1000, 612), (700, 618), (300, 612), (-40, 606)]
+# Traced on the painting (Gemini lowered the camera to nearly level, so the back's top is the skyline).
+BACK = [(-40, 330), (250, 305), (700, 290), (1050, 280), (1150, 300), (1210, 380), (1215, 520), (1100, 600),
+        (960, 598), (700, 610), (300, 612), (-40, 610)]
 NECK = [(1150, 330), (1250, 345), (1285, 420), (1250, 500), (1180, 470)]
-HEAD = ((1390.0, 420.0), 130.0, 105.0)
+HEAD = ((1400.0, 360.0), 110.0, 100.0)
 EAR = ((1400.0, 470.0), 26.0, 38.0)
 SHORTS = [(-40, 320), (230, 310), (250, 615), (-40, 610)]
-ARM = [(1120, 540), (1232, 520), (1242, 700), (1236, 880), (1226, 1240), (1146, 1240), (1140, 880), (1128, 700)]
-SPINE = [(150, 420), (500, 410), (800, 404), (1060, 400), (1170, 410)]
-# Right scapula on the near half of the back: superior angle, inferior angle (tip), glenoid at the shoulder.
-SCAPULA = [(1070, 430), (950, 448), (845, 478), (900, 520), (1010, 552), (1120, 560), (1150, 520)]
-SCAP_SPINE = [(1060, 436), (1110, 470), (1175, 500)]
-TIP = (845.0, 478.0)
-
+ARM = [(1150, 380), (1207, 440), (1190, 667), (1080, 853), (1067, 1013), (1080, 1240), (933, 1240), (920, 1067),
+       (907, 907), (933, 747), (960, 593), (1050, 480)]
+SPINE = [(260, 312), (600, 300), (900, 292), (1080, 290), (1150, 300)]
+SCAPULA = [(1090, 302), (980, 318), (860, 378), (930, 420), (1040, 470), (1130, 505), (1175, 450), (1150, 360)]
+SCAP_SPINE = [(1075, 318), (1130, 370), (1190, 420)]
+TIP = (860.0, 378.0)
 DEFS = """
 <linearGradient id="skin-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDCDB8"/><stop offset="1" stop-color="#D9AE95"/></linearGradient>
 <linearGradient id="sheet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4E9EE"/><stop offset="1" stop-color="#F4F6F8"/></linearGradient>
@@ -78,13 +78,13 @@ def build() -> str:
     else:
         base_attr = base_image = layout_attr = ""
 
-    tip_arrow = f"M{fmt(TIP[0] - 10)},{fmt(TIP[1] + 70)} C{fmt(TIP[0] - 70)},{fmt(TIP[1] + 20)} {fmt(TIP[0] - 70)},{fmt(TIP[1] - 50)} {fmt(TIP[0] - 20)},{fmt(TIP[1] - 80)}"
+    tip_arrow = f"M{fmt(TIP[0] + 20)},{fmt(TIP[1] + 92)} C{fmt(TIP[0] - 40)},{fmt(TIP[1] + 72)} {fmt(TIP[0] - 60)},{fmt(TIP[1] + 12)} {fmt(TIP[0] - 30)},{fmt(TIP[1] - 48)}"
     labels = [
-        Label(["Rotate the tip", "toward the spine"], anchor=(300, 150), leader=[(560, 210), (TIP[0] - 52, TIP[1] - 20)],
+        Label(["Rotate the tip", "toward the spine"], anchor=(300, 130), leader=[(560, 190), (821, 415)],
               target_id="tip-arrow", emphasis=True),
-        Label(["Spine"], anchor=(40, 760), leader=[(110, 710), (150, 420)], target_id="spine-line"),
-        Label(["Scapula"], anchor=(860, 150), leader=[(960, 170), (1000, 470)], target_id="scapula"),
-        Label(["Arm hangs,", "gentle traction"], anchor=(720, 860), leader=[(1110, 850), (1186, 960)], target_id="traction"),
+        Label(["Spine"], anchor=(40, 230), leader=[(140, 250), (260, 312)], target_id="spine-line"),
+        Label(["Scapula"], anchor=(1100, 150), leader=[(1150, 170), (1040, 420)], target_id="scapula"),
+        Label(["Arm hangs,", "gentle traction"], anchor=(440, 1060), leader=[(840, 1040), (1002, 1060)], target_id="traction"),
     ]
     body = f"""
 <g id="painting"{base_attr}>{base_image}</g>
@@ -106,7 +106,7 @@ def build() -> str:
   <path d="{smooth_path(SCAP_SPINE, tension=0.6)}" fill="none" stroke="#8C7458" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
   <path id="spine-line" d="{smooth_path(SPINE, tension=0.6)}" fill="none" stroke="#4A2F7A" stroke-width="5" stroke-dasharray="18 12"/>
   <path id="tip-arrow" d="{tip_arrow}" fill="none" stroke="#0E8C98" stroke-width="12" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <line id="traction" x1="1186" y1="760" x2="1186" y2="1080" stroke="#0E8C98" stroke-width="12" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <line id="traction" x1="996" y1="930" x2="1004" y2="1170" stroke="#0E8C98" stroke-width="12" stroke-linecap="round" marker-end="url(#arrow)"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>

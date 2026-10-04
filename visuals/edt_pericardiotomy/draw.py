@@ -54,7 +54,7 @@ c, rib_cage = torso.c, torso.rib_cage
 
 ASSET_ID = "edt_pericardiotomy"
 BASE = Path(__file__).with_name("base.jpg")
-BASE_SIZE = (1200.0, 896.0)
+BASE_SIZE = (1195.0, 896.0)
 TORSO_PHOTO = "../needle_decompression_landmarks/base.jpg"
 
 INCISION = [(-18, 133), (-45, 139), (-70, 143), (-90, 137), (-109, 129), (-130, 123), (-148, 119)]

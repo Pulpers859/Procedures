@@ -34,9 +34,9 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 <defs></defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy">
-  <image href="../needle_decompression_landmarks/base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
+<g id="painting" data-base-sha256="4c070c810e104e75f6aaaa45aa282c3f69abe7849bd45c2c4a893fcfc3ae3e30"><image href="base.jpg" x="0" y="0.2" width="1600" height="1199.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <image href="../needle_decompression_landmarks/base.jpg" x="0" y="0.2" width="1600" height="1199.7" preserveAspectRatio="none"/>
   <clipPath id="window-clip"><path d="M868,372.3 C879,334.2 976.7,342.5 1000,345.4 C1023.3,348.4 1130.4,391 1147.5,408.2 C1164.6,425.3 1199.4,526.9 1205.1,551.5 C1210.9,576.2 1216.6,684.1 1216.6,703.8 C1216.6,723.6 1210.4,779.3 1205.1,789 C1199.8,798.7 1163.7,815.5 1153.3,820.3 C1142.9,825.2 1094.4,846.5 1080,847.2 C1065.6,847.9 997.7,833 980,829.3 C962.3,825.5 877.3,840.5 868,802.4 C858.7,764.3 857,410.4 868,372.3 Z"/></clipPath>
   <path id="lung" d="M868,372.3 C879,334.2 976.7,342.5 1000,345.4 C1023.3,348.4 1130.4,391 1147.5,408.2 C1164.6,425.3 1199.4,526.9 1205.1,551.5 C1210.9,576.2 1216.6,684.1 1216.6,703.8 C1216.6,723.6 1210.4,779.3 1205.1,789 C1199.8,798.7 1163.7,815.5 1153.3,820.3 C1142.9,825.2 1094.4,846.5 1080,847.2 C1065.6,847.9 997.7,833 980,829.3 C962.3,825.5 877.3,840.5 868,802.4 C858.7,764.3 857,410.4 868,372.3 Z" fill="#D7A3A6" stroke="#A9765F" stroke-width="4"/>
   <g clip-path="url(#window-clip)">
