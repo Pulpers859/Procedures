@@ -1,24 +1,28 @@
-"""Serratus anterior plane block - probe and needle on the patient (layout).
+"""Serratus anterior plane block - probe and needle on the patient (painted base, code-drawn probe).
 
-Owner, 2026-10-03: copy NYSORA's serratus patient photo (Fig-9) explicitly
-(concept only, not committed; drawn from scratch, no hands). The patient's
-LEFT side, seen from the front: the head at the top, the feet at the bottom,
-the midline toward the image left, the left pectoral area and nipple in the
-centre (a male chest: owner, 2026-10-03), the left arm abducted out to the
-image right with the armpit visible. NYSORA's axes: cranial up, anterior toward the camera/left,
-posterior toward the arm/right.
+Owner, 2026-10-03: follow NYSORA Fig-9 (concept only, not committed): the
+patient's left side, supine, male chest, head toward the upper right, the
+arm abducted across the upper right, the armpit centre right, the drape
+along the lower right. The base is the owner's Gemini photo with the probe
+and needle removed (Gemini failed the probe pose four times; PLAYBOOK rule:
+draw it in code).
 
-The probe's face rests on the mid-axillary line (straight down from the
-axillary apex) just below nipple level, the 4th-5th ribs; its body runs diagonally down to the
-lower right (about 35 degrees) toward the operator, as in NYSORA. The needle comes
-in level from the left (anterior), entering just in front of the probe head.
+Record (follows NYSORA): transducer transverse over the mid-axillary line at
+the 4th-5th ribs; needle in-plane from the superior-anterior end.
 
-Record (follows NYSORA, owner 2026-10-03): transducer transverse over the
-mid-axillary line at the 4th-5th ribs; needle in-plane from the
-superior-anterior end. The NYSORA side (left) is used, not the house
-right, at the owner's direction.
+Traced on the base (canvas px): nipple (410, 255); axillary hair/apex about
+(990, 570); the torso's lateral edge runs from (100, 1170) to (1100, 830),
+so the body axis points up-right (cranial) at about -19 degrees and the
+anterior-posterior direction across the lateral wall is along (0.32, 0.947).
 
-Perspective layout; markings traced on the painting.
+Code-drawn:
+- the mid-axillary line (dashed) running caudally from the axillary apex;
+- the probe seen from above as a short rounded bar - the footprint lying
+  anterior-posterior across the lateral wall (transverse), centred on the
+  mid-axillary line just below nipple level (the 4th-5th ribs), with gel and
+  its cable leaving toward the drape;
+- the needle in line with the bar, entering at its anterior end from the
+  superior-anterior side (in-plane), green hub, tubing.
 
 Run: python3 visuals/serratus_patient_position/draw.py
 """
@@ -26,108 +30,97 @@ Run: python3 visuals/serratus_patient_position/draw.py
 from __future__ import annotations
 
 import hashlib
-import os
+import math
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 
-from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
+from visuals_lib import Label, document, fmt  # noqa: E402
 
 ASSET_ID = "serratus_patient_position"
 BASE = Path(__file__).with_name("base.jpg")
-BASE_SIZE = (1200.0, 896.0)
+BASE_SIZE = (1198.0, 896.0)
 
-PEC_BORDER = [(500, 600), (700, 640), (900, 600), (1080, 520), (1200, 420)]   # lower border of pectoralis major
-NIPPLE = (850.0, 470.0)
-ARM = [(1180, -40), (2020, -40), (2020, 510), (1450, 450), (1330, 400), (1250, 300), (1190, 150)]
-AXILLA = [(1190, 150), (1250, 300), (1300, 400)]
-MAL_X = 1300.0                     # mid-axillary line, straight down from the axillary apex
-STERNUM_SHADOW = [(-40, -40), (360, -40), (300, 300), (240, 700), (-40, 760)]
-DRAPE = [(340, 900), (500, 890), (1000, 870), (1300, 850), (1640, 820), (2020, 790), (2020, 1240), (340, 1240)]
-import math  # noqa: E402
-
-# NYSORA Fig-9 (owner, 2026-10-03): needle and probe on ONE line - the needle comes in toward the probe's
-# head end and the probe continues along the same line, tilted down to the lower right (in-plane). A normal
-# linear-probe silhouette: head, shoulder, handle.
-HEAD_C = (1285.0, 625.0)
-PROBE_ANG = 22.0                   # the shared needle/probe line, degrees below horizontal
+U = (0.32, 0.947)                  # anterior -> posterior across the lateral wall (footprint and needle line)
+N = (U[1], -U[0])                  # across the bar
+C = (592.0, 752.0)                 # probe centre: mid-axillary line, just below nipple level
+HALF_L, HALF_W = 118.0, 36.0       # footprint bar, about 4.5 x 1.2 cm
+MAL = [(1000.0, 600.0), (250.0, 856.0)]
+AXILLA = (990.0, 570.0)
+NEEDLE_ENTRY = (C[0] - U[0] * (HALF_L + 16), C[1] - U[1] * (HALF_L + 16))
+NEEDLE_HUB = (C[0] - U[0] * (HALF_L + 230), C[1] - U[1] * (HALF_L + 230))
 
 
-def rot(p):
-    a = math.radians(PROBE_ANG)
-    return (HEAD_C[0] + p[0] * math.cos(a) - p[1] * math.sin(a), HEAD_C[1] + p[0] * math.sin(a) + p[1] * math.cos(a))
+def at(s, t):
+    return (C[0] + U[0] * s + N[0] * t, C[1] + U[1] * s + N[1] * t)
 
-
-_OUTLINE = [(0, 56), (40, 60), (110, 46), (200, 40), (1100, 40)]
-PROBE = [rot(q) for q in _OUTLINE] + [rot((u, -v)) for u, v in reversed(_OUTLINE)]
-HEAD = [rot(q) for q in [(-12, -56), (0, -56), (0, 56), (-12, 56)]]
-GROOVE = [rot(q) for q in [(90, -14), (190, -12), (190, 12), (90, 14)]]
-NEEDLE_ENTRY = rot((-26, 0))
-NEEDLE_HUB = rot((-300, 0))
-CAM_DX = -380.0
-AXILLA_PX = (985.0, 400.0)          # traced on the owner's painting: the armpit hollow                    # owner, 2026-10-03: pan the camera toward the axilla; a pure shift, nothing else changes
 
 DEFS = """
-<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E7BFA2"/><stop offset="1" stop-color="#C9967A"/></linearGradient>
-<linearGradient id="mound-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EBC6AA"/><stop offset="1" stop-color="#D9A88B"/></linearGradient>
-<linearGradient id="probe-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9ECEF"/><stop offset="1" stop-color="#B9C0C7"/></linearGradient>
+<linearGradient id="probe-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C7CDD3"/><stop offset="0.45" stop-color="#F4F6F8"/>
+  <stop offset="1" stop-color="#B9C0C7"/></linearGradient>
+<linearGradient id="g-steel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="0.5" stop-color="#B9C0C7"/>
+  <stop offset="1" stop-color="#6E777F"/></linearGradient>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
 """
 
 
-def pts(points):
-    return " ".join(f"{fmt(x)},{fmt(y)}" for x, y in points)
-
-
 def build() -> str:
+    ang = math.degrees(math.atan2(U[1], U[0]))
     ne, nh = NEEDLE_ENTRY, NEEDLE_HUB
-    dx = CAM_DX
+    cs = at(HALF_L - 10, 0)
+    cable = (f"M{fmt(cs[0])},{fmt(cs[1])} C{fmt(cs[0] + 60)},{fmt(cs[1] + 140)} "
+             f"{fmt(cs[0] + 220)},{fmt(cs[1] + 230)} {fmt(cs[0] + 520)},1240")
+    tubing = (f"M{fmt(nh[0])},{fmt(nh[1])} C{fmt(nh[0] - 60)},{fmt(nh[1] - 40)} {fmt(nh[0] - 180)},{fmt(nh[1] + 120)} "
+              f"{fmt(nh[0] - 280)},1240")
     labels = [
-        Label(["Linear probe"], anchor=(1180, 1000), leader=[(1200, 960), (rot((400, 0))[0] + dx, rot((400, 0))[1])], target_id="probe"),
-        Label(["Block needle"], anchor=(40, 760), leader=[(300, 720), ((ne[0] + nh[0]) / 2 + dx, (ne[1] + nh[1]) / 2)], target_id="needle"),
-        Label(["Axilla"], anchor=(600, 200), leader=[(760, 220), AXILLA_PX if BASE.exists() else (1250 + dx, 300)], target_id="axilla-mark" if BASE.exists() else "axilla"),
-        Label(["Mid-axillary line"], anchor=(980, 1120), leader=[(1050, 1080), (MAL_X + dx, 790)], target_id="mal"),
+        Label(["Axilla"], anchor=(1180, 420), leader=[(1190, 440), (AXILLA[0] + 20, AXILLA[1])], target_id="axilla-mark"),
+        Label(["Mid-axillary line"], anchor=(40, 1000), leader=[(300, 960), (400, 805)], target_id="mal"),
+        Label(["Linear probe"], anchor=(780, 1000), leader=[(800, 960), at(70, HALF_W - 8)], target_id="probe"),
+        Label(["Block needle"], anchor=(560, 420), leader=[(580, 440), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
     ]
     painted = BASE.exists()
-    debug = os.environ.get("DEBUG") == "1"
     scale = 1600 / BASE_SIZE[0]
     if painted:
         sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
         base_attr = f' data-base-sha256="{sha}"'
         base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - BASE_SIZE[1] * scale) / 2)}" width="1600" '
                       f'height="{fmt(BASE_SIZE[1] * scale)}" preserveAspectRatio="none"/>')
-        layout_attr = f' opacity="{0.35 if debug else 0}"'
     else:
-        base_attr = base_image = layout_attr = ""
+        base_attr = base_image = ""
 
     body = f"""
 <g id="painting"{base_attr}>{base_image}</g>
-<g id="anatomy"{layout_attr}><g transform="translate({fmt(CAM_DX)} 0)">
-  <rect id="chest" x="{fmt(-CAM_DX)}" y="0" width="1600" height="1200" fill="url(#skin-grad)"/>
-  <path d="{smooth_path(STERNUM_SHADOW, closed=True, tension=0.5)}" fill="#B98266" opacity="0.5"/>
-  <path id="arm" d="{smooth_path(ARM, closed=True, tension=0.5)}" fill="#E2B497" stroke="#B98A74" stroke-width="3"/>
-  <path id="axilla" d="{smooth_path(AXILLA, tension=0.7)}" fill="none" stroke="#A9765F" stroke-width="10" stroke-linecap="round"/>
-  <path id="pec-border" d="{smooth_path(PEC_BORDER, tension=0.6)}" fill="none" stroke="#B98A74" stroke-width="6" opacity="0.8"/>
-  <circle id="nipple" cx="{fmt(NIPPLE[0])}" cy="{fmt(NIPPLE[1])}" r="22" fill="#B87F6C"/>
-  <path id="drape" d="{smooth_path(DRAPE, closed=True, tension=0.3)}" fill="#3F6B6E"/>
-  <path d="M{fmt(nh[0])},{fmt(nh[1])} C{fmt(nh[0] - 60)},{fmt(nh[1] + 10)} {fmt(nh[0] - 140)},{fmt(nh[1] + 200)} {fmt(nh[0] - 260)},1240" fill="none" stroke="#E9EEF2" stroke-width="8" stroke-linecap="round"/>
-  <rect x="{fmt(nh[0] - 50)}" y="{fmt(nh[1] - 11)}" width="54" height="22" rx="6" fill="#2FA58A" stroke="#1E7A66" stroke-width="2"/>
-  <line id="needle" x1="{fmt(nh[0])}" y1="{fmt(nh[1])}" x2="{fmt(ne[0])}" y2="{fmt(ne[1])}" stroke="#8E969E" stroke-width="5"/>
-  <ellipse cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" rx="12" ry="6" fill="#C9907A" opacity="0.8"/>
-  <circle id="needle-entry" cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" r="5" fill="#9E6B5A"/>
-  <path id="probe" d="{smooth_path(PROBE, closed=True, tension=0.2)}" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
-  <polygon id="probe-head" points="{pts(HEAD)}" fill="#C9D0D6" stroke="#7D868F" stroke-width="3"/>
-  <polygon points="{pts(GROOVE)}" fill="#D3D8DD" stroke="#A9B0B7" stroke-width="2"/>
-</g></g>
+<g id="anatomy">
+  <rect id="chest" x="0" y="0" width="1600" height="1200" fill="#000" opacity="0"/>
+</g>
 
-{f'<circle id="axilla-mark" cx="{AXILLA_PX[0]}" cy="{AXILLA_PX[1]}" r="40" fill="#000" opacity="0"/>' if BASE.exists() else ""}
-<g class="marking" transform="translate({fmt(CAM_DX)} 0)">
-  <line id="mal" x1="{fmt(MAL_X)}" y1="420" x2="{fmt(MAL_X)}" y2="840" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
+<g class="marking">
+  <line id="mal" x1="{fmt(MAL[0][0])}" y1="{fmt(MAL[0][1])}" x2="{fmt(MAL[1][0])}" y2="{fmt(MAL[1][1])}" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
+  <circle id="axilla-mark" cx="{fmt(AXILLA[0])}" cy="{fmt(AXILLA[1])}" r="50" fill="#000" opacity="0"/>
+  <path d="{cable}" fill="none" stroke="#2E3338" stroke-width="22" stroke-linecap="round" opacity="0.9"/>
+  <path d="{tubing}" fill="none" stroke="#E6EEF2" stroke-width="9" stroke-linecap="round" opacity="0.9"/>
+  <g transform="translate({fmt(C[0])} {fmt(C[1])}) rotate({fmt(ang)})">
+    <rect x="{fmt(-HALF_L - 14)}" y="{fmt(-HALF_W - 12)}" width="{fmt(2 * HALF_L + 28)}" height="{fmt(2 * HALF_W + 24)}" rx="34"
+          fill="#E8F2F6" opacity="0.18" filter="url(#soft)"/>
+    <rect x="{fmt(-HALF_L + 10)}" y="{fmt(-HALF_W + 14)}" width="{fmt(2 * HALF_L)}" height="{fmt(2 * HALF_W)}" rx="26" fill="#1B2733"
+          opacity="0.28" filter="url(#soft)"/>
+    <rect id="probe" x="{fmt(-HALF_L)}" y="{fmt(-HALF_W)}" width="{fmt(2 * HALF_L)}" height="{fmt(2 * HALF_W)}" rx="26"
+          fill="url(#probe-top)" stroke="#7D868F" stroke-width="3"/>
+    <rect x="{fmt(-HALF_L + 38)}" y="{fmt(-HALF_W + 12)}" width="{fmt(2 * HALF_L - 76)}" height="{fmt(2 * HALF_W - 24)}" rx="16"
+          fill="none" stroke="#A9B0B7" stroke-width="2"/>
+    <rect x="{fmt(-HALF_L + 18)}" y="-4" width="20" height="8" rx="4" fill="#8E969E"/>
+  </g>
+  <rect x="{fmt(nh[0] - 30)}" y="{fmt(nh[1] - 10)}" width="44" height="20" rx="6" fill="#2FA58A" stroke="#1E7A66" stroke-width="2"
+        transform="rotate({fmt(ang)} {fmt(nh[0])} {fmt(nh[1])})"/>
+  <line id="needle" x1="{fmt(nh[0])}" y1="{fmt(nh[1])}" x2="{fmt(ne[0])}" y2="{fmt(ne[1])}" stroke="url(#g-steel)" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" rx="9" ry="6" fill="#B07A66" opacity="0.7" transform="rotate({fmt(ang)} {fmt(ne[0])} {fmt(ne[1])})"/>
+  <circle id="needle-entry" cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" r="3" fill="#8A5A4A"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>
 """
-    return document(body, defs=DEFS, extra_style=".plate-bg { fill: #3F6B6E; }")
+    return document(body, defs=DEFS, extra_style=".plate-bg { fill: #6FA3A8; }")
 
 
 def main() -> int:

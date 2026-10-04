@@ -1,19 +1,19 @@
 {
  "base": "base.jpg",
- "generator": "Gemini (owner's own session, run by hand while the Antigravity quota was exhausted)",
- "generatedBy": "Owner in the Gemini app; reviewed against the layout before use",
+ "generator": "Gemini (owner's own session): an edit of the owner's serratus photo with the probe, needle and tubing removed",
+ "generatedBy": "Owner in the Gemini app; probe and needle code-drawn by Claude",
  "date": "2026-10-03",
  "sourceSize": [
-  1200,
+  1198,
   896
  ],
- "reference": "Unlabelled render of the serratus layout at commit 48b7bda (NYSORA Fig-9 composition, male chest, probe angled 35 degrees down to the lower right, needle tip at the probe's anterior edge), --reference.",
- "prompt": "Photo-variant prompt (probe body diagonal down to the lower right, needle tip into the skin beside the probe's flat end), new chat, pasted by the owner.",
- "promptAttachments": "Image 1: the layout reference. Composition copies NYSORA Nerve Block Manual p.214 Fig-9 (owner's direction), concept only, not attached or committed.",
+ "reference": "No layout: the base is a clean photo (NYSORA Fig-9 composition, male chest) from a chain of owner-run Gemini edits; the probe and needle are drawn in code (draw.py).",
+ "prompt": "Owner-run Gemini edit: 'Remove the ultrasound probe, the gel, the needle, its green hub and the clear tubing completely, and fill those areas with the patient's normal skin, chest hair and teal drape exactly as around them. Keep everything else identical.'",
+ "promptAttachments": "The owner's previous Gemini output. Expert-agent review (geometry and prompt strategy) informed the switch to a code-drawn probe.",
  "repairs": [],
  "pixelEdits": [],
- "rejected": "A side view with an upright probe (not NYSORA's view); a female-breast version (owner: use a male chest); a panned version that changed the probe angle (owner: rotated); an upright-handle variant and a probe painted lying on its side. A painting with the probe horizontal and the needle tip short of the skin (owner, 2026-10-03).",
- "reviewNotes": "Checked by rendering the layout over the painting (the overlay tool ignores the camera-shift transform): probe face, probe body angle, needle and hub lie on the layout; the needle enters the skin with a small puncture just anterior to the probe face. The axilla label is traced on the painted armpit hollow. No watermark.",
- "knownLimits": "The patient's left side, as NYSORA shows it, not the house right (owner's direction). The 4th-5th rib level is placed by standard anatomy (just below nipple level on the mid-axillary line), not counted on the photo.",
- "thirdPartyConcept": "NYSORA Nerve Block Manual p.214 Fig-9 patient photo used for the composition only; not attached, not committed."
+ "rejected": "Gemini failed the probe pose repeatedly (side view; probe lying on its side; horizontal probe; short-axis look; probe on its back with the lens up). PLAYBOOK: when Gemini fails the same element twice, draw it in code.",
+ "reviewNotes": "Probe drawn as seen from above: a rounded bar (footprint about 4.5 x 1.4 cm) lying anterior-posterior across the lateral chest wall, centred on the mid-axillary line below the axilla at about nipple level; the needle is exactly collinear with it, entering at its anterior end. Mid-axillary line traced from the axillary apex parallel to the torso's lateral edge.",
+ "knownLimits": "The probe is a top-view convention (as on the femoral, PENG and median plates), not a perspective rendering. The 4th-5th rib level is placed by standard anatomy. Patient's left side, as NYSORA shows it (owner's direction).",
+ "thirdPartyConcept": "NYSORA Nerve Block Manual p.214 Fig-9 used for the composition only; not attached, not committed."
 }
