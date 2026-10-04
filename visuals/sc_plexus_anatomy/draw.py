@@ -134,13 +134,13 @@ def build() -> str:
     probe_x0 = c((X0 + 10.0, 0))[0]
     M = 'fill="url(#muscle)" stroke="#F4EFE6" stroke-width="5"'
     labels = [
-        Label(["Sternocleidomastoid"], anchor=(1010, 300), leader=[(1100, 320), c((18, 8))], target_id="scm"),
-        Label(["External jugular vein"], anchor=(470, 215), leader=[(1010, 200), c((12.0, 2.9))], target_id="ejv"),
-        Label(["Superficial", "cervical plexus"], anchor=(900, 600), leader=[(920, 550), c(NERVES[1][0])], target_id="plexus",
+        Label(["Sternocleidomastoid"], anchor=(1010, 300), leader=[(1260, 316), (1260, 380)], target_id="scm"),
+        Label(["External jugular vein"], anchor=(500, 205), leader=[(1050, 188), (1072, 188)], target_id="ejv"),
+        Label(["Superficial", "cervical plexus"], anchor=(940, 610), leader=[(1000, 556), (892, 414)], target_id="plexus",
               emphasis=True),
-        Label(["Cervical fascia"], anchor=(40, 470), leader=[(300, 430), c((-20, plane_y(-20) + 0.5))], target_id="cervical-fascia"),
-        Label(["Levator scapulae"], anchor=(40, 1080), leader=[(200, 1030), c((-20, 24))], target_id="levator"),
-        Label(["Middle scalene"], anchor=(330, 800), leader=[(560, 760), c((-3, 18))], target_id="msm"),
+        Label(["Cervical fascia"], anchor=(40, 450), leader=[(130, 402), (130, 334)], target_id="cervical-fascia"),
+        Label(["Middle scalene"], anchor=(40, 760), leader=[(462, 742), (600, 742)], target_id="msm"),
+        Label(["Levator scapulae"], anchor=(40, 1100), leader=[(150, 1056), (150, 900)], target_id="levator"),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
@@ -154,7 +154,7 @@ def build() -> str:
     else:
         base_attr = base_image = layout_attr = ""
 
-    nerves = "".join(ell("plexus" if i == 1 else "", n, 'fill="#EFCB5A" stroke="#B8962E" stroke-width="3"')
+    nerves = "".join(ell("plexus" if i == 0 else "", n, 'fill="#EFCB5A" stroke="#B8962E" stroke-width="3"')
                      for i, n in enumerate(NERVES))
     fascia = path(plane_band(L, R, -HALF, HALF, n=60), closed=True, tension=0.2)
     body = f"""
