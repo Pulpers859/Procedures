@@ -1,0 +1,281 @@
+{
+  "assetId": "supraclavicular_anatomy",
+  "procedure": "block_supraclavicular",
+  "title": "Target anatomy",
+  "view": "Section of the right supraclavicular fossa in the plane of the probe (parallel to the clavicle, aimed caudally), seen from the feet as on ultrasound: lateral on the image left, medial on the right.",
+  "teachingPoint": "Plexus lateral and superficial to the subclavian artery, which rests on the first rib; needle in-plane from lateral, passing deep to the plexus to the corner pocket above the rib; pleura deep to the rib and medial to the artery.",
+  "claims": [
+    "Right supraclavicular fossa in section, lateral on the left, as on ultrasound (house laterality).",
+    "Plexus lateral and superficial to the subclavian artery; the artery rests on the first rib (record subtitle).",
+    "Pleura deep to the rib and medial to the artery (record subtitle); the lung beneath it is standard anatomy added here.",
+    "Middle scalene lateral and deep to the plexus, anterior scalene medial to the artery inserting on the rib, subclavian vein medial to it, SCM clavicular head at the medial edge: standard anatomy added here.",
+    "Needle in-plane from lateral, deep to the plexus, tip in the corner pocket: deep to the plexus, superficial to the rib, lateral to the artery (record steps 6).",
+    "Teal: the corner-pocket injection under the plexus (record step 8).",
+    "Labels: Brachial plexus, Subclavian artery, Middle scalene, First rib, Pleura."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "investing-fascia",
+    "scm",
+    "msm",
+    "asm",
+    "trunk-a",
+    "trunk-b",
+    "trunk-c",
+    "trunk-d",
+    "trunk-e",
+    "trunk-f",
+    "trunk-g",
+    "artery",
+    "vein",
+    "rib",
+    "pleura",
+    "pleura-deep",
+    "lung",
+    "probe",
+    "needle",
+    "needle-tip",
+    "needle-entry",
+    "spread"
+  ],
+  "labels": {
+    "Brachial plexus": "trunk-e",
+    "Subclavian artery": "artery",
+    "Middle scalene": "msm",
+    "First rib": "rib",
+    "Pleura": "pleura"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "trunk-b",
+      "b": "artery",
+      "why": "plexus is lateral to the subclavian artery (lateral is left)"
+    },
+    {
+      "check": "below",
+      "a": "artery",
+      "b": "trunk-b",
+      "why": "plexus is superficial to the artery"
+    },
+    {
+      "check": "below",
+      "a": "rib",
+      "b": "artery",
+      "why": "the artery rests on the first rib"
+    },
+    {
+      "check": "below",
+      "a": "pleura-deep",
+      "b": "rib",
+      "why": "pleura is deep to the rib"
+    },
+    {
+      "check": "leftOf",
+      "a": "artery",
+      "b": "pleura",
+      "why": "pleura medial to the artery"
+    },
+    {
+      "check": "below",
+      "a": "pleura",
+      "b": "artery",
+      "why": "medial pleura lies deeper than the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "artery",
+      "b": "rib",
+      "why": "artery on, not in, the rib"
+    },
+    {
+      "check": "leftOf",
+      "a": "msm",
+      "b": "trunk-b",
+      "why": "middle scalene lateral to the plexus"
+    },
+    {
+      "check": "leftOf",
+      "a": "artery",
+      "b": "asm",
+      "why": "anterior scalene medial to the artery"
+    },
+    {
+      "check": "leftOf",
+      "a": "asm",
+      "b": "vein",
+      "why": "subclavian vein medial to the anterior scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "asm",
+      "b": "artery",
+      "why": "anterior scalene beside, not over, the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "vein",
+      "b": "asm",
+      "why": "vein beside the anterior scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "trunk-a",
+      "b": "msm",
+      "why": "plexus not in the middle scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "trunk-a",
+      "why": "needle passes deep to the plexus, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "trunk-b",
+      "b": "msm",
+      "why": "plexus not in the middle scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "trunk-b",
+      "why": "needle passes deep to the plexus, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "trunk-c",
+      "b": "msm",
+      "why": "plexus not in the middle scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "trunk-c",
+      "why": "needle passes deep to the plexus, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "trunk-d",
+      "b": "msm",
+      "why": "plexus not in the middle scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "trunk-d",
+      "why": "needle passes deep to the plexus, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "trunk-e",
+      "b": "msm",
+      "why": "plexus not in the middle scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "trunk-e",
+      "why": "needle passes deep to the plexus, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "trunk-f",
+      "b": "msm",
+      "why": "plexus not in the middle scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "trunk-f",
+      "why": "needle passes deep to the plexus, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "trunk-g",
+      "b": "msm",
+      "why": "plexus not in the middle scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "trunk-g",
+      "why": "needle passes deep to the plexus, not through it"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "probe",
+      "why": "entry lateral to the probe (in-plane from lateral)"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle",
+      "maxLean": 1.8,
+      "why": "needle runs from skin inward, lateral to medial"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the spread, in the corner pocket"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-tip",
+      "b": "artery",
+      "why": "tip lateral to the artery"
+    },
+    {
+      "check": "below",
+      "a": "needle-tip",
+      "b": "trunk-a",
+      "why": "tip deep to the plexus"
+    },
+    {
+      "check": "below",
+      "a": "rib",
+      "b": "needle-tip",
+      "why": "tip superficial to the first rib"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "artery",
+      "why": "needle clear of the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "rib",
+      "why": "needle stops above the rib"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "pleura",
+      "why": "needle nowhere near the pleura"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "artery",
+      "why": "spread lateral to the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "rib",
+      "why": "spread above the rib"
+    },
+    {
+      "check": "crosses",
+      "a": "trunk-a",
+      "b": "spread",
+      "why": "spread reaches the plexus's deep side"
+    }
+  ]
+}

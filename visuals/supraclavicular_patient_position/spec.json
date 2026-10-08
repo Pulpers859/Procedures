@@ -1,0 +1,43 @@
+{
+  "assetId": "supraclavicular_patient_position",
+  "procedure": "block_supraclavicular",
+  "title": "Probe and needle on the patient",
+  "view": "Right neck from above, patient supine, head turned to the left: head at the top, the patient's right (shoulder) on the image left, as the anatomy plate and the interscalene plate.",
+  "teachingPoint": "Probe transverse in the supraclavicular fossa, just above the clavicle and parallel to it, handle tilted toward the head so the beam aims caudally; needle in-plane from the lateral end.",
+  "claims": [
+    "Right neck from above, head turned left; lateral on the image left, the same way round as the anatomy plate (camera reused from the approved interscalene plate).",
+    "Linear probe transverse in the supraclavicular fossa, just above and parallel to the clavicle (record subtitle and step 4; placement over the middle of the clavicle, lateral to the SCM's clavicular head, is standard anatomy added here).",
+    "Handle rising toward the head: the caudal aim (record subtitle).",
+    "Needle entering just beyond the probe's lateral end, in line: in-plane from lateral to medial (record, step 6).",
+    "Labels: Block needle, Linear probe, Clavicle."
+  ],
+  "requiredElements": [
+    "skin",
+    "scm",
+    "fossa",
+    "clavicle",
+    "ejv",
+    "ear",
+    "jaw",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Block needle": "needle",
+    "Linear probe": "probe",
+    "Clavicle": "clavicle"
+  },
+  "geometry": [
+    {"check": "below", "a": "clavicle", "b": "probe", "why": "probe is above the clavicle"},
+    {"check": "noOverlap", "a": "clavicle", "b": "probe", "why": "probe face sits on the skin above the bone, not on it"},
+    {"check": "crosses", "a": "probe", "b": "fossa", "why": "probe sits in the supraclavicular hollow"},
+    {"check": "crosses", "a": "probe", "b": "scm", "why": "probe's medial end reaches the SCM's lateral border, no further"},
+    {"check": "below", "a": "probe", "b": "probe-handle", "why": "handle rises toward the head: caudal aim"},
+    {"check": "leftOf", "a": "needle-entry", "b": "probe", "why": "needle enters at the lateral end"},
+    {"check": "leftOf", "a": "needle", "b": "probe", "why": "needle comes from lateral"},
+    {"check": "noOverlap", "a": "needle", "b": "ejv", "why": "needle path clear of the external jugular"},
+    {"check": "leftOf", "a": "ear", "b": "probe", "why": "head turned away; the ear is up and lateral"}
+  ]
+}

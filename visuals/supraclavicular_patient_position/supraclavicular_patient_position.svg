@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #4F80A8; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A88C"/><stop offset="0.4" stop-color="#EBC3AA"/>
+  <stop offset="1" stop-color="#E2B69C"/></linearGradient>
+<linearGradient id="drape" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5C8DB5"/><stop offset="1" stop-color="#46779F"/></linearGradient>
+<linearGradient id="probe-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9ECEF"/><stop offset="1" stop-color="#B9C0C7"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting"></g>
+<g id="anatomy">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#drape)"/>
+  <path id="skin" d="M120,0 H1600 V1200 H60 C80,900 100,500 120,0 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <path id="jaw" d="M360,16 C388,16.9 534.7,18.4 600,24 C665.3,29.6 845.3,50 920,64 C994.7,78 1174.7,129.1 1240,144 C1305.3,158.9 1452,186.4 1480,192" fill="none" stroke="#B98A74" stroke-width="5"/>
+  <path d="M360,0 L360,16 L600,24 L920,64 L1240,144 L1480,192 L1600,192 L1600,0 Z" fill="#D9A88C"/>
+  <ellipse id="ear" cx="264" cy="80" rx="70" ry="110" fill="#D79E86" stroke="#A9765F" stroke-width="3"/>
+  <path id="fossa" d="M160,904 C87.2,894.7 229.5,825.7 264,808 C298.5,790.3 409.3,759 456,752 C502.7,745 621.1,744.3 664,748 C706.9,751.7 797.9,767.7 824,784 C850.1,800.3 965.5,874 888,888 C810.5,902 232.8,913.3 160,904 Z" fill="#DCAA8F"/>
+  <path id="scm" d="M376,80 C374.4,108.8 488,272 520,320 C552,368 667.2,520 696,560 C724.8,600 784,683.2 808,720 C832,756.8 902.4,905.6 936,928 C969.6,950.4 1137.6,966.4 1144,944 C1150.4,921.6 1027.2,747.2 1000,704 C972.8,660.8 902.4,555.2 872,512 C841.6,468.8 729.6,320 696,272 C662.4,224 568,51.2 536,32 C504,12.8 377.6,51.2 376,80 Z" fill="#E3B49A" stroke="#C49478" stroke-width="3"/>
+  <path id="ejv" d="M648,32 C648,64 649.1,208 648,272 C646.9,336 644.3,454.4 640,512 C635.7,569.6 625.6,654.9 616,704 C606.4,753.1 574.4,856.5 568,880" fill="none" stroke="#8C94B4" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+  <path id="clavicle" d="M40,944 C82.7,940.8 274.7,924.3 360,920 C445.3,915.7 594.7,910.9 680,912 C765.3,913.1 925.3,921.6 1000,928 C1074.7,934.4 1208,955.7 1240,960" fill="none" stroke="#EED8C6" stroke-width="26" stroke-linecap="round"/>
+  <rect x="0" y="1040" width="1600" height="400" fill="url(#drape)"/>
+  <path id="probe-handle" d="M536,816 C568,720 624,576 640,384 L752,384 C768,576 824,720 856,816 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path d="M696,384 C712,288 808,208 904,0" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
+  <rect id="probe" x="496" y="812" width="400" height="72" rx="20" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path d="M176,848 C116,848 86,908 66,1048" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
+  <rect x="142" y="839" width="38" height="18" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line id="needle" x1="176" y1="848" x2="424" y2="848" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="424" cy="848" r="4" fill="#9E6B5A"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,730 300,846"/><polyline class="leader" points="200,730 300,846"/><circle class="leader-dot" cx="300" cy="846" r="7"/><text x="40" y="700" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1200,660 866,848"/><polyline class="leader" points="1200,660 866,848"/><circle class="leader-dot" cx="866" cy="848" r="7"/><text x="1180" y="700" text-anchor="start"><tspan x="1180" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Clavicle" data-target="clavicle"><polyline class="leader-halo" points="1250,1060 1000,928"/><polyline class="leader" points="1250,1060 1000,928"/><circle class="leader-dot" cx="1000" cy="928" r="7"/><text x="1230" y="1110" text-anchor="start"><tspan x="1230" dy="0">Clavicle</tspan></text></g></g>
+
+</svg>

@@ -1,0 +1,160 @@
+"""Supraclavicular block - probe and needle on the patient (layout).
+
+The right side of the neck from above, patient supine with the head turned
+to the left: head at the top, the patient's right (shoulder) on the image
+left, the chin and midline to the right. Sterile drapes frame the neck and
+cover the chest below the clavicle. The same camera as the approved
+interscalene plate, whose layout this reuses (commit 4f71784), with the probe
+moved down into the supraclavicular fossa.
+
+Record: supine or semi-recumbent, head turned slightly away; probe
+transverse in the supraclavicular fossa, aimed caudally, to find the
+subclavian artery, first rib and pleura; needle in-plane from lateral to
+medial. Added (standard anatomy, not in the record): the probe lies just
+above the middle of the clavicle and parallel to it, its medial end at the
+lateral border of the sternocleidomastoid's clavicular head; the caudal aim
+tilts the handle toward the head, so from above it rises toward the top of
+the picture.
+
+Landmarks drawn: the sternocleidomastoid from behind the ear (mastoid) to
+the sternoclavicular joint, the clavicle, the shallow supraclavicular hollow
+above it, the external jugular vein running down across the muscle into the
+hollow, the ear and jaw for orientation. The needle enters just beyond the
+probe's lateral (left) end, in line.
+
+Code-drawn markings: none on the skin; the clavicle is labelled on the
+painting. The probe and needle are in the painted layer; their placement is
+checked here and on the painting.
+
+Millimetres from the interscalene layout's origin (x toward the midline =
+image right, y toward the feet) at 8 px/mm. Adult proportions.
+
+Run: python3 visuals/supraclavicular_patient_position/draw.py
+"""
+
+from __future__ import annotations
+
+import hashlib
+import os
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+
+from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
+
+ASSET_ID = "supraclavicular_patient_position"
+BASE = Path(__file__).with_name("base.jpg")
+BASE_SIZE = (1200.0, 896.0)
+PX_MM = 8.0
+ORIGIN = (760.0, 640.0)            # the interscalene layout's origin
+
+
+def c(p):
+    return (ORIGIN[0] + p[0] * PX_MM, ORIGIN[1] + p[1] * PX_MM)
+
+
+def path(points, closed=False, tension=1.0):
+    return smooth_path([c(p) for p in points], closed=closed, tension=tension)
+
+
+CLAVICLE_Y = 34.0
+CLAVICLE = [(-90, CLAVICLE_Y + 4), (-50, CLAVICLE_Y + 1), (-10, CLAVICLE_Y), (30, CLAVICLE_Y + 2), (60, CLAVICLE_Y + 6)]
+# Sternocleidomastoid band, mastoid (upper left) to sternoclavicular joint (lower right).
+SCM_LATERAL = [(-48, -70), (-30, -40), (-8, -10), (6, 10), (22, 36)]
+SCM_MEDIAL = [(-28, -76), (-8, -46), (14, -16), (30, 8), (48, 38)]
+EJV = [(-14, -76), (-14, -46), (-15, -16), (-18, 8), (-24, 30)]
+JAW = [(-50, -78), (-20, -77), (20, -72), (60, -62), (90, -56)]
+EAR = (-62.0, -70.0)
+# The supraclavicular hollow: above the clavicle, lateral to the SCM.
+FOSSA = [(-75, 33), (-62, 21), (-38, 14), (-12, 13.5), (8, 18), (16, 31)]
+PROBE_LEN, PROBE_W = 50.0, 9.0
+PROBE_C = (-8.0, 26.0)              # face's lower edge about 2 mm above the clavicle
+PROBE = ((PROBE_C[0] - PROBE_LEN / 2, PROBE_C[1] - PROBE_W / 2), (PROBE_C[0] + PROBE_LEN / 2, PROBE_C[1] + PROBE_W / 2))
+NEEDLE_ENTRY = (PROBE[0][0] - 9, PROBE_C[1])
+NEEDLE_HUB = (PROBE[0][0] - 40, PROBE_C[1])
+
+
+def pc(dx, dy):
+    """Canvas point at (dx, dy) mm from the probe centre."""
+    return c((PROBE_C[0] + dx, PROBE_C[1] + dy))
+
+
+DEFS = """
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A88C"/><stop offset="0.4" stop-color="#EBC3AA"/>
+  <stop offset="1" stop-color="#E2B69C"/></linearGradient>
+<linearGradient id="drape" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5C8DB5"/><stop offset="1" stop-color="#46779F"/></linearGradient>
+<linearGradient id="probe-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9ECEF"/><stop offset="1" stop-color="#B9C0C7"/></linearGradient>
+"""
+
+
+def handle_path() -> str:
+    """Upright handle rising from the probe face toward the head (caudal aim)."""
+    def pt(dx, dy):
+        x, y = pc(dx, dy)
+        return f"{fmt(x)},{fmt(y)}"
+    top = -PROBE_W / 2
+    return (f"M{pt(-20, top + 0.5)} C{pt(-16, -16)} {pt(-9, -34)} {pt(-7, -58)} "
+            f"L{pt(7, -58)} C{pt(9, -34)} {pt(16, -16)} {pt(20, top + 0.5)} Z")
+
+
+def build() -> str:
+    p0, p1 = c(PROBE[0]), c(PROBE[1])
+    ne, nh = c(NEEDLE_ENTRY), c(NEEDLE_HUB)
+    scm = path(SCM_LATERAL + list(reversed(SCM_MEDIAL)), closed=True, tension=0.6)
+    cable = [pc(0, -58), pc(2, -70), pc(14, -80)]
+    cable_end = (pc(26, -92)[0], 0.0)
+    clav_pt = c((30, CLAVICLE_Y + 2))
+    labels = [
+        Label(["Block needle"], anchor=(40, 700), leader=[(200, 730), ((ne[0] + nh[0]) / 2, ne[1] - 2)], target_id="needle"),
+        Label(["Linear probe"], anchor=(1180, 700), leader=[(1200, 660), (p1[0] - 30, (p0[1] + p1[1]) / 2)], target_id="probe"),
+        Label(["Clavicle"], anchor=(1230, 1110), leader=[(1250, 1060), clav_pt], target_id="clavicle"),
+    ]
+    painted = BASE.exists()
+    debug = os.environ.get("DEBUG") == "1"
+    scale = 1600 / BASE_SIZE[0]
+    if painted:
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - BASE_SIZE[1] * scale) / 2)}" width="1600" '
+                      f'height="{fmt(BASE_SIZE[1] * scale)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if debug else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
+
+    body = f"""
+<g id="painting"{base_attr}>{base_image}</g>
+<g id="anatomy"{layout_attr}>
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#drape)"/>
+  <path id="skin" d="M120,0 H1600 V1200 H60 C80,900 100,500 120,0 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <path id="jaw" d="{path(JAW, tension=0.7)}" fill="none" stroke="#B98A74" stroke-width="5"/>
+  <path d="M{fmt(c(JAW[0])[0])},0 L{fmt(c(JAW[0])[0])},{fmt(c(JAW[0])[1])} {' '.join(f'L{fmt(c(q)[0])},{fmt(c(q)[1])}' for q in JAW[1:])} L1600,{fmt(c(JAW[-1])[1])} L1600,0 Z" fill="#D9A88C"/>
+  <ellipse id="ear" cx="{fmt(c(EAR)[0])}" cy="{fmt(c(EAR)[1])}" rx="70" ry="110" fill="#D79E86" stroke="#A9765F" stroke-width="3"/>
+  <path id="fossa" d="{path(FOSSA, closed=True, tension=0.7)}" fill="#DCAA8F"/>
+  <path id="scm" d="{scm}" fill="#E3B49A" stroke="#C49478" stroke-width="3"/>
+  <path id="ejv" d="{path(EJV, tension=0.8)}" fill="none" stroke="#8C94B4" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+  <path id="clavicle" d="{path(CLAVICLE, tension=0.8)}" fill="none" stroke="#EED8C6" stroke-width="26" stroke-linecap="round"/>
+  <rect x="0" y="{fmt(c((0, CLAVICLE_Y + 16))[1])}" width="1600" height="400" fill="url(#drape)"/>
+  <path id="probe-handle" d="{handle_path()}" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path d="M{fmt(cable[0][0])},{fmt(cable[0][1])} C{fmt(cable[1][0])},{fmt(cable[1][1])} {fmt(cable[2][0])},{fmt(cable[2][1])} {fmt(cable_end[0])},0" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
+  <rect id="probe" x="{fmt(p0[0])}" y="{fmt(p0[1])}" width="{fmt(p1[0] - p0[0])}" height="{fmt(p1[1] - p0[1])}" rx="20" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path d="M{fmt(nh[0])},{fmt(nh[1])} C{fmt(nh[0] - 60)},{fmt(nh[1])} {fmt(nh[0] - 90)},{fmt(nh[1] + 60)} {fmt(nh[0] - 110)},{fmt(nh[1] + 200)}" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
+  <rect x="{fmt(nh[0] - 34)}" y="{fmt(nh[1] - 9)}" width="38" height="18" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line id="needle" x1="{fmt(nh[0])}" y1="{fmt(nh[1])}" x2="{fmt(ne[0])}" y2="{fmt(ne[1])}" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="{fmt(ne[0])}" cy="{fmt(ne[1])}" r="4" fill="#9E6B5A"/>
+</g>
+
+<g id="labels">{"".join(label.svg() for label in labels)}</g>
+"""
+    return document(body, defs=DEFS, extra_style=".plate-bg { fill: #4F80A8; }")
+
+
+def main() -> int:
+    out = Path(__file__).with_name(f"{ASSET_ID}.svg")
+    out.write_text(build(), encoding="utf-8")
+    print(out)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
