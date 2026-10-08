@@ -80,10 +80,13 @@ class CodeDrawnVisualsTest(unittest.TestCase):
                 continue
             with self.subTest(asset=asset_dir.name):
                 review = json.loads((asset_dir / "spec.json").read_text(encoding="utf-8"))["review"]
-                svg = (asset_dir / f"{asset_dir.name}.svg").read_bytes()
+                # Either line ending: approvals recorded on a Windows checkout
+                # hashed CRLF bytes; the repo keeps LF (2026-10-08).
+                svg = (asset_dir / f"{asset_dir.name}.svg").read_bytes().replace(b"\r\n", b"\n")
+                hashes = {hashlib.sha256(svg).hexdigest(), hashlib.sha256(svg.replace(b"\n", b"\r\n")).hexdigest()}
                 self.assertEqual(review["status"], "approved", "bundled without owner approval")
-                self.assertEqual(review["sourceSha256"], hashlib.sha256(svg).hexdigest(),
-                                 "drawing changed after approval; re-review before shipping")
+                self.assertIn(review["sourceSha256"], hashes,
+                              "drawing changed after approval; re-review before shipping")
 
 
 if __name__ == "__main__":

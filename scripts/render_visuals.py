@@ -194,6 +194,19 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def svg_sha256(path: Path) -> str:
+    """Hash of the drawing with LF line endings, so an approval recorded on
+    Windows (CRLF checkout) and one recorded on Linux agree."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
+def svg_matches(recorded: str | None, path: Path) -> bool:
+    """True if `recorded` is the drawing's hash with either line ending.
+    Approvals recorded on Windows before 2026-10-08 hashed the CRLF bytes."""
+    lf = path.read_bytes().replace(b"\r\n", b"\n")
+    return recorded in (hashlib.sha256(lf).hexdigest(), hashlib.sha256(lf.replace(b"\n", b"\r\n")).hexdigest())
+
+
 def load_spec(asset_id: str) -> dict:
     return json.loads((VISUALS / asset_id / "spec.json").read_text(encoding="utf-8"))
 
@@ -240,7 +253,7 @@ def render(asset_id: str, browser) -> tuple[list[dict], Path]:
     phone.close()
 
     (out / "check.json").write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
-    review_sheet(asset_id, spec, results, out, browser, sha256(svg))
+    review_sheet(asset_id, spec, results, out, browser, svg_sha256(svg))
     return results, out
 
 
@@ -299,7 +312,7 @@ def record_approval(asset_id: str) -> None:
     spec_path = VISUALS / asset_id / "spec.json"
     spec = load_spec(asset_id)
     svg = regenerate(asset_id)
-    spec["review"] = {"status": "approved", "sourceSha256": sha256(svg), "reviewedOn": date.today().isoformat()}
+    spec["review"] = {"status": "approved", "sourceSha256": svg_sha256(svg), "reviewedOn": date.today().isoformat()}
     spec_path.write_text(json.dumps(spec, indent=2) + "\n", encoding="utf-8")
     print(f"{asset_id}: approval recorded against svg {spec['review']['sourceSha256'][:12]}")
 
@@ -338,7 +351,7 @@ def promote(asset_id: str, out: Path) -> None:
     review = spec.get("review", {})
     if review.get("status") != "approved":
         raise SystemExit(f"{asset_id}: not approved; refusing to promote")
-    if review.get("sourceSha256") != sha256(svg):
+    if not svg_matches(review.get("sourceSha256"), svg):
         raise SystemExit(f"{asset_id}: drawing changed since approval; re-review before promoting")
     imageset = ASSETS / f"{asset_id}.imageset"
     imageset.mkdir(exist_ok=True)
