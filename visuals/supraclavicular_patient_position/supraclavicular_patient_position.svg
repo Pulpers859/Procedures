@@ -39,8 +39,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy">
+<g id="painting" data-base-sha256="fc9b39663a5ef9ff1e885e84260bd338b968795e0cff015c11ddc5ef17750a70"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
   <rect x="0" y="0" width="1600" height="1200" fill="url(#drape)"/>
   <path id="skin" d="M120,0 H1600 V1200 H60 C80,900 100,500 120,0 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
   <path id="jaw" d="M360,16 C388,16.9 534.7,18.4 600,24 C665.3,29.6 845.3,50 920,64 C994.7,78 1174.7,129.1 1240,144 C1305.3,158.9 1452,186.4 1480,192" fill="none" stroke="#B98A74" stroke-width="5"/>
@@ -51,15 +51,15 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <path id="ejv" d="M648,32 C648,64 649.1,208 648,272 C646.9,336 644.3,454.4 640,512 C635.7,569.6 625.6,654.9 616,704 C606.4,753.1 574.4,856.5 568,880" fill="none" stroke="#8C94B4" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
   <path id="clavicle" d="M40,944 C82.7,940.8 274.7,924.3 360,920 C445.3,915.7 594.7,910.9 680,912 C765.3,913.1 925.3,921.6 1000,928 C1074.7,934.4 1208,955.7 1240,960" fill="none" stroke="#EED8C6" stroke-width="26" stroke-linecap="round"/>
   <rect x="0" y="1040" width="1600" height="400" fill="url(#drape)"/>
-  <path id="probe-handle" d="M536,816 C568,720 624,576 640,384 L752,384 C768,576 824,720 856,816 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
-  <path d="M696,384 C712,288 808,208 904,0" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
-  <rect id="probe" x="496" y="812" width="400" height="72" rx="20" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
-  <path d="M176,848 C116,848 86,908 66,1048" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
-  <rect x="142" y="839" width="38" height="18" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
-  <line id="needle" x1="176" y1="848" x2="424" y2="848" stroke="#8E969E" stroke-width="5"/>
-  <circle id="needle-entry" cx="424" cy="848" r="4" fill="#9E6B5A"/>
+  <path id="probe-handle" d="M604.8,819.6 C636.8,722.4 692.8,578.4 708.8,386.4 L820.8,386.4 C836.8,578.4 892.8,722.4 924.8,819.6 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path d="M764.8,386.4 C780.8,290.4 876.8,210.4 972.8,0" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
+  <rect id="probe" x="626.8" y="815.6" width="276" height="69.6" rx="20" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path d="M428.8,844.8 C368.8,844.8 338.8,904.8 318.8,1044.8" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
+  <rect x="394.8" y="835.8" width="38" height="18" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line id="needle" x1="428.8" y1="844.8" x2="622" y2="844.8" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="622" cy="844.8" r="4" fill="#9E6B5A"/>
 </g>
 
-<g id="labels"><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,730 300,846"/><polyline class="leader" points="200,730 300,846"/><circle class="leader-dot" cx="300" cy="846" r="7"/><text x="40" y="700" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1200,660 866,848"/><polyline class="leader" points="1200,660 866,848"/><circle class="leader-dot" cx="866" cy="848" r="7"/><text x="1180" y="700" text-anchor="start"><tspan x="1180" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Clavicle" data-target="clavicle"><polyline class="leader-halo" points="1250,1060 1000,928"/><polyline class="leader" points="1250,1060 1000,928"/><circle class="leader-dot" cx="1000" cy="928" r="7"/><text x="1230" y="1110" text-anchor="start"><tspan x="1230" dy="0">Clavicle</tspan></text></g></g>
+<g id="labels"><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,730 525.4,842.8"/><polyline class="leader" points="200,730 525.4,842.8"/><circle class="leader-dot" cx="525.4" cy="842.8" r="7"/><text x="40" y="700" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1200,660 872.8,850.4"/><polyline class="leader" points="1200,660 872.8,850.4"/><circle class="leader-dot" cx="872.8" cy="850.4" r="7"/><text x="1180" y="700" text-anchor="start"><tspan x="1180" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Clavicle" data-target="clavicle"><polyline class="leader-halo" points="1250,1060 1000,928"/><polyline class="leader" points="1250,1060 1000,928"/><circle class="leader-dot" cx="1000" cy="928" r="7"/><text x="1230" y="1110" text-anchor="start"><tspan x="1230" dy="0">Clavicle</tspan></text></g></g>
 
 </svg>

@@ -26,6 +26,11 @@ Code-drawn markings: none on the skin; the clavicle is labelled on the
 painting. The probe and needle are in the painted layer; their placement is
 checked here and on the painting.
 
+Painted base: base.jpg is the owner's Gemini photo (prompt A, photo variant,
+on the commit 6d5bed3 reference). With it present the layout is hidden and
+the probe and needle take their traced positions, so the leaders and checks
+follow the photograph.
+
 Millimetres from the interscalene layout's origin (x toward the midline =
 image right, y toward the feet) at 8 px/mm. Adult proportions.
 
@@ -70,9 +75,21 @@ EAR = (-62.0, -70.0)
 FOSSA = [(-75, 33), (-62, 21), (-38, 14), (-12, 13.5), (8, 18), (16, 31)]
 PROBE_LEN, PROBE_W = 50.0, 9.0
 PROBE_C = (-8.0, 26.0)              # face's lower edge about 2 mm above the clavicle
+if BASE.exists():
+    # Traced on base.jpg (base px, x1.333 to canvas): the probe's lower body
+    # spans x 470-677, y 610-662, so its face is shorter (about 3.5 cm) and
+    # sits a little more medial than the layout's; same height above the
+    # clavicle.
+    PROBE_LEN, PROBE_W = 34.5, 8.7
+    PROBE_C = (0.6, 26.3)
 PROBE = ((PROBE_C[0] - PROBE_LEN / 2, PROBE_C[1] - PROBE_W / 2), (PROBE_C[0] + PROBE_LEN / 2, PROBE_C[1] + PROBE_W / 2))
 NEEDLE_ENTRY = (PROBE[0][0] - 9, PROBE_C[1])
 NEEDLE_HUB = (PROBE[0][0] - 40, PROBE_C[1])
+if BASE.exists():
+    # Traced: the painted needle runs level from its hub (base x 322, y 631)
+    # to the probe's lateral edge (x 470), in line with the probe.
+    NEEDLE_ENTRY = (PROBE[0][0] - 0.6, 25.6)
+    NEEDLE_HUB = (-41.4, 25.6)
 
 
 def pc(dx, dy):
