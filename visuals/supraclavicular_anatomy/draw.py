@@ -25,6 +25,11 @@ they vary with habitus).
 Markings: the probe, the needle from lateral with its tip in the corner
 pocket, and the teal spread filling the pocket under the plexus.
 
+Painted base: base.jpg is the owner's Gemini painting (prompt A with an
+atlas layer list, on the commit 6d5bed3 reference). Every outline lies on
+the layout within a few pixels, so the layout is hidden under it and the
+markings and checks use the layout's geometry.
+
 Millimetres from the artery's lateral side line (x lateral, y deep from the
 skin) at 28 px/mm. Adult proportions.
 
@@ -33,6 +38,8 @@ Run: python3 visuals/supraclavicular_anatomy/draw.py
 
 from __future__ import annotations
 
+import hashlib
+import os
 import sys
 from pathlib import Path
 
@@ -41,6 +48,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "supraclavicular_anatomy"
+BASE = Path(__file__).with_name("base.jpg")
 PX_MM = 28.0
 ORIGIN = (700.0, 130.0)           # before the mirror: x = 0 lands at canvas 900
 X0, X1 = -25.0, 32.2              # medial (right) and lateral (left) frame edges in mm
@@ -132,9 +140,30 @@ def build() -> str:
         Label(["First rib"], anchor=(560, 1150), leader=[(660, 1100), c((2, 23))], target_id="rib"),
         Label(["Pleura"], anchor=(1260, 1010), leader=[(1330, 960), c((-16, 23.3))], target_id="pleura"),
     ]
+    painted = BASE.exists()
+    debug = os.environ.get("DEBUG") == "1"
+    if painted:
+        from PIL import Image
+        bw, bh = Image.open(BASE).size
+        height = 1600 * bh / bw
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - height) / 2)}" width="1600" '
+                      f'height="{fmt(height)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if debug else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
+    # Cut the painted plexus and artery out of the teal so they stay crisp.
+    holes = "".join(ellipse(ct, r + 0.1, r * 0.92 + 0.1, 'fill="#000"') for ct, r in PLEXUS.values())
+    holes += ellipse(ARTERY[0], ARTERY[1] + 0.1, ARTERY[1] + 0.1, 'fill="#000"')
+    spread_mask = (f'<mask id="spread-holes" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1200">'
+                   f'<rect width="1600" height="1200" fill="#fff"/>{holes}</mask>')
     plexus = "".join(ellipse(ct, r, r * 0.92, f'id="{k}" fill="#EFCB5A" stroke="#B8962E" stroke-width="4"') for k, (ct, r) in PLEXUS.items())
     body = f"""
-<g id="anatomy" clip-path="url(#frame)">
+{spread_mask}
+<g id="anatomy" clip-path="url(#frame)"{base_attr}>
+  {base_image}
+  <g id="layout"{layout_attr}>
   <path id="skin" d="{path(band(lambda x: 0, lambda x: 60), closed=True, tension=0.3)}" fill="#E7BFA7"/>
   <path id="subcutaneous-fat" d="{path(band(lambda x: 1.6, lambda x: 60), closed=True, tension=0.3)}" fill="url(#fat)"/>
   <path id="lung" d="{path(lung(), closed=True, tension=0.25)}" fill="url(#lung-grad)"/>
@@ -149,10 +178,11 @@ def build() -> str:
   {ellipse(VEIN[0], VEIN[1], VEIN[2], 'id="vein" fill="url(#vein-grad)" stroke="#2F4A78" stroke-width="4"')}
   {ellipse(ARTERY[0], ARTERY[1], ARTERY[1], 'id="artery" fill="url(#art-grad)" stroke="#8E211D" stroke-width="6"')}
   <line x1="0" y1="{fmt(ORIGIN[1])}" x2="1600" y2="{fmt(ORIGIN[1])}" stroke="#B98A74" stroke-width="4"/>
+  </g>
 </g>
 
 <g class="marking">
-  <path id="spread" d="{path(spread(), closed=True, tension=0.8)}" fill="#6CCBD2" fill-opacity="0.6" stroke="#0E8C98" stroke-width="3"/>
+  <path id="spread" d="{path(spread(), closed=True, tension=0.8)}" fill="#6CCBD2" fill-opacity="0.62" stroke="#0E8C98" stroke-width="3" stroke-opacity="0.85" mask="url(#spread-holes)"/>
   <rect id="probe" x="{fmt(probe_x)}" y="-60" width="{fmt(1700 - probe_x)}" height="{fmt(ORIGIN[1] + 60)}" rx="34" fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>
   <rect x="{fmt(probe_x + 18)}" y="{fmt(ORIGIN[1] - 16)}" width="{fmt(1700 - probe_x)}" height="14" rx="6" fill="#3E454C"/>
   <line id="needle" x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="10"/>
