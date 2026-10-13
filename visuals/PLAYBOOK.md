@@ -154,6 +154,36 @@ Work from the top down:
 The picture shows only this anatomy<and the probe>.
 ```
 
+**The house style for nerve-block sections** (owner, 2026-10-13: "I really
+like how this nerve bundle was illustrated as well as that fascial spacing
+... in addition to the more enhanced muscle appearance"). The model is
+`supraclavicular_anatomy`: layout `b15df31`, painting and repairs in its
+`provenance.json`. Build every section this way unless the owner asks
+otherwise.
+
+- **Draw the fascia in the layout.** Nerves never float in fat:
+  - Give a nerve bundle its own sheath element: a closed pale shape (`#F3E4C2`) with a 7 px white (`#F8F6F0`) outline round all its fascicles or trunks.
+  - Pack the trunks inside the sheath, slightly apart, not touching.
+  - Draw each fascial plane as a 7 px white line, including one along the surface of any muscle the needle runs beside.
+  - A muscle that ends beside the target tapers to a point on its bony attachment. Do not leave a block of fat where the muscle would be.
+- **Use these layer lines in prompt B**, adapted to the block:
+
+```
+3. The long thin white lines are crisp, glistening fascial sheets: <where each runs>.
+4. The pale outlined shape holding the yellow circles is the <nerve> sheath: a thin, translucent, glistening grey-white membrane with pale connective tissue between the nerves.
+5. The <n> yellow circles are the <nerve, trunks or divisions>: each a round olive-yellow nerve bundle in a thin pale sheath with finely speckled fascicles.
+6. The maroon shapes are skeletal muscle cut across, made of fine fascicle bundles edged with thin white connective tissue; <a tapering muscle> tapers to a point resting on the bone.
+```
+
+  The image-2 sentence that taught the spacing: "how the <nerve> is packed inside one thin fascial sheath beside the <artery>, how the <muscle> tapers under it with a fascial sheet on its surface, and how every structure is wrapped in thin glistening fascia rather than floating in fat."
+- **Expect Gemini to paint some muscles lumpy, like a gland or liver**, with no fibres. Fix each one with prompt C:
+  > Paint the <muscle, by colour and position> with fine parallel maroon muscle fibres, like the large muscle on the left. Keep everything else in the image the same.
+
+  For a muscle at the edge, use the crop tool and prompt D instead: "paint it as skeletal muscle with fine parallel maroon fibres and thin white connective-tissue streaks, in exactly the same outline and position".
+- **Lung:** if it comes back split into different tissues, use prompt C:
+  > Paint the whole pink area along the bottom, below the thin white pleural line, as one continuous lung: soft, pale pink, finely spongy alveolar tissue with the same even texture from the left edge to the right edge, under a thin glistening pleura. Keep everything else in the image the same.
+- **Check each repair against the one before it.** A repair can remove things it was not asked to touch (the SCM vanished with an invented muscle). Take the lost area back from the earlier image with `visual_patch.py crop` and `merge`.
+
 **C. Repair of the whole image** (same chat; one change):
 
 ```
