@@ -10,7 +10,8 @@
     "Pleura deep to the rib and medial to the artery (record subtitle); the lung beneath it is standard anatomy added here.",
     "Middle scalene lateral and deep to the plexus, anterior scalene medial to the artery inserting on the rib, subclavian vein medial to it, SCM clavicular head at the medial edge: standard anatomy added here.",
     "Needle in-plane from lateral, deep to the plexus, tip in the corner pocket: deep to the plexus, superficial to the rib, lateral to the artery (record steps 6).",
-    "Teal: where the 20 mL ends up: the corner-pocket bolus under the plexus (record step 8) and the top-up over its superficial aspect (step 9), surrounding every trunk.",
+    "Teal: where the 20 mL ends up: the corner-pocket bolus (record step 8) and the top-up over the plexus's superficial aspect (step 9) fill the sheath round every trunk.",
+    "Trunks and divisions packed in one fascial sheath; the middle scalene tapers medially under the plexus to the first rib, a fascial sheet on its surface (standard anatomy; NYSORA's plate read for the relationships only).",
     "Labels: Brachial plexus, Subclavian artery, Middle scalene, First rib, Pleura."
   ],
   "requiredElements": [
@@ -37,10 +38,12 @@
     "needle",
     "needle-tip",
     "needle-entry",
-    "spread"
+    "spread",
+    "sheath",
+    "msm-fascia"
   ],
   "labels": {
-    "Brachial plexus": "trunk-e",
+    "Brachial plexus": "trunk-d",
     "Subclavian artery": "artery",
     "Middle scalene": "msm",
     "First rib": "rib",
@@ -300,6 +303,78 @@
       "a": "spread",
       "b": "investing-fascia",
       "why": "spread stays beneath the investing fascia"
+    },
+    {
+      "check": "within",
+      "a": "trunk-a",
+      "b": "sheath",
+      "why": "every trunk inside the shared sheath"
+    },
+    {
+      "check": "within",
+      "a": "trunk-b",
+      "b": "sheath",
+      "why": "every trunk inside the shared sheath"
+    },
+    {
+      "check": "within",
+      "a": "trunk-c",
+      "b": "sheath",
+      "why": "every trunk inside the shared sheath"
+    },
+    {
+      "check": "within",
+      "a": "trunk-d",
+      "b": "sheath",
+      "why": "every trunk inside the shared sheath"
+    },
+    {
+      "check": "within",
+      "a": "trunk-e",
+      "b": "sheath",
+      "why": "every trunk inside the shared sheath"
+    },
+    {
+      "check": "within",
+      "a": "trunk-f",
+      "b": "sheath",
+      "why": "every trunk inside the shared sheath"
+    },
+    {
+      "check": "within",
+      "a": "trunk-g",
+      "b": "sheath",
+      "why": "every trunk inside the shared sheath"
+    },
+    {
+      "check": "noOverlap",
+      "a": "sheath",
+      "b": "artery",
+      "why": "sheath beside, not over, the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "sheath",
+      "b": "msm",
+      "why": "plexus sheath sits on, not in, the middle scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "msm",
+      "why": "needle runs above the middle scalene, under the plexus"
+    },
+    {
+      "check": "within",
+      "a": "needle-tip",
+      "b": "sheath",
+      "why": "tip inside the sheath, in the corner pocket"
+    },
+    {
+      "check": "noOverlap",
+      "a": "msm",
+      "b": "rib",
+      "why": "the muscle's tip rests on the rib"
     }
   ]
 }

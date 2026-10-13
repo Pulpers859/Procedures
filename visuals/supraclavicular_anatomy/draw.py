@@ -27,6 +27,12 @@ pocket, and the teal spread: the pocket filled and the plexus surrounded,
 the result of both injections (owner, 2026-10-13, asked whether a pool only
 under the plexus was right).
 
+Fascial layers (owner, 2026-10-13, after NYSORA: the nerves looked loose in
+fat, with a chunk of fat under them): the trunks sit packed in one shared
+sheath, and the middle scalene tapers medially under the plexus to the rib
+with a fascial sheet on its surface; the needle runs in the plane between
+that sheet and the sheath.
+
 Painted base: base.jpg is the owner's Gemini painting (prompt A with an
 atlas layer list, on the commit 6d5bed3 reference). Every outline lies on
 the layout within a few pixels, so the layout is hidden under it and the
@@ -75,30 +81,40 @@ def band(top, bottom):
 
 ARTERY = ((-4.0, 15.6), 3.6)
 VEIN = ((-20.2, 14.0), 4.4, 3.0)
-# Trunks and divisions, superficial and lateral to the artery.
+# Trunks and divisions, packed lateral and superficial to the artery in a
+# diagonal cluster: the lowest against the artery just above the corner
+# pocket, the rest rising laterally, so a needle from lateral can pass under
+# them (owner, 2026-10-13, after NYSORA: not loose in fat).
 PLEXUS = {
-    "trunk-a": ((1.8, 12.8), 1.3),
-    "trunk-b": ((4.4, 12.6), 1.4),
-    "trunk-c": ((6.9, 11.2), 1.3),
-    "trunk-d": ((3.0, 10.0), 1.4),
-    "trunk-e": ((5.6, 9.0), 1.3),
-    "trunk-f": ((8.3, 9.0), 1.1),
-    "trunk-g": ((1.4, 8.2), 1.1),
+    "trunk-a": ((1.4, 15.0), 1.5),
+    "trunk-b": ((4.2, 13.0), 1.5),
+    "trunk-c": ((1.6, 11.4), 1.5),
+    "trunk-d": ((6.6, 11.0), 1.4),
+    "trunk-e": ((8.9, 9.6), 1.2),
+    "trunk-f": ((3.9, 8.4), 1.5),
+    "trunk-g": ((6.8, 7.6), 1.3),
 }
+# The shared fascial sheath round the trunks; its deep medial corner reaches
+# down beside the artery to just above the rib, enclosing the corner pocket.
+SHEATH = [(-0.2, 15.3), (-0.2, 17.4), (0.6, 18.6), (2.0, 18.7), (3.4, 17.4), (4.8, 15.3), (6.4, 13.4),
+          (7.9, 12.1), (9.4, 11.1), (10.4, 10.0), (10.4, 8.8), (9.4, 7.6), (7.6, 6.0), (6.0, 5.9), (4.0, 6.5),
+          (2.6, 6.9), (1.0, 8.4), (0.1, 10.4), (-0.3, 12.6)]
 RIB = [(-10, 21.2), (-6, 19.6), (0, 19.3), (6, 19.6), (9.5, 20.8), (10.3, 23.4), (6.5, 25.4), (0, 25.7),
        (-6, 25.3), (-10, 23.6)]
-MSM = [(10.6, 13.6), (13.5, 10.6), (20, 9.6), (X1 + 3, 9.8), (X1 + 3, 26.4), (22, 26.2), (14, 25.0), (10.9, 22.0),
-       (10.4, 18)]
+# Middle scalene: its belly lateral, tapering medially under the plexus to a
+# tip on the first rib; its upper surface runs just beneath the needle's path.
+MSM_TOP = [(3.4, 18.9), (5, 15.9), (7, 14.7), (9, 13.4), (12, 11.6), (15, 9.8), (19, 8.2), (24, 7.7), (X1 + 3, 7.7)]
+MSM = MSM_TOP + [(X1 + 3, 9.5), (X1 + 3, 26.4), (22, 26.2), (14, 25.0), (11.2, 22.8), (10.8, 21.0), (9.6, 20.2), (8, 19.6), (5.5, 19.0)]
 ASM = [(-8.2, 10.2), (-11, 8.8), (-14.4, 10.2), (-15.3, 14.5), (-13.6, 19.4), (-10.6, 21.0), (-8.4, 19.0),
        (-7.9, 14.2)]
 SCM = [(-16.6, 2.4), (-20, 2.1), (X0 - 3, 2.0), (X0 - 3, 8.6), (-22, 8.3), (-18.6, 6.2)]
-FASCIA = [(X1 + 3, 6.4), (24, 6.2), (12, 5.8), (2, 5.6), (-8, 5.6), (-16.4, 5.4)]
+FASCIA = [(X1 + 3, 5.4), (24, 5.2), (12, 4.9), (2, 4.7), (-8, 4.8), (-16.4, 4.8)]
 # One continuous pleural line, split where it turns up past the rib's medial end.
 PLEURA_DEEP = [(X1 + 3, 28.6), (20, 28.2), (12, 27.6), (4, 27.2), (-3, 26.9), (-7, 26.3), (-9, 25.6)]   # under the rib
 PLEURA = [(-9, 25.6), (-11.5, 24.0), (-16, 23.3), (-21, 23.4), (X0 - 3, 23.6)]           # medial to the rib
 PROBE_LATERAL_X = 22.0
 NEEDLE_ENTRY = (29.0, 0.0)
-NEEDLE_TIP = (1.6, 17.4)          # corner pocket: under the plexus, above the rib, lateral to the artery
+NEEDLE_TIP = (0.8, 17.9)          # corner pocket: under the plexus, above the rib, lateral to the artery
 
 
 def ellipse(center, rx, ry, attrs, rot=0.0):
@@ -115,12 +131,9 @@ def lung():
 
 def spread():
     """Teal: where the 20 mL ends up. The corner-pocket bolus (record step 8)
-    fills the pocket and lifts the plexus off the rib; with the 5 mL top-up
-    over the plexus's superficial aspect (step 9) it surrounds every trunk.
-    Drawn medial clear of the artery and beneath the investing fascia."""
-    return [(-0.1, 17.0), (0.0, 18.6), (2.5, 18.7), (6.5, 18.4), (9.4, 16.8), (9.8, 14.2), (9.9, 11.5),
-            (9.8, 9.0), (9.0, 7.4), (7.2, 7.0), (5.0, 6.9), (2.6, 6.6), (0.8, 6.8), (-0.1, 8.4),
-            (-0.3, 10.5), (0.0, 12.5), (0.1, 14.6)]
+    and the top-up over the plexus's superficial aspect (step 9) fill the
+    sheath round every trunk; the trunks are cut out so they stay crisp."""
+    return SHEATH
 
 
 DEFS = """
@@ -140,7 +153,7 @@ def build() -> str:
     a = (e[0] - dx * 0.25, e[1] - dy * 0.25)
     probe_x = c((PROBE_LATERAL_X, 0))[0]
     labels = [
-        Label(["Brachial plexus"], anchor=(470, 290), leader=[(640, 305), c(PLEXUS["trunk-e"][0])], target_id="trunk-e", emphasis=True),
+        Label(["Brachial plexus"], anchor=(470, 290), leader=[(640, 305), c(PLEXUS["trunk-d"][0])], target_id="trunk-d", emphasis=True),
         Label(["Subclavian artery"], anchor=(1060, 330), leader=[(1180, 345), c((-5.5, 13.6))], target_id="artery"),
         Label(["Middle scalene"], anchor=(40, 1010), leader=[(160, 960), c((18, 18))], target_id="msm"),
         Label(["First rib"], anchor=(560, 1150), leader=[(660, 1100), c((2, 23))], target_id="rib"),
@@ -180,6 +193,8 @@ def build() -> str:
   <path id="asm" d="{path(ASM, closed=True, tension=0.6)}" fill="url(#muscle)" stroke="#6E221E" stroke-width="3"/>
   <path id="scm" d="{path(SCM, closed=True, tension=0.6)}" fill="url(#muscle)" stroke="#6E221E" stroke-width="3"/>
   <path id="investing-fascia" d="{path(FASCIA, tension=0.8)}" fill="none" stroke="#F8F6F0" stroke-width="7"/>
+  <path id="msm-fascia" d="{path(MSM_TOP, tension=0.6)}" fill="none" stroke="#F8F6F0" stroke-width="7"/>
+  <path id="sheath" d="{path(SHEATH, closed=True, tension=0.8)}" fill="#F3E4C2" stroke="#F8F6F0" stroke-width="7"/>
   {plexus}
   {ellipse(VEIN[0], VEIN[1], VEIN[2], 'id="vein" fill="url(#vein-grad)" stroke="#2F4A78" stroke-width="4"')}
   {ellipse(ARTERY[0], ARTERY[1], ARTERY[1], 'id="artery" fill="url(#art-grad)" stroke="#8E211D" stroke-width="6"')}

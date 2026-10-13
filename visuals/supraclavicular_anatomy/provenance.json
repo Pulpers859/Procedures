@@ -12,7 +12,10 @@
  "repairs": [
   "Same chat, prompt C, the anterior scalene repainted with the same maroon fibre texture as the middle scalene (it had come back cobbled, like a gland). Every outline still lies on the layout."
  ],
- "rejected": [],
+ "rejected": [
+  "First painting (plate in c67183d), on the 6d5bed3 layout: the owner, comparing with NYSORA, found the trunks loose in fat and a chunk of fat under them where the middle scalene should taper. A layout error, so the layout was redrawn (shared fascial sheath, tapered middle scalene with surface fascia) and the painting withdrawn for a new chat."
+ ],
  "knownLimits": "The artery wall is thick relative to its lumen, as on the approved fascia iliaca plate. The plexus is drawn as seven round bundles loose in fat, not NYSORA's larger divisions in one sheath against the artery, so the corner pocket looks roomier than on ultrasound.",
- "thirdPartyConcept": "NYSORA supraclavicular plate (patient photo and reverse ultrasound anatomy), sent by the owner on 2026-10-13 and compared with the painting after it was made; not attached to Gemini, not committed."
+ "thirdPartyConcept": "NYSORA supraclavicular plate (patient photo and reverse ultrasound anatomy), sent by the owner on 2026-10-13 and compared with the painting after it was made; not attached to Gemini, not committed.",
+ "status": "painting withdrawn 2026-10-13; awaiting a new painting of the redrawn layout"
 }
