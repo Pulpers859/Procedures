@@ -2,20 +2,22 @@
  "base": "base.jpg",
  "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
  "generatedBy": "owner, in the Gemini app",
- "date": "2026-10-12",
+ "date": "2026-10-13",
  "sourceSize": [
   1200,
   896
  ],
- "reference": "Unlabelled render of the supraclavicular_anatomy layout (commit 6d5bed3 draw.py, --reference).",
- "prompt": "Prompt A with an atlas layer list (no concept plate attached), new chat, reference attached: cross-section of the right supraclavicular fossa under a linear probe, cut face, skin at the top; every outline kept; rich saturated atlas palette lit from the upper left; top-down layers: thin pink skin, orange-gold fat lobules, white fascial sheet, three maroon muscles with white connective-tissue streaks, seven olive-yellow nerve bundles packed like grapes (brachial plexus), layered red subclavian artery and thinner blue subclavian vein, ivory first rib over spongy bone, glistening white pleura over pale pink lung; no text, lines, needles, probes or instruments.",
+ "reference": "Unlabelled render of the redrawn supraclavicular_anatomy layout (commit b15df31 draw.py, --reference).",
+ "prompt": "Prompt B, new chat: image 1 the b15df31 reference, image 2 NYSORA's supraclavicular reverse-anatomy drawing for the relationships only (divisions packed in one fascial sheath beside the artery, middle scalene tapering under the plexus to the first rib with a fascial sheet, every structure wrapped in fascia); premium atlas palette lit from the upper left; top-down layers: skin, fat lobules, fascial sheets, translucent plexus sheath, olive-yellow divisions, fibred muscles with the middle scalene tapering onto the bone, layered artery and thinner vein, ivory first rib, glistening pleura over pale pink lung; no text, lines, needles, probes or instruments.",
  "repairs": [
-  "Same chat, prompt C, the anterior scalene repainted with the same maroon fibre texture as the middle scalene (it had come back cobbled, like a gland). Every outline still lies on the layout."
+  "Same chat, prompt C: lung repainted as one continuous pale pink spongy tissue under a thin pleura (the first paint split it into a smooth sac and a brain-like mass with an invented diagonal band).",
+  "Same chat, prompt C: fat lobules painted in place of an invented muscle below the vein. Side effect: the SCM clavicular head in the upper-right corner was also removed.",
+  "Same chat, prompt C: anterior scalene repainted with parallel muscle fibres (it had a cobbled, gland-like texture).",
+  "visual_patch.py: the upper-right corner (box 985,105-1200,305 plus margin) taken back from the lung-repair image to restore the SCM; 0 px changed outside the box."
  ],
  "rejected": [
   "First painting (plate in c67183d), on the 6d5bed3 layout: the owner, comparing with NYSORA, found the trunks loose in fat and a chunk of fat under them where the middle scalene should taper. A layout error, so the layout was redrawn (shared fascial sheath, tapered middle scalene with surface fascia) and the painting withdrawn for a new chat."
  ],
- "knownLimits": "The artery wall is thick relative to its lumen, as on the approved fascia iliaca plate. The plexus is drawn as seven round bundles loose in fat, not NYSORA's larger divisions in one sheath against the artery, so the corner pocket looks roomier than on ultrasound.",
- "thirdPartyConcept": "NYSORA supraclavicular plate (patient photo and reverse ultrasound anatomy), sent by the owner on 2026-10-13 and compared with the painting after it was made; not attached to Gemini, not committed.",
- "status": "painting withdrawn 2026-10-13; awaiting a new painting of the redrawn layout"
+ "knownLimits": "The artery wall is thick relative to its lumen, as on the approved fascia iliaca plate. The restored SCM keeps the first paint's cobbled texture; it is small and unlabelled.",
+ "thirdPartyConcept": "NYSORA supraclavicular plate (patient photo and reverse ultrasound anatomy), sent by the owner on 2026-10-13 and compared with the painting after it was made; not attached to Gemini, not committed."
 }
