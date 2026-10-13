@@ -115,6 +115,13 @@ PLEURA = [(-9, 25.6), (-11.5, 24.0), (-16, 23.3), (-21, 23.4), (X0 - 3, 23.6)]  
 PROBE_LATERAL_X = 22.0
 NEEDLE_ENTRY = (29.0, 0.0)
 NEEDLE_TIP = (0.8, 17.9)          # corner pocket: under the plexus, above the rib, lateral to the artery
+# The redirect for the last 5 mL (record step 9): withdrawn and angled up to
+# the plexus's superficial aspect, inside the sheath above the top trunks.
+# Drawn dashed: a second needle position, not a second needle.
+REDIRECT_TIP = (8.6, 7.4)
+# The corner-pocket bolus, thicker than the rest of the spread: the record's
+# confirmation sign is the pocket expanding as it floats the plexus up.
+POCKET = ((1.1, 17.9), 0.9, 0.6)
 
 
 def ellipse(center, rx, ry, attrs, rot=0.0):
@@ -152,8 +159,10 @@ def build() -> str:
     dx, dy = t[0] - e[0], t[1] - e[1]
     a = (e[0] - dx * 0.25, e[1] - dy * 0.25)
     probe_x = c((PROBE_LATERAL_X, 0))[0]
+    r2 = c(REDIRECT_TIP)
     labels = [
-        Label(["Brachial plexus"], anchor=(470, 290), leader=[(640, 305), c(PLEXUS["trunk-d"][0])], target_id="trunk-d", emphasis=True),
+        Label(["Corner pocket"], anchor=(60, 560), leader=[(380, 548), c((4.6, 17.0)), c((0.9, 18.3))], target_id="corner-bolus"),
+        Label(["Brachial plexus"], anchor=(890, 245), leader=[(940, 262), c(PLEXUS["trunk-d"][0])], target_id="trunk-d", emphasis=True),
         Label(["Subclavian artery"], anchor=(1060, 330), leader=[(1180, 345), c((-5.5, 13.6))], target_id="artery"),
         Label(["Middle scalene"], anchor=(40, 1010), leader=[(160, 960), c((18, 18))], target_id="msm"),
         Label(["First rib"], anchor=(560, 1150), leader=[(660, 1100), c((2, 23))], target_id="rib"),
@@ -203,12 +212,15 @@ def build() -> str:
 </g>
 
 <g class="marking">
+  {ellipse(POCKET[0], POCKET[1], POCKET[2], 'id="corner-bolus" fill="#3FB3BE" fill-opacity="0.7" stroke="none" mask="url(#spread-holes)"')}
   <path id="spread" d="{path(spread(), closed=True, tension=0.8)}" fill="#6CCBD2" fill-opacity="0.62" stroke="#0E8C98" stroke-width="3" stroke-opacity="0.85" mask="url(#spread-holes)"/>
   <rect id="probe" x="{fmt(probe_x)}" y="-60" width="{fmt(1700 - probe_x)}" height="{fmt(ORIGIN[1] + 60)}" rx="34" fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>
   <rect x="{fmt(probe_x + 18)}" y="{fmt(ORIGIN[1] - 16)}" width="{fmt(1700 - probe_x)}" height="14" rx="6" fill="#3E454C"/>
   <line id="needle" x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="10"/>
   <line x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#D9DEE3" stroke-width="5"/>
   <circle id="needle-tip" cx="{fmt(t[0])}" cy="{fmt(t[1])}" r="4" fill="#5E6670"/>
+  <line id="redirect" x1="{fmt(e[0])}" y1="{fmt(e[1])}" x2="{fmt(r2[0])}" y2="{fmt(r2[1])}" stroke="#5E6670" stroke-width="6" stroke-dasharray="16 12" opacity="0.8"/>
+  <circle id="redirect-tip" cx="{fmt(r2[0])}" cy="{fmt(r2[1])}" r="4" fill="#5E6670" opacity="0.8"/>
   <circle id="needle-entry" cx="{fmt(e[0])}" cy="{fmt(e[1])}" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
 </g>
 

@@ -12,7 +12,9 @@
     "Needle in-plane from lateral, deep to the plexus, tip in the corner pocket: deep to the plexus, superficial to the rib, lateral to the artery (record steps 6).",
     "Teal: where the 20 mL ends up: the corner-pocket bolus (record step 8) and the top-up over the plexus's superficial aspect (step 9) fill the sheath round every trunk.",
     "Trunks and divisions packed in one fascial sheath; the middle scalene tapers medially under the plexus to the first rib, a fascial sheet on its surface (standard anatomy; NYSORA's plate read for the relationships only).",
-    "Labels: Brachial plexus, Subclavian artery, Middle scalene, First rib, Pleura."
+    "Dashed: the redirect for the last 5 mL, withdrawn and angled to the plexus's superficial aspect inside the sheath (record step 9); a second needle position, not a second needle.",
+    "Deeper teal in the corner: the 15 mL corner-pocket bolus (record step 8; confirmation: the pocket expands).",
+    "Labels: Brachial plexus, Subclavian artery, Middle scalene, First rib, Pleura, Corner pocket."
   ],
   "requiredElements": [
     "skin",
@@ -40,14 +42,18 @@
     "needle-entry",
     "spread",
     "sheath",
-    "msm-fascia"
+    "msm-fascia",
+    "redirect",
+    "redirect-tip",
+    "corner-bolus"
   ],
   "labels": {
     "Brachial plexus": "trunk-d",
     "Subclavian artery": "artery",
     "Middle scalene": "msm",
     "First rib": "rib",
-    "Pleura": "pleura"
+    "Pleura": "pleura",
+    "Corner pocket": "corner-bolus"
   },
   "geometry": [
     {
@@ -375,6 +381,96 @@
       "a": "msm",
       "b": "rib",
       "why": "the muscle's tip rests on the rib"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "trunk-a",
+      "why": "redirect passes over, not through, the trunks"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "trunk-b",
+      "why": "redirect passes over, not through, the trunks"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "trunk-c",
+      "why": "redirect passes over, not through, the trunks"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "trunk-d",
+      "why": "redirect passes over, not through, the trunks"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "trunk-e",
+      "why": "redirect passes over, not through, the trunks"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "trunk-f",
+      "why": "redirect passes over, not through, the trunks"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "trunk-g",
+      "why": "redirect passes over, not through, the trunks"
+    },
+    {
+      "check": "within",
+      "a": "redirect-tip",
+      "b": "sheath",
+      "why": "redirect tip inside the sheath"
+    },
+    {
+      "check": "below",
+      "a": "trunk-d",
+      "b": "redirect-tip",
+      "why": "redirect tip at the plexus's superficial aspect"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "msm",
+      "why": "redirect clear of the middle scalene"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "artery",
+      "why": "redirect clear of the artery"
+    },
+    {
+      "check": "within",
+      "a": "corner-bolus",
+      "b": "sheath",
+      "why": "bolus in the sheath's deep corner"
+    },
+    {
+      "check": "noOverlap",
+      "a": "corner-bolus",
+      "b": "rib",
+      "why": "bolus above the rib"
+    },
+    {
+      "check": "noOverlap",
+      "a": "corner-bolus",
+      "b": "artery",
+      "why": "bolus lateral to the artery"
+    },
+    {
+      "check": "crosses",
+      "a": "needle-tip",
+      "b": "corner-bolus",
+      "why": "the corner-pocket injection is where the tip sits"
     }
   ]
 }

@@ -121,11 +121,13 @@ def build() -> str:
     scm = path(SCM_LATERAL + list(reversed(SCM_MEDIAL)), closed=True, tension=0.6)
     cable = [pc(0, -58), pc(2, -70), pc(14, -80)]
     cable_end = (pc(26, -92)[0], 0.0)
-    clav_pt = c((30, CLAVICLE_Y + 2))
+    # On the photo the bony ridge shows best just below the probe's gel bead
+    # (independent review, 2026-10-13); the layout's clavicle runs under it.
+    clav_pt = c((5, CLAVICLE_Y + 1.0))
     labels = [
         Label(["Block needle"], anchor=(40, 700), leader=[(200, 730), ((ne[0] + nh[0]) / 2, ne[1] - 2)], target_id="needle"),
         Label(["Linear probe"], anchor=(1180, 700), leader=[(1200, 660), (p1[0] - 30, (p0[1] + p1[1]) / 2)], target_id="probe"),
-        Label(["Clavicle"], anchor=(1230, 1110), leader=[(1250, 1060), clav_pt], target_id="clavicle"),
+        Label(["Clavicle"], anchor=(1230, 1110), leader=[(1240, 1060), clav_pt], target_id="clavicle"),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
