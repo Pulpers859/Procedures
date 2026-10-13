@@ -86,10 +86,11 @@ PROBE = ((PROBE_C[0] - PROBE_LEN / 2, PROBE_C[1] - PROBE_W / 2), (PROBE_C[0] + P
 NEEDLE_ENTRY = (PROBE[0][0] - 9, PROBE_C[1])
 NEEDLE_HUB = (PROBE[0][0] - 40, PROBE_C[1])
 if BASE.exists():
-    # Traced: the painted needle runs level from its hub (base x 322, y 631)
-    # to the probe's lateral edge (x 470), in line with the probe.
-    NEEDLE_ENTRY = (PROBE[0][0] - 0.6, 25.6)
-    NEEDLE_HUB = (-41.4, 25.6)
+    # Traced after the needle repair (2026-10-13): the needle runs down from
+    # its hub (base x 319, y 630) and enters the skin at the gel beside the
+    # probe's lateral end (x 512, y 674), in line with the probe.
+    NEEDLE_ENTRY = (-9.7, 32.7)
+    NEEDLE_HUB = (-41.8, 25.3)
 
 
 def pc(dx, dy):
@@ -125,7 +126,7 @@ def build() -> str:
     # (independent review, 2026-10-13); the layout's clavicle runs under it.
     clav_pt = c((5, CLAVICLE_Y + 1.0))
     labels = [
-        Label(["Block needle"], anchor=(40, 700), leader=[(200, 730), ((ne[0] + nh[0]) / 2, ne[1] - 2)], target_id="needle"),
+        Label(["Block needle"], anchor=(40, 700), leader=[(200, 730), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
         Label(["Linear probe"], anchor=(1180, 700), leader=[(1200, 660), (p1[0] - 30, (p0[1] + p1[1]) / 2)], target_id="probe"),
         Label(["Clavicle"], anchor=(1230, 1110), leader=[(1240, 1060), clav_pt], target_id="clavicle"),
     ]

@@ -13,11 +13,13 @@
   "Same chat, prompt C: lung repainted as one continuous pale pink spongy tissue under a thin pleura (the first paint split it into a smooth sac and a brain-like mass with an invented diagonal band).",
   "Same chat, prompt C: fat lobules painted in place of an invented muscle below the vein. Side effect: the SCM clavicular head in the upper-right corner was also removed.",
   "Same chat, prompt C: anterior scalene repainted with parallel muscle fibres (it had a cobbled, gland-like texture).",
-  "visual_patch.py: the upper-right corner (box 985,105-1200,305 plus margin) taken back from the lung-repair image to restore the SCM; 0 px changed outside the box."
+  "visual_patch.py: the upper-right corner (box 985,105-1200,305 plus margin) taken back from the lung-repair image to restore the SCM; 0 px changed outside the box.",
+  "Crop repaint (visual_patch.py crop, box 1010,120-1200,300 plus margin), new chat, prompt D: the SCM in the upper-right corner repainted with fine parallel fibres (independent review: it read as liver). Merged back: 0 px changed outside the box."
  ],
  "rejected": [
   "First painting (plate in c67183d), on the 6d5bed3 layout: the owner, comparing with NYSORA, found the trunks loose in fat and a chunk of fat under them where the middle scalene should taper. A layout error, so the layout was redrawn (shared fascial sheath, tapered middle scalene with surface fascia) and the painting withdrawn for a new chat."
  ],
- "knownLimits": "The artery wall is thick relative to its lumen, as on the approved fascia iliaca plate. The restored SCM keeps the first paint's cobbled texture; it is small and unlabelled.",
- "thirdPartyConcept": "NYSORA supraclavicular plate (patient photo and reverse ultrasound anatomy), sent by the owner on 2026-10-13 and compared with the painting after it was made; not attached to Gemini, not committed."
+ "knownLimits": "The artery wall is thick relative to its lumen, as on the approved fascia iliaca plate. The middle scalene's medial end is painted as tendinous slips onto the first rib, its insertion; kept.",
+ "thirdPartyConcept": "NYSORA supraclavicular plate (patient photo and reverse ultrasound anatomy), sent by the owner on 2026-10-13 and compared with the painting after it was made; not attached to Gemini, not committed.",
+ "independentReview": "2026-10-13, a separate reviewer agent: no must-fix errors; anterior scalene between artery and vein confirmed correct; should-fix items acted on (redirect needle, Corner pocket label, corner bolus, SCM texture, photo needle entry, Clavicle leader); teal plexus label kept as house style; tendinous middle-scalene insertion kept; a dorsal scapular vessel not added (not in the record)."
 }
