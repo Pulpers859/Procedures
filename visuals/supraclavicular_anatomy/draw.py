@@ -23,7 +23,9 @@ rib. Depths: artery centre about 1.6 cm, rib about 2 cm (typical adult;
 they vary with habitus).
 
 Markings: the probe, the needle from lateral with its tip in the corner
-pocket, and the teal spread filling the pocket under the plexus.
+pocket, and the teal spread: the pocket filled and the plexus surrounded,
+the result of both injections (owner, 2026-10-13, asked whether a pool only
+under the plexus was right).
 
 Painted base: base.jpg is the owner's Gemini painting (prompt A with an
 atlas layer list, on the commit 6d5bed3 reference). Every outline lies on
@@ -112,9 +114,13 @@ def lung():
 
 
 def spread():
-    """Teal pool filling the corner pocket and cupping the plexus's deep side."""
-    return [(0.1, 14.6), (-0.1, 17.0), (0.0, 18.6), (2.5, 18.7), (6.5, 18.4), (9.4, 16.8), (9.8, 14.2),
-            (8.6, 12.9), (6.2, 14.4), (3.2, 13.9), (1.6, 13.8)]
+    """Teal: where the 20 mL ends up. The corner-pocket bolus (record step 8)
+    fills the pocket and lifts the plexus off the rib; with the 5 mL top-up
+    over the plexus's superficial aspect (step 9) it surrounds every trunk.
+    Drawn medial clear of the artery and beneath the investing fascia."""
+    return [(-0.1, 17.0), (0.0, 18.6), (2.5, 18.7), (6.5, 18.4), (9.4, 16.8), (9.8, 14.2), (9.9, 11.5),
+            (9.8, 9.0), (9.0, 7.4), (7.2, 7.0), (5.0, 6.9), (2.6, 6.6), (0.8, 6.8), (-0.1, 8.4),
+            (-0.3, 10.5), (0.0, 12.5), (0.1, 14.6)]
 
 
 DEFS = """

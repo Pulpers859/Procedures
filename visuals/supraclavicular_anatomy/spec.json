@@ -10,7 +10,7 @@
     "Pleura deep to the rib and medial to the artery (record subtitle); the lung beneath it is standard anatomy added here.",
     "Middle scalene lateral and deep to the plexus, anterior scalene medial to the artery inserting on the rib, subclavian vein medial to it, SCM clavicular head at the medial edge: standard anatomy added here.",
     "Needle in-plane from lateral, deep to the plexus, tip in the corner pocket: deep to the plexus, superficial to the rib, lateral to the artery (record steps 6).",
-    "Teal: the corner-pocket injection under the plexus (record step 8).",
+    "Teal: where the 20 mL ends up: the corner-pocket bolus under the plexus (record step 8) and the top-up over its superficial aspect (step 9), surrounding every trunk.",
     "Labels: Brachial plexus, Subclavian artery, Middle scalene, First rib, Pleura."
   ],
   "requiredElements": [
@@ -276,6 +276,30 @@
       "a": "trunk-a",
       "b": "spread",
       "why": "spread reaches the plexus's deep side"
+    },
+    {
+      "check": "crosses",
+      "a": "trunk-c",
+      "b": "spread",
+      "why": "spread surrounds the plexus after both injections"
+    },
+    {
+      "check": "crosses",
+      "a": "trunk-e",
+      "b": "spread",
+      "why": "spread surrounds the plexus after both injections"
+    },
+    {
+      "check": "crosses",
+      "a": "trunk-g",
+      "b": "spread",
+      "why": "spread surrounds the plexus after both injections"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "investing-fascia",
+      "why": "spread stays beneath the investing fascia"
     }
   ]
 }
