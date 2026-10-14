@@ -1,0 +1,137 @@
+{
+  "assetId": "supraorbital_patient_position",
+  "procedure": "block_supraorbital",
+  "title": "Needle entry on the patient",
+  "view": "The upper face from the front: head at the top, the patient's right on the image left, zoomed on the right brow.",
+  "teachingPoint": "Needle in just above the eyebrow, subcutaneous, aimed medially over the notch on the pupil line; redirect medially in the same plane for the supratrochlear; a finger on the rim below the needle guards the orbit.",
+  "claims": [
+    "Upper face from the front, patient's right on the image left (house laterality; the record names no side).",
+    "Supraorbital notch on the superior orbital rim in line with the pupil (record subtitle and step 1).",
+    "Entry just above the eyebrow, needle subcutaneous and aimed medially over the notch, tip short of the rim (record steps 3-4).",
+    "Dashed: the redirect medially in the same plane toward the bridge of the nose for the supratrochlear nerve (record step 5); its exit about 12 mm medial to the notch is standard anatomy added here.",
+    "Gloved finger along the orbital rim below the needle; the needle never points at the orbit (record step 6).",
+    "Red dashes: the pupil line. Labels: Supraorbital notch, Supratrochlear nerve."
+  ],
+  "requiredElements": [
+    "face",
+    "brow",
+    "eye",
+    "pupil",
+    "nose",
+    "finger",
+    "pupil-line",
+    "notch-mark",
+    "supratrochlear-mark",
+    "syringe",
+    "needle",
+    "needle-tip",
+    "needle-entry",
+    "redirect"
+  ],
+  "labels": {
+    "Supraorbital notch": "notch-mark",
+    "Supratrochlear nerve": "supratrochlear-mark"
+  },
+  "geometry": [
+    {
+      "check": "crosses",
+      "a": "pupil-line",
+      "b": "notch-mark",
+      "why": "notch is on the pupil line"
+    },
+    {
+      "check": "below",
+      "a": "eye",
+      "b": "notch-mark",
+      "why": "notch is on the rim above the eye"
+    },
+    {
+      "check": "leftOf",
+      "a": "notch-mark",
+      "b": "supratrochlear-mark",
+      "why": "supratrochlear exits medial to the notch"
+    },
+    {
+      "check": "below",
+      "a": "notch-mark",
+      "b": "needle-entry",
+      "why": "entry is above the rim, above the eyebrow"
+    },
+    {
+      "check": "below",
+      "a": "brow",
+      "b": "needle-entry",
+      "why": "entry just above the eyebrow"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "notch-mark",
+      "why": "needle comes from lateral, aimed medially over the notch"
+    },
+    {
+      "check": "below",
+      "a": "notch-mark",
+      "b": "needle-tip",
+      "why": "tip stays above the rim, over the notch, not in it"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "notch-mark",
+      "maxPx": 60,
+      "why": "tip sits just above the notch (about 5 mm), not in it"
+    },
+    {
+      "check": "below",
+      "a": "finger",
+      "b": "needle",
+      "why": "finger on the rim below the needle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "finger",
+      "why": "needle stays above the guarding finger"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "eye",
+      "why": "needle never points at the orbit"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "finger",
+      "why": "redirect stays above the rim"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "eye",
+      "why": "redirect stays out of the orbit"
+    },
+    {
+      "check": "endNear",
+      "a": "redirect",
+      "end": "end",
+      "b": "supratrochlear-mark",
+      "maxPx": 75,
+      "why": "redirect ends just above the supratrochlear exit"
+    },
+    {
+      "check": "below",
+      "a": "eye",
+      "b": "finger",
+      "why": "the eye stays visible below the finger"
+    },
+    {
+      "check": "noOverlap",
+      "a": "finger",
+      "b": "eye",
+      "why": "finger on the rim, not on the eye"
+    }
+  ]
+}

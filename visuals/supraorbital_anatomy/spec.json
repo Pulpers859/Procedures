@@ -1,0 +1,52 @@
+{
+  "assetId": "supraorbital_anatomy",
+  "procedure": "block_supraorbital",
+  "title": "Target anatomy",
+  "view": "The right upper face of the skull from the front: head at the top, the patient's right on the image left.",
+  "teachingPoint": "The notch sits on the superior orbital rim in line with the pupil, the supratrochlear just medial; the needle stays subcutaneous above the rim, over the notch, then redirects medially in the same plane, never toward the orbit.",
+  "claims": [
+    "Right upper face of the skull from the front, patient's right on the image left (house laterality).",
+    "Supraorbital notch on the superior orbital rim on the pupil line (record subtitle).",
+    "Supratrochlear nerve exiting slightly medial to the notch (record subtitle); about 12 mm medial and its notch are standard anatomy added here.",
+    "Needle from just above the eyebrow, lateral, aimed medially; tip subcutaneous over the notch, short of the rim (record steps 3-4).",
+    "Dashed: the redirect medially in the same plane toward the bridge of the nose for the supratrochlear (record step 5).",
+    "Red dashes: the pupil line. Yellow: the supraorbital nerve's two branches and the supratrochlear nerve running up the forehead (standard anatomy, added).",
+    "Labels: Supraorbital notch, Supratrochlear nerve, Orbit."
+  ],
+  "requiredElements": [
+    "skull",
+    "orbit",
+    "nasal-bones",
+    "notch",
+    "trochlear-notch",
+    "supratrochlear",
+    "pupil-line",
+    "syringe",
+    "needle",
+    "needle-tip",
+    "needle-entry",
+    "redirect",
+    "redirect-tip"
+  ],
+  "labels": {
+    "Supraorbital notch": "notch",
+    "Supratrochlear nerve": "supratrochlear",
+    "Orbit": "orbit"
+  },
+  "geometry": [
+    {"check": "crosses", "a": "pupil-line", "b": "notch", "why": "notch on the pupil line"},
+    {"check": "leftOf", "a": "notch", "b": "trochlear-notch", "why": "supratrochlear exits medial to the notch"},
+    {"check": "below", "a": "orbit", "b": "notch", "why": "notch on the superior rim, above the orbit"},
+    {"check": "below", "a": "notch", "b": "needle-entry", "why": "entry above the rim"},
+    {"check": "leftOf", "a": "needle-entry", "b": "notch", "why": "needle from lateral, aimed medially"},
+    {"check": "below", "a": "notch", "b": "needle-tip", "why": "tip above the notch, not in it"},
+    {"check": "endNear", "a": "needle", "end": "end", "b": "notch", "maxPx": 80, "why": "tip over the notch, about 5 mm above it"},
+    {"check": "noOverlap", "a": "needle", "b": "notch", "why": "the needle does not enter the notch"},
+    {"check": "noOverlap", "a": "needle", "b": "orbit", "why": "never into the orbit"},
+    {"check": "noOverlap", "a": "redirect", "b": "orbit", "why": "the redirect stays above the rim"},
+    {"check": "noOverlap", "a": "redirect", "b": "trochlear-notch", "why": "the redirect stays superficial to the supratrochlear exit"},
+    {"check": "endNear", "a": "redirect", "end": "end", "b": "trochlear-notch", "maxPx": 110, "why": "redirect ends over the supratrochlear exit"},
+    {"check": "crosses", "a": "supratrochlear", "b": "trochlear-notch", "why": "the supratrochlear nerve leaves through its notch"},
+    {"check": "pointsDown", "a": "needle", "maxLean": 2.0, "why": "needle runs down and medially from above the brow"}
+  ]
+}
