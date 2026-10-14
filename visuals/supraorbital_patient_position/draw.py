@@ -72,12 +72,10 @@ NOSE = [(-7, 4), (-6.6, 20), (-8.6, 40), (-10, 60), (10, 60), (8.6, 40), (6.6, 2
 FINGER = [(-90, 1.6), (-50, 2.4), (-30, 2.6), (-18, 3.0), (-13.6, 5.0), (-13.4, 9.0), (-17, 11.6), (-30, 12.4),
           (-50, 12.8), (-90, 13.6)]
 if BASE.exists():
-    # Traced on base.jpg (base px x 4/3 to canvas): a real index finger is
-    # about 17 mm wide, wider than the gap from brow to lashes, so lying on
-    # the rim it covers the lower half of the eyebrow, its pad on the rim and
-    # over the notch, as a finger palpating and guarding the rim would.
-    FINGER = [(-90, -5.4), (-75, -5.1), (-52.8, -3.7), (-30.6, -2.0), (-19.4, -0.3), (-15.0, 1.9), (-13.1, 6.3),
-              (-14.4, 10.8), (-19.4, 12.1), (-41.7, 14.1), (-75, 13.8), (-90, 13.8)]
+    # Placed in code (2026-10-14, owner: fingertip pointing right at the notch,
+    # below the brow): the photographed glove finger cut from the first photo,
+    # scaled 0.85 and tilted up 20 deg onto the finger-free repaint (place_finger.py).
+    FINGER = [(-90, 12.2), (-84.8, 8.7), (-66.4, 4.3), (-47.9, 0.2), (-38.4, -1.2), (-34.3, -0.5), (-31.6, 2.6), (-31.6, 6.6), (-35.3, 8.9), (-52.9, 16.1), (-80.1, 24.1), (-90, 27.8)]
 ENTRY = (-42.0, -12.0)                  # just above the eyebrow, lateral to the notch
 TIP = (-31.0, -7.0)                     # subcutaneous, over the notch, clear of it (the painted notch grooves the rim)
 REDIRECT_TIP = (-19.0, -5.0)            # same plane, medially to the supratrochlear point
