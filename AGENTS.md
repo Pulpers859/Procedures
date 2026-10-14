@@ -21,6 +21,7 @@
 - Rescue cards live in `Procedures/Resources/rescue_cards.json`.
 - Do not hardcode clinical content or rescue cards into SwiftUI views.
 - Treat visual assets as reviewed clinical content, not decoration.
+- Procedure images follow `visuals/PLAYBOOK.md`; status and the next slot are in `visuals/STATUS.md`; the agent handoff is `docs/handoffs/2026-10-14_visuals_handoff_codex.md`. Never ship an image the owner has not approved, and never open a PR (the repo closes them).
 - Run `python scripts/validate_procedures.py` after clinical content or schema changes.
 - Structural validation does not prove clinical correctness. Clearly identify content that still needs expert review.
 
