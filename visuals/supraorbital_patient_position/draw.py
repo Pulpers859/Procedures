@@ -30,7 +30,9 @@ Run: python3 visuals/supraorbital_patient_position/draw.py
 
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -39,6 +41,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "supraorbital_patient_position"
+BASE = Path(__file__).with_name("base.jpg")
 PX_MM = 12.0
 ORIGIN = (900.0, 540.0)           # canvas of the midline at the superior rim's level
 
@@ -68,6 +71,13 @@ NOSE = [(-7, 4), (-6.6, 20), (-8.6, 40), (-10, 60), (10, 60), (8.6, 40), (6.6, 2
 # The operator's gloved index finger along the rim, from the patient's right.
 FINGER = [(-90, 1.6), (-50, 2.4), (-30, 2.6), (-18, 3.0), (-13.6, 5.0), (-13.4, 9.0), (-17, 11.6), (-30, 12.4),
           (-50, 12.8), (-90, 13.6)]
+if BASE.exists():
+    # Traced on base.jpg (base px x 4/3 to canvas): a real index finger is
+    # about 17 mm wide, wider than the gap from brow to lashes, so lying on
+    # the rim it covers the lower half of the eyebrow, its pad on the rim and
+    # over the notch, as a finger palpating and guarding the rim would.
+    FINGER = [(-90, -5.4), (-75, -5.1), (-52.8, -3.7), (-30.6, -2.0), (-19.4, -0.3), (-15.0, 1.9), (-13.1, 6.3),
+              (-14.4, 10.8), (-19.4, 12.1), (-41.7, 14.1), (-75, 13.8), (-90, 13.8)]
 ENTRY = (-42.0, -12.0)                  # just above the eyebrow, lateral to the notch
 TIP = (-31.0, -7.0)                     # subcutaneous, over the notch, clear of it (the painted notch grooves the rim)
 REDIRECT_TIP = (-19.0, -5.0)            # same plane, medially to the supratrochlear point
@@ -96,8 +106,21 @@ def build() -> str:
         Label(["Supratrochlear", "nerve"], anchor=(1060, 1010), leader=[(1080, 960), (sxy[0] + 12, sxy[1] + 12)],
               target_id="supratrochlear-mark"),
     ]
+    painted = BASE.exists()
+    if painted:
+        from PIL import Image
+        bw_, bh_ = Image.open(BASE).size
+        height = 1600 * bh_ / bw_
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - height) / 2)}" width="1600" '
+                      f'height="{fmt(height)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if os.environ.get("DEBUG") == "1" else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
     body = f"""
-<g id="anatomy">
+<g id="painting"{base_attr}>{base_image}</g>
+<g id="anatomy"{layout_attr}>
   <rect x="0" y="0" width="1600" height="1200" fill="#5C6670"/>
   <path id="face" d="{path(FACE, closed=True, tension=0.4)}" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
   <path id="brow" d="{path(BROW_R, closed=True, tension=0.6)}" fill="#6B4E3A"/>

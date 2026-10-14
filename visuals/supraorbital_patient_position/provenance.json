@@ -1,0 +1,18 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+ "generatedBy": "owner, in the Gemini app",
+ "date": "2026-10-14",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the supraorbital_patient_position layout (commit 080e9dd draw.py, --reference).",
+ "prompt": "Prompt A (photo variant), new chat, reference only: upper face from the front, lying back, eyes open; a white-gloved index finger from the left edge lying along the bony rim under the left-hand eyebrow, tip near the bridge of the nose; same 4:3 frame, nothing moved; natural skin, brows, eyes, nitrile glove, soft examination light, shallow depth of field; no text, marks, syringes, needles, instruments, extra hands or blood.",
+ "repairs": [
+  "Same chat, prompt C: 'Move the gloved index finger down slightly so it lies just below the left-hand eyebrow...' Result: the finger barely moved (mean change 6/255); not used. A 17 mm finger cannot fit in the 12 mm between brow and lashes, so the finger on the rim covering the lower brow was kept and traced instead.",
+  "Owner, 2026-10-14: 'give the guy green eyes'. Done in code, not Gemini: green_eyes.py (in this folder) shifts only the iris pixels (inside the two traced iris circles, iris hue and darkness only) from hazel to green, keeping texture, catchlights, pupils and lids. Applied to the first photo."
+ ],
+ "rejected": [],
+ "knownLimits": "The finger lies on the rim over the lower half of the eyebrow, so the notch and supratrochlear rings sit at the finger's upper edge, where its pad palpates the rim; the needle tip stays above the finger, in the brow. The syringe and needle are code-drawn."
+}
