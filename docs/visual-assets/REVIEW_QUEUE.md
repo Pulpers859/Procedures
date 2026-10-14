@@ -2,6 +2,8 @@
 
 Last reconciled: 2026-09-29
 
+> **Superseded 2026-10-14:** current status, progress and goals for procedure images live in `visuals/STATUS.md`. This page is the 2026-09-29 snapshot from the earlier Antigravity-draft workflow and is kept for history.
+
 This queue tracks generated procedure visuals that are ready for clinician review or already bundled. A `DECISION: PASS` in a draft folder means the controlling agent found no rubric-critical error and the image is eligible for review. It is not clinical approval.
 
 ## Already Bundled

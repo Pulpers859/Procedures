@@ -133,5 +133,10 @@
       "b": "eye",
       "why": "finger on the rim, not on the eye"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "e3d7d91a85ba220895ee673dfe1843851c562bb2c58b5f84a38a4ac432853eaa",
+    "reviewedOn": "2026-10-14"
+  }
 }

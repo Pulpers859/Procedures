@@ -122,5 +122,10 @@
       "maxLean": 2.6,
       "why": "needle runs shallowly down and medially from above the brow (subcutaneous)"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "25022d32de4018bac47f89c18c59ee8d45b6b7efa39a9a5c98f3ffdd1f5c497b",
+    "reviewedOn": "2026-10-14"
+  }
 }

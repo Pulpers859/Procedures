@@ -10182,9 +10182,9 @@
         "kind": "Setup",
         "title": "Needle entry on the patient",
         "subtitle": "Supine or seated. Needle subcutaneous just above the eyebrow, aimed medially over the notch, with a finger along the orbital rim below the needle.",
-        "assetName": null,
+        "assetName": "supraorbital_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right brow from the front: fingertip on the rim below the notch, needle subcutaneous over the notch, dashed redirect to the supratrochlear.",
         "clinicalWarning": null
       },
       {
@@ -10192,9 +10192,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The supraorbital notch lies on the superior orbital rim, in line with the pupil; the supratrochlear nerve exits slightly medial to it. Never direct the needle into the orbit.",
-        "assetName": null,
+        "assetName": "supraorbital_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right upper face of the skull from the front: the notch on the pupil line, the supratrochlear just medial; the needle stays above the rim.",
         "clinicalWarning": null
       }
     ],
