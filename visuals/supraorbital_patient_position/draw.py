@@ -69,7 +69,7 @@ NOSE = [(-7, 4), (-6.6, 20), (-8.6, 40), (-10, 60), (10, 60), (8.6, 40), (6.6, 2
 FINGER = [(-90, 1.6), (-50, 2.4), (-30, 2.6), (-18, 3.0), (-13.6, 5.0), (-13.4, 9.0), (-17, 11.6), (-30, 12.4),
           (-50, 12.8), (-90, 13.6)]
 ENTRY = (-42.0, -12.0)                  # just above the eyebrow, lateral to the notch
-TIP = (-31.0, -4.6)                     # subcutaneous, over the notch, short of the rim
+TIP = (-31.0, -7.0)                     # subcutaneous, over the notch, clear of it (the painted notch grooves the rim)
 REDIRECT_TIP = (-19.0, -5.0)            # same plane, medially to the supratrochlear point
 U = (lambda dx, dy: (dx / math.hypot(dx, dy), dy / math.hypot(dx, dy)))(TIP[0] - ENTRY[0], TIP[1] - ENTRY[1])
 HUB = (ENTRY[0] - U[0] * 12.0, ENTRY[1] - U[1] * 12.0)

@@ -1,0 +1,15 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini app, Nano Banana Pro (Gemini 3 Pro Image)",
+ "generatedBy": "owner, in the Gemini app",
+ "date": "2026-10-14",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the supraorbital_anatomy layout (commit 080e9dd draw.py, --reference).",
+ "prompt": "Prompt A (dry-bone atlas variant), new chat, reference only: front of an adult skull zoomed on the right upper face, frontal bone filling the top, right orbit with a small dark notch mid-rim and a smaller one nearer the nose, nasal bones, the edge of the left orbit; every outline kept; warm ivory dry bone, soft glossy highlights, brow ridges, smooth rounded rim, deep shadowed orbits; no text, lines, nerves, needles, syringes or instruments.",
+ "repairs": [],
+ "rejected": [],
+ "knownLimits": "Gemini painted the supraorbital notch as a short groove running up from the rim (and the supratrochlear as a smaller one); with the code-drawn nerves exiting through them they read as notches. The needle tip was lifted to 7 mm above the rim so it sits clear of the painted groove. The supratrochlear's position about 12 mm medial to the notch is standard anatomy added; the record says only 'slightly medial'."
+}

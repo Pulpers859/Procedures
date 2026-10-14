@@ -37,7 +37,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="anatomy">
+<g id="painting" data-base-sha256="8983936baa1daa96678d7e8e77eed63f20dc8ef4b891b89d6de50c1098ffec04"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
   <path id="skull" d="M-80,-320 C-109.3,-288 -109.3,1568 -80,1600 C-50.7,1632 1650.7,1632 1680,1600 C1709.3,1568 1709.3,-288 1680,-320 C1650.7,-352 -50.7,-352 -80,-320 Z" fill="url(#bone)"/>
   <path id="orbit" d="M920,800 C913.5,744 887.9,719.7 872,704 C856.1,688.3 812.9,671.9 784,665.6 C755.1,659.3 661.3,650 624,649.6 C586.7,649.2 497.6,654.9 464,662.4 C430.4,669.9 360.3,695.7 336,713.6 C311.7,731.5 269.1,787.3 256,816 C242.9,844.7 225.9,917.1 224,960 C222.1,1002.9 157.9,1157.9 240,1184 C322.1,1210.1 848.7,1228.8 928,1184 C1007.3,1139.2 926.5,856 920,800 Z" fill="#4B3B2E" stroke="#A8977A" stroke-width="5"/>
   <path d="M1320,800 C1326.5,744 1352.1,719.7 1368,704 C1383.9,688.3 1427.1,671.9 1456,665.6 C1484.9,659.3 1578.7,650 1616,649.6 C1653.3,649.2 1742.4,654.9 1776,662.4 C1809.6,669.9 1879.7,695.7 1904,713.6 C1928.3,731.5 1970.9,787.3 1984,816 C1997.1,844.7 2014.1,917.1 2016,960 C2017.9,1002.9 2082.1,1157.9 2000,1184 C1917.9,1210.1 1391.3,1228.8 1312,1184 C1232.7,1139.2 1313.5,856 1320,800 Z" fill="#4B3B2E" stroke="#A8977A" stroke-width="5"/>
@@ -49,11 +50,11 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 <g class="marking">
   <line id="pupil-line" x1="608" y1="649.6" x2="608" y2="1200" stroke="#C8322B" stroke-width="4" stroke-dasharray="14 10" opacity="0.7"/>
   <path d="M624,649.6 C625.3,635.5 628.5,583.7 633.6,544 C638.7,504.3 654.3,424.5 662.4,352 C670.5,279.5 690.1,46.9 694.4,0" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/><path d="M624,649.6 C621,635.5 612.3,583.7 601.6,544 C590.9,504.3 561.5,424.5 544,352 C526.5,279.5 480.2,46.9 470.4,0" fill="none" stroke="#E8C547" stroke-width="6" stroke-linecap="round"/><path id="supratrochlear" d="M816,665.6 C816.9,649.4 819,590.1 822.4,544 C825.8,497.9 836.9,392.5 841.6,320 C846.3,247.5 855.5,42.7 857.6,0" fill="none" stroke="#E8C547" stroke-width="7" stroke-linecap="round"/>
-  <polygon id="syringe" points="258.3,386 -272.7,28.7 -212,-61.5 319.1,295.7" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
+  <polygon id="syringe" points="250.7,418.1 -331.9,153.2 -286.9,54.2 295.7,319" fill="url(#barrel)" stroke="#7D868F" stroke-width="3"/>
   <line id="redirect" x1="448" y1="448" x2="816" y2="560" stroke="#5E6670" stroke-width="6" stroke-dasharray="16 12" opacity="0.85"/>
-  <line id="needle" x1="288.7" y1="340.8" x2="624" y2="566.4" stroke="#5E6670" stroke-width="7"/>
-  <line x1="288.7" y1="340.8" x2="624" y2="566.4" stroke="#D9DEE3" stroke-width="3"/>
-  <circle id="needle-tip" cx="624" cy="566.4" r="5" fill="#5E6670"/>
+  <line id="needle" x1="273.2" y1="368.5" x2="624" y2="528" stroke="#5E6670" stroke-width="7"/>
+  <line x1="273.2" y1="368.5" x2="624" y2="528" stroke="#D9DEE3" stroke-width="3"/>
+  <circle id="needle-tip" cx="624" cy="528" r="5" fill="#5E6670"/>
   <circle id="redirect-tip" cx="816" cy="560" r="5" fill="#5E6670" opacity="0.85"/>
   <circle id="needle-entry" cx="448" cy="448" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
 </g>

@@ -34,19 +34,93 @@
     "Orbit": "orbit"
   },
   "geometry": [
-    {"check": "crosses", "a": "pupil-line", "b": "notch", "why": "notch on the pupil line"},
-    {"check": "leftOf", "a": "notch", "b": "trochlear-notch", "why": "supratrochlear exits medial to the notch"},
-    {"check": "below", "a": "orbit", "b": "notch", "why": "notch on the superior rim, above the orbit"},
-    {"check": "below", "a": "notch", "b": "needle-entry", "why": "entry above the rim"},
-    {"check": "leftOf", "a": "needle-entry", "b": "notch", "why": "needle from lateral, aimed medially"},
-    {"check": "below", "a": "notch", "b": "needle-tip", "why": "tip above the notch, not in it"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "notch", "maxPx": 80, "why": "tip over the notch, about 5 mm above it"},
-    {"check": "noOverlap", "a": "needle", "b": "notch", "why": "the needle does not enter the notch"},
-    {"check": "noOverlap", "a": "needle", "b": "orbit", "why": "never into the orbit"},
-    {"check": "noOverlap", "a": "redirect", "b": "orbit", "why": "the redirect stays above the rim"},
-    {"check": "noOverlap", "a": "redirect", "b": "trochlear-notch", "why": "the redirect stays superficial to the supratrochlear exit"},
-    {"check": "endNear", "a": "redirect", "end": "end", "b": "trochlear-notch", "maxPx": 110, "why": "redirect ends over the supratrochlear exit"},
-    {"check": "crosses", "a": "supratrochlear", "b": "trochlear-notch", "why": "the supratrochlear nerve leaves through its notch"},
-    {"check": "pointsDown", "a": "needle", "maxLean": 2.0, "why": "needle runs down and medially from above the brow"}
+    {
+      "check": "crosses",
+      "a": "pupil-line",
+      "b": "notch",
+      "why": "notch on the pupil line"
+    },
+    {
+      "check": "leftOf",
+      "a": "notch",
+      "b": "trochlear-notch",
+      "why": "supratrochlear exits medial to the notch"
+    },
+    {
+      "check": "below",
+      "a": "orbit",
+      "b": "notch",
+      "why": "notch on the superior rim, above the orbit"
+    },
+    {
+      "check": "below",
+      "a": "notch",
+      "b": "needle-entry",
+      "why": "entry above the rim"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "notch",
+      "why": "needle from lateral, aimed medially"
+    },
+    {
+      "check": "below",
+      "a": "notch",
+      "b": "needle-tip",
+      "why": "tip above the notch, not in it"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "notch",
+      "maxPx": 120,
+      "why": "tip over the notch, about 7 mm above it, clear of it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "notch",
+      "why": "the needle does not enter the notch"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "orbit",
+      "why": "never into the orbit"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "orbit",
+      "why": "the redirect stays above the rim"
+    },
+    {
+      "check": "noOverlap",
+      "a": "redirect",
+      "b": "trochlear-notch",
+      "why": "the redirect stays superficial to the supratrochlear exit"
+    },
+    {
+      "check": "endNear",
+      "a": "redirect",
+      "end": "end",
+      "b": "trochlear-notch",
+      "maxPx": 110,
+      "why": "redirect ends over the supratrochlear exit"
+    },
+    {
+      "check": "crosses",
+      "a": "supratrochlear",
+      "b": "trochlear-notch",
+      "why": "the supratrochlear nerve leaves through its notch"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle",
+      "maxLean": 2.6,
+      "why": "needle runs shallowly down and medially from above the brow (subcutaneous)"
+    }
   ]
 }

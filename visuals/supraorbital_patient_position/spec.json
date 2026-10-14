@@ -80,8 +80,8 @@
       "a": "needle",
       "end": "end",
       "b": "notch-mark",
-      "maxPx": 60,
-      "why": "tip sits just above the notch (about 5 mm), not in it"
+      "maxPx": 90,
+      "why": "tip over the notch, about 7 mm above it, clear of it"
     },
     {
       "check": "below",

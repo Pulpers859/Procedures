@@ -27,7 +27,9 @@ Run: python3 visuals/supraorbital_anatomy/draw.py
 
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -36,6 +38,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 
 ASSET_ID = "supraorbital_anatomy"
+BASE = Path(__file__).with_name("base.jpg")
 PX_MM = 16.0
 ORIGIN = (1120.0, 640.0)          # canvas of x = 0 (midline), y = 0 (superior rim level)
 
@@ -60,7 +63,7 @@ ORBIT_L = [(-x, y) for x, y in ORBIT]
 NASAL = [(-5.5, 8), (-6.5, 20), (-8.5, 34), (8.5, 34), (6.5, 20), (5.5, 8), (0, 5.5)]
 SKULL = [(-75, -60), (-75, 60), (35, 60), (35, -60)]
 ENTRY = (-42.0, -12.0)                  # just above the eyebrow, lateral to the notch
-TIP = (-31.0, -4.6)                     # subcutaneous over the notch, short of the rim
+TIP = (-31.0, -7.0)                     # subcutaneous over the notch, clear of its groove
 REDIRECT_TIP = (-19.0, -5.0)            # same plane, medially to the supratrochlear point
 U = (lambda dx, dy: (dx / math.hypot(dx, dy), dy / math.hypot(dx, dy)))(TIP[0] - ENTRY[0], TIP[1] - ENTRY[1])
 HUB = (ENTRY[0] - U[0] * 12.0, ENTRY[1] - U[1] * 12.0)
@@ -91,12 +94,25 @@ def build() -> str:
               target_id="supratrochlear"),
         Label(["Orbit"], anchor=(560, 1150), leader=[(640, 1100), c((-36, 22))], target_id="orbit"),
     ]
+    painted = BASE.exists()
+    if painted:
+        from PIL import Image
+        bw_, bh_ = Image.open(BASE).size
+        height = 1600 * bh_ / bw_
+        sha = hashlib.sha256(BASE.read_bytes()).hexdigest()
+        base_attr = f' data-base-sha256="{sha}"'
+        base_image = (f'<image href="{BASE.name}" x="0" y="{fmt((1200 - height) / 2)}" width="1600" '
+                      f'height="{fmt(height)}" preserveAspectRatio="none"/>')
+        layout_attr = f' opacity="{0.35 if os.environ.get("DEBUG") == "1" else 0}"'
+    else:
+        base_attr = base_image = layout_attr = ""
     nerves = "".join(
         f'<path{" id=" + chr(34) + k + chr(34) if k == "supratrochlear" else ""} d="{path(pts, tension=0.8)}" '
         f'fill="none" stroke="#E8C547" stroke-width="{7 if k == "supratrochlear" else 6}" stroke-linecap="round"/>'
         for k, pts in NERVES.items())
     body = f"""
-<g id="anatomy">
+<g id="painting"{base_attr}>{base_image}</g>
+<g id="anatomy"{layout_attr}>
   <path id="skull" d="{path(SKULL, closed=True, tension=0.1)}" fill="url(#bone)"/>
   <path id="orbit" d="{path(ORBIT, closed=True, tension=0.7)}" fill="#4B3B2E" stroke="#A8977A" stroke-width="5"/>
   <path d="{path(ORBIT_L, closed=True, tension=0.7)}" fill="#4B3B2E" stroke="#A8977A" stroke-width="5"/>
