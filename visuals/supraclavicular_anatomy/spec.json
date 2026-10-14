@@ -472,5 +472,10 @@
       "b": "corner-bolus",
       "why": "the corner-pocket injection is where the tip sits"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "373f9041e9487e479d0593bdb2798f0d158faa5ffdb3d51b6f670484d4b8f0cb",
+    "reviewedOn": "2026-10-14"
+  }
 }

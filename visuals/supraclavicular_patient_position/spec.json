@@ -79,5 +79,10 @@
       "b": "probe",
       "why": "head turned away; the ear is up and lateral"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "5570eee126c59e633894b9c1be5fc4cdc571c300b52528a4112d82eec6ce3b80",
+    "reviewedOn": "2026-10-14"
+  }
 }

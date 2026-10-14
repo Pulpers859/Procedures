@@ -5955,9 +5955,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine or semi-recumbent, head turned slightly away. Probe transverse in the supraclavicular fossa, aimed caudally. Needle in-plane from lateral to medial.",
-        "assetName": null,
+        "assetName": "supraclavicular_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right neck from above, head turned left, lateral on the left: probe just above and parallel to the clavicle, needle in-plane from lateral.",
         "clinicalWarning": null
       },
       {
@@ -5965,9 +5965,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The plexus lies lateral and superficial to the subclavian artery, which rests on the first rib; the pleura is deep to the rib and medial to the artery. Target the corner pocket: deep to the plexus, superficial to the first rib, lateral to the artery.",
-        "assetName": null,
+        "assetName": "supraclavicular_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right supraclavicular fossa in section under the probe, lateral on the left. Solid needle: the corner pocket; dashed: the redirect over the plexus.",
         "clinicalWarning": null
       }
     ],
