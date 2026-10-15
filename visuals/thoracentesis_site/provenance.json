@@ -1,0 +1,21 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session): the ESP photo with the probe, needle and tubing removed; inset cropped from the approved chest_tube_rib_anatomy painting",
+ "generatedBy": "Owner in the Gemini app; base composited by make_base.py; markings code-drawn by Claude",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "The first esp_patient_position painting.",
+ "repairs": [],
+ "pixelEdits": [
+  "make_base.py pastes a crop of chest_tube_rib_anatomy/base.jpg (one intercostal space) into the lower left with a white border and soft shadow."
+ ],
+ "rejected": "None.",
+ "thirdPartyConcept": "None.",
+ "reference": "No separate layout: built on the ESP painting (layout commit 1bfe7a8) with the equipment removed; the removal came back reframed (C7 about 90 px lower), so landmarks were traced on it directly.",
+ "prompt": "Owner-run removal, new chat with the first ESP photo attached: 'Remove the ultrasound transducer, its cable, the gel, the needle, its hub and the tubing, and paint the patient's normal back skin there instead, like the skin around it. Keep everything else in the image the same.' Delivered at 2400 x 1792; downscaled to 1200 x 896 (tmp/visual-drafts/antigravity/thoracentesis_site/clean_back_1200.jpg).",
+ "reviewNotes": "Site placed on the right posterolateral chest below the scapular tip and toward the flank. Inset needle passes about 3 mm above the lower rib, clear of the bundle under the rib above, tip in the pleural space.",
+ "knownLimits": "The site is a typical one; its level is set by ultrasound. Patient upright with arms at the sides (the record prefers leaning forward over a table, which drops the scapula)."
+}

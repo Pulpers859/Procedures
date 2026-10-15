@@ -1,0 +1,21 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [
+  "Same chat (owner, 2026-10-15: the probe looked goofy without a hand): 'Add one blue-gloved hand coming in from the right edge of the picture, holding the transducer's handle between the thumb and fingers, with its little-finger edge resting lightly on the back, leaving the upper end of the transducer, the gel, the needle and the spine fully visible. Keep everything else in the image the same.' Delivered at 2400 x 1792; downscaled to 1200 x 896."
+ ],
+ "pixelEdits": [],
+ "rejected": "The first painting (no hand): the probe read as lying on its side.",
+ "thirdPartyConcept": "NYSORA ESP photo (Fig-5/7) read for the probe position only; not attached, not committed.",
+ "reference": "Unlabelled render of the esp_patient_position layout (commit 1bfe7a8 draw.py, --reference).",
+ "prompt": "Prompt A (photo), new chat: tmp/visual-drafts/antigravity/esp_patient_position/01_image_prompt.txt.",
+ "reviewNotes": "Overlay after the hand repair: C7, spine, probe face, needle, hub and tubing still lie on the layout within a few pixels. The scapula is not painted, so it is not labelled. Independent review: probe level about T5, 3 cm from the midline.",
+ "knownLimits": "Patient upright with arms at the sides rather than leaning forward. The needle runs about 3 mm beside the probe's centre line."
+}

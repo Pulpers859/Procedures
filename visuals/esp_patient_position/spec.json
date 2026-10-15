@@ -5,18 +5,17 @@
   "view": "The bare back of an adult sitting and leaning slightly forward, from directly behind: head at the top, the patient's right on the image right. Probe position after NYSORA's ESP photo (concept only).",
   "teachingPoint": "The probe stands sagittal about 3 cm from the spinous processes at T5, between the spine and the scapula; the needle enters at its upper end and runs cranial to caudal.",
   "claims": [
-    "Patient sitting (record: sitting or lateral decubitus).",
+    "Patient sitting (record: sitting or lateral decubitus); a gloved hand holds the probe (owner, 2026-10-15).",
     "Probe sagittal about 3 cm lateral to the spinous processes (record), at T5 (NYSORA).",
     "Needle in-plane from the cranial end of the probe (record: usually cranial to caudal).",
     "Spinous processes about 24 mm apart from C7; scapular medial border about 7 cm from the midline, inferior angle near T7 (standard anatomy).",
-    "Labels: Linear probe, Block needle, Spinous processes, Scapula."
+    "Labels: Linear probe, Block needle, Spinous processes (the scapula is not visible on the painting, so it is not labelled)."
   ],
   "requiredElements": ["back", "spine", "c7", "scapula", "head", "probe", "probe-handle", "needle", "needle-entry"],
   "labels": {
     "Linear probe": "probe",
     "Block needle": "needle",
-    "Spinous processes": "spine",
-    "Scapula": "scapula"
+    "Spinous processes": "spine"
   },
   "geometry": [
     {"check": "within", "a": "probe", "b": "back", "why": "probe on the skin"},

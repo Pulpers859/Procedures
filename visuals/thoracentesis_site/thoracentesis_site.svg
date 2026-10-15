@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #B9C3C9; }</style>
+<defs>
+<linearGradient id="g-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="0.5" stop-color="#B9C0C7"/>
+  <stop offset="1" stop-color="#6E777F"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="68f932021f30c21669841e2c9731cd519638e20ceaee69312a37cccded15cca9"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy">
+  <polygon id="chest-right" points="800,300 1290,300 1395,420 1300,640 1290,1195 800,1195" fill="#000" opacity="0"/>
+  <line id="spine" x1="800" y1="290" x2="800" y2="1195" stroke="#000" stroke-width="10" opacity="0"/>
+  <rect id="inset" x="64" y="690" width="440" height="484" fill="#000" opacity="0"/>
+  <ellipse id="inset-lower-rib" cx="314.8" cy="1097" rx="47.3" ry="71.5" fill="#000" opacity="0"/>
+  <rect id="inset-bundle" x="343.4" y="809.9" width="36.3" height="75.9" fill="#000" opacity="0"/>
+  <rect id="inset-pleural-space" x="401.7" y="690" width="102.3" height="484" fill="#000" opacity="0"/>
+</g>
+
+<g class="marking">
+  <rect x="16" y="981.5" width="44" height="22" rx="6" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line x1="46" y1="995.5" x2="443.5" y2="995.5" stroke="#1B2733" stroke-width="12" stroke-linecap="round" opacity="0.55"/>
+  <line id="inset-needle" x1="46" y1="992.5" x2="443.5" y2="992.5" stroke="url(#g-steel)" stroke-width="8" stroke-linecap="round"/>
+  <circle id="inset-needle-tip" cx="440.5" cy="992.5" r="3" fill="#000" opacity="0"/>
+  <circle cx="1180" cy="950" r="26" fill="none" stroke="#F6F7F9" stroke-width="9"/>
+  <circle cx="1180" cy="950" r="26" fill="none" stroke="#D8432A" stroke-width="5"/>
+  <circle id="site" cx="1180" cy="950" r="8" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
+</g>
+
+<g id="labels"><g class="label emphasis" data-label="Marked site" data-target="site"><polyline class="leader-halo" points="1120,1066 1180,954"/><polyline class="leader" points="1120,1066 1180,954"/><circle class="leader-dot" cx="1180" cy="954" r="7"/><text x="1040" y="1110" text-anchor="start"><tspan x="1040" dy="0">Marked site</tspan></text></g><g class="label" data-label="Vein, artery, nerve" data-target="inset-bundle"><polyline class="leader-halo" points="520,846 361.6,847.9"/><polyline class="leader" points="520,846 361.6,847.9"/><circle class="leader-dot" cx="361.6" cy="847.9" r="7"/><text x="530" y="862" text-anchor="start"><tspan x="530" dy="0">Vein, artery, nerve</tspan></text></g><g class="label" data-label="Needle" data-target="inset-needle"><polyline class="leader-halo" points="520,994 403.5,992.5"/><polyline class="leader" points="520,994 403.5,992.5"/><circle class="leader-dot" cx="403.5" cy="992.5" r="7"/><text x="530" y="1010" text-anchor="start"><tspan x="530" dy="0">Needle</tspan></text></g><g class="label" data-label="Lower rib" data-target="inset-lower-rib"><polyline class="leader-halo" points="520,1134 334.8,1117"/><polyline class="leader" points="520,1134 334.8,1117"/><circle class="leader-dot" cx="334.8" cy="1117" r="7"/><text x="530" y="1150" text-anchor="start"><tspan x="530" dy="0">Lower rib</tspan></text></g></g>
+
+</svg>

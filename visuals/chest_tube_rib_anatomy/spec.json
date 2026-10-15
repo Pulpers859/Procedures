@@ -9,16 +9,18 @@
     "Tube passes over the superior border of the lower rib into the pleural space (record).",
     "Bundle in the costal groove between the internal and innermost intercostal muscles, vein highest and nerve lowest (standard anatomy).",
     "Skin, subcutaneous fat and serratus anterior over the ribs at the mid-axillary line (standard anatomy).",
-    "Pleural space drawn opened, lung behind it; a 24 Fr tube (about 8 mm) to scale (schematic).",
-    "Labels: Rib, Vein, artery, nerve, Lower rib, Chest tube, Parietal pleura, Lung."
+    "Pleural space drawn opened, lung behind it; a 24 Fr tube (about 8 mm) to scale, turning cranially inside the pleural space (schematic).",
+    "Every side hole, including the sentinel hole (the most proximal, a gap in the radiopaque line), inside the pleural space (owner, 2026-10-15; record troubleshooting: tube holes in the chest).",
+    "Labels: Rib, Vein, artery, nerve, Lower rib, Sentinel hole, Chest tube, Parietal pleura, Lung."
   ],
   "requiredElements": ["skin", "subcutaneous-fat", "serratus", "external-ic", "internal-ic", "innermost-ic", "pleura", "pleural-space",
                        "visceral-pleura", "lung", "upper-rib", "lower-rib", "upper-bundle", "vein", "artery", "nerve", "lower-bundle",
-                       "tube", "tube-tip"],
+                       "tube", "tube-tip", "tube-crossing", "sentinel-hole"],
   "labels": {
     "Rib": "upper-rib",
     "Vein, artery, nerve": "upper-bundle",
     "Lower rib": "lower-rib",
+    "Sentinel hole": "sentinel-hole",
     "Chest tube": "tube",
     "Parietal pleura": "pleura",
     "Lung": "lung"
@@ -30,9 +32,11 @@
     {"check": "noOverlap", "a": "tube", "b": "upper-bundle", "why": "tube clear of the bundle"},
     {"check": "noOverlap", "a": "tube", "b": "lower-rib", "why": "tube over the rib, not through it"},
     {"check": "noOverlap", "a": "tube", "b": "upper-rib", "why": "tube below the upper rib"},
-    {"check": "below", "a": "tube", "b": "upper-bundle", "why": "tube at the bottom of the space, away from the bundle"},
-    {"check": "below", "a": "lower-rib", "b": "tube", "why": "tube just above the lower rib"},
+    {"check": "below", "a": "tube-crossing", "b": "upper-bundle", "why": "where it crosses the wall, the tube runs at the bottom of the space, away from the bundle"},
+    {"check": "below", "a": "lower-rib", "b": "tube-crossing", "why": "tube just above the lower rib"},
     {"check": "within", "a": "tube-tip", "b": "pleural-space", "why": "tip in the pleural space"},
-    {"check": "noOverlap", "a": "tube", "b": "lung", "why": "tube not into the lung"}
+    {"check": "noOverlap", "a": "tube", "b": "lung", "why": "tube not into the lung"},
+    {"check": "within", "a": "sentinel-hole", "b": "pleural-space", "why": "sentinel hole inside the pleura"},
+    {"check": "noOverlap", "a": "sentinel-hole", "b": "pleura", "why": "sentinel hole clear of the parietal pleura"}
   ]
 }

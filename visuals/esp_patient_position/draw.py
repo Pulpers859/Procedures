@@ -104,7 +104,6 @@ def build() -> str:
         Label(["Linear probe"], anchor=(1060, 860), leader=[(1100, 816), (p1[0] - 6, p1[1] - 20)], target_id="probe"),
         Label(["Block needle"], anchor=(1080, 300), leader=[(1100, 316), ((ne[0] + nh[0]) / 2 + 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
         Label(["Spinous", "processes"], anchor=(330, 900), leader=[(560, 850), c((-1, 9 * SP_STEP))], target_id="spine"),
-        Label(["Scapula"], anchor=(1250, 700), leader=[(1300, 656), scap], target_id="scapula"),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"

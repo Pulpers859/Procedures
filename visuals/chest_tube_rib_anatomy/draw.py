@@ -16,7 +16,10 @@ the ribs at the mid-axillary line; external, internal and innermost
 intercostal muscles; the bundle in the costal groove between the internal
 and innermost layers, vein highest and nerve lowest; endothoracic fascia
 and parietal pleura; the pleural space shown opened (air or fluid) with the
-lung behind it. A 24 Fr tube (about 8 mm) to scale.
+lung behind it. A 24 Fr tube (about 8 mm) to scale, turning cranially in the
+pleural space (schematic) so that every side hole, including the sentinel
+hole (the most proximal, a gap in the radiopaque line), lies inside the
+pleura (owner, 2026-10-15; record troubleshooting: tube holes in the chest).
 
 Millimetres from the skin at the middle of the space (x deep = image right,
 y caudal = image down) at 20 px/mm.
@@ -27,6 +30,7 @@ Run: python3 visuals/chest_tube_rib_anatomy/draw.py
 from __future__ import annotations
 
 import hashlib
+import math
 import os
 import sys
 from pathlib import Path
@@ -48,7 +52,30 @@ F = 0.18                                 # half-thickness of a fascial line (7 p
 UPPER_RIB = ((22.3, -15.0), 4.3, 6.5)
 LOWER_RIB = ((22.3, 15.0), 4.3, 6.5)
 TUBE_Y, TUBE_R = 3.6, 3.6
-TUBE_TIP = 37.0
+BEND_X, BEND_R = 28.0, 7.5               # the tube turns cranially just inside the parietal pleura
+TUBE_TOP = -34.0
+SENTINEL_Y = -5.0                        # most proximal side hole: a gap in the radiopaque line
+HOLES_Y = (-13.5, -22.0)
+
+
+def tube_centreline(n_arc=24):
+    pts = [(-12.0 + i * (BEND_X + 12.0) / 20, TUBE_Y) for i in range(20)]
+    cy = TUBE_Y - BEND_R
+    pts += [(BEND_X + BEND_R * math.sin(math.radians(90 * i / n_arc)), cy + BEND_R * math.cos(math.radians(90 * i / n_arc)))
+            for i in range(n_arc + 1)]
+    x = BEND_X + BEND_R
+    pts += [(x, cy - (cy - TUBE_TOP) * i / 20) for i in range(1, 21)]
+    return pts
+
+
+def offset(pts, d):
+    out = []
+    for i, p in enumerate(pts):
+        a, b = pts[max(i - 1, 0)], pts[min(i + 1, len(pts) - 1)]
+        tx, ty = b[0] - a[0], b[1] - a[1]
+        n = math.hypot(tx, ty) or 1.0
+        out.append((p[0] - ty / n * d, p[1] + tx / n * d))
+    return out
 
 
 def c(p):
@@ -104,8 +131,18 @@ def bundle_svg(parts, suffix, group_id):
 
 
 def build() -> str:
-    tube_x0 = -12.0
-    t0, t1 = c((tube_x0, TUBE_Y - TUBE_R)), c((TUBE_TIP, TUBE_Y + TUBE_R))
+    cl = tube_centreline()
+    outline = [c(q) for q in offset(cl, TUBE_R) + list(reversed(offset(cl, -TUBE_R)))]
+    tube_d = "M" + " L".join(f"{fmt(x)},{fmt(y)}" for x, y in outline) + " Z"
+    stripe = offset(cl, -1.5)
+    vx = BEND_X + BEND_R
+    stripe_a = [c(q) for q in stripe if not (q[0] > vx - 2 and q[1] < SENTINEL_Y + 2.4)]
+    stripe_b = [c(q) for q in stripe if q[0] > vx - 2 and q[1] < SENTINEL_Y - 2.4]
+    line = lambda pts: "M" + " L".join(f"{fmt(x)},{fmt(y)}" for x, y in pts)
+    sentinel = c((vx - 1.5, SENTINEL_Y))
+    holes = "".join(
+        f'<ellipse cx="{fmt(c((vx + 1.5, y))[0])}" cy="{fmt(c((0, y))[1])}" rx="{fmt(1.0 * PX_MM)}" ry="{fmt(1.5 * PX_MM)}" '
+        f'fill="#3E454C" fill-opacity="0.75" stroke="#F4F7F9" stroke-width="3"/>' for y in HOLES_Y)
     W = 'fill="#F8F6F0"'
     M = 'fill="url(#muscle)"'
     upper_rib, lower_rib = c(UPPER_RIB[0]), c(LOWER_RIB[0])
@@ -114,7 +151,8 @@ def build() -> str:
         Label(["Rib"], anchor=(1000, 250), leader=[(990, 236), (upper_rib[0] + 30, upper_rib[1] - 40)], target_id="upper-rib"),
         Label(["Vein, artery, nerve"], anchor=(1000, 420), leader=[(990, 404), (ub[0] + 10, ub[1])], target_id="upper-bundle", emphasis=True),
         Label(["Lower rib"], anchor=(1000, 1000), leader=[(990, 984), (lower_rib[0] + 30, lower_rib[1] + 40)], target_id="lower-rib"),
-        Label(["Chest tube"], anchor=(1100, 760), leader=[(1090, 744), (c((TUBE_TIP - 3, 0))[0], c((0, TUBE_Y + 1))[1])], target_id="tube"),
+        Label(["Sentinel hole"], anchor=(1000, 680), leader=[(990, 664), (sentinel[0] + 6, sentinel[1] + 6)], target_id="sentinel-hole", emphasis=True),
+        Label(["Chest tube"], anchor=(1100, 820), leader=[(1090, 804), c((34.0, 2.0))], target_id="tube"),
         Label(["Parietal pleura"], anchor=(1060, 130), leader=[(1050, 114), (c((PLEURA, 0))[0], 114)], target_id="pleura"),
         Label(["Lung"], anchor=(1380, 560), leader=[(1370, 544), (1330, 544)], target_id="lung"),
     ]
@@ -156,10 +194,13 @@ def build() -> str:
 </g>
 
 <g class="marking">
-  <rect id="tube" x="{fmt(t0[0])}" y="{fmt(t0[1])}" width="{fmt(t1[0] - t0[0])}" height="{fmt(t1[1] - t0[1])}" rx="{fmt(TUBE_R * PX_MM)}"
-        fill="url(#tube-grad)" fill-opacity="0.92" stroke="#7D868F" stroke-width="3"/>
-  <line x1="{fmt(t0[0])}" y1="{fmt(c((0, TUBE_Y + 1.2))[1])}" x2="{fmt(t1[0] - 40)}" y2="{fmt(c((0, TUBE_Y + 1.2))[1])}" stroke="#5E6670" stroke-width="5" stroke-dasharray="26 14"/>
-  <circle id="tube-tip" cx="{fmt(t1[0] - 20)}" cy="{fmt(c((0, TUBE_Y))[1])}" r="4" fill="#000" opacity="0"/>
+  <path id="tube" d="{tube_d}" fill="#E9EEF2" fill-opacity="0.9" stroke="#7D868F" stroke-width="3"/>
+  <path d="{line(stripe_a)}" fill="none" stroke="#4E565E" stroke-width="7" stroke-linecap="round"/>
+  <path d="{line(stripe_b)}" fill="none" stroke="#4E565E" stroke-width="7" stroke-linecap="round"/>
+  {holes}
+  <ellipse id="sentinel-hole" cx="{fmt(sentinel[0])}" cy="{fmt(sentinel[1])}" rx="{fmt(1.0 * PX_MM)}" ry="{fmt(1.5 * PX_MM)}" fill="#3E454C" fill-opacity="0.8" stroke="#F4F7F9" stroke-width="3"/>
+  <circle id="tube-crossing" cx="{fmt(c((22.3, TUBE_Y))[0])}" cy="{fmt(c((0, TUBE_Y))[1])}" r="4" fill="#000" opacity="0"/>
+  <circle id="tube-tip" cx="{fmt(c((vx, -25))[0])}" cy="{fmt(c((0, -25))[1])}" r="4" fill="#000" opacity="0"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>

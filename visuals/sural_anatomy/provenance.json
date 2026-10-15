@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "First painting (layout 1bfe7a8): independent review found the layout buried the fibula 3 cm deep (the lateral malleolus is subcutaneous at the probe's front end), the nerve painted as a rod, and the muscles split into six bellies. Layout redrawn to true scale and repainted.",
+ "thirdPartyConcept": "NYSORA sural reverse-ultrasound plate (Fig-15) and ankle section (Fig-4) read for the anatomy only; not attached, not committed.",
+ "reference": "Unlabelled render of the redrawn true-scale sural_anatomy layout (40 x 27 mm field; this commit's draw.py, --reference).",
+ "prompt": "Prompt A, new chat: tmp/visual-drafts/antigravity/sural_anatomy/02_image_prompt.txt (asks for single-belly muscles and a round nerve).",
+ "reviewNotes": "Overlay: sheath, vein, round nerve, fascia, Achilles, peroneus brevis with the longus tendon, the malleolus and flexor hallucis longus lie on the layout within a few pixels.",
+ "knownLimits": "Peroneus brevis and flexor hallucis longus show large fascicle groups with fine septa inside each belly. Schematic; the sheath around the vein and nerve is house style."
+}
