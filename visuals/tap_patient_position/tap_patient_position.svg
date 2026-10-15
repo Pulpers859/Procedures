@@ -39,8 +39,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy">
+<g id="painting" data-base-sha256="8ad12e8094757384c9eb857acde2a600614c4be53c381a267713d0701b1b7fb3"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
   <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
   <path id="body" d="M-64,-96 C22.4,-147.8 1577.6,-148.2 1664,-96 C1750.4,-43.8 1683.2,896.3 1664,947.2 C1644.8,998.1 1323.2,923.8 1280,921.6 C1236.8,919.4 848,902.7 800,902.4 C752,902.1 363.2,913.3 320,915.2 C276.8,917.1 -44.8,991.4 -64,940.8 C-83.2,890.2 -150.4,-44.2 -64,-96 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
   <path id="costal" d="M-64,-96 C-52.3,-165.1 98.1,-110.9 112,-96 C125.9,-81.1 130.1,103.5 144,128 C157.9,152.5 298.7,251.9 320,272 C341.3,292.1 447.8,408.1 464,428.8 C480.2,449.5 553.2,561.9 563.2,582.4 C573.2,602.9 610.1,716.8 614.4,736 C618.7,755.2 627.6,857.6 627.2,870.4 C626.8,883.2 654.1,923.3 608,928 C561.9,932.7 -19.2,1009.1 -64,940.8 C-108.8,872.5 -75.7,-26.9 -64,-96 Z" fill="#E4B59B" stroke="#CFA086" stroke-width="2"/>
@@ -57,6 +57,11 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <rect id="probe" x="787.2" y="579.2" width="25.6" height="121.6" rx="12" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
 </g>
 
-<g id="labels"><g class="label" data-label="Costal margin" data-target="costal"><polyline class="leader-halo" points="330,488 422.4,480"/><polyline class="leader" points="330,488 422.4,480"/><circle class="leader-dot" cx="422.4" cy="480" r="7"/><text x="40" y="470" text-anchor="start"><tspan x="40" dy="0">Costal margin</tspan></text></g><g class="label" data-label="Iliac crest" data-target="iliac"><polyline class="leader-halo" points="1300,380 1107.2,492.8"/><polyline class="leader" points="1300,380 1107.2,492.8"/><circle class="leader-dot" cx="1107.2" cy="492.8" r="7"/><text x="1260" y="360" text-anchor="start"><tspan x="1260" dy="0">Iliac crest</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1000,820 806.8,680.8"/><polyline class="leader" points="1000,820 806.8,680.8"/><circle class="leader-dot" cx="806.8" cy="680.8" r="7"/><text x="980" y="860" text-anchor="start"><tspan x="980" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="640,320 796.8,513.6"/><polyline class="leader" points="640,320 796.8,513.6"/><circle class="leader-dot" cx="796.8" cy="513.6" r="7"/><text x="420" y="300" text-anchor="start"><tspan x="420" dy="0">Block needle</tspan></text></g></g>
+<g class="marking">
+  <line id="mal" x1="400" y1="640" x2="773.2" y2="640" stroke="#F6F7F9" stroke-width="10" stroke-dasharray="20 12" stroke-linecap="round" opacity="0.9"/>
+  <line x1="400" y1="640" x2="773.2" y2="640" stroke="#4A2F7A" stroke-width="5" stroke-dasharray="20 12" stroke-linecap="round"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Mid-axillary line" data-target="mal"><polyline class="leader-halo" points="420,744 520,640"/><polyline class="leader" points="420,744 520,640"/><circle class="leader-dot" cx="520" cy="640" r="7"/><text x="40" y="760" text-anchor="start"><tspan x="40" dy="0">Mid-axillary line</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1000,820 806.8,680.8"/><polyline class="leader" points="1000,820 806.8,680.8"/><circle class="leader-dot" cx="806.8" cy="680.8" r="7"/><text x="980" y="860" text-anchor="start"><tspan x="980" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="640,320 796.8,513.6"/><polyline class="leader" points="640,320 796.8,513.6"/><circle class="leader-dot" cx="796.8" cy="513.6" r="7"/><text x="420" y="300" text-anchor="start"><tspan x="420" dy="0">Block needle</tspan></text></g></g>
 
 </svg>

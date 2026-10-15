@@ -24,6 +24,10 @@ the mid-axillary line; the umbilicus toward the midline.
 Millimetres from the probe centre (x toward the feet = image right, y toward
 the back = image down) at 3.2 px/mm.
 
+Painted version (2026-10-15): the costal margin is under the gown and the hand
+covers the iliac crest, so those are not labelled; a dashed mid-axillary line
+is drawn through the probe face instead (record: mid-axillary line).
+
 Run: python3 visuals/tap_patient_position/draw.py
 """
 
@@ -87,8 +91,7 @@ def build() -> str:
              f"{fmt(q(110, 30)[0])},{fmt(q(0, 30)[1])} {fmt(q(160, 130)[0])},1260")
     tubing = f"M{fmt(nh[0])},{fmt(nh[1])} C{fmt(nh[0] - 20)},{fmt(nh[1] - 80)} {fmt(nh[0] - 150)},{fmt(nh[1] - 120)} {fmt(nh[0] - 330)},-40"
     labels = [
-        Label(["Costal margin"], anchor=(40, 470), leader=[(330, 488), c((-118, -50))], target_id="costal"),
-        Label(["Iliac crest"], anchor=(1260, 360), leader=[(1300, 380), c((96, -46))], target_id="iliac"),
+        Label(["Mid-axillary line"], anchor=(40, 760), leader=[(420, 744), (520, c((0, 0))[1])], target_id="mal"),
         Label(["Linear probe"], anchor=(980, 860), leader=[(1000, 820), (p1[0] - 6, p1[1] - 20)], target_id="probe"),
         Label(["Block needle"], anchor=(420, 300), leader=[(640, 320), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
     ]
@@ -121,6 +124,11 @@ def build() -> str:
   <path d="{cable}" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
   <path id="probe-handle" d="{handle}" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
   <rect id="probe" x="{fmt(p0[0])}" y="{fmt(p0[1])}" width="{fmt(p1[0] - p0[0])}" height="{fmt(p1[1] - p0[1])}" rx="12" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+</g>
+
+<g class="marking">
+  <line id="mal" x1="{fmt(c((-125, 0))[0])}" y1="{fmt(c((0, 0))[1])}" x2="{fmt(p0[0] - 14)}" y2="{fmt(c((0, 0))[1])}" stroke="#F6F7F9" stroke-width="10" stroke-dasharray="20 12" stroke-linecap="round" opacity="0.9"/>
+  <line x1="{fmt(c((-125, 0))[0])}" y1="{fmt(c((0, 0))[1])}" x2="{fmt(p0[0] - 14)}" y2="{fmt(c((0, 0))[1])}" stroke="#4A2F7A" stroke-width="5" stroke-dasharray="20 12" stroke-linecap="round"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>

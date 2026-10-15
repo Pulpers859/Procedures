@@ -9,22 +9,80 @@
     "Probe transverse on the lateral abdominal wall at the mid-axillary line, midway between the costal margin and the iliac crest (record).",
     "Needle in-plane from the anterior end, aimed posteriorly (record: anterior to posterior or the reverse).",
     "Costal margin and iliac crest about 11 cm apart at the mid-axillary line (typical adult).",
-    "Labels: Costal margin, Iliac crest, Linear probe, Block needle."
+    "A gloved hand holds the probe (owner, 2026-10-15).",
+    "Dashed mid-axillary line through the probe face; the costal margin (under the gown) and the iliac crest (under the hand) are not labelled.",
+    "Labels: Mid-axillary line, Linear probe, Block needle."
   ],
-  "requiredElements": ["body", "costal", "iliac", "umbilicus", "probe", "probe-handle", "needle", "needle-entry"],
+  "requiredElements": [
+    "body",
+    "costal",
+    "iliac",
+    "umbilicus",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry",
+    "mal"
+  ],
   "labels": {
-    "Costal margin": "costal",
-    "Iliac crest": "iliac",
+    "Mid-axillary line": "mal",
     "Linear probe": "probe",
     "Block needle": "needle"
   },
   "geometry": [
-    {"check": "within", "a": "probe", "b": "body", "why": "probe on the skin"},
-    {"check": "leftOf", "a": "costal", "b": "probe", "why": "probe below (caudal to) the costal margin"},
-    {"check": "leftOf", "a": "probe", "b": "iliac", "why": "probe above (cranial to) the iliac crest"},
-    {"check": "below", "a": "probe", "b": "needle-entry", "why": "needle enters at the anterior end"},
-    {"check": "pointsDown", "a": "needle", "maxLean": 0.15, "why": "needle in line with the probe, anterior to posterior"},
-    {"check": "within", "a": "needle-entry", "b": "body", "why": "needle enters the skin"},
-    {"check": "noOverlap", "a": "needle", "b": "probe", "why": "needle beside, in line with, the probe"}
+    {
+      "check": "within",
+      "a": "probe",
+      "b": "body",
+      "why": "probe on the skin"
+    },
+    {
+      "check": "leftOf",
+      "a": "costal",
+      "b": "probe",
+      "why": "probe below (caudal to) the costal margin"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "iliac",
+      "why": "probe above (cranial to) the iliac crest"
+    },
+    {
+      "check": "below",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle enters at the anterior end"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle",
+      "maxLean": 0.15,
+      "why": "needle in line with the probe, anterior to posterior"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "body",
+      "why": "needle enters the skin"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "probe",
+      "why": "needle beside, in line with, the probe"
+    },
+    {
+      "check": "crosses",
+      "a": "mal",
+      "b": "body",
+      "why": "line on the flank"
+    },
+    {
+      "check": "leftOf",
+      "a": "mal",
+      "b": "probe",
+      "why": "line runs up to the probe face"
+    }
   ]
 }

@@ -1,0 +1,23 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "pixelEdits": [
+  "Delivered at 2400 x 1792; downscaled to 1200 x 896."
+ ],
+ "reference": "Unlabelled render of the tibial_nerve_patient_position layout (commit f2c7045 draw.py, --reference).",
+ "prompt": "Prompt A (photo), new chat: tmp/visual-drafts/antigravity/tibial_nerve_patient_position/01_image_prompt.txt.",
+ "repairs": [
+  "Same chat: 'Paint the inner ankle bone just below the transducer as a clear, rounded bony prominence under the skin with soft highlight and shadow, the clearest landmark on the ankle, and the area in front of it as smooth skin. Keep everything else in the image the same.'"
+ ],
+ "rejected": "First painting: the malleolus barely visible (independent review).",
+ "reviewNotes": "Overlay: foot, Achilles, malleolus, probe face, needle and hub on the layout; the needle enters the skin behind the probe. Each repair was diffed against the painting before it; changes stayed inside the repaired area.",
+ "knownLimits": "Upright probe without a hand, as the approved sural plate. Foot planted rather than externally rotated on the bed.",
+ "thirdPartyConcept": "NYSORA tibial photo read for the camera only; not attached, not committed."
+}

@@ -8,14 +8,16 @@
   896
  ],
  "promptAttachments": "Image 1: the layout reference.",
- "repairs": [],
  "pixelEdits": [
   "Delivered at 2400 x 1792; downscaled to 1200 x 896."
  ],
- "rejected": "None.",
  "reference": "Unlabelled render of the ulnar_nerve_anatomy layout (commit f2c7045 draw.py, --reference).",
  "prompt": "Prompt A, new chat: tmp/visual-drafts/antigravity/ulnar_nerve_anatomy/01_image_prompt.txt.",
- "reviewNotes": "Overlay near-exact. Independent review: nerve medial to the artery in one sheath with the FCU tendon over the gap, as NYSORA. FDP fibres swirl around the ulna (optional fibre repair offered).",
- "knownLimits": "Field about 62 mm wide; the median nerve, which would lie between FDS and FDP in the left third, is not drawn.",
- "thirdPartyConcept": "NYSORA ulnar reverse-ultrasound plate (wrist block Fig-7) read for the layout only; not attached, not committed."
+ "repairs": [
+  "Same chat: 'Paint the large lower muscle with fine parallel maroon fibres running gently left to right, like the two upper muscles. Keep everything else in the image the same.'"
+ ],
+ "rejected": "None (first painting kept; FDP fibres repaired).",
+ "reviewNotes": "Overlay near-exact. Nerve medial to the artery in one sheath with the FCU tendon over the gap, as NYSORA. Each repair was diffed against the painting before it; changes stayed inside the repaired area.",
+ "knownLimits": "Field about 62 mm wide; the median nerve is not drawn.",
+ "thirdPartyConcept": "NYSORA ulnar reverse-ultrasound plate read for the layout only; not attached, not committed."
 }

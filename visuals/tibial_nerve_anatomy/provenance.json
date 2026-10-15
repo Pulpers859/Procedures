@@ -1,0 +1,23 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "pixelEdits": [
+  "Delivered at 2400 x 1792; downscaled to 1200 x 896."
+ ],
+ "reference": "Unlabelled render of the tibial_nerve_anatomy layout (commit f2c7045 draw.py, --reference).",
+ "prompt": "Prompt A, new chat: tmp/visual-drafts/antigravity/tibial_nerve_anatomy/01_image_prompt.txt.",
+ "repairs": [
+  "Same chat: 'Paint the wide white band just under the skin as small rounded golden fat lobules with fine pale septa, like the fat lower down, with the thin bright white line beneath it as the only fibrous sheet. Keep everything else in the image the same.'"
+ ],
+ "rejected": "First painting: subcutaneous fat painted as a thick fibrous sheet (independent review).",
+ "reviewNotes": "Overlay: malleolus, tendons, sheath with the artery, paired veins and nerve, Achilles and FHL on the layout. Each repair was diffed against the painting before it; changes stayed inside the repaired area.",
+ "knownLimits": "FHL shows a central seam; the tibialis posterior tendon is not seated in the malleolar groove; no tendon drawn inside FHL.",
+ "thirdPartyConcept": "NYSORA tibial reverse-ultrasound plate (ankle block Fig-8) read for the layout only; not attached, not committed."
+}

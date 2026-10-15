@@ -1,0 +1,24 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "pixelEdits": [
+  "Delivered at 2400 x 1792; downscaled to 1200 x 896."
+ ],
+ "reference": "Unlabelled render of the tap_patient_position layout (commit f2c7045 draw.py, --reference).",
+ "prompt": "Prompt A (photo), new chat: tmp/visual-drafts/antigravity/tap_patient_position/01_image_prompt.txt.",
+ "repairs": [
+  "Same chat: stand the transducer upright with the face in place.",
+  "Same chat, prompt 5b: one blue-gloved hand from the right holding the transducer."
+ ],
+ "rejected": "First painting: probe lying on its side (independent review; the layout drew the handle in the skin plane).",
+ "reviewNotes": "Overlay after the hand: probe face, needle and hub on the layout. The costal margin is under the gown and the iliac crest under the hand, so a dashed mid-axillary line is drawn through the probe face instead. Each repair was diffed against the painting before it; changes stayed inside the repaired area.",
+ "knownLimits": "Costal margin and iliac crest not visible; the caption carries 'midway between'.",
+ "thirdPartyConcept": "None."
+}

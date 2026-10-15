@@ -1,0 +1,24 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "pixelEdits": [
+  "Delivered at 2400 x 1792; downscaled to 1200 x 896."
+ ],
+ "reference": "Unlabelled render of the transgluteal_patient_position layout (commit f2c7045 draw.py, --reference).",
+ "prompt": "Prompt A (photo), new chat: tmp/visual-drafts/antigravity/transgluteal_patient_position/01_image_prompt.txt.",
+ "repairs": [
+  "Same chat: smooth the lateral hip (the greater trochanter painted as a lump).",
+  "Same chat, prompt 3b: one blue-gloved hand from the top holding the transducer, leaving the face, gel, needle and fold visible."
+ ],
+ "rejected": "First painting: the greater trochanter painted as a discrete lump (independent review).",
+ "reviewNotes": "Overlay after the hand: probe face, needle entry, hub and gluteal fold on the layout. Each repair was diffed against the painting before it; changes stayed inside the repaired area.",
+ "knownLimits": "The hand grips the strain relief above the handle. Greater trochanter label points at a faint fullness, not a sharp landmark.",
+ "thirdPartyConcept": "None."
+}
