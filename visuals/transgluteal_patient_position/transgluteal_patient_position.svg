@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #8FB8C9; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E2B69C"/><stop offset="0.5" stop-color="#F0CDB6"/>
+  <stop offset="1" stop-color="#D9A88C"/></linearGradient>
+<linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FB8C9"/><stop offset="1" stop-color="#6F9FB4"/></linearGradient>
+<linearGradient id="probe-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9ECEF"/><stop offset="1" stop-color="#B9C0C7"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting"></g>
+<g id="anatomy">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
+  <path id="left-side" d="M-160,-48 C-120.8,-134.4 388.5,-80 428,-48 C467.5,-16 432,390.4 432.8,432 C433.6,473.6 441.9,560.8 440,576 C438.1,591.2 411.2,651.7 404,660 C396.8,668.3 339.2,690.4 332,700.8 C324.8,711.2 300,795.5 296,816 C292,836.5 274.6,979.2 272,1008 C269.4,1036.8 286.4,1232 257.6,1248 C228.8,1264 -132.2,1334.4 -160,1248 C-187.8,1161.6 -199.2,38.4 -160,-48 Z" fill="#E6BBA1" stroke="#B98A74" stroke-width="3"/>
+  <path id="buttock" d="M428,-48 C381.1,-16 432,390.4 432.8,432 C433.6,473.6 437.9,560.8 440,576 C442.1,591.2 458.9,651.4 464,660 C469.1,668.6 512.3,695.2 516.8,705.6 C521.3,716 529.3,795.8 531.2,816 C533.1,836.2 543.7,979.2 545.6,1008 C547.5,1036.8 523,1232 560,1248 C597,1264 1063.5,1264 1100,1248 C1136.5,1232 1105.1,1036.8 1107.2,1008 C1109.3,979.2 1127.7,841.6 1131.2,816 C1134.7,790.4 1156.2,648 1160,624 C1163.8,600 1186.4,476.8 1188.8,456 C1191.2,435.2 1197.9,334.4 1196,312 C1194.1,289.6 1164,144 1160,120 C1156,96 1184.8,-36.8 1136,-48 C1087.2,-59.2 474.9,-80 428,-48 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <clipPath id="right-clip"><path d="M428,-48 C381.1,-16 432,390.4 432.8,432 C433.6,473.6 437.9,560.8 440,576 C442.1,591.2 458.9,651.4 464,660 C469.1,668.6 512.3,695.2 516.8,705.6 C521.3,716 529.3,795.8 531.2,816 C533.1,836.2 543.7,979.2 545.6,1008 C547.5,1036.8 523,1232 560,1248 C597,1264 1063.5,1264 1100,1248 C1136.5,1232 1105.1,1036.8 1107.2,1008 C1109.3,979.2 1127.7,841.6 1131.2,816 C1134.7,790.4 1156.2,648 1160,624 C1163.8,600 1186.4,476.8 1188.8,456 C1191.2,435.2 1197.9,334.4 1196,312 C1194.1,289.6 1164,144 1160,120 C1156,96 1184.8,-36.8 1136,-48 C1087.2,-59.2 474.9,-80 428,-48 Z"/></clipPath>
+  <ellipse id="mound" cx="656" cy="432" rx="396" ry="228" fill="#F2D3BE" clip-path="url(#right-clip)"/>
+  <path id="cleft" d="M-160,-48 C-101.2,-48 368.7,-96 428,-48 C487.3,0 431.6,369.6 432.8,432 C434,494.4 442.9,553.2 440,576 C437.1,598.8 414.8,647.5 404,660 C393.2,672.5 342.8,685.2 332,700.8 C321.2,716.4 302,785.3 296,816 C290,846.7 275.8,964.8 272,1008 C268.2,1051.2 300.8,1224 257.6,1248 C214.4,1272 -118.2,1248 -160,1248" fill="none" stroke="#B98A74" stroke-width="5"/>
+  <ellipse id="trochanter" cx="1136" cy="492" rx="43.2" ry="57.6" fill="#E8BCA2" stroke="#D2A487" stroke-width="2"/>
+  <path id="fold" d="M464,631.4 C466.4,632.1 483.2,637.2 488,638.5 C492.8,639.8 507.2,643.3 512,644.4 C516.8,645.5 531.2,648.4 536,649.3 C540.8,650.2 555.2,652.5 560,653.2 C564.8,653.9 579.2,655.7 584,656.2 C588.8,656.7 603.2,658 608,658.3 C612.8,658.7 627.2,659.4 632,659.6 C636.8,659.7 651.2,660 656,660 C660.8,660 675.2,659.7 680,659.6 C684.8,659.4 699.2,658.7 704,658.3 C708.8,658 723.2,656.7 728,656.2 C732.8,655.7 747.2,653.9 752,653.2 C756.8,652.5 771.2,650.2 776,649.3 C780.8,648.4 795.2,645.5 800,644.4 C804.8,643.3 819.2,639.8 824,638.5 C828.8,637.2 843.2,632.9 848,631.4 C852.8,629.9 867.2,624.9 872,623.1 C876.8,621.3 891.2,615.5 896,613.4 C900.8,611.2 915.2,604.4 920,601.9 C924.8,599.5 941.6,589.8 944,588.5" fill="none" stroke="#B98A74" stroke-width="6" stroke-linecap="round"/>
+  <path d="M963.2,705.6 C1043.2,695.6 1103.2,825.6 1163.2,1240" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
+  <rect x="959.2" y="696.6" width="38" height="18" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line id="needle" x1="963.2" y1="705.6" x2="884" y2="720" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="884" cy="720" r="4" fill="#9E6B5A"/>
+  <path id="probe-handle" d="M742.4,707.2 C752,681.6 773.6,648 780.8,595.2 L819.2,595.2 C826.4,648 848,681.6 857.6,707.2 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <path d="M800,595.2 C800,561.6 752,504 704,-20" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
+  <rect id="probe" x="728" y="703.2" width="144" height="33.6" rx="20" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Gluteal fold" data-target="fold"><polyline class="leader-halo" points="330,420 608,658.3"/><polyline class="leader" points="330,420 608,658.3"/><circle class="leader-dot" cx="608" cy="658.3" r="7"/><text x="40" y="400" text-anchor="start"><tspan x="40" dy="0">Gluteal fold</tspan></text></g><g class="label" data-label="Greater trochanter" data-target="trochanter"><polyline class="leader-halo" points="1320,276 1136,492"/><polyline class="leader" points="1320,276 1136,492"/><circle class="leader-dot" cx="1136" cy="492" r="7"/><text x="1280" y="240" text-anchor="start"><tspan x="1280" dy="0">Greater</tspan><tspan x="1280" dy="66">trochanter</tspan></text></g><g class="label" data-label="Curved probe" data-target="probe"><polyline class="leader-halo" points="600,900 758,726.8"/><polyline class="leader" points="600,900 758,726.8"/><circle class="leader-dot" cx="758" cy="726.8" r="7"/><text x="330" y="940" text-anchor="start"><tspan x="330" dy="0">Curved probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="1100,820 923.6,712.8"/><polyline class="leader" points="1100,820 923.6,712.8"/><circle class="leader-dot" cx="923.6" cy="712.8" r="7"/><text x="1060" y="860" text-anchor="start"><tspan x="1060" dy="0">Block needle</tspan></text></g></g>
+
+</svg>

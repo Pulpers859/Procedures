@@ -1,0 +1,72 @@
+{
+  "assetId": "tibial_nerve_patient_position",
+  "procedure": "block_tibial_nerve",
+  "title": "Probe and needle on the patient",
+  "view": "The inner side of the right ankle and foot, leg rolled outward: leg up out of the top, toes to the left, heel at the lower right, Achilles tendon up the right edge. The sural positioning view mirrored to the medial side; camera after NYSORA's tibial photo (concept only).",
+  "teachingPoint": "The probe lies transverse in the groove between the medial malleolus and the Achilles tendon, just above the malleolar tip; the needle enters in line with it from the back.",
+  "claims": [
+    "Right foot externally rotated so the medial side faces up (record: supine, foot externally rotated).",
+    "Probe transverse behind the medial malleolus, its face spanning the groove between the malleolus and the Achilles tendon (record).",
+    "Needle in-plane from the posterior (Achilles) end of the probe, as on the section plate (record: in-plane; NYSORA: posterior end).",
+    "Labels: Medial malleolus, Achilles tendon, Linear probe, Block needle."
+  ],
+  "requiredElements": [
+    "foot",
+    "med-malleolus",
+    "achilles",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Medial malleolus": "med-malleolus",
+    "Achilles tendon": "achilles",
+    "Linear probe": "probe",
+    "Block needle": "needle"
+  },
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "med-malleolus",
+      "b": "achilles",
+      "why": "Achilles behind the malleolus (posterior on the right)"
+    },
+    {
+      "check": "leftOf",
+      "a": "med-malleolus",
+      "b": "probe",
+      "why": "probe behind the malleolus"
+    },
+    {
+      "check": "below",
+      "a": "med-malleolus",
+      "b": "probe",
+      "why": "probe just above the malleolar tip"
+    },
+    {
+      "check": "within",
+      "a": "probe",
+      "b": "foot",
+      "why": "probe on the skin"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle from the posterior end"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "foot",
+      "why": "needle enters the skin"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "probe",
+      "why": "needle beside, in line with, the probe"
+    }
+  ]
+}

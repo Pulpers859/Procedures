@@ -1,0 +1,39 @@
+{
+  "assetId": "tap_anatomy",
+  "procedure": "block_tap",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right lateral abdominal wall at the mid-axillary line, midway between the costal margin and the iliac crest, under a transverse probe, as on ultrasound: posterior on the image left, anterior on the right, skin at the top.",
+  "teachingPoint": "The needle passes external and internal oblique; the tip sits in the plane between internal oblique and transversus abdominis, where the segmental nerves run, and the injectate opens that plane.",
+  "claims": [
+    "Probe transverse at the mid-axillary line midway between the costal margin and the iliac crest (record).",
+    "External oblique, internal oblique and transversus abdominis over the peritoneum; the target is the plane between internal oblique and transversus (record).",
+    "Segmental nerve with a small artery in the plane, in its own sheath; transversalis fascia, preperitoneal fat, peritoneum and bowel deep (standard anatomy; house style for the sheath).",
+    "Needle in-plane from the anterior end, tip through the internal oblique fascia into the plane (record: anterior to posterior; pops through the internal oblique fascia).",
+    "Teal: spread opening the plane between internal oblique and transversus (record).",
+    "Labels: External oblique, Internal oblique, Transversus abdominis, TAP plane, Peritoneum."
+  ],
+  "requiredElements": ["skin", "subcutaneous-fat", "eo", "io", "ta", "tap-plane", "transversalis", "peritoneum", "nerve-sheath", "nerve", "artery",
+                       "bowel-0", "probe", "needle", "needle-entry", "needle-tip", "spread"],
+  "labels": {
+    "External oblique": "eo",
+    "Internal oblique": "io",
+    "Transversus abdominis": "ta",
+    "TAP plane": "tap-plane",
+    "Peritoneum": "peritoneum"
+  },
+  "geometry": [
+    {"check": "below", "a": "io", "b": "eo", "why": "internal oblique deep to external oblique"},
+    {"check": "below", "a": "ta", "b": "io", "why": "transversus deepest"},
+    {"check": "below", "a": "peritoneum", "b": "ta", "why": "peritoneum deep to the muscles"},
+    {"check": "within", "a": "nerve", "b": "nerve-sheath", "why": "nerve in its sheath"},
+    {"check": "crosses", "a": "nerve-sheath", "b": "tap-plane", "why": "nerve runs in the plane"},
+    {"check": "leftOf", "a": "needle-tip", "b": "needle-entry", "why": "needle from the anterior end (anterior on the right)"},
+    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle enters beyond the probe's anterior end"},
+    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
+    {"check": "crosses", "a": "spread", "b": "tap-plane", "why": "spread in the plane"},
+    {"check": "noOverlap", "a": "spread", "b": "fascia-eo-io", "why": "spread below internal oblique, not between the obliques"},
+    {"check": "noOverlap", "a": "spread", "b": "peritoneum", "why": "spread superficial to the peritoneum"},
+    {"check": "noOverlap", "a": "needle", "b": "peritoneum", "why": "needle stays above the peritoneum"},
+    {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread reaches the nerve"}
+  ]
+}

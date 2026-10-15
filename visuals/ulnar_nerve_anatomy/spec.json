@@ -1,0 +1,40 @@
+{
+  "assetId": "ulnar_nerve_anatomy",
+  "procedure": "block_ulnar_nerve",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right mid-forearm, palm up, under a linear probe on the volar-ulnar side, as on ultrasound: radial (FDS) on the image left, ulnar (FCU, ulna) on the right, volar skin at the top - the same way round as the median section. Composition after NYSORA's plate (concept only).",
+  "teachingPoint": "Deep to FCU the ulnar nerve lies just medial to the ulnar artery in the same fascial plane; the needle comes in from the medial side and the spread surrounds the nerve and reaches the nerve/artery border.",
+  "claims": [
+    "Probe transverse on the volar forearm over the ulnar artery (record).",
+    "Nerve directly medial to the artery, oval, deep to FCU, in the same fascial plane as the artery (record).",
+    "FDS radial, FCU ulnar and superficial with its tendon just over the artery, FDP deep, ulna under FDP on the ulnar side (standard anatomy; NYSORA note on the FCU tendon).",
+    "Needle in-plane from the medial (ulnar) side, tip at the medial surface of the nerve (record).",
+    "Teal: spread around the nerve and up to the nerve/artery border (record).",
+    "Labels: Ulnar nerve, Ulnar artery, Flexor carpi ulnaris, FDS, FDP, Ulna."
+  ],
+  "requiredElements": ["skin", "subcutaneous-fat", "antebrachial-fascia", "fcu", "fcu-tendon", "fds", "fdp", "sheath", "artery", "nerve",
+                       "ulna", "probe", "needle", "needle-entry", "needle-tip", "spread"],
+  "labels": {
+    "Ulnar nerve": "nerve",
+    "Ulnar artery": "artery",
+    "Flexor carpi ulnaris": "fcu",
+    "FDS": "fds",
+    "FDP": "fdp",
+    "Ulna": "ulna"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "artery", "b": "nerve", "why": "nerve medial (ulnar, image right) to the artery"},
+    {"check": "below", "a": "nerve", "b": "fcu-tendon", "why": "nerve deep to FCU"},
+    {"check": "within", "a": "nerve", "b": "sheath", "why": "nerve in the fascial plane, not in fat"},
+    {"check": "within", "a": "artery", "b": "sheath", "why": "artery in the same plane"},
+    {"check": "noOverlap", "a": "nerve", "b": "fcu", "why": "nerve not in muscle"},
+    {"check": "noOverlap", "a": "nerve", "b": "fdp", "why": "nerve not in muscle"},
+    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle in-plane from the medial side"},
+    {"check": "noOverlap", "a": "needle", "b": "nerve", "why": "tip beside, not into, the nerve"},
+    {"check": "noOverlap", "a": "needle", "b": "artery", "why": "needle clear of the artery"},
+    {"check": "noOverlap", "a": "needle", "b": "ulna", "why": "needle stays superficial"},
+    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
+    {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread around the nerve"},
+    {"check": "leftOf", "a": "artery", "b": "spread", "why": "spread reaches the nerve/artery border from the nerve side"}
+  ]
+}

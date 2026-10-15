@@ -1,0 +1,30 @@
+{
+  "assetId": "tap_patient_position",
+  "procedure": "block_tap",
+  "title": "Probe and needle on the patient",
+  "view": "The right side of the abdomen of a supine adult, seen from above the right flank: head off the left, feet off the right, the umbilicus toward the top, the flank meeting the drape along the bottom.",
+  "teachingPoint": "The probe lies transverse on the mid-axillary line midway between the costal margin and the iliac crest; the needle enters at its anterior end.",
+  "claims": [
+    "Supine, abdomen exposed (record).",
+    "Probe transverse on the lateral abdominal wall at the mid-axillary line, midway between the costal margin and the iliac crest (record).",
+    "Needle in-plane from the anterior end, aimed posteriorly (record: anterior to posterior or the reverse).",
+    "Costal margin and iliac crest about 11 cm apart at the mid-axillary line (typical adult).",
+    "Labels: Costal margin, Iliac crest, Linear probe, Block needle."
+  ],
+  "requiredElements": ["body", "costal", "iliac", "umbilicus", "probe", "probe-handle", "needle", "needle-entry"],
+  "labels": {
+    "Costal margin": "costal",
+    "Iliac crest": "iliac",
+    "Linear probe": "probe",
+    "Block needle": "needle"
+  },
+  "geometry": [
+    {"check": "within", "a": "probe", "b": "body", "why": "probe on the skin"},
+    {"check": "leftOf", "a": "costal", "b": "probe", "why": "probe below (caudal to) the costal margin"},
+    {"check": "leftOf", "a": "probe", "b": "iliac", "why": "probe above (cranial to) the iliac crest"},
+    {"check": "below", "a": "probe", "b": "needle-entry", "why": "needle enters at the anterior end"},
+    {"check": "pointsDown", "a": "needle", "maxLean": 0.15, "why": "needle in line with the probe, anterior to posterior"},
+    {"check": "within", "a": "needle-entry", "b": "body", "why": "needle enters the skin"},
+    {"check": "noOverlap", "a": "needle", "b": "probe", "why": "needle beside, in line with, the probe"}
+  ]
+}

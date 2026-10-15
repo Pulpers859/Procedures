@@ -1,0 +1,65 @@
+{
+  "assetId": "ulnar_nerve_patient_position",
+  "procedure": "block_ulnar_nerve",
+  "title": "Probe and needle on the patient",
+  "view": "Right forearm from above, supinated and extended on a drape: elbow at the top, the heel of the hand at the bottom, thumb (radial) side on the image left - the median positioning view.",
+  "teachingPoint": "The probe lies transverse over the ulnar half of the volar forearm, over the ulnar artery; the needle enters the ulnar border in line with it.",
+  "claims": [
+    "Arm supinated and extended (record).",
+    "Probe transverse on the volar forearm, slid medially (to the ulnar side) over the ulnar artery, at mid-forearm (record; NYSORA).",
+    "Needle in-plane from the medial (ulnar) side (record).",
+    "Labels: Block needle, Linear probe, Thenar eminence."
+  ],
+  "requiredElements": [
+    "forearm",
+    "thenar",
+    "wrist-crease",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Block needle": "needle",
+    "Linear probe": "probe",
+    "Thenar eminence": "thenar"
+  },
+  "geometry": [
+    {
+      "check": "within",
+      "a": "probe",
+      "b": "forearm",
+      "why": "probe on the skin"
+    },
+    {
+      "check": "leftOf",
+      "a": "thenar",
+      "b": "probe",
+      "why": "probe on the ulnar half (thumb side on the left)"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle from the ulnar (medial) side"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "forearm",
+      "why": "needle enters the skin"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "probe",
+      "why": "needle beside, in line with, the probe"
+    },
+    {
+      "check": "below",
+      "a": "thenar",
+      "b": "probe",
+      "why": "probe on the forearm, well above the wrist"
+    }
+  ]
+}

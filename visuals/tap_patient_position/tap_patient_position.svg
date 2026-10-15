@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #8FB8C9; }</style>
+<defs>
+<linearGradient id="skin-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0CDB6"/><stop offset="0.7" stop-color="#E8BDA3"/>
+  <stop offset="1" stop-color="#D9A88C"/></linearGradient>
+<linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FB8C9"/><stop offset="1" stop-color="#6F9FB4"/></linearGradient>
+<linearGradient id="probe-body" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E9ECEF"/><stop offset="1" stop-color="#B9C0C7"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting"></g>
+<g id="anatomy">
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
+  <path id="body" d="M-64,-96 C22.4,-147.8 1577.6,-148.2 1664,-96 C1750.4,-43.8 1683.2,896.3 1664,947.2 C1644.8,998.1 1323.2,923.8 1280,921.6 C1236.8,919.4 848,902.7 800,902.4 C752,902.1 363.2,913.3 320,915.2 C276.8,917.1 -44.8,991.4 -64,940.8 C-83.2,890.2 -150.4,-44.2 -64,-96 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
+  <path id="costal" d="M-64,-96 C-52.3,-165.1 98.1,-110.9 112,-96 C125.9,-81.1 130.1,103.5 144,128 C157.9,152.5 298.7,251.9 320,272 C341.3,292.1 447.8,408.1 464,428.8 C480.2,449.5 553.2,561.9 563.2,582.4 C573.2,602.9 610.1,716.8 614.4,736 C618.7,755.2 627.6,857.6 627.2,870.4 C626.8,883.2 654.1,923.3 608,928 C561.9,932.7 -19.2,1009.1 -64,940.8 C-108.8,872.5 -75.7,-26.9 -64,-96 Z" fill="#E4B59B" stroke="#CFA086" stroke-width="2"/>
+  <path id="iliac" d="M1664,-96 C1641.6,-165.5 1353.6,-113.1 1328,-96 C1302.4,-78.9 1292.2,131.4 1280,160 C1267.8,188.6 1161.4,310.6 1145.6,332.8 C1129.8,355 1053.4,471 1043.2,492.8 C1033,514.6 996.3,637.9 992,659.2 C987.7,680.5 979.2,796.2 979.2,812.8 C979.2,829.4 990.3,900.7 992,908.8 C993.7,916.9 960,931.8 1004.8,934.4 C1049.6,937 1620.1,1015.9 1664,947.2 C1707.9,878.5 1686.4,-26.5 1664,-96 Z" fill="#E4B59B" stroke="#CFA086" stroke-width="2"/>
+  <path id="gown" d="M-64,-96 C-66.1,-165.1 -93.9,-110.9 -96,-96 C-98.1,-81.1 -107.7,103.5 -96,128 C-84.3,152.5 58.7,251.9 80,272 C101.3,292.1 207.8,408.1 224,428.8 C240.2,449.5 313.2,561.9 323.2,582.4 C333.2,602.9 370.1,716.8 374.4,736 C378.7,755.2 387.6,857.2 387.2,870.4 C386.8,883.6 398.1,929.7 368,934.4 C337.9,939.1 -35.2,1009.5 -64,940.8 C-92.8,872.1 -61.9,-26.9 -64,-96 Z" fill="#BFD3DC" stroke="#9FB6C2" stroke-width="3"/>
+  <path id="drape" d="M1664,-96 C1654.4,-165.5 1532.8,-113.1 1520,-96 C1507.2,-78.9 1484.2,131.4 1472,160 C1459.8,188.6 1353.4,310.6 1337.6,332.8 C1321.8,355 1245.4,471 1235.2,492.8 C1225,514.6 1188.3,637.9 1184,659.2 C1179.7,680.5 1171.2,796.2 1171.2,812.8 C1171.2,829.4 1182.3,900.5 1184,908.8 C1185.7,917.1 1164.8,935 1196.8,937.6 C1228.8,940.2 1632.9,1016.1 1664,947.2 C1695.1,878.3 1673.6,-26.5 1664,-96 Z" fill="#6F9FB4" stroke="#5D8CA1" stroke-width="3"/>
+  <ellipse id="umbilicus" cx="832" cy="160" rx="22.4" ry="16" fill="#C99478" stroke="#B07E64" stroke-width="2"/>
+  <path d="M793.6,464 C773.6,384 643.6,344 463.6,-40" fill="none" stroke="#E9EEF2" stroke-width="9" stroke-linecap="round"/>
+  <rect x="784.6" y="430" width="18" height="38" rx="5" fill="#F2F2F2" stroke="#8A9199" stroke-width="2"/>
+  <line id="needle" x1="793.6" y1="464" x2="800" y2="563.2" stroke="#8E969E" stroke-width="5"/>
+  <circle id="needle-entry" cx="800" cy="563.2" r="4" fill="#9E6B5A"/>
+  <path d="M947.2,640 C1024,646.4 1152,736 1312,1260" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
+  <path id="probe-handle" d="M812.8,582.4 C844.8,592 883.2,617.6 947.2,620.8 L947.2,659.2 C883.2,662.4 844.8,688 812.8,697.6 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+  <rect id="probe" x="787.2" y="579.2" width="25.6" height="121.6" rx="12" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Costal margin" data-target="costal"><polyline class="leader-halo" points="330,488 422.4,480"/><polyline class="leader" points="330,488 422.4,480"/><circle class="leader-dot" cx="422.4" cy="480" r="7"/><text x="40" y="470" text-anchor="start"><tspan x="40" dy="0">Costal margin</tspan></text></g><g class="label" data-label="Iliac crest" data-target="iliac"><polyline class="leader-halo" points="1300,380 1107.2,492.8"/><polyline class="leader" points="1300,380 1107.2,492.8"/><circle class="leader-dot" cx="1107.2" cy="492.8" r="7"/><text x="1260" y="360" text-anchor="start"><tspan x="1260" dy="0">Iliac crest</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1000,820 806.8,680.8"/><polyline class="leader" points="1000,820 806.8,680.8"/><circle class="leader-dot" cx="806.8" cy="680.8" r="7"/><text x="980" y="860" text-anchor="start"><tspan x="980" dy="0">Linear probe</tspan></text></g><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="640,320 796.8,513.6"/><polyline class="leader" points="640,320 796.8,513.6"/><circle class="leader-dot" cx="796.8" cy="513.6" r="7"/><text x="420" y="300" text-anchor="start"><tspan x="420" dy="0">Block needle</tspan></text></g></g>
+
+</svg>

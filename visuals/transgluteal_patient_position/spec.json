@@ -1,0 +1,29 @@
+{
+  "assetId": "transgluteal_patient_position",
+  "procedure": "block_transgluteal_sciatic",
+  "title": "Probe and needle on the patient",
+  "view": "An adult lying prone, from directly above the right buttock and back of the right thigh: head off the top, feet off the bottom, the patient's right on the image right; natal cleft at the left, lateral hip at the right.",
+  "teachingPoint": "The curved probe lies transverse just below the gluteal fold, midway between the ischial tuberosity and the greater trochanter; the needle enters at its lateral end.",
+  "claims": [
+    "Prone (record: lateral decubitus or prone).",
+    "Curved probe transverse just below the gluteal fold, midway between the ischial tuberosity and the greater trochanter (record: curvilinear transducer; transverse below the gluteal fold; landmarks).",
+    "Needle in-plane from the lateral end, aimed medially (record: in-plane; NYSORA: lateral to medial).",
+    "Labels: Gluteal fold, Greater trochanter, Curved probe, Block needle."
+  ],
+  "requiredElements": ["buttock", "cleft", "fold", "trochanter", "probe", "probe-handle", "needle", "needle-entry"],
+  "labels": {
+    "Gluteal fold": "fold",
+    "Greater trochanter": "trochanter",
+    "Curved probe": "probe",
+    "Block needle": "needle"
+  },
+  "geometry": [
+    {"check": "within", "a": "probe", "b": "buttock", "why": "probe on the skin"},
+    {"check": "below", "a": "probe", "b": "fold", "why": "probe just below the gluteal fold"},
+    {"check": "leftOf", "a": "cleft", "b": "probe", "why": "probe lateral to the midline"},
+    {"check": "leftOf", "a": "probe", "b": "trochanter", "why": "probe medial to the greater trochanter"},
+    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle from the lateral end"},
+    {"check": "within", "a": "needle-entry", "b": "buttock", "why": "needle enters the skin"},
+    {"check": "noOverlap", "a": "needle", "b": "probe", "why": "needle beside, in line with, the probe"}
+  ]
+}
