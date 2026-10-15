@@ -1,0 +1,18 @@
+{
+  "assetId": "radial_nerve_distribution",
+  "procedure": "block_radial_nerve",
+  "title": "Expected distribution",
+  "view": "Shared hand base (visuals/distribution_bases/hand): skeleton of the right hand from the palm side, then the right hand from the palm side (thumb on the image right) and from the back (thumb on the image left); right hand.",
+  "teachingPoint": "A radial (superficial radial) block numbs the radial back of the hand and the back of the thumb and the proximal radial fingers.",
+  "claims": [
+    "Skin: dorsal radial two thirds of the hand, dorsal thumb, dorsal index, middle and radial ring finger proximal to the PIP joint (standard cutaneous map; NYSORA superficial radial).",
+    "Not shaded: the palm, the finger tips (median and ulnar), the ulnar third of the dorsum. No bone is shaded.",
+    "Right hand; one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "radial-dorsum"
+  ],
+  "labels": {},
+  "geometry": []
+}

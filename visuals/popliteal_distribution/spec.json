@@ -1,0 +1,20 @@
+{
+  "assetId": "popliteal_distribution",
+  "procedure": "block_popliteal_sciatic",
+  "title": "Expected distribution",
+  "view": "Shared back-view base (visuals/distribution_bases/back): skeleton on the left, grey body on the right, seen from behind so the patient's right is on the image RIGHT; right-sided block.",
+  "teachingPoint": "A popliteal sciatic block numbs the posterior and lateral leg below the knee and the foot; the thigh and hip are spared.",
+  "claims": [
+    "Skin: the posterior and lateral leg below the popliteal crease and the foot; the thin medial border strip stays grey (saphenous).",
+    "Not shaded: the thigh, the hip and the knee joint (posterior femoral cutaneous and other nerves arise above the popliteal fossa).",
+    "Bone: tibia, fibula, ankle and foot bones; the medial distal tibia and medial malleolus are left grey (saphenous periosteal branches; Lundblad et al. 2013, Local Reg Anesth 6:13).",
+    "Right-sided block (patient's right on the image right in this back view); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "sciatic-skin",
+    "sciatic-bone"
+  ],
+  "labels": {},
+  "geometry": []
+}

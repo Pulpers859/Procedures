@@ -1,0 +1,20 @@
+{
+  "assetId": "digital_nerve_distribution",
+  "procedure": "digital_nerve_block",
+  "title": "Expected distribution",
+  "view": "Shared hand base (visuals/distribution_bases/hand): skeleton of the right hand from the palm side, then the right hand from the palm side (thumb on the image right) and from the back (thumb on the image left); right hand.",
+  "teachingPoint": "A digital block numbs one finger from the web to the tip, front and back, including the nail bed.",
+  "claims": [
+    "Skin: the whole finger distal to the web, palm side and back (palmar and dorsal digital nerves at the base), including the nail bed; shown on the middle finger.",
+    "Bone: the phalanges of that finger (periosteum is supplied by the same digital nerves). Not shaded: the metacarpal and the rest of the hand.",
+    "Right hand; one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "finger-palm",
+    "finger-dorsum",
+    "finger-bone"
+  ],
+  "labels": {},
+  "geometry": []
+}

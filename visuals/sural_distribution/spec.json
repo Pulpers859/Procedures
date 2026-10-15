@@ -1,0 +1,19 @@
+{
+  "assetId": "sural_distribution",
+  "procedure": "block_sural_nerve",
+  "title": "Expected distribution",
+  "view": "Shared foot base (visuals/distribution_bases/foot): skeleton of the right foot from above, then the right foot from above, from below (sole) and from its outer side; right foot.",
+  "teachingPoint": "A sural block numbs the lateral border of the foot, the little toe's lateral side and the lateral heel and malleolar skin.",
+  "claims": [
+    "Skin: lateral border strip of the foot (top view), lateral foot, lateral heel and the skin around the lateral malleolus (outer-side view).",
+    "Not shaded: the sole (lateral plantar), the dorsum (superficial peroneal). Sources: record anatomy; NYSORA sural distribution.",
+    "Right foot; one tone per nerve, key shown under the image in the app. No bone is shaded: this nerve is not a reliable supply to the foot bones (record anatomy)."
+  ],
+  "requiredElements": [
+    "base",
+    "sural-top",
+    "sural-lateral"
+  ],
+  "labels": {},
+  "geometry": []
+}

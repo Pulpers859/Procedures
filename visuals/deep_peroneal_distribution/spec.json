@@ -1,0 +1,18 @@
+{
+  "assetId": "deep_peroneal_distribution",
+  "procedure": "block_deep_peroneal",
+  "title": "Expected distribution",
+  "view": "Shared foot base (visuals/distribution_bases/foot): skeleton of the right foot from above, then the right foot from above, from below (sole) and from its outer side; right foot.",
+  "teachingPoint": "A deep peroneal block at the ankle numbs the first web space.",
+  "claims": [
+    "Skin: the first web space, adjacent dorsal sides of the big toe and the second toe (terminal cutaneous branch of the deep peroneal nerve).",
+    "Not shaded: the remainder of the dorsum (superficial peroneal), the sole. Sources: record anatomy; NYSORA.",
+    "Right foot; one tone per nerve, key shown under the image in the app. No bone is shaded: this nerve is not a reliable supply to the foot bones (record anatomy)."
+  ],
+  "requiredElements": [
+    "base",
+    "web-skin"
+  ],
+  "labels": {},
+  "geometry": []
+}

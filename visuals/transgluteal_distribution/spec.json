@@ -1,0 +1,22 @@
+{
+  "assetId": "transgluteal_distribution",
+  "procedure": "block_transgluteal_sciatic",
+  "title": "Expected distribution",
+  "view": "Shared back-view base (visuals/distribution_bases/back): skeleton on the left, grey body on the right, seen from behind so the patient's right is on the image RIGHT; right-sided block.",
+  "teachingPoint": "A subgluteal sciatic block numbs the posterior and lateral leg below the knee and the foot, with the posterior hip joint; the posterior thigh follows if the spread reaches the posterior femoral cutaneous nerve.",
+  "claims": [
+    "Skin (teal): the posterior and lateral leg below the popliteal crease and the foot (tibial, sural, common peroneal branches); the thin medial border strip stays grey (saphenous).",
+    "Skin (violet): posterior thigh from the gluteal fold to the popliteal crease, posterior femoral cutaneous nerve; spread to it is common at the subgluteal level but not guaranteed, which the legend says.",
+    "Bone: posterior hip joint (acetabular rim, femoral head and neck), tibia, fibula, ankle and foot.",
+    "Bone: tibia, fibula, ankle and foot bones; the medial distal tibia and medial malleolus are left grey (saphenous periosteal branches; Lundblad et al. 2013, Local Reg Anesth 6:13).",
+    "Right-sided block (patient's right on the image right in this back view); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "pfcn-skin",
+    "sciatic-skin",
+    "sciatic-bone"
+  ],
+  "labels": {},
+  "geometry": []
+}

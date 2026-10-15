@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F4F3EF; }</style>
+<defs><filter id="feather-1_5" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.5"/></filter>
+<filter id="feather-5" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter>
+<mask id="m-body" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="896"><image href="../distribution_bases/hand/mask_body.png" x="0" y="0" width="1200" height="896" preserveAspectRatio="none"/></mask>
+<mask id="m-bone" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="896"><image href="../distribution_bases/hand/mask_bone.png" x="0" y="0" width="1200" height="896" preserveAspectRatio="none"/></mask>
+<clipPath id="c-palm"><path d="M386,100 C399.5,76.7 778.5,76.7 792,100 C805.5,123.3 805.5,776.7 792,800 C778.5,823.3 399.5,823.3 386,800 C372.5,776.7 372.5,123.3 386,100 Z"/></clipPath>
+<clipPath id="c-dorsum"><path d="M798,100 C811.2,76.7 1181.8,76.7 1195,100 C1208.2,123.3 1208.2,776.7 1195,800 C1181.8,823.3 811.2,823.3 798,800 C784.8,776.7 784.8,123.3 798,100 Z"/></clipPath></defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="2600b09f8e9c52b77466dbfeb0ee3dbf2b6f577d50c2c9d77667ae2ca598a127">
+  <image id="base" href="../distribution_bases/hand/base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
+</g>
+<g class="marking" transform="translate(0 2.7) scale(1.333333)">
+    <g clip-path="url(#c-palm)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-5)"><path id="ulnar-palm" d="M466,236 C468.8,226.4 509.2,240.1 512,236 C514.8,231.9 512.6,170.1 514,166 C515.4,161.9 534.7,153.5 536,166 C537.3,178.5 534.8,367.2 536,380 C537.2,392.8 554.8,377.8 556,386 C557.2,394.2 555.8,504.9 556,520 C556.2,535 563.4,636.6 560,644 C556.6,651.4 502.7,648.6 498,646 C493.3,643.4 481.6,608.5 480,600 C478.4,591.5 470.9,511.7 470,500 C469.1,488.3 464.2,415.4 464,400 C463.8,384.6 463.2,245.6 466,236 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
+  <g clip-path="url(#c-dorsum)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-5)"><path id="ulnar-dorsum" d="M1100,238 C1102.5,234.4 1135.7,228.6 1138,238 C1140.3,247.4 1139.7,383.6 1140,400 C1140.3,416.4 1144.7,508.3 1144,520 C1143.3,531.7 1130.6,593 1128,600 C1125.4,607 1103.6,637.7 1100,640 C1096.4,642.3 1068,647 1066,640 C1064,633 1066.1,534 1066,520 C1065.9,506 1063.8,421 1064,400 C1064.2,379 1068.4,174 1070,160 C1071.6,146 1090.5,151.8 1092,160 C1093.5,168.2 1095.5,295.4 1096,300 C1096.5,304.6 1097.5,241.6 1100,238 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
+  <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-1_5)"><path id="ulnar-bone" d="M52,246 C53.5,239.8 96.4,239.9 98,246 C99.6,252.1 99.5,423.5 100,430 C100.5,436.5 111.1,438.1 112,442 C112.9,445.9 128,544 128,548 C128,552 113.3,562.3 112,562 C110.7,561.7 89.4,542.1 88,540 C86.6,537.9 70.4,502.9 70,500 C69.6,497.1 76.5,454.3 76,452 C75.5,449.7 54.8,438.9 54,432 C53.2,425.1 50.5,252.2 52,246 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
+</g>
+
+</svg>

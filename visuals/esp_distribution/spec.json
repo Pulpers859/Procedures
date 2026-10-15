@@ -1,0 +1,19 @@
+{
+  "assetId": "esp_distribution",
+  "procedure": "block_thoracic_esp",
+  "title": "Expected distribution",
+  "view": "Shared back-view base (visuals/distribution_bases/back): skeleton on the left, grey body on the right, seen from behind so the patient's right is on the image RIGHT; right-sided block.",
+  "teachingPoint": "A thoracic erector spinae plane block numbs the posterior hemithorax over several levels, with graded edges.",
+  "claims": [
+    "Skin: the posterior hemithorax from about T2 to T9, midline to the flank (record anatomy: spread cranio-caudally and into the paravertebral space), graded lower border.",
+    "Bone: the right ribs below and medial to the scapula (intercostal spread; the scapula is not supplied by the thoracic nerves and is left grey).",
+    "Right-sided block (patient's right on the image right in this back view); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "esp-skin",
+    "esp-bone"
+  ],
+  "labels": {},
+  "geometry": []
+}

@@ -1,0 +1,19 @@
+{
+  "assetId": "superficial_peroneal_distribution",
+  "procedure": "block_superficial_peroneal",
+  "title": "Expected distribution",
+  "view": "Shared foot base (visuals/distribution_bases/foot): skeleton of the right foot from above, then the right foot from above, from below (sole) and from its outer side; right foot.",
+  "teachingPoint": "A superficial peroneal block numbs the dorsum of the foot and the dorsal toes, and the skin of the lower anterolateral leg.",
+  "claims": [
+    "Skin: dorsum of the foot and dorsal toes (medial and intermediate dorsal cutaneous branches) and the distal anterolateral leg, fading in at the top.",
+    "Not shaded: the first web space (deep peroneal), the lateral border and little toe (sural), the sole. Sources: record anatomy; NYSORA.",
+    "Right foot; one tone per nerve, key shown under the image in the app. No bone is shaded: this nerve is not a reliable supply to the foot bones (record anatomy)."
+  ],
+  "requiredElements": [
+    "base",
+    "dorsum-top",
+    "leg-lateral"
+  ],
+  "labels": {},
+  "geometry": []
+}

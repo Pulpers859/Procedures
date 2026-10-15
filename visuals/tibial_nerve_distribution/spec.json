@@ -1,0 +1,18 @@
+{
+  "assetId": "tibial_nerve_distribution",
+  "procedure": "block_tibial_nerve",
+  "title": "Expected distribution",
+  "view": "Shared foot base (visuals/distribution_bases/foot): skeleton of the right foot from above, then the right foot from above, from below (sole) and from its outer side; right foot.",
+  "teachingPoint": "A posterior tibial block at the ankle numbs the sole of the foot and the underside of the toes.",
+  "claims": [
+    "Skin: the sole and the plantar surface of all the toes (medial and lateral plantar nerves, medial calcaneal branch to the heel); the lateral border strip stays grey (sural).",
+    "Not shaded: the dorsum of the foot. Sources: record anatomy; NYSORA posterior tibial distribution.",
+    "Right foot; one tone per nerve, key shown under the image in the app. No bone is shaded: this nerve is not a reliable supply to the foot bones (record anatomy)."
+  ],
+  "requiredElements": [
+    "base",
+    "plantar-skin"
+  ],
+  "labels": {},
+  "geometry": []
+}
