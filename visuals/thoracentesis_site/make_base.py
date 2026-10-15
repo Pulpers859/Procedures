@@ -1,7 +1,7 @@
 """Build base.jpg for thoracentesis_site: the clean back plus the rib-section inset.
 
-The back is the owner's Gemini edit of the ESP photo with the probe, needle and
-tubing removed (tmp/visual-drafts/antigravity/thoracentesis_site/, gitignored),
+The back is the owner's Gemini re-pose of the clean ESP back: seated, leaning
+forward over a padded bedside table with the arms on a pillow (tmp/visual-drafts/antigravity/thoracentesis_site/, gitignored),
 downscaled to 1200 x 896. The inset is a crop of the approved
 chest_tube_rib_anatomy painting (skin left, head up): the upper rib with its
 bundle, the space, and the lower rib, pasted into the lower left with a white
@@ -16,7 +16,7 @@ from PIL import Image, ImageDraw, ImageFilter
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-BACK = ROOT / "tmp/visual-drafts/antigravity/thoracentesis_site/clean_back_1200.jpg"
+BACK = ROOT / "tmp/visual-drafts/antigravity/thoracentesis_site/owner2_leaning_1200.jpg"
 RIB = ROOT / "visuals/chest_tube_rib_anatomy/base.jpg"
 K = 1600 / 1200                       # canvas px per base px
 OY = (1200 - 896 * K) / 2

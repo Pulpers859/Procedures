@@ -1,8 +1,10 @@
 """Thoracentesis - entry site on the back, with an over-the-rib inset (painted base, code-drawn markings).
 
-Base (make_base.py): the owner's Gemini edit of the ESP positioning photo
-with the probe, needle and tubing removed - the bare back of a seated adult
-from behind, the patient's right on the image right - plus, in the lower
+Base (make_base.py): the owner's Gemini edits of the ESP positioning photo -
+equipment removed, then re-posed seated and leaning forward over a padded
+bedside table with the forearms on a pillow (the record's position, which
+drops the scapula) - the bare back from behind, the patient's right on the
+image right - plus, in the lower
 left, an inset cropped from the approved chest_tube_rib_anatomy painting
 (one intercostal space in coronal section, skin left, head up).
 
@@ -12,10 +14,10 @@ nerve in the costal groove and is not reliably protected posteriorly, so
 stay as lateral or anterior as the target allows; on the right the liver is
 at risk below the 9th rib posteriorly.
 
-Traced on the clean back (canvas px): C7 prominence (800, 290); spine down
-the midline x = 800; the right scapula's medial border fades out toward its
-inferior angle near (1130, 880); the right flank edge near x = 1290 at the
-level of the site. About 3 px/mm (acromion to acromion about 40 cm).
+Traced on the leaning-forward back (canvas px): C7 prominence (800, 290);
+spine down the midline x = 800 to the waist at y = 1100; the right flank edge
+near x = 1100 at the level of the site. About 2 px/mm (shoulder to shoulder
+about 40 cm); the scapular tip, near T7, lies about y = 630.
 
 Code-drawn: the marked site on the right posterolateral chest below the
 scapular tip and toward the flank (a typical site; the level is set by
@@ -39,8 +41,8 @@ ASSET_ID = "thoracentesis_site"
 BASE = Path(__file__).with_name("base.jpg")
 BASE_SIZE = (1200.0, 896.0)
 
-SITE = (1180.0, 950.0)
-CHEST_RIGHT = [(800, 300), (1290, 300), (1395, 420), (1300, 640), (1290, 1195), (800, 1195)]
+SITE = (1015.0, 735.0)
+CHEST_RIGHT = [(800, 300), (1100, 300), (1200, 420), (1250, 640), (1105, 800), (1095, 1100), (800, 1100)]
 INSET = (64, 690, 504, 1174)
 S = 0.55                                  # inset px per rib-plate canvas px
 
@@ -73,7 +75,7 @@ def build() -> str:
     hub0 = (INSET[0] - 18, n0[1])
     bundle_c = ins((UPPER_BUNDLE[0][0] + UPPER_BUNDLE[1][0]) / 2, (UPPER_BUNDLE[0][1] + UPPER_BUNDLE[1][1]) / 2)
     labels = [
-        Label(["Marked site"], anchor=(1040, 1110), leader=[(1120, 1066), (SITE[0], SITE[1] + 4)], target_id="site", emphasis=True),
+        Label(["Marked site"], anchor=(1130, 900), leader=[(1180, 858), (SITE[0], SITE[1] + 4)], target_id="site", emphasis=True),
         Label(["Vein, artery, nerve"], anchor=(530, 862), leader=[(520, 846), (bundle_c[0], bundle_c[1])], target_id="inset-bundle"),
         Label(["Needle"], anchor=(530, 1010), leader=[(520, 994), (n1[0] - 40, n1[1])], target_id="inset-needle"),
         Label(["Lower rib"], anchor=(530, 1150), leader=[(520, 1134), (rib_c[0] + 20, rib_c[1] + 20)], target_id="inset-lower-rib"),
@@ -89,7 +91,7 @@ def build() -> str:
 <g id="painting" data-base-sha256="{sha}">{base_image}</g>
 <g id="anatomy">
   <polygon id="chest-right" points="{chest}" fill="#000" opacity="0"/>
-  <line id="spine" x1="800" y1="290" x2="800" y2="1195" stroke="#000" stroke-width="10" opacity="0"/>
+  <line id="spine" x1="800" y1="290" x2="800" y2="1100" stroke="#000" stroke-width="10" opacity="0"/>
   <rect id="inset" x="{INSET[0]}" y="{INSET[1]}" width="{INSET[2] - INSET[0]}" height="{INSET[3] - INSET[1]}" fill="#000" opacity="0"/>
   <ellipse id="inset-lower-rib" cx="{fmt(rib_c[0])}" cy="{fmt(rib_c[1])}" rx="{fmt(rx)}" ry="{fmt(ry)}" fill="#000" opacity="0"/>
   {rect("inset-bundle", *UPPER_BUNDLE)}

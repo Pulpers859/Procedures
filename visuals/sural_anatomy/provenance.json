@@ -8,12 +8,14 @@
   896
  ],
  "promptAttachments": "Image 1: the layout reference.",
- "repairs": [],
+ "repairs": [
+  "Same chat: 'Paint the small dark red muscle in the middle as one single smooth belly with fine parallel maroon muscle fibres, like the large muscle at the lower left, with no dividing lines inside it. Keep everything else in the image the same.' Delivered at 2400 x 1792; downscaled to 1200 x 896. Checked against the previous painting: only peroneus brevis changed."
+ ],
  "pixelEdits": [],
  "rejected": "First painting (layout 1bfe7a8): independent review found the layout buried the fibula 3 cm deep (the lateral malleolus is subcutaneous at the probe's front end), the nerve painted as a rod, and the muscles split into six bellies. Layout redrawn to true scale and repainted.",
  "thirdPartyConcept": "NYSORA sural reverse-ultrasound plate (Fig-15) and ankle section (Fig-4) read for the anatomy only; not attached, not committed.",
  "reference": "Unlabelled render of the redrawn true-scale sural_anatomy layout (40 x 27 mm field; this commit's draw.py, --reference).",
  "prompt": "Prompt A, new chat: tmp/visual-drafts/antigravity/sural_anatomy/02_image_prompt.txt (asks for single-belly muscles and a round nerve).",
  "reviewNotes": "Overlay: sheath, vein, round nerve, fascia, Achilles, peroneus brevis with the longus tendon, the malleolus and flexor hallucis longus lie on the layout within a few pixels.",
- "knownLimits": "Peroneus brevis and flexor hallucis longus show large fascicle groups with fine septa inside each belly. Schematic; the sheath around the vein and nerve is house style."
+ "knownLimits": "Flexor hallucis longus shows large fascicle groups with fine septa inside its belly. Schematic; the sheath around the vein and nerve is house style."
 }

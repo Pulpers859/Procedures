@@ -8,14 +8,16 @@
   896
  ],
  "promptAttachments": "The first esp_patient_position painting.",
- "repairs": [],
+ "repairs": [
+  "New chat, the clean back attached (owner, 2026-10-15, to match the record's position): tmp/visual-drafts/antigravity/thoracentesis_site/02_repose_prompt.txt - seated, leaning forward over a padded bedside table, forearms on a pillow. Delivered at 2400 x 1792; downscaled to 1200 x 896 (owner2_leaning_1200.jpg)."
+ ],
  "pixelEdits": [
   "make_base.py pastes a crop of chest_tube_rib_anatomy/base.jpg (one intercostal space) into the lower left with a white border and soft shadow."
  ],
- "rejected": "None.",
+ "rejected": "The upright, arms-down clean back (it contradicted the record's leaning-forward position).",
  "thirdPartyConcept": "None.",
  "reference": "No separate layout: built on the ESP painting (layout commit 1bfe7a8) with the equipment removed; the removal came back reframed (C7 about 90 px lower), so landmarks were traced on it directly.",
  "prompt": "Owner-run removal, new chat with the first ESP photo attached: 'Remove the ultrasound transducer, its cable, the gel, the needle, its hub and the tubing, and paint the patient's normal back skin there instead, like the skin around it. Keep everything else in the image the same.' Delivered at 2400 x 1792; downscaled to 1200 x 896 (tmp/visual-drafts/antigravity/thoracentesis_site/clean_back_1200.jpg).",
- "reviewNotes": "Site placed on the right posterolateral chest below the scapular tip and toward the flank. Inset needle passes about 3 mm above the lower rib, clear of the bundle under the rib above, tip in the pleural space.",
- "knownLimits": "The site is a typical one; its level is set by ultrasound. Patient upright with arms at the sides (the record prefers leaning forward over a table, which drops the scapula)."
+ "reviewNotes": "Traced on the re-posed back: C7 (800, 290), spine x = 800 to the waist at y = 1100, right flank near x = 1100. Site on the right posterolateral chest at about the T9 spinous level, below the scapular tip and toward the flank, kept above the 9th-rib zone (record: liver at risk below the 9th rib on the right). Inset needle about 3 mm above the lower rib, clear of the bundle, tip in the pleural space.",
+ "knownLimits": "The site is a typical one; its level is set by ultrasound."
 }
