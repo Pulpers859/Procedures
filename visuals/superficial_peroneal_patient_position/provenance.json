@@ -1,0 +1,23 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, run by hand while the Antigravity quota was exhausted)",
+ "generatedBy": "Owner in the Gemini app; composited in code (place_probe.py); reviewed by overlay before use",
+ "date": "2026-10-14",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the layout with the foot (commit 28a3f83 draw.py, --reference).",
+ "prompt": "Prompt A (photo), new chat, pasted by the owner: tmp/visual-drafts/antigravity/superficial_peroneal_patient_position/ag2_image_prompt.txt.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [
+  "Prompt C, same chat: Remove the ultrasound transducer, its cable, the gel, the needle hub and the clear tubing, and show plain intact skin on the leg and plain sheet there instead, matching the rest of the leg and sheet."
+ ],
+ "pixelEdits": [
+  "place_probe.py: the first photo's own probe and gel (by difference against the cleaned photo) pasted 100 px higher and 10 px lateral, about 7-8 cm above the lateral malleolus (NYSORA 5-10 cm). Source photos are in the gitignored tmp folder."
+ ],
+ "rejected": "Antigravity painting of the first layout (no foot): the ankle painted low, probe about 15 cm above the malleolus. Owner's first photo of the foot layout: probe about 2 cm above the malleolus and the needle outside the skin (kept as the probe source).",
+ "reviewNotes": "Overlay: leg, ankle, foot and toes lie on the layout within a few pixels. The needle, hub and tubing are code-drawn, entering the skin just anterior to the probe face, in line with it.",
+ "knownLimits": "The leg, malleoli and probe regions used by the checks are traced on the photo.",
+ "thirdPartyConcept": "NYSORA superficial peroneal transducer photo read for the probe level only; not attached, not committed."
+}
