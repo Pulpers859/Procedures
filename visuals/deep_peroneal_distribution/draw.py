@@ -23,7 +23,7 @@ CLIPS = {"top": R.TOP}
 
 # First web: the adjacent sides of the big toe and the second toe on the
 # dorsum, from the cleft back to the metatarsal heads.
-WEB = [(404, 200), (418, 196), (424, 230), (432, 200), (442, 206), (440, 270), (430, 320), (418, 340), (408, 320),
+WEB = [(404, 200), (418, 196), (424, 230), (432, 200), (442, 206), (440, 270), (430, 308), (418, 316), (408, 308),
        (402, 260)]
 
 ZONES = [

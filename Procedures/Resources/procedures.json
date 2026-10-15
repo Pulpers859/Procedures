@@ -6756,7 +6756,7 @@
           {
             "tone": "teal",
             "nerve": "Median nerve",
-            "label": "The radial two thirds of the palm and the thenar eminence, the palm side of the thumb, index, middle and radial half of the ring finger, and the nail beds of the index, middle and ring fingers; the phalanges of the thumb, index and middle fingers."
+            "label": "The radial two thirds of the palm and the thenar eminence, the palm side of the thumb, index, middle and radial half of the ring finger, and the back of the thumb tip and of the index, middle and radial ring fingers beyond the middle joint; the phalanges of the thumb, index and middle fingers."
           }
         ]
       },
@@ -7717,7 +7717,7 @@
           {
             "tone": "teal",
             "nerve": "Thoracic spinal nerves (T2-T9)",
-            "label": "Skin of the back on one side, from the midline out to the flank, graded at the lower border; the ribs below the shoulder blade."
+            "label": "Skin of the back on one side, from the midline out to the flank, graded at the lower border; the ribs and the spine on that side, medial to and below the shoulder blade."
           }
         ]
       },
@@ -9408,7 +9408,7 @@
           {
             "tone": "teal",
             "nerve": "Sciatic nerve",
-            "label": "Posterior and lateral leg below the knee and the foot, except the thin medial strip; the posterior hip joint, and the tibia, fibula and foot bones except the medial lower tibia and malleolus."
+            "label": "Posterior and lateral leg below the knee and the foot, except the thin medial strip; the posterior hip and knee joints, and the tibia, fibula and foot bones except the medial lower tibia and malleolus."
           },
           {
             "tone": "violet",
@@ -9878,13 +9878,13 @@
         "subtitle": "Where to expect numbness on the right side.",
         "assetName": null,
         "systemImage": "figure.stand",
-        "caption": "The sole and the dorsum of the foot are left unshaded.",
+        "caption": "The dorsum and most of the sole are left unshaded.",
         "clinicalWarning": null,
         "legend": [
           {
             "tone": "teal",
             "nerve": "Sural nerve",
-            "label": "Lateral border of the foot and the little toe, the lateral heel, and the skin around the lateral malleolus."
+            "label": "Lateral border of the foot on the top and the sole, the little toe, the lateral heel, and the skin around the lateral malleolus."
           }
         ]
       },

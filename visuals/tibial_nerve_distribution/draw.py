@@ -24,7 +24,7 @@ CLIPS = {"sole": R.SOLE}
 # Sole view (big toe on the image right): the plantar surface from the toe
 # tips to the heel, leaving the lateral border strip (image left, below the
 # toes) to the sural nerve.
-PLANTAR = [(598, 140), (824, 140), (826, 780), (640, 790), (636, 700), (634, 600), (634, 500), (632, 400),
+PLANTAR = [(598, 140), (824, 140), (826, 780), (650, 788), (648, 700), (640, 600), (634, 500), (632, 400),
            (632, 316), (600, 310), (596, 240)]
 
 ZONES = [

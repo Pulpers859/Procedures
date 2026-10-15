@@ -364,6 +364,26 @@ bolted on. The model is `ficb_distribution/`.
   territory against NYSORA's distribution figure and standard cutaneous maps.
   Fix what it finds, then send.
 
+- **Bases and tools (2026-10-15).** The figures are painted once per view in
+  `visuals/distribution_bases/<view>/` (`base.jpg`): front, back, head (bust),
+  hand (skeleton palm view, palm, back of the hand), foot (skeleton top, top,
+  sole, outer side) and side (head to thighs, right arm raised). Each view has
+  `make_masks.py` masks and `<view>_regions.py` with the clip regions and bone
+  outlines traced on gridded zooms. A plate is a short `draw.py` that calls
+  `scripts/distribution_lib.py` (`Zone`, `build_plate`); a skin zone must name
+  a clip region, so a tint cannot reach a neighbouring limb. Laterality: the
+  patient's RIGHT is the image left in the front view, the image right in the
+  back view, and the painted hands and feet are RIGHT (the paintings came back
+  as left and were mirrored panel by panel).
+- **Audit tool.** `python3 scripts/distribution_audit.py <id>` renders the plate
+  with and without its markings and writes `render/tintmap.png` (every tinted
+  pixel in solid colour) and `tintmap.json`; the independent auditor works from
+  that plus NYSORA and the literature.
+- **Words that moved the search-ranking probes** when they were in a
+  distribution caption or subtitle: "block", "nerve", "arm", plus the older
+  list. The legend is not searched, so the nerve names go there. Keep captions
+  to what is left unshaded and why.
+
 ## 7. Send, approve, ship
 
 - **Send** `render/review.png` and the full plate (`SendUserFile`). If the

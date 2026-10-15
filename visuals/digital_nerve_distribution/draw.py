@@ -22,7 +22,7 @@ VIEW = "hand"
 CLIPS = {"palm": R.PALM, "dorsum": R.DORSUM}
 
 FINGER_PALM = [(554, 112), (604, 112), (606, 380), (552, 380)]
-FINGER_DORSUM = [(996, 108), (1044, 108), (1046, 396), (994, 396)]
+FINGER_DORSUM = [(998, 108), (1044, 108), (1044, 372), (998, 372)]
 
 ZONES = [
     Zone("finger-palm", "teal", FINGER_PALM, clip="palm", feather=3, tension=0.2),

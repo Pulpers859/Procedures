@@ -11,7 +11,7 @@ again by the painted bone mask.
 RIGHT_LEG = [(848, 498), (948, 498), (948, 896), (848, 896)]
 # Right half of the back from the neck base to the waist, stopping short of
 # the arm (the arm hangs away from the trunk below y 300).
-RIGHT_BACK = [(849, 205), (925, 205), (926, 260), (930, 300), (924, 330), (918, 405), (849, 405)]
+RIGHT_BACK = [(849, 205), (925, 205), (926, 260), (927, 280), (923, 300), (919, 314), (918, 330), (918, 405), (849, 405)]
 
 # Skeleton (left figure, midline x 350).
 # Right leg from the tibial plateau to the heel and forefoot: tibia, fibula,
@@ -21,8 +21,10 @@ LEG_BONE = [(374, 664), (416, 664), (417, 690), (413, 760), (409, 830), (404, 83
             (372, 869), (366, 858), (368, 846), (384, 836), (388, 820), (386, 780), (378, 760), (374, 720), (372, 690)]
 # Right hip joint seen from behind: the acetabular rim and the head and neck
 # behind the greater trochanter.
+KNEE_BONE = [(368, 630), (422, 630), (422, 666), (368, 666)]   # distal femur, posterior knee capsule
 HIP_BONE = [(392, 448), (412, 444), (424, 458), (414, 470), (404, 476), (392, 474), (388, 462)]
-# Right ribs from the second to about the tenth, lateral to the spine and
-# below the shoulder blade (the scapula, x 392-445 above y 268, is not
+# Right ribs from the second to about the tenth, and the right posterior
+# elements of the spine (laminae, transverse processes; the midline is x 350),
+# medial to and below the shoulder blade (the scapula, x 392-445 above y 268, is not
 # supplied by an erector spinae plane block).
-RIB_BONE = [(363, 215), (392, 215), (392, 262), (406, 272), (432, 272), (432, 330), (363, 330)]
+RIB_BONE = [(352, 215), (392, 215), (392, 262), (406, 272), (432, 272), (432, 330), (352, 330)]

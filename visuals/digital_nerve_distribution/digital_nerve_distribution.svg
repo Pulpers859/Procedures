@@ -44,7 +44,7 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </g>
 <g class="marking" transform="translate(0 2.7) scale(1.333333)">
     <g clip-path="url(#c-palm)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-3)"><path id="finger-palm" d="M554,112 C555.7,103.1 602.3,103.1 604,112 C605.7,120.9 607.7,371.1 606,380 C604.3,388.9 553.7,388.9 552,380 C550.3,371.1 552.3,120.9 554,112 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
-  <g clip-path="url(#c-dorsum)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-3)"><path id="finger-dorsum" d="M996,108 C997.7,98.4 1042.3,98.4 1044,108 C1045.7,117.6 1047.7,386.4 1046,396 C1044.3,405.6 995.7,405.6 994,396 C992.3,386.4 994.3,117.6 996,108 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
+  <g clip-path="url(#c-dorsum)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-3)"><path id="finger-dorsum" d="M998,108 C999.5,99.2 1042.5,99.2 1044,108 C1045.5,116.8 1045.5,363.2 1044,372 C1042.5,380.8 999.5,380.8 998,372 C996.5,363.2 996.5,116.8 998,108 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
   <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-1_5)"><path id="finger-bone" d="M132,106 C133.3,96.5 170.6,96.5 172,106 C173.4,115.5 175.3,382.5 174,392 C172.7,401.5 133.4,401.5 132,392 C130.6,382.5 130.7,115.5 132,106 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
 </g>
 

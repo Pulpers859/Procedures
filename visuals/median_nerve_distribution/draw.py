@@ -26,14 +26,15 @@ CLIPS = {"palm": R.PALM, "dorsum": R.DORSUM}
 MEDIAN_PALM = [(554, 112), (648, 112), (650, 372), (700, 378), (750, 376), (750, 440), (708, 560), (660, 600),
                (606, 644), (562, 644), (554, 520)]
 RING_RADIAL = [(534, 164), (556, 164), (557, 382), (534, 382)]
-INDEX_TIP = [(948, 150), (998, 150), (998, 228), (948, 228)]
-MIDDLE_TIP = [(1000, 114), (1042, 114), (1042, 202), (1000, 202)]
-RING_TIP = [(1046, 158), (1070, 158), (1070, 234), (1046, 234)]
+INDEX_TIP = [(948, 150), (998, 150), (998, 296), (948, 296)]
+MIDDLE_TIP = [(1000, 114), (1042, 114), (1042, 268), (1000, 268)]
+RING_TIP = [(1046, 158), (1070, 158), (1070, 312), (1046, 312)]
+THUMB_TIP = [(858, 376), (904, 380), (906, 440), (866, 440)]
 
 ZONES = [
     Zone("median-palm", "teal", MEDIAN_PALM, clip="palm", feather=5, extra=[RING_RADIAL]),
     Zone("median-dorsum-tips", "teal", INDEX_TIP, clip="dorsum", feather=2.5, tension=0.2,
-         extra=[MIDDLE_TIP, RING_TIP]),
+         extra=[MIDDLE_TIP, RING_TIP, THUMB_TIP]),
     Zone("median-bone", "teal", R.THUMB_PHALANGES, layer="bone", feather=1.5, tension=0.2,
          extra=[R.INDEX_PHALANGES, R.MIDDLE_PHALANGES]),
 ]

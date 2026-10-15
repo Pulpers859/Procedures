@@ -22,7 +22,7 @@ ASSET_ID = "esp_distribution"
 VIEW = "back"
 CLIPS = {"right-back": R.RIGHT_BACK}
 
-ESP_SKIN = [(849, 216), (880, 206), (915, 214), (926, 234), (930, 300), (925, 336), (849, 336)]
+ESP_SKIN = [(849, 216), (880, 206), (915, 214), (924, 234), (924, 300), (920, 336), (849, 318)]
 
 ZONES = [
     Zone("esp-skin", "teal", ESP_SKIN, clip="right-back", feather=7),

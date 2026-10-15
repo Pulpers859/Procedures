@@ -41,7 +41,7 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <image id="base" href="../distribution_bases/foot/base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
 </g>
 <g class="marking" transform="translate(0 2.7) scale(1.333333)">
-    <g clip-path="url(#c-sole)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-3_5)"><path id="plantar-skin" d="M598,140 C611.3,134.2 810.7,102.7 824,140 C837.3,177.3 836.7,742.1 826,780 C815.3,817.9 651.1,794.7 640,790 C628.9,785.3 636.4,711.1 636,700 C635.6,688.9 634.1,611.7 634,600 C633.9,588.3 634.1,511.7 634,500 C633.9,488.3 632.1,410.7 632,400 C631.9,389.3 633.9,321.2 632,316 C630.1,310.8 602.1,314.4 600,310 C597.9,305.6 596.1,249.9 596,240 C595.9,230.1 584.7,145.8 598,140 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
+    <g clip-path="url(#c-sole)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-3_5)"><path id="plantar-skin" d="M598,140 C611.3,134.2 810.7,102.7 824,140 C837.3,177.3 836.1,742.2 826,780 C815.9,817.8 660.4,792.7 650,788 C639.6,783.3 648.6,711 648,700 C647.4,689 640.8,611.7 640,600 C639.2,588.3 634.5,511.7 634,500 C633.5,488.3 632.1,410.7 632,400 C631.9,389.3 633.9,321.2 632,316 C630.1,310.8 602.1,314.4 600,310 C597.9,305.6 596.1,249.9 596,240 C595.9,230.1 584.7,145.8 598,140 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
 </g>
 
 </svg>

@@ -22,8 +22,8 @@ ASSET_ID = "popliteal_distribution"
 VIEW = "back"
 CLIPS = {"right-leg": R.RIGHT_LEG}
 
-SCIATIC_SKIN = [(862, 648), (944, 648), (946, 700), (942, 780), (940, 830), (944, 874), (866, 874), (868, 836),
-                (871, 800), (866, 740), (861, 690)]
+SCIATIC_SKIN = [(880, 648), (944, 648), (946, 700), (942, 780), (940, 830), (944, 874), (866, 874), (868, 836),
+                (871, 800), (868, 740), (874, 690)]
 
 ZONES = [
     Zone("sciatic-skin", "teal", SCIATIC_SKIN, clip="right-leg"),

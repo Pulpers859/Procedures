@@ -26,15 +26,15 @@ CLIPS = {"right-leg": R.RIGHT_LEG}
 
 # Below the popliteal crease (y about 645): posterior and lateral calf, heel;
 # the thin medial border strip (saphenous) stays grey.
-SCIATIC_SKIN = [(862, 648), (944, 648), (946, 700), (942, 780), (940, 830), (944, 874), (866, 874), (868, 836),
-                (871, 800), (866, 740), (861, 690)]
+SCIATIC_SKIN = [(880, 648), (944, 648), (946, 700), (942, 780), (940, 830), (944, 874), (866, 874), (868, 836),
+                (871, 800), (868, 740), (874, 690)]
 # Posterior thigh from the gluteal fold to the popliteal crease.
-PFCN_SKIN = [(850, 506), (946, 506), (946, 648), (850, 648)]
+PFCN_SKIN = [(850, 506), (924, 506), (924, 648), (850, 648)]
 
 ZONES = [
     Zone("pfcn-skin", "violet", PFCN_SKIN, clip="right-leg", feather=5),
     Zone("sciatic-skin", "teal", SCIATIC_SKIN, clip="right-leg"),
-    Zone("sciatic-bone", "teal", R.LEG_BONE, layer="bone", feather=2.0, tension=0.3, extra=[R.HIP_BONE]),
+    Zone("sciatic-bone", "teal", R.LEG_BONE, layer="bone", feather=2.0, tension=0.3, extra=[R.HIP_BONE, R.KNEE_BONE]),
 ]
 
 
