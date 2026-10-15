@@ -13,8 +13,22 @@
     "Typical adult depths: nerve about 3.5 cm deep (schematic).",
     "Labels: Gluteus maximus, Biceps femoris, Sciatic nerve, Adductor magnus."
   ],
-  "requiredElements": ["skin", "subcutaneous-fat", "gm", "bf", "bf-tendon", "am", "plane", "sheath", "nerve",
-                       "probe", "needle", "needle-entry", "needle-tip", "spread"],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "gm",
+    "bf",
+    "bf-tendon",
+    "am",
+    "plane",
+    "sheath",
+    "nerve",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
   "labels": {
     "Gluteus maximus": "gm",
     "Biceps femoris": "bf",
@@ -22,18 +36,90 @@
     "Adductor magnus": "am"
   },
   "geometry": [
-    {"check": "below", "a": "nerve", "b": "gm", "why": "nerve deep to gluteus maximus"},
-    {"check": "below", "a": "am", "b": "nerve", "why": "adductor magnus deep to the nerve"},
-    {"check": "leftOf", "a": "bf", "b": "nerve", "why": "biceps femoris medial"},
-    {"check": "within", "a": "nerve", "b": "sheath", "why": "nerve in its sheath"},
-    {"check": "crosses", "a": "plane", "b": "sheath", "why": "nerve in the fascial plane"},
-    {"check": "noOverlap", "a": "nerve", "b": "gm", "why": "nerve not in muscle"},
-    {"check": "noOverlap", "a": "nerve", "b": "am", "why": "nerve not in muscle"},
-    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle in-plane from the lateral end"},
-    {"check": "leftOf", "a": "needle-tip", "b": "needle-entry", "why": "needle runs lateral to medial"},
-    {"check": "leftOf", "a": "nerve", "b": "needle-tip", "why": "tip at the lateral edge of the nerve"},
-    {"check": "noOverlap", "a": "needle", "b": "nerve", "why": "tip at the lateral edge, not into the nerve"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
-    {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread around the nerve"}
-  ]
+    {
+      "check": "below",
+      "a": "nerve",
+      "b": "gm",
+      "why": "nerve deep to gluteus maximus"
+    },
+    {
+      "check": "below",
+      "a": "am",
+      "b": "nerve",
+      "why": "adductor magnus deep to the nerve"
+    },
+    {
+      "check": "leftOf",
+      "a": "bf",
+      "b": "nerve",
+      "why": "biceps femoris medial"
+    },
+    {
+      "check": "within",
+      "a": "nerve",
+      "b": "sheath",
+      "why": "nerve in its sheath"
+    },
+    {
+      "check": "crosses",
+      "a": "plane",
+      "b": "sheath",
+      "why": "nerve in the fascial plane"
+    },
+    {
+      "check": "noOverlap",
+      "a": "nerve",
+      "b": "gm",
+      "why": "nerve not in muscle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "nerve",
+      "b": "am",
+      "why": "nerve not in muscle"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle in-plane from the lateral end"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-tip",
+      "b": "needle-entry",
+      "why": "needle runs lateral to medial"
+    },
+    {
+      "check": "leftOf",
+      "a": "nerve",
+      "b": "needle-tip",
+      "why": "tip at the lateral edge of the nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "nerve",
+      "why": "tip at the lateral edge, not into the nerve"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the spread"
+    },
+    {
+      "check": "crosses",
+      "a": "nerve",
+      "b": "spread",
+      "why": "spread around the nerve"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "c9b1f245765fe46ef3b4b2570290bd111af06d583e8608b50b57f0c09c12565b",
+    "reviewedOn": "2026-10-15"
+  }
 }

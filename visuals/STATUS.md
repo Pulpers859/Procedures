@@ -1,6 +1,6 @@
 # Procedure Images: Status
 
-Last updated: 2026-10-15. Sural, ESP, chest tube and thoracentesis plates shipped; last group (tibial, transgluteal sciatic, TAP, ulnar) next.
+Last updated: 2026-10-15. Every slot outside the skip lists now has an owner-approved image.
 
 How to make an image: `PLAYBOOK.md`. Live slot list: `python3 scripts/pq.py visuals`. Trust that over this page if they disagree.
 
@@ -10,10 +10,10 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 
 ## Progress
 
-- **69 slots bundled, 20 empty.**
+- **77 slots bundled, 12 empty (all on the skip lists).**
 - **Skip; the owner adds real images (11):** ultrasound and rhythm strips (`aline_us_short_axis`, `ij_probe_orientation`, `cvc_wire_confirmation`, `ficb_subfascial_spread`, `fb_us_appearance`, `knee_us_effusion`, `pericardiocentesis_approach`, `pigtail_us_effusion`, `tvp_capture_confirmation`, `usgiv_short_axis`, `usgiv_needle_tracking`).
 - **Skip as low value unless asked (1):** `abscess_technique`.
-- **That leaves 8 slots to make.**
+- **Nothing left to make.** New slots added to `procedures.json` start the workflow again.
 
 ### Shipped recently
 
@@ -25,6 +25,10 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 | Superficial cervical plexus | 2026-10-14 | sideload-35 | Section in the house style; probe at mid-SCM (mastoid-clavicle midpoint, NYSORA). |
 | Superior alveolar | 2026-10-14 | sideload-35 | Canine as the default tooth. |
 | Superficial peroneal | 2026-10-15 | sideload-36 | Positioning: Gemini removed the equipment from the owner's photo; the photo's own probe was moved into place in code (`place_probe.py`) and the needle is code-drawn. Needle from anterior per NYSORA. |
+| Tibial | 2026-10-15 | sideload-40 | Mirror of the sural plates on the medial side; needle from the Achilles end per NYSORA. |
+| TAP | 2026-10-15 | sideload-40/41 | Photo: probe rotated in Gemini to transverse, in plane with the needle (owner); dashed mid-axillary line in code. |
+| Ulnar | 2026-10-15 | sideload-40/41 | Photo uses the approved median arm as a style reference. |
+| Transgluteal / proximal sciatic | 2026-10-15 | sideload-40/41 | Probe below the gluteal fold (owner); section redrawn at the subgluteal level after NYSORA Fig-6 (no bones in view). |
 | Sural | 2026-10-15 | sideload-38/39 | Section redrawn to true scale after independent review (malleolus subcutaneous); needle from anterior per NYSORA. |
 | Thoracic ESP | 2026-10-15 | sideload-38 | Positioning: gloved hand added in Gemini (owner). |
 | Thoracentesis site | 2026-10-15 | sideload-39 | ESP back with equipment removed, re-posed leaning forward over a table (record position); rib inset cropped from the chest tube painting. |
@@ -35,12 +39,9 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 
 - Nothing waiting on a painting.
 
-### Not started (A–Z order, both slots each unless noted)
+### Not started
 
-1. Tibial nerve block (**next**)
-2. Transgluteal / proximal sciatic block
-3. Transversus abdominis plane (TAP)
-4. Ulnar nerve block
+- None.
 
 ## Working notes that hold across sessions
 

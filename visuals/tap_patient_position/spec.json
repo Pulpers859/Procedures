@@ -84,5 +84,10 @@
       "b": "probe",
       "why": "line runs up to the probe face"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "1c3fc19c6dad1f1318074f58b2fd834d82bad510c0c23acc405b1cad73c595ec",
+    "reviewedOn": "2026-10-15"
+  }
 }

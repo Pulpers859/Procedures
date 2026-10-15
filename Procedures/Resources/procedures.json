@@ -7755,9 +7755,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine, abdomen exposed. Transducer transverse on the lateral abdominal wall, midway between the costal margin and the iliac crest, in the mid-axillary line. Needle in-plane, anterior to posterior or the reverse.",
-        "assetName": null,
+        "assetName": "tap_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Supine, right flank: probe transverse on the mid-axillary line, midway between the costal margin and the iliac crest; needle in-plane from the anterior end.",
         "clinicalWarning": null
       },
       {
@@ -9106,9 +9106,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The sciatic nerve is a large, oval, hyperechoic structure deep to the gluteus maximus. Inject around it.",
-        "assetName": null,
+        "assetName": "transgluteal_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right thigh in section just below the gluteal fold, medial on the left: the sciatic nerve lies flat in the plane under gluteus maximus, biceps femoris medial, adductor magnus deep; needle from lateral to its lateral edge.",
         "clinicalWarning": null
       }
     ],
