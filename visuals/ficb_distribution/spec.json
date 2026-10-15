@@ -9,8 +9,8 @@
     "Lateral femoral cutaneous territory: lateral thigh to just above the knee (record anatomy; NYSORA).",
     "Obturator spread is inconsistent (NYSORA: rarely) and is not shaded.",
     "Right-sided block, patient's right on the image left (house laterality).",
-    "Bone: the femur (head, neck, shaft, condyles) and the patella only; the pelvis and tibia are not shaded (NYSORA: femoral nerve branches to the hip joint; owner, 2026-10-15: strict).",
-    "Colour key: teal = femoral nerve (with its saphenous branch), violet = lateral femoral cutaneous nerve; the key is shown under the image in the app, not on the plate (owner, 2026-10-15)."
+    "Colour key: teal = femoral nerve (with its saphenous branch), violet = lateral femoral cutaneous nerve; the key is shown under the image in the app, not on the plate (owner, 2026-10-15).",
+    "Bone: the femur (head, neck, shaft, condyles) and patella (femoral articular branches to the hip and knee), plus the saphenous periosteal territory: the anteromedial proximal tibia and the medial distal tibia with the medial malleolus. Not shaded: the pelvis, fibula, tibial mid-shaft and lateral tibia (sciatic territories). Owner, 2026-10-15: realistic coverage; sources: Lundblad et al. 2013 (saphenous innervation of the medial ankle, Local Reg Anesth 6:13), cadaveric saphenous periosteal branches 3.9-8.2 cm above the malleolus; NCT05728294 (proximal tibia femoral anteriorly, sciatic posteriorly)."
   ],
   "requiredElements": [
     "skull",
@@ -20,7 +20,9 @@
     "body",
     "femoral-skin",
     "lfc-skin",
-    "femoral-bone"
+    "femoral-bone",
+    "saphenous-bone-prox",
+    "saphenous-bone-dist"
   ],
   "labels": {},
   "geometry": [
@@ -47,6 +49,18 @@
       "a": "femoral-bone",
       "b": "spine",
       "why": "right side shaded (image left)"
+    },
+    {
+      "check": "below",
+      "a": "saphenous-bone-dist",
+      "b": "saphenous-bone-prox",
+      "why": "distal patch at the ankle"
+    },
+    {
+      "check": "leftOf",
+      "a": "saphenous-bone-prox",
+      "b": "spine",
+      "why": "right side"
     }
   ]
 }

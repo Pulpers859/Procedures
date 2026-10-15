@@ -105,6 +105,7 @@ MASK_Y = (1200 - 896 * 1600 / 1200) / 2
 def defs() -> str:
     return f"""
 <filter id="feather" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="feather-bone" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.5"/></filter>
 <clipPath id="c-right-leg"><path d="{smooth_path(RIGHT_LEG, closed=True, tension=0.2)}"/></clipPath>
 <linearGradient id="lig-fade" gradientUnits="userSpaceOnUse" x1="1083" y1="582" x2="1050" y2="626"><stop offset="0" stop-color="#000"/>
   <stop offset="1" stop-color="#FFF"/></linearGradient>
@@ -129,7 +130,7 @@ FEMORAL_SKIN = [(1040, 553), (1072, 572), (1092, 606), (1098, 640), (1101, 680),
                 (1119, 905), (1115, 960), (1113, 1040), (1114, 1100), (1118, 1122), (1110, 1132), (1100, 1112),
                 (1096, 1090), (1090, 1040), (1088, 965), (1080, 920), (1062, 888), (1044, 862), (1034, 836),
                 (1058, 832), (1058, 790), (1055, 700), (1051, 600)]
-LFC_SKIN = [(985, 562), (1028, 562), (1040, 566), (1051, 600), (1055, 700), (1058, 790), (1058, 828), (985, 832)]
+LFC_SKIN = [(985, 580), (1028, 580), (1040, 582), (1051, 600), (1055, 700), (1058, 790), (1058, 828), (985, 832)]
 # The femur only (head, neck, trochanters, shaft, condyles) and the patella:
 # traced on 6x zooms of the painting; the pelvis and tibia stay unshaded
 # (owner, 2026-10-15: be strict). The femoral head is in, as the femoral
@@ -140,6 +141,16 @@ FEMORAL_BONE = [(361, 633), (362, 622), (366, 616), (372, 614), (379, 616), (382
                 (445, 862), (442, 872), (441, 878), (428, 879), (420, 881), (414, 882), (406, 880), (400, 879),
                 (391, 878), (388, 868), (387, 858), (391, 846), (395, 838), (392, 820), (387, 780), (382, 730),
                 (377, 690), (370, 660), (364, 645)]
+# Saphenous periosteal branches (owner, 2026-10-15: realistic coverage, checked
+# against the literature): the anteromedial proximal tibia (femoral branches
+# supply the proximal tibia anteriorly; the lateral side and fibula are common
+# peroneal) and the medial distal tibia and medial malleolus (saphenous
+# branches 3.9-8.2 cm above the malleolus to the periosteum and the medial
+# ankle capsule; Lundblad et al. 2013, Local Reg Anesth 6:13, histology of the
+# medial malleolar periosteum). The
+# mid-shaft is tibial nerve and stays unshaded.
+SAPH_BONE_PROX = [(414, 880), (444, 880), (445, 895), (438, 910), (432, 922), (430, 928), (418, 928), (417, 915), (414, 900)]
+SAPH_BONE_DIST = [(421, 1045), (432, 1045), (434, 1060), (440, 1075), (443, 1093), (441, 1101), (430, 1100), (424, 1088), (420, 1070)]
 # The patient's right leg on the body, between the hanging hand and the other
 # leg: the tint never reaches the arm, the trunk or the left leg.
 RIGHT_LEG = [(1022, 500), (1129, 500), (1129, 1200), (995, 1200), (1000, 760), (1005, 650), (1015, 600), (1022, 560)]
@@ -167,14 +178,18 @@ def build() -> str:
     if painted:
         marks = f"""
 <g class="marking">
-  <g clip-path="url(#c-right-leg)"><g mask="url(#m-body)">
-    <g mask="url(#m-lig)"><g filter="url(#feather)" style="mix-blend-mode:multiply" fill-opacity="0.7">
+  <g clip-path="url(#c-right-leg)" style="mix-blend-mode:multiply"><g mask="url(#m-body)">
+    <g mask="url(#m-lig)"><g filter="url(#feather)" fill-opacity="0.58">
       <path id="lfc-skin" d="{territory(LFC_SKIN)}" fill="{TONES['violet']}"/>
       <path id="femoral-skin" d="{territory(FEMORAL_SKIN)}" fill="{TONES['teal']}"/>
     </g></g>
   </g></g>
   <g mask="url(#m-bone)" style="mix-blend-mode:multiply">
     <path id="femoral-bone" d="{smooth_path(FEMORAL_BONE, closed=True, tension=0.3)}" fill="{TONES['teal']}" fill-opacity="0.5"/>
+    <g filter="url(#feather-bone)">
+      <path id="saphenous-bone-prox" d="{smooth_path(SAPH_BONE_PROX, closed=True, tension=0.3)}" fill="{TONES['teal']}" fill-opacity="0.5"/>
+      <path id="saphenous-bone-dist" d="{smooth_path(SAPH_BONE_DIST, closed=True, tension=0.3)}" fill="{TONES['teal']}" fill-opacity="0.5"/>
+    </g>
   </g>
 </g>"""
 
