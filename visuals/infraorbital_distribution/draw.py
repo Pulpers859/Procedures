@@ -25,8 +25,8 @@ CLIPS = {"right-lower-face": R.RIGHT_LOWER_FACE}
 
 # Lower eyelid (below the lash line, y 326), medial cheek (not the lateral
 # cheek) to the corner of the mouth, side of the nose, upper lip to the midline.
-INFRAORBITAL_SKIN = [(822, 334), (918, 332), (936, 350), (950, 390), (958, 420), (954, 446), (900, 446),
-                     (872, 436), (852, 424), (832, 404), (822, 372)]
+INFRAORBITAL_SKIN = [(850, 334), (918, 332), (936, 350), (950, 390), (950, 438), (906, 438), (890, 436), (870, 420),
+                     (850, 380)]
 
 ZONES = [
     Zone("infraorbital-skin", "teal", INFRAORBITAL_SKIN, clip="right-lower-face", feather=4),

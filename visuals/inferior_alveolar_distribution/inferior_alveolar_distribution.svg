@@ -42,8 +42,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <image id="base" href="../distribution_bases/head/base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
 </g>
 <g class="marking" transform="translate(0 2.7) scale(1.333333)">
-    <g clip-path="url(#c-right-lower-face)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-4)"><path id="mental-skin" d="M866,448 C871.1,445.6 950.6,446.7 956,448 C961.4,449.3 958.2,466.4 958,470 C957.8,473.6 955.4,507.3 952,510 C948.6,512.7 904.9,517.2 900,516 C895.1,514.8 870,494 868,490 C866,486 860.9,450.4 866,448 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
-  <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-1_5)"><path id="mandible-bone" d="M300,436 C307.4,434 439.6,428.4 447,432 C454.4,435.6 452.1,503.8 449,508 C445.9,512.2 390.7,516.3 385,516 C379.3,515.7 339.2,504.2 335,502 C330.8,499.8 301.8,475.3 300,472 C298.2,468.7 292.6,438 300,436 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
+    <g clip-path="url(#c-right-lower-face)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-4)"><path id="mental-skin" d="M880,448 C884,445.6 945.8,446.7 950,448 C954.2,449.3 952.1,466.4 952,470 C951.9,473.6 951,507.3 948,510 C945,512.7 903.9,517.2 900,516 C896.1,514.8 883.2,494 882,490 C880.8,486 876,450.4 880,448 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
+  <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-1_5)"><path id="mandible-bone" d="M300,434 C303.5,432.1 366.4,433.6 370,434 C373.6,434.4 369.4,440.6 372,441 C374.6,441.4 419.3,439.6 422,441 C424.7,442.4 425.8,466.6 426,470 C426.2,473.4 428.1,507.7 426,510 C423.9,512.3 389.6,516.4 385,516 C380.4,515.6 339.2,504.2 335,502 C330.8,499.8 301.8,475.4 300,472 C298.2,468.6 296.5,435.9 300,434 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
 </g>
 
 </svg>

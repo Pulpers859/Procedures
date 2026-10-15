@@ -7474,6 +7474,11 @@
             "tone": "teal",
             "nerve": "Lateral cutaneous branches of the intercostal nerves (T2-T9)",
             "label": "The skin of the lateral chest wall from the armpit to the lower ribs; the ribs beneath."
+          },
+          {
+            "tone": "violet",
+            "nerve": "Intercostobrachial nerve",
+            "label": "The armpit and the skin of the inner upper arm beside it."
           }
         ]
       },
@@ -11776,7 +11781,7 @@
         "subtitle": "Where to expect numbness on the right side.",
         "assetName": null,
         "systemImage": "figure.stand",
-        "caption": "Nothing on the face or the neck is shaded.",
+        "caption": "Nothing beyond the ring of skin around the ear is shaded.",
         "clinicalWarning": null,
         "legend": [
           {

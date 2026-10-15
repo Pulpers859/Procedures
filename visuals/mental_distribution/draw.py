@@ -20,7 +20,7 @@ ASSET_ID = "mental_distribution"
 VIEW = "head"
 CLIPS = {"right-lower-face": R.RIGHT_LOWER_FACE}
 
-MENTAL_SKIN = [(866, 448), (956, 448), (958, 470), (952, 510), (900, 516), (868, 490)]
+MENTAL_SKIN = [(880, 448), (950, 448), (952, 470), (948, 510), (900, 516), (882, 490)]
 
 ZONES = [
     Zone("mental-skin", "teal", MENTAL_SKIN, clip="right-lower-face", feather=4),

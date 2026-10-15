@@ -11,11 +11,11 @@ one part of the body; a bone outline is clipped again by the painted bone mask.
 # (the raised arm and the neck are above y 320 and stay out).
 RIGHT_CHEST = [(796, 326), (846, 314), (900, 300), (940, 308), (992, 350), (992, 560), (740, 560), (740, 334), (790, 332)]
 # Body: the armpit and the inner side of the raised upper arm next to it.
-RIGHT_AXILLA = [(790, 250), (870, 250), (870, 328), (790, 328)]
+RIGHT_AXILLA = [(790, 250), (870, 250), (870, 342), (790, 342)]
 
 # Skeleton: the right ribs lateral to the shoulder blade (x 225-296), from the
 # first rib's level down to the costal margin; the spine (x < 302) is left out.
-RIBS_ALL = [(302, 296), (380, 296), (420, 330), (445, 420), (446, 480), (425, 512), (390, 525), (340, 535),
-            (302, 540), (302, 420)]
+RIBS_ALL = [(313, 306), (380, 306), (420, 330), (445, 420), (446, 480), (425, 500), (400, 508), (370, 500),
+            (340, 492), (313, 486), (302, 420)]
 # The same ribs down to about the sixth (PECS II): the band above y 425.
-RIBS_UPPER = [(302, 296), (380, 296), (420, 330), (445, 410), (446, 430), (310, 430), (302, 420)]
+RIBS_UPPER = [(313, 306), (380, 306), (420, 330), (445, 410), (446, 430), (310, 430), (302, 420)]

@@ -25,11 +25,14 @@ CLIPS = {"right-neck": R.RIGHT_NECK}
 
 # Below the jaw line (ear lobe to chin), the neck to the midline, to the
 # clavicle and out over the shoulder tip.
-NECK_SKIN = [(722, 412), (786, 414), (795, 440), (825, 475), (860, 500), (905, 520), (906, 690), (850, 688),
-             (780, 680), (700, 684), (646, 704), (640, 690), (660, 650), (700, 625), (722, 590), (720, 500)]
+NECK_SKIN = [(722, 412), (772, 404), (792, 408), (812, 424), (830, 442), (842, 455), (862, 490), (905, 516),
+             (906, 690), (850, 688), (780, 680), (700, 684), (646, 704), (640, 690), (660, 650), (700, 625),
+             (722, 590), (720, 500)]
+# The ear lobe (great auricular).
+LOBE = [(752, 392), (790, 390), (792, 413), (776, 417), (758, 410)]
 
 ZONES = [
-    Zone("neck-skin", "teal", NECK_SKIN, clip="right-neck", feather=4),
+    Zone("neck-skin", "teal", NECK_SKIN, clip="right-neck", feather=4, extra=[LOBE]),
     Zone("clavicle-bone", "teal", R.CLAVICLE, layer="bone", feather=1.5, tension=0.3),
 ]
 

@@ -6,12 +6,14 @@
   "teachingPoint": "A serratus anterior plane block numbs the lateral chest wall from the armpit to the costal margin, with the ribs beneath.",
   "claims": [
     "Skin: lateral chest wall from the armpit (T2) to the costal margin (T9), the whole side as seen from the right (NYSORA: serratus anterior plane block, T2 to T9 lateral chest wall).",
-    "Bone: the ribs lateral to the shoulder blade, from the first rib's level to the costal margin (intercostal nerves supply the rib periosteum). Not shaded: the scapula, the spine, the abdomen below the ribs.",
+    "Skin (violet): the armpit and the inner upper arm beside it (intercostobrachial nerve, T2; NYSORA lists it for this block).",
+    "Bone: the ribs lateral to the shoulder blade, from the second rib to about the ninth (intercostal nerves supply the rib periosteum). Not shaded: the scapula, the spine, ribs 10-12, the abdomen below the ribs. The skin stops at about the posterior axillary line.",
     "Right-sided block, seen from the patient's right; one tone per nerve, key shown under the image in the app."
   ],
   "requiredElements": [
     "base",
     "serratus-skin",
+    "serratus-armpit",
     "serratus-bone"
   ],
   "labels": {},

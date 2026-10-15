@@ -23,10 +23,9 @@ VIEW = "side"
 CLIPS = {"right-chest": R.RIGHT_CHEST, "right-axilla": R.RIGHT_AXILLA}
 
 # Armpit (y 326) to about the sixth rib (y 425).
-CHEST_SKIN = [(796, 328), (840, 316), (900, 306), (942, 314), (990, 346), (992, 408), (900, 418), (740, 436),
-              (740, 336), (790, 334)]
+CHEST_SKIN = [(820, 340), (852, 338), (900, 310), (942, 314), (990, 346), (992, 408), (900, 418), (820, 432)]
 # The armpit and the inner side of the upper arm next to it.
-ARMPIT = [(806, 296), (840, 288), (866, 300), (868, 324), (836, 328), (808, 320)]
+ARMPIT = [(806, 296), (840, 288), (866, 300), (868, 332), (836, 336), (808, 330)]
 
 ZONES = [
     Zone("pecs-skin", "teal", CHEST_SKIN, clip="right-chest", feather=6),

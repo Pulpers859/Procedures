@@ -23,12 +23,14 @@ ASSET_ID = "supraorbital_distribution"
 VIEW = "head"
 CLIPS = {"right-face": R.RIGHT_FACE}
 
-# Brow (y 285) to the vertex, from the coronal plane through the ear (x 790)
-# to the supratrochlear strip (x 915); upper eyelid to the lash line.
-SUPRAORBITAL = [(790, 150), (820, 140), (900, 142), (915, 150), (915, 282), (900, 290), (920, 292), (924, 326),
-                (788, 326), (786, 290), (800, 284), (788, 260), (786, 200)]
+# Brow (y 285) to the vertex, from the temporal line and the coronal plane
+# through the ear to the supratrochlear strip; the lateral upper eyelid to the
+# lash line (audit 2026-10-15: the temple is not supraorbital).
+SUPRAORBITAL = [(846, 148), (870, 140), (877, 168), (896, 200), (910, 250), (915, 285), (898, 290), (898, 326),
+                (862, 326), (862, 292), (850, 285), (840, 270), (830, 240), (822, 205), (818, 172)]
 # Medial forehead strip (about 2 cm), the root of the nose and the medial lid.
-SUPRATROCHLEAR = [(915, 160), (946, 168), (948, 300), (950, 350), (934, 352), (922, 326), (912, 290), (912, 200)]
+SUPRATROCHLEAR = [(858, 140), (877, 168), (896, 200), (910, 250), (915, 285), (898, 290), (898, 326), (918, 326),
+                  (934, 352), (944, 352), (947, 300), (947, 285), (942, 250), (928, 200), (909, 168)]
 
 ZONES = [
     Zone("supraorbital-skin", "teal", SUPRAORBITAL, clip="right-face", feather=6),

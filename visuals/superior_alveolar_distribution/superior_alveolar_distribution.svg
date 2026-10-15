@@ -40,7 +40,7 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <image id="base" href="../distribution_bases/head/base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
 </g>
 <g class="marking" transform="translate(0 2.7) scale(1.333333)">
-    <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-1)"><path id="canine-bone" d="M406,382 C407.3,379.1 428.7,379.1 430,382 C431.3,384.9 433.3,437.1 432,440 C430.7,442.9 405.3,442.9 404,440 C402.7,437.1 404.7,384.9 406,382 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
+    <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-1)"><path id="canine-bone" d="M378,384 C378.9,381.2 393.1,381.2 394,384 C394.9,386.8 396.9,437.2 396,440 C395.1,442.8 377.9,442.8 377,440 C376.1,437.2 377.1,386.8 378,384 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
 </g>
 
 </svg>

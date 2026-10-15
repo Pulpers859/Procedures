@@ -21,15 +21,17 @@ import side_regions as R  # noqa: E402,F401
 
 ASSET_ID = "serratus_distribution"
 VIEW = "side"
-CLIPS = {"right-chest": R.RIGHT_CHEST}
+CLIPS = {"right-chest": R.RIGHT_CHEST, "right-axilla": R.RIGHT_AXILLA}
 
 # From the armpit (y 326) to the costal margin (T9, sloping up toward the front),
 # the whole lateral chest wall as seen from the side.
-CHEST_SKIN = [(796, 328), (840, 316), (900, 306), (942, 314), (990, 346), (992, 498), (900, 514), (740, 540),
-              (740, 336), (790, 334)]
+CHEST_SKIN = [(820, 340), (852, 338), (900, 310), (942, 314), (990, 346), (992, 498), (900, 514), (820, 530)]
+# The armpit and the inner side of the upper arm beside it (intercostobrachial).
+ARMPIT = [(806, 296), (840, 288), (866, 300), (868, 332), (836, 336), (808, 330)]
 
 ZONES = [
     Zone("serratus-skin", "teal", CHEST_SKIN, clip="right-chest", feather=6),
+    Zone("serratus-armpit", "violet", ARMPIT, clip="right-axilla", feather=6),
     Zone("serratus-bone", "teal", R.RIBS_ALL, layer="bone", feather=2.0, tension=0.3),
 ]
 
