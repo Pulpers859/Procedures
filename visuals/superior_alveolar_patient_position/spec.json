@@ -12,13 +12,59 @@
     "Canine root about 17 mm long, its apex above the fold (standard anatomy; record: roots sit just above the fold).",
     "Labels: Mucobuccal fold, Root apex, Needle."
   ],
-  "requiredElements": ["face", "mouth", "canine", "gum", "fold", "upper-lip", "finger", "root", "apex", "needle", "needle-entry"],
-  "labels": {"Mucobuccal fold": "fold", "Root apex": "apex", "Needle": "needle"},
+  "requiredElements": [
+    "face",
+    "mouth",
+    "canine",
+    "gum",
+    "fold",
+    "upper-lip",
+    "finger",
+    "root",
+    "apex",
+    "needle",
+    "needle-entry"
+  ],
+  "labels": {
+    "Mucobuccal fold": "fold",
+    "Root apex": "apex",
+    "Needle": "needle"
+  },
   "geometry": [
-    {"check": "below", "a": "canine", "b": "fold", "why": "the fold is above the tooth crown"},
-    {"check": "below", "a": "fold", "b": "apex", "why": "the root apex sits above the fold"},
-    {"check": "crosses", "a": "needle-entry", "b": "fold", "why": "entry at the height of the fold"},
-    {"check": "crosses", "a": "apex", "b": "root", "why": "the apex is the tip of the canine root"},
-    {"check": "below", "a": "needle", "b": "needle-entry", "why": "the syringe comes up from below; the needle runs up toward the apex"}
-  ]
+    {
+      "check": "below",
+      "a": "canine",
+      "b": "fold",
+      "why": "the fold is above the tooth crown"
+    },
+    {
+      "check": "below",
+      "a": "fold",
+      "b": "apex",
+      "why": "the root apex sits above the fold"
+    },
+    {
+      "check": "crosses",
+      "a": "needle-entry",
+      "b": "fold",
+      "why": "entry at the height of the fold"
+    },
+    {
+      "check": "crosses",
+      "a": "apex",
+      "b": "root",
+      "why": "the apex is the tip of the canine root"
+    },
+    {
+      "check": "below",
+      "a": "needle",
+      "b": "needle-entry",
+      "why": "the syringe comes up from below; the needle runs up toward the apex"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "2deb1716170609b33d7b0905c0cad983fde1b77655bdce19dcf4f990a99d5868",
+    "reviewedOn": "2026-10-14"
+  }
 }

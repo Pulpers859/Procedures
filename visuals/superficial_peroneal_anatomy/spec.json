@@ -13,8 +13,20 @@
     "Labels: Crural fascia, Superficial peroneal nerve, Peroneus brevis, Extensor digitorum longus, Fibula."
   ],
   "requiredElements": [
-    "skin", "subcutaneous-fat", "crural-fascia", "septum", "edl", "pbm", "fibula", "junction-fat", "nerve",
-    "probe", "needle", "needle-entry", "needle-tip", "spread"
+    "skin",
+    "subcutaneous-fat",
+    "crural-fascia",
+    "septum",
+    "edl",
+    "pbm",
+    "fibula",
+    "junction-fat",
+    "nerve",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
   ],
   "labels": {
     "Crural fascia": "crural-fascia",
@@ -24,17 +36,84 @@
     "Fibula": "fibula"
   },
   "geometry": [
-    {"check": "leftOf", "a": "pbm", "b": "edl", "why": "lateral compartment on the left, anterior on the right"},
-    {"check": "below", "a": "nerve", "b": "crural-fascia", "why": "nerve just deep to the crural fascia"},
-    {"check": "within", "a": "nerve", "b": "junction-fat", "why": "nerve in the fat where the septum meets the fascia"},
-    {"check": "noOverlap", "a": "nerve", "b": "edl", "why": "nerve not in muscle"},
-    {"check": "noOverlap", "a": "nerve", "b": "pbm", "why": "nerve not in muscle"},
-    {"check": "leftOf", "a": "fibula", "b": "nerve", "why": "fibula posterolateral to the nerve"},
-    {"check": "below", "a": "fibula", "b": "nerve", "why": "fibula deep"},
-    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle in-plane from the anterior end"},
-    {"check": "noOverlap", "a": "needle", "b": "nerve", "why": "tip beside, not into, the nerve"},
-    {"check": "noOverlap", "a": "needle", "b": "fibula", "why": "needle stays superficial"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
-    {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread surrounds the nerve"}
-  ]
+    {
+      "check": "leftOf",
+      "a": "pbm",
+      "b": "edl",
+      "why": "lateral compartment on the left, anterior on the right"
+    },
+    {
+      "check": "below",
+      "a": "nerve",
+      "b": "crural-fascia",
+      "why": "nerve just deep to the crural fascia"
+    },
+    {
+      "check": "within",
+      "a": "nerve",
+      "b": "junction-fat",
+      "why": "nerve in the fat where the septum meets the fascia"
+    },
+    {
+      "check": "noOverlap",
+      "a": "nerve",
+      "b": "edl",
+      "why": "nerve not in muscle"
+    },
+    {
+      "check": "noOverlap",
+      "a": "nerve",
+      "b": "pbm",
+      "why": "nerve not in muscle"
+    },
+    {
+      "check": "leftOf",
+      "a": "fibula",
+      "b": "nerve",
+      "why": "fibula posterolateral to the nerve"
+    },
+    {
+      "check": "below",
+      "a": "fibula",
+      "b": "nerve",
+      "why": "fibula deep"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle in-plane from the anterior end"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "nerve",
+      "why": "tip beside, not into, the nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "fibula",
+      "why": "needle stays superficial"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the spread"
+    },
+    {
+      "check": "crosses",
+      "a": "nerve",
+      "b": "spread",
+      "why": "spread surrounds the nerve"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "3f7c0e2e78acd1cad18825e3ca3a6cd5f53c0c852f6038d8ea6aa5fdd3da2b16",
+    "reviewedOn": "2026-10-14"
+  }
 }

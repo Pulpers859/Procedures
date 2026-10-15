@@ -1,6 +1,6 @@
 # Procedure Images: Status
 
-Last updated: 2026-10-14. Paused at the owner's request after the supraorbital block shipped.
+Last updated: 2026-10-14 (later). Superior alveolar pair, superficial peroneal section and cervical plexus positioning shipped via the Antigravity lane.
 
 How to make an image: `PLAYBOOK.md`. Live slot list: `python3 scripts/pq.py visuals`. Trust that over this page if they disagree.
 
@@ -10,10 +10,10 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 
 ## Progress
 
-- **57 slots bundled, 32 empty.**
+- **61 slots bundled, 28 empty.**
 - **Skip; the owner adds real images (11):** ultrasound and rhythm strips (`aline_us_short_axis`, `ij_probe_orientation`, `cvc_wire_confirmation`, `ficb_subfascial_spread`, `fb_us_appearance`, `knee_us_effusion`, `pericardiocentesis_approach`, `pigtail_us_effusion`, `tvp_capture_confirmation`, `usgiv_short_axis`, `usgiv_needle_tracking`).
 - **Skip as low value unless asked (1):** `abscess_technique`.
-- **That leaves 20 slots to make.**
+- **That leaves 16 slots to make.**
 
 ### Shipped recently
 
@@ -22,17 +22,13 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 | Deep peroneal | 2026-10-01 | sideload-15 | |
 | Femoral nerve | 2026-10-01 | (other session) | |
 | Supraclavicular | 2026-10-14 | sideload-33 | The model for nerve-block sections (house style in `PLAYBOOK.md`). |
+| Superficial cervical plexus | 2026-10-14 | sideload-35 | Section in the house style; probe at mid-SCM (mastoid-clavicle midpoint, NYSORA). |
+| Superior alveolar | 2026-10-14 | sideload-35 | Canine as the default tooth. |
 | Supraorbital | 2026-10-14 | sideload-34 | The finger is the photo's own glove, placed in code (`place_finger.py`), and the green eyes come from `green_eyes.py`. |
 
-### In progress: layouts pushed, waiting on the owner's Gemini paintings
+### In progress
 
-These were started in another session on 2026-10-04. Their references and prompts were sent there.
-
-- `sc_plexus_patient_position`: layout `f36ebf5`. Its section plate is already shipped.
-- `superficial_peroneal_patient_position` and `superficial_peroneal_anatomy`: layouts `ea89b92`.
-- `superior_alveolar_patient_position` and `superior_alveolar_anatomy`: layouts `3818c3f`.
-
-To resume one: `python3 scripts/render_visuals.py <id> --reference`, resend it with the prompt, and continue from `PLAYBOOK.md` section 4.
+- `superficial_peroneal_patient_position`: layout redrawn with the foot (commit 28a3f83) after the first Antigravity painting put the probe about 15 cm above the malleolus. Prompt: `tmp/visual-drafts/antigravity/superficial_peroneal_patient_position/ag2_image_prompt.txt` (gitignored). Its section plate is shipped.
 
 ### Not started (A–Z order, both slots each unless noted)
 
@@ -47,6 +43,7 @@ To resume one: `python3 scripts/render_visuals.py <id> --reference`, resend it w
 
 ## Working notes that hold across sessions
 
+- **Antigravity lane (Claude on the owner's PC):** `tools/Invoke-AntigravityAgentApi.ps1 -Command NewConversation ... -PassPromptFileAsAtPath` with a prompt file under `tmp/visual-drafts/antigravity/<slot>/`; about a minute per painting at 1200x896. It shares Gemini's image quota; a 429 is logged in the conversation's `transcript.jsonl`.
 - **Gemini returns full size only via Download.** A copy from the chat comes back at 512×382. Always ask for the full-size download.
 - **When Gemini will not move something, do it in code.** Gemini repairs can't place a hand or finger precisely. Have Gemini remove the object, then composite the photo's own object back in code (`supraorbital_patient_position/place_finger.py`). Small colour changes, such as eye colour, are also safer in code (`green_eyes.py`).
 - **Check each Gemini repair against the image before it.** A repair can remove things it was not asked to touch. Take the lost area back with `visual_patch.py crop` and `merge`.

@@ -7075,9 +7075,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine, head turned away. Transducer transverse over the mid-SCM. Needle in-plane from posterior to anterior, off the external jugular vein.",
-        "assetName": null,
+        "assetName": "sc_plexus_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Supine, head turned left, right neck: probe transverse over the posterior border of the SCM at its midpoint; needle in-plane from posterior, its path clear of the external jugular vein.",
         "clinicalWarning": null
       },
       {
@@ -9757,9 +9757,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "In the distal third of the lateral leg the nerve pierces the deep fascia to become superficial. Inject around it.",
-        "assetName": null,
+        "assetName": "superficial_peroneal_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right distal leg in section, lateral on the left: the nerve lies just under the crural fascia where the septum between peroneus brevis and EDL meets it; needle in-plane, spread around the nerve.",
         "clinicalWarning": null
       }
     ],
@@ -11073,9 +11073,9 @@
         "kind": "Setup",
         "title": "Needle entry on the patient",
         "subtitle": "Seated, head firmly supported. Needle at the height of the mucobuccal fold, angled toward the apex of the tooth.",
-        "assetName": null,
+        "assetName": "superior_alveolar_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Lip retracted: needle enters at the height of the mucobuccal fold above the tooth (canine shown), angled up toward the root apex.",
         "clinicalWarning": null
       },
       {
@@ -11083,9 +11083,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The roots of the maxillary teeth sit just above the mucobuccal fold; the porous maxilla lets fluid injected there reach the nerve.",
-        "assetName": null,
+        "assetName": "superior_alveolar_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Canine in section: the root apex sits above the mucobuccal fold in porous maxilla; the needle tip rests near the bone level with the apex and the fluid soaks through to the nerve.",
         "clinicalWarning": null
       }
     ],

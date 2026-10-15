@@ -12,15 +12,69 @@
     "Branch of the superior alveolar nerve reaching the apex (standard anatomy).",
     "Labels: Root apex, Mucobuccal fold, Porous maxilla, Superior alveolar nerve, Upper lip."
   ],
-  "requiredElements": ["bone", "canine", "pulp", "gingiva", "lip", "nerve", "apex-mark", "fold-mark", "needle", "needle-tip", "spread"],
-  "labels": {"Root apex": "apex-mark", "Mucobuccal fold": "fold-mark", "Porous maxilla": "bone",
-             "Superior alveolar nerve": "nerve", "Upper lip": "lip"},
+  "requiredElements": [
+    "bone",
+    "canine",
+    "pulp",
+    "gingiva",
+    "lip",
+    "nerve",
+    "apex-mark",
+    "fold-mark",
+    "needle",
+    "needle-tip",
+    "spread"
+  ],
+  "labels": {
+    "Root apex": "apex-mark",
+    "Mucobuccal fold": "fold-mark",
+    "Porous maxilla": "bone",
+    "Superior alveolar nerve": "nerve",
+    "Upper lip": "lip"
+  },
   "geometry": [
-    {"check": "below", "a": "fold-mark", "b": "apex-mark", "why": "the apex sits above the fold"},
-    {"check": "noOverlap", "a": "needle", "b": "canine", "why": "the needle stays off the tooth"},
-    {"check": "noOverlap", "a": "needle-tip", "b": "bone", "why": "tip outside the bone (supraperiosteal)"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the injectate"},
-    {"check": "below", "a": "needle", "b": "needle-tip", "why": "the needle comes up from the fold toward the apex"},
-    {"check": "crosses", "a": "nerve", "b": "bone", "why": "the nerve runs in the bone"}
-  ]
+    {
+      "check": "below",
+      "a": "fold-mark",
+      "b": "apex-mark",
+      "why": "the apex sits above the fold"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "canine",
+      "why": "the needle stays off the tooth"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle-tip",
+      "b": "bone",
+      "why": "tip outside the bone (supraperiosteal)"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the injectate"
+    },
+    {
+      "check": "below",
+      "a": "needle",
+      "b": "needle-tip",
+      "why": "the needle comes up from the fold toward the apex"
+    },
+    {
+      "check": "crosses",
+      "a": "nerve",
+      "b": "bone",
+      "why": "the nerve runs in the bone"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "950697ce9fdd07b1cf1e26c9ea9727085989424658aba858436650a4afcf513c",
+    "reviewedOn": "2026-10-14"
+  }
 }
