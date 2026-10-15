@@ -1,0 +1,39 @@
+{
+  "assetId": "esp_anatomy",
+  "procedure": "block_thoracic_esp",
+  "title": "Target anatomy",
+  "view": "Parasagittal section of the right upper back at about T5, 3 cm from the midline, under a sagittal probe, as on ultrasound: cranial on the image left, caudal on the right, skin at the top. Composition after NYSORA's plate (concept only).",
+  "teachingPoint": "The needle passes through trapezius, rhomboid and erector spinae until the tip touches a transverse process; the injectate lifts the erector spinae and spreads cranially and caudally along the processes.",
+  "claims": [
+    "Sagittal probe about 3 cm lateral to the spinous processes (record).",
+    "Trapezius, rhomboid major and erector spinae in three layers over the transverse processes at T5 (NYSORA; record: erector spinae over the square transverse processes).",
+    "Transverse processes as squared bony blocks, about 4 cm deep and about 26 mm apart (standard anatomy, typical adult depth).",
+    "Superior costotransverse ligament between the processes, paravertebral fat and pleura deep to it (standard anatomy).",
+    "Needle in-plane from cranial, tip touching the middle transverse process (record steps 3-4).",
+    "Teal: spread deep to the erector spinae over the processes, running cranially and caudally (record: spreads deep to the erector spinae).",
+    "Labels: Trapezius, Rhomboid major, Erector spinae, Transverse process, Pleura."
+  ],
+  "requiredElements": ["skin", "subcutaneous-fat", "trapezius", "rhomboid", "erector-spinae", "es-fascia", "tp", "tp-0", "tp-2",
+                       "ligament", "intertransverse", "pvs-fat", "pleura", "lung", "probe", "needle", "needle-entry", "needle-tip", "spread"],
+  "labels": {
+    "Trapezius": "trapezius",
+    "Rhomboid major": "rhomboid",
+    "Erector spinae": "erector-spinae",
+    "Transverse process": "tp",
+    "Pleura": "pleura"
+  },
+  "geometry": [
+    {"check": "below", "a": "rhomboid", "b": "trapezius", "why": "trapezius outermost"},
+    {"check": "below", "a": "erector-spinae", "b": "rhomboid", "why": "erector spinae deep to rhomboid"},
+    {"check": "below", "a": "tp", "b": "erector-spinae", "why": "transverse process deep to the erector spinae"},
+    {"check": "below", "a": "pleura", "b": "tp", "why": "pleura deep to the processes"},
+    {"check": "leftOf", "a": "needle-entry", "b": "needle-tip", "why": "needle cranial to caudal (cranial on the left)"},
+    {"check": "noOverlap", "a": "needle", "b": "tp", "why": "tip touches the process, not into it"},
+    {"check": "noOverlap", "a": "needle", "b": "pleura", "why": "needle stays well above the pleura"},
+    {"check": "endNear", "a": "needle", "end": "end", "b": "tp", "maxPx": 16, "why": "tip touches the transverse process"},
+    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
+    {"check": "crosses", "a": "spread", "b": "es-fascia", "why": "spread lies along the deep surface of the erector spinae"},
+    {"check": "noOverlap", "a": "spread", "b": "tp", "why": "spread on the processes, not in bone"},
+    {"check": "noOverlap", "a": "spread", "b": "pleura", "why": "spread superficial to the pleura"}
+  ]
+}

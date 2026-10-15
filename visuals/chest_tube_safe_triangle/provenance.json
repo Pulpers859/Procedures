@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Reused: the owner-approved serratus_patient_position base (Gemini edit of the owner's photo with the equipment removed), copied unchanged",
+ "generatedBy": "Owner in the Gemini app (2026-10-03); triangle and markings code-drawn by Claude",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1198,
+  896
+ ],
+ "reference": "No layout: reuse of an approved painting (memory/PLAYBOOK: reuse solved anatomy). Serratus tracing (nipple, axillary apex, mid-axillary line, body axis) reused.",
+ "prompt": "None (no new painting).",
+ "promptAttachments": "None.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "reviewNotes": "Apex at the axillary apex; base on the nipple-level line (perpendicular to the body axis through the nipple); the pectoral border follows the shadowed anterior axillary fold above the hair, the latissimus border the junction of the arm and the lower contour. Insertion on the mid-axillary line just above the base, with the incision along the rib.",
+ "knownLimits": "Muscle borders are traced from surface folds, not seen directly. Patient's left side (the shipped painting); the record names no side.",
+ "thirdPartyConcept": "None."
+}

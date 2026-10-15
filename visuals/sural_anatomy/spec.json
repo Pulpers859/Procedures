@@ -1,0 +1,60 @@
+{
+  "assetId": "sural_anatomy",
+  "procedure": "block_sural_nerve",
+  "title": "Target anatomy",
+  "view": "Transverse section of the right ankle just above the tip of the lateral malleolus, under a probe transverse between the malleolus and the Achilles tendon, as on ultrasound: posterior (Achilles) on the image left, anterior (peroneus brevis, fibula) on the right. Composition after NYSORA's plate (concept only), mirrored to the house laterality.",
+  "teachingPoint": "The tiny sural nerve lies beside the small saphenous vein, usually just posterior to it, superficial to the deep fascia; inject around both.",
+  "claims": [
+    "Right ankle between the lateral malleolus and the Achilles tendon, posterior on the left (record: behind the lateral malleolus; NYSORA probe between the malleolus and the Achilles).",
+    "Nerve beside the small saphenous vein, posterior to it (record: adjacent to the vein and usually posterior to it).",
+    "Vein and nerve in the subcutaneous tissue superficial to the deep fascia, together in one thin sheath (NYSORA; house style).",
+    "Achilles tendon posterior; peroneus brevis with the peroneus longus tendon and the fibula anterior and deep; flexor hallucis longus deep posterior with Kager's fat (standard anatomy).",
+    "Needle in-plane from the anterior end, tip beside the vein (NYSORA in-plane; same side as the superficial peroneal plate).",
+    "Teal: spread around the nerve and vein (record: inject around the nerve/vein).",
+    "Labels: Deep fascia, Sural nerve, Small saphenous vein, Achilles tendon, Peroneus brevis, Fibula."
+  ],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "deep-fascia",
+    "sheath",
+    "vein",
+    "nerve",
+    "achilles",
+    "pbm",
+    "pl-tendon",
+    "fhl",
+    "fibula",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
+  "labels": {
+    "Deep fascia": "deep-fascia",
+    "Sural nerve": "nerve",
+    "Small saphenous vein": "vein",
+    "Achilles tendon": "achilles",
+    "Peroneus brevis": "pbm",
+    "Fibula": "fibula"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "nerve", "b": "vein", "why": "nerve posterior to the vein (posterior on the left)"},
+    {"check": "leftOf", "a": "achilles", "b": "nerve", "why": "Achilles posterior"},
+    {"check": "leftOf", "a": "nerve", "b": "fibula", "why": "fibula anterior"},
+    {"check": "below", "a": "deep-fascia", "b": "nerve", "why": "nerve superficial to the deep fascia"},
+    {"check": "below", "a": "deep-fascia", "b": "vein", "why": "vein superficial to the deep fascia"},
+    {"check": "within", "a": "nerve", "b": "sheath", "why": "nerve inside its sheath, not floating in fat"},
+    {"check": "within", "a": "vein", "b": "sheath", "why": "vein in the same sheath"},
+    {"check": "noOverlap", "a": "sheath", "b": "deep-fascia", "why": "sheath above the fascia"},
+    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle in-plane from the anterior end"},
+    {"check": "noOverlap", "a": "needle", "b": "vein", "why": "tip beside, not into, the vein"},
+    {"check": "noOverlap", "a": "needle", "b": "nerve", "why": "tip beside, not into, the nerve"},
+    {"check": "noOverlap", "a": "needle", "b": "deep-fascia", "why": "needle stays superficial to the fascia"},
+    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
+    {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread reaches the nerve"},
+    {"check": "crosses", "a": "vein", "b": "spread", "why": "spread surrounds the vein"},
+    {"check": "noOverlap", "a": "spread", "b": "deep-fascia", "why": "spread stays above the fascia"}
+  ]
+}

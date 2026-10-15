@@ -1,0 +1,29 @@
+{
+  "assetId": "sural_patient_position",
+  "procedure": "block_sural_nerve",
+  "title": "Probe and needle on the patient",
+  "view": "The outer side of the right ankle and foot, leg rolled inward: leg up out of the top, toes to the right, heel at the lower left, Achilles tendon up the left edge. Camera after NYSORA's sural photo (concept only), mirrored to the right foot.",
+  "teachingPoint": "The probe lies transverse in the groove between the lateral malleolus and the Achilles tendon, just above the malleolar tip; the needle enters in line with it.",
+  "claims": [
+    "Right foot internally rotated so the lateral side faces up (record: supine, foot internally rotated).",
+    "Probe transverse behind the lateral malleolus, its face spanning the groove between the malleolus and the Achilles tendon (record; NYSORA).",
+    "Needle in-plane from the front end of the probe, as on the section plate (NYSORA in-plane).",
+    "Labels: Lateral malleolus, Achilles tendon, Linear probe, Block needle."
+  ],
+  "requiredElements": ["foot", "lat-malleolus", "achilles", "probe", "probe-handle", "needle", "needle-entry"],
+  "labels": {
+    "Lateral malleolus": "lat-malleolus",
+    "Achilles tendon": "achilles",
+    "Linear probe": "probe",
+    "Block needle": "needle"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "achilles", "b": "lat-malleolus", "why": "Achilles behind the malleolus (posterior on the left)"},
+    {"check": "leftOf", "a": "probe", "b": "lat-malleolus", "why": "probe behind the malleolus"},
+    {"check": "below", "a": "lat-malleolus", "b": "probe", "why": "probe just above the malleolar tip"},
+    {"check": "within", "a": "probe", "b": "foot", "why": "probe on the skin"},
+    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle from the front end"},
+    {"check": "within", "a": "needle-entry", "b": "foot", "why": "needle enters the skin"},
+    {"check": "noOverlap", "a": "needle", "b": "probe", "why": "needle beside, in line with, the probe"}
+  ]
+}

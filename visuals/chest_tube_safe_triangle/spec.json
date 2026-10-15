@@ -1,0 +1,29 @@
+{
+  "assetId": "chest_tube_safe_triangle",
+  "procedure": "thoracostomy_chest_tube",
+  "title": "Safe triangle of insertion",
+  "view": "The patient's left lateral chest, supine, arm abducted, head toward the upper right (the approved serratus_patient_position painting, reused).",
+  "teachingPoint": "Insert within the triangle bounded by pectoralis major, latissimus dorsi, the nipple level and the axilla: the 4th-5th space on the mid-axillary line.",
+  "claims": [
+    "Triangle borders: lateral border of pectoralis major, anterior border of latissimus dorsi, a line at the horizontal level of the nipple, apex at the axilla (record).",
+    "Insertion at the 4th-5th intercostal space, mid-axillary line, just above the nipple-level base (record).",
+    "Incision drawn along the rib (record: incise parallel to the rib).",
+    "Muscle borders traced from the folds visible on the painting; the record names no side, and this is the shipped left-side painting.",
+    "Labels: Pectoralis major (lateral border), Latissimus dorsi (anterior border), Nipple level, Axilla, 4th-5th space, mid-axillary line."
+  ],
+  "requiredElements": ["triangle", "pec-border", "lat-border", "nipple-line", "mal", "axilla-mark", "incision", "site"],
+  "labels": {
+    "Pectoralis major (lateral border)": "pec-border",
+    "Latissimus dorsi (anterior border)": "lat-border",
+    "Nipple level": "nipple-line",
+    "Axilla": "axilla-mark",
+    "4th-5th space, mid-axillary line": "site"
+  },
+  "geometry": [
+    {"check": "within", "a": "site", "b": "triangle", "why": "insertion inside the safe triangle"},
+    {"check": "crosses", "a": "mal", "b": "site", "why": "insertion on the mid-axillary line"},
+    {"check": "crosses", "a": "mal", "b": "triangle", "why": "the mid-axillary line runs through the triangle"},
+    {"check": "crosses", "a": "axilla-mark", "b": "triangle", "why": "apex at the axilla"},
+    {"check": "leftOf", "a": "triangle", "b": "axilla-mark", "why": "the triangle lies caudal to the axilla (head to the right)"}
+  ]
+}

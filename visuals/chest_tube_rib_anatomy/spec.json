@@ -1,0 +1,38 @@
+{
+  "assetId": "chest_tube_rib_anatomy",
+  "procedure": "thoracostomy_chest_tube",
+  "title": "Over-the-rib insertion",
+  "view": "Coronal section through one intercostal space at the mid-axillary line, head at the top: skin on the image left, pleural cavity and lung on the right; the same way round as the needle decompression inset.",
+  "teachingPoint": "The vein, artery and nerve run in the groove under each rib; the tube goes over the top of the lower rib, well clear of them.",
+  "claims": [
+    "Neurovascular bundle (vein, artery, nerve) along the inferior margin of each rib (record).",
+    "Tube passes over the superior border of the lower rib into the pleural space (record).",
+    "Bundle in the costal groove between the internal and innermost intercostal muscles, vein highest and nerve lowest (standard anatomy).",
+    "Skin, subcutaneous fat and serratus anterior over the ribs at the mid-axillary line (standard anatomy).",
+    "Pleural space drawn opened, lung behind it; a 24 Fr tube (about 8 mm) to scale (schematic).",
+    "Labels: Rib, Vein, artery, nerve, Lower rib, Chest tube, Parietal pleura, Lung."
+  ],
+  "requiredElements": ["skin", "subcutaneous-fat", "serratus", "external-ic", "internal-ic", "innermost-ic", "pleura", "pleural-space",
+                       "visceral-pleura", "lung", "upper-rib", "lower-rib", "upper-bundle", "vein", "artery", "nerve", "lower-bundle",
+                       "tube", "tube-tip"],
+  "labels": {
+    "Rib": "upper-rib",
+    "Vein, artery, nerve": "upper-bundle",
+    "Lower rib": "lower-rib",
+    "Chest tube": "tube",
+    "Parietal pleura": "pleura",
+    "Lung": "lung"
+  },
+  "geometry": [
+    {"check": "below", "a": "upper-bundle", "b": "upper-rib", "why": "bundle at the rib's inferior margin"},
+    {"check": "below", "a": "artery", "b": "vein", "why": "vein highest"},
+    {"check": "below", "a": "nerve", "b": "artery", "why": "nerve lowest"},
+    {"check": "noOverlap", "a": "tube", "b": "upper-bundle", "why": "tube clear of the bundle"},
+    {"check": "noOverlap", "a": "tube", "b": "lower-rib", "why": "tube over the rib, not through it"},
+    {"check": "noOverlap", "a": "tube", "b": "upper-rib", "why": "tube below the upper rib"},
+    {"check": "below", "a": "tube", "b": "upper-bundle", "why": "tube at the bottom of the space, away from the bundle"},
+    {"check": "below", "a": "lower-rib", "b": "tube", "why": "tube just above the lower rib"},
+    {"check": "within", "a": "tube-tip", "b": "pleural-space", "why": "tip in the pleural space"},
+    {"check": "noOverlap", "a": "tube", "b": "lung", "why": "tube not into the lung"}
+  ]
+}

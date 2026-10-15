@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #6FA3A8; }</style>
+<defs></defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="de6a2e294895e310443a853d2063831343f3f857d343be3c8481738325a9325d"><image href="base.jpg" x="0" y="1.7" width="1600" height="1196.7" preserveAspectRatio="none"/></g>
+<g id="anatomy">
+  <rect id="chest" x="0" y="0" width="1600" height="1200" fill="#000" opacity="0"/>
+</g>
+
+<g class="marking">
+  <polygon id="triangle" points="980,560 475.6,449.1 614.8,861.1" fill="#3FB59A" fill-opacity="0.26" stroke="none"/>
+  <line id="pec-border" x1="980" y1="560" x2="475.6" y2="449.1" stroke="#1E8C74" stroke-width="7" stroke-linecap="round"/>
+  <line id="lat-border" x1="980" y1="560" x2="614.8" y2="861.1" stroke="#1E8C74" stroke-width="7" stroke-linecap="round"/>
+  <line id="nipple-line" x1="410" y1="255" x2="614.8" y2="861.1" stroke="#1E8C74" stroke-width="5" stroke-dasharray="4 12" stroke-linecap="round"/>
+  <line x1="475.6" y1="449.1" x2="614.8" y2="861.1" stroke="#1E8C74" stroke-width="7" stroke-linecap="round"/>
+  <line id="mal" x1="1000" y1="600" x2="250" y2="856" stroke="#4A2F7A" stroke-width="5" stroke-dasharray="18 12"/>
+  <circle id="axilla-mark" cx="980" cy="560" r="40" fill="#000" opacity="0"/>
+  <line id="incision" x1="621.4" y1="693.2" x2="643.2" y2="757.6" stroke="#F6F7F9" stroke-width="13" stroke-linecap="round"/>
+  <line x1="621.4" y1="693.2" x2="643.2" y2="757.6" stroke="#D8432A" stroke-width="7" stroke-linecap="round"/>
+  <ellipse id="site" cx="632.3" cy="725.4" rx="22" ry="40" fill="#000" opacity="0" transform="rotate(-18.7 632.3 725.4)"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Pectoralis major (lateral border)" data-target="pec-border"><polyline class="leader-halo" points="700,392 753,510.1"/><polyline class="leader" points="700,392 753,510.1"/><circle class="leader-dot" cx="753" cy="510.1" r="7"/><text x="560" y="300" text-anchor="start"><tspan x="560" dy="0">Pectoralis major</tspan><tspan x="560" dy="66">(lateral border)</tspan></text></g><g class="label" data-label="Latissimus dorsi (anterior border)" data-target="lat-border"><polyline class="leader-halo" points="900,900 797.4,710.5"/><polyline class="leader" points="900,900 797.4,710.5"/><circle class="leader-dot" cx="797.4" cy="710.5" r="7"/><text x="860" y="960" text-anchor="start"><tspan x="860" dy="0">Latissimus dorsi</tspan><tspan x="860" dy="66">(anterior border)</tspan></text></g><g class="label" data-label="Nipple level" data-target="nipple-line"><polyline class="leader-halo" points="370,470 517.4,572.7"/><polyline class="leader" points="370,470 517.4,572.7"/><circle class="leader-dot" cx="517.4" cy="572.7" r="7"/><text x="60" y="470" text-anchor="start"><tspan x="60" dy="0">Nipple level</tspan></text></g><g class="label" data-label="Axilla" data-target="axilla-mark"><polyline class="leader-halo" points="1190,490 1000,560"/><polyline class="leader" points="1190,490 1000,560"/><circle class="leader-dot" cx="1000" cy="560" r="7"/><text x="1180" y="470" text-anchor="start"><tspan x="1180" dy="0">Axilla</tspan></text></g><g class="label emphasis" data-label="4th-5th space, mid-axillary line" data-target="site"><polyline class="leader-halo" points="340,900 632.3,725.4"/><polyline class="leader" points="340,900 632.3,725.4"/><circle class="leader-dot" cx="632.3" cy="725.4" r="7"/><text x="80" y="960" text-anchor="start"><tspan x="80" dy="0">4th-5th space,</tspan><tspan x="80" dy="66">mid-axillary line</tspan></text></g></g>
+
+</svg>
