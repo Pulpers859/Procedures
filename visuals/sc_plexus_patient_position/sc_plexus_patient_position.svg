@@ -39,15 +39,15 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting"></g>
-<g id="anatomy">
+<g id="painting" data-base-sha256="4e4bbd2203bffba3f0846d3bf71f588865eac2709842bf0f60ceaab09cf642f3"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
   <rect x="0" y="0" width="1600" height="1200" fill="url(#drape)"/>
   <path id="skin" d="M120,0 H1600 V1200 H60 C80,900 100,500 120,0 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>
   <path id="jaw" d="M360,16 C388,16.9 534.7,18.4 600,24 C665.3,29.6 845.3,50 920,64 C994.7,78 1174.7,129.1 1240,144 C1305.3,158.9 1452,186.4 1480,192" fill="none" stroke="#B98A74" stroke-width="5"/>
   <path d="M360,0 L360,16 L600,24 L920,64 L1240,144 L1480,192 L1600,192 L1600,0 Z" fill="#D9A88C"/>
   <ellipse id="ear" cx="264" cy="80" rx="70" ry="110" fill="#D79E86" stroke="#A9765F" stroke-width="3"/>
   <path id="scm" d="M376,80 C374.4,108.8 488,272 520,320 C552,368 667.2,520 696,560 C724.8,600 784,683.2 808,720 C832,756.8 902.4,905.6 936,928 C969.6,950.4 1137.6,966.4 1144,944 C1150.4,921.6 1027.2,747.2 1000,704 C972.8,660.8 902.4,555.2 872,512 C841.6,468.8 729.6,320 696,272 C662.4,224 568,51.2 536,32 C504,12.8 377.6,51.2 376,80 Z" fill="#E3B49A" stroke="#C49478" stroke-width="3"/>
-  <path id="ejv" d="M824,16 C824,51.2 824,201.1 824,280 C824,358.9 828.8,549.3 824,608 C819.2,666.7 802.9,690.1 788,720 C773.1,749.9 726.4,808.5 712,832 C697.6,855.5 684.3,887.5 680,896" fill="none" stroke="#8C94B4" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+  <path id="ejv" d="M824,16 C824,51.2 824,201.1 824,280 C824,358.9 829.9,549.3 824,608 C818.1,666.7 794.9,690.1 780,720 C765.1,749.9 725.3,808.5 712,832 C698.7,855.5 684.3,887.5 680,896" fill="none" stroke="#8C94B4" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
   <path id="clavicle" d="M40,944 C82.7,940.8 274.7,924.3 360,920 C445.3,915.7 594.7,910.9 680,912 C765.3,913.1 925.3,921.6 1000,928 C1074.7,934.4 1208,955.7 1240,960" fill="none" stroke="#EED8C6" stroke-width="26" stroke-linecap="round"/>
   <rect x="0" y="1040" width="1600" height="400" fill="url(#drape)"/>
   <path id="probe-handle" d="M616,576 C648,504 704,384 720,224 L832,224 C848,384 904,504 936,576 Z" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
@@ -62,7 +62,7 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 <mask id="skin-visible" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1200"><rect width="1600" height="1200" fill="#fff"/>
   <rect x="570" y="566" width="412" height="84" rx="24" fill="#000"/></mask>
 <g class="marking" fill="none" mask="url(#skin-visible)">
-  <path id="scm-border" d="M376,80 C395.2,112 477.3,256 520,320 C562.7,384 657.6,506.7 696,560 C734.4,613.3 776,670.9 808,720 C840,769.1 918.9,900.3 936,928" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12" opacity="1"/>
+  <path id="scm-border" d="M520,320 C543.5,352 657.6,506.7 696,560 C734.4,613.3 776,670.9 808,720 C840,769.1 918.9,900.3 936,928" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
 </g>
 
 <g id="labels"><g class="label" data-label="Block needle" data-target="needle"><polyline class="leader-halo" points="200,510 380,606"/><polyline class="leader" points="200,510 380,606"/><circle class="leader-dot" cx="380" cy="606" r="7"/><text x="40" y="480" text-anchor="start"><tspan x="40" dy="0">Block needle</tspan></text></g><g class="label" data-label="Linear probe" data-target="probe"><polyline class="leader-halo" points="1120,700 946,608"/><polyline class="leader" points="1120,700 946,608"/><circle class="leader-dot" cx="946" cy="608" r="7"/><text x="1100" y="740" text-anchor="start"><tspan x="1100" dy="0">Linear probe</tspan></text></g><g class="label" data-label="External jugular vein" data-target="ejv"><polyline class="leader-halo" points="820,820 748,776"/><polyline class="leader" points="820,820 748,776"/><circle class="leader-dot" cx="748" cy="776" r="7"/><text x="760" y="860" text-anchor="start"><tspan x="760" dy="0">External jugular vein</tspan></text></g><g class="label" data-label="SCM posterior border" data-target="scm-border"><polyline class="leader-halo" points="300,280 520,320"/><polyline class="leader" points="300,280 520,320"/><circle class="leader-dot" cx="520" cy="320" r="7"/><text x="40" y="260" text-anchor="start"><tspan x="40" dy="0">SCM posterior border</tspan></text></g></g>

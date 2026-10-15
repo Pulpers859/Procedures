@@ -62,8 +62,8 @@ TEETH = RIGHT + [(-x1, -x0, gm, e) for x0, x1, gm, e in reversed(RIGHT)]
 CANINE = RIGHT[2]
 CANINE_AXIS_X = (CANINE[0] + CANINE[1]) / 2
 APEX = (CANINE_AXIS_X - 0.8, -28.0)
-FOLD_Y = -23.6
-FOLD = [(-34, -26.0), (-26, -25.0), (-18, -23.6), (-11, -20.6), (-5, -15.0)]
+FOLD_Y = -20.6
+FOLD = [(-34, -17.6), (-30, -18.2), (-24, -19.8), (-18, -20.6), (-11, -18.0), (-5, -15.3)]   # traced on the painting
 ENTRY = (CANINE_AXIS_X, FOLD_Y + 0.4)
 TIP = (APEX[0] + 0.3, APEX[1] + 3.0)
 HUB = (CANINE_AXIS_X + 1.4, -6.0)
@@ -95,7 +95,7 @@ def build() -> str:
     root = [(CANINE_AXIS_X - rw0, CANINE[2]), (APEX[0] - rw1, APEX[1] + 2.5), APEX, (APEX[0] + rw1, APEX[1] + 2.5),
             (CANINE_AXIS_X + rw0, CANINE[2])]
     labels = [
-        Label(["Mucobuccal", "fold"], anchor=(40, 440), leader=[(250, 392), c((-30, -25.6))], target_id="fold"),
+        Label(["Mucobuccal", "fold"], anchor=(40, 440), leader=[(250, 410), c((-30, -18.2))], target_id="fold"),
         Label(["Root apex"], anchor=(1000, 200), leader=[(990, 186), (a[0] + 8, a[1])], target_id="apex", emphasis=True),
         Label(["Needle"], anchor=(760, 520), leader=[(748, 504), ((e[0] + h[0]) / 2, (e[1] + h[1]) / 2)], target_id="needle"),
     ]

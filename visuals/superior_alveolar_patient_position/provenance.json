@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-14",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "antigravityConversation": "157b7a63-c82e-4dd0-ab8a-f7b581c32eea",
+ "prompt": "Prompt A, new conversation: tmp/visual-drafts/antigravity/superior_alveolar_patient_position/ag1_image_prompt.txt (the same wording sent to the owner on 2026-10-04).",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "thirdPartyConcept": "None.",
+ "reference": "Unlabelled render of the superior_alveolar_patient_position layout (commit 3818c3f draw.py, --reference).",
+ "reviewNotes": "Overlay: teeth, lips, nose and finger lie on the layout within a few pixels. The painted lip edge sits about 3 mm lower than drawn, so the mucobuccal fold was traced on the painting (FOLD in draw.py) and the entry placed on it above the canine.",
+ "rejected": "None.",
+ "knownLimits": "The canine root outline and apex are drawn from standard dimensions, not seen in the photo."
+}

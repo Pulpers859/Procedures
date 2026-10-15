@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-14",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "antigravityConversation": "7ddf23c5-1cdb-4987-bd77-ac455ec02667",
+ "prompt": "Prompt A, new conversation: tmp/visual-drafts/antigravity/superior_alveolar_anatomy/ag1_image_prompt.txt (the same wording sent to the owner on 2026-10-04).",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "thirdPartyConcept": "None.",
+ "reference": "Unlabelled render of the superior_alveolar_anatomy layout (commit 3818c3f draw.py, --reference).",
+ "reviewNotes": "Overlay: tooth, pulp, bone, nasal cavity, nerve, gum, fold and lip lie on the layout within a few pixels. No watermark.",
+ "rejected": "None.",
+ "knownLimits": "Schematic sagittal section; dimensions are standard adult values. Needle, syringe and injectate are code-drawn."
+}

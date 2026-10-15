@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-14",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "antigravityConversation": "a50341ef-8670-4fff-ad34-ccddb01e4267",
+ "prompt": "Prompt A, new conversation: tmp/visual-drafts/antigravity/superficial_peroneal_anatomy/ag1_image_prompt.txt (the same wording sent to the owner on 2026-10-04).",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "thirdPartyConcept": "NYSORA superficial peroneal reverse-ultrasound plate read for the layout only; not attached, not committed.",
+ "reference": "Unlabelled render of the superficial_peroneal_anatomy layout (commit ea89b92 draw.py, --reference).",
+ "reviewNotes": "Overlay: fascia, septum, fat triangle, nerve, peroneus brevis, EDL and fibula lie on the layout within a few pixels. No watermark.",
+ "rejected": "None.",
+ "knownLimits": "Schematic section; depths are average adult values. Probe, needle and injectate are code-drawn."
+}

@@ -65,7 +65,7 @@ CLAVICLE = [(-90, CLAVICLE_Y + 4), (-50, CLAVICLE_Y + 1), (-10, CLAVICLE_Y), (30
 # Sternocleidomastoid band, mastoid (upper left) to sternoclavicular joint (lower right).
 SCM_LATERAL = [(-48, -70), (-30, -40), (-8, -10), (6, 10), (22, 36)]
 SCM_MEDIAL = [(-28, -76), (-8, -46), (14, -16), (30, 8), (48, 38)]
-EJV = [(8, -78), (8, -45), (8, -4), (3.5, 10), (-6, 24), (-10, 32)]
+EJV = [(8, -78), (8, -45), (8, -4), (2.5, 10), (-6, 24), (-10, 32)]
 JAW = [(-50, -78), (-20, -77), (20, -72), (60, -62), (90, -56)]
 EAR = (-62.0, -70.0)
 PROBE_LEN, PROBE_W = 50.0, 9.0
@@ -133,7 +133,7 @@ def build() -> str:
 <mask id="skin-visible" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1200"><rect width="1600" height="1200" fill="#fff"/>
   <rect x="{fmt(p0[0] - 6)}" y="{fmt(p0[1] - 6)}" width="{fmt(p1[0] - p0[0] + 12)}" height="{fmt(p1[1] - p0[1] + 12)}" rx="24" fill="#000"/></mask>
 <g class="marking" fill="none" mask="url(#skin-visible)">
-  <path id="scm-border" d="{path(SCM_LATERAL, tension=0.8)}" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12" opacity="{0 if painted else 1}"/>
+  <path id="scm-border" d="{path(SCM_LATERAL[1:], tension=0.8)}" stroke="#4A2F7A" stroke-width="6" stroke-dasharray="18 12"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>

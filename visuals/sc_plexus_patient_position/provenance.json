@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-14",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "antigravityConversation": "b39e8a3d-fc75-4a68-b0c0-28a8854a15ce",
+ "prompt": "Prompt A, new conversation: tmp/visual-drafts/antigravity/sc_plexus_patient_position/ag1_image_prompt.txt (the same wording sent to the owner on 2026-10-04).",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "thirdPartyConcept": "None.",
+ "reference": "Unlabelled render of the lowered-probe layout (commit f36ebf5 draw.py, --reference).",
+ "reviewNotes": "Overlay: probe face, handle, needle, hub, tubing, ear and jaw lie on the layout within a few pixels; the probe stands upright with its long face in line with the needle. The external jugular is painted as a faint shadow below the probe. The SCM posterior border is drawn from the layout (the painting does not show the border clearly enough to trace).",
+ "rejected": "Owner's hand-pasted paintings: probe up by the angle of the jaw (twice; layout moved down twice), a second probe in a gloved hand, a probe laid on its side across the needle line.",
+ "knownLimits": "The dashed SCM border and the external jugular crossing are from the layout."
+}

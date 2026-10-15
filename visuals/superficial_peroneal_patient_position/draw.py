@@ -19,7 +19,7 @@ Upright probe as in the interscalene and deep peroneal layouts, for the
 painting to render; code-drawn over the painting: labels only.
 
 Millimetres from the midpoint between the malleoli (x medial = image right,
-y toward the foot) at 3.6 px/mm; the frame runs from mid-shin to the mid-foot.
+y toward the foot) at 3.0 px/mm; the frame runs from mid-shin to the toes, the foot drawn after the deep peroneal layout so the ankle reads clearly.
 
 Run: python3 visuals/superficial_peroneal_patient_position/draw.py
 """
@@ -38,8 +38,8 @@ from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 ASSET_ID = "superficial_peroneal_patient_position"
 BASE = Path(__file__).with_name("base.jpg")
 BASE_SIZE = (1200.0, 896.0)
-PX_MM = 3.6
-ORIGIN = (800.0, 680.0)
+PX_MM = 3.0
+ORIGIN = (800.0, 450.0)
 
 
 def c(p):
@@ -50,8 +50,9 @@ def path(points, closed=False, tension=1.0):
     return smooth_path([c(p) for p in points], closed=closed, tension=tension)
 
 
-LATERAL = [(-56, -200), (-48, -150), (-42, -110), (-37, -70), (-35, -35), (-37, -5), (-40, 15), (-38, 40), (-43, 80), (-49, 125), (-51, 150)]
-MEDIAL = [(52, 150), (50, 125), (47, 100), (42, 60), (38, 25), (35, -5), (32, -35), (34, -70), (40, -110), (46, -150), (54, -200)]
+LATERAL = [(-56, -200), (-48, -150), (-42, -110), (-37, -70), (-35, -35), (-37, -5), (-40, 15), (-36, 40), (-41, 80), (-46, 125), (-48, 150), (-47, 172)]
+MEDIAL = [(47, 170), (50, 140), (47, 100), (42, 60), (38, 25), (35, -5), (32, -35), (34, -70), (40, -110), (46, -150), (54, -200)]
+TOES = [(-47, -33, 196), (-33, -19, 206), (-19, -4, 214), (-4, 12, 220), (13, 45, 232)]
 LAT_MALLEOLUS = ((-34.0, 6.0), 6.0, 8.0)
 MED_MALLEOLUS = ((32.0, -6.0), 5.5, 7.5)
 PC = (-14.0, -75.0)                 # probe centre, about 7.5 cm above the lateral malleolus
@@ -80,7 +81,11 @@ def ell(el_id, e, attrs):
 def build() -> str:
     p0, p1 = c(PROBE[0]), c(PROBE[1])
     ne, nh = c(NEEDLE_ENTRY), c(NEEDLE_HUB)
-    leg = path(LATERAL + [(-52, 190), (53, 190)] + MEDIAL, closed=True, tension=0.4)
+    toes = []
+    for x0, x1, tip in TOES:
+        base = 172 if x0 < 0 else 176
+        toes += [(x0 + 1, base + 4), (x0 + 2, tip - 6), ((x0 + x1) / 2, tip), (x1 - 2, tip - 6), (x1 - 1, base + 4)]
+    leg = path(LATERAL + toes + MEDIAL, closed=True, tension=0.4)
     handle = (f"M{fmt(q(-16, 0)[0])},{fmt(p0[1] + 4)} C{fmt(q(-13, 0)[0])},{fmt(q(0, -12)[1])} {fmt(q(-7, 0)[0])},{fmt(q(0, -24)[1])} "
               f"{fmt(q(-6, 0)[0])},{fmt(q(0, -44)[1])} L{fmt(q(6, 0)[0])},{fmt(q(0, -44)[1])} C{fmt(q(7, 0)[0])},{fmt(q(0, -24)[1])} "
               f"{fmt(q(13, 0)[0])},{fmt(q(0, -12)[1])} {fmt(q(16, 0)[0])},{fmt(p0[1] + 4)} Z")
@@ -89,9 +94,9 @@ def build() -> str:
     tubing = f"M{fmt(nh[0])},{fmt(nh[1])} C{fmt(nh[0] + 80)},{fmt(nh[1] - 10)} {fmt(nh[0] + 140)},{fmt(nh[1] + 100)} {fmt(nh[0] + 220)},1240"
     lm = c(LAT_MALLEOLUS[0])
     labels = [
-        Label(["Lateral", "malleolus"], anchor=(140, 640), leader=[(350, 680), (lm[0] - 20, lm[1])], target_id="lat-malleolus"),
-        Label(["Linear probe"], anchor=(80, 300), leader=[(370, 320), (p0[0] + 20, (p0[1] + p1[1]) / 2)], target_id="probe"),
-        Label(["Block needle"], anchor=(1100, 300), leader=[(1180, 320), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
+        Label(["Lateral", "malleolus"], anchor=(140, 560), leader=[(350, 500), (lm[0] - 8, lm[1])], target_id="lat-malleolus"),
+        Label(["Linear probe"], anchor=(80, 140), leader=[(370, 160), (p0[0] + 20, (p0[1] + p1[1]) / 2)], target_id="probe"),
+        Label(["Block needle"], anchor=(1080, 140), leader=[(1160, 160), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
