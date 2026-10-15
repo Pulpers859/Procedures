@@ -1,0 +1,19 @@
+{
+  "assetId": "infraorbital_distribution",
+  "procedure": "block_infraorbital",
+  "title": "Expected distribution",
+  "view": "Shared head base (visuals/distribution_bases/head): skeleton bust on the left, grey bust on the right, both turned three-quarters toward the image right so the patient's right cheek and right ear face the viewer; right-sided block.",
+  "teachingPoint": "An infraorbital block numbs the lower eyelid, the medial cheek, the side of the nose and the lip on one side, with the front upper teeth.",
+  "claims": [
+    "Skin: lower eyelid, medial cheek, lateral nose and the upper lip to the midline (infraorbital, with its palpebral, nasal and labial branches).",
+    "Bone: the anterior maxilla around the infraorbital foramen and the upper teeth from the second premolar to the central incisor (anterior and middle superior alveolar branches arise in the infraorbital canal). Not shaded: the molars (posterior superior alveolar).",
+    "Right-sided block (patient's right ear and cheek face the viewer); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "infraorbital-skin",
+    "infraorbital-bone"
+  ],
+  "labels": {},
+  "geometry": []
+}

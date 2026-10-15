@@ -7217,6 +7217,23 @@
     },
     "visualAssets": [
       {
+        "id": "sc_plexus_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The face above the jaw line is left unshaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Superficial cervical plexus (C2-C4)",
+            "label": "The skin of the lateral and anterior neck from the lower border of the jaw to the collarbone, the skin over the angle of the jaw and the ear lobe, and the cape of the shoulder; the collarbone itself."
+          }
+        ]
+      },
+      {
         "id": "sc_plexus_patient_position",
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
@@ -7443,6 +7460,23 @@
       ]
     },
     "visualAssets": [
+      {
+        "id": "serratus_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The shading follows the lateral chest wall; the abdomen below the ribs is left unshaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Lateral cutaneous branches of the intercostal nerves (T2-T9)",
+            "label": "The skin of the lateral chest wall from the armpit to the lower ribs; the ribs beneath."
+          }
+        ]
+      },
       {
         "id": "serratus_patient_position",
         "kind": "Probe Position",
@@ -8154,6 +8188,28 @@
       ]
     },
     "visualAssets": [
+      {
+        "id": "pecs_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "PECS I alone reaches the pectoral muscles but not the skin; the shading shows the PECS II spread.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Lateral cutaneous branches of the intercostal nerves (T2-T6)",
+            "label": "The skin of the anterolateral chest wall from the armpit to about the sixth rib; the ribs beneath."
+          },
+          {
+            "tone": "violet",
+            "nerve": "Intercostobrachial nerve",
+            "label": "The armpit and the skin of the inner upper arm beside it."
+          }
+        ]
+      },
       {
         "id": "pecs_patient_position",
         "kind": "Probe Position",
@@ -10516,6 +10572,28 @@
     },
     "visualAssets": [
       {
+        "id": "supraorbital_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The temple and the lower face are left unshaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Supraorbital nerve",
+            "label": "The forehead and anterior scalp up to the vertex, and the upper eyelid."
+          },
+          {
+            "tone": "violet",
+            "nerve": "Supratrochlear nerve",
+            "label": "The medial forehead strip, the root of the nose and the medial upper eyelid, when the injection is swept medially."
+          }
+        ]
+      },
+      {
         "id": "supraorbital_patient_position",
         "kind": "Setup",
         "title": "Needle entry on the patient",
@@ -10740,6 +10818,23 @@
     },
     "visualAssets": [
       {
+        "id": "infraorbital_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The molars and the lateral cheek are left unshaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Infraorbital nerve",
+            "label": "The lower eyelid, the medial cheek, the side of the nose and the upper lip on one side; the front of the maxilla and the upper teeth from the second premolar to the central incisor."
+          }
+        ]
+      },
+      {
         "id": "infraorbital_patient_position",
         "kind": "Setup",
         "title": "Needle entry on the patient",
@@ -10957,6 +11052,23 @@
       ]
     },
     "visualAssets": [
+      {
+        "id": "mental_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "No teeth or bone are shaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Mental nerve",
+            "label": "The skin of the lower lip and the chin on one side."
+          }
+        ]
+      },
       {
         "id": "mental_patient_position",
         "kind": "Setup",
@@ -11189,6 +11301,23 @@
     },
     "visualAssets": [
       {
+        "id": "inferior_alveolar_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The tongue is not shown here, and the ramus of the jaw is left unshaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Inferior alveolar nerve (with its mental branch)",
+            "label": "All the lower teeth on one side and the body of the mandible; the skin of the lower lip and the chin."
+          }
+        ]
+      },
+      {
         "id": "inferior_alveolar_patient_position",
         "kind": "Setup",
         "title": "Needle entry on the patient",
@@ -11407,6 +11536,23 @@
     },
     "visualAssets": [
       {
+        "id": "superior_alveolar_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "No skin is shaded: the injection is in the mucosa above the tooth.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Superior alveolar nerve",
+            "label": "One upper tooth, shown on the canine, with its root and the bone over it."
+          }
+        ]
+      },
+      {
         "id": "superior_alveolar_patient_position",
         "kind": "Setup",
         "title": "Needle entry on the patient",
@@ -11623,6 +11769,23 @@
       ]
     },
     "visualAssets": [
+      {
+        "id": "auricular_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "Nothing on the face or the neck is shaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Auricular branches (great auricular, lesser occipital, auriculotemporal, vagus)",
+            "label": "The whole ear and a ring of skin around its base."
+          }
+        ]
+      },
       {
         "id": "auricular_patient_position",
         "kind": "Setup",

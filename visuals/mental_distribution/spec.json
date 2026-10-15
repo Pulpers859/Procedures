@@ -1,0 +1,18 @@
+{
+  "assetId": "mental_distribution",
+  "procedure": "block_mental",
+  "title": "Expected distribution",
+  "view": "Shared head base (visuals/distribution_bases/head): skeleton bust on the left, grey bust on the right, both turned three-quarters toward the image right so the patient's right cheek and right ear face the viewer; right-sided block.",
+  "teachingPoint": "A mental block numbs the lower lip and the chin on one side.",
+  "claims": [
+    "Skin: lower lip and chin to the midline on one side (mental nerve).",
+    "Not shaded: the lower teeth and the mandible (not reliably reached from the mental foramen), the upper lip.",
+    "Right-sided block (patient's right ear and cheek face the viewer); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "mental-skin"
+  ],
+  "labels": {},
+  "geometry": []
+}

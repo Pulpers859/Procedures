@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F4F3EF; }</style>
+<defs><filter id="feather-2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter>
+<filter id="feather-6" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+<mask id="m-body" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="896"><image href="../distribution_bases/side/mask_body.png" x="0" y="0" width="1200" height="896" preserveAspectRatio="none"/></mask>
+<mask id="m-bone" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="896"><image href="../distribution_bases/side/mask_bone.png" x="0" y="0" width="1200" height="896" preserveAspectRatio="none"/></mask>
+<clipPath id="c-right-chest"><path d="M796,326 C797.9,325.4 842.5,314.9 846,314 C849.5,313.1 896.9,300.2 900,300 C903.1,299.8 936.9,306.3 940,308 C943.1,309.7 990.3,341.6 992,350 C993.7,358.4 1000.4,553 992,560 C983.6,567 748.4,567.5 740,560 C731.6,552.5 738.3,341.6 740,334 C741.7,326.4 788.1,332.3 790,332 C791.9,331.7 794.1,326.6 796,326 Z"/></clipPath></defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="82664996aa8b94c10eab6d88f13bca30f30eb0c346af9e9e6c3e38b239593c44">
+  <image id="base" href="../distribution_bases/side/base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
+</g>
+<g class="marking" transform="translate(0 2.7) scale(1.333333)">
+    <g clip-path="url(#c-right-chest)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-6)"><path id="serratus-skin" d="M796,328 C798.9,326.9 833.9,317.3 840,316 C846.1,314.7 894,306.1 900,306 C906,305.9 936.8,311.7 942,314 C947.2,316.3 987.1,335.3 990,346 C992.9,356.7 997.2,488.2 992,498 C986.8,507.8 914.7,511.6 900,514 C885.3,516.5 749.3,550.4 740,540 C730.7,529.6 737.1,348 740,336 C742.9,324 786.7,334.5 790,334 C793.3,333.5 793.1,329.1 796,328 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
+  <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-2)"><path id="serratus-bone" d="M302,296 C305.9,289.8 374.1,294.3 380,296 C385.9,297.7 416.8,323.8 420,330 C423.2,336.2 443.7,412.5 445,420 C446.3,427.5 447,475.4 446,480 C445,484.6 427.8,509.8 425,512 C422.2,514.2 394.2,523.9 390,525 C385.8,526.1 344.4,534.2 340,535 C335.6,535.8 303.9,545.8 302,540 C300.1,534.2 302,432.2 302,420 C302,407.8 298.1,302.2 302,296 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
+</g>
+
+</svg>

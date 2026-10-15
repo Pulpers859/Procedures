@@ -1,0 +1,19 @@
+{
+  "assetId": "serratus_distribution",
+  "procedure": "block_serratus_anterior",
+  "title": "Expected distribution",
+  "view": "Shared side-view base (visuals/distribution_bases/side): skeleton on the left, grey body on the right, both seen from the patient's right side facing the image right, head to upper thighs, the right arm raised with the hand behind the head; right-sided block.",
+  "teachingPoint": "A serratus anterior plane block numbs the lateral chest wall from the armpit to the costal margin, with the ribs beneath.",
+  "claims": [
+    "Skin: lateral chest wall from the armpit (T2) to the costal margin (T9), the whole side as seen from the right (NYSORA: serratus anterior plane block, T2 to T9 lateral chest wall).",
+    "Bone: the ribs lateral to the shoulder blade, from the first rib's level to the costal margin (intercostal nerves supply the rib periosteum). Not shaded: the scapula, the spine, the abdomen below the ribs.",
+    "Right-sided block, seen from the patient's right; one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "serratus-skin",
+    "serratus-bone"
+  ],
+  "labels": {},
+  "geometry": []
+}

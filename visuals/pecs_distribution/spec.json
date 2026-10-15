@@ -1,0 +1,21 @@
+{
+  "assetId": "pecs_distribution",
+  "procedure": "block_pecs",
+  "title": "Expected distribution",
+  "view": "Shared side-view base (visuals/distribution_bases/side): skeleton on the left, grey body on the right, both seen from the patient's right side facing the image right, head to upper thighs, the right arm raised with the hand behind the head; right-sided block.",
+  "teachingPoint": "A PECS II block numbs the anterolateral chest wall from the armpit to about the sixth rib, and the armpit.",
+  "claims": [
+    "Skin (teal): anterolateral chest wall from the armpit to about the sixth rib (PECS II reaches T2-T6 lateral cutaneous branches; record anatomy: the plane between pectoralis minor and serratus anterior).",
+    "Skin (violet): the armpit and the inner upper arm beside it (intercostobrachial nerve, T2).",
+    "Bone: the upper ribs beneath, to about the sixth. Not shaded: the lower chest and abdomen.",
+    "Right-sided block, seen from the patient's right; one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "pecs-skin",
+    "armpit-skin",
+    "pecs-bone"
+  ],
+  "labels": {},
+  "geometry": []
+}

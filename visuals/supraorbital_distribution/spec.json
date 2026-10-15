@@ -1,0 +1,20 @@
+{
+  "assetId": "supraorbital_distribution",
+  "procedure": "block_supraorbital",
+  "title": "Expected distribution",
+  "view": "Shared head base (visuals/distribution_bases/head): skeleton bust on the left, grey bust on the right, both turned three-quarters toward the image right so the patient's right cheek and right ear face the viewer; right-sided block.",
+  "teachingPoint": "A supraorbital and supratrochlear block numbs the forehead, the anterior scalp to the vertex and the upper eyelid on one side.",
+  "claims": [
+    "Skin (teal): forehead and anterior scalp to the vertex (to the coronal plane through the ear) and the upper eyelid to the lash line, lateral to the supratrochlear strip.",
+    "Skin (violet): the medial forehead strip, root of the nose and medial upper eyelid (supratrochlear nerve; the record's steps sweep medially toward the bridge of the nose).",
+    "Not shaded: the temple (auriculotemporal, zygomaticotemporal), the lower face and the other side; no bone is shaded.",
+    "Right-sided block (patient's right ear and cheek face the viewer); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "supraorbital-skin",
+    "supratrochlear-skin"
+  ],
+  "labels": {},
+  "geometry": []
+}

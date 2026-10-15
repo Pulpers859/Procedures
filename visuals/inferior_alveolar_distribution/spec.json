@@ -1,0 +1,20 @@
+{
+  "assetId": "inferior_alveolar_distribution",
+  "procedure": "block_inferior_alveolar",
+  "title": "Expected distribution",
+  "view": "Shared head base (visuals/distribution_bases/head): skeleton bust on the left, grey bust on the right, both turned three-quarters toward the image right so the patient's right cheek and right ear face the viewer; right-sided block.",
+  "teachingPoint": "An inferior alveolar block numbs all the lower teeth on one side and the body of the mandible, with the lower lip and chin.",
+  "claims": [
+    "Bone: all the lower teeth on one side and the body of the mandible (inferior alveolar nerve in the mandibular canal).",
+    "Skin: lower lip and chin to the midline (mental branch).",
+    "Not shaded: the ramus (masseteric and other branches), the upper face. The lingual nerve (tongue) is not visible on this figure.",
+    "Right-sided block (patient's right ear and cheek face the viewer); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "mental-skin",
+    "mandible-bone"
+  ],
+  "labels": {},
+  "geometry": []
+}

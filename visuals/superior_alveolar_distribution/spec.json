@@ -1,0 +1,18 @@
+{
+  "assetId": "superior_alveolar_distribution",
+  "procedure": "block_superior_alveolar",
+  "title": "Expected distribution",
+  "view": "Shared head base (visuals/distribution_bases/head): skeleton bust on the left, grey bust on the right, both turned three-quarters toward the image right so the patient's right cheek and right ear face the viewer; right-sided block.",
+  "teachingPoint": "A supraperiosteal infiltration numbs one upper tooth and the bone over its root.",
+  "claims": [
+    "Bone: the upper canine (the record's default tooth) with its root and the alveolar bone over it.",
+    "No skin is shaded.",
+    "Right-sided block (patient's right ear and cheek face the viewer); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "canine-bone"
+  ],
+  "labels": {},
+  "geometry": []
+}

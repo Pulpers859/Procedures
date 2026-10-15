@@ -1,0 +1,18 @@
+{
+  "assetId": "auricular_distribution",
+  "procedure": "block_auricular",
+  "title": "Expected distribution",
+  "view": "Shared head base (visuals/distribution_bases/head): skeleton bust on the left, grey bust on the right, both turned three-quarters toward the image right so the patient's right cheek and right ear face the viewer; right-sided block.",
+  "teachingPoint": "A ring block around the ear numbs the whole ear and a ring of skin around its base.",
+  "claims": [
+    "Skin: the auricle and a ring of skin about a centimetre wide around it (great auricular, lesser occipital, auriculotemporal and the auricular branch of the vagus together; record: a diamond-shaped ring blocks them all).",
+    "No bone is shaded.",
+    "Right-sided block (patient's right ear and cheek face the viewer); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "auricle-skin"
+  ],
+  "labels": {},
+  "geometry": []
+}

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F4F3EF; }</style>
+<defs><filter id="feather-2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter>
+<filter id="feather-6" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+<mask id="m-body" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="896"><image href="../distribution_bases/side/mask_body.png" x="0" y="0" width="1200" height="896" preserveAspectRatio="none"/></mask>
+<mask id="m-bone" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="896"><image href="../distribution_bases/side/mask_bone.png" x="0" y="0" width="1200" height="896" preserveAspectRatio="none"/></mask>
+<clipPath id="c-right-chest"><path d="M796,326 C797.9,325.4 842.5,314.9 846,314 C849.5,313.1 896.9,300.2 900,300 C903.1,299.8 936.9,306.3 940,308 C943.1,309.7 990.3,341.6 992,350 C993.7,358.4 1000.4,553 992,560 C983.6,567 748.4,567.5 740,560 C731.6,552.5 738.3,341.6 740,334 C741.7,326.4 788.1,332.3 790,332 C791.9,331.7 794.1,326.6 796,326 Z"/></clipPath>
+<clipPath id="c-right-axilla"><path d="M790,250 C792.7,247.4 867.3,247.4 870,250 C872.7,252.6 872.7,325.4 870,328 C867.3,330.6 792.7,330.6 790,328 C787.3,325.4 787.3,252.6 790,250 Z"/></clipPath></defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="82664996aa8b94c10eab6d88f13bca30f30eb0c346af9e9e6c3e38b239593c44">
+  <image id="base" href="../distribution_bases/side/base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
+</g>
+<g class="marking" transform="translate(0 2.7) scale(1.333333)">
+    <g clip-path="url(#c-right-chest)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-6)"><path id="pecs-skin" d="M796,328 C798.9,326.9 833.9,317.3 840,316 C846.1,314.7 894,306.1 900,306 C906,305.9 936.8,311.7 942,314 C947.2,316.3 987.1,340.5 990,346 C992.9,351.5 997.2,403.8 992,408 C986.8,412.2 914.7,416.4 900,418 C885.3,419.6 749.3,440.8 740,436 C730.7,431.2 737.1,341.9 740,336 C742.9,330.1 786.7,334.5 790,334 C793.3,333.5 793.1,329.1 796,328 Z" fill="#2E9C97" fill-opacity="0.6"/></g></g></g>
+  <g clip-path="url(#c-right-axilla)" style="mix-blend-mode:multiply"><g mask="url(#m-body)"><g filter="url(#feather-6)"><path id="armpit-skin" d="M806,296 C807.9,294.1 836.5,287.8 840,288 C843.5,288.2 864.4,297.9 866,300 C867.6,302.1 869.8,322.4 868,324 C866.2,325.6 839.5,328.2 836,328 C832.5,327.8 809.8,321.9 808,320 C806.2,318.1 804.1,297.9 806,296 Z" fill="#8A78C2" fill-opacity="0.6"/></g></g></g>
+  <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-2)"><path id="pecs-bone" d="M302,296 C305.9,289.8 374.1,294.3 380,296 C385.9,297.7 416.8,324.3 420,330 C423.2,335.7 443.7,405 445,410 C446.3,415 452.8,429 446,430 C439.2,431 317.2,430.5 310,430 C302.8,429.5 302.4,426.7 302,420 C301.6,413.3 298.1,302.2 302,296 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
+</g>
+
+</svg>
