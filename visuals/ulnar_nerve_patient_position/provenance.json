@@ -1,0 +1,24 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the ulnar_nerve_patient_position layout (commit f2c7045 draw.py, --reference).",
+ "prompt": "Prompt A (photo), new chat: tmp/visual-drafts/antigravity/ulnar_nerve_patient_position/01_image_prompt.txt.",
+ "promptAttachments": "Image 1: the layout reference; image 2: the approved median_nerve_patient_position base, for the arm, skin and drape.",
+ "repairs": [
+  "Same chat: stand the transducer upright, short and foreshortened, face in place.",
+  "Same chat: show the needle entering the skin at the little-finger edge with a small dimple."
+ ],
+ "pixelEdits": [
+  "Delivered at 2400 x 1792; downscaled to 1200 x 896."
+ ],
+ "rejected": "First painting: probe tilted back toward the elbow; needle ran into the probe's corner without a skin entry (independent review).",
+ "reviewNotes": "Overlay: forearm, wrist crease, thenar region and the needle line on the layout; the probe face sits about 1 cm radial to the drawn one, still on the ulnar half. The needle enters the skin at the ulnar border in line with the probe face.",
+ "knownLimits": "Probe without a hand, as the approved median plate.",
+ "thirdPartyConcept": "NYSORA ulnar photo read for the probe position only; not attached, not committed."
+}

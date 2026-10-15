@@ -80,7 +80,7 @@ def build() -> str:
     cable = (f"M{fmt(c((PCX, -58))[0])},{fmt(c((0, -58))[1])} C{fmt(c((PCX + 2, -70))[0])},{fmt(c((0, -70))[1])} "
              f"{fmt(c((PCX + 20, -78))[0])},{fmt(c((0, -78))[1])} {fmt(c((PCX + 60, -60))[0])},0")
     labels = [
-        Label(["Block needle"], anchor=(1160, 250), leader=[(1250, 280), ((ne[0] + nh[0]) / 2, ne[1] - 2)], target_id="needle"),
+        Label(["Block needle"], anchor=(1160, 250), leader=[(1250, 280), (ne[0] + 45, ne[1])], target_id="needle"),
         Label(["Linear probe"], anchor=(300, 470), leader=[(620, 440), (p0[0] + 20, (p0[1] + p1[1]) / 2)], target_id="probe"),
         Label(["Thenar eminence"], anchor=(40, 1060), leader=[(340, 1050), c((-20, 128))], target_id="thenar"),
     ]

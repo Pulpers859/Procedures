@@ -2,36 +2,37 @@
   "assetId": "transgluteal_anatomy",
   "procedure": "block_transgluteal_sciatic",
   "title": "Target anatomy",
-  "view": "Transverse section of the right buttock at the level of the ischial tuberosity and greater trochanter, prone, under a transverse probe, as on ultrasound: medial (ischial tuberosity) on the image left, lateral (greater trochanter) on the right. Composition after NYSORA's gluteal plate (concept only).",
-  "teachingPoint": "The sciatic nerve is a flat oval midway between the ischial tuberosity and the greater trochanter, under gluteus maximus; the needle comes from lateral to its lateral edge and the spread surrounds it in the plane.",
+  "view": "Transverse section of the right proximal posterior thigh just below the gluteal fold (subgluteal level), prone, under a transverse probe, as on ultrasound: medial on the image left, lateral on the right. Composition after NYSORA's subgluteal plate (Fig-6, concept only).",
+  "teachingPoint": "Below the gluteal fold the sciatic nerve is a flat oval in the fascial plane under gluteus maximus, with biceps femoris medial and adductor magnus deep; the needle comes from lateral to its lateral edge and the spread surrounds it in the plane.",
   "claims": [
-    "Ischial tuberosity medial, greater trochanter lateral, nerve midway between them deep to gluteus maximus (record).",
-    "Nerve lies on quadratus femoris in the plane under gluteus maximus, in its own fascial sheath (standard anatomy; house style for the sheath).",
+    "Probe transverse just below the gluteal fold (record); the positioning plate shows the same level (owner, 2026-10-15).",
+    "Nerve deep to gluteus maximus (record), in the fascial plane between gluteus maximus, biceps femoris (medial) and adductor magnus (deep) (NYSORA subgluteal approach).",
+    "Long head of biceps femoris with its tendon medially; nerve in its own fascial sheath (standard anatomy; house style).",
     "Needle in-plane from lateral to the lateral edge of the nerve (record: in-plane; NYSORA: lateral to medial).",
     "Teal: spread around the nerve in the plane (record: inject around it).",
-    "Typical adult depths: nerve about 5 cm deep (schematic).",
-    "Labels: Gluteus maximus, Sciatic nerve, Ischial tuberosity, Greater trochanter, Quadratus femoris."
+    "Typical adult depths: nerve about 3.5 cm deep (schematic).",
+    "Labels: Gluteus maximus, Biceps femoris, Sciatic nerve, Adductor magnus."
   ],
-  "requiredElements": ["skin", "subcutaneous-fat", "gm", "qf", "ischium", "trochanter", "sheath", "nerve",
+  "requiredElements": ["skin", "subcutaneous-fat", "gm", "bf", "bf-tendon", "am", "plane", "sheath", "nerve",
                        "probe", "needle", "needle-entry", "needle-tip", "spread"],
   "labels": {
     "Gluteus maximus": "gm",
+    "Biceps femoris": "bf",
     "Sciatic nerve": "nerve",
-    "Ischial tuberosity": "ischium",
-    "Greater trochanter": "trochanter",
-    "Quadratus femoris": "qf"
+    "Adductor magnus": "am"
   },
   "geometry": [
-    {"check": "leftOf", "a": "ischium", "b": "nerve", "why": "ischial tuberosity medial"},
-    {"check": "leftOf", "a": "nerve", "b": "trochanter", "why": "greater trochanter lateral"},
     {"check": "below", "a": "nerve", "b": "gm", "why": "nerve deep to gluteus maximus"},
-    {"check": "below", "a": "qf", "b": "nerve", "why": "nerve on quadratus femoris"},
+    {"check": "below", "a": "am", "b": "nerve", "why": "adductor magnus deep to the nerve"},
+    {"check": "leftOf", "a": "bf", "b": "nerve", "why": "biceps femoris medial"},
     {"check": "within", "a": "nerve", "b": "sheath", "why": "nerve in its sheath"},
+    {"check": "crosses", "a": "plane", "b": "sheath", "why": "nerve in the fascial plane"},
     {"check": "noOverlap", "a": "nerve", "b": "gm", "why": "nerve not in muscle"},
+    {"check": "noOverlap", "a": "nerve", "b": "am", "why": "nerve not in muscle"},
     {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle in-plane from the lateral end"},
     {"check": "leftOf", "a": "needle-tip", "b": "needle-entry", "why": "needle runs lateral to medial"},
+    {"check": "leftOf", "a": "nerve", "b": "needle-tip", "why": "tip at the lateral edge of the nerve"},
     {"check": "noOverlap", "a": "needle", "b": "nerve", "why": "tip at the lateral edge, not into the nerve"},
-    {"check": "noOverlap", "a": "needle", "b": "trochanter", "why": "needle clear of bone"},
     {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
     {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread around the nerve"}
   ]
