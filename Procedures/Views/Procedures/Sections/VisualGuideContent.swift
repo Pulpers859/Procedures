@@ -141,7 +141,7 @@ struct VisualAssetCard: View {
                                 .frame(width: 10, height: 10)
                                 .alignmentGuide(.firstTextBaseline) { $0[VerticalAlignment.center] + 4 }
                                 .accessibilityHidden(true)
-                            Text(entry.label)
+                            legendText(entry)
                                 .font(.caption)
                                 .fixedSize(horizontal: false, vertical: true)
                         }
@@ -367,6 +367,16 @@ struct SchematicPlaceholder<Action: View>: View {
         .padding(.vertical, 20)
         .background(tint.opacity(0.04), in: RoundedRectangle(cornerRadius: AppLayout.mediaRadius, style: .continuous))
     }
+}
+
+/// "Femoral nerve: front of the thigh..." with the nerve underlined in its
+/// tone, so the eye finds the nerve before the territory.
+private func legendText(_ entry: ProcedureVisualAsset.LegendEntry) -> Text {
+    guard let nerve = entry.nerve, !nerve.isEmpty else { return Text(entry.label) }
+    return Text(nerve)
+        .fontWeight(.semibold)
+        .underline(true, color: entry.tone.color)
+        + Text(": " + entry.label)
 }
 
 extension ProcedureVisualAsset.LegendEntry.Tone {

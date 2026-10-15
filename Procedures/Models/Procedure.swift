@@ -305,6 +305,9 @@ struct ProcedureVisualAsset: Identifiable, Codable, Hashable {
         }
 
         let tone: Tone
+        /// The nerve, shown underlined in its tone ahead of the territory.
+        /// Optional so an entry without one still decodes.
+        let nerve: String?
         let label: String
     }
 

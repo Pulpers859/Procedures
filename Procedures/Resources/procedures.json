@@ -4166,18 +4166,20 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness after a right-sided block.",
-        "assetName": null,
+        "assetName": "ficb_distribution",
         "systemImage": "figure.stand",
         "caption": "The upper medial thigh (obturator) is left unshaded: spread to it is inconsistent.",
         "clinicalWarning": null,
         "legend": [
           {
             "tone": "teal",
-            "label": "Femoral nerve: front of the thigh, the knee, the medial leg and ankle, and the medial border of the foot to the base of the big toe (saphenous branch); the hip joint, femur and knee, the medial upper tibia, and the lower medial tibia and medial malleolus."
+            "nerve": "Femoral nerve",
+            "label": "Front of the thigh, the knee, the medial leg and ankle, and the medial border of the foot to the base of the big toe (saphenous branch); the hip joint, femur and knee, the medial upper tibia, and the lower medial tibia and medial malleolus."
           },
           {
             "tone": "violet",
-            "label": "Lateral femoral cutaneous nerve: lateral thigh."
+            "nerve": "Lateral femoral cutaneous nerve",
+            "label": "Lateral thigh."
           }
         ]
       },

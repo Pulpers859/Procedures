@@ -62,5 +62,10 @@
       "b": "spine",
       "why": "right side"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "7fd04b311b2d13ab7ae596500a666db9cd8696824fd6191d93a1b6de0375ffbf",
+    "reviewedOn": "2026-10-15"
+  }
 }

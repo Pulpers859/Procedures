@@ -404,10 +404,10 @@ def validate_procedures(data):
                 # Swift decodes tone into a closed enum: an unknown value fails
                 # decoding and drops the whole procedure, like a bad kind.
                 for entry in legend if isinstance(legend, list) else [None]:
-                    if not isinstance(entry, dict) or entry.get("tone") not in VALID_LEGEND_TONES                             or not (entry.get("label") or "").strip():
+                    if not isinstance(entry, dict) or entry.get("tone") not in VALID_LEGEND_TONES                             or not (entry.get("label") or "").strip()                             or not (entry.get("nerve") or "").strip():
                         issues.append((
                             "BLOCKER", title,
-                            f"visual asset '{visual.get('id')}' legend entry {entry!r} needs a label and a tone "
+                            f"visual asset '{visual.get('id')}' legend entry {entry!r} needs a nerve, a label and a tone "
                             f"from: {', '.join(sorted(VALID_LEGEND_TONES))}",
                         ))
                     elif AUTHORING_NOTE.match(entry["label"]):

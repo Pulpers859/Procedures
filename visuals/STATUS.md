@@ -43,6 +43,14 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 
 - None.
 
+## Distribution plates (nerve blocks, first tile)
+
+Owner request 2026-10-15: each nerve block's first visual is an `<block>_distribution` plate (skeleton and grey body, the blocked territory tinted, a colour key under the image with each nerve underlined). Method and rules: `PLAYBOOK.md`, "Distribution plates". Every plate gets an independent audit before it is sent.
+
+| Block | Status | Build | Notes |
+| --- | --- | --- | --- |
+| Fascia iliaca | Shipped 2026-10-15 | sideload-42 | The model plate; front-view base. Saphenous periosteal patches on the tibia (literature-checked). |
+
 ## Working notes that hold across sessions
 
 - **Antigravity lane (Claude on the owner's PC):** `tools/Invoke-AntigravityAgentApi.ps1 -Command NewConversation ... -PassPromptFileAsAtPath` with a prompt file under `tmp/visual-drafts/antigravity/<slot>/`; about a minute per painting at 1200x896. It shares Gemini's image quota; a 429 is logged in the conversation's `transcript.jsonl`.
