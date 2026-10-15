@@ -24,7 +24,10 @@ the Achilles. Needle in-plane from the anterior end, as the superficial
 peroneal section.
 
 Millimetres from the skin over the vein (x anterior = image right, y deep)
-at 26 px/mm.
+at 40 px/mm: a 40 x 27 mm field, the width of the probe (redrawn 2026-10-15
+after review: the lateral malleolus is subcutaneous at the probe's front end,
+with the peroneal tendons in the groove behind it; the first layout buried
+the fibula 3 cm deep).
 
 Run: python3 visuals/sural_anatomy/draw.py
 """
@@ -43,11 +46,11 @@ from visuals_lib import Label, document, fmt, smooth_path  # noqa: E402
 ASSET_ID = "sural_anatomy"
 BASE = Path(__file__).with_name("base.jpg")
 BASE_SIZE = (1200.0, 896.0)
-PX_MM = 26.0
+PX_MM = 40.0
 ORIGIN = (800.0, 110.0)
-X0, X1 = -30.8, 30.8
+X0, X1 = -20.0, 20.0
 L, R = X0 - 3, X1 + 3
-FASCIA_TOP, FASCIA_BOT = 6.2, 6.9
+FASCIA_TOP, FASCIA_BOT = 5.2, 5.45
 
 
 def c(p):
@@ -63,22 +66,21 @@ def band(top, bottom, n=40):
     return [(x, top) for x in xs] + [(x, bottom) for x in reversed(xs)]
 
 
-VEIN = ((2.0, 4.0), 1.7, 1.7)
-NERVE = ((-2.4, 4.5), 1.2, 0.85)
-SHEATH = ((-0.1, 4.05), 4.6, 1.9)
-ACHILLES = ((-21.5, 11.8), 8.8, 4.6)
-FIBULA = ((21.0, 31.0), 8.5, 7.5)
-PL_TENDON = ((-3.0, 10.2), 2.7, 1.7)
-PBM = [(-5.6, FASCIA_BOT), (R, FASCIA_BOT), (R, 21.5), (29, 24.4), (24, 23.3), (18, 23.9), (14.2, 26.4), (12.8, 30.0),
-       (13.0, 33.6), (9.0, 30.0), (4.0, 26.0), (-1.5, 21.0), (-5.0, 15.0), (-6.6, 10.0)]
-FHL = [(L, 25.0), (-22, 21.8), (-13, 19.5), (-6.5, 16.5), (0, 17), (8, 22), (14, 28), (14, 46), (L, 46)]
+VEIN = ((1.1, 3.3), 1.15, 1.15)
+NERVE = ((-1.5, 3.5), 0.75, 0.75)
+SHEATH = ((0.0, 3.3), 3.0, 1.45)
+ACHILLES = ((-14.5, 8.8), 6.0, 3.0)
+FIBULA = ((14.5, 11.0), 6.5, 5.0)            # lateral malleolus, just under the fascia
+PBM = [(0.8, 6.3), (4.5, 5.8), (8.2, 6.4), (8.7, 8.5), (8.4, 11.5), (7.9, 14.5), (6.0, 16.2), (3.0, 16.0), (1.0, 13.8), (0.2, 10.5), (0.1, 8.0)]
+PL_TENDON = ((1.7, 7.4), 1.8, 1.2)           # peroneus longus tendon, posterior-superficial to brevis
+FHL = [(L, 17.0), (-14.0, 15.5), (-6.0, 15.2), (-1.5, 17.5), (1.0, 21.0), (1.5, 30.0), (L, 30.0)]
 NEEDLE_ENTRY = (X1 - 4.6, 0.0)
-NEEDLE_TIP = (4.9, 4.2)
+NEEDLE_TIP = (3.3, 3.2)
 
 
 def spread():
-    return [(-5.6, 3.0), (-4.2, 2.2), (-1.0, 1.95), (2.6, 2.0), (5.4, 2.8), (6.4, 4.2), (5.6, 5.5), (2.0, 5.95),
-            (-2.0, 5.95), (-5.2, 5.4), (-6.2, 4.3)]
+    return [(-3.9, 2.2), (-2.6, 1.65), (0.0, 1.55), (2.6, 1.6), (4.0, 2.3), (4.4, 3.4), (3.6, 4.6), (1.0, 5.05),
+            (-1.6, 5.05), (-3.6, 4.5), (-4.4, 3.4)]
 
 
 DEFS = """
@@ -98,16 +100,17 @@ def build() -> str:
     e, t = c(NEEDLE_ENTRY), c(NEEDLE_TIP)
     dx, dy = t[0] - e[0], t[1] - e[1]
     a = (e[0] - dx * 0.4, e[1] - dy * 0.4)
-    probe_x1 = c((X1 - 10.0, 0))[0]
+    probe_x1 = c((X1 - 8.0, 0))[0]
     M = 'fill="url(#muscle)" stroke="#F8F6F0" stroke-width="7"'
     vein, nerve = c(VEIN[0]), c(NERVE[0])
     labels = [
-        Label(["Deep fascia"], anchor=(40, 236), leader=[(330, 224), (400, 276)], target_id="deep-fascia"),
-        Label(["Sural nerve"], anchor=(330, 700), leader=[(560, 660), (nerve[0], nerve[1] + 4)], target_id="nerve", emphasis=True),
-        Label(["Small saphenous", "vein"], anchor=(960, 380), leader=[(1010, 340), (vein[0] + 6, vein[1] + 6)], target_id="vein"),
-        Label(["Achilles tendon"], anchor=(40, 580), leader=[(200, 540), (230, 460)], target_id="achilles"),
-        Label(["Peroneus brevis"], anchor=(1060, 700), leader=[(1100, 660), (1060, 560)], target_id="pbm"),
-        Label(["Fibula"], anchor=(1340, 1160), leader=[(1380, 1116), (1350, 1000)], target_id="fibula"),
+        Label(["Deep fascia"], anchor=(40, 250), leader=[(330, 240), (400, c((0, (FASCIA_TOP + FASCIA_BOT) / 2))[1])], target_id="deep-fascia"),
+        Label(["Sural nerve"], anchor=(480, 540), leader=[(620, 500), (nerve[0], nerve[1] + 2)], target_id="nerve", emphasis=True),
+        Label(["Small", "saphenous vein"], anchor=(1060, 420), leader=[(1100, 380), (vein[0] + 14, vein[1] + 12)], target_id="vein"),
+        Label(["Achilles tendon"], anchor=(40, 640), leader=[(200, 600), (220, 470)], target_id="achilles"),
+        Label(["Peroneus brevis"], anchor=(900, 880), leader=[(1000, 840), (1000, 640)], target_id="pbm"),
+        Label(["Fibula"], anchor=(1340, 980), leader=[(1390, 936), (1390, 700)], target_id="fibula"),
+        Label(["Flexor hallucis longus"], anchor=(40, 1130), leader=[(330, 1090), (420, 1000)], target_id="fhl"),
     ]
     painted = BASE.exists()
     debug = os.environ.get("DEBUG") == "1"
@@ -140,7 +143,7 @@ def build() -> str:
 </g>
 
 <g class="marking">
-  <path id="spread" d="{path(spread(), closed=True, tension=0.7)}" fill="#6CCBD2" fill-opacity="0.5" stroke="#0E8C98" stroke-width="3"/>
+  <path id="spread" d="{path(spread(), closed=True, tension=0.7)}" fill="#6CCBD2" fill-opacity="0.62" stroke="#0E8C98" stroke-width="3" stroke-opacity="0.85"/>
   <rect id="probe" x="-100" y="-60" width="{fmt(probe_x1 + 100)}" height="{fmt(ORIGIN[1] + 60)}" rx="34" fill="url(#probe-grad)" stroke="#4E565E" stroke-width="3"/>
   <rect x="-100" y="{fmt(ORIGIN[1] - 16)}" width="{fmt(probe_x1 + 82)}" height="14" rx="6" fill="#3E454C"/>
   <line id="needle" x1="{fmt(a[0])}" y1="{fmt(a[1])}" x2="{fmt(t[0])}" y2="{fmt(t[1])}" stroke="#5E6670" stroke-width="10"/>

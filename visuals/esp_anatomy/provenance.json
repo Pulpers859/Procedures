@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "thirdPartyConcept": "NYSORA ESP reverse-ultrasound plate (Fig-7) read for the layout only; not attached, not committed.",
+ "reference": "Unlabelled render of the esp_anatomy layout (commit 1bfe7a8 draw.py, --reference).",
+ "prompt": "Prompt A, new chat: tmp/visual-drafts/antigravity/esp_anatomy/01_image_prompt.txt.",
+ "reviewNotes": "Overlay: skin, fat, the three muscle layers, fascial lines, transverse processes, pleura and lung lie on the layout. The ligament band is painted about 7 mm thick instead of 1.4 mm, which thins the paravertebral fat; nothing marked sits there. Independent review: use as is.",
+ "knownLimits": "Ribs and the dorsal ramus are not drawn (schematic). Trapezius and rhomboid are painted with lengthwise fibres like the erector spinae, as on NYSORA's plate; in a true sagittal cut they would run obliquely."
+}

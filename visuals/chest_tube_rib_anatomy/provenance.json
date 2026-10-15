@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "thirdPartyConcept": "None.",
+ "reference": "Unlabelled render of the chest_tube_rib_anatomy layout (commit 1bfe7a8 draw.py, --reference).",
+ "prompt": "Prompt A, new chat: tmp/visual-drafts/antigravity/chest_tube_rib_anatomy/01_image_prompt.txt.",
+ "reviewNotes": "Overlay: every layer, both ribs and both bundles lie on the layout. Bundles read vein, artery, nerve from the top, between the internal and innermost intercostals. The code-drawn tube clears the lower rib by about 1.3 mm and the upper nerve by about 4.7 mm. Independent review: use as is.",
+ "knownLimits": "Ribs drawn as plain ovals without a modelled costal groove; the pleural space is drawn opened. Tube is code-drawn."
+}

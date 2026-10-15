@@ -54,7 +54,8 @@ def path(points, closed=False, tension=1.0):
 POSTERIOR = [(-40, -140), (-36, -100), (-33, -62), (-33, -32), (-36, -8), (-44, 14), (-50, 34), (-50, 50), (-42, 62)]
 SOLE = [(-26, 68), (0, 68), (30, 64), (62, 64), (100, 70), (140, 74), (170, 74), (196, 70), (208, 62)]
 DORSUM = [(204, 52), (180, 46), (140, 38), (100, 22), (66, 4), (44, -16), (34, -38), (32, -70), (34, -105), (38, -140)]
-LAT_MALLEOLUS = ((2.0, -14.0), 12.0, 16.0)
+LAT_MALLEOLUS = ((-3.0, -5.0), 11.0, 13.0)   # traced on the painting (layout had (2, -14), 12 x 16; commit 1bfe7a8)
+T_ENTRY = (589.0, 531.0)                       # canvas px: where the painted needle meets the skin
 ACHILLES = [(-36, -120), (-31, -80), (-28, -45), (-30, -15), (-37, 8)]
 PC = (-12.0, -22.0)                 # probe centre: across the groove behind the malleolus, just above its tip
 PROBE_LEN, PROBE_W = 38.0, 8.0
@@ -91,9 +92,9 @@ def build() -> str:
     tubing = f"M{fmt(nh[0])},{fmt(nh[1])} C{fmt(nh[0] + 90)},{fmt(nh[1] - 20)} {fmt(nh[0] + 160)},{fmt(nh[1] - 140)} {fmt(nh[0] + 260)},-40"
     lm = c(LAT_MALLEOLUS[0])
     labels = [
-        Label(["Lateral", "malleolus"], anchor=(760, 800), leader=[(790, 740), (lm[0] + 20, lm[1] + 30)], target_id="lat-malleolus"),
+        Label(["Lateral", "malleolus"], anchor=(760, 800), leader=[(790, 740), (lm[0] + 10, lm[1] + 10)], target_id="lat-malleolus"),
         Label(["Achilles", "tendon"], anchor=(40, 760), leader=[(150, 700), c((-30, -15))], target_id="achilles"),
-        Label(["Linear probe"], anchor=(40, 150), leader=[(300, 170), (p0[0] + 20, (p0[1] + p1[1]) / 2)], target_id="probe"),
+        Label(["Linear probe"], anchor=(40, 150), leader=[(300, 170), (p0[0] + 95, (p0[1] + p1[1]) / 2)], target_id="probe"),
         Label(["Block needle"], anchor=(1000, 300), leader=[(1060, 320), ((ne[0] + nh[0]) / 2, (ne[1] + nh[1]) / 2)], target_id="needle"),
     ]
     painted = BASE.exists()
@@ -122,6 +123,11 @@ def build() -> str:
   <path id="probe-handle" d="{handle}" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
   <path d="{cable}" fill="none" stroke="#3E454C" stroke-width="14" stroke-linecap="round"/>
   <rect id="probe" x="{fmt(p0[0])}" y="{fmt(p0[1])}" width="{fmt(p1[0] - p0[0])}" height="{fmt(p1[1] - p0[1])}" rx="16" fill="url(#probe-body)" stroke="#7D868F" stroke-width="3"/>
+</g>
+
+<g class="marking">
+  <ellipse cx="{fmt(T_ENTRY[0] - 2)}" cy="{fmt(T_ENTRY[1] + 1)}" rx="9" ry="5" fill="#8A5A4A" opacity="0.45"/>
+  <circle cx="{fmt(T_ENTRY[0] - 1)}" cy="{fmt(T_ENTRY[1])}" r="2.6" fill="#6E4436" opacity="0.85"/>
 </g>
 
 <g id="labels">{"".join(label.svg() for label in labels)}</g>

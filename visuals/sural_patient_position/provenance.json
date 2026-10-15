@@ -1,0 +1,19 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [],
+ "rejected": "None.",
+ "thirdPartyConcept": "NYSORA sural photo (Fig-14) read for the camera only; not attached, not committed.",
+ "reference": "Unlabelled render of the sural_patient_position layout (commit 1bfe7a8 draw.py, --reference).",
+ "prompt": "Prompt A (photo), new chat: tmp/visual-drafts/antigravity/sural_patient_position/01_image_prompt.txt.",
+ "reviewNotes": "Overlay: leg, foot, Achilles, probe face and handle, needle and hub lie on the layout within a few pixels. The painted lateral malleolus sits about 1 cm lower and slightly behind the drawn one, so the target was re-traced on the painting (LAT_MALLEOLUS). The probe sits just above and behind the malleolus, between it and the Achilles. The painted needle stops at the skin; a small entry puncture is code-drawn there.",
+ "knownLimits": "Upright probe without a hand, the convention of the deep and superficial peroneal plates."
+}

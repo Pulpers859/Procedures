@@ -8,10 +8,10 @@
     "Right ankle between the lateral malleolus and the Achilles tendon, posterior on the left (record: behind the lateral malleolus; NYSORA probe between the malleolus and the Achilles).",
     "Nerve beside the small saphenous vein, posterior to it (record: adjacent to the vein and usually posterior to it).",
     "Vein and nerve in the subcutaneous tissue superficial to the deep fascia, together in one thin sheath (NYSORA; house style).",
-    "Achilles tendon posterior; peroneus brevis with the peroneus longus tendon and the fibula anterior and deep; flexor hallucis longus deep posterior with Kager's fat (standard anatomy).",
+    "Achilles tendon posterior; the lateral malleolus just under the fascia at the front of the field with peroneus brevis and the peroneus longus tendon in the groove behind it; flexor hallucis longus deep posterior with Kager's fat (standard anatomy, to scale: 40 x 27 mm field).",
     "Needle in-plane from the anterior end, tip beside the vein (NYSORA in-plane; same side as the superficial peroneal plate).",
     "Teal: spread around the nerve and vein (record: inject around the nerve/vein).",
-    "Labels: Deep fascia, Sural nerve, Small saphenous vein, Achilles tendon, Peroneus brevis, Fibula."
+    "Labels: Deep fascia, Sural nerve, Small saphenous vein, Achilles tendon, Peroneus brevis, Fibula, Flexor hallucis longus."
   ],
   "requiredElements": [
     "skin",
@@ -37,7 +37,8 @@
     "Small saphenous vein": "vein",
     "Achilles tendon": "achilles",
     "Peroneus brevis": "pbm",
-    "Fibula": "fibula"
+    "Fibula": "fibula",
+    "Flexor hallucis longus": "fhl"
   },
   "geometry": [
     {"check": "leftOf", "a": "nerve", "b": "vein", "why": "nerve posterior to the vein (posterior on the left)"},
