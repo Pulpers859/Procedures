@@ -150,7 +150,6 @@ def build() -> str:
     labels = [
         Label(["Rib"], anchor=(1000, 250), leader=[(990, 236), (upper_rib[0] + 30, upper_rib[1] - 40)], target_id="upper-rib"),
         Label(["Vein, artery, nerve"], anchor=(1000, 420), leader=[(990, 404), (ub[0] + 10, ub[1])], target_id="upper-bundle", emphasis=True),
-        Label(["Lower rib"], anchor=(1000, 1000), leader=[(990, 984), (lower_rib[0] + 30, lower_rib[1] + 40)], target_id="lower-rib"),
         Label(["Sentinel hole"], anchor=(1000, 680), leader=[(990, 664), (sentinel[0] + 6, sentinel[1] + 6)], target_id="sentinel-hole", emphasis=True),
         Label(["Chest tube"], anchor=(1100, 820), leader=[(1090, 804), c((34.0, 2.0))], target_id="tube"),
         Label(["Parietal pleura"], anchor=(1060, 130), leader=[(1050, 114), (c((PLEURA, 0))[0], 114)], target_id="pleura"),

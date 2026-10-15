@@ -957,9 +957,9 @@
         "kind": "Landmark",
         "title": "Over-the-rib insertion",
         "subtitle": "The intercostal neurovascular bundle (vein, artery, nerve) runs along the inferior margin of each rib. Always pass the tube over the superior border of the lower rib.",
-        "assetName": null,
+        "assetName": "chest_tube_rib_anatomy",
         "systemImage": "arrow.up.to.line",
-        "caption": "",
+        "caption": "Section through one space, skin on the left, head up: the tube goes over the top of the lower rib, clear of the vein, artery and nerve under the rib above, with every side hole, including the sentinel hole, inside the pleural space.",
         "clinicalWarning": "Inferior rib entry risks intercostal artery laceration and hemorrhage."
       }
     ],

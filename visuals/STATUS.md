@@ -10,10 +10,10 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 
 ## Progress
 
-- **63 slots bundled, 26 empty.**
+- **64 slots bundled, 25 empty.**
 - **Skip; the owner adds real images (11):** ultrasound and rhythm strips (`aline_us_short_axis`, `ij_probe_orientation`, `cvc_wire_confirmation`, `ficb_subfascial_spread`, `fb_us_appearance`, `knee_us_effusion`, `pericardiocentesis_approach`, `pigtail_us_effusion`, `tvp_capture_confirmation`, `usgiv_short_axis`, `usgiv_needle_tracking`).
 - **Skip as low value unless asked (1):** `abscess_technique`.
-- **That leaves 14 slots to make.**
+- **That leaves 13 slots to make.**
 
 ### Shipped recently
 
@@ -25,12 +25,12 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 | Superficial cervical plexus | 2026-10-14 | sideload-35 | Section in the house style; probe at mid-SCM (mastoid-clavicle midpoint, NYSORA). |
 | Superior alveolar | 2026-10-14 | sideload-35 | Canine as the default tooth. |
 | Superficial peroneal | 2026-10-15 | sideload-36 | Positioning: Gemini removed the equipment from the owner's photo; the photo's own probe was moved into place in code (`place_probe.py`) and the needle is code-drawn. Needle from anterior per NYSORA. |
-| Chest tube safe triangle | 2026-10-15 | (next build) | Drawn in code on the approved serratus painting (patient's left side); no new painting. |
+| Chest tube (both slots) | 2026-10-15 | sideload-37 | Safe triangle drawn in code on the approved serratus painting (patient's left side). Rib section: the tube turns cranially in the pleural space so every side hole, including the sentinel hole, is inside the pleura (owner). |
 | Supraorbital | 2026-10-14 | sideload-34 | The finger is the photo's own glove, placed in code (`place_finger.py`), and the green eyes come from `green_eyes.py`. |
 
 ### In progress
 
-- Paintings received 2026-10-15, being reviewed: `sural_*`, `esp_*`, `chest_tube_rib_anatomy` (layouts 1bfe7a8). `thoracentesis_site` will use the ESP painting with the equipment removed.
+- Review drafts awaiting approval (2026-10-15): `sural_patient_position`, `sural_anatomy` (true-scale relayout), `esp_patient_position` (gloved hand), `esp_anatomy`, `thoracentesis_site` (ESP back with equipment removed + rib inset; a leaning-forward repaint was offered).
 
 ### Not started (A–Z order, both slots each unless noted)
 
