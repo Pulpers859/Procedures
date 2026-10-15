@@ -7529,9 +7529,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Sitting or lateral decubitus. Transducer sagittal about 3 cm lateral to the spinous processes. Needle in-plane, usually cranial to caudal.",
-        "assetName": null,
+        "assetName": "esp_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Seated, right side: probe sagittal about 3 cm from the spinous processes; needle in-plane from the cranial end, aimed caudally toward a transverse process.",
         "clinicalWarning": null
       },
       {
@@ -7539,9 +7539,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The erector spinae runs vertically over the square, shadowing transverse processes. The needle tip touches a transverse process; injectate spreads deep to the erector spinae.",
-        "assetName": null,
+        "assetName": "esp_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Sagittal section, head end on the left: the needle passes trapezius, rhomboid and erector spinae until it touches a transverse process; injectate spreads deep to the erector spinae.",
         "clinicalWarning": null
       }
     ],
@@ -9533,9 +9533,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine, foot internally rotated. Transducer transverse behind the lateral malleolus.",
-        "assetName": null,
+        "assetName": "sural_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right foot rolled in: probe transverse between the lateral malleolus and the Achilles tendon; needle in-plane from the front end.",
         "clinicalWarning": null
       },
       {

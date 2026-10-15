@@ -10,7 +10,15 @@
     "Needle in-plane from the front end of the probe, as on the section plate (NYSORA in-plane).",
     "Labels: Lateral malleolus, Achilles tendon, Linear probe, Block needle."
   ],
-  "requiredElements": ["foot", "lat-malleolus", "achilles", "probe", "probe-handle", "needle", "needle-entry"],
+  "requiredElements": [
+    "foot",
+    "lat-malleolus",
+    "achilles",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
   "labels": {
     "Lateral malleolus": "lat-malleolus",
     "Achilles tendon": "achilles",
@@ -18,12 +26,52 @@
     "Block needle": "needle"
   },
   "geometry": [
-    {"check": "leftOf", "a": "achilles", "b": "lat-malleolus", "why": "Achilles behind the malleolus (posterior on the left)"},
-    {"check": "leftOf", "a": "probe", "b": "lat-malleolus", "why": "probe behind the malleolus"},
-    {"check": "below", "a": "lat-malleolus", "b": "probe", "why": "probe just above the malleolar tip"},
-    {"check": "within", "a": "probe", "b": "foot", "why": "probe on the skin"},
-    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle from the front end"},
-    {"check": "within", "a": "needle-entry", "b": "foot", "why": "needle enters the skin"},
-    {"check": "noOverlap", "a": "needle", "b": "probe", "why": "needle beside, in line with, the probe"}
-  ]
+    {
+      "check": "leftOf",
+      "a": "achilles",
+      "b": "lat-malleolus",
+      "why": "Achilles behind the malleolus (posterior on the left)"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "lat-malleolus",
+      "why": "probe behind the malleolus"
+    },
+    {
+      "check": "below",
+      "a": "lat-malleolus",
+      "b": "probe",
+      "why": "probe just above the malleolar tip"
+    },
+    {
+      "check": "within",
+      "a": "probe",
+      "b": "foot",
+      "why": "probe on the skin"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle from the front end"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "foot",
+      "why": "needle enters the skin"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "probe",
+      "why": "needle beside, in line with, the probe"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "63d113048ee7a8e4cc55c97b5ba1a582586e874dae19d1eeef48811ac62d933c",
+    "reviewedOn": "2026-10-15"
+  }
 }

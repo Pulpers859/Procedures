@@ -13,8 +13,27 @@
     "Teal: spread deep to the erector spinae over the processes, running cranially and caudally (record: spreads deep to the erector spinae).",
     "Labels: Trapezius, Rhomboid major, Erector spinae, Transverse process, Pleura."
   ],
-  "requiredElements": ["skin", "subcutaneous-fat", "trapezius", "rhomboid", "erector-spinae", "es-fascia", "tp", "tp-0", "tp-2",
-                       "ligament", "intertransverse", "pvs-fat", "pleura", "lung", "probe", "needle", "needle-entry", "needle-tip", "spread"],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "trapezius",
+    "rhomboid",
+    "erector-spinae",
+    "es-fascia",
+    "tp",
+    "tp-0",
+    "tp-2",
+    "ligament",
+    "intertransverse",
+    "pvs-fat",
+    "pleura",
+    "lung",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
   "labels": {
     "Trapezius": "trapezius",
     "Rhomboid major": "rhomboid",
@@ -23,17 +42,86 @@
     "Pleura": "pleura"
   },
   "geometry": [
-    {"check": "below", "a": "rhomboid", "b": "trapezius", "why": "trapezius outermost"},
-    {"check": "below", "a": "erector-spinae", "b": "rhomboid", "why": "erector spinae deep to rhomboid"},
-    {"check": "below", "a": "tp", "b": "erector-spinae", "why": "transverse process deep to the erector spinae"},
-    {"check": "below", "a": "pleura", "b": "tp", "why": "pleura deep to the processes"},
-    {"check": "leftOf", "a": "needle-entry", "b": "needle-tip", "why": "needle cranial to caudal (cranial on the left)"},
-    {"check": "noOverlap", "a": "needle", "b": "tp", "why": "tip touches the process, not into it"},
-    {"check": "noOverlap", "a": "needle", "b": "pleura", "why": "needle stays well above the pleura"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "tp", "maxPx": 16, "why": "tip touches the transverse process"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
-    {"check": "crosses", "a": "spread", "b": "es-fascia", "why": "spread lies along the deep surface of the erector spinae"},
-    {"check": "noOverlap", "a": "spread", "b": "tp", "why": "spread on the processes, not in bone"},
-    {"check": "noOverlap", "a": "spread", "b": "pleura", "why": "spread superficial to the pleura"}
-  ]
+    {
+      "check": "below",
+      "a": "rhomboid",
+      "b": "trapezius",
+      "why": "trapezius outermost"
+    },
+    {
+      "check": "below",
+      "a": "erector-spinae",
+      "b": "rhomboid",
+      "why": "erector spinae deep to rhomboid"
+    },
+    {
+      "check": "below",
+      "a": "tp",
+      "b": "erector-spinae",
+      "why": "transverse process deep to the erector spinae"
+    },
+    {
+      "check": "below",
+      "a": "pleura",
+      "b": "tp",
+      "why": "pleura deep to the processes"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "needle-tip",
+      "why": "needle cranial to caudal (cranial on the left)"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "tp",
+      "why": "tip touches the process, not into it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "pleura",
+      "why": "needle stays well above the pleura"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "tp",
+      "maxPx": 16,
+      "why": "tip touches the transverse process"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the spread"
+    },
+    {
+      "check": "crosses",
+      "a": "spread",
+      "b": "es-fascia",
+      "why": "spread lies along the deep surface of the erector spinae"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "tp",
+      "why": "spread on the processes, not in bone"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "pleura",
+      "why": "spread superficial to the pleura"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "e439e1175aeee715d68399df0e24d945ba1b625ad5566097a128acb8bd71d2d3",
+    "reviewedOn": "2026-10-15"
+  }
 }

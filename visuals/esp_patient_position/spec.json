@@ -11,20 +11,75 @@
     "Spinous processes about 24 mm apart from C7; scapular medial border about 7 cm from the midline, inferior angle near T7 (standard anatomy).",
     "Labels: Linear probe, Block needle, Spinous processes (the scapula is not visible on the painting, so it is not labelled)."
   ],
-  "requiredElements": ["back", "spine", "c7", "scapula", "head", "probe", "probe-handle", "needle", "needle-entry"],
+  "requiredElements": [
+    "back",
+    "spine",
+    "c7",
+    "scapula",
+    "head",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
   "labels": {
     "Linear probe": "probe",
     "Block needle": "needle",
     "Spinous processes": "spine"
   },
   "geometry": [
-    {"check": "within", "a": "probe", "b": "back", "why": "probe on the skin"},
-    {"check": "leftOf", "a": "spine", "b": "probe", "why": "probe on the patient's right (image right)"},
-    {"check": "leftOf", "a": "probe", "b": "scapula", "why": "probe between the spine and the scapula"},
-    {"check": "noOverlap", "a": "probe", "b": "spine", "why": "probe lateral to the spinous processes"},
-    {"check": "below", "a": "probe", "b": "needle-entry", "why": "needle enters at the cranial end"},
-    {"check": "pointsDown", "a": "needle", "maxLean": 0.15, "why": "needle runs cranial to caudal, in line with the probe"},
-    {"check": "within", "a": "needle-entry", "b": "back", "why": "needle enters the skin"},
-    {"check": "noOverlap", "a": "needle", "b": "probe", "why": "needle beside, in line with, the probe"}
-  ]
+    {
+      "check": "within",
+      "a": "probe",
+      "b": "back",
+      "why": "probe on the skin"
+    },
+    {
+      "check": "leftOf",
+      "a": "spine",
+      "b": "probe",
+      "why": "probe on the patient's right (image right)"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "scapula",
+      "why": "probe between the spine and the scapula"
+    },
+    {
+      "check": "noOverlap",
+      "a": "probe",
+      "b": "spine",
+      "why": "probe lateral to the spinous processes"
+    },
+    {
+      "check": "below",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle enters at the cranial end"
+    },
+    {
+      "check": "pointsDown",
+      "a": "needle",
+      "maxLean": 0.15,
+      "why": "needle runs cranial to caudal, in line with the probe"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "back",
+      "why": "needle enters the skin"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "probe",
+      "why": "needle beside, in line with, the probe"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "9b3a8c61baf701db3e7693daa3315465631e20e004591f8cba698e4720ad92a6",
+    "reviewedOn": "2026-10-15"
+  }
 }
