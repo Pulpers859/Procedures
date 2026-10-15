@@ -23,5 +23,10 @@
       "b": "saphenous-skin",
       "why": "skeleton on the left, body on the right"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "0ab8a63093c3f3aa6f4d0cfde30e34475340e7a37a95830db5c800d6822ee59e",
+    "reviewedOn": "2026-10-15"
+  }
 }

@@ -23,5 +23,10 @@
       "b": "plexus-skin",
       "why": "skeleton on the left, body on the right"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "61f081ded907b1a945fdd4228788ffcec6b3afac04062fbdbb41df2f6463ea58",
+    "reviewedOn": "2026-10-15"
+  }
 }

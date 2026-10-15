@@ -14,5 +14,10 @@
     "hip-capsule"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "dfc78ed5dd96330add6b620b19afce79b360be1e12f24885dfcd0fb3aa368332",
+    "reviewedOn": "2026-10-15"
+  }
 }

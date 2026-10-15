@@ -14,5 +14,10 @@
     "tap-skin"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "5b72f06b87bd6bb4dd5cb7ba94fe99d0e370ed68932daaf344aba47c82f5753d",
+    "reviewedOn": "2026-10-15"
+  }
 }

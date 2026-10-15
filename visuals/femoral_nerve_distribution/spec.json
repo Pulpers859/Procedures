@@ -30,5 +30,10 @@
       "b": "femoral-bone",
       "why": "the tibial patches sit below the femur"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "590f4f837ebc667ec9a1c36f8940a52d1d2ea2666e13947f5ae0df49830b8a79",
+    "reviewedOn": "2026-10-15"
+  }
 }
