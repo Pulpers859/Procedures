@@ -11,7 +11,16 @@
     "Muscle borders traced from the folds visible on the painting; the record names no side, and this is the shipped left-side painting.",
     "Labels: Pectoralis major (lateral border), Latissimus dorsi (anterior border), Nipple level, Axilla, 4th-5th space, mid-axillary line."
   ],
-  "requiredElements": ["triangle", "pec-border", "lat-border", "nipple-line", "mal", "axilla-mark", "incision", "site"],
+  "requiredElements": [
+    "triangle",
+    "pec-border",
+    "lat-border",
+    "nipple-line",
+    "mal",
+    "axilla-mark",
+    "incision",
+    "site"
+  ],
   "labels": {
     "Pectoralis major (lateral border)": "pec-border",
     "Latissimus dorsi (anterior border)": "lat-border",
@@ -20,10 +29,40 @@
     "4th-5th space, mid-axillary line": "site"
   },
   "geometry": [
-    {"check": "within", "a": "site", "b": "triangle", "why": "insertion inside the safe triangle"},
-    {"check": "crosses", "a": "mal", "b": "site", "why": "insertion on the mid-axillary line"},
-    {"check": "crosses", "a": "mal", "b": "triangle", "why": "the mid-axillary line runs through the triangle"},
-    {"check": "crosses", "a": "axilla-mark", "b": "triangle", "why": "apex at the axilla"},
-    {"check": "leftOf", "a": "triangle", "b": "axilla-mark", "why": "the triangle lies caudal to the axilla (head to the right)"}
-  ]
+    {
+      "check": "within",
+      "a": "site",
+      "b": "triangle",
+      "why": "insertion inside the safe triangle"
+    },
+    {
+      "check": "crosses",
+      "a": "mal",
+      "b": "site",
+      "why": "insertion on the mid-axillary line"
+    },
+    {
+      "check": "crosses",
+      "a": "mal",
+      "b": "triangle",
+      "why": "the mid-axillary line runs through the triangle"
+    },
+    {
+      "check": "crosses",
+      "a": "axilla-mark",
+      "b": "triangle",
+      "why": "apex at the axilla"
+    },
+    {
+      "check": "leftOf",
+      "a": "triangle",
+      "b": "axilla-mark",
+      "why": "the triangle lies caudal to the axilla (head to the right)"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "127331357eb713ea0437a4ffe1d7c0e1186f47b364dcfe53ade068cc1d8dc0e6",
+    "reviewedOn": "2026-10-14"
+  }
 }

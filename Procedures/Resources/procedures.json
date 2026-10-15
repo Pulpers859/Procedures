@@ -947,9 +947,9 @@
         "kind": "Danger Zone",
         "title": "Safe triangle of insertion",
         "subtitle": "Bordered by the anterior border of latissimus dorsi, lateral border of pectoralis major, a line superior to the horizontal level of the nipple, and the apex of the axilla. 4th\u20135th intercostal space, mid-axillary line.",
-        "assetName": null,
+        "assetName": "chest_tube_safe_triangle",
         "systemImage": "triangle",
-        "caption": "",
+        "caption": "Left lateral chest, arm abducted: insert inside the triangle at the 4th-5th space on the mid-axillary line, with the incision along the rib.",
         "clinicalWarning": "Insert above the rib to avoid the neurovascular bundle running along the inferior rib margin."
       },
       {
