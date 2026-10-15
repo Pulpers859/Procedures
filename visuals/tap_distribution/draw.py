@@ -24,10 +24,11 @@ ASSET_ID = "tap_distribution"
 VIEW = "front"
 CLIPS = {"right-abdomen": R.RIGHT_ABDOMEN}
 
-# Umbilicus (T10) at (847, 380); the groin crease runs from (790, 405) to
-# (840, 470); the midline is at x 849.
-TAP_SKIN = [(792, 386), (812, 379), (835, 376), (856, 376), (856, 466), (842, 464), (828, 452), (814, 436),
-            (800, 420), (792, 406)]
+# Umbilicus (T10) at (846, 380), the midline at x 848. Audit 2026-10-15: out to
+# the anterior axillary line (x 800 here), the lower border kept 10 px off the
+# groin crease (L1 is not consistently covered).
+TAP_SKIN = [(800, 386), (812, 379), (835, 376), (848, 376), (848, 452), (842, 452), (830, 442), (816, 427),
+            (802, 411)]
 
 ZONES = [
     Zone("tap-skin", "teal", TAP_SKIN, clip="right-abdomen", feather=7, fade=(820, 368, 820, 388)),

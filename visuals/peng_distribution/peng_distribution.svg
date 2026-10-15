@@ -40,7 +40,7 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <image id="base" href="../distribution_bases/front/base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
 </g>
 <g class="marking" transform="translate(0 2.7) scale(1.333333)">
-    <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-2)"><path id="hip-capsule" d="M262,452 C262.3,450.1 273,445.6 275,445 C277,444.4 289.9,442.7 292,443 C294.1,443.3 304.9,448.5 306,450 C307.1,451.5 308.4,463.3 308,465 C307.6,466.7 301.5,475.1 300,476 C298.5,476.9 287,479.2 285,479 C283,478.8 271.5,474.8 270,473 C268.5,471.2 261.7,453.9 262,452 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
+    <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-2)"><path id="hip-capsule" d="M289,444 C289.4,443.5 296.9,441.9 298,442 C299.1,442.1 305.1,445.3 306,446 C306.9,446.7 311.5,450.9 312,452 C312.5,453.1 313.3,461.9 313,463 C312.7,464.1 308.7,468.4 308,469 C307.3,469.6 302.5,471.3 302,472 C301.5,472.7 300.6,479.5 300,480 C299.4,480.5 294,481.1 293,480 C292,478.9 285.1,464.5 285,463 C284.9,461.5 291.5,458.9 292,458 C292.5,457.1 292.2,450.9 292,450 C291.8,449.1 288.6,444.5 289,444 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
 </g>
 
 </svg>

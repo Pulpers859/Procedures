@@ -28,11 +28,11 @@ CLIPS = {"right-arm": R.RIGHT_ARM, "right-shoulder": R.RIGHT_SHOULDER}
 
 # Deltoid and lateral arm, then the radial (image-left) half of the forearm
 # to the wrist crease (y 470).
-C5_C7_SKIN = [(728, 240), (758, 240), (772, 252), (766, 280), (754, 300), (748, 340), (738, 380), (732, 420),
+C5_C7_SKIN = [(728, 240), (756, 240), (764, 252), (762, 272), (752, 292), (750, 300), (748, 340), (738, 380), (732, 420),
               (724, 468), (700, 472), (700, 420), (704, 380), (710, 340), (718, 300), (722, 262)]
 # Neck base to the shoulder tip and down to the second rib, tapering to the
 # sternoclavicular joint.
-CAPE_SKIN = [(796, 170), (820, 182), (838, 196), (842, 212), (830, 224), (800, 228), (770, 232), (745, 230),
+CAPE_SKIN = [(796, 170), (820, 182), (830, 196), (832, 210), (830, 224), (800, 228), (770, 232), (745, 230),
              (722, 224), (718, 210), (740, 194), (770, 178)]
 
 ZONES = [

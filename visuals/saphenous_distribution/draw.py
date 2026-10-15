@@ -24,11 +24,11 @@ ASSET_ID = "saphenous_distribution"
 VIEW = "front"
 CLIPS = {"right-leg": R.RIGHT_LEG}
 
-# From the lower pole of the patella and the medial joint line down the
-# medial leg; the same medial border as the audited femoral territory.
-SAPH_SKIN = [(796, 648), (810, 640), (820, 618), (830, 612), (838, 630), (839.2, 676.8), (836.2, 718.0),
-             (834.8, 778.0), (835.5, 823.0), (838.5, 839.5), (832.5, 847.0), (825.0, 832.0), (822.0, 815.5),
-             (817.5, 778.0), (816.0, 721.8), (810.0, 688.0), (800, 668)]
+# From below the patella (infrapatellar branch) and the medial joint line down
+# the medial leg to the base of the big toe; the same medial border as the audited femoral territory.
+SAPH_SKIN = [(806, 666), (820, 654), (832, 644), (838, 648), (839.2, 676.8), (836.2, 718.0), (834.8, 778.0),
+             (835.5, 823.0), (830.5, 842.0), (831.0, 853.0), (822.0, 853.0), (819.0, 846.0), (822.0, 832.0),
+             (822.0, 815.5), (817.5, 778.0), (816.0, 721.8), (810.0, 688.0), (802, 672)]
 # Saphenous periosteal branches (Lundblad et al. 2013); the same patches as
 # the femoral and fascia iliaca plates.
 SAPH_BONE_PROX = [(310.5, 658.0), (333.0, 658.0), (333.8, 669.2), (328.5, 680.5), (324.0, 689.5), (322.5, 694.0),
