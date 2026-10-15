@@ -1,0 +1,22 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (Nano Banana Pro) through Google Antigravity's agentapi image lane",
+ "generatedBy": "Claude via Antigravity; reviewed by overlay before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "antigravityConversation": "1e2e6525-1c0c-4bd7-acee-7ece308f52b9",
+ "reference": "Unlabelled render of the figure layout (skeleton() and body_outline() in draw.py; --reference).",
+ "prompt": "Prompt A, new conversation: tmp/visual-drafts/antigravity/ficb_distribution/ag1_image_prompt.txt.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [
+  "make_masks.py traces bone (mask_bone.png) and body (mask_body.png) from the painting; the territory tint is clipped to them."
+ ],
+ "rejected": "Draft 1 (owner, 2026-10-15): on-image labels (cluttered; moved to a legend under the image), tint on the pelvis and the right arm (now clipped to the femur and patella, and to the right leg).",
+ "reviewNotes": "Overlay: both figures on the layout within a few pixels. Territories traced on 6x gridded zooms of the painting.",
+ "knownLimits": "Front view only: posterior thigh territories are not shown. Obturator not shaded (inconsistent).",
+ "thirdPartyConcept": "NYSORA fascia iliaca distribution figure (Fig-3) and the owner's NYSORA example read for the concept only; not attached, not committed."
+}

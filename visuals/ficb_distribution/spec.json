@@ -1,0 +1,52 @@
+{
+  "assetId": "ficb_distribution",
+  "procedure": "fascia_iliaca_block",
+  "title": "Expected distribution",
+  "view": "Two gender-neutral adults in the anatomical position, front view (patient's right on the image left): skeleton on the left, grey body on the right; right-sided block. Concept after NYSORA's block distribution figures (concept only).",
+  "teachingPoint": "A fascia iliaca block reaches the femoral and lateral femoral cutaneous nerves: the anterior and lateral thigh, the knee, and the medial leg to the ankle; the hip joint, femur and knee in bone.",
+  "claims": [
+    "Femoral nerve territory: anterior thigh, anterior knee, and medial leg to the medial ankle and foot via the saphenous branch (record anatomy: the spread reaches the femoral nerve; NYSORA: femoral nerve and its branches).",
+    "Lateral femoral cutaneous territory: lateral thigh to just above the knee (record anatomy; NYSORA).",
+    "Obturator spread is inconsistent (NYSORA: rarely) and is not shaded.",
+    "Right-sided block, patient's right on the image left (house laterality).",
+    "Bone: the femur (head, neck, shaft, condyles) and the patella only; the pelvis and tibia are not shaded (NYSORA: femoral nerve branches to the hip joint; owner, 2026-10-15: strict).",
+    "Colour key: teal = femoral nerve (with its saphenous branch), violet = lateral femoral cutaneous nerve; the key is shown under the image in the app, not on the plate (owner, 2026-10-15)."
+  ],
+  "requiredElements": [
+    "skull",
+    "spine",
+    "pelvis",
+    "femur-r",
+    "body",
+    "femoral-skin",
+    "lfc-skin",
+    "femoral-bone"
+  ],
+  "labels": {},
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "spine",
+      "b": "body",
+      "why": "skeleton on the left, body on the right"
+    },
+    {
+      "check": "leftOf",
+      "a": "lfc-skin",
+      "b": "femoral-skin",
+      "why": "lateral femoral cutaneous lateral (image left on the patient's right leg)"
+    },
+    {
+      "check": "below",
+      "a": "femoral-skin",
+      "b": "lfc-skin",
+      "why": "femoral territory runs on below the knee"
+    },
+    {
+      "check": "leftOf",
+      "a": "femoral-bone",
+      "b": "spine",
+      "why": "right side shaded (image left)"
+    }
+  ]
+}

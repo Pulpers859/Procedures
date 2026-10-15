@@ -47,6 +47,7 @@ struct VisualAssetCard: View {
         case .dangerZone: return .red
         case .confirmation: return .green
         case .setup: return .purple
+        case .distribution: return .teal
         }
     }
 
@@ -57,6 +58,7 @@ struct VisualAssetCard: View {
         case .dangerZone: return "exclamationmark.triangle.fill"
         case .confirmation: return "checkmark.seal.fill"
         case .setup: return "tray.2.fill"
+        case .distribution: return "figure.stand"
         }
     }
 
@@ -128,6 +130,26 @@ struct VisualAssetCard: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal, 16)
+
+            // Colour key (Distribution plates): one bullet per nerve
+            if let legend = asset.legend, !legend.isEmpty {
+                VStack(alignment: .leading, spacing: 6) {
+                    ForEach(legend, id: \.self) { entry in
+                        HStack(alignment: .firstTextBaseline, spacing: 8) {
+                            Circle()
+                                .fill(entry.tone.color)
+                                .frame(width: 10, height: 10)
+                                .alignmentGuide(.firstTextBaseline) { $0[VerticalAlignment.center] + 4 }
+                                .accessibilityHidden(true)
+                            Text(entry.label)
+                                .font(.caption)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.top, 10)
+            }
 
             // Clinical warning
             if let warning = asset.clinicalWarning, !warning.isEmpty {
@@ -344,5 +366,18 @@ struct SchematicPlaceholder<Action: View>: View {
         .frame(maxWidth: .infinity)
         .padding(.vertical, 20)
         .background(tint.opacity(0.04), in: RoundedRectangle(cornerRadius: AppLayout.mediaRadius, style: .continuous))
+    }
+}
+
+extension ProcedureVisualAsset.LegendEntry.Tone {
+    /// Must match TONES in visuals/*_distribution/draw.py.
+    var color: Color {
+        switch self {
+        case .teal: return Color(red: 0x2E / 255, green: 0x9C / 255, blue: 0x97 / 255)
+        case .violet: return Color(red: 0x8A / 255, green: 0x78 / 255, blue: 0xC2 / 255)
+        case .amber: return Color(red: 0xD9 / 255, green: 0x9A / 255, blue: 0x3A / 255)
+        case .rose: return Color(red: 0xD0 / 255, green: 0x70 / 255, blue: 0x7A / 255)
+        case .blue: return Color(red: 0x4A / 255, green: 0x8F / 255, blue: 0xD0 / 255)
+        }
     }
 }

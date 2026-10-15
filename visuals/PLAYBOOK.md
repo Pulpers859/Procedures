@@ -329,6 +329,41 @@ ghost glove and a doubled skin fold.
 - The positioning image names the approach in its title (FICB:
   "Infraligamentous approach").
 
+## Distribution plates (nerve blocks, first tile)
+
+Owner, 2026-10-15: each nerve block gets a first tile showing where to expect
+numbness, as a skeleton and a grey body side by side, premium and calm, not
+bolted on. The model is `ficb_distribution/`.
+
+- **Kind and placement.** `"kind": "Distribution"`, first in the block's
+  `visualAssets`. The colour key is a `legend` in the record (one bullet per
+  nerve, `tone` from the fixed palette teal / violet / amber / rose / blue),
+  shown by the app under the image. No labels or leaders on the plate.
+- **One base per view.** The two figures are painted once from a layout
+  (`ficb_distribution` draw.py `skeleton()` and `body_outline()`) through
+  Antigravity, front view; reuse that base for every block seen from the
+  front, and make one more base per view a block needs (back, head). Never
+  repaint the figures per block.
+- **Masks, not outlines.** `make_masks.py` traces bone and body from the
+  painting; the tint is clipped to those masks, and the body tint also to a
+  hand-traced region of the limb (`RIGHT_LEG`) so it can never reach the arm,
+  trunk or other limb.
+- **Strict territories.** Trace on 6x gridded zooms of the painting. Shade a
+  bone only if the block supplies it (the femur and patella for the femoral
+  nerve, never the pelvis or tibia). Leave out inconsistent nerves (obturator
+  in a fascia iliaca block) and say so in the claims. Right side, patient's
+  right on the image left.
+- **Look.** `mix-blend-mode: multiply` so the painted shading shows through;
+  about 0.7 opacity on skin, 0.62 on bone; a 4 px feather on skin, none on
+  bone; a fade along a border that is a gradient in life (the inguinal
+  ligament).
+- **Independent audit, every plate** (owner, 2026-10-15). Before sending a
+  distribution plate, run a separate reviewer agent on it: a tinted-pixel map
+  against the untinted base for bleed onto anything the block does not supply
+  (other bones, the arm, trunk, other limb, floor, background), and each
+  territory against NYSORA's distribution figure and standard cutaneous maps.
+  Fix what it finds, then send.
+
 ## 7. Send, approve, ship
 
 - **Send** `render/review.png` and the full plate (`SendUserFile`). If the

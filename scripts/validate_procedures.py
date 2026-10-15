@@ -89,7 +89,9 @@ VALID_DIFFICULTIES = {"Basic", "Intermediate", "Advanced", "Rare-Crash"}
 # disappears from the app — so the validator must reject them here instead.
 VALID_SETTINGS = {"ED", "ICU", "Trauma", "Peds"}
 VALID_ACUITIES = {"Crash", "Urgent", "Watch"}
-VALID_VISUAL_KINDS = {"Landmark", "Probe Position", "Danger Zone", "Confirmation", "Setup"}
+VALID_VISUAL_KINDS = {"Landmark", "Probe Position", "Danger Zone", "Confirmation", "Setup", "Distribution"}
+# Shared with visuals/*_distribution/draw.py (TONES) and LegendEntry.Tone in Swift.
+VALID_LEGEND_TONES = {"teal", "violet", "amber", "rose", "blue"}
 
 # Text addressed to whoever builds the app rather than to the clinician reading
 # it. Thirty-four captions and eleven clinicalWarnings shipped like this - and
@@ -397,6 +399,22 @@ def validate_procedures(data):
                     f"invalid visual asset kind '{kind}'; Swift drops the whole procedure. "
                     f"Expected one of: {', '.join(sorted(VALID_VISUAL_KINDS))}",
                 ))
+            legend = visual.get("legend")
+            if legend is not None:
+                # Swift decodes tone into a closed enum: an unknown value fails
+                # decoding and drops the whole procedure, like a bad kind.
+                for entry in legend if isinstance(legend, list) else [None]:
+                    if not isinstance(entry, dict) or entry.get("tone") not in VALID_LEGEND_TONES                             or not (entry.get("label") or "").strip():
+                        issues.append((
+                            "BLOCKER", title,
+                            f"visual asset '{visual.get('id')}' legend entry {entry!r} needs a label and a tone "
+                            f"from: {', '.join(sorted(VALID_LEGEND_TONES))}",
+                        ))
+                    elif AUTHORING_NOTE.match(entry["label"]):
+                        issues.append((
+                            "BLOCKER", title,
+                            f"visual asset '{visual.get('id')}' legend label is an authoring note",
+                        ))
             asset_name = visual.get("assetName")
             if asset_name:
                 if not visual_asset_exists(asset_name):

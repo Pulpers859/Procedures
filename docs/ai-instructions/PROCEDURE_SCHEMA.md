@@ -164,6 +164,9 @@ Allowed `kind` values:
 - `Danger Zone`
 - `Confirmation`
 - `Setup`
+- `Distribution` (nerve blocks: expected sensory distribution on a skeleton and a body; listed first)
+
+A `Distribution` asset carries a `legend`: one entry per nerve, `{"tone": "teal", "label": "Femoral nerve: ..."}`. Tones are a fixed palette (`teal`, `violet`, `amber`, `rose`, `blue`) shared with the plate's tint; the app shows each as a coloured bullet under the image.
 
 If `assetName` is null, the app renders a premium placeholder. When final artwork is available, add the bundled image file and set `assetName`.
 

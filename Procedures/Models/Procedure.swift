@@ -279,6 +279,9 @@ struct ProcedureVisualAsset: Identifiable, Codable, Hashable {
         case dangerZone = "Danger Zone"
         case confirmation = "Confirmation"
         case setup = "Setup"
+        /// Expected sensory distribution of a nerve block: skeleton and body
+        /// side by side, the covered territory tinted. Listed first on a block.
+        case distribution = "Distribution"
     }
 
     let id: String
@@ -289,6 +292,21 @@ struct ProcedureVisualAsset: Identifiable, Codable, Hashable {
     let systemImage: String?
     let caption: String
     let clinicalWarning: String?
+    /// Colour key for a Distribution plate: one bullet per nerve, its dot in
+    /// the same tone the plate uses for that territory. Absent elsewhere.
+    let legend: [LegendEntry]?
+
+    struct LegendEntry: Codable, Hashable {
+        /// A fixed palette shared with the plates (visuals/*_distribution);
+        /// the validator rejects anything else, because an unknown value
+        /// would fail decoding and drop the whole procedure.
+        enum Tone: String, Codable, Hashable {
+            case teal, violet, amber, rose, blue
+        }
+
+        let tone: Tone
+        let label: String
+    }
 
     /// Titles are optional. Where there is none, screen readers and the
     /// full-screen viewer fall back to the kind ("Setup", "Landmark").

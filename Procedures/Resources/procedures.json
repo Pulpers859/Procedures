@@ -4162,6 +4162,26 @@
     },
     "visualAssets": [
       {
+        "id": "ficb_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness after a right-sided block.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "label": "Femoral nerve: front of the thigh, the knee, and the inner leg and ankle to the ball of the big toe (saphenous branch); the hip joint, femur and knee."
+          },
+          {
+            "tone": "violet",
+            "label": "Lateral femoral cutaneous nerve: outer thigh. The inner thigh (obturator) is not reliably covered."
+          }
+        ]
+      },
+      {
         "id": "ficb_patient_position",
         "kind": "Probe Position",
         "title": "Infraligamentous approach",
