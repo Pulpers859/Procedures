@@ -12,8 +12,25 @@
     "Teal: spread opening the plane between internal oblique and transversus (record).",
     "Labels: External oblique, Internal oblique, Transversus abdominis, TAP plane, Peritoneum."
   ],
-  "requiredElements": ["skin", "subcutaneous-fat", "eo", "io", "ta", "tap-plane", "transversalis", "peritoneum", "nerve-sheath", "nerve", "artery",
-                       "bowel-0", "probe", "needle", "needle-entry", "needle-tip", "spread"],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "eo",
+    "io",
+    "ta",
+    "tap-plane",
+    "transversalis",
+    "peritoneum",
+    "nerve-sheath",
+    "nerve",
+    "artery",
+    "bowel-0",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
   "labels": {
     "External oblique": "eo",
     "Internal oblique": "io",
@@ -22,18 +39,90 @@
     "Peritoneum": "peritoneum"
   },
   "geometry": [
-    {"check": "below", "a": "io", "b": "eo", "why": "internal oblique deep to external oblique"},
-    {"check": "below", "a": "ta", "b": "io", "why": "transversus deepest"},
-    {"check": "below", "a": "peritoneum", "b": "ta", "why": "peritoneum deep to the muscles"},
-    {"check": "within", "a": "nerve", "b": "nerve-sheath", "why": "nerve in its sheath"},
-    {"check": "crosses", "a": "nerve-sheath", "b": "tap-plane", "why": "nerve runs in the plane"},
-    {"check": "leftOf", "a": "needle-tip", "b": "needle-entry", "why": "needle from the anterior end (anterior on the right)"},
-    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle enters beyond the probe's anterior end"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
-    {"check": "crosses", "a": "spread", "b": "tap-plane", "why": "spread in the plane"},
-    {"check": "noOverlap", "a": "spread", "b": "fascia-eo-io", "why": "spread below internal oblique, not between the obliques"},
-    {"check": "noOverlap", "a": "spread", "b": "peritoneum", "why": "spread superficial to the peritoneum"},
-    {"check": "noOverlap", "a": "needle", "b": "peritoneum", "why": "needle stays above the peritoneum"},
-    {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread reaches the nerve"}
-  ]
+    {
+      "check": "below",
+      "a": "io",
+      "b": "eo",
+      "why": "internal oblique deep to external oblique"
+    },
+    {
+      "check": "below",
+      "a": "ta",
+      "b": "io",
+      "why": "transversus deepest"
+    },
+    {
+      "check": "below",
+      "a": "peritoneum",
+      "b": "ta",
+      "why": "peritoneum deep to the muscles"
+    },
+    {
+      "check": "within",
+      "a": "nerve",
+      "b": "nerve-sheath",
+      "why": "nerve in its sheath"
+    },
+    {
+      "check": "crosses",
+      "a": "nerve-sheath",
+      "b": "tap-plane",
+      "why": "nerve runs in the plane"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-tip",
+      "b": "needle-entry",
+      "why": "needle from the anterior end (anterior on the right)"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle enters beyond the probe's anterior end"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the spread"
+    },
+    {
+      "check": "crosses",
+      "a": "spread",
+      "b": "tap-plane",
+      "why": "spread in the plane"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "fascia-eo-io",
+      "why": "spread below internal oblique, not between the obliques"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "peritoneum",
+      "why": "spread superficial to the peritoneum"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "peritoneum",
+      "why": "needle stays above the peritoneum"
+    },
+    {
+      "check": "crosses",
+      "a": "nerve",
+      "b": "spread",
+      "why": "spread reaches the nerve"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "33e4ddf84bad745fb1509cce53abf0bd755478785f08c7180bd4d0a521682232",
+    "reviewedOn": "2026-10-15"
+  }
 }

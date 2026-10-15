@@ -10,7 +10,16 @@
     "Needle in-plane from the lateral end, aimed medially (record: in-plane; NYSORA: lateral to medial).",
     "Labels: Gluteal fold, Greater trochanter, Curved probe, Block needle."
   ],
-  "requiredElements": ["buttock", "cleft", "fold", "trochanter", "probe", "probe-handle", "needle", "needle-entry"],
+  "requiredElements": [
+    "buttock",
+    "cleft",
+    "fold",
+    "trochanter",
+    "probe",
+    "probe-handle",
+    "needle",
+    "needle-entry"
+  ],
   "labels": {
     "Gluteal fold": "fold",
     "Greater trochanter": "trochanter",
@@ -18,12 +27,52 @@
     "Block needle": "needle"
   },
   "geometry": [
-    {"check": "within", "a": "probe", "b": "buttock", "why": "probe on the skin"},
-    {"check": "below", "a": "probe", "b": "fold", "why": "probe just below the gluteal fold"},
-    {"check": "leftOf", "a": "cleft", "b": "probe", "why": "probe lateral to the midline"},
-    {"check": "leftOf", "a": "probe", "b": "trochanter", "why": "probe medial to the greater trochanter"},
-    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle from the lateral end"},
-    {"check": "within", "a": "needle-entry", "b": "buttock", "why": "needle enters the skin"},
-    {"check": "noOverlap", "a": "needle", "b": "probe", "why": "needle beside, in line with, the probe"}
-  ]
+    {
+      "check": "within",
+      "a": "probe",
+      "b": "buttock",
+      "why": "probe on the skin"
+    },
+    {
+      "check": "below",
+      "a": "probe",
+      "b": "fold",
+      "why": "probe just below the gluteal fold"
+    },
+    {
+      "check": "leftOf",
+      "a": "cleft",
+      "b": "probe",
+      "why": "probe lateral to the midline"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "trochanter",
+      "why": "probe medial to the greater trochanter"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle from the lateral end"
+    },
+    {
+      "check": "within",
+      "a": "needle-entry",
+      "b": "buttock",
+      "why": "needle enters the skin"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "probe",
+      "why": "needle beside, in line with, the probe"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "d5d02a429472e86c9cd6e01ffa2d5cd552963befa7ec57fe51e3f80e3190be9d",
+    "reviewedOn": "2026-10-15"
+  }
 }

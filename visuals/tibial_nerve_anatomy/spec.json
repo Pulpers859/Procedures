@@ -12,8 +12,26 @@
     "Teal: spread around the nerve (record: inject around the nerve).",
     "Labels: Flexor retinaculum, Tibial nerve, Posterior tibial artery, Medial malleolus, Achilles tendon, Flexor hallucis longus."
   ],
-  "requiredElements": ["skin", "subcutaneous-fat", "retinaculum", "sheath", "artery", "vein-0", "vein-1", "nerve", "malleolus", "tp-tendon",
-                       "fdl-tendon", "achilles", "fhl", "probe", "needle", "needle-entry", "needle-tip", "spread"],
+  "requiredElements": [
+    "skin",
+    "subcutaneous-fat",
+    "retinaculum",
+    "sheath",
+    "artery",
+    "vein-0",
+    "vein-1",
+    "nerve",
+    "malleolus",
+    "tp-tendon",
+    "fdl-tendon",
+    "achilles",
+    "fhl",
+    "probe",
+    "needle",
+    "needle-entry",
+    "needle-tip",
+    "spread"
+  ],
   "labels": {
     "Flexor retinaculum": "retinaculum",
     "Tibial nerve": "nerve",
@@ -23,18 +41,90 @@
     "Flexor hallucis longus": "fhl"
   },
   "geometry": [
-    {"check": "leftOf", "a": "artery", "b": "nerve", "why": "nerve posterior to the artery (posterior on the right)"},
-    {"check": "leftOf", "a": "malleolus", "b": "artery", "why": "malleolus anterior"},
-    {"check": "leftOf", "a": "nerve", "b": "achilles", "why": "Achilles posterior"},
-    {"check": "below", "a": "nerve", "b": "retinaculum", "why": "nerve under the retinaculum"},
-    {"check": "within", "a": "nerve", "b": "sheath", "why": "nerve in its sheath, not in fat"},
-    {"check": "within", "a": "artery", "b": "sheath", "why": "artery in the same sheath"},
-    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle in-plane from the posterior end"},
-    {"check": "noOverlap", "a": "needle", "b": "nerve", "why": "tip beside, not into, the nerve"},
-    {"check": "noOverlap", "a": "needle", "b": "artery", "why": "needle clear of the artery"},
-    {"check": "noOverlap", "a": "needle", "b": "achilles", "why": "needle passes over the Achilles"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
-    {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread around the nerve"},
-    {"check": "noOverlap", "a": "spread", "b": "artery", "why": "spread around the nerve, not into the artery"}
-  ]
+    {
+      "check": "leftOf",
+      "a": "artery",
+      "b": "nerve",
+      "why": "nerve posterior to the artery (posterior on the right)"
+    },
+    {
+      "check": "leftOf",
+      "a": "malleolus",
+      "b": "artery",
+      "why": "malleolus anterior"
+    },
+    {
+      "check": "leftOf",
+      "a": "nerve",
+      "b": "achilles",
+      "why": "Achilles posterior"
+    },
+    {
+      "check": "below",
+      "a": "nerve",
+      "b": "retinaculum",
+      "why": "nerve under the retinaculum"
+    },
+    {
+      "check": "within",
+      "a": "nerve",
+      "b": "sheath",
+      "why": "nerve in its sheath, not in fat"
+    },
+    {
+      "check": "within",
+      "a": "artery",
+      "b": "sheath",
+      "why": "artery in the same sheath"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle in-plane from the posterior end"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "nerve",
+      "why": "tip beside, not into, the nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "artery",
+      "why": "needle clear of the artery"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "achilles",
+      "why": "needle passes over the Achilles"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the spread"
+    },
+    {
+      "check": "crosses",
+      "a": "nerve",
+      "b": "spread",
+      "why": "spread around the nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "artery",
+      "why": "spread around the nerve, not into the artery"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "ad2212b6172f0bce51ddfe032a3e3178bbd4fbbf13c258e67c3959dcbb8176f2",
+    "reviewedOn": "2026-10-15"
+  }
 }

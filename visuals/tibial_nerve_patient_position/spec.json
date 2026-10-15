@@ -68,5 +68,10 @@
       "b": "probe",
       "why": "needle beside, in line with, the probe"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "a8543a0c10e26e47b82d219182fc763d20941d260c18ee9c060160f92994706a",
+    "reviewedOn": "2026-10-15"
+  }
 }

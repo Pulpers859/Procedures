@@ -6862,9 +6862,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The ulnar nerve lies just medial to the ulnar artery, deep to FCU, in the same fascial plane as the artery.",
-        "assetName": null,
+        "assetName": "ulnar_nerve_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Right mid-forearm in section, thumb side on the left: the ulnar nerve lies just medial to the ulnar artery, deep to flexor carpi ulnaris; needle from the medial side, spread around the nerve.",
         "clinicalWarning": null
       }
     ],
@@ -7765,9 +7765,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "External oblique, internal oblique and transversus abdominis over the peritoneum. The target is the plane between internal oblique and transversus abdominis.",
-        "assetName": null,
+        "assetName": "tap_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Lateral abdominal wall in section, back on the left: the needle passes external and internal oblique; the tip and the spread lie in the plane between internal oblique and transversus abdominis.",
         "clinicalWarning": null
       }
     ],
@@ -9096,9 +9096,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Lateral decubitus (Sims position) or prone. Transducer transverse below the gluteal fold. Needle in-plane.",
-        "assetName": null,
+        "assetName": "transgluteal_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Prone, right thigh: curved probe transverse just below the gluteal fold, held from above; needle in-plane from the lateral side.",
         "clinicalWarning": null
       },
       {
@@ -9316,9 +9316,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine, foot externally rotated. Transducer transverse behind the medial malleolus. Needle in-plane; out-of-plane if the Achilles tendon, the malleolus or the artery blocks the path.",
-        "assetName": null,
+        "assetName": "tibial_nerve_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right foot rolled out: probe transverse between the medial malleolus and the Achilles tendon; needle in-plane from the Achilles end.",
         "clinicalWarning": null
       },
       {
@@ -9326,9 +9326,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "Behind the medial malleolus the tibial nerve lies beside the pulsatile artery. Inject around the nerve.",
-        "assetName": null,
+        "assetName": "tibial_nerve_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Section behind the medial malleolus, malleolus on the left: the tibial nerve lies just behind the posterior tibial artery and its veins, under the flexor retinaculum; spread around the nerve.",
         "clinicalWarning": null
       }
     ],
