@@ -2469,9 +2469,9 @@
         "kind": "Landmark",
         "title": "Thoracentesis entry site",
         "subtitle": "Posterior-lateral approach, entering over the superior margin of the rib, below the neurovascular bundle in the costal groove.",
-        "assetName": null,
+        "assetName": "thoracentesis_site",
         "systemImage": "lungs.fill",
-        "caption": "",
+        "caption": "Seated, leaning forward: enter the right posterolateral chest at the marked site, as lateral as the target allows; inset: over the top of the lower rib, clear of the bundle.",
         "clinicalWarning": "Puncture over the superior margin of the lower rib; the neurovascular bundle runs in the costal groove above."
       }
     ],
@@ -9543,9 +9543,9 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "The sural nerve travels with the small saphenous vein behind the lateral malleolus; the vein collapses under the probe, the nerve does not. Inject around the nerve and vein.",
-        "assetName": null,
+        "assetName": "sural_anatomy",
         "systemImage": "square.3.layers.3d",
-        "caption": "",
+        "caption": "Section behind the lateral malleolus, Achilles side on the left: the sural nerve lies beside the small saphenous vein, superficial to the deep fascia; spread surrounds both.",
         "clinicalWarning": null
       }
     ],

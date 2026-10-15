@@ -11,7 +11,17 @@
     "Inset reuses the approved chest_tube_rib_anatomy painting.",
     "Labels: Marked site, Vein, artery, nerve, Needle, Lower rib."
   ],
-  "requiredElements": ["chest-right", "spine", "inset", "inset-lower-rib", "inset-bundle", "inset-pleural-space", "inset-needle", "inset-needle-tip", "site"],
+  "requiredElements": [
+    "chest-right",
+    "spine",
+    "inset",
+    "inset-lower-rib",
+    "inset-bundle",
+    "inset-pleural-space",
+    "inset-needle",
+    "inset-needle-tip",
+    "site"
+  ],
   "labels": {
     "Marked site": "site",
     "Vein, artery, nerve": "inset-bundle",
@@ -19,13 +29,58 @@
     "Lower rib": "inset-lower-rib"
   },
   "geometry": [
-    {"check": "within", "a": "site", "b": "chest-right", "why": "site on the right posterolateral chest"},
-    {"check": "leftOf", "a": "spine", "b": "site", "why": "patient's right (image right, viewed from behind)"},
-    {"check": "noOverlap", "a": "site", "b": "inset", "why": "site not hidden by the inset"},
-    {"check": "below", "a": "inset-lower-rib", "b": "inset-needle", "why": "needle just above the lower rib"},
-    {"check": "noOverlap", "a": "inset-needle", "b": "inset-lower-rib", "why": "needle over the rib, not through it"},
-    {"check": "noOverlap", "a": "inset-needle", "b": "inset-bundle", "why": "needle clear of the bundle"},
-    {"check": "below", "a": "inset-needle", "b": "inset-bundle", "why": "needle at the bottom of the space, away from the bundle"},
-    {"check": "within", "a": "inset-needle-tip", "b": "inset-pleural-space", "why": "tip in the pleural space"}
-  ]
+    {
+      "check": "within",
+      "a": "site",
+      "b": "chest-right",
+      "why": "site on the right posterolateral chest"
+    },
+    {
+      "check": "leftOf",
+      "a": "spine",
+      "b": "site",
+      "why": "patient's right (image right, viewed from behind)"
+    },
+    {
+      "check": "noOverlap",
+      "a": "site",
+      "b": "inset",
+      "why": "site not hidden by the inset"
+    },
+    {
+      "check": "below",
+      "a": "inset-lower-rib",
+      "b": "inset-needle",
+      "why": "needle just above the lower rib"
+    },
+    {
+      "check": "noOverlap",
+      "a": "inset-needle",
+      "b": "inset-lower-rib",
+      "why": "needle over the rib, not through it"
+    },
+    {
+      "check": "noOverlap",
+      "a": "inset-needle",
+      "b": "inset-bundle",
+      "why": "needle clear of the bundle"
+    },
+    {
+      "check": "below",
+      "a": "inset-needle",
+      "b": "inset-bundle",
+      "why": "needle at the bottom of the space, away from the bundle"
+    },
+    {
+      "check": "within",
+      "a": "inset-needle-tip",
+      "b": "inset-pleural-space",
+      "why": "tip in the pleural space"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "9ffd992d64785947c2e78ecfcb9d44f058d88fb0845f8bf0ea427a94fb247126",
+    "reviewedOn": "2026-10-15"
+  }
 }

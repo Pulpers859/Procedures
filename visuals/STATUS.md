@@ -1,6 +1,6 @@
 # Procedure Images: Status
 
-Last updated: 2026-10-15. Superficial peroneal pair complete (positioning plate on the owner's photo, probe composited in code).
+Last updated: 2026-10-15. Sural, ESP, chest tube and thoracentesis plates shipped; last group (tibial, transgluteal sciatic, TAP, ulnar) next.
 
 How to make an image: `PLAYBOOK.md`. Live slot list: `python3 scripts/pq.py visuals`. Trust that over this page if they disagree.
 
@@ -10,10 +10,10 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 
 ## Progress
 
-- **64 slots bundled, 25 empty.**
+- **69 slots bundled, 20 empty.**
 - **Skip; the owner adds real images (11):** ultrasound and rhythm strips (`aline_us_short_axis`, `ij_probe_orientation`, `cvc_wire_confirmation`, `ficb_subfascial_spread`, `fb_us_appearance`, `knee_us_effusion`, `pericardiocentesis_approach`, `pigtail_us_effusion`, `tvp_capture_confirmation`, `usgiv_short_axis`, `usgiv_needle_tracking`).
 - **Skip as low value unless asked (1):** `abscess_technique`.
-- **That leaves 13 slots to make.**
+- **That leaves 8 slots to make.**
 
 ### Shipped recently
 
@@ -25,23 +25,22 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 | Superficial cervical plexus | 2026-10-14 | sideload-35 | Section in the house style; probe at mid-SCM (mastoid-clavicle midpoint, NYSORA). |
 | Superior alveolar | 2026-10-14 | sideload-35 | Canine as the default tooth. |
 | Superficial peroneal | 2026-10-15 | sideload-36 | Positioning: Gemini removed the equipment from the owner's photo; the photo's own probe was moved into place in code (`place_probe.py`) and the needle is code-drawn. Needle from anterior per NYSORA. |
+| Sural | 2026-10-15 | sideload-38/39 | Section redrawn to true scale after independent review (malleolus subcutaneous); needle from anterior per NYSORA. |
+| Thoracic ESP | 2026-10-15 | sideload-38 | Positioning: gloved hand added in Gemini (owner). |
+| Thoracentesis site | 2026-10-15 | sideload-39 | ESP back with equipment removed, re-posed leaning forward over a table (record position); rib inset cropped from the chest tube painting. |
 | Chest tube (both slots) | 2026-10-15 | sideload-37 | Safe triangle drawn in code on the approved serratus painting (patient's left side). Rib section: the tube turns cranially in the pleural space so every side hole, including the sentinel hole, is inside the pleura (owner). |
 | Supraorbital | 2026-10-14 | sideload-34 | The finger is the photo's own glove, placed in code (`place_finger.py`), and the green eyes come from `green_eyes.py`. |
 
 ### In progress
 
-- Review drafts awaiting approval (2026-10-15): `sural_patient_position`, `sural_anatomy` (true-scale relayout), `esp_patient_position` (gloved hand), `esp_anatomy`, `thoracentesis_site` (ESP back with equipment removed + rib inset; a leaning-forward repaint was offered).
+- Nothing waiting on a painting.
 
 ### Not started (A–Z order, both slots each unless noted)
 
-1. Sural nerve block (**next**)
-2. Thoracentesis: `thoracentesis_site`
-3. Thoracic erector spinae plane (ESP)
-4. Thoracostomy / chest tube: `chest_tube_safe_triangle`, `chest_tube_rib_anatomy`
-5. Tibial nerve block
-6. Transgluteal / proximal sciatic block
-7. Transversus abdominis plane (TAP)
-8. Ulnar nerve block
+1. Tibial nerve block (**next**)
+2. Transgluteal / proximal sciatic block
+3. Transversus abdominis plane (TAP)
+4. Ulnar nerve block
 
 ## Working notes that hold across sessions
 

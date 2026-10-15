@@ -41,21 +41,108 @@
     "Flexor hallucis longus": "fhl"
   },
   "geometry": [
-    {"check": "leftOf", "a": "nerve", "b": "vein", "why": "nerve posterior to the vein (posterior on the left)"},
-    {"check": "leftOf", "a": "achilles", "b": "nerve", "why": "Achilles posterior"},
-    {"check": "leftOf", "a": "nerve", "b": "fibula", "why": "fibula anterior"},
-    {"check": "below", "a": "deep-fascia", "b": "nerve", "why": "nerve superficial to the deep fascia"},
-    {"check": "below", "a": "deep-fascia", "b": "vein", "why": "vein superficial to the deep fascia"},
-    {"check": "within", "a": "nerve", "b": "sheath", "why": "nerve inside its sheath, not floating in fat"},
-    {"check": "within", "a": "vein", "b": "sheath", "why": "vein in the same sheath"},
-    {"check": "noOverlap", "a": "sheath", "b": "deep-fascia", "why": "sheath above the fascia"},
-    {"check": "leftOf", "a": "probe", "b": "needle-entry", "why": "needle in-plane from the anterior end"},
-    {"check": "noOverlap", "a": "needle", "b": "vein", "why": "tip beside, not into, the vein"},
-    {"check": "noOverlap", "a": "needle", "b": "nerve", "why": "tip beside, not into, the nerve"},
-    {"check": "noOverlap", "a": "needle", "b": "deep-fascia", "why": "needle stays superficial to the fascia"},
-    {"check": "endNear", "a": "needle", "end": "end", "b": "spread", "maxPx": 0, "why": "tip in the spread"},
-    {"check": "crosses", "a": "nerve", "b": "spread", "why": "spread reaches the nerve"},
-    {"check": "crosses", "a": "vein", "b": "spread", "why": "spread surrounds the vein"},
-    {"check": "noOverlap", "a": "spread", "b": "deep-fascia", "why": "spread stays above the fascia"}
-  ]
+    {
+      "check": "leftOf",
+      "a": "nerve",
+      "b": "vein",
+      "why": "nerve posterior to the vein (posterior on the left)"
+    },
+    {
+      "check": "leftOf",
+      "a": "achilles",
+      "b": "nerve",
+      "why": "Achilles posterior"
+    },
+    {
+      "check": "leftOf",
+      "a": "nerve",
+      "b": "fibula",
+      "why": "fibula anterior"
+    },
+    {
+      "check": "below",
+      "a": "deep-fascia",
+      "b": "nerve",
+      "why": "nerve superficial to the deep fascia"
+    },
+    {
+      "check": "below",
+      "a": "deep-fascia",
+      "b": "vein",
+      "why": "vein superficial to the deep fascia"
+    },
+    {
+      "check": "within",
+      "a": "nerve",
+      "b": "sheath",
+      "why": "nerve inside its sheath, not floating in fat"
+    },
+    {
+      "check": "within",
+      "a": "vein",
+      "b": "sheath",
+      "why": "vein in the same sheath"
+    },
+    {
+      "check": "noOverlap",
+      "a": "sheath",
+      "b": "deep-fascia",
+      "why": "sheath above the fascia"
+    },
+    {
+      "check": "leftOf",
+      "a": "probe",
+      "b": "needle-entry",
+      "why": "needle in-plane from the anterior end"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "vein",
+      "why": "tip beside, not into, the vein"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "nerve",
+      "why": "tip beside, not into, the nerve"
+    },
+    {
+      "check": "noOverlap",
+      "a": "needle",
+      "b": "deep-fascia",
+      "why": "needle stays superficial to the fascia"
+    },
+    {
+      "check": "endNear",
+      "a": "needle",
+      "end": "end",
+      "b": "spread",
+      "maxPx": 0,
+      "why": "tip in the spread"
+    },
+    {
+      "check": "crosses",
+      "a": "nerve",
+      "b": "spread",
+      "why": "spread reaches the nerve"
+    },
+    {
+      "check": "crosses",
+      "a": "vein",
+      "b": "spread",
+      "why": "spread surrounds the vein"
+    },
+    {
+      "check": "noOverlap",
+      "a": "spread",
+      "b": "deep-fascia",
+      "why": "spread stays above the fascia"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "346ac469aa2f66bc652029ce7b04f8cc556c0b61650fdd51141f4d729855e754",
+    "reviewedOn": "2026-10-15"
+  }
 }
