@@ -39,7 +39,7 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
 </defs>
 <rect class="plate-bg" width="1600" height="1200"/>
 
-<g id="painting" data-base-sha256="8ad12e8094757384c9eb857acde2a600614c4be53c381a267713d0701b1b7fb3"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="painting" data-base-sha256="7a32b7e27ef42af5e6b7f45f27d5b31f27eb3e798d5607594aec72b664bcbc53"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
 <g id="anatomy" opacity="0">
   <rect x="0" y="0" width="1600" height="1200" fill="url(#sheet)"/>
   <path id="body" d="M-64,-96 C22.4,-147.8 1577.6,-148.2 1664,-96 C1750.4,-43.8 1683.2,896.3 1664,947.2 C1644.8,998.1 1323.2,923.8 1280,921.6 C1236.8,919.4 848,902.7 800,902.4 C752,902.1 363.2,913.3 320,915.2 C276.8,917.1 -44.8,991.4 -64,940.8 C-83.2,890.2 -150.4,-44.2 -64,-96 Z" fill="url(#skin-grad)" stroke="#B98A74" stroke-width="3"/>

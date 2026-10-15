@@ -100,7 +100,7 @@ def build() -> str:
     nerve = c(NERVE[0])
     labels = [
         Label(["Gluteus maximus"], anchor=(1060, 470), leader=[(1050, 454), (980, 454)], target_id="gm"),
-        Label(["Biceps femoris"], anchor=(40, 760), leader=[(250, 700), (300, 560)], target_id="bf"),
+        Label(["Biceps femoris"], anchor=(40, 760), leader=[(180, 700), (160, 640)], target_id="bf"),
         Label(["Sciatic nerve"], anchor=(560, 830), leader=[(700, 790), (nerve[0] - 20, nerve[1] + 6)], target_id="nerve", emphasis=True),
         Label(["Adductor magnus"], anchor=(560, 1080), leader=[(760, 1040), (800, 940)], target_id="am"),
     ]

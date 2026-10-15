@@ -15,10 +15,11 @@
  "prompt": "Prompt A (photo), new chat: tmp/visual-drafts/antigravity/tap_patient_position/01_image_prompt.txt.",
  "repairs": [
   "Same chat: stand the transducer upright with the face in place.",
-  "Same chat, prompt 5b: one blue-gloved hand from the right holding the transducer."
+  "Same chat, prompt 5b: one blue-gloved hand from the right holding the transducer.",
+  "Same chat (owner, 2026-10-15: probe orientation unclear; it was sagittal with the needle out of plane): 'Rotate the transducer a quarter turn in the same hand so its long, narrow face runs up and down the picture, from just below the needle tip toward the bed, directly in line with the needle, with the narrow end of the transducer facing the camera and the needle entering the skin right at its upper end. Keep the hand, the needle, the skin and everything else in the image the same.'"
  ],
- "rejected": "First painting: probe lying on its side (independent review; the layout drew the handle in the skin plane).",
- "reviewNotes": "Overlay after the hand: probe face, needle and hub on the layout. The costal margin is under the gown and the iliac crest under the hand, so a dashed mid-axillary line is drawn through the probe face instead. Each repair was diffed against the painting before it; changes stayed inside the repaired area.",
+ "rejected": "First painting: probe lying on its side (independent review; the layout drew the handle in the skin plane). Hand version 1: probe footprint ran head-to-foot (sagittal), needle out of plane (owner).",
+ "reviewNotes": "Overlay after the hand: probe face, needle and hub on the layout. The costal margin is under the gown and the iliac crest under the hand, so a dashed mid-axillary line is drawn through the probe face instead. Each repair was diffed against the painting before it; changes stayed inside the repaired area. After the rotation the footprint runs across the body, in line with the needle, matching the layout's transverse probe.",
  "knownLimits": "Costal margin and iliac crest not visible; the caption carries 'midway between'.",
  "thirdPartyConcept": "None."
 }

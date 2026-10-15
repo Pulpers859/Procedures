@@ -1,23 +1,21 @@
 {
  "base": "base.jpg",
  "generator": "Gemini (owner's own session, hand-pasted prompt)",
- "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay before use",
  "date": "2026-10-15",
  "sourceSize": [
   1200,
   896
  ],
- "promptAttachments": "Image 1: the layout reference.",
  "pixelEdits": [
   "Delivered at 2400 x 1792; downscaled to 1200 x 896."
  ],
- "reference": "Unlabelled render of the transgluteal_anatomy layout (commit f2c7045 draw.py, --reference).",
- "prompt": "Prompt A, new chat: tmp/visual-drafts/antigravity/transgluteal_anatomy/01_image_prompt.txt.",
- "repairs": [
-  "Same chat: 'Paint the pale beige areas under the large upper muscle, beside the middle muscle and around the left bone as deep red skeletal muscle with fine parallel maroon fibres, wrapped in thin glistening white fascia. Keep everything else in the image the same.'"
- ],
- "rejected": "First painting: fat painted into the plane under gluteus maximus and around the bones (independent review).",
- "reviewNotes": "Overlay: nerve, sheath, quadratus femoris, both bones and the fascial lines on the layout. Each repair was diffed against the painting before it; changes stayed inside the repaired area.",
- "knownLimits": "Section level (ischial tuberosity and greater trochanter) sits higher than the positioning plate's probe just below the gluteal fold; raised with the owner.",
- "thirdPartyConcept": "NYSORA gluteal reverse-ultrasound plate (proximal sciatic Fig-5) read for the layout only; not attached, not committed."
+ "reference": "Unlabelled render of the subgluteal transgluteal_anatomy layout (commit d32dd76 draw.py, --reference).",
+ "prompt": "Prompt A, new chat: tmp/visual-drafts/antigravity/transgluteal_anatomy/02_image_prompt.txt.",
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "rejected": "The gluteal-level section (ischial tuberosity, greater trochanter, quadratus femoris) and its repair: wrong level for a probe below the gluteal fold (owner, 2026-10-15).",
+ "reviewNotes": "Overlay exact: gluteus maximus with its sloping medial edge, biceps femoris with its tendon, the fascial plane opening around the flat nerve in its sheath, adductor magnus. No fat in the plane.",
+ "knownLimits": "Muscles painted with a stippled cut-fascicle texture. Posterior femoral cutaneous nerve not drawn.",
+ "thirdPartyConcept": "NYSORA subgluteal reverse-ultrasound plate (proximal sciatic Fig-6) read for the layout only; not attached, not committed."
 }

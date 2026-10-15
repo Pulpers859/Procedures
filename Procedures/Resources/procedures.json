@@ -6852,9 +6852,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Arm supinated and extended. Probe transverse on the volar forearm, slid medially to the ulnar artery. Needle in-plane from the medial side.",
-        "assetName": null,
+        "assetName": "ulnar_nerve_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right forearm, palm up: probe transverse over the little-finger half of the forearm, over the ulnar artery; needle in-plane from the ulnar border.",
         "clinicalWarning": null
       },
       {

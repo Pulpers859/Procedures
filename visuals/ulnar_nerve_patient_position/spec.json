@@ -61,5 +61,10 @@
       "b": "probe",
       "why": "probe on the forearm, well above the wrist"
     }
-  ]
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "42341252e96821fdc3cc58fdb304cab5a5202ab267d6d07b010a03d72a109ea6",
+    "reviewedOn": "2026-10-15"
+  }
 }
