@@ -9747,9 +9747,9 @@
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
         "subtitle": "Supine. Transducer transverse on the anterolateral distal leg. Needle in-plane toward the nerve.",
-        "assetName": null,
+        "assetName": "superficial_peroneal_patient_position",
         "systemImage": "hand.point.up.left",
-        "caption": "",
+        "caption": "Right leg: linear probe transverse on the anterolateral leg in its distal third, above the lateral malleolus; needle in-plane from the anterior side.",
         "clinicalWarning": null
       },
       {

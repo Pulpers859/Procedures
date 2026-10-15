@@ -1,6 +1,6 @@
 # Procedure Images: Status
 
-Last updated: 2026-10-14 (later). Superior alveolar pair, superficial peroneal section and cervical plexus positioning shipped via the Antigravity lane.
+Last updated: 2026-10-15. Superficial peroneal pair complete (positioning plate on the owner's photo, probe composited in code).
 
 How to make an image: `PLAYBOOK.md`. Live slot list: `python3 scripts/pq.py visuals`. Trust that over this page if they disagree.
 
@@ -10,10 +10,10 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 
 ## Progress
 
-- **61 slots bundled, 28 empty.**
+- **62 slots bundled, 27 empty.**
 - **Skip; the owner adds real images (11):** ultrasound and rhythm strips (`aline_us_short_axis`, `ij_probe_orientation`, `cvc_wire_confirmation`, `ficb_subfascial_spread`, `fb_us_appearance`, `knee_us_effusion`, `pericardiocentesis_approach`, `pigtail_us_effusion`, `tvp_capture_confirmation`, `usgiv_short_axis`, `usgiv_needle_tracking`).
 - **Skip as low value unless asked (1):** `abscess_technique`.
-- **That leaves 16 slots to make.**
+- **That leaves 15 slots to make.**
 
 ### Shipped recently
 
@@ -24,11 +24,12 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 | Supraclavicular | 2026-10-14 | sideload-33 | The model for nerve-block sections (house style in `PLAYBOOK.md`). |
 | Superficial cervical plexus | 2026-10-14 | sideload-35 | Section in the house style; probe at mid-SCM (mastoid-clavicle midpoint, NYSORA). |
 | Superior alveolar | 2026-10-14 | sideload-35 | Canine as the default tooth. |
+| Superficial peroneal | 2026-10-15 | sideload-36 | Positioning: Gemini removed the equipment from the owner's photo; the photo's own probe was moved into place in code (`place_probe.py`) and the needle is code-drawn. Needle from anterior per NYSORA. |
 | Supraorbital | 2026-10-14 | sideload-34 | The finger is the photo's own glove, placed in code (`place_finger.py`), and the green eyes come from `green_eyes.py`. |
 
 ### In progress
 
-- `superficial_peroneal_patient_position`: layout redrawn with the foot (commit 28a3f83) after the first Antigravity painting put the probe about 15 cm above the malleolus. Prompt: `tmp/visual-drafts/antigravity/superficial_peroneal_patient_position/ag2_image_prompt.txt` (gitignored). Its section plate is shipped.
+- Nothing waiting on a painting.
 
 ### Not started (A–Z order, both slots each unless noted)
 
