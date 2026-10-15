@@ -1,0 +1,27 @@
+{
+  "assetId": "saphenous_distribution",
+  "procedure": "block_saphenous_nerve",
+  "title": "Expected distribution",
+  "view": "Shared front-view base (visuals/distribution_bases/front): skeleton on the left, grey body on the right, patient's right on the image left; right-sided block.",
+  "teachingPoint": "A saphenous (adductor canal) block numbs the medial leg and ankle and the medial border of the foot, with the periosteum of the medial tibia; the thigh is spared.",
+  "claims": [
+    "Skin: infrapatellar branch (anteromedial knee below the patella), medial leg, medial ankle and medial foot border to the base of the big toe.",
+    "Not shaded: the thigh and the anterior knee above the patella (femoral cutaneous branches leave the femoral nerve above the adductor canal; the saphenous nerve is purely sensory and its branches come off in the canal and below).",
+    "Bone: saphenous periosteal patches on the medial upper tibia and the medial distal tibia with the malleolus (Lundblad et al. 2013). No femur, hip or knee-joint shading.",
+    "Right-sided block, patient's right on the image left (house laterality); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "saphenous-skin",
+    "saphenous-bone"
+  ],
+  "labels": {},
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "saphenous-bone",
+      "b": "saphenous-skin",
+      "why": "skeleton on the left, body on the right"
+    }
+  ]
+}

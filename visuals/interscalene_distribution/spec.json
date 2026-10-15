@@ -1,0 +1,28 @@
+{
+  "assetId": "interscalene_distribution",
+  "procedure": "block_interscalene",
+  "title": "Expected distribution",
+  "view": "Shared front-view base (visuals/distribution_bases/front): skeleton on the left, grey body on the right, patient's right on the image left; right-sided block.",
+  "teachingPoint": "An interscalene block numbs the shoulder and lateral upper arm and the radial forearm, plus the cape of the shoulder; the ulnar side and the hand are spared.",
+  "claims": [
+    "Skin (teal): deltoid and lateral arm (axillary nerve), radial half of the forearm to the wrist (musculocutaneous, C5-C7).",
+    "Skin (violet): the cape of the shoulder and the skin over the clavicle (supraclavicular nerves, C3-C4), reached by spread to the superficial cervical plexus; the legend states it is spread, not the target.",
+    "Bone: shoulder joint, humerus and lateral clavicle with the acromion. Not shaded: the ulnar border of the forearm and the hand (C8-T1), the elbow and below.",
+    "Right-sided block, patient's right on the image left (house laterality); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "plexus-skin",
+    "supraclavicular-skin",
+    "plexus-bone"
+  ],
+  "labels": {},
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "plexus-bone",
+      "b": "plexus-skin",
+      "why": "skeleton on the left, body on the right"
+    }
+  ]
+}

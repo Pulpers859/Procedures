@@ -1,0 +1,18 @@
+{
+  "assetId": "tap_distribution",
+  "procedure": "block_tap",
+  "title": "Expected distribution",
+  "view": "Shared front-view base (visuals/distribution_bases/front): skeleton on the left, grey body on the right, patient's right on the image left; right-sided block.",
+  "teachingPoint": "A lateral TAP block numbs the anterior abdominal wall below the umbilicus on one side.",
+  "claims": [
+    "Skin: anterior abdominal wall below the umbilicus (T10) to above the groin crease (T12), from the midline to about the anterior axillary line; a graded top border at the umbilicus.",
+    "Not shaded: the upper abdomen (needs a subcostal approach), the flank (lateral cutaneous branches leave at the mid-axillary line) and the groin (L1, inconsistent) (record anatomy; NYSORA).",
+    "Right-sided block, patient's right on the image left (house laterality); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "tap-skin"
+  ],
+  "labels": {},
+  "geometry": []
+}

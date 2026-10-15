@@ -1,0 +1,27 @@
+{
+  "assetId": "raptir_distribution",
+  "procedure": "block_raptir",
+  "title": "Expected distribution",
+  "view": "Shared front-view base (visuals/distribution_bases/front): skeleton on the left, grey body on the right, patient's right on the image left; right-sided block.",
+  "teachingPoint": "A RAPTIR block numbs the arm from the deltoid to the fingertips; the shoulder joint, the cape of the shoulder and the upper medial arm are spared.",
+  "claims": [
+    "Skin: the arm from the deltoid to the fingertips, with a notch for the upper medial arm (intercostobrachial, T2, outside the plexus sheath).",
+    "Not shaded: the cape of the shoulder, the shoulder joint (suprascapular nerve leaves the plexus above the cords) and the axilla (record anatomy; NYSORA).",
+    "Bone: the humerus below the anatomical neck, radius, ulna and the hand.",
+    "Right-sided block, patient's right on the image left (house laterality); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "plexus-skin",
+    "plexus-bone"
+  ],
+  "labels": {},
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "plexus-bone",
+      "b": "plexus-skin",
+      "why": "skeleton on the left, body on the right"
+    }
+  ]
+}

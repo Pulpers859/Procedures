@@ -5723,6 +5723,28 @@
     },
     "visualAssets": [
       {
+        "id": "interscalene_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The ulnar border and the hand are left unshaded: the lower trunk is usually spared.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Brachial plexus roots (C5-C7)",
+            "label": "Shoulder and lateral upper arm, and the radial side of the forearm to the wrist; the shoulder joint, the humerus and the lateral clavicle."
+          },
+          {
+            "tone": "violet",
+            "nerve": "Superficial cervical plexus (C3-C4)",
+            "label": "The cape of the shoulder and the skin over the clavicle, from spread of the same injection."
+          }
+        ]
+      },
+      {
         "id": "interscalene_patient_position",
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
@@ -5973,6 +5995,23 @@
     },
     "visualAssets": [
       {
+        "id": "supraclavicular_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The cape of the shoulder, the shoulder joint and the medial upper limb are left unshaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Brachial plexus trunks and divisions",
+            "label": "The arm from the deltoid to the fingertips; the humerus below its head, the forearm bones and the hand."
+          }
+        ]
+      },
+      {
         "id": "supraclavicular_patient_position",
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
@@ -6217,6 +6256,23 @@
       ]
     },
     "visualAssets": [
+      {
+        "id": "raptir_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The cape of the shoulder, the shoulder joint and the medial upper limb are left unshaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Brachial plexus cords",
+            "label": "The arm from the deltoid to the fingertips; the humerus below its head, the forearm bones and the hand."
+          }
+        ]
+      },
       {
         "id": "raptir_patient_position",
         "kind": "Probe Position",
@@ -7773,6 +7829,23 @@
     },
     "visualAssets": [
       {
+        "id": "tap_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The upper abdomen, the flank and the groin are left unshaded.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Thoracoabdominal nerves (T10-T12)",
+            "label": "Skin of the lower abdominal wall on one side, from the midline out toward the flank, below the umbilicus."
+          }
+        ]
+      },
+      {
         "id": "tap_patient_position",
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
@@ -8224,6 +8297,23 @@
     },
     "visualAssets": [
       {
+        "id": "femoral_nerve_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The lateral thigh is left unshaded: the lateral femoral cutaneous branch is not reliably reached.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Femoral nerve",
+            "label": "Front of the thigh, the knee, the medial leg and ankle, and the medial border of the foot to the base of the big toe (saphenous branch); the hip joint, femur and knee, the medial upper tibia, and the lower medial tibia and medial malleolus."
+          }
+        ]
+      },
+      {
         "id": "femoral_nerve_patient_position",
         "kind": "Probe Position",
         "title": "Probe and needle on the patient",
@@ -8443,6 +8533,23 @@
       ]
     },
     "visualAssets": [
+      {
+        "id": "peng_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "No skin is shaded: the target is the hip capsule, not the cutaneous branches of the thigh.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Articular branches (femoral, obturator, accessory obturator)",
+            "label": "Anterior hip capsule: the femoral head and neck with the acetabular rim."
+          }
+        ]
+      },
       {
         "id": "peng_patient_position",
         "kind": "Probe Position",
@@ -8664,6 +8771,23 @@
       ]
     },
     "visualAssets": [
+      {
+        "id": "saphenous_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The thigh is left unshaded: its branches leave the femoral trunk above the adductor canal.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Saphenous nerve",
+            "label": "Anteromedial knee below the patella, the medial leg and ankle, and the medial border of the foot to the base of the big toe; the periosteum of the medial upper tibia and of the lower medial tibia and medial malleolus."
+          }
+        ]
+      },
       {
         "id": "saphenous_patient_position",
         "kind": "Probe Position",

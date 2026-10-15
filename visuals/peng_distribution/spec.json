@@ -1,0 +1,18 @@
+{
+  "assetId": "peng_distribution",
+  "procedure": "block_peng",
+  "title": "Expected distribution",
+  "view": "Shared front-view base (visuals/distribution_bases/front): skeleton on the left, grey body on the right, patient's right on the image left; right-sided block.",
+  "teachingPoint": "A PENG block targets the articular branches to the anterior hip capsule; it shades the hip joint in bone and no skin.",
+  "claims": [
+    "Bone only: femoral head and neck with the acetabular rim (anterior capsule of the hip joint; record anatomy).",
+    "No skin is shaded: PENG is designed to spare the cutaneous branches and the quadriceps motor branch (record anatomy; NYSORA).",
+    "Right-sided block, patient's right on the image left (house laterality); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "hip-capsule"
+  ],
+  "labels": {},
+  "geometry": []
+}

@@ -1,0 +1,34 @@
+{
+  "assetId": "femoral_nerve_distribution",
+  "procedure": "block_femoral_nerve",
+  "title": "Expected distribution",
+  "view": "Shared front-view base (visuals/distribution_bases/front): skeleton on the left, grey body on the right, patient's right on the image left; right-sided block.",
+  "teachingPoint": "A femoral nerve block numbs the front of the thigh, the knee and the medial leg to the ankle; in bone, the hip joint, femur and knee, and the medial tibia.",
+  "claims": [
+    "Skin: anterior thigh (anterior femoral cutaneous branches), anterior knee, and the medial leg, ankle and medial foot border to the base of the big toe (saphenous). Same border as the audited fascia iliaca plate.",
+    "Not shaded: lateral thigh (lateral femoral cutaneous nerve, not reliably reached at the inguinal crease) and upper medial thigh (obturator, genitofemoral).",
+    "Bone: femur head to condyles, patella (articular branches); anteromedial proximal tibia and medial distal tibia with the medial malleolus (saphenous periosteal branches; Lundblad et al. 2013, Local Reg Anesth 6:13). Not shaded: pelvis, fibula, tibial mid-shaft.",
+    "Right-sided block, patient's right on the image left (house laterality); one tone per nerve, key shown under the image in the app."
+  ],
+  "requiredElements": [
+    "base",
+    "femoral-skin",
+    "femoral-bone",
+    "saphenous-bone"
+  ],
+  "labels": {},
+  "geometry": [
+    {
+      "check": "leftOf",
+      "a": "femoral-bone",
+      "b": "femoral-skin",
+      "why": "skeleton on the left, body on the right"
+    },
+    {
+      "check": "below",
+      "a": "saphenous-bone",
+      "b": "femoral-bone",
+      "why": "the tibial patches sit below the femur"
+    }
+  ]
+}
