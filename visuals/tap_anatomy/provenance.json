@@ -1,0 +1,21 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini (owner's own session, hand-pasted prompt)",
+ "generatedBy": "Owner in the Gemini app; reviewed by overlay and an independent reviewer agent before use",
+ "date": "2026-10-15",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "promptAttachments": "Image 1: the layout reference.",
+ "repairs": [],
+ "pixelEdits": [
+  "Delivered at 2400 x 1792; downscaled to 1200 x 896."
+ ],
+ "rejected": "None.",
+ "reference": "Unlabelled render of the tap_anatomy layout (commit f2c7045 draw.py, --reference).",
+ "prompt": "Prompt A, new chat: tmp/visual-drafts/antigravity/tap_anatomy/01_image_prompt.txt.",
+ "reviewNotes": "Overlay exact: three muscle layers, fascial lines, the nerve and artery in their sheath in the plane, peritoneum and bowel. Independent review: use as is.",
+ "knownLimits": "Schematic; typical adult thicknesses. Bowel loops stylised.",
+ "thirdPartyConcept": "NYSORA TAP plates read for the layout only; not attached, not committed."
+}
