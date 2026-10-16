@@ -2348,7 +2348,7 @@
       "ED",
       "ICU"
     ],
-    "lastReviewed": "2026-06-15",
+    "lastReviewed": "2026-10-16",
     "version": "0.1.0",
     "tags": [
       "thoracentesis",
@@ -2361,34 +2361,33 @@
     ],
     "sections": {
       "shiftMode": [
-        "Confirm indication (diagnostic vs. therapeutic) and laterality; verify on ultrasound that the effusion is free-flowing, not loculated.",
+        "Confirm indication and laterality; verify on ultrasound that the effusion is free-flowing, not loculated.",
         "Mark the site with the patient in the procedure position.",
-        "Puncture over the superior margin of the lower rib \u2014 the neurovascular bundle isn't always fully protected there.",
-        "Anesthetize down to the pleural surface \u2014 that's where the pain is.",
-        "For therapeutic drainage: connect the collection system before advancing the catheter, to keep air out. Use manual syringe aspiration or gravity to a bag below the patient \u2014 never a vacuum bottle or wall suction.",
-        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary edema. General ceiling is 1.5 L in one session.",
-        "Check lung sliding on ultrasound in everyone, immediately after. CXR only if symptomatic, air was aspirated, the procedure was difficult, sliding is absent or uncertain, or the patient is ventilated or can't report symptoms.",
-        "Adult scope only \u2014 pediatric site selection, device size, and dosing differ materially and aren't covered here."
+        "Puncture over the superior margin of the lower rib.",
+        "Anesthetize down to the pleural surface.",
+        "For therapeutic drainage: connect the collection system before advancing the catheter, to keep air out.",
+        "Drain to until symptoms improve. Then stop and clamp.",
+        "Stop if the patient begins to repetitively cough, have chest tightness, or worsening dyspnea - preceding re-expansion pulmonary edema.\n\nGeneral ceiling is 1.5 L in one session.",
+        "Once finished, confirm check lung sliding on ultrasound. \n\nOnly check CXR if \u2014 symptomatic, air was aspirated, sliding is absent/uncertain, or the patient is ventilated or can't report symptoms."
       ],
       "indications": [
-        "Diagnostic evaluation of a new, undiagnosed pleural effusion",
+        "Evaluation of a new, undiagnosed pleural effusion",
         "Therapeutic relief of respiratory compromise from a large pleural effusion",
         "Evaluation of parapneumonic effusion for empyema, complicated effusion, or effusion requiring drainage"
       ],
       "contraindications": [
-        "Uncooperative patient unable to remain still during procedure (relative; consider procedural sedation)",
-        "Uncorrected coagulopathy with significant bleeding risk - weigh urgency and available reversal",
-        "Effusion too small or clearly loculated with no safe accessible pocket on ultrasound",
-        "Pneumothorax with effusion, or hydropneumothorax - a chest-tube problem, not a thoracentesis problem",
-        "Known lung adherence to chest wall at the planned site",
-        "Adult scope only. Pediatric site selection, device size, and dosing differ materially and are not covered by this card."
+        "Patient unable to remain still during procedure (relative; consider procedural sedation)",
+        "Uncorrected coagulopathy with significant bleeding risk",
+        "Effusion too small or clearly loculated with no safe accessible pocket",
+        "Pneumothorax with effusion, or hydropneumothorax (requires chest tube)",
+        "Known lung adherence to chest wall at the planned site"
       ],
       "anatomy": [
-        "Pleural space lies between parietal and visceral pleura; fluid accumulates in dependent regions (posterior on upright imaging).",
-        "Intercostal neurovascular bundle runs in the costal groove of each rib in the order vein, artery, nerve from superior to inferior; puncture over the superior margin of the lower rib. The bundle is not reliably protected by the rib - it varies in position, particularly posteriorly, and collateral branches can lie mid-space, so stay as lateral or anterior as the target allows.",
-        "Diaphragm rises during expiration and varies with body habitus; ultrasound confirms safe distance before puncture.",
+        "Pleural space lies between parietal and visceral pleura.",
+        "Intercostal neurovascular bundle runs in the costal groove of each rib in the order vein, artery, nerve (VAN) from superior to inferior. Puncture over the superior margin of the lower rib.",
+        "Diaphragm rises during expiration and varies with body habitus.",
         "Right-sided approach: liver is at risk below the 9th rib posteriorly.",
-        "Left-sided approach: spleen is at risk; confirm upper boundary of effusion before each approach."
+        "Left-sided approach: spleen is at risk."
       ],
       "equipment": [
         "Thoracentesis kit (needle, catheter, three-way stopcock, 60 mL syringe)",
@@ -2397,54 +2396,51 @@
         "Sterile drape, sterile gloves, mask",
         "Local anesthetic (1% lidocaine), syringe, and 22-25 gauge anesthesia needle",
         "Drainage tubing with a three-way stopcock for manual syringe aspiration, or a gravity bag hung below the patient. Vacuum bottles and wall suction are not used for therapeutic aspiration.",
-        "Plain specimen containers for LDH, protein, glucose, cell count with differential, Gram stain, culture, and cytology as appropriate",
-        "Blood culture bottles inoculated at the bedside in addition to plain containers when pleural infection is suspected",
+        "Plain specimen containers (LDH, protein, glucose, cell count with differential, Gram stain, culture, and cytology)",
+        "Blood culture bottles inoculated at the bedside in addition to plain containers (if pleural infection is suspected)",
         "Heparinized blood-gas syringe for pleural pH, analyzed immediately on a gas analyser",
         "Occlusive dressing",
         "Drainage measurement container"
       ],
       "positioning": [
-        "Seated and leaning forward over a padded bedside table with arms resting on a pillow \u2014 drops the scapula and opens interspaces for posterior access.",
-        "Supine with ipsilateral arm raised overhead is acceptable for ventilated or unable-to-sit patients; locate fluid in this position.",
-        "Perform ultrasound with the patient in the exact position you will use for the procedure."
+        "Seated and leaning forward over a padded bedside table with arms resting on a pillow \u2014 \n\ndrops the scapula and opens interspaces for posterior access.",
+        "Supine with ipsilateral arm raised overhead \u2014\n\nacceptable for ventilated or unable-to-sit patients."
       ],
       "steps": [
-        "Confirm the effusion side, size, and indication; determine diagnostic vs. therapeutic approach.",
-        "Obtain consent when feasible; document emergent need if not possible.",
-        "Perform real-time ultrasound with patient in procedure position; identify the optimal fluid pocket and mark the entry site.",
+        "Confirm the effusion side, size, and indication.",
+        "Obtain consent when feasible.",
+        "Perform ultrasound with patient in procedure position; identify the optimal fluid pocket and mark the entry site.",
         "Prep and drape the posterior-lateral chest at the marked site.",
-        "Anesthetize skin, subcutaneous tissue, rib periosteum, and pleural surface to the weight-based ceiling on the max-dose card, aspirating as you advance. Keep lidocaine out of any sample destined for pH.",
+        "Anesthetize skin, subcutaneous tissue, rib periosteum, and pleural surface. Aspirate as you advance.",
         "Insert the procedure needle along the superior margin of the lower rib with continuous aspiration.",
-        "On pleural fluid return, lock needle position; for diagnostic aspiration, collect 30-60 mL directly.",
-        "For therapeutic: advance catheter over needle or via Seldinger technique, then connect drainage tubing to prevent air entry.",
+        "On pleural fluid return, lock needle position. If collecting for diagnostic aspiration, collect 30-60 mL.",
+        "For therapeutic aspiration: advance catheter over needle or via Seldinger technique, then connect drainage tubing to prevent air entry.",
         "Drain by manual syringe aspiration through the stopcock, or by gravity to a bag below the patient. Monitor symptoms continuously.",
-        "Drain to symptoms, not to a number. Stop and clamp - not merely slow - for repetitive cough, chest tightness or pain, or worsening breathlessness; these precede re-expansion pulmonary edema. General ceiling is 1.5 L in one session.",
+        "Drain to symptoms. Stop and clamp for repetitive cough, chest tightness, or worsening dyspnea.",
         "Withdraw catheter/needle at end of expiration or with patient performing Valsalva; apply occlusive dressing immediately.",
-        "Check lung sliding on ultrasound immediately. Obtain a chest x-ray only on the selective criteria, not routinely."
+        "Check lung sliding on ultrasound immediately."
       ],
       "ultrasound": [
-        "Use a low-frequency curvilinear or phased-array probe in the posterior-lateral chest to identify the effusion in coronal plane.",
-        "Confirm fluid is anechoic or hypoechoic and free-flowing with respiration \u2014 loculations appear as hyperechoic strands.",
-        "Measure the largest pocket depth and distance from skin to fluid before marking.",
-        "Mark the entry site with the patient in the procedure position; fluid pockets shift with position changes.",
-        "Post-procedure: scan for pneumothorax (absent lung sliding ipsilateral) before imaging is complete."
+        "Low-frequency curvilinear or phased-array probe in the posterior-lateral chest to identify the effusion.",
+        "Confirm fluid is anechoic/hypoechoic and free-flowing with respiration. Loculations = hyperechoic strands.",
+        "Measure the largest pocket depth and distance from skin to fluid."
       ],
       "confirmation": [
-        "Pleural fluid aspirated freely and consistent with expected character (serous, serosanguineous, or purulent)",
-        "No sudden air return (would indicate lung puncture or pneumothorax development)",
-        "Respiratory symptoms improved for therapeutic indication",
-        "Lung sliding present on immediate post-procedure ultrasound; chest x-ray reserved for the selective criteria",
+        "Pleural fluid aspirated freely and consistent with expected character",
+        "No sudden air return",
+        "Respiratory symptoms improved",
+        "Lung sliding present on immediate post-procedure ultrasound",
         "Specimens labeled and sent promptly"
       ],
       "troubleshooting": [
-        "No fluid on aspiration: confirm with real-time ultrasound \u2014 pocket may have shifted; use live guidance for next attempt.",
-        "Air return: withdraw immediately; the needle may be in lung parenchyma; assess urgently for pneumothorax.",
-        "Bloody return: distinguish hemorrhagic effusion from hemothorax vs. vessel injury \u2014 non-clotting blood suggests pleural; rapidly clotting suggests vascular.",
-        "Repetitive cough, chest tightness or pain, or worsening breathlessness during drainage: stop and clamp - not merely slow. These precede re-expansion pulmonary edema. General ceiling is 1.5 L in one session.",
-        "Loculated pocket: scan multiple windows; if truly inaccessible, consult interventional radiology or thoracics."
+        "No fluid on aspiration: Pocket may have shifted, use ultrasound.",
+        "Air return: withdraw immediately, needle may be in lung parenchyma, assess for pneumothorax.",
+        "Bloody return: Hemorrhagic effusion vs. hemothorax vs. vessel injury \u2014 non-clotting blood suggests = pleural. Rapidly clotting blood = vascular.",
+        "Repetitive cough, chest tightness, or worsening dyspnea during drainage: stop and clamp. General ceiling is 1.5 L in one session.",
+        "Loculated pocket: scan multiple windows, consult interventional radiology or thoracics if no pocket."
       ],
       "complications": [
-        "Pneumothorax - uncommon, and substantially less likely with ultrasound guidance than without",
+        "Pneumothorax - uncommon",
         "Hemothorax",
         "Intercostal vessel injury or hematoma",
         "Diaphragm or subdiaphragmatic organ puncture",
@@ -2454,9 +2450,9 @@
       ],
       "aftercare": [
         "Monitor O2 saturation, respiratory rate, and breath sounds for \u22651 hour after procedure.",
-        "Immediate lung ultrasound for sliding in everyone; chest x-ray only on the selective criteria.",
-        "Send samples promptly. Pleural pH goes in a heparinized blood-gas syringe and is analyzed immediately: lidocaine contamination and excess heparin both falsely lower it, and pH below 7.2 is what drives the decision to drain. Do not send pH on frank pus - drain it regardless, and it fouls the analyser. A dipstick or benchtop meter is not accurate enough for this decision.",
-        "Record total volume drained and fluid character; document in procedure note."
+        "Immediate lung ultrasound for sliding in everyone.",
+        "Pleural pH goes in a heparinized blood-gas syringe and is analyzed immediately: lidocaine contamination and excess heparin both falsely lower it. \n\nDo not send pH on frank pus.",
+        "Record total volume drained and fluid character."
       ],
       "documentation": [
         "Thoracentesis at [right/left], [interspace], for [indication].",
@@ -2468,9 +2464,9 @@
         "Procedure tolerated without oxygen desaturation, respiratory distress, or significant bleeding."
       ],
       "seniorPearls": [
-        "Mark the site with the patient in the procedure position; the pocket moves when they lie down.",
-        "Most missed pneumothoraces are in ventilated or obtunded patients who cannot report symptoms - image that group liberally; the awake asymptomatic patient with good sliding does not need a film.",
-        "Stop before 1.5 L unless you have a compelling reason and are monitoring closely; re-expansion pulmonary edema is rare but underappreciated."
+        "Mark the site with the patient in the procedure position.",
+        "Most missed pneumothoraces are in ventilated or obtunded patients who cannot report symptoms.",
+        "Stop before 1.5 L unless you have a compelling reason and are monitoring closely for re-expansion pulmonary edema"
       ],
       "references": [
         "British Thoracic Society. Clinical Statement on pleural procedures. Thorax. 2023;78(Suppl 3):s43-s68. https://thorax.bmj.com/content/78/Suppl_3/s43",
@@ -2492,8 +2488,8 @@
         "clinicalWarning": "Puncture over the superior margin of the lower rib; the neurovascular bundle runs in the costal groove above."
       }
     ],
-    "reviewerStatus": "Needs Clinical Review",
-    "contentSource": "ai-draft",
+    "reviewerStatus": "Internally Reviewed",
+    "contentSource": "clinician-reviewed",
     "dosing": {
       "agents": [
         {

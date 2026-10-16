@@ -818,9 +818,15 @@ class PleuralProcedureTests(unittest.TestCase):
         self.assertIn("3 mg/kg", note)
         self.assertIn("4.5 mg/kg", note)
 
+    # Reviewed out of thoracentesis on 2026-10-16: the owner rewrote its
+    # drainage lines in their own words ("Drain to symptoms. Stop and clamp
+    # for repetitive cough, chest tightness, or worsening dyspnea.", with the
+    # 1.5 L ceiling and re-expansion warning on separate lines). The shared
+    # wording still holds for the two drains; thoracentesis is held to the
+    # facts instead (see the next test).
     def test_the_controlled_drainage_rule_is_word_for_word_the_same(self):
         found = []
-        for pid in self.PLEURAL:
+        for pid in ("thoracostomy_chest_tube", "pigtail_catheter"):
             lines = [
                 line
                 for name in ("steps", "troubleshooting", "shiftMode")
@@ -834,6 +840,11 @@ class PleuralProcedureTests(unittest.TestCase):
         for phrase in ("clamp", "repetitive cough", "re-expansion", "1.5 L"):
             self.assertIn(phrase, rule)
 
+    def test_thoracentesis_still_stops_and_clamps_before_re_expansion(self):
+        joined = self.sections("thoracentesis", "steps", "troubleshooting", "shiftMode")
+        for phrase in ("Drain to symptoms", "clamp", "repetitive cough", "re-expansion", "1.5 L"):
+            self.assertIn(phrase, joined)
+
     def test_re_expansion_oedema_has_a_rescue_card_reachable_from_each(self):
         cards = {c["id"]: c for c in MODULE.load_json(MODULE.RESCUE_CARDS)}
         card = cards["re_expansion_pulmonary_edema"]
@@ -843,7 +854,9 @@ class PleuralProcedureTests(unittest.TestCase):
         self.assertIn("diuretic", avoid)
 
     def test_every_thoracic_record_states_adult_scope(self):
-        for pid in self.PLEURAL + ("needle_decompression",):
+        # Reviewed out of thoracentesis on 2026-10-16 (the owner's
+        # contraindications and brief no longer carry the line).
+        for pid in ("thoracostomy_chest_tube", "pigtail_catheter", "needle_decompression"):
             with self.subTest(pid):
                 self.assertIn(
                     "Adult scope only",
@@ -861,7 +874,8 @@ class PleuralProcedureTests(unittest.TestCase):
         self.assertNotIn("gravity to vacuum bottle", joined)
         self.assertNotIn("and vacuum drainage bottles for therapeutic", joined)
         self.assertIn("vacuum bottles and wall suction are not used", joined)
-        self.assertIn("never a vacuum bottle or wall suction", joined)
+        # "never a vacuum bottle or wall suction" (shiftMode) was reviewed out
+        # on 2026-10-16; the equipment line above still states the rule.
         self.assertIn("gravity", joined)
         self.assertIn("syringe aspiration", joined)
 
@@ -870,24 +884,26 @@ class PleuralProcedureTests(unittest.TestCase):
         joined = self.sections("thoracentesis", "anatomy", "shiftMode")
         self.assertNotIn("NAV", joined)
         self.assertNotIn("nerve-artery-vein", joined)
-        self.assertIn("vein, artery, nerve from superior to inferior", joined)
-        self.assertIn("vein, artery,", joined)
-        # The bundle is not reliably under the rib; saying so is the point.
-        self.assertIn("not reliably", joined)
+        self.assertIn("vein, artery, nerve", joined)
+        self.assertIn("from superior to inferior", joined)
+        # "The bundle is not reliably under the rib" was reviewed out on
+        # 2026-10-16; the owner's anatomy line keeps the order and the
+        # superior-margin entry.
 
     def test_specimen_handling_is_corrected(self):
         joined = self.sections("thoracentesis", "equipment", "aftercare")
         self.assertNotIn("SBP", joined, "spontaneous bacterial peritonitis is not a pleural diagnosis")
         self.assertIn("in addition to plain containers", joined)
         self.assertIn("blood-gas syringe", joined)
-        self.assertIn("7.2", joined)
+        # The pH 7.2 threshold was reviewed out on 2026-10-16.
         self.assertIn("lidocaine", joined.lower())
 
     def test_post_procedure_imaging_is_selective_not_routine(self):
         joined = self.sections(
             "thoracentesis", "shiftMode", "steps", "confirmation", "aftercare"
         )
-        self.assertIn("only on the selective criteria", joined)
+        # Reworded in review on 2026-10-16 to "Only check CXR if - ...".
+        self.assertIn("Only check CXR if", joined)
         self.assertIn("lung sliding", joined)
 
     def test_the_unsourced_pneumothorax_rates_are_gone(self):
