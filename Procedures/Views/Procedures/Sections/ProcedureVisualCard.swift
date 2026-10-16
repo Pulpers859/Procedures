@@ -6,6 +6,13 @@ extension Procedure {
         guard let assets = visualAssets else { return false }
         return !assets.isEmpty
     }
+
+    /// At least one visual that ships an image. Slots still waiting for an
+    /// owner-supplied image render a placeholder, which is not worth leading
+    /// the procedure with.
+    var hasBundledVisuals: Bool {
+        (visualAssets ?? []).contains { !($0.assetName ?? "").isEmpty }
+    }
 }
 
 enum ProcedureVisualLoader {

@@ -17,7 +17,9 @@ struct ProcedureDetailView: View {
 
     init(procedure: Procedure, initialSection: ProcedureDetailSection? = nil) {
         self.procedure = procedure
-        _selectedSection = State(initialValue: initialSection ?? .shiftMode)
+        // A procedure with pictures opens on them (owner, 2026-10-16);
+        // one without opens on the brief, as before.
+        _selectedSection = State(initialValue: initialSection ?? (procedure.hasBundledVisuals ? .visuals : .shiftMode))
     }
 
     /// The procedure as the repository currently holds it.
@@ -31,8 +33,14 @@ struct ProcedureDetailView: View {
         repository.procedures.first { $0.id == procedure.id } ?? procedure
     }
 
+    /// The four sections on the bar. Visual leads when the procedure has
+    /// bundled pictures and Rescue moves into "More" to make room (owner,
+    /// 2026-10-16). A procedure with no bundled picture keeps Rescue on the
+    /// bar: an empty Visual tab is not worth a slot there.
     private var primarySections: [ProcedureDetailSection] {
-        [.shiftMode, .equipment, .steps, .complications]
+        current.hasBundledVisuals
+            ? [.visuals, .shiftMode, .equipment, .steps]
+            : [.shiftMode, .equipment, .steps, .complications]
     }
 
     var body: some View {
@@ -176,8 +184,11 @@ struct ProcedureDetailView: View {
             }
 
             Menu {
-                if current.hasVisualAssets {
+                if !primarySections.contains(.visuals), current.hasVisualAssets {
                     sectionMenuButton(.visuals)
+                }
+                if !primarySections.contains(.complications) {
+                    sectionMenuButton(.complications)
                 }
                 sectionMenuButton(.documentation)
                 sectionMenuButton(.deepReview)
