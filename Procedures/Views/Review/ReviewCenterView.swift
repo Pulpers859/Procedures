@@ -96,6 +96,20 @@ struct ReviewCenterView: View {
         } message: { preview in
             Text(recoveryMessage(for: preview))
         }
+        // On the list rather than the button: the Export menu at the top of
+        // the page raises it too, while the button's row may be off screen.
+        .confirmationDialog(
+            "Never enter patient identifiers",
+            isPresented: $showingRecoveryExportWarning,
+            titleVisibility: .visible
+        ) {
+            Button("Prepare Package") {
+                recoveryExportURL = recoveryStore.writePortableExport(userData: userData, editStore: editStore)
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("Includes local notes and any images added to visual cards. Check them before sharing.")
+        }
         .alert("Recovery Backup", isPresented: Binding(get: { recoveryError != nil }, set: { if !$0 { recoveryError = nil } })) {
             Button("OK", role: .cancel) { recoveryError = nil }
         } message: {
@@ -232,18 +246,6 @@ struct ReviewCenterView: View {
                 Label("Prepare Recovery Package", systemImage: "archivebox")
                     .frame(minHeight: AppLayout.controlMinHeight)
             }
-            .confirmationDialog(
-                "Never enter patient identifiers",
-                isPresented: $showingRecoveryExportWarning,
-                titleVisibility: .visible
-            ) {
-                Button("Prepare Package") {
-                    recoveryExportURL = recoveryStore.writePortableExport(userData: userData, editStore: editStore)
-                }
-                Button("Cancel", role: .cancel) {}
-            } message: {
-                Text("Includes local notes and any images added to visual cards. Check them before sharing.")
-            }
 
             if let recoveryExportURL {
                 ShareLink(item: recoveryExportURL) {
@@ -340,9 +342,57 @@ struct ReviewCenterView: View {
                     metricPillLink(value: needsEditCount, label: "needs edits", tint: .orange, scope: .disposition(.needsEdits))
                     metricPillLink(value: issueCount(.warning), label: "warnings", tint: .red, scope: .issues(.warning))
                 }
+
+                exportMenu
             }
             .padding(.vertical, 4)
         }
+    }
+
+    /// The three exports also live at the foot of this long page; this menu
+    /// reaches them from the top (owner, 2026-10-16). Same files, same order:
+    /// edits first, then reviews.
+    private var exportMenu: some View {
+        Menu {
+            if let exportURL {
+                ShareLink(item: exportURL) {
+                    Label("Export Edits", systemImage: "square.and.pencil")
+                }
+            } else {
+                Button {} label: {
+                    Label("No edits to export", systemImage: "square.and.pencil")
+                }
+                .disabled(true)
+            }
+            if let reviewExportURL {
+                ShareLink(item: reviewExportURL) {
+                    Label("Export Reviews", systemImage: "checkmark.seal")
+                }
+            } else {
+                Button {} label: {
+                    Label("No sign-offs to export", systemImage: "checkmark.seal")
+                }
+                .disabled(true)
+            }
+            Divider()
+            if let recoveryExportURL {
+                ShareLink(item: recoveryExportURL) {
+                    Label("Save Recovery Package to Files", systemImage: "archivebox")
+                }
+            } else {
+                Button {
+                    showingRecoveryExportWarning = true
+                } label: {
+                    Label("Prepare Recovery Package", systemImage: "archivebox")
+                }
+            }
+        } label: {
+            Label("Export", systemImage: "square.and.arrow.up")
+                .font(.subheadline.weight(.semibold))
+                .frame(maxWidth: .infinity, minHeight: AppLayout.controlMinHeight - 8)
+        }
+        .buttonStyle(.bordered)
+        .accessibilityLabel("Export edits, reviews, or a recovery package")
     }
 
     @ViewBuilder
