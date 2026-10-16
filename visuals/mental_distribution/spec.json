@@ -14,5 +14,10 @@
     "mental-skin"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "694f8862811e1b6263d732a32dffdc498a8bb387139447e214d644ca8d0dfdeb",
+    "reviewedOn": "2026-10-15"
+  }
 }

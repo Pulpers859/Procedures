@@ -16,5 +16,10 @@
     "neighbour-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "7257faf9444a96a64f981f4c4dd9a847259cac611426f64117648f6debe796f7",
+    "reviewedOn": "2026-10-15"
+  }
 }

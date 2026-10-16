@@ -15,5 +15,10 @@
     "infraorbital-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "9e53e190e0ba0c11820a5281456f9f66fed62a98ddd0f322321c40e578961204",
+    "reviewedOn": "2026-10-15"
+  }
 }

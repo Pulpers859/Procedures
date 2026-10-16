@@ -15,5 +15,10 @@
     "clavicle-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "49ac44a5727e3e5b4945a1943d3074a14b8e20799488246e7a18a0e34c7a0e99",
+    "reviewedOn": "2026-10-15"
+  }
 }

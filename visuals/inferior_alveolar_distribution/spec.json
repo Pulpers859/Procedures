@@ -16,5 +16,10 @@
     "mandible-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "aff7d4f2ab55a4b0268c81e07086663770c6b1500b47f461e35df0ae18e2e963",
+    "reviewedOn": "2026-10-15"
+  }
 }

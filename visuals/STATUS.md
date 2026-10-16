@@ -45,14 +45,14 @@ Every slot in `procedures.json` either has an owner-approved image or is on a sk
 
 ## Distribution plates (nerve blocks, first tile)
 
-Owner request 2026-10-15: each nerve block's first visual is an `<block>_distribution` plate (skeleton and grey body, the blocked territory tinted, a colour key under the image with each nerve underlined). Method and rules: `PLAYBOOK.md`, "Distribution plates". Every plate gets an independent audit before it is sent.
+Owner request 2026-10-15 (all 28 blocks shipped by 2026-10-16): each nerve block's first visual is an `<block>_distribution` plate (skeleton and grey body, the blocked territory tinted, a colour key under the image with each nerve underlined). Method and rules: `PLAYBOOK.md`, "Distribution plates". Every plate gets an independent audit before it is sent.
 
 | Block | Status | Build | Notes |
 | --- | --- | --- | --- |
 | Fascia iliaca | Shipped 2026-10-15 | sideload-42 | The model plate; front-view base. |
 | Femoral, saphenous, PENG, TAP, interscalene, supraclavicular, RAPTIR | Shipped 2026-10-15 | next build | Front view; owner approved after the first independent audit. |
 | Transgluteal, popliteal, ESP, sural, tibial, superficial and deep peroneal, digital, radial, median, ulnar | Shipped 2026-10-15 | sideload-44 | Back, foot and hand views; owner approved after the second independent audit. |
-| Remaining nerve blocks (9) | Review drafts (batch 3), committed, not shipped | none | Head: supraorbital, infraorbital, mental, inferior and superior alveolar, auricular, superficial cervical plexus. Side: serratus, PECS. Each has `assetName: null` until the owner approves it; ship with `render_visuals.py <id> --record-approval --promote`, then set `assetName`. |
+| Supraorbital, infraorbital, mental, inferior and superior alveolar, auricular, superficial cervical plexus, serratus, PECS | Shipped 2026-10-16 | sideload-45 | Head and side views; owner approved after the third independent audit. Superior alveolar shows the injected tooth with its two neighbours lighter. |
 
 ## Working notes that hold across sessions
 

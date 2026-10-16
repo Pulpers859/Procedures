@@ -17,5 +17,10 @@
     "serratus-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "b2e7723e17883cbaf85e897e5a9ff7d067e938421cdb356a5f5e1b4eed55f038",
+    "reviewedOn": "2026-10-15"
+  }
 }

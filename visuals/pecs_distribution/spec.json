@@ -17,5 +17,10 @@
     "pecs-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "9f7a94df801b79ec021044cf94db8dadef815056519638230e1624fc8054bae4",
+    "reviewedOn": "2026-10-15"
+  }
 }

@@ -14,5 +14,10 @@
     "auricle-skin"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "e73eb34a73ee2eae996bea24ebd5454ba6673f92c21368876c34dddfbcb62859",
+    "reviewedOn": "2026-10-15"
+  }
 }

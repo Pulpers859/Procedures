@@ -16,5 +16,10 @@
     "supratrochlear-skin"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "a4465fdb30ea14048337c29bbfe7fb373f7f9aac947ab2f030a0744ad5d1f647",
+    "reviewedOn": "2026-10-15"
+  }
 }
