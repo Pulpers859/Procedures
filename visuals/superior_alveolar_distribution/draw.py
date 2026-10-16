@@ -1,7 +1,9 @@
 """Superior alveolar nerve block (supraperiosteal infiltration at the canine) - expected distribution, head view.
 
-One tooth: the upper canine with its root and the alveolar bone over it. No
-skin is shaded.
+The injected tooth (any upper tooth can be the target; shown on the canine) with
+its root and the alveolar bone over it, strongest, and its two neighbours in the
+arch, the lateral incisor and the first premolar, lighter (spread through the
+porous maxilla). No skin is shaded.
 
 Run: python3 visuals/superior_alveolar_distribution/draw.py
 """
@@ -22,6 +24,8 @@ CLIPS: dict = {}
 
 ZONES = [
     Zone("canine-bone", "teal", R.CANINE, layer="bone", feather=1.0, tension=0.3),
+    Zone("neighbour-bone", "amber", R.LATERAL_INCISOR, layer="bone", feather=1.0, tension=0.3, opacity=0.34,
+         extra=[R.FIRST_PREMOLAR]),
 ]
 
 

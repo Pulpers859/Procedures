@@ -51,7 +51,8 @@ Owner request 2026-10-15: each nerve block's first visual is an `<block>_distrib
 | --- | --- | --- | --- |
 | Fascia iliaca | Shipped 2026-10-15 | sideload-42 | The model plate; front-view base. |
 | Femoral, saphenous, PENG, TAP, interscalene, supraclavicular, RAPTIR | Shipped 2026-10-15 | next build | Front view; owner approved after the first independent audit. |
-| Remaining nerve blocks (20) | Review drafts, committed, not shipped | none | Back: transgluteal, popliteal, ESP. Foot: sural, tibial, superficial and deep peroneal. Hand: digital, radial, median, ulnar. Head: supraorbital, infraorbital, mental, inferior and superior alveolar, auricular, superficial cervical plexus. Side: serratus, PECS. Each has `assetName: null` until the owner approves it; ship with `render_visuals.py <id> --record-approval --promote`, then set `assetName`. |
+| Transgluteal, popliteal, ESP, sural, tibial, superficial and deep peroneal, digital, radial, median, ulnar | Shipped 2026-10-15 | sideload-44 | Back, foot and hand views; owner approved after the second independent audit. |
+| Remaining nerve blocks (9) | Review drafts (batch 3), committed, not shipped | none | Head: supraorbital, infraorbital, mental, inferior and superior alveolar, auricular, superficial cervical plexus. Side: serratus, PECS. Each has `assetName: null` until the owner approves it; ship with `render_visuals.py <id> --record-approval --promote`, then set `assetName`. |
 
 ## Working notes that hold across sessions
 

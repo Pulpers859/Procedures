@@ -14,5 +14,10 @@
     "web-skin"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "6938d4138ef63da19c08915c4b680cdc836de31771fcd61a5182f8f8c29dc361",
+    "reviewedOn": "2026-10-15"
+  }
 }

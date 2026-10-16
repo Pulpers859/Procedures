@@ -16,5 +16,10 @@
     "sciatic-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "ad63d9de5cf568a3791fcfb0cc1383ae9e008c836e1fd55735f55b121b5a170b",
+    "reviewedOn": "2026-10-15"
+  }
 }

@@ -30,7 +30,10 @@ MAXILLA = [(352, 350), (396, 350), (398, 386), (414, 391), (420, 388), (420, 440
 # (teeth counted from the midline at x 420: central incisor 404-420, lateral
 # incisor 391-404, canine 379-391, first premolar 367-379, second premolar
 # 355-367; audit 2026-10-15).
-CANINE = [(378, 384), (394, 384), (396, 440), (377, 440)]
+CANINE = [(378, 384), (392, 384), (392, 440), (378, 440)]
+# Its neighbours in the arch: the lateral incisor and the first premolar.
+LATERAL_INCISOR = [(392, 384), (406, 384), (406, 440), (392, 440)]
+FIRST_PREMOLAR = [(365, 384), (378, 384), (378, 440), (365, 440)]
 # Skeleton: the right body of the mandible with its teeth, from the angle to
 # the chin (the mandibular ramus above is left out).
 MANDIBLE_BODY = [(300, 434), (370, 434), (372, 441), (422, 441), (426, 470), (426, 510), (385, 516), (335, 502),

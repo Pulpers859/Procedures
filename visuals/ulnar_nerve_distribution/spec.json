@@ -16,5 +16,10 @@
     "ulnar-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "ac58a0f3feaeb0540660549b21b52baffccb60f7c6326531bde9ba5defcc3024",
+    "reviewedOn": "2026-10-15"
+  }
 }

@@ -16,5 +16,10 @@
     "finger-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "1f73be381e21715269f84a954465b93cc92565168c3c38accb397be490c4b858",
+    "reviewedOn": "2026-10-15"
+  }
 }

@@ -5,13 +5,15 @@
   "view": "Shared head base (visuals/distribution_bases/head): skeleton bust on the left, grey bust on the right, both turned three-quarters toward the image right so the patient's right cheek and right ear face the viewer; right-sided block.",
   "teachingPoint": "A supraperiosteal infiltration numbs one upper tooth and the bone over its root.",
   "claims": [
-    "Bone: the upper canine (the record's default tooth) with its root and the alveolar bone over it.",
+    "Bone (teal): the injected upper tooth, drawn on the canine, with its root and the alveolar bone over it (record: anaesthesia to individual upper teeth by supraperiosteal infiltration).",
+    "Bone (amber, lighter): the lateral incisor and first premolar beside it. Not stated in the record: general dental teaching that infiltration through the porous maxilla often partly numbs adjacent teeth; kept lighter and labelled less reliable. Owner, 2026-10-15: one tooth alone looked wrong.",
     "No skin is shaded.",
     "Right-sided block (patient's right ear and cheek face the viewer); one tone per nerve, key shown under the image in the app."
   ],
   "requiredElements": [
     "base",
-    "canine-bone"
+    "canine-bone",
+    "neighbour-bone"
   ],
   "labels": {},
   "geometry": []

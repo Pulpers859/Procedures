@@ -567,7 +567,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "digital_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "One finger is shown; the pattern is the same for any finger.",
         "clinicalWarning": null,
@@ -6515,7 +6515,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "radial_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "The palm is left unshaded.",
         "clinicalWarning": null,
@@ -6748,7 +6748,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "median_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "The ulnar third of the palm is left unshaded.",
         "clinicalWarning": null,
@@ -6981,7 +6981,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "ulnar_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "The radial two thirds of the hand are left unshaded.",
         "clinicalWarning": null,
@@ -7714,7 +7714,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "esp_distribution",
         "systemImage": "figure.stand",
         "caption": "The spread varies between patients: the lower border is graded, and the shoulder blade and upper limb are left unshaded.",
         "clinicalWarning": null,
@@ -9169,7 +9169,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "popliteal_distribution",
         "systemImage": "figure.stand",
         "caption": "The thigh, the hip and the medial strip of the leg are left unshaded.",
         "clinicalWarning": null,
@@ -9405,7 +9405,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "transgluteal_distribution",
         "systemImage": "figure.stand",
         "caption": "The medial strip of the leg is left unshaded: it belongs to the saphenous branch, which the sciatic trunk does not supply.",
         "clinicalWarning": null,
@@ -9647,7 +9647,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "tibial_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "The dorsum of the foot and the lateral border are left unshaded.",
         "clinicalWarning": null,
@@ -9881,7 +9881,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "sural_distribution",
         "systemImage": "figure.stand",
         "caption": "The dorsum and most of the sole are left unshaded.",
         "clinicalWarning": null,
@@ -10112,7 +10112,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "superficial_peroneal_distribution",
         "systemImage": "figure.stand",
         "caption": "The first web space and the lateral border are left unshaded: they belong to other branches.",
         "clinicalWarning": null,
@@ -10345,7 +10345,7 @@
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "deep_peroneal_distribution",
         "systemImage": "figure.stand",
         "caption": "The rest of the dorsum and the sole are left unshaded.",
         "clinicalWarning": null,
@@ -10835,7 +10835,7 @@
           {
             "tone": "teal",
             "nerve": "Infraorbital nerve",
-            "label": "The lower eyelid, the medial cheek, the side of the nose and the upper lip on one side; the front of the maxilla and the upper teeth from the second premolar to the central incisor."
+            "label": "The body shows the skin it numbs: the lower eyelid, the medial cheek, the side of the nose and the upper lip on one side. The skeleton shows the front of the maxilla and the upper teeth from the second premolar to the central incisor."
           }
         ]
       },
@@ -11312,13 +11312,13 @@
         "subtitle": "Where to expect numbness on the right side.",
         "assetName": null,
         "systemImage": "figure.stand",
-        "caption": "The tongue is not shown here, and the ramus of the jaw is left unshaded.",
+        "caption": "The teeth sit inside the mouth, so only the skeleton shows them; the tongue is not shown.",
         "clinicalWarning": null,
         "legend": [
           {
             "tone": "teal",
             "nerve": "Inferior alveolar nerve (with its mental branch)",
-            "label": "All the lower teeth on one side and the body of the mandible; the skin of the lower lip and the chin."
+            "label": "The skeleton shows the teeth and the jaw bone it numbs from inside: all the lower teeth on one side and the body of the mandible. The body shows the skin it numbs: the lower lip and the chin."
           }
         ]
       },
@@ -11547,13 +11547,18 @@
         "subtitle": "Where to expect numbness on the right side.",
         "assetName": null,
         "systemImage": "figure.stand",
-        "caption": "No skin is shaded: the injection is in the mucosa above the tooth.",
+        "caption": "Any maxillary tooth can be the target; the pattern repeats along the arch. No skin is shaded.",
         "clinicalWarning": null,
         "legend": [
           {
             "tone": "teal",
-            "nerve": "Superior alveolar nerve",
-            "label": "One upper tooth, shown on the canine, with its root and the bone over it."
+            "nerve": "Superior alveolar nerve (the injected tooth)",
+            "label": "The tooth injected, shown here on the canine, with its root and the bone over it."
+          },
+          {
+            "tone": "amber",
+            "nerve": "Neighbouring teeth",
+            "label": "Often partly numbed as the anaesthetic spreads through the porous maxilla; less reliable than the injected tooth."
           }
         ]
       },

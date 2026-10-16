@@ -16,5 +16,10 @@
     "median-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "f3ded058f3ae7642ec13052dd1f8d3f9283e500c327755de45f9e4f9468c05f2",
+    "reviewedOn": "2026-10-15"
+  }
 }

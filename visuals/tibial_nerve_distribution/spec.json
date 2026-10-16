@@ -14,5 +14,10 @@
     "plantar-skin"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "a32e3f501009b52401bb781c58fb5414f3ada212faeb102a2e07cdd36b4633e3",
+    "reviewedOn": "2026-10-15"
+  }
 }

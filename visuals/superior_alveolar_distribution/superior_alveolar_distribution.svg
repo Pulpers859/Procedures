@@ -40,7 +40,8 @@ svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
   <image id="base" href="../distribution_bases/head/base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/>
 </g>
 <g class="marking" transform="translate(0 2.7) scale(1.333333)">
-    <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-1)"><path id="canine-bone" d="M378,384 C378.9,381.2 393.1,381.2 394,384 C394.9,386.8 396.9,437.2 396,440 C395.1,442.8 377.9,442.8 377,440 C376.1,437.2 377.1,386.8 378,384 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
+    <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-1)"><path id="canine-bone" d="M378,384 C378.7,381.2 391.3,381.2 392,384 C392.7,386.8 392.7,437.2 392,440 C391.3,442.8 378.7,442.8 378,440 C377.3,437.2 377.3,386.8 378,384 Z" fill="#2E9C97" fill-opacity="0.5"/></g></g></g>
+  <g style="mix-blend-mode:multiply"><g mask="url(#m-bone)"><g filter="url(#feather-1)"><path id="neighbour-bone" d="M392,384 C392.7,381.2 405.3,381.2 406,384 C406.7,386.8 406.7,437.2 406,440 C405.3,442.8 392.7,442.8 392,440 C391.3,437.2 391.3,386.8 392,384 Z M365,384 C365.6,381.2 377.4,381.2 378,384 C378.6,386.8 378.6,437.2 378,440 C377.4,442.8 365.6,442.8 365,440 C364.4,437.2 364.4,386.8 365,384 Z" fill="#D99A3A" fill-opacity="0.3"/></g></g></g>
 </g>
 
 </svg>

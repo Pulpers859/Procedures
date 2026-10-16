@@ -16,5 +16,10 @@
     "sural-lateral"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "86fb74f33235a8936e84996059650e5c5548f9f2b779be7d19893a812d15293e",
+    "reviewedOn": "2026-10-15"
+  }
 }

@@ -15,5 +15,10 @@
     "leg-lateral"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "63544fcb9743fbbdab594440d1c79a6ce797f0f106407541f214fdbfd958d6e4",
+    "reviewedOn": "2026-10-15"
+  }
 }

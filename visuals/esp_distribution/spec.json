@@ -15,5 +15,10 @@
     "esp-bone"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "54768988f8ecc1c39aa41f8e757130f8d9570d199fb41dfac22de2c6505e056d",
+    "reviewedOn": "2026-10-15"
+  }
 }

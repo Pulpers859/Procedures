@@ -14,5 +14,10 @@
     "radial-dorsum"
   ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "ab4f4576adacea4386d4938164f7478d14f2b651f951be01bf1d1bdde051a80d",
+    "reviewedOn": "2026-10-15"
+  }
 }
