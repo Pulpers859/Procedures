@@ -12,7 +12,19 @@
     "Red dot: the entry point just medial to the artery at the one-third mark (record steps).",
     "Labels: Greater occipital nerve, Occipital artery, External occipital protuberance, Mastoid, Superior nuchal line, One-third."
   ],
-  "requiredElements": ["skull", "nuchal-line", "mastoid", "eop", "atlas", "measure", "third-mark", "occipital-artery", "gon", "gon-deep", "needle-entry"],
+  "requiredElements": [
+    "skull",
+    "nuchal-line",
+    "mastoid",
+    "eop",
+    "atlas",
+    "measure",
+    "third-mark",
+    "occipital-artery",
+    "gon",
+    "gon-deep",
+    "needle-entry"
+  ],
   "labels": {
     "Greater occipital nerve": "gon",
     "Occipital artery": "occipital-artery",
@@ -22,9 +34,34 @@
     "One-third": "third-mark"
   },
   "geometry": [
-    {"check": "leftOf", "a": "eop", "b": "mastoid", "why": "midline on the image left, the right mastoid on the image right (seen from behind)"},
-    {"check": "leftOf", "a": "gon", "b": "occipital-artery", "why": "the nerve lies just medial to the artery"},
-    {"check": "leftOf", "a": "needle-entry", "b": "occipital-artery", "why": "entry medial to the artery"},
-    {"check": "crosses", "a": "measure", "b": "third-mark", "why": "the one-third mark sits on the protuberance-mastoid line"}
-  ]
+    {
+      "check": "leftOf",
+      "a": "eop",
+      "b": "mastoid",
+      "why": "midline on the image left, the right mastoid on the image right (seen from behind)"
+    },
+    {
+      "check": "leftOf",
+      "a": "gon",
+      "b": "occipital-artery",
+      "why": "the nerve lies just medial to the artery"
+    },
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "occipital-artery",
+      "why": "entry medial to the artery"
+    },
+    {
+      "check": "crosses",
+      "a": "measure",
+      "b": "third-mark",
+      "why": "the one-third mark sits on the protuberance-mastoid line"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "ae23d328c5c21aebe349a74d1e9eb87e57b873afe3772de219891fd4b11ee227",
+    "reviewedOn": "2026-10-17"
+  }
 }

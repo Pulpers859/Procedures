@@ -11,13 +11,34 @@
     "Dashed white: the midline. Dashed red ring: the artery under the fingertip.",
     "Labels: Occipital artery under the fingertip, Entry, just medial."
   ],
-  "requiredElements": ["midline", "artery-mark", "syringe", "needle", "needle-entry"],
+  "requiredElements": [
+    "midline",
+    "artery-mark",
+    "syringe",
+    "needle",
+    "needle-entry"
+  ],
   "labels": {
     "Occipital artery under the fingertip": "artery-mark",
     "Entry, just medial": "needle-entry"
   },
   "geometry": [
-    {"check": "leftOf", "a": "needle-entry", "b": "artery-mark", "why": "entry medial to the artery (patient's right on the image right, midline to the left)"},
-    {"check": "leftOf", "a": "midline", "b": "needle-entry", "why": "the block is on the patient's right, image right of the midline"}
-  ]
+    {
+      "check": "leftOf",
+      "a": "needle-entry",
+      "b": "artery-mark",
+      "why": "entry medial to the artery (patient's right on the image right, midline to the left)"
+    },
+    {
+      "check": "leftOf",
+      "a": "midline",
+      "b": "needle-entry",
+      "why": "the block is on the patient's right, image right of the midline"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "2cc3233068472e50106d287d523a259f7af6f5ef68e703202bc6ed8d423351a8",
+    "reviewedOn": "2026-10-17"
+  }
 }

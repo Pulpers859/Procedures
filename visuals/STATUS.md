@@ -54,6 +54,10 @@ Owner request 2026-10-15 (all 28 blocks shipped by 2026-10-16): each nerve block
 | Transgluteal, popliteal, ESP, sural, tibial, superficial and deep peroneal, digital, radial, median, ulnar | Shipped 2026-10-15 | sideload-44 | Back, foot and hand views; owner approved after the second independent audit. |
 | Supraorbital, infraorbital, mental, inferior and superior alveolar, auricular, superficial cervical plexus, serratus, PECS | Shipped 2026-10-16 | sideload-45 | Head and side views; owner approved after the third independent audit. Superior alveolar shows the injected tooth with its two neighbours lighter. |
 
+### Greater occipital nerve block (added 2026-10-17)
+
+Owner request: add the "suboccipital" block with images. Landmark technique only (owner). Three slots, all owner approved and shipped 2026-10-17: `greater_occipital_distribution` (new back-of-head base, `distribution_bases/head_back`), `greater_occipital_patient_position` (thoracentesis patient from behind; glove moved toward the artery in code, `place_hand.py`), `greater_occipital_anatomy` (skull from behind, code-drawn one-third line, nerve and artery).
+
 ## Working notes that hold across sessions
 
 - **Antigravity lane (Claude on the owner's PC):** `tools/Invoke-AntigravityAgentApi.ps1 -Command NewConversation ... -PassPromptFileAsAtPath` with a prompt file under `tmp/visual-drafts/antigravity/<slot>/`; about a minute per painting at 1200x896. It shares Gemini's image quota; a 429 is logged in the conversation's `transcript.jsonl`.

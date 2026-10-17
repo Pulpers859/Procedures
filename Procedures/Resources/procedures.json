@@ -11783,14 +11783,14 @@
   },
   {
     "id": "block_greater_occipital",
-    "title": "Greater Occipital (Suboccipital) Nerve Block",
+    "title": "Greater Occipital Nerve Block",
     "visualAssets": [
       {
         "id": "greater_occipital_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
         "subtitle": "Where to expect numbness on the right side.",
-        "assetName": null,
+        "assetName": "greater_occipital_distribution",
         "systemImage": "figure.stand",
         "caption": "The area behind the ear is left unshaded: it belongs to the lesser occipital branch.",
         "clinicalWarning": null,
@@ -11807,7 +11807,7 @@
         "kind": "Setup",
         "title": "Needle entry on the patient",
         "subtitle": "Seated. Needle toward the bone at the superior nuchal line, just medial to the occipital artery.",
-        "assetName": null,
+        "assetName": "greater_occipital_patient_position",
         "systemImage": "hand.point.up.left",
         "caption": "Back of the head: fingertip on the occipital artery, needle just medial to it, one-third of the way from the protuberance to the mastoid.",
         "clinicalWarning": null
@@ -11817,7 +11817,7 @@
         "kind": "Landmark",
         "title": "Target anatomy",
         "subtitle": "One-third of the way from the external occipital protuberance to the mastoid, on the superior nuchal line, the nerve lies just medial to the occipital artery.",
-        "assetName": null,
+        "assetName": "greater_occipital_anatomy",
         "systemImage": "square.3.layers.3d",
         "caption": "Skull from behind: protuberance, mastoid and superior nuchal line, with the nerve and artery at the one-third point.",
         "clinicalWarning": null

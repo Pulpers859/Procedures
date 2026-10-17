@@ -9,7 +9,15 @@
     "Not shaded: behind the ear (lesser occipital), the back of the neck (third occipital and cervical), the other side. No bone is shaded.",
     "Right-sided block, patient's right on the image right in this back view; one tone, key shown under the image in the app."
   ],
-  "requiredElements": ["base", "gon-skin"],
+  "requiredElements": [
+    "base",
+    "gon-skin"
+  ],
   "labels": {},
-  "geometry": []
+  "geometry": [],
+  "review": {
+    "status": "approved",
+    "sourceSha256": "045fdc09c15bb9ae493f61e8f91798e9d20517fb1fff6854c2610669fe4b22bd",
+    "reviewedOn": "2026-10-17"
+  }
 }
