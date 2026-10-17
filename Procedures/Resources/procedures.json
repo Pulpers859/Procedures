@@ -523,7 +523,6 @@
       "aftercare": [
         "Protect the insensate part: pad it, position it, warn about pressure, heat, and biting injury while the block lasts.",
         "Wound-specific aftercare.",
-        "Motor block means the limb cannot bear weight - a fall risk in older patients. Tell the patient and say so at handover.",
         "Tell the patient when the block will wear off; take oral analgesia before it does.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, redness at the injection site."
@@ -5632,7 +5631,6 @@
         "Monitor at least 30 minutes for LAST.",
         "Sling the arm to prevent traction injury.",
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - a fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
@@ -5900,7 +5898,6 @@
         "Assess for breathlessness: pneumothorax or phrenic palsy.",
         "Pneumothorax can present hours later: tell the patient to return for new breathlessness or pleuritic pain, and hand that over.",
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - a fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
@@ -6120,11 +6117,11 @@
         "Prep the skin posterior to the clavicle.",
         "Insert the needle posterior to the clavicle, aiming caudally, strictly in-plane.",
         "Advance under the clavicle until the tip enters the beam in the infraclavicular space.",
+        "Tip not back in view past the clavicle: withdraw, don't explore.",
         "Aim for the posterior aspect of the axillary artery (about 6 o'clock).",
         "Aspirate and inject a small saline test dose.",
         "Inject 20-30 mL of 0.25% bupivacaine or 0.2% ropivacaine for a U-shaped spread around the artery.",
-        "Withdraw the needle and apply a dressing.",
-        "Plan the trajectory through the retroclavicular shadow before entering it: the depth and angle that bring the tip back into view, and the point at which you abandon. If the tip does not reappear where expected, withdraw rather than explore."
+        "Withdraw the needle and apply a dressing."
       ],
       "ultrasound": [
         "Pectoralis major superficial, pectoralis minor deep.",
@@ -6160,7 +6157,6 @@
         "Monitor for at least 30 minutes.",
         "Sling the arm to prevent traction injury.",
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - a fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
@@ -6400,7 +6396,6 @@
       ],
       "aftercare": [
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - a fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
@@ -6630,7 +6625,6 @@
       ],
       "aftercare": [
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - a fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
@@ -6863,7 +6857,6 @@
       ],
       "aftercare": [
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - a fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
@@ -7103,7 +7096,6 @@
       "aftercare": [
         "Monitor for 30 minutes, watching for dyspnea (phrenic involvement).",
         "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "With motor block the limb cannot bear weight - a fall risk in older patients. Tell the patient and say so at handover.",
         "Tell the patient when the block wears off and to take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
@@ -7345,7 +7337,6 @@
         "Monitor for LAST for 30-60 minutes.",
         "Assess for pneumothorax if symptomatic.",
         "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "With motor block the limb cannot bear weight - a fall risk in older patients. Tell the patient and say so at handover.",
         "Tell the patient when the block wears off and to take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
@@ -7591,7 +7582,6 @@
       "aftercare": [
         "Monitor for LAST for 30-60 minutes.",
         "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "With motor block the limb cannot bear weight - a fall risk in older patients. Tell the patient and say so at handover.",
         "Tell the patient when the block wears off and to take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
@@ -7833,7 +7823,6 @@
       "aftercare": [
         "Monitor for LAST for 30-60 minutes.",
         "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "With motor block the limb cannot bear weight - a fall risk in older patients. Tell the patient and say so at handover.",
         "Tell the patient when the block wears off and to take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
@@ -8074,7 +8063,6 @@
       "aftercare": [
         "Monitor for LAST for 30-60 minutes.",
         "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "With motor block the limb cannot bear weight - a fall risk in older patients. Tell the patient and say so at handover.",
         "Tell the patient when the block wears off and to take oral analgesia before then.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
@@ -8793,7 +8781,6 @@
       ],
       "aftercare": [
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block means no weight-bearing - a fall risk in older patients. Tell the patient and at handover.",
         "Tell the patient when the block wears off and to take oral analgesia before it does.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the injection site."
@@ -10430,7 +10417,6 @@
       "aftercare": [
         "Warn about eyelid swelling if the volume was large.",
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; oral analgesia before it does.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
@@ -10674,7 +10660,6 @@
       ],
       "aftercare": [
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; oral analgesia before it does.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
@@ -10909,7 +10894,6 @@
       ],
       "aftercare": [
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; oral analgesia before it does.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
@@ -11090,7 +11074,6 @@
       "contraindications": [
         "Infection over the injection site, including the retromolar/pterygomandibular space",
         "Allergy to local anesthetic",
-        "Coagulopathy",
         "Refusal, or inability to consent when the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
         "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
@@ -11152,7 +11135,6 @@
         "Warn against chewing the numb lip or tongue.",
         "Dental follow-up.",
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; oral analgesia before it does.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
@@ -11389,7 +11371,6 @@
       "aftercare": [
         "Dental follow-up.",
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; oral analgesia before it does.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
@@ -11627,7 +11608,6 @@
       "aftercare": [
         "Routine wound care, or compression dressing for hematomas.",
         "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Motor block: the limb cannot bear weight - fall risk in older patients. Tell the patient and hand over.",
         "Tell the patient when the block wears off; oral analgesia before it does.",
         "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
