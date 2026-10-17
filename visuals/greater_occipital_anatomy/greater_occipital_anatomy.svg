@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #F4F1EA; }</style>
+<defs>
+<linearGradient id="bone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFE3C8"/><stop offset="1" stop-color="#DCCBA6"/></linearGradient>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="010a120af83983ccd8a828a79ffa7f6eb1d9aaa426c7a4ca91bf30510c8001d0"><image href="base.jpg" x="0" y="2.7" width="1600" height="1194.7" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <path id="skull" d="M-5,-125 C74.8,-183.8 1510.2,-155.2 1590,-125 C1669.8,-94.8 1593.8,433.2 1590,480 C1586.2,526.8 1522.9,779.2 1513,810 C1503.1,840.8 1401.9,1079.5 1392,1096 C1382.1,1112.5 1323.2,1142.8 1315,1140 C1306.8,1137.2 1239.1,1049.2 1227,1041 C1214.9,1032.8 1090.6,976.6 1073,975 C1055.4,973.4 894.8,1005.2 875,1008 C855.2,1010.8 693.5,1028.9 677,1030 C660.5,1031.1 558.2,1030 545,1030 C531.8,1030 440.5,1028.9 413,1030 C385.5,1031.1 15.9,1109.8 -5,1052 C-25.9,994.2 -84.8,-66.2 -5,-125 Z" fill="url(#bone)" stroke="#B9A884" stroke-width="3"/>
+  <path id="nuchal-line" d="M545,700 C562.6,699.3 641.8,693 677,694.5 C712.2,696 773.8,706.6 809,711 C844.2,715.4 905.8,723.1 941,727.5 C976.2,731.9 1040.7,738.9 1073,744 C1105.3,749.1 1159.5,760.1 1183,766 C1206.5,771.9 1240.2,785.1 1249,788" fill="none" stroke="#A8977A" stroke-width="10" stroke-linecap="round"/>
+  <path id="mastoid" d="M1216,755 C1227,735.2 1308.4,729.7 1326,744 C1343.6,758.3 1389.8,862.8 1392,898 C1394.2,933.2 1360.1,1074 1348,1096 C1335.9,1118 1284.2,1133.4 1271,1118 C1257.8,1102.6 1221.5,978.3 1216,942 C1210.5,905.7 1205,774.8 1216,755 Z" fill="#E6D7B6" stroke="#A8977A" stroke-width="3"/>
+  <circle id="eop" cx="545" cy="700" r="55" fill="#E6D7B6" stroke="#A8977A" stroke-width="3"/>
+  <path id="atlas" d="M259,1118 C284.7,1110.7 497.3,1085 545,1085 C592.7,1085 805.3,1110.7 831,1118 C856.7,1125.3 876.8,1171.2 853,1173 C829.2,1174.8 596.3,1140 545,1140 C493.7,1140 260.8,1174.8 237,1173 C213.2,1171.2 233.3,1125.3 259,1118 Z" fill="#E6D7B6" stroke="#A8977A" stroke-width="3"/>
+  <line id="midline" x1="545" y1="0" x2="545" y2="1200" stroke="#C9B994" stroke-width="2" stroke-dasharray="4 10"/>
+</g>
+
+<g class="marking">
+  <line id="measure" x1="545" y1="700" x2="1249" y2="766" stroke="#1C2530" stroke-width="4" stroke-dasharray="14 10" opacity="0.75"/>
+  <path id="occipital-artery" d="M1095,1184 C1075.2,1151 998.5,1026.7 963,964 C927.5,901.3 876.6,805.6 858.5,766 C840.4,726.4 842,726.4 842,700 C842,673.6 860.1,626.3 858.5,590 C856.9,553.7 828.5,497.6 831,458 C833.5,418.4 873.4,368.9 875,326 C876.6,283.1 840.4,214.9 842,172 C843.6,129.1 882.7,84.6 886,40 C889.3,-4.6 867.3,-100.2 864,-125" fill="none" stroke="#C8322B" stroke-width="9" stroke-linecap="round"/>
+  <path id="gon-deep" d="M699,1184 C704.1,1151.7 726.8,1003.6 737.5,942 C748.2,880.4 773.7,751.3 779.3,722" fill="none" stroke="#E8C547" stroke-width="8" stroke-dasharray="14 10" stroke-linecap="round"/>
+  <path id="gon" d="M779.3,722 C778.3,692.7 775,563.6 771.6,502 C768.2,440.4 760.7,339.2 754,260 C747.3,180.8 725.4,-45.1 721,-92" fill="none" stroke="#E8C547" stroke-width="9" stroke-linecap="round"/>
+  <line id="third-mark" x1="779.7" y1="700" x2="779.7" y2="744" stroke="#1C2530" stroke-width="6" stroke-linecap="round"/>
+  <circle id="needle-entry" cx="760.6" cy="691.2" r="12" fill="#D8432A" stroke="#F6F7F9" stroke-width="4"/>
+</g>
+
+<g id="labels"><g class="label emphasis" data-label="Greater occipital nerve" data-target="gon"><polyline class="leader-halo" points="330,180 754,260"/><polyline class="leader" points="330,180 754,260"/><circle class="leader-dot" cx="754" cy="260" r="7"/><text x="60" y="140" text-anchor="start"><tspan x="60" dy="0">Greater occipital</tspan><tspan x="60" dy="66">nerve</tspan></text></g><g class="label" data-label="Occipital artery" data-target="occipital-artery"><polyline class="leader-halo" points="1150,140 842,172"/><polyline class="leader" points="1150,140 842,172"/><circle class="leader-dot" cx="842" cy="172" r="7"/><text x="1060" y="120" text-anchor="start"><tspan x="1060" dy="0">Occipital artery</tspan></text></g><g class="label" data-label="External occipital protuberance" data-target="eop"><polyline class="leader-halo" points="250,960 537,708"/><polyline class="leader" points="250,960 537,708"/><circle class="leader-dot" cx="537" cy="708" r="7"/><text x="40" y="1000" text-anchor="start"><tspan x="40" dy="0">External occipital</tspan><tspan x="40" dy="66">protuberance</tspan></text></g><g class="label" data-label="Mastoid" data-target="mastoid"><polyline class="leader-halo" points="1380,1110 1304,986"/><polyline class="leader" points="1380,1110 1304,986"/><circle class="leader-dot" cx="1304" cy="986" r="7"/><text x="1330" y="1150" text-anchor="start"><tspan x="1330" dy="0">Mastoid</tspan></text></g><g class="label" data-label="Superior nuchal line" data-target="nuchal-line"><polyline class="leader-halo" points="1100,650 1073,744"/><polyline class="leader" points="1100,650 1073,744"/><circle class="leader-dot" cx="1073" cy="744" r="7"/><text x="980" y="620" text-anchor="start"><tspan x="980" dy="0">Superior nuchal line</tspan></text></g><g class="label" data-label="One-third" data-target="third-mark"><polyline class="leader-halo" points="760,960 779.7,736"/><polyline class="leader" points="760,960 779.7,736"/><circle class="leader-dot" cx="779.7" cy="736" r="7"/><text x="700" y="1000" text-anchor="start"><tspan x="700" dy="0">One-third</tspan></text></g></g>
+
+</svg>

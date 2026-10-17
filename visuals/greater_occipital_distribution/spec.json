@@ -1,0 +1,15 @@
+{
+  "assetId": "greater_occipital_distribution",
+  "procedure": "block_greater_occipital",
+  "title": "Expected distribution",
+  "view": "Shared back-of-head base (visuals/distribution_bases/head_back): skull and grey head seen from behind, so the patient's right is on the image right; right-sided block.",
+  "teachingPoint": "A greater occipital nerve block numbs the back of the scalp on one side, from the occiput up toward the vertex; behind the ear and the neck are spared.",
+  "claims": [
+    "Skin: the back of the scalp on one side, from the superior nuchal line up toward the vertex, midline to about the line above the ear (greater occipital nerve, C2; record anatomy; ASRA 2019).",
+    "Not shaded: behind the ear (lesser occipital), the back of the neck (third occipital and cervical), the other side. No bone is shaded.",
+    "Right-sided block, patient's right on the image right in this back view; one tone, key shown under the image in the app."
+  ],
+  "requiredElements": ["base", "gon-skin"],
+  "labels": {},
+  "geometry": []
+}

@@ -28,7 +28,7 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "scripts"))
 K = 1600 / 1200
 OY = (1200 - 896 * K) / 2
-SPLIT = {"front": 600, "back": 600, "head": 568, "hand": 384, "foot": 305, "side": 600}
+SPLIT = {"front": 600, "back": 600, "head": 568, "hand": 384, "foot": 305, "side": 600, "head_back": 600}
 
 
 def main() -> int:

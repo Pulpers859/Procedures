@@ -1,0 +1,15 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini image model via Antigravity",
+ "generatedBy": "Claude, Antigravity lane",
+ "date": "2026-10-17",
+ "sourceSize": [
+  1200,
+  896
+ ],
+ "reference": "Unlabelled render of the greater_occipital_anatomy layout (draw.py, --reference); style from the approved supraorbital_anatomy painting.",
+ "prompt": "tmp/visual-drafts/antigravity/greater_occipital_anatomy/01_image_prompt.txt: back of the skull from behind, zoomed on the right half, protuberance, superior nuchal line, mastoid, posterior arch of the atlas; bone only.",
+ "repairs": [],
+ "rejected": [],
+ "knownLimits": "The nerve, artery, measurement line and entry are code-drawn; the artery's course on the scalp is schematic. A faint dotted midline from the layout carried into the painting."
+}

@@ -14,6 +14,9 @@ Laterality: always the patient's RIGHT side.
 - side: head to upper thighs from the patient's right, facing image right,
   the right upper arm raised beside the head with the hand behind it (the
   serratus and chest tube position).
+- head_back: two busts seen straight from behind, large, from the crown to
+  the upper back (greater occipital block); the patient's right is on the
+  image RIGHT.
 - foot: top of the foot and sole with the toes up (big toe image right on
   the top view, image left on the sole), skeleton of the top view, and the
   outer side of the foot (toes image right).
@@ -175,6 +178,35 @@ def side() -> str:
     return doc("".join(out))
 
 
+def head_back() -> str:
+    """Two large busts from behind: skull and cervical spine, then the head."""
+    out = []
+    for cx, skel in ((320, True), (880, False)):
+        # Upper back and shoulders to the bottom edge.
+        shoulders = [(cx - 270, 896), (cx - 270, 800), (cx - 220, 740), (cx - 110, 712), (cx - 70, 640),
+                     (cx + 70, 640), (cx + 110, 712), (cx + 220, 740), (cx + 270, 800), (cx + 270, 896)]
+        if skel:
+            out.append(path(shoulders, 'fill="none" stroke="#D9D6CF" stroke-width="2" stroke-dasharray="6 8"'))
+            # cranium from behind with the occipital bone, mastoids, spine
+            out.append(f'<ellipse cx="{cx}" cy="330" rx="190" ry="230" {BONE}/>')
+            out.append(f'<ellipse cx="{cx - 150}" cy="520" rx="28" ry="46" {BONE}/>')   # right mastoid (image left)
+            out.append(f'<ellipse cx="{cx + 150}" cy="520" rx="28" ry="46" {BONE}/>')
+            out.append(f'<path d="M{cx - 160},470 Q{cx},430 {cx + 160},470" fill="none" stroke="#BDB29A" stroke-width="3"/>')  # nuchal line
+            out.append(f'<circle cx="{cx}" cy="452" r="12" {BONE}/>')   # external occipital protuberance
+            out.append(f'<rect x="{cx - 26}" y="540" width="52" height="300" rx="16" {BONE}/>')
+            for y in (590, 640, 690, 740, 790):
+                out.append(f'<line x1="{cx - 60}" y1="{y}" x2="{cx + 60}" y2="{y}" stroke="#E9E1CF" stroke-width="12" stroke-linecap="round"/>')
+            out.append(f'<path d="M{cx - 30},760 Q{cx - 160},740 {cx - 250},780" fill="none" stroke="#E9E1CF" stroke-width="16"/>')
+            out.append(f'<path d="M{cx + 30},760 Q{cx + 160},740 {cx + 250},780" fill="none" stroke="#E9E1CF" stroke-width="16"/>')
+        else:
+            out.append(path(shoulders, SKIN))
+            out.append(path([(cx - 80, 700), (cx - 95, 520), (cx + 95, 520), (cx + 80, 700)], SKIN, 0.2))   # neck
+            out.append(f'<ellipse cx="{cx}" cy="330" rx="190" ry="230" {SKIN}/>')
+            out.append(f'<ellipse cx="{cx - 192}" cy="380" rx="20" ry="52" {SKIN}/>')   # ears from behind
+            out.append(f'<ellipse cx="{cx + 192}" cy="380" rx="20" ry="52" {SKIN}/>')
+    return doc("".join(out))
+
+
 def main() -> int:
     from playwright.sync_api import sync_playwright
     sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
@@ -182,7 +214,7 @@ def main() -> int:
     with sync_playwright() as pw:
         exe = chromium_path()
         browser = pw.chromium.launch(**({"executable_path": exe} if exe else {}))
-        for view, fn in (("head", head), ("hand", hand), ("foot", foot), ("side", side)):
+        for view, fn in (("head", head), ("hand", hand), ("foot", foot), ("side", side), ("head_back", head_back)):
             svg = HERE / view / "layout.svg"
             svg.write_text(fn(), encoding="utf-8")
             page = browser.new_page(viewport={"width": W, "height": H})

@@ -1,0 +1,20 @@
+{
+ "base": "base.jpg",
+ "generator": "Gemini image model via Antigravity",
+ "generatedBy": "Claude, Antigravity lane",
+ "date": "2026-10-17",
+ "sourceSize": [
+  1024,
+  1024
+ ],
+ "reference": "The approved thoracentesis_site patient photo (same man, same room) and the approved esp_patient_position glove.",
+ "prompt": "tmp/visual-drafts/antigravity/greater_occipital_patient_position/01_image_prompt.txt, then 02_repair.txt (head further flexed; fingertip moved medially to about 2 cm from the midline at the base of the skull).",
+ "repairs": [
+  "02_repair.txt: fingertip moved from beside the ear to about one-third of the way out from the midline",
+  "03_remove_hand.txt: glove removed in a repaint; the photo's own glove moved 34 px toward the ear in code (place_hand.py), per independent review (fingertip about 2.5 cm from the midline)"
+ ],
+ "rejected": [
+  "ag1: fingertip beside the ear, too lateral"
+ ],
+ "knownLimits": "The repair returned a square image; cropped to 4:3 (y 140-908) and scaled to 1200x900. Needle and syringe are code-drawn; head flexion is moderate. Base is the hand-free repaint with the original glove composited back 34 px lateral."
+}

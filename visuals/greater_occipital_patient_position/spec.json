@@ -1,0 +1,23 @@
+{
+  "assetId": "greater_occipital_patient_position",
+  "procedure": "block_greater_occipital",
+  "title": "Needle entry on the patient",
+  "view": "Seated patient from behind, head bent forward, close on the back of the head; the patient's right is on the image right.",
+  "teachingPoint": "Find the occipital artery under a fingertip at the base of the skull, a third of the way out to the mastoid, and enter just medial to it.",
+  "claims": [
+    "Seated, neck flexed forward (record positioning).",
+    "Gloved index fingertip on the occipital artery at the base of the skull on the patient's right, about 2 cm from the midline (record steps and anatomy).",
+    "Needle entering just medial to the fingertip, toward the skull (record steps: perpendicular to the skin until resistance).",
+    "Dashed white: the midline. Dashed red ring: the artery under the fingertip.",
+    "Labels: Occipital artery under the fingertip, Entry, just medial."
+  ],
+  "requiredElements": ["midline", "artery-mark", "syringe", "needle", "needle-entry"],
+  "labels": {
+    "Occipital artery under the fingertip": "artery-mark",
+    "Entry, just medial": "needle-entry"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "needle-entry", "b": "artery-mark", "why": "entry medial to the artery (patient's right on the image right, midline to the left)"},
+    {"check": "leftOf", "a": "midline", "b": "needle-entry", "why": "the block is on the patient's right, image right of the midline"}
+  ]
+}

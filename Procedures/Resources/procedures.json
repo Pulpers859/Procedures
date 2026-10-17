@@ -11806,7 +11806,7 @@
         "id": "greater_occipital_patient_position",
         "kind": "Setup",
         "title": "Needle entry on the patient",
-        "subtitle": "Seated, neck flexed. Needle perpendicular to the scalp at the superior nuchal line, just medial to the occipital artery.",
+        "subtitle": "Seated. Needle toward the bone at the superior nuchal line, just medial to the occipital artery.",
         "assetName": null,
         "systemImage": "hand.point.up.left",
         "caption": "Back of the head: fingertip on the occipital artery, needle just medial to it, one-third of the way from the protuberance to the mastoid.",
@@ -11931,11 +11931,12 @@
       "indications": [
         "Acute migraine in the ED, after or alongside first-line parenteral treatment",
         "Occipital neuralgia",
-        "Tension-type headache, as an adjunct to IV analgesia"
+        "Tension-type headache (limited evidence)"
       ],
       "contraindications": [
         "Suspected secondary headache, a focal neurological deficit, or headache after head trauma: work it up first",
         "Infection over the injection site",
+        "Open skull defect at the site",
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
@@ -11947,7 +11948,7 @@
         "The lesser occipital, third occipital and greater auricular nerves lie nearby."
       ],
       "equipment": [
-        "23G or 25G needle",
+        "23G or 25G needle, 1-1.5 inch",
         "0.5% bupivacaine, 3 mL a side (6 mL for a bilateral block), or 2% lidocaine.",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Gauze.",
@@ -11960,7 +11961,7 @@
         "Palpate the external occipital protuberance and the mastoid process.",
         "Mark the point one-third of the way from the protuberance to the mastoid, on the superior nuchal line.",
         "Feel for the occipital artery there; the entry point is just medial to it. The point of maximal tenderness can confirm it.",
-        "Prep the skin.",
+        "Part the hair (no need to shave) and prep the skin.",
         "Insert perpendicular to the skin until resistance, withdraw 1 mm, and aspirate.",
         "Inject 3 mL: 1 mL at the point, 1 mL medial, 1 mL lateral, aspirating before each.",
         "For migraine, repeat on the other side."
@@ -11971,12 +11972,11 @@
       "confirmation": [
         "Numbness of the back of the scalp from the occiput toward the vertex.",
         "Reassess the headache at 30 minutes.",
-        "Spread on the screen shows where the drug went.",
         "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Blood on aspiration: withdraw and redirect medially, away from the artery.",
+        "Blood on aspiration: withdraw, hold pressure, and redirect medially, away from the artery.",
         "Lightheaded or faint: lay the patient flat.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
@@ -12001,14 +12001,14 @@
         "Headache score before the block and at 30 minutes.",
         "Side and level, named unambiguously.",
         "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
-        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Needle type and gauge, and landmark approach.",
         "Aspiration before each increment; dose given incrementally, not as one push.",
         "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
         "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "The landmark block often reaches the lesser and third occipital nerves too.",
+        "With 3 mL, spread to the lesser occipital nerve is possible.",
         "Steroid adds nothing for migraine over local anesthetic alone, and brings alopecia and skin atrophy at the site."
       ],
       "references": [
@@ -12017,6 +12017,7 @@
         "Arata WH, et al. Occipital nerve block for headaches: a narrative review. J Oral Facial Pain Headache. 2024;38(2):1-10. https://doi.org/10.22514/jofph.2024.010 - Landmarks, 23-25G needle, perpendicular to resistance then withdraw 1 mm and aspirate, 1 mL at the point plus 1 mL medial and lateral; adverse events; steroid adds no migraine benefit.",
         "Oley P. Overview of Occipital Neuralgia and Greater Occipital Nerve Blocks. ASRA Pain Medicine News. 2019. https://asra.com/news-publications/asra-newsletter/newsletter-item/asra-news/2019/08/07/overview-of-occipital-neuralgia-and-greater-occipital-nerve-blocks - C2 origin and course, one-third point, medial to the occipital artery, seated or prone with the head flexed, nearby nerves.",
         "Blumenfeld A, et al. Expert consensus recommendations for the performance of peripheral nerve blocks for headaches - a narrative review. Headache. 2013;53(3):437-446. https://pubmed.ncbi.nlm.nih.gov/23406160/",
+        "Robbins MS, et al. Trigger point injections for headache disorders: expert consensus methodology and narrative review. Headache. 2014;54(9):1441-1459. https://pubmed.ncbi.nlm.nih.gov/25168295/ - AHS consensus for head and neck injections: infection, an open skull defect at the site, and anesthetic allergy are contraindications.",
         "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
         "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
         "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",

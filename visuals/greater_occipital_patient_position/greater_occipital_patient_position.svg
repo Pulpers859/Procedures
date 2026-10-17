@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200">
+<style>
+@font-face { font-family: "Plate Sans"; font-weight: 500; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plate Sans"; font-weight: 700; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+svg {
+  --bg: #F6F7F9;
+  --ink: #1C2530;
+  --skin-hi: #F7E3D4; --skin: #EDCDB8; --skin-lo: #D9AE95; --skin-deep: #C48F75;
+  --lid-line: #7A4E3E; --lash: #3B2A24; --brow: #6B4A3A;
+  --sclera: #FBFBF8; --sclera-shade: #E4E2DC;
+  --iris-hi: #7FA7A1; --iris: #4F7C78; --iris-lo: #2E4F4D; --pupil: #141A1C;
+  --caruncle: #E39A95;
+  --bone: #EFE6D2; --bone-edge: #A8977A;
+  --deep-grey: #8B8F96;
+  --target: #0E8C98; --target-fill: rgba(14, 140, 152, 0.38);
+  --danger: #D8432A; --danger-soft: #F08A73;
+  --halo: rgba(246, 247, 249, 0.92);
+  font-family: "Plate Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+/* Dark mode: plates are full-bleed, so labels sit on the art, not on the page.
+   Keep the label colours and dim the art a little so it does not glare in a
+   dark card. A plate that leaves open background would override --bg here. */
+svg.dark { --bg: #16191E; }
+svg.dark #anatomy { filter: brightness(0.86) saturate(0.95); }
+.plate-bg { fill: var(--bg); }
+.label text { font-size: 56px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 14px; stroke-linejoin: round; }
+.label.emphasis text { font-weight: 700; fill: var(--target); }
+.leader { fill: none; stroke: var(--ink); stroke-width: 3; }
+.label.emphasis .leader { stroke: var(--target); stroke-width: 4; }
+.leader-halo { fill: none; stroke: var(--halo); stroke-width: 11; stroke-linecap: round; }
+.leader-dot { fill: var(--ink); stroke: var(--halo); stroke-width: 4; }
+.label.emphasis .leader-dot { fill: var(--target); }
+.plate-bg { fill: #B8C3CC; }</style>
+<defs>
+<linearGradient id="syr-barrel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+  <stop offset="0.4" stop-color="#EEF2F5" stop-opacity="0.85"/><stop offset="0.8" stop-color="#CDD5DC" stop-opacity="0.85"/><stop offset="1" stop-color="#A9B3BC"/></linearGradient>
+<linearGradient id="syr-plastic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.6" stop-color="#E9EDF0"/><stop offset="1" stop-color="#BCC4CB"/></linearGradient>
+<linearGradient id="syr-stopper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6A717A"/><stop offset="0.5" stop-color="#3B4148"/><stop offset="1" stop-color="#22272C"/></linearGradient>
+<linearGradient id="syr-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="0.45" stop-color="#B9C1C8"/><stop offset="1" stop-color="#6E777F"/></linearGradient>
+<filter id="syr-soft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<rect class="plate-bg" width="1600" height="1200"/>
+
+<g id="painting" data-base-sha256="99452dc3e82cc33b7c791ca7c451ed9cf1a4af84b3f386cabada72a1a32cf94a"><image href="base.jpg" x="0" y="0" width="1600" height="1200" preserveAspectRatio="none"/></g>
+<g id="anatomy" opacity="0">
+  <rect x="0" y="0" width="1600" height="1200" fill="#B8C3CC"/>
+  <ellipse id="head" cx="797" cy="380" rx="330" ry="360" fill="#3A302A"/>
+</g>
+
+<g class="marking">
+  <line id="midline" x1="797" y1="430" x2="797" y2="760" stroke="#F6F7F9" stroke-width="4" stroke-dasharray="12 10" opacity="0.8"/>
+  <circle id="artery-mark" cx="925" cy="540" r="30" fill="none" stroke="#C8322B" stroke-width="6" stroke-dasharray="10 7"/>
+  <g id="syringe"><g class="syringe-drawn" transform="translate(899.9 577.4) rotate(-100)"><g transform="translate(4 7)" filter="url(#syr-soft)" opacity="0.32" fill="#1B2733"><rect x="-420" y="-8" width="110" height="16" rx="3"/><rect x="-310" y="-22.5" width="310" height="45" rx="5"/></g><rect x="-420" y="-7" width="170" height="14" rx="1.5" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="1.2"/><rect x="-427" y="-32.5" width="8" height="65" rx="3" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="1.2"/><rect x="-310" y="-22.5" width="250" height="45" rx="4.5" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="1.2"/><rect x="-233" y="-20" width="170" height="40" rx="3" fill="#BFD8E6" fill-opacity="0.38"/><rect x="-250" y="-21.2" width="17" height="42.5" rx="2" fill="url(#syr-stopper)"/><line x1="-242" y1="-19.5" x2="-242" y2="19.5" stroke="#22272C" stroke-width="1.5"/><line x1="-234" y1="-19.5" x2="-234" y2="19.5" stroke="#22272C" stroke-width="1.5"/><line x1="-85" y1="-22.5" x2="-85" y2="-17.5" stroke="#6E777F" stroke-width="1"/><line x1="-110" y1="-22.5" x2="-110" y2="-14.5" stroke="#6E777F" stroke-width="1"/><line x1="-135" y1="-22.5" x2="-135" y2="-17.5" stroke="#6E777F" stroke-width="1"/><line x1="-160" y1="-22.5" x2="-160" y2="-14.5" stroke="#6E777F" stroke-width="1"/><line x1="-185" y1="-22.5" x2="-185" y2="-17.5" stroke="#6E777F" stroke-width="1"/><line x1="-210" y1="-22.5" x2="-210" y2="-14.5" stroke="#6E777F" stroke-width="1"/><line x1="-235" y1="-22.5" x2="-235" y2="-17.5" stroke="#6E777F" stroke-width="1"/><line x1="-305" y1="-18" x2="-65" y2="-18" stroke="#FFFFFF" stroke-width="2.2" stroke-opacity="0.8" stroke-linecap="round"/><rect x="-315" y="-37.5" width="7" height="75" rx="3" fill="url(#syr-plastic)" stroke="#9AA3AB" stroke-width="1.2"/><rect x="-60" y="-5.5" width="26" height="11" rx="1.5" fill="url(#syr-barrel)" stroke="#A7B0B8" stroke-width="1.2"/><path d="M-37,-9.5 H-12 L0,-3 V3 L-12,9.5 H-37 Z" fill="#E7EEF3" fill-opacity="0.95" stroke="#9AA3AB" stroke-width="1.2"/></g></g>
+  <line id="needle" x1="899.9" y1="577.4" x2="893" y2="538" stroke="url(#syr-steel)" stroke-width="5" stroke-linecap="round"/>
+  <circle id="needle-entry" cx="893" cy="538" r="9" fill="#D8432A" stroke="#F6F7F9" stroke-width="3"/>
+</g>
+
+<g id="labels"><g class="label" data-label="Occipital artery under the fingertip" data-target="artery-mark"><polyline class="leader-halo" points="1060,345 935,526"/><polyline class="leader" points="1060,345 935,526"/><circle class="leader-dot" cx="935" cy="526" r="7"/><text x="1010" y="300" text-anchor="start"><tspan x="1010" dy="0">Occipital artery</tspan><tspan x="1010" dy="66">under the fingertip</tspan></text></g><g class="label emphasis" data-label="Entry, just medial" data-target="needle-entry"><polyline class="leader-halo" points="560,360 889,534"/><polyline class="leader" points="560,360 889,534"/><circle class="leader-dot" cx="889" cy="534" r="7"/><text x="280" y="330" text-anchor="start"><tspan x="280" dy="0">Entry, just medial</tspan></text></g></g>
+
+</svg>

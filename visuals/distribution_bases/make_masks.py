@@ -27,7 +27,7 @@ FLOOR = {"front": 820, "back": 820, "hand": 835, "foot": 855}
 # the gaps between ribs or fingers.
 HOLE = {"body": 10000, "bone": 150}
 # Base px column where the skeleton's part of the plate ends.
-SPLIT = {"front": 600, "back": 600, "head": 568, "hand": 384, "foot": 305, "side": 600}
+SPLIT = {"front": 600, "back": 600, "head": 568, "hand": 384, "foot": 305, "side": 600, "head_back": 600}
 
 
 def fill_small_holes(m, limit):

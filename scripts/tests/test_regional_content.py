@@ -69,7 +69,10 @@ class SafetySpineTests(unittest.TestCase):
         for block in self.blocks:
             with self.subTest(block["id"]):
                 text = joined(block)
-                self.assertIn("spread on the screen shows where the drug went", text)
+                # The greater occipital block is landmark-only (owner, 2026-10-17):
+                # there is no screen, so the line came out on independent review.
+                if block["id"] != "block_greater_occipital":
+                    self.assertIn("spread on the screen shows where the drug went", text)
                 if block["id"] not in self.TERRITORY_TEST_EXEMPT:
                     self.assertIn("target territory", text)  # a test of it, in confirmation or the pre-block exam step
 

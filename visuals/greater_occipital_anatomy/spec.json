@@ -1,0 +1,30 @@
+{
+  "assetId": "greater_occipital_anatomy",
+  "procedure": "block_greater_occipital",
+  "title": "Target anatomy",
+  "view": "The back of the skull, head at the top, zoomed on the right half; seen from behind, so the patient's right is on the image right.",
+  "teachingPoint": "One-third of the way from the external occipital protuberance to the mastoid, on the superior nuchal line, the greater occipital nerve reaches the scalp just medial to the occipital artery: enter there, perpendicular, to bone.",
+  "claims": [
+    "Back of the skull, patient's right on the image right (seen from behind).",
+    "Dashed line from the external occipital protuberance to the mastoid, with the one-third mark (record steps; Arata 2024; ASRA 2019).",
+    "Greater occipital nerve (yellow) reaching the scalp at the superior nuchal line about 2 cm lateral to the protuberance; dashed below the line where it is deep, rising from C2 between obliquus capitis inferior and semispinalis (record anatomy).",
+    "Occipital artery (red) just lateral to the nerve at the line (record anatomy); its course on the scalp is schematic.",
+    "Red dot: the entry point just medial to the artery at the one-third mark (record steps).",
+    "Labels: Greater occipital nerve, Occipital artery, External occipital protuberance, Mastoid, Superior nuchal line, One-third."
+  ],
+  "requiredElements": ["skull", "nuchal-line", "mastoid", "eop", "atlas", "measure", "third-mark", "occipital-artery", "gon", "gon-deep", "needle-entry"],
+  "labels": {
+    "Greater occipital nerve": "gon",
+    "Occipital artery": "occipital-artery",
+    "External occipital protuberance": "eop",
+    "Mastoid": "mastoid",
+    "Superior nuchal line": "nuchal-line",
+    "One-third": "third-mark"
+  },
+  "geometry": [
+    {"check": "leftOf", "a": "eop", "b": "mastoid", "why": "midline on the image left, the right mastoid on the image right (seen from behind)"},
+    {"check": "leftOf", "a": "gon", "b": "occipital-artery", "why": "the nerve lies just medial to the artery"},
+    {"check": "leftOf", "a": "needle-entry", "b": "occipital-artery", "why": "entry medial to the artery"},
+    {"check": "crosses", "a": "measure", "b": "third-mark", "why": "the one-third mark sits on the protuberance-mastoid line"}
+  ]
+}
