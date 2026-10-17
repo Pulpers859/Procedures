@@ -283,7 +283,9 @@ class SedationStaffingAndMonitoringTests(unittest.TestCase):
         )
 
     def test_capnography_is_required_rather_than_ideal(self):
-        required = [line for line in self.lines if "capnography is required, not optional" in line]
+        # "capnography is required, not optional" became "capnography (required)"
+        # in the owner-requested tone pass, 2026-10-17.
+        required = [line for line in self.lines if "capnography (required)" in line]
         self.assertEqual(len(required), 1, self.lines)
         self.assertIn("saturation lags true oxygenation", required[0])
         for hedge in ("ideally ETCO2", "ETCO2 if available", "capnography when available"):
@@ -301,7 +303,7 @@ class SedationStaffingAndMonitoringTests(unittest.TestCase):
         joined = " ".join(self.lines)
         self.assertIn("Urgent sedation is not delayed for fasting time", joined)
         self.assertIn("GLP-1 receptor agonist", joined)
-        self.assertIn("not the hours waited", joined)
+        self.assertIn("fasting time alone does not decide it", joined)  # reworded in the owner-requested tone pass, 2026-10-17
         self.assertFalse(any("Recent oral intake is contextual" in line for line in self.lines))
 
     def test_laryngospasm_and_vomiting_appear_in_the_records_own_troubleshooting(self):

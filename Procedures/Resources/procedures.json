@@ -463,7 +463,7 @@
         "Infection over the injection site, or over the path where an alternate approach is available",
         "Major vascular compromise - do not delay urgent surgical evaluation",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge site compressibility, vascularity, and what a hematoma there would do. Follow local policy; a neuraxial hold interval does not automatically apply."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "Digital nerves run along the medial and lateral aspects of the digit with their vessels.",
@@ -471,7 +471,7 @@
         "Avoid circumferential high-volume injection - unnecessary tissue pressure."
       ],
       "equipment": [
-        "1% lidocaine without epinephrine for a short block, or 0.25% bupivacaine when the repair needs hours. Epinephrine in a digit is not the hazard it was taught to be; follow local policy.",
+        "1% lidocaine without epinephrine for a short block, or 0.25% bupivacaine when the repair needs hours. Epinephrine in a digit is safer than traditionally taught; follow local policy.",
         "3-5 mL syringe",
         "25-30G needle",
         "Chlorhexidine-alcohol prep, left to dry.",
@@ -834,7 +834,7 @@
         "Safe triangle when possible; over the rib, not under.",
         "Finger sweep before advancing the tube.",
         "Direct apically for pneumothorax, posterior/basilar for fluid, when feasible.",
-        "Massive hemothorax is a call, not a number to wait for: 1,500 mL out, 200 mL/h for 3 hours, or instability with ongoing output.",
+        "Massive hemothorax is a clinical call; any one of these is enough: 1,500 mL out, 200 mL/h for 3 hours, or instability with ongoing output. Do not wait for a volume.",
         "Secure with strong suture and occlusive dressing; reassess breath sounds and imaging."
       ],
       "indications": [
@@ -936,8 +936,8 @@
         "Placement confirmation, clinical and imaging as appropriate; immediate complications."
       ],
       "seniorPearls": [
-        "Too low is the commonest preventable error - the tract enters the abdomen.",
-        "Skipping the finger sweep is how tubes end up in soft tissue.",
+        "Commonest preventable error: too low, with the tract entering the abdomen.",
+        "Skipped finger sweep: the usual cause of a tube in soft tissue.",
         "Large hemothorax, hypotensive patient: do not drain until blood is at the bedside and a surgeon knows - the clot may be tamponading the bleeding.",
         "Empyema: small-bore plus flushes is standard; manage blockage by flushing, not by upsizing in advance."
       ],
@@ -1072,7 +1072,8 @@
         "Prep/drape; anesthetize the tract to the pleura, to the weight-based ceiling on the max-dose card.",
         "Measure chest-wall thickness on ultrasound before puncture: the depth limit for needle and dilator.",
         "Enter pleural space with needle; confirm air/fluid return.",
-        "Advance the guidewire under control. It must pass without impedance - resistance means stop and reassess, never push - and extend beyond the catheter tip at all times.",
+        "Advance the guidewire under control; it must pass without impedance. Resistance: stop and reassess, never push.",
+        "Keep the wire extending beyond the catheter tip at all times.",
         "Nick the skin; dilate over the wire only to the measured chest-wall depth. Over-inserting needle, wire, or dilator can cause life-threatening injury.",
         "Advance catheter over wire; remove wire, holding catheter position.",
         "Confirm pigtail formed and side holes intrathoracic.",
@@ -1124,7 +1125,7 @@
         "Placement and complications assessed clinically and by imaging as appropriate."
       ],
       "seniorPearls": [
-        "If the wire does not behave, believe the wire and reassess."
+        "Wire not behaving: stop and reassess."
       ],
       "references": [
         "British Thoracic Society. Clinical Statement on pleural procedures. Thorax. 2023;78(Suppl 3):s43-s68. https://thorax.bmj.com/content/78/Suppl_3/s43",
@@ -1216,7 +1217,7 @@
         "Primary site: 4th or 5th intercostal space, anterior axillary line. Alternate: 2nd intercostal space, midclavicular line.",
         "Failure is common \u2014 have the next step ready before you start.",
         "A failed needle means finger thoracostomy, not another needle.",
-        "A tube follows. Not placing one needs a reason.",
+        "A tube follows. Only exception: diagnosis was uncertain, the patient is now stable, and imaging shows no or minimal pneumothorax. A rush of air means a tube.",
         "Adult scope only."
       ],
       "indications": [
@@ -1260,7 +1261,9 @@
       "confirmation": [
         "Immediate improvement may occur; not required.",
         "Reassess BP, oxygenation, breath sounds, ventilator pressures, and chest rise.",
-        "A tube follows. Narrow exception: diagnosis was uncertain, patient now stable, and ultrasound or chest x-ray shows no or minimal pneumothorax. A rush of air with improvement means pneumothorax under pressure - that patient gets a tube."
+        "A tube follows.",
+        "Exception: diagnosis was uncertain, patient now stable, and ultrasound or chest x-ray shows no or minimal pneumothorax.",
+        "Rush of air with improvement means pneumothorax under pressure: place a tube."
       ],
       "troubleshooting": [
         "No improvement: wrong side/site, catheter too short, kinked catheter, hemothorax, tamponade, tube problem, or non-thoracic shock.",
@@ -1288,7 +1291,7 @@
         "Definitive thoracostomy and imaging plan."
       ],
       "seniorPearls": [
-        "If the patient is dying and the story fits, decompression is a clinical decision."
+        "Dying patient, story fits: decompress on clinical grounds."
       ],
       "references": [
         "Joint Trauma System. Wartime Thoracic Injury clinical practice guideline, ID 74. 2018. https://jts.health.mil/assets/docs/cpgs/Wartime_Thoracic_Injury_26_Dec_2018_ID74.pdf \u2014 Chest wall thickness studies show a standard 5 cm catheter fails to reach the pleural space in a substantial proportion of adults, supporting the 8 cm minimum length recommendation.",
@@ -1344,11 +1347,11 @@
     "sections": {
       "shiftMode": [
         "For tamponade physiology in context, not an effusion alone.",
-        "Ultrasound picks pocket and path; the subxiphoid landmark route is the no-machine fallback, not the default.",
+        "Ultrasound picks pocket and path. Subxiphoid landmark route: fallback when there is no machine.",
         "Aortic dissection or post-infarction free-wall rupture: surgical, not needle \u2014 see contraindications.",
         "Resuscitation, pressors, blood, and surgical backup moving in parallel when indicated.",
         "Advance under visualization if possible; aspirate continuously or frequently.",
-        "20-50 mL often reverses tamponade; stopping there is a decision, not a failure.",
+        "20-50 mL often reverses tamponade; you may stop there.",
         "Tamponade can coexist with bleeding, tension pneumothorax, or profound hypovolemia."
       ],
       "indications": [
@@ -1395,7 +1398,7 @@
         "Pick the largest pocket with the shortest safe path; mark the site and read the depth off the screen.",
         "Prep/drape and anesthetize if time allows.",
         "Advance under real-time visualization, aspirating, watching the tip rather than the hub.",
-        "Emergency phase: aspirate only until perfusion returns - 20-50 mL commonly. Then stop, re-scan, and decide on a catheter; do not keep going because fluid keeps coming.",
+        "Emergency phase: aspirate only until perfusion returns, commonly 20-50 mL. Then stop, re-scan, and decide on a catheter. Do not continue because fluid keeps coming.",
         "Before dilating over the wire, see the wire inside the pericardial space - no exception, including in an emergency.",
         "Place the catheter by Seldinger; confirm the catheter itself, not just the wire, in the pericardial space.",
         "Secure, attach closed drainage, reassess with ultrasound and hemodynamics.",
@@ -1410,8 +1413,9 @@
         "Improved blood pressure/perfusion",
         "Improved tachycardia or arrest physiology",
         "Ultrasound decrease in effusion and resolution of tamponade findings",
-        "Confirm position, do not infer it. In hemopericardium the aspirate is blood, so its color proves nothing. Use agitated saline, direct visualization of the catheter in the space, or a transduced waveform: a ventricular pressure trace means the catheter is in the ventricle.",
-        "Pericardial blood usually does not clot in the syringe; brisk clotting suggests intracardiac blood. Supporting sign only, never the confirmation."
+        "Confirm position with agitated saline, direct view of the catheter in the space, or a transduced waveform: a ventricular pressure trace means the catheter is in the ventricle.",
+        "Hemopericardium: the aspirate is blood, so its color proves nothing.",
+        "Pericardial blood usually does not clot in the syringe; brisk clotting suggests intracardiac blood. Supporting sign only, not confirmation."
       ],
       "troubleshooting": [
         "No aspirate: reassess window, needle depth, clot, or wrong diagnosis.",
@@ -1450,8 +1454,8 @@
         "Consultation and ongoing drainage plan."
       ],
       "seniorPearls": [
-        "Pick the safest window, not the most traditional one.",
-        "If you are reaching for a dilator, you have time to look at the wire."
+        "Use the safest window on the scan, whichever approach that is.",
+        "Before the dilator: see the wire in the pericardial space."
       ],
       "references": [
         "European Society of Cardiology. 2025 ESC Guidelines for the Management of Myocarditis and Pericarditis. Eur Heart J. 2025;46(40):3952. https://doi.org/10.1093/eurheartj/ehaf192",
@@ -1711,14 +1715,14 @@
     ],
     "sections": {
       "shiftMode": [
-        "Staff and equip this as an airway procedure, not a comfort procedure.",
+        "Staff and equip this as an airway procedure.",
         "Adult ED or ICU moderate-to-deep sedation only - not general anesthesia, elective or outpatient sedation, or pediatric sedation.",
-        "Sedation is a continuum and the patient can go deeper than intended. Staff and equip to rescue one level deeper than the target.",
+        "Patients can go deeper than intended: staff and equip to rescue one level deeper than the target.",
         "A dedicated clinician monitors and does nothing else - the proceduralist can't do it.",
         "Pre-brief airway risk, hemodynamics, meds, dose plan, and rescue plan.",
-        "Continuous pulse oximetry, cardiac monitoring, cycled blood pressure, and continuous waveform capnography \u2014 capnography is required, not optional. On supplemental oxygen, saturation lags true oxygenation by minutes.",
+        "Continuous pulse oximetry, cardiac monitoring, cycled blood pressure, and continuous waveform capnography (required): on supplemental oxygen, saturation lags true oxygenation by minutes.",
         "Suction, BVM, airway adjuncts, and reversal/rescue meds physically in the room.",
-        "Dose to patient response, not to an impatient room."
+        "Dose to patient response."
       ],
       "indications": [
         "Painful or anxiety-provoking procedure requiring controlled sedation",
@@ -1729,7 +1733,7 @@
         "Major cautions: high aspiration risk, difficult airway, severe physiologic instability, inadequate staffing or equipment",
         "Agent-specific contraindications by medication and physiology",
         "Urgent sedation is not delayed for fasting time.",
-        "Elective sedation is a different decision. Full-stomach risk - bowel obstruction, active vomiting, upper GI bleeding, late pregnancy, obtundation, gastroparesis, or a GLP-1 receptor agonist - changes depth, agent, airway plan, or whether to sedate at all, not the hours waited.",
+        "Elective sedation is a different decision. Full-stomach risk, urgent or elective - bowel obstruction, active vomiting, upper GI bleeding, late pregnancy, obtundation, gastroparesis, or a GLP-1 receptor agonist: adjust depth, agent, airway plan, or whether to sedate at all; fasting time alone does not decide it.",
         "Adult scope only. Pediatric sedation - different agents, routes, monitoring intervals, and discharge rules - is not covered."
       ],
       "anatomy": [
@@ -1808,7 +1812,7 @@
       ],
       "seniorPearls": [
         "Do not start the procedure before the room is ready.",
-        "ETCO2 buys time; pulse ox tells you late.",
+        "ETCO2 shows hypoventilation early; pulse oximetry shows it late.",
         "Choose the sedative you know how to rescue from."
       ],
       "references": [
@@ -1908,10 +1912,10 @@
     ],
     "sections": {
       "shiftMode": [
-        "Suspected bacterial meningitis: antibiotics first - nothing about the LP (imaging, positioning, consent, tubes) delays the first dose.",
-        "Blood cultures, not the LP, go before antibiotics. Cell count, glucose, protein, and PCR survive the first dose; culture is what may be lost.",
+        "Suspected bacterial meningitis: antibiotics first. Imaging, positioning, consent, and tubes do not delay the first dose.",
+        "Blood cultures before antibiotics; the LP can follow. CSF cell count, glucose, protein, and PCR remain useful after the first dose; culture may not.",
         "Suspected meningitis: check blood glucose immediately before the LP - the CSF:blood glucose ratio needs a paired value.",
-        "Position is the procedure: poor flexion and rotation kill success.",
+        "Positioning decides success: flex well, no rotation.",
         "L3-L4 or L4-L5; not higher.",
         "Atraumatic pencil-point needle is the default; it needs an introducer.",
         "Opening pressure: tubes labeled and manometer assembled before puncture.",
@@ -1974,7 +1978,7 @@
       "confirmation": [
         "CSF sent for ordered studies",
         "Opening pressure measured before CSF removal; record position, leg position, and zero reference beside the number. Commonly cited adult range about 6-25 cmH2O.",
-        "Straining, coughing, Valsalva, hypercapnia, and flexion all raise it. A single high number in a struggling patient is not intracranial hypertension.",
+        "Straining, coughing, Valsalva, hypercapnia, and flexion all raise it; a single high reading in a struggling patient does not establish intracranial hypertension.",
         "Neurologic status reassessed",
         "Tube numbers and appearance documented"
       ],
@@ -1997,7 +2001,8 @@
         "Bed rest does not prevent post-dural-puncture headache. Lying flat may ease an established one; do not offer it as prophylaxis.",
         "Send CSF promptly, correctly labeled and ordered.",
         "Reassess neuro status and puncture site.",
-        "New or worsening back pain, leg weakness, numbness, or urinary retention after an LP is a spinal or epidural hematoma until proven otherwise: urgent MRI and neurosurgery, not analgesia and reassurance. Highest risk if anticoagulated or coagulopathic; the window in which decompression preserves function is hours.",
+        "New or worsening back pain, leg weakness, numbness, or urinary retention after an LP: treat as spinal or epidural hematoma - urgent MRI and neurosurgery.",
+        "Hematoma risk is highest if anticoagulated or coagulopathic; decompression preserves function only within hours.",
         "Return precautions: severe headache, fever, weakness, urinary retention, site problems."
       ],
       "documentation": [
@@ -2011,8 +2016,8 @@
         "CSF appearance, tubes, studies; tolerance and complications."
       ],
       "seniorPearls": [
-        "Most failed LPs are positioning failures, not needle failures.",
-        "Do not chase bone deeper and deeper; reset your angle.",
+        "Most failed LPs are positioning failures.",
+        "Repeated bone: withdraw and reset the angle; do not go deeper.",
         "Label tubes before you are holding CSF."
       ],
       "references": [
@@ -2524,7 +2529,7 @@
         "Confirm indication (diagnostic vs therapeutic) and accessible ascites on ultrasound.",
         "Ultrasound-mark the largest, safest LLQ pocket, clear of bowel, bladder, and inferior epigastric vessels.",
         "Over 5 L: albumin 6-8 g per liter removed, to prevent paracentesis-induced circulatory dysfunction.",
-        "Below 5 L albumin is not routine but not forbidden - consider it at smaller volumes for acute-on-chronic liver failure or high AKI risk; a judgement call, not a threshold.",
+        "Under 5 L: albumin is not routine; consider it for acute-on-chronic liver failure or high AKI risk. Clinical judgement, no fixed volume threshold.",
         "Every hospitalized cirrhotic with ascites who decompensates needs a diagnostic tap.",
         "Inoculate blood culture bottles at the bedside from the first 10-20 mL drawn - highest yield for SBP.",
         "Do not delay or cancel the tap to correct clotting numbers."
@@ -2629,7 +2634,7 @@
       ],
       "seniorPearls": [
         "SBP cannot be ruled out on examination.",
-        "The Z-track offsets skin and peritoneal punctures so the tract closes on itself - that is what stops post-tap leak."
+        "Z-track offsets the skin and peritoneal punctures so the tract closes on itself; this prevents post-tap leak."
       ],
       "references": [
         "European Association for the Study of the Liver. EASL Clinical Practice Guidelines for the management of patients with decompensated cirrhosis. J Hepatol. 2018;69(2):406-460. https://doi.org/10.1016/j.jhep.2018.03.024",
@@ -2985,7 +2990,8 @@
         "Full sterile barrier prep and drape.",
         "Anesthetize skin and deeper tissue along the tract.",
         "Cannulate under ultrasound, tracking the needle tip.",
-        "Confirm the wire is venous before dilating: short axis shows the wire inside the vein, not the artery; long axis shows it tracking centrally. Wire not clearly seen: transduce or manometer before dilating. Blood color and non-pulsatile flow do not confirm venous placement.",
+        "Confirm the wire is venous before dilating: inside the vein, not the artery, on short axis; tracking centrally on long axis. Wire not clearly seen: transduce or use a manometer before dilating.",
+        "Blood color and non-pulsatile flow do not confirm venous placement.",
         "Any doubt remaining: pass a small dilator or 18 G catheter over the wire and transduce that before committing the 8.5 Fr dilator. Peri-arrest there is no waveform - use ultrasound.",
         "Nick through the dermis into subcutaneous tissue, blade flat against the wire, cutting away from it. An 8.5 Fr sheath needs a real nick.",
         "Advance dilator and sheath over the wire as a unit, with gentle rotation; do not force.",
@@ -3011,7 +3017,7 @@
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Sheath tip peels back or kinks: nick too small - withdraw, enlarge the nick, re-advance over a controlled wire.",
         "Arterial puncture, needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. Neck puncture: watch the airway for several hours - a carotid hematoma can obstruct late.",
-        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
+        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it; do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
         "Brisk bleeding around the sheath: pressure, assess coagulopathy, confirm intraluminal placement.",
         "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism - occlude the hub, left lateral decubitus head-down, 100% oxygen, and aspirate from a central lumen if one is in place.",
@@ -3030,7 +3036,8 @@
         "Side port capped or connected at all times.",
         "Label the sheath and date the dressing per local policy.",
         "Review confirmation imaging before high-risk use where site/policy requires.",
-        "Removal is a procedure: supine or head-down, Valsalva or expiratory hold as the sheath comes out, immediate occlusive dressing, patient flat afterwards. Most large-bore air embolism happens at removal, not insertion.",
+        "Removal: supine or head-down, Valsalva or expiratory hold as the sheath comes out, immediate occlusive dressing, patient flat afterwards.",
+        "Most large-bore air embolism happens at removal rather than insertion.",
         "Remove the introducer as soon as large-bore access is no longer required.",
         "Reassess the site for bleeding or hematoma."
       ],
@@ -3609,7 +3616,7 @@
       "shiftMode": [
         "Before closing: foreign body, tendon/nerve/vessel injury, joint involvement, contamination.",
         "Document distal neurovascular and motor function before anesthetic.",
-        "Anesthetize, then explore the full depth and range of motion - injuries hide off the resting position.",
+        "Anesthetize, then explore the full depth through the full range of motion; injuries can be out of view in the resting position.",
         "Irrigate copiously with saline or potable tap water; pressure and volume matter more than additives.",
         "Closure: primary now, delayed primary for high-contamination or older wounds, or referral for complex/specialty areas.",
         "No tension; evert edges; match suture size to location; remove on schedule.",
@@ -3810,7 +3817,7 @@
         "Pre-reduction imaging unless clearly recurrent and atraumatic per local practice.",
         "Analgesia/relaxation: intra-articular block, procedural sedation, or a gentle technique the patient tolerates.",
         "Low-force technique first (scapular manipulation, Cunningham, external rotation) before high-traction methods.",
-        "Reduce slowly and steadily; spasm fights speed, not patience.",
+        "Reduce slowly and steadily; speed provokes spasm.",
         "Confirm clinically and on imaging; recheck neurovascular status."
       ],
       "indications": [
@@ -3822,7 +3829,7 @@
       "contraindications": [
         "Displaced fracture warranting orthopedic reduction (e.g., certain surgical-neck fractures) - traction can displace the head further",
         "Posterior or inferior dislocation - different, specific approach",
-        "Open dislocation - theater, not the resus bay",
+        "Open dislocation - reduce in theater",
         "Unable to safely provide required analgesia/sedation",
         "Neurovascular compromise is not a contraindication - see indications and troubleshooting."
       ],
@@ -3847,7 +3854,7 @@
       ],
       "steps": [
         "Confirm the diagnosis; document neurovascular exam including axillary nerve function.",
-        "Pulseless or ischemic limb: call vascular surgery and reduce now. Do not sequence those.",
+        "Pulseless or ischemic limb: call vascular surgery and reduce now, at the same time.",
         "Pre-reduction imaging unless local protocol indicates otherwise.",
         "Analgesia/relaxation: intra-articular block, procedural sedation, or a sedation-sparing gentle technique.",
         "Intra-articular block: sterile prep, lateral or posterior approach into the joint, aspirate, inject. 20 mL of 1% lidocaine is 200 mg - check the dose calculator on this card before adding any other local anesthetic.",
@@ -3871,7 +3878,8 @@
         "Immobilized; follow-up arranged"
       ],
       "troubleshooting": [
-        "Pulseless or cold limb: reduce urgently, vascular surgery in parallel. Reassess the pulse the moment the head relocates. A pulse that does not return is an arterial injury until imaging says otherwise. Axillary artery injury is commonest in the elderly.",
+        "Pulseless or cold limb: reduce urgently, vascular surgery in parallel. Recheck the pulse as soon as the head relocates.",
+        "Pulse not back after reduction: treat as arterial injury until imaging excludes it. Axillary artery injury is commonest in the elderly.",
         "Reduction failing: add an intra-articular block or sedation, and switch technique.",
         "Repeated failure: reassess for fracture or another dislocation type; involve orthopedics.",
         "New deficit after reduction: document; urgent orthopedic/neuro evaluation. A deficit present before and unchanged after is usually an axillary nerve traction injury and usually recovers.",
@@ -3888,7 +3896,8 @@
       ],
       "aftercare": [
         "Sling or immobilizer for one to three weeks; shorter is generally preferred.",
-        "First dislocation under about 25: high recurrence - orthopedic assessment for stabilization. Over about 40: suspect a rotator cuff tear and arrange assessment for that - persistent weakness is a cuff tear until examined.",
+        "First dislocation under about 25: high recurrence; orthopedic assessment for stabilization.",
+        "Over about 40: suspect a rotator cuff tear and arrange assessment; treat persistent weakness as a cuff tear until examined.",
         "Early range of motion within the limits orthopedics set.",
         "Analgesia; avoid abduction with external rotation.",
         "Orthopedic follow-up.",
@@ -3905,7 +3914,7 @@
       ],
       "seniorPearls": [
         "Most failed reductions are failed analgesia. Relax the patient first.",
-        "A nerve deficit is not a reason to delay - the nerve is stretched over a displaced humeral head.",
+        "Nerve deficit: reduce without delay; the nerve is stretched over the displaced humeral head.",
         "High-traction methods add fracture and soft-tissue risk."
       ],
       "references": [
@@ -4321,7 +4330,7 @@
         "The phrenic nerve runs along the lateral pericardium.",
         "The descending aorta lies against the spine. The esophagus lies immediately anterior to it and is the structure most often clamped by mistake - an orogastric tube makes it identifiable by feel.",
         "Clamshell exposes both pleural cavities and the heart.",
-        "Crossing the sternum divides both internal mammary arteries: silent without circulation, brisk once it returns - ligate them."
+        "Crossing the sternum divides both internal mammary arteries: little bleeding without circulation, brisk once it returns - ligate them."
       ],
       "equipment": [
         "Thoracotomy/clamshell tray: scalpel, Mayo scissors, rib spreader (Finochietto retractor)",
@@ -4350,15 +4359,17 @@
         "Cardiac wounds: finger pressure first, then Foley balloon, staples, or sutures. Do not tie a suture around a coronary artery.",
         "Two-handed internal cardiac massage. Internal defibrillation only for a shockable rhythm, at low internal-paddle energy - commonly about 10-20 J, confirmed against your paddle and defibrillator instructions.",
         "Cross-clamp the descending aorta only for subdiaphragmatic bleeding or to redirect circulation to heart and brain. Retract the left lung anteriorly, open the posterior pleura, find the aorta against the spine with the esophagus anterior to it, and clamp under direct vision.",
-        "Call the clamp time aloud on application and every five minutes. Everything below the clamp is ischemic; its release is a second resuscitation.",
+        "Call the clamp time aloud on application and every five minutes. Everything below the clamp is ischemic; expect a second resuscitation on release.",
         "Control intrathoracic bleeding; continue blood product resuscitation.",
         "Endpoint: no organized cardiac activity after tamponade release, hemorrhage control, and an aortic clamp. Stop there.",
         "Circulation restored: straight to the operating room for definitive repair."
       ],
       "ultrasound": [
         "Can identify tamponade before or around the arrest and support the decision to proceed.",
-        "Cardiac standstill is not a free-standing reason to stop. PEA with no signs of life: absent wall motion on a technically adequate view supports termination. In a patient with signs of life it changes nothing.",
-        "Never delay a clearly indicated thoracotomy for a scan, and never repeat a scan to postpone the decision."
+        "Cardiac standstill is not a free-standing reason to stop.",
+        "PEA with no signs of life: absent wall motion on a technically adequate view supports termination.",
+        "In a patient with signs of life it changes nothing.",
+        "Do not delay a clearly indicated thoracotomy for a scan or repeat a scan to postpone the decision."
       ],
       "confirmation": [
         "Pericardium opened and tamponade relieved if present",
@@ -4372,7 +4383,7 @@
         "No cardiac wound found after opening the pericardium: inspect the posterior surface and great vessels; lift the heart carefully.",
         "Ongoing massive hemorrhage from the chest: pack, control the source, and cross-clamp the aorta while transfusing.",
         "Sudden brisk bleeding after return of circulation in a clamshell: the internal mammary arteries. Look at the sternal edges first.",
-        "Clamp on, nothing changed after a few minutes: question the clamp before the patient. It is probably on the esophagus - check by feel against the orogastric tube - or the bleeding is above it."
+        "Clamp on, no change after a few minutes: check the clamp first - probably on the esophagus (check by feel against the orogastric tube) - or the bleeding is above it."
       ],
       "complications": [
         "Iatrogenic injury to the heart, lung, phrenic nerve, or great vessels",
@@ -4401,10 +4412,10 @@
         "Team exposures and debrief."
       ],
       "seniorPearls": [
-        "Apply the criteria before opening; speed does not rescue a case that never met them.",
-        "Tamponade release is often the single highest-yield action.",
+        "Apply the criteria before opening.",
+        "Tamponade release is often the highest-yield action.",
         "The commonest technical failure is a small incision. Cut from the sternum to the table.",
-        "Nothing done here is definitive; the patient goes to theater the moment there is circulation."
+        "All of this is temporizing; to theater as soon as there is circulation."
       ],
       "references": [
         "Western Trauma Association. Adult Emergency Resuscitative Thoracotomy Algorithm and Procedure Guide. 2024. https://westerntrauma.org/wp-content/uploads/2024/02/ERT-Algorithm-Procedures.pdf",
@@ -4552,10 +4563,10 @@
         "Procedure tolerated; removal within 24 hours and transition to definitive access."
       ],
       "seniorPearls": [
-        "IO is not a last resort. If you cannot get a peripheral line in a crashing patient in 90 seconds, drill.",
-        "Lidocaine before the flush, not after. Three minutes including the dwell.",
-        "Through-and-through is a real risk in peds. Use the correct needle length and stop at loss of resistance.",
-        "The 5 mm mark beats any weight chart: it measures how much needle is left after the tissue."
+        "Crashing patient, no peripheral line in 90 seconds: drill.",
+        "Lidocaine before the flush; three minutes including the dwell.",
+        "Peds: through-and-through risk. Use the correct needle length and stop at loss of resistance.",
+        "Trust the 5 mm mark over the weight chart: it measures how much needle is left after the tissue."
       ],
       "references": [
         "Teleflex. Arrow EZ-IO intraosseous vascular access procedure template, document MCI-2019-0395. https://www.teleflex.com/global/clinical-resources/documents/MCI-2019-0395_Arrow_EZ-IO_Intraosseous_Procedure_Template_LR.pdf",
@@ -4716,7 +4727,7 @@
         "Return for increasing pain, redness, warmth, fever.",
         "Keep the dressing clean and dry for 24 hours.",
         "Follow up culture and crystal results.",
-        "Suspected septic arthritis: treat and admit rather than wait for a number. In sepsis or septic shock, empiric antibiotics go immediately, before or without the aspirate."
+        "Suspected septic arthritis: treat and admit without waiting for results. In sepsis or septic shock, empiric antibiotics go immediately, before or without the aspirate."
       ],
       "documentation": [
         "Knee arthrocentesis, [side] knee, for [indication].",
@@ -4728,9 +4739,10 @@
         "Sterile dressing applied."
       ],
       "seniorPearls": [
-        "Debating whether to tap a hot swollen joint? Tap it.",
-        "Clear straw-colored fluid does not rule out infection. Send the labs.",
-        "No synovial white cell count rules septic arthritis in or out. Above 50,000 raises the probability without confirming it; below 50,000 does not exclude it, particularly early, in the immunocompromised, and in prosthetic joints. Crystals do not exclude infection - gout and a septic joint can coexist in the same knee."
+        "Hot swollen joint and unsure whether to tap: tap it.",
+        "Clear straw-colored fluid does not rule out infection; send the labs.",
+        "No synovial white cell count rules septic arthritis in or out. Above 50,000 raises the probability without confirming it; below 50,000 does not exclude it, particularly early, in the immunocompromised, and in prosthetic joints.",
+        "Crystals do not exclude infection; gout and a septic joint can coexist in the same knee."
       ],
       "references": [
         "European Bone and Joint Infection Society. Guideline for the management of septic arthritis in native joints (SANJO). J Bone Jt Infect. 2023;8(1):29-37. https://doi.org/10.5194/jbji-8-29-2023",
@@ -5014,7 +5026,7 @@
         "Sedate unless peri-arrest - see the procedural sedation card.",
         "Pulseless VT or VF: defibrillate (SYNC off, max energy).",
         "Initial biphasic energy: atrial fibrillation 200 J, atrial flutter 200 J, narrow-complex SVT 100 J, monomorphic VT with a pulse 100 J.",
-        "Manufacturer's recommended energy takes precedence - know your machine's before the night you need it.",
+        "Manufacturer's recommended energy takes precedence; know your machine's in advance.",
         "If a shock fails, escalate toward the device maximum; do not repeat the same energy."
       ],
       "indications": [
@@ -5065,7 +5077,8 @@
         "Announce \"Charging\" and charge.",
         "Visual and verbal clear: \"I am clear, you are clear, everyone is clear.\"",
         "Deliver the shock; hold the button until the device fires (SYNC may delay).",
-        "Assess the rhythm immediately. If unsuccessful, escalate the energy rather than repeat it. Confirm SYNC on the screen before every shock - whether a device holds or drops it after a shock is configurable on current Philips and LIFEPAK platforms."
+        "Assess the rhythm immediately; if unsuccessful, escalate the energy rather than repeat it.",
+        "Confirm SYNC on the screen before every shock; whether it persists after a shock is configurable on current Philips and LIFEPAK platforms."
       ],
       "ultrasound": [],
       "confirmation": [
@@ -5076,7 +5089,7 @@
       "troubleshooting": [
         "Shock does not fire: SYNC waits for an R wave; a rhythm too irregular or amplitude too low may never trigger it. Change lead, increase ECG gain, or defibrillate unsynchronized if deteriorating.",
         "Rhythm unchanged: escalate energy, check pad contact, try anteroposterior.",
-        "Patient moves or remembers the shock: sedation failure. Do not shock a conscious patient again without deepening sedation unless peri-arrest.",
+        "Patient moves or remembers the shock: sedation failure. Deepen sedation before the next shock unless peri-arrest.",
         "Deteriorates to VF or pulseless VT: unsynchronized defibrillation at max energy immediately.",
         "Post-cardioversion bradycardia: observe; atropine if symptomatic; transcutaneous pacing at bedside.",
         "Recurrence: consider an antiarrhythmic before repeating cardioversion."
@@ -5109,7 +5122,7 @@
         "Post-procedure 12-lead ECG. Monitoring, device interrogation, and anticoagulation plan."
       ],
       "seniorPearls": [
-        "The first shock is the one most likely to work. Do not spend it on a low energy chosen out of caution.",
+        "The first shock is the one most likely to work: give it at the recommended energy, not a lower one.",
         "Anteroposterior is better for atrial fibrillation. If anterolateral fails, switch before escalating energy."
       ],
       "references": [
@@ -5150,7 +5163,7 @@
     "sections": {
       "shiftMode": [
         "Needle aspiration, I&D, and abscess tonsillectomy are all effective; aspiration is the usual bedside choice. Follow local ENT preference.",
-        "First decide whether anything can be done at the bedside at all (contraindications) - the airway question comes before the technique question.",
+        "Airway first: decide whether bedside drainage is appropriate at all (contraindications) before choosing a technique.",
         "Needle guard at 1 cm depth (cut syringe sheath or tape).",
         "Aspirate at maximal fluctuance or bulging, usually the superior pole.",
         "Suction ready - these patients aspirate pus.",
@@ -5162,8 +5175,8 @@
         "Peritonsillar cellulitis progressing to abscess despite outpatient antibiotics"
       ],
       "contraindications": [
-        "Any airway warning sign: stridor, drooling or inability to handle secretions, respiratory distress, a tripoding or sniffing posture, or hypoxia. These patients need a controlled airway plan with ENT or anesthesia, not a needle at the bedside.",
-        "Severe sepsis or septic shock: resuscitate, involve ENT and critical care; drainage still happens, but not as an unmonitored bedside procedure.",
+        "Any airway warning sign: stridor, drooling or inability to handle secretions, respiratory distress, a tripoding or sniffing posture, or hypoxia. Controlled airway plan with ENT or anesthesia; no bedside needle.",
+        "Severe sepsis or septic shock: resuscitate, involve ENT and critical care; drain in a monitored setting, not as an unmonitored bedside procedure.",
         "Deep neck space extension: neck swelling, torticollis, trismus out of proportion, pain on neck movement. Image; consult ENT or surgery.",
         "Pulsatile mass or bruit (vascular anomaly): image first",
         "Severe trismus preventing visualization: sedation or operative drainage",
@@ -5180,7 +5193,8 @@
       "equipment": [
         "Headlamp or good overhead light",
         "Tongue depressor",
-        "Topical anesthetic spray; a lidocaine-based topical is the safer default. With benzocaine (e.g., Cetacaine): one shortest labelled spray, about one second, no repeat - FDA warning for methemoglobinemia, which can be fatal; the mouth and pharynx absorb quickly.",
+        "Topical anesthetic spray; a lidocaine-based topical is the safer default.",
+        "Benzocaine (e.g., Cetacaine): one shortest labelled spray, about one second, no repeat. FDA warning for methemoglobinemia, which can be fatal; the mouth and pharynx absorb quickly.",
         "1% lidocaine with epinephrine, 3 mL syringe, 25G needle",
         "18G needle on a 10 mL syringe",
         "Needle guard: tape or cut syringe cap 1 cm from the tip",
@@ -5253,9 +5267,9 @@
         "Antibiotics prescribed; ENT follow-up; return precautions."
       ],
       "seniorPearls": [
-        "Cannot open their mouth? Do not force it. Sedate or consult ENT.",
-        "First aspiration dry? Make sure you tried the superior pole before giving up.",
-        "These patients look terrible but improve dramatically within minutes of drainage.",
+        "Trismus preventing access: do not force the mouth open. Sedate or consult ENT.",
+        "Dry first aspiration: confirm the superior pole was tried before stopping.",
+        "Symptoms improve markedly within minutes of drainage.",
         "The 1 cm guard is the margin against the internal carotid."
       ],
       "references": [
@@ -5543,7 +5557,7 @@
       "shiftMode": [
         "Target: C5-C7 roots between the anterior and middle scalenes.",
         "10-15 mL. Keep the needle tip in view throughout.",
-        "Hemidiaphragmatic paresis is volume-dependent: at this volume expect it often, not always. Avoid in severe COPD or respiratory failure.",
+        "Hemidiaphragmatic paresis is volume-dependent; expect it often at this volume. Avoid in severe COPD or respiratory failure.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -5560,7 +5574,7 @@
         "Patient refusal, inability to cooperate, or inability to consent where the block is not time-critical",
         "Local anesthetic allergy",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge site compressibility, vascularity, and the consequence of a hematoma there. Follow local policy; a neuraxial hold interval does not automatically apply.",
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy.",
         "Contralateral recurrent laryngeal nerve palsy - a second palsy obstructs the airway."
       ],
       "anatomy": [
@@ -5610,7 +5624,7 @@
       "troubleshooting": [
         "Needle hard to see: adjust the angle of incidence, heel-toe, or jiggle the needle.",
         "Pain on injection, paresthesia, or high resistance: stop injecting - possible intraneural injection. Withdraw 1-2 mm and reposition. Never push harder.",
-        "Symptomatic phrenic palsy: sit up, give oxygen, measure rather than reassure. Escalate if saturation falls below baseline, work of breathing rises, or they cannot speak in full sentences.",
+        "Symptomatic phrenic palsy: sit up, give oxygen, monitor saturation and work of breathing. Escalate if saturation falls below baseline, work of breathing rises, or they cannot speak in full sentences.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia."
       ],
@@ -5810,7 +5824,7 @@
     "title": "Supraclavicular Nerve Block",
     "sections": {
       "shiftMode": [
-        "'Spinal of the arm': distal humerus, elbow, forearm, wrist, and hand.",
+        "Covers the arm from the distal humerus: elbow, forearm, wrist, and hand.",
         "Target: brachial plexus trunks/divisions ('bunch of grapes') lateral and superficial to the subclavian artery.",
         "Pneumothorax risk: the pleura is just deep to the artery. Keep the tip in view.",
         "Keep the first rib in view as the backstop between needle and pleura. Do not deliberately bounce the needle off it.",
@@ -5829,7 +5843,7 @@
         "Patient refusal, inability to cooperate, or inability to consent where the block is not time-critical",
         "Local anesthetic allergy",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge site compressibility, vascularity, and the consequence of a hematoma there. Follow local policy; a neuraxial hold interval does not automatically apply."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "The subclavian artery rests on the first rib.",
@@ -5882,7 +5896,7 @@
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
-        "Pneumothorax (most feared; needle too deep or medial)",
+        "Pneumothorax - the most serious risk (needle too deep or medial)",
         "Phrenic nerve palsy - less common than with interscalene",
         "Intravascular injection (subclavian artery/vein) causing LAST",
         "Peripheral nerve injury, usually transient, occasionally permanent",
@@ -6073,7 +6087,9 @@
     "sections": {
       "shiftMode": [
         "Retroclavicular Approach to the Infraclavicular Region (RAPTIR).",
-        "Forearm and hand trauma - less phrenic and pleural risk than a supraclavicular block, but not zero. The needle crosses the clavicle's acoustic shadow, where the tip can't be seen.",
+        "Forearm and hand trauma.",
+        "Less phrenic and pleural risk than a supraclavicular block, but not zero.",
+        "The needle crosses the clavicle's acoustic shadow, where the tip can't be seen.",
         "Target: axillary artery posterior to pectoralis minor; the cords surround it.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Aspirate before each increment and inject in stages.",
@@ -6331,7 +6347,7 @@
       "shiftMode": [
         "Target: radial nerve in the proximal forearm, lateral to the radial artery.",
         "Covers the dorsal thumb, index, and lateral middle finger.",
-        "Block as proximally as you can still hold artery and nerve together.",
+        "Block as proximally as artery and nerve stay in view together.",
         "Combine with median and ulnar for complete hand anesthesia.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Aspirate before each increment and inject in stages.",
@@ -6346,7 +6362,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge site compressibility, vascularity, and the consequence of a hematoma there. Follow local policy; a neuraxial hold interval does not automatically apply."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "Proximal forearm: the radial nerve runs deep to brachioradialis, giving off articular branches.",
@@ -6578,7 +6594,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge site compressibility, vascularity, and the consequence of a hematoma there. Follow local policy; a neuraxial hold interval does not automatically apply."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "In the mid-forearm, the median nerve lies between the flexor digitorum superficialis (FDS) and flexor digitorum profundus (FDP)."
@@ -6639,9 +6655,9 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "The carpal tunnel is confined: injecting there raises nerve-injury risk in a way the mid-forearm does not.",
-        "Aim for the deep border: injectate takes the path of least resistance and pushes superficially, so a needle beneath the nerve stays clear of its own spread.",
-        "Mechanical coupling locates the tip before you commit volume."
+        "The carpal tunnel is confined: injecting there carries more nerve-injury risk than the mid-forearm.",
+        "Aim for the deep border: injectate pushes superficially, so a needle beneath the nerve stays clear of its own spread.",
+        "Mechanical coupling locates the tip before the main volume goes in."
       ],
       "references": [
         "ACEP Sonoguide. Median Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/median-nerve-block",
@@ -6809,7 +6825,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge site compressibility, vascularity, and the consequence of a hematoma there. Follow local policy; a neuraxial hold interval does not automatically apply."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "In the forearm the ulnar nerve lies just medial to the ulnar artery, deep to flexor carpi ulnaris (FCU), in the same echogenic fascial plane."
@@ -7266,7 +7282,7 @@
       "shiftMode": [
         "Target: fascial plane superficial or deep to serratus anterior.",
         "Lateral chest wall analgesia (T3-T9).",
-        "Analgesic adjunct within a rib-fracture care bundle, not a substitute \u2014 useful, not essential.",
+        "Optional adjunct within a rib-fracture care bundle; does not replace it.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -7322,7 +7338,8 @@
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder.",
-        "Tip or pleura not continuously visible: stop advancing and reposition the probe until both are. If you cannot see them together, abandon the block rather than inject blind."
+        "Tip or pleura not continuously in view: stop advancing and reposition the probe until both are.",
+        "Cannot see tip and pleura together: abandon the block; do not inject blind."
       ],
       "complications": [
         "Pneumothorax (needle between the ribs)",
@@ -7352,7 +7369,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "The rib is the endpoint, not a waypoint - contact it and inject there; do not slide off. Off the rib is the intercostal space, with the pleura immediately behind."
+        "Contact the rib and inject there; do not slide off it. Off the rib is the intercostal space, with the pleura immediately behind."
       ],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: abdominal wall, paraspinal, and chest wall blocks. Reg Anesth Pain Med. 2021. https://doi.org/10.1136/rapm-2020-102451",
@@ -7597,7 +7614,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "A bony endpoint reduces pleural risk but does not remove it - and only if the bone is a transverse process, not a rib. A rib keeps the pleura in view beside it."
+        "Bony contact lowers pleural risk only on a transverse process, and does not remove it. A rib has the pleura beside it."
       ],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: abdominal wall, paraspinal, and chest wall blocks. Reg Anesth Pain Med. 2021. https://doi.org/10.1136/rapm-2020-102451",
@@ -7768,7 +7785,7 @@
       "contraindications": [
         "Infection at the injection site",
         "Allergy to local anesthetic",
-        "Antithrombotic therapy: not an automatic prohibition - TAP is a superficial, compressible plane block, not a deep block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy.",
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy.",
         "Bilateral block without a recalculated combined maximum dose",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking."
@@ -7780,7 +7797,8 @@
       "equipment": [
         "High-frequency linear or curvilinear transducer",
         "Regional block needle (21G or 22G, 80-100mm)",
-        "Local anesthetic: 20-30 mL per side of 0.25% bupivacaine or 0.2% ropivacaine. At 30 mL a side, a bilateral block stays well under the concentrations that caused trouble in the TAP pharmacokinetic studies. Do not dose up to the calculated ceiling - see the dose card caveat.",
+        "Local anesthetic: 20-30 mL per side of 0.25% bupivacaine or 0.2% ropivacaine.",
+        "Bilateral at 30 mL a side stays well under the concentrations that caused problems in TAP pharmacokinetic studies. Do not dose up to the calculated ceiling (see the dose card caveat).",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
@@ -7838,7 +7856,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "It blocks the abdominal wall, not the inflamed organ - visceral pain survives a technically perfect block."
+        "Visceral pain persists even with a technically good block."
       ],
       "references": [
         "ASRA-ESRA. Standardizing nomenclature in regional anesthesia: abdominal wall, paraspinal, and chest wall blocks. Reg Anesth Pain Med. 2021. https://doi.org/10.1136/rapm-2020-102451",
@@ -7995,7 +8013,8 @@
     "sections": {
       "shiftMode": [
         "Target: fascial planes between pectoralis major and minor (PECS I), and between pectoralis minor and serratus anterior (PECS II).",
-        "Covers the upper anterolateral and lateral chest wall and axilla, not the anterior chest \u2014 a randomized trial found no anterior-chest sensory block from PECS II alone. Have a fallback before relying on it for a medial or anterior procedure.",
+        "Covers the upper anterolateral and lateral chest wall and axilla, not the anterior chest.",
+        "PECS II alone gave no anterior-chest sensory block in a randomized trial: have a fallback for a medial or anterior procedure.",
         "Keep the needle tip in view the whole way through pectoralis minor.",
         "Color Doppler: find and avoid the thoracoacromial artery in the PECS I plane.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
@@ -8324,7 +8343,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "The quad weakness is profound - always document that the patient was told they cannot walk on that leg."
+        "Dense quadriceps weakness: document that the patient was told they cannot walk on that leg."
       ],
       "references": [
         "ACEP Sonoguide. Femoral Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/femoral-nerve-block",
@@ -8729,7 +8748,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and what a hematoma there would do; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "The saphenous nerve runs with the superficial femoral artery in the adductor canal, deep to sartorius."
@@ -8795,7 +8814,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "Patients can still walk, unlike after a femoral block - the choice for medial leg/ankle injuries when they need to ambulate."
+        "Patients can still walk, unlike after a femoral block: use for medial leg/ankle injuries when they need to ambulate."
       ],
       "references": [
         "ACEP Sonoguide. Saphenous Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/saphenous-nerve-block",
@@ -8967,7 +8986,7 @@
         "Injury at risk of compartment syndrome (e.g., tibial fracture): the block can mask ischemic pain - discuss with the surgical team first",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and what a hematoma there would do; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "In the popliteal fossa the sciatic nerve bifurcates into the tibial (medial) and common peroneal (lateral) nerves, roughly 6 cm above the popliteal crease.",
@@ -9193,7 +9212,7 @@
       "shiftMode": [
         "Target: sciatic nerve deep in the gluteal region/posterior thigh.",
         "Covers the posterior thigh and the entire lower leg except the medial strip.",
-        "Deep block: antithrombotic timing follows the neuraxial interval in local policy, not the superficial-block rule.",
+        "Deep block: antithrombotic timing follows the neuraxial interval in local policy.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -9448,7 +9467,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and what a hematoma there would do; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "Posterior to the medial malleolus: Tom, Dick, AND Very Nervous Harry (Tibialis posterior, flexor Digitorum longus, Artery, Vein, Nerve, flexor Hallucis longus)."
@@ -9511,7 +9530,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "Out-of-plane here is a deliberate workaround, not a shortcut - it drops the needle between nerve and artery when the tendon, malleolus and artery crowd out the in-plane view."
+        "Out-of-plane drops the needle between nerve and artery when the tendon, malleolus and artery crowd out the in-plane view."
       ],
       "references": [
         "ACEP Sonoguide. Tibial Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/tibial-nerve-block",
@@ -9678,7 +9697,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and what a hematoma there would do; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "The sural nerve travels with the small saphenous vein posterior to the lateral malleolus."
@@ -9742,7 +9761,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "The small saphenous vein is the reliable landmark, not the nerve: blocking around it reaches a nerve too small to chase."
+        "Landmark is the small saphenous vein: injecting around it reaches the nerve, which is too small to search for."
       ],
       "references": [
         "ACEP Sonoguide. Sural Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/sural-nerve-block",
@@ -9909,7 +9928,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and what a hematoma there would do; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "Pierces the deep fascia in the distal third of the lateral leg to become superficial."
@@ -9933,7 +9952,7 @@
         "After onset, test the dorsum of the foot for numbness against the other side before the planned intervention."
       ],
       "ultrasound": [
-        "A small hyperechoic structure popping through the bright fascial line."
+        "A small hyperechoic structure emerging through the bright fascial line."
       ],
       "confirmation": [
         "Spread on the screen shows where the drug went.",
@@ -9970,7 +9989,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "Already widely branched by the ankle: a band covers it, a single wheal misses most of it."
+        "Already widely branched at the ankle: a single wheal misses most of it, so inject the band."
       ],
       "references": [
         "ACEP Sonoguide. Superficial Peroneal Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/superficial-peroneal-nb",
@@ -10138,7 +10157,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and what a hematoma there would do; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "The deep peroneal nerve runs with the anterior tibial artery (dorsalis pedis) between the extensor hallucis longus and extensor digitorum longus tendons."
@@ -10199,7 +10218,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "The nerve is tiny: perivascular spread reaches it, and hunting it only risks it."
+        "Tiny nerve: perivascular spread reaches it; searching for it risks injuring it."
       ],
       "references": [
         "ACEP Sonoguide. Deep Peroneal Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/deep-peroneal-nerve-block",
@@ -10368,7 +10387,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "Supraorbital notch/foramen: superior orbital rim, usually in line with the pupil in neutral gaze.",
@@ -10388,9 +10407,11 @@
         "Palpate the supraorbital notch on the superior orbital rim.",
         "Prep the skin.",
         "Insert subcutaneously just above the eyebrow, aiming medially over the notch.",
-        "Aspirate, then inject 2 mL subcutaneously over the notch. Stay subcutaneous at the rim - do not seek or enter the notch or foramen.",
+        "Aspirate, then inject 2 mL subcutaneously over the notch.",
+        "Stay subcutaneous at the rim; do not seek or enter the notch or foramen.",
         "Supratrochlear: advance medially toward the nasal bridge in the same plane and inject 2 mL.",
-        "Keep a finger or gauze along the orbital rim below the needle throughout; never direct or advance the needle into the orbit. Stop for pain or paresthesia."
+        "Keep a finger or gauze along the orbital rim below the needle throughout; never direct or advance the needle into the orbit.",
+        "Stop for pain or paresthesia."
       ],
       "ultrasound": [
         "Not typically required. Can identify the notch (a break in the hyperechoic orbital rim) when swelling obscures landmarks."
@@ -10402,7 +10423,8 @@
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: wait out the onset time, then supplement rather than repeat - a continuous subcutaneous band along the whole eyebrow (field block) often completes coverage. Stay within the remaining allowance on the calculator.",
+        "Partial block: wait out the onset time, then supplement rather than repeat.",
+        "To supplement: a continuous subcutaneous band along the whole eyebrow (field block) often completes coverage. Stay within the remaining allowance on the calculator.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
@@ -10592,7 +10614,7 @@
         "Target: infraorbital nerve at the infraorbital foramen on the maxilla.",
         "Covers the lower eyelid, cheek, lateral nose, and upper lip.",
         "Intraoral (preferred) or extraoral approach.",
-        "Do NOT enter the foramen: nerve injury or severe pressure necrosis. Injecting near it is sufficient.",
+        "Inject near the foramen, not into it: nerve injury or severe pressure necrosis.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -10607,7 +10629,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "Infraorbital foramen: on the maxilla about 1 cm below the inferior orbital rim, directly below the pupil.",
@@ -10632,9 +10654,11 @@
         "Insert into the mucobuccal fold above the canine/first premolar, directed superiorly toward the palpating finger.",
         "Stop before hitting bone or entering the foramen.",
         "Aspirate, then inject 2-3 mL.",
-        "Keep the palpating finger over the foramen for the whole injection - it is the physical stop for the needle.",
-        "Advance parallel to the long axis of the first premolar toward the fingertip, about 1.5-2 cm in an adult, and stop there. A shallower angle points at the orbit, not the foramen.",
-        "Never advance toward or into the orbit, or past the palpating finger. Stop for pain, paresthesia, or unexpected resistance."
+        "Keep the palpating finger over the foramen for the whole injection as the stop for the needle.",
+        "Advance parallel to the long axis of the first premolar toward the fingertip, about 1.5-2 cm in an adult, then stop.",
+        "A shallower angle points at the orbit.",
+        "Never advance toward or into the orbit, or past the palpating finger.",
+        "Stop for pain, paresthesia, or unexpected resistance."
       ],
       "ultrasound": [
         "Extraoral: identifies the foramen (a break in the hyperechoic maxilla) and guides an extraoral injection."
@@ -10830,7 +10854,7 @@
         "Target: mental nerve at the mental foramen on the mandible.",
         "Covers the lower lip and chin.",
         "Intraoral approach preferred.",
-        "Do NOT inject into the foramen - nerve injury.",
+        "Do not inject into the foramen: nerve injury.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -10844,7 +10868,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "Mental foramen: anterior mandible, usually below the first or second mandibular premolar.",
@@ -11076,7 +11100,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "The nerve enters the mandibular foramen on the medial ramus.",
@@ -11085,7 +11109,8 @@
       ],
       "equipment": [
         "25G or 27G needle, long (1.5 inch minimum)",
-        "Local anesthetic, 2-3 mL: 2% lidocaine with epinephrine as default, or 0.5% bupivacaine for long duration. The 4% dental alternative is not offered - see pearls.",
+        "Local anesthetic, 2-3 mL: 2% lidocaine with epinephrine as default, or 0.5% bupivacaine for long duration.",
+        "No 4% dental agent - see pearls.",
         "Topical anesthetic",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel for ultrasound.",
@@ -11150,9 +11175,9 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "Bupivacaine gives 12-24 hours of profound relief - enough to sleep and find a dentist the next day.",
-        "Always contact bone. No hard stop, no injection.",
-        "The 4% dental agent many clinics stock is deliberately absent: reported association with persistent paresthesia after inferior alveolar block specifically - debated, with concentration the suspected reason. Lidocaine works for this block."
+        "Bupivacaine gives 12-24 hours of profound relief, enough to sleep and see a dentist the next day.",
+        "Inject only after bone contact.",
+        "No 4% dental agent: reported, debated association with persistent paresthesia after inferior alveolar block specifically; concentration is the suspected cause. Lidocaine works for this block."
       ],
       "references": [
         "Garisto GA, et al. Occurrence of paresthesia after dental local anesthetic administration in the United States. J Am Dent Assoc. 2010;141(7):836-844. https://doi.org/10.14219/jada.archive.2010.0281",
@@ -11320,7 +11345,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "Maxillary tooth roots sit just above the mucobuccal fold."
@@ -11558,7 +11583,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
       ],
       "anatomy": [
         "Several nerves reach the ear from different directions.",
@@ -11566,7 +11591,7 @@
       ],
       "equipment": [
         "25G or 27G needle (1.5 inch)",
-        "Local anesthetic (5-10 mL of 1% lidocaine or 0.5% bupivacaine, WITHOUT epinephrine)",
+        "Local anesthetic (5-10 mL of 1% lidocaine or 0.5% bupivacaine, without epinephrine)",
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel for ultrasound.",
         "Know where the 20% lipid emulsion is before injecting."

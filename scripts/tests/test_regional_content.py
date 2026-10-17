@@ -374,7 +374,7 @@ class NeedleTargetTests(unittest.TestCase):
         """Off the rib is the intercostal space, and the pleura is behind it."""
         text = joined(self.records["block_serratus_anterior"])
         self.assertNotIn("hit the rib, slide off, inject", text)
-        self.assertIn("the rib is the endpoint, not a waypoint", text)
+        self.assertIn("contact the rib and inject there", text)  # reworded in the owner-requested tone pass, 2026-10-17
         self.assertIn("off the rib is the intercostal space", text)
 
     def test_pecs_two_has_no_rib_endpoint(self):
@@ -429,12 +429,12 @@ class OverclaimTests(unittest.TestCase):
     def test_serratus_is_an_adjunct_rather_than_essential(self):
         text = joined(self.records["block_serratus_anterior"])
         self.assertNotIn("essential for multi-level rib fractures", text)
-        self.assertIn("useful, not essential", text)
+        self.assertIn("optional adjunct", text)  # reworded in the owner-requested tone pass, 2026-10-17
 
     def test_tap_is_classified_as_a_superficial_block(self):
         text = joined(self.records["block_tap"])
         self.assertIn("not an automatic prohibition", text)
-        self.assertIn("superficial, compressible plane block, not a deep block", text)
+        self.assertIn("superficial, compressible block", text)  # reworded in the owner-requested tone pass, 2026-10-17
         self.assertNotIn("deep fascial plane", text)
 
     def test_supraorbital_states_one_volume(self):

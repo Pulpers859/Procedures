@@ -121,7 +121,7 @@ class ParacentesisTests(unittest.TestCase):
 
     def test_the_sub_five_litre_albumin_exception_exists(self):
         self.assertIn("acute-on-chronic liver failure", self.text)
-        self.assertIn("a judgement call, not a threshold", self.text)
+        self.assertIn("no fixed volume threshold", self.text)  # reworded in the owner-requested tone pass, 2026-10-17
 
     def test_the_paired_serum_albumin_is_ordered_with_the_tap(self):
         """A lone ascitic albumin cannot produce a gradient, and the serum half
@@ -194,7 +194,7 @@ class PeritonsillarTests(unittest.TestCase):
 
     def test_the_airway_question_precedes_the_technique_question(self):
         self.assertIn("stridor, drooling or inability to handle secretions", self.text)
-        self.assertIn("the airway question comes before the technique question", self.text)
+        self.assertIn("before choosing a technique", self.text)  # reworded in the owner-requested tone pass, 2026-10-17
 
     def test_benzocaine_carries_its_methaemoglobinaemia_pathway(self):
         self.assertIn("methemoglobinemia", self.text)

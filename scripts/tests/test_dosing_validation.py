@@ -969,7 +969,7 @@ class PleuralProcedureTests(unittest.TestCase):
         joined = self.sections("thoracostomy_chest_tube", "troubleshooting", "shiftMode")
         self.assertIn("1,500 mL", joined)
         self.assertIn("200 mL/h", joined)
-        self.assertIn("is a call, not a number to wait for", joined)
+        self.assertIn("Do not wait for a volume", joined)  # reworded in the owner-requested tone pass, 2026-10-17
 
     def test_the_drain_system_safety_rules_are_present_on_both_drains(self):
         for pid in ("thoracostomy_chest_tube", "pigtail_catheter"):
