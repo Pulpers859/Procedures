@@ -53,7 +53,8 @@ class SafetySpineTests(unittest.TestCase):
 
     def setUp(self):
         self.blocks = regional()
-        self.assertEqual(len(self.blocks), 28)
+        # 29 since 2026-10-17: the greater occipital (suboccipital) block.
+        self.assertEqual(len(self.blocks), 29)
 
     # The contrast clause ("..., not whether the patient is blocked") was
     # reviewed out of fascia_iliaca_block on 2026-08-06, and on 2026-10-17 the
@@ -115,6 +116,7 @@ class SafetySpineTests(unittest.TestCase):
             "block_supraorbital", "block_infraorbital", "block_mental", "block_inferior_alveolar",
             "block_superior_alveolar", "block_auricular", "block_superficial_cervical_plexus",
             "block_serratus_anterior", "block_thoracic_esp", "block_tap", "block_pecs",
+            "block_greater_occipital",
         }
         for block in (b for b in self.blocks if b["id"] not in no_limb):
             with self.subTest(block["id"]):
@@ -239,8 +241,9 @@ class DosingGovernanceTests(unittest.TestCase):
         """40 from the regional/infiltration governance pass, plus 4 added when
         unbounded_agent_issues was widened to scan procedures with no dosing
         block at all: pericardiocentesis, lumbar_puncture, arterial_line, and
-        anterior_nasal_packing all named lidocaine with no ceiling anywhere."""
-        self.assertEqual(len(self.with_dosing), 44)
+        anterior_nasal_packing all named lidocaine with no ceiling anywhere.
+        45 since 2026-10-17, with the greater occipital block."""
+        self.assertEqual(len(self.with_dosing), 45)
 
     def test_the_cumulative_rule_is_fractional_everywhere(self):
         """"All local anesthetic this encounter shares one maximum" is not a

@@ -97,7 +97,21 @@ class ShippedLedgerTests(unittest.TestCase):
                 (ROOT / "Procedures" / "Resources" / "procedures.json").read_text(encoding="utf-8")
             )
         }
-        self.assertEqual(shipped - set(baseline), set())
+        # A record added after the audit is listed by name, with an owner and a
+        # reason, in addedAfterAudit. It is still reported as never screened by
+        # verify_procedure_audit.py; the list only rules out an accidental gap.
+        added = {
+            entry["recordId"] for entry in ledger.get("addedAfterAudit", [])
+            if entry.get("corpus") == "procedures.json"
+        }
+        self.assertEqual(shipped - set(baseline) - added, set())
+
+    def test_every_added_record_names_an_owner_and_a_reason(self):
+        ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
+        for entry in ledger.get("addedAfterAudit", []):
+            for field in ("corpus", "recordId", "added", "owner", "rationale"):
+                with self.subTest(record=entry.get("recordId"), field=field):
+                    self.assertTrue(str(entry.get(field) or "").strip())
 
     def test_the_rescue_baseline_never_claims_to_be_audited(self):
         """Its audited bytes are unrecoverable; nothing may imply otherwise."""

@@ -11780,5 +11780,251 @@
         "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualization by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
       ]
     }
+  },
+  {
+    "id": "block_greater_occipital",
+    "title": "Greater Occipital (Suboccipital) Nerve Block",
+    "visualAssets": [
+      {
+        "id": "greater_occipital_distribution",
+        "kind": "Distribution",
+        "title": "Expected distribution",
+        "subtitle": "Where to expect numbness on the right side.",
+        "assetName": null,
+        "systemImage": "figure.stand",
+        "caption": "The area behind the ear is left unshaded: it belongs to the lesser occipital branch.",
+        "clinicalWarning": null,
+        "legend": [
+          {
+            "tone": "teal",
+            "nerve": "Greater occipital nerve",
+            "label": "The back of the scalp on one side, from the occiput up toward the vertex."
+          }
+        ]
+      },
+      {
+        "id": "greater_occipital_patient_position",
+        "kind": "Setup",
+        "title": "Needle entry on the patient",
+        "subtitle": "Seated, neck flexed. Needle perpendicular to the scalp at the superior nuchal line, just medial to the occipital artery.",
+        "assetName": null,
+        "systemImage": "hand.point.up.left",
+        "caption": "Back of the head: fingertip on the occipital artery, needle just medial to it, one-third of the way from the protuberance to the mastoid.",
+        "clinicalWarning": null
+      },
+      {
+        "id": "greater_occipital_anatomy",
+        "kind": "Landmark",
+        "title": "Target anatomy",
+        "subtitle": "One-third of the way from the external occipital protuberance to the mastoid, on the superior nuchal line, the nerve lies just medial to the occipital artery.",
+        "assetName": null,
+        "systemImage": "square.3.layers.3d",
+        "caption": "Skull from behind: protuberance, mastoid and superior nuchal line, with the nerve and artery at the one-third point.",
+        "clinicalWarning": null
+      }
+    ],
+    "reviewTime": "2 min",
+    "reviewerStatus": "Needs Clinical Review",
+    "contentSource": "ai-draft",
+    "category": "Regional Anesthesia",
+    "difficulty": "Intermediate",
+    "setting": [
+      "ED"
+    ],
+    "lastReviewed": "2026-10-17",
+    "version": "0.1.0",
+    "tags": [
+      "regional",
+      "nerve block",
+      "suboccipital",
+      "occipital",
+      "greater occipital",
+      "GON block",
+      "migraine",
+      "headache",
+      "occipital neuralgia"
+    ],
+    "dosing": {
+      "agents": [
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 4.5,
+          "absoluteMaxMg": 300,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Lidocaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 7.0,
+          "absoluteMaxMg": 500,
+          "concentrationsPercent": [
+            1.0,
+            2.0
+          ],
+          "note": null
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 2.5,
+          "absoluteMaxMg": 175,
+          "concentrationsPercent": [
+            0.25,
+            0.5,
+            0.75
+          ],
+          "note": "Higher risk of severe cardiotoxicity than ropivacaine at equivalent doses."
+        },
+        {
+          "agent": "Bupivacaine",
+          "withEpinephrine": true,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": 225,
+          "concentrationsPercent": [
+            0.25,
+            0.5,
+            0.75
+          ],
+          "note": "Higher risk of severe cardiotoxicity than ropivacaine at equivalent doses."
+        },
+        {
+          "agent": "Ropivacaine",
+          "withEpinephrine": false,
+          "maxDoseMgPerKg": 3.0,
+          "absoluteMaxMg": null,
+          "concentrationsPercent": [
+            0.2,
+            0.5
+          ],
+          "note": "0.2% gives analgesia with less motor block and is preferred for fascial plane and continuous blocks; 0.5% for a denser block. Epinephrine is not needed - ropivacaine causes less vasodilation than lidocaine or bupivacaine, so it is absorbed more slowly. Lower risk of severe cardiotoxicity than bupivacaine at equivalent doses."
+        }
+      ],
+      "cumulativeWarning": "Maximums are not interchangeable - two agents do not share one number of milligrams. Work each agent out as a fraction of its own ceiling; the fractions must add to less than one. Count everything: skin wheals, wound infiltration, any earlier block this encounter, and both sides of a bilateral block.",
+      "monitoring": [
+        "Weigh or estimate the patient and calculate the maximum in mg AND mL before drawing up - say it out loud.",
+        "Continuous cardiac monitoring and pulse oximetry from before injection through at least 30 minutes after.",
+        "Confirm where 20% lipid emulsion is stocked before injecting - do not start without a LAST plan.",
+        "Aspirate before injecting and give the dose in 3 mL increments with repeat aspiration."
+      ],
+      "rescueCardID": "local_anesthetic_systemic_toxicity",
+      "caveats": [
+        "Use lean body weight in obese patients.",
+        "Reduce by about 25% at the extremes of age or with severe comorbidity.",
+        "The same milligram dose peaks higher from a vascular bed - intercostal, mucosal, a truncal fascial plane, an inflamed field - than from a subcutaneous wheal, so the ceiling is a limit rather than a target.",
+        "These ceilings are this app's governed policy, set by the clinical owner. The drug labels publish no universal figure per agent - they require individualization by block, site, patient size, and physical status. Staying under the number is necessary, not sufficient."
+      ]
+    },
+    "sections": {
+      "shiftMode": [
+        "Target: greater occipital nerve at the superior nuchal line, just medial to the occipital artery.",
+        "Migraine in the ED: bilateral, 3 mL of 0.5% bupivacaine a side.",
+        "Rule out a secondary headache first.",
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
+        "Aspirate before each increment and inject in stages.",
+        "Decide the backup plan before you start."
+      ],
+      "indications": [
+        "Acute migraine in the ED, after or alongside first-line parenteral treatment",
+        "Occipital neuralgia",
+        "Tension-type headache, as an adjunct to IV analgesia"
+      ],
+      "contraindications": [
+        "Suspected secondary headache, a focal neurological deficit, or headache after head trauma: work it up first",
+        "Infection over the injection site",
+        "Allergy to local anesthetic",
+        "Patient refusal, or inability to consent where the block is not time-critical",
+        "Pre-existing neurological deficit in the target territory - document before blocking.",
+        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+      ],
+      "anatomy": [
+        "The greater occipital nerve is the posterior ramus of C2. It ascends between obliquus capitis inferior and semispinalis capitis and reaches the scalp at the superior nuchal line.",
+        "At the superior nuchal line it lies about one-third of the way from the external occipital protuberance to the mastoid, about 2 cm lateral to the protuberance, just medial to the occipital artery. The position varies.",
+        "The lesser occipital, third occipital and greater auricular nerves lie nearby."
+      ],
+      "equipment": [
+        "23G or 25G needle",
+        "0.5% bupivacaine, 3 mL a side (6 mL for a bilateral block), or 2% lidocaine.",
+        "Chlorhexidine-alcohol skin prep, left to dry.",
+        "Gauze.",
+        "20% lipid emulsion located."
+      ],
+      "positioning": [
+        "Seated with the neck flexed forward, or prone."
+      ],
+      "steps": [
+        "Palpate the external occipital protuberance and the mastoid process.",
+        "Mark the point one-third of the way from the protuberance to the mastoid, on the superior nuchal line.",
+        "Feel for the occipital artery there; the entry point is just medial to it. The point of maximal tenderness can confirm it.",
+        "Prep the skin.",
+        "Insert perpendicular to the skin until resistance, withdraw 1 mm, and aspirate.",
+        "Inject 3 mL: 1 mL at the point, 1 mL medial, 1 mL lateral, aspirating before each.",
+        "For migraine, repeat on the other side."
+      ],
+      "ultrasound": [
+        "Not required for the landmark technique. Color Doppler can locate the occipital artery when it cannot be felt."
+      ],
+      "confirmation": [
+        "Numbness of the back of the scalp from the occiput toward the vertex.",
+        "Reassess the headache at 30 minutes.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
+        "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
+      ],
+      "troubleshooting": [
+        "Blood on aspiration: withdraw and redirect medially, away from the artery.",
+        "Lightheaded or faint: lay the patient flat.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
+      ],
+      "complications": [
+        "Bleeding, pain or swelling at the injection site",
+        "Intravascular injection (occipital artery)",
+        "Dizziness or vasovagal syncope",
+        "Local anesthetic systemic toxicity - see the linked rescue card",
+        "Infection",
+        "Nerve injury - usually transient, occasionally permanent",
+        "Block failure"
+      ],
+      "aftercare": [
+        "Observe for dizziness or vasovagal symptoms before discharge.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
+      ],
+      "documentation": [
+        "Headache score before the block and at 30 minutes.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
+      ],
+      "seniorPearls": [
+        "The landmark block often reaches the lesser and third occipital nerves too.",
+        "Steroid adds nothing for migraine over local anesthetic alone, and brings alopecia and skin atrophy at the site."
+      ],
+      "references": [
+        "Robblee J, et al. 2025 Guideline Update to Acute Treatment of Migraine for Adults in the Emergency Department: The American Headache Society Evidence Assessment of Parenteral Pharmacotherapies. Headache. 2025. https://doi.org/10.1111/head.70016 - Greater occipital nerve block is a Level A (\"must offer\") treatment for adults with migraine in the ED.",
+        "Friedman BW, et al. A Randomized, Sham-Controlled Trial of Bilateral Greater Occipital Nerve Blocks With Bupivacaine for Acute Migraine Patients Refractory to Standard Emergency Department Treatment With Metoclopramide. Headache. 2018. https://pubmed.ncbi.nlm.nih.gov/30144034/ - 3 mL of 0.5% bupivacaine a side; headache freedom at 30 minutes.",
+        "Arata WH, et al. Occipital nerve block for headaches: a narrative review. J Oral Facial Pain Headache. 2024;38(2):1-10. https://doi.org/10.22514/jofph.2024.010 - Landmarks, 23-25G needle, perpendicular to resistance then withdraw 1 mm and aspirate, 1 mL at the point plus 1 mL medial and lateral; adverse events; steroid adds no migraine benefit.",
+        "Oley P. Overview of Occipital Neuralgia and Greater Occipital Nerve Blocks. ASRA Pain Medicine News. 2019. https://asra.com/news-publications/asra-newsletter/newsletter-item/asra-news/2019/08/07/overview-of-occipital-neuralgia-and-greater-occipital-nerve-blocks - C2 origin and course, one-third point, medial to the occipital artery, seated or prone with the head flexed, nearby nerves.",
+        "Blumenfeld A, et al. Expert consensus recommendations for the performance of peripheral nerve blocks for headaches - a narrative review. Headache. 2013;53(3):437-446. https://pubmed.ncbi.nlm.nih.gov/23406160/",
+        "ASRA Pain Medicine. Consensus practice infection control guidelines for regional anesthesia and pain medicine. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105651",
+        "Neal JM, et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity. Reg Anesth Pain Med. 2018;43(2):113-123. https://doi.org/10.1097/AAP.0000000000000720 \u2014 Aspiration before each increment and incremental (staged) injection are the two checks most likely to catch a needle that has entered a vessel before systemic toxicity develops.",
+        "ASRA Pain Medicine. Checklist for Treatment of Local Anesthetic Systemic Toxicity. 2020. https://www.asra.com/guidelines-articles/original-articles/article-item/asra-news/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity",
+        "ASRA Pain Medicine. Regional anesthesia in the patient receiving antithrombotic or thrombolytic therapy, fifth edition. Reg Anesth Pain Med. 2025. https://doi.org/10.1136/rapm-2024-105766",
+        "FDA/DailyMed. Bupivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=02d0e5f1-5fab-4420-b673-785fd81d7ae2&type=display",
+        "FDA/DailyMed. Ropivacaine hydrochloride injection prescribing information. https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=8c5c762f-d266-4b1a-809e-f11bfc89bc2d",
+        "Verify local anaesthetic policy, antithrombotic policy, and credentialing expectations for this block where you work."
+      ]
+    }
   }
 ]

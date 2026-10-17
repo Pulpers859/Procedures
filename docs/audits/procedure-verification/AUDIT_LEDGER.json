@@ -712,5 +712,14 @@
       "followUp": "reviewerStatus is deliberately unchanged: AUDIT_PROTOCOL.md forbids an agent from setting it, and the owner promotes a sign-off through the app export and scripts/apply_local_reviews.py so the fingerprint binds it to exact bytes. Residual MINOR items: introducer and dialysis IFU binding is scoped to stocked products rather than named per-product, and artwork remains pending on all six. The air-embolism rescue card is still an AI draft awaiting review.",
       "recordedAt": "2026-07-30"
     }
+  ],
+  "addedAfterAudit": [
+    {
+      "corpus": "procedures.json",
+      "recordId": "block_greater_occipital",
+      "added": "2026-10-17",
+      "owner": "clinical owner (requested the procedure)",
+      "rationale": "New procedure written after the 2026-07 audit from cited sources (AHS 2025 ED migraine guideline, Friedman 2018 ED trial, Arata 2024 review, ASRA 2019); contentSource ai-draft and Needs Clinical Review. Not screened by any audit lane."
+    }
   ]
 }

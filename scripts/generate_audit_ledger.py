@@ -184,6 +184,11 @@ def build_ledger(previous: dict | None) -> dict:
         # Amendments are written by a person, never by this script. See
         # verify_procedure_audit.py for the fields the release gate requires.
         "amendments": previous.get("amendments", []) if previous else [],
+        # Records added to a corpus after the audit, also written by a person.
+        # Listing one does not clear it: the release gate still reports it as
+        # never screened. It only says, honestly and with an owner, that the
+        # record is new rather than missing from the baseline by accident.
+        "addedAfterAudit": previous.get("addedAfterAudit", []) if previous else [],
     }
 
 

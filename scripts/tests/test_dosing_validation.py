@@ -387,7 +387,7 @@ class ShippedPreparationTableTests(unittest.TestCase):
             p["dosing"]["agents"] for p in procedures
             if p.get("dosing") and p.get("category") == MODULE.REGIONAL_CATEGORY
         ]
-        self.assertEqual(len(self.tables), 28)
+        self.assertEqual(len(self.tables), 29)  # greater occipital added 2026-10-17
 
     def test_every_block_ships_the_designated_table(self):
         for table in self.tables:
