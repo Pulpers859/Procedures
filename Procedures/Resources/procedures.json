@@ -445,7 +445,7 @@
     "sections": {
       "shiftMode": [
         "Document pre-block neurovascular status.",
-        "Calculate the max dose (mg and mL) before drawing up - say it out loud. Calculator is on this card.",
+        "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Small volume; aspirate before each increment; inject slowly, in stages.",
         "Allow onset time; reassess anesthesia and distal perfusion before the procedure.",
         "Decide the backup plan before you start."
@@ -499,15 +499,15 @@
       "confirmation": [
         "Improved pain or numbness in the target distribution",
         "Distal perfusion intact",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before starting: light touch or cold, and motor function where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: wait out the full onset time, find the missed distribution, then supplement a small volume rather than repeat. Check the remaining allowance on the calculator first.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Severe pain with injection: slow down, reposition, buffer or warm the anesthetic.",
         "Poor perfusion after injection: remove constrictive dressing or rings, reassess volume and epinephrine, escalate if persistent.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -521,11 +521,11 @@
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad it, position it, warn about pressure, heat, and biting injury while the block lasts.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Wound-specific aftercare.",
-        "Tell the patient when the block will wear off; take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, redness at the injection site."
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Digital nerve block for analgesia of the affected digit.",
@@ -533,10 +533,10 @@
         "Skin prep; clean/sterile technique.",
         "Side and level, named unambiguously.",
         "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
-        "Needle type and gauge, approach, and in-plane or out-of-plane if ultrasound-guided.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
         "Aspiration before each increment; dose given incrementally, not as one push.",
-        "Neurological examination before and after, with any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used.",
         "No immediate complications."
       ],
@@ -5577,7 +5577,7 @@
         "Local anesthetic: 10-15 mL of 0.25% or 0.5% bupivacaine or ropivacaine",
         "Normal saline for hydrodissection (optional but recommended)",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Supine or semi-recumbent, head turned slightly away from the block side.",
@@ -5604,15 +5604,15 @@
         "Anechoic spread around the C5-C7 roots in the interscalene groove.",
         "Sensory loss over the shoulder/deltoid.",
         "Weak shoulder abduction (deltoid) and elbow flexion (biceps).",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
+        "Spread on the screen shows where the drug went.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Needle hard to see: adjust the angle of incidence, heel-toe, or jiggle the needle.",
         "Pain on injection, paresthesia, or high resistance: stop injecting - possible intraneural injection. Withdraw 1-2 mm and reposition. Never push harder.",
         "Symptomatic phrenic palsy: sit up, give oxygen, measure rather than reassure. Escalate if saturation falls below baseline, work of breathing rises, or they cannot speak in full sentences.",
-        "Partial block: after the full onset time, supplement rather than repeat. Check the remaining allowance first.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia."
       ],
       "complications": [
         "Phrenic nerve palsy (hemidiaphragmatic paresis) - volume-dependent, not universal",
@@ -5630,22 +5630,22 @@
       "aftercare": [
         "Monitor at least 30 minutes for LAST.",
         "Sling the arm to prevent traction injury.",
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Indication and consent (written or verbal per policy).",
         "Spread in the interscalene groove on ultrasound.",
         "No vascular puncture, intraneural injection, or other immediate complications.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neurological exam before and after the block; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether the block worked; if not, the alternative and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Tracing up from the supraclavicular fossa is often easier than starting at the neck.",
@@ -5845,7 +5845,7 @@
         "Local anesthetic: 20 mL total of 0.25% or 0.5% bupivacaine or 0.2% ropivacaine.",
         "Normal saline for hydrodissection",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Supine or semi-recumbent, head turned slightly away.",
@@ -5871,14 +5871,14 @@
       "confirmation": [
         "Anechoic spread around the plexus, expanding the corner pocket.",
         "Sensory and motor loss below the mid-humerus.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
+        "Spread on the screen shows where the drug went.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "First rib not visible: do not advance. The pleura is directly underneath.",
         "Needle tip lost: stop and hydrodissect with saline to find it. Do not advance blindly.",
-        "Partial block: after the full onset time, supplement rather than repeat. Check the remaining allowance first.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -5897,23 +5897,23 @@
         "Sling the arm to prevent traction injury.",
         "Assess for breathlessness: pneumothorax or phrenic palsy.",
         "Pneumothorax can present hours later: tell the patient to return for new breathlessness or pleuritic pain, and hand that over.",
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Consent and indication.",
         "Spread in the corner pocket and around the plexus on ultrasound.",
         "First rib visualized and pleura avoided.",
         "No vascular puncture or intraneural injection.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neurological exam before and after the block; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether the block worked; if not, the alternative and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Aim for the first rib: hitting it means you are clear of the pleura. Then slide up into the corner pocket.",
@@ -6104,7 +6104,7 @@
         "Local anesthetic, standard volume: 20-30 mL of 0.25% bupivacaine (30 mL = 75 mg) or 0.2% ropivacaine (30 mL = 60 mg)",
         "Local anesthetic at 0.5%: cap the volume at 20 mL (= 100 mg) and confirm the total against the weight-based maximum before drawing up",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Supine, head neutral or turned slightly away.",
@@ -6132,15 +6132,15 @@
       "confirmation": [
         "Anechoic U-shaped or circumferential spread around the axillary artery.",
         "Sensory and motor loss below the elbow.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
+        "Spread on the screen shows where the drug went.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Trajectory unclear: withdraw and redirect. A probe too close to the clavicle obstructs the view.",
         "Vein in the way: adjust the angle or ease probe pressure so it is not compressed out of view.",
         "Spread on one side of the artery only: consider a second injection; large volumes often spread enough.",
-        "Partial block: after the full onset time, supplement rather than repeat. Check the remaining allowance first.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder.",
         "Breathlessness, chest pain, or falling saturation: think pneumothorax and hemothorax, scan the chest, escalate. This site does not compress."
       ],
@@ -6156,22 +6156,22 @@
       "aftercare": [
         "Monitor for at least 30 minutes.",
         "Sling the arm to prevent traction injury.",
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Consent and indication.",
         "Spread around the axillary artery on ultrasound.",
         "No vascular puncture.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neurological exam before and after the block; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether the block worked; if not, the alternative and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "RAPTIR gives a better in-plane view of the needle approaching the artery than traditional infraclavicular approaches.",
@@ -6376,14 +6376,14 @@
       ],
       "confirmation": [
         "Numbness in the radial nerve distribution.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Nerve not visible: slide along the radial artery until it appears beside it.",
-        "Partial block: after the full onset time, supplement rather than repeat. Check the remaining allowance first.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -6395,19 +6395,19 @@
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neurological exam before and after the block; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether the block worked; if not, the alternative and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Articular branches leave in the proximal forearm, so the higher the block, the more territory it covers.",
@@ -6606,13 +6606,13 @@
         "Honeycomb nerve between the FDS and FDP bellies."
       ],
       "confirmation": [
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: after the full onset time, supplement rather than repeat. Check the remaining allowance first.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -6624,19 +6624,19 @@
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neurological exam before and after the block; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether the block worked; if not, the alternative and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "The carpal tunnel is confined: injecting there raises nerve-injury risk in a way the mid-forearm does not.",
@@ -6836,15 +6836,15 @@
         "Hyperechoic nerve, oval or triangular, directly medial to the pulsatile anechoic ulnar artery."
       ],
       "confirmation": [
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Nerve and artery too close: hydrodissect them apart with a little saline or anesthetic before surrounding the nerve.",
         "Nerve not visible: slide rapidly along the ulnar artery until it appears beside it.",
-        "Partial block: after the full onset time, supplement rather than repeat. Check the remaining allowance first.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -6856,19 +6856,19 @@
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neurological exam before and after the block; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether the block worked; if not, the alternative and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "The dorsal cutaneous branch leaves proximal to the wrist, so a wrist block misses the dorsal territory.",
@@ -7053,7 +7053,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Supine, head turned away from the side being blocked."
@@ -7073,14 +7073,14 @@
       "confirmation": [
         "Anesthetic spreading along the posterior border of the SCM, separating the fascial layers.",
         "Numbness over the neck and clavicle.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where present, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Needle tip not visible: hydrodissect with small aliquots of saline.",
-        "Partial block: wait out the full onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -7095,19 +7095,19 @@
       ],
       "aftercare": [
         "Monitor for 30 minutes, watching for dyspnea (phrenic involvement).",
-        "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off and to take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Consent, indications, and absence of complications.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; any local anesthetic already given this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; dose given incrementally.",
-        "Neurological examination before and after the block; any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and its conclusion, including any antithrombotic.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
@@ -7294,7 +7294,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Supine or lateral decubitus, arm abducted to expose the axilla and lateral chest."
@@ -7313,14 +7313,14 @@
       "confirmation": [
         "Anechoic fluid spreading linearly along the plane, unzipping the muscles.",
         "Pain relief over the lateral chest wall.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where present, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Pleura unclear: slide up or down until a rib is in view, and aim the needle at the rib.",
-        "Partial block: wait out the full onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder.",
         "Tip or pleura not continuously visible: stop advancing and reposition the probe until both are. If you cannot see them together, abandon the block rather than inject blind."
       ],
@@ -7336,19 +7336,19 @@
       "aftercare": [
         "Monitor for LAST for 30-60 minutes.",
         "Assess for pneumothorax if symptomatic.",
-        "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off and to take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Consent, indications, fascial spread confirmed, no pneumothorax.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; any local anesthetic already given this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; dose given incrementally.",
-        "Neurological examination before and after the block; any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and its conclusion, including any antithrombotic.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
@@ -7542,7 +7542,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Sitting or lateral decubitus."
@@ -7560,14 +7560,14 @@
       ],
       "confirmation": [
         "Anechoic fluid lifting erector spinae off the transverse processes.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where present, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Pleura visible between the bony shadows: too lateral, on the ribs. Slide medially until the shadow squares off and the pleura disappears behind it.",
-        "Partial block: wait out the full onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -7581,19 +7581,19 @@
       ],
       "aftercare": [
         "Monitor for LAST for 30-60 minutes.",
-        "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off and to take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Consent, spread over the transverse process confirmed, no pneumothorax.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; any local anesthetic already given this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; dose given incrementally.",
-        "Neurological examination before and after the block; any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and its conclusion, including any antithrombotic.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
@@ -7784,7 +7784,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Supine, abdomen exposed."
@@ -7801,14 +7801,14 @@
       ],
       "confirmation": [
         "Anechoic fluid spreading linearly as a black elliptical space between the internal oblique and transversus abdominis.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where present, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Only two muscle layers visible: too anterior (rectus sheath) or too posterior. Move towards the mid-axillary line.",
-        "Partial block: wait out the full onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -7822,19 +7822,19 @@
       ],
       "aftercare": [
         "Monitor for LAST for 30-60 minutes.",
-        "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off and to take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Consent, three muscle layers identified, spread in the correct plane, no intraperitoneal injection.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; any local anesthetic already given this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; dose given incrementally.",
-        "Neurological examination before and after the block; any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and its conclusion, including any antithrombotic.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
@@ -8025,7 +8025,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Supine, arm abducted to 90 degrees."
@@ -8042,13 +8042,13 @@
       ],
       "confirmation": [
         "Anechoic fluid separating the target muscle layers.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where present, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: wait out the full onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -8062,19 +8062,19 @@
       ],
       "aftercare": [
         "Monitor for LAST for 30-60 minutes.",
-        "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off and to take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Consent, volume in each plane, no pneumothorax.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; any local anesthetic already given this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; dose given incrementally.",
-        "Neurological examination before and after the block; any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and its conclusion, including any antithrombotic.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
@@ -8269,7 +8269,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Supine, leg extended."
@@ -8287,15 +8287,15 @@
       "confirmation": [
         "Anechoic fluid around the nerve beneath the fascia iliaca.",
         "Loss of anterior thigh sensation and weak knee extension (quadriceps).",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where present, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Nerve hard to distinguish from fat or connective tissue: tilt the probe to use anisotropy.",
         "Spread superficial to the fascia iliaca: withdraw slightly and redirect deeper.",
-        "Partial block: wait out the full onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -8308,19 +8308,19 @@
       ],
       "aftercare": [
         "Expect significant quadriceps weakness and a high fall risk: strict non-weight-bearing until the block wears off. Tell the patient and say so at handover.",
-        "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off and to take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Consent; spread below the fascia iliaca confirmed; fall-risk warning given.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; any local anesthetic already given this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; dose given incrementally.",
-        "Neurological examination before and after the block; any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and its conclusion, including any antithrombotic.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
@@ -8506,7 +8506,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves; single-use sterile probe cover and gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Patient supine."
@@ -8524,14 +8524,14 @@
       ],
       "confirmation": [
         "Anechoic fluid lifting the psoas off the bone.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the target territory before starting: light touch or cold, and motor function where present, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Injectate in the muscle belly: too superficial. Get deep to the psoas tendon before injecting.",
-        "Partial block: wait out the full onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
@@ -8544,20 +8544,20 @@
       ],
       "aftercare": [
         "Monitor for LAST for 30-60 minutes.",
-        "Protect the insensate part: pad and position it, and warn the patient about pressure and heat while the block lasts.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "With motor block the limb cannot bear weight - a fall risk in older patients. Tell the patient and say so at handover.",
-        "Tell the patient when the block wears off and to take oral analgesia before then.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the site."
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Consent; spread deep to the psoas tendon confirmed.",
-        "Side and level.",
-        "Agent, concentration, volume, and total in milligrams; any local anesthetic already given this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; dose given incrementally.",
-        "Neurological examination before and after the block; any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and its conclusion, including any antithrombotic.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
@@ -8717,7 +8717,7 @@
         "Covers the medial lower leg and ankle.",
         "Purely sensory branch of the femoral nerve.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -8742,7 +8742,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves, single-use sterile probe cover, sterile gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Supine, leg slightly externally rotated (frog leg)."
@@ -8761,38 +8761,38 @@
       "confirmation": [
         "Anechoic fluid around the artery and nerve in the adductor canal.",
         "Loss of sensation on the medial lower leg.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before blocking: light touch or cold, plus motor where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Nerve not visible: perivascular spread around the artery within the canal is usually sufficient.",
-        "Partial block: after the full onset time, supplement rather than repeat, within the remaining allowance.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
-        "Local anesthetic systemic toxicity - linked rescue card",
+        "Local anesthetic systemic toxicity - see the linked rescue card",
         "Bleeding or hematoma",
         "Infection",
         "Nerve injury - usually transient, occasionally permanent",
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the injection site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neuro exam before and after, any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Patients can still walk, unlike after a femoral block - the choice for medial leg/ankle injuries when they need to ambulate."
@@ -8953,7 +8953,7 @@
         "Inject at the division, inside the common paraneural sheath and outside both nerves - fastest onset.",
         "Lower-leg trauma at compartment syndrome risk: agree the reassessment plan with the surgical team before you block.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -8981,7 +8981,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves, single-use sterile probe cover, sterile gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Prone; lateral decubitus, or supine with the leg elevated, only if prone is not possible."
@@ -9000,41 +9000,41 @@
       "confirmation": [
         "Anechoic fluid circumferentially around the sciatic nerve, often dissecting it into its two branches.",
         "Loss of sensation over the lateral leg and entire foot except the medial strip.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before blocking: light touch or cold, plus motor where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Nerve swelling during injection: stop and withdraw - the injectate should push the nerve away, not swell it.",
-        "Partial block: after the full onset time, supplement rather than repeat, within the remaining allowance.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
         "Nerve injury - usually transient, occasionally permanent",
-        "Local anesthetic systemic toxicity - linked rescue card",
+        "Local anesthetic systemic toxicity - see the linked rescue card",
         "Bleeding or hematoma",
         "Infection",
         "Block failure"
       ],
       "aftercare": [
         "Foot drop: strictly non-weight-bearing - a fall risk in older patients. Tell the patient and at handover.",
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the injection site.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site.",
         "Lower-leg trauma: name the compartment-syndrome plan - who reassesses, how often, and how pressure is measured."
       ],
       "documentation": [
         "Consent; foot-drop and fall-risk warnings given.",
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neuro exam before and after, any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Add a saphenous block for complete ankle/foot anesthesia (e.g., ankle fracture reduction)."
@@ -9195,7 +9195,7 @@
         "Covers the posterior thigh and the entire lower leg except the medial strip.",
         "Deep block: antithrombotic timing follows the neuraxial interval in local policy, not the superficial-block rule.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -9221,7 +9221,7 @@
         "Chlorhexidine-alcohol skin prep, left to dry.",
         "Sterile gloves, single-use sterile probe cover, sterile gel.",
         "Oxygen, suction, airway kit, and resuscitation equipment in the room.",
-        "20% lipid emulsion located, not assumed."
+        "20% lipid emulsion located."
       ],
       "positioning": [
         "Lateral decubitus (Sims) or prone."
@@ -9238,40 +9238,40 @@
       ],
       "confirmation": [
         "Circumferential spread around the nerve.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before blocking: light touch or cold, plus motor where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Nerve hard to see: find the acoustic shadow of the ischial tuberosity and greater trochanter; the nerve is midway.",
-        "Partial block: after the full onset time, supplement rather than repeat, within the remaining allowance.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
         "Nerve injury - usually transient, occasionally permanent",
-        "Local anesthetic systemic toxicity - linked rescue card",
+        "Local anesthetic systemic toxicity - see the linked rescue card",
         "Bleeding or hematoma",
         "Infection",
         "Block failure"
       ],
       "aftercare": [
         "Foot drop: strictly non-weight-bearing - a fall risk in older patients. Tell the patient and at handover.",
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the injection site."
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
         "Foot-drop warning given.",
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neuro exam before and after, any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "The sciatic is the largest nerve in the body: needs 20-30 mL and up to 30 min to fully block."
@@ -9436,7 +9436,7 @@
         "Color Doppler and aspiration - avoid intravascular injection.",
         "Plantar wound: block rather than infiltrate the sole.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -9477,19 +9477,19 @@
       "confirmation": [
         "Anechoic fluid surrounding the nerve.",
         "Numbness on the sole.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before blocking: light touch or cold, plus motor where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: after the full onset time, supplement rather than repeat, within the remaining allowance.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
         "Nerve injury - usually transient, occasionally permanent",
-        "Local anesthetic systemic toxicity - linked rescue card",
+        "Local anesthetic systemic toxicity - see the linked rescue card",
         "Bleeding or hematoma",
         "Infection",
         "Block failure"
@@ -9497,18 +9497,18 @@
       "aftercare": [
         "Protect the insensate part: pad, position, and warn about pressure, heat, and unnoticed injury walking on a numb sole while the block lasts.",
         "Motor block means no weight-bearing - a fall risk in older patients. Tell the patient and at handover.",
-        "Tell the patient when the block wears off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the injection site."
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neuro exam before and after, any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Out-of-plane here is a deliberate workaround, not a shortcut - it drops the needle between nerve and artery when the tendon, malleolus and artery crowd out the in-plane view."
@@ -9667,7 +9667,7 @@
         "Covers the lateral/posterior foot.",
         "Ultrasound optional: a subcutaneous wheal from Achilles tendon to lateral malleolus is faster and works as well for a nerve this small.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -9708,38 +9708,38 @@
       "confirmation": [
         "Fluid surrounding the nerve.",
         "Numbness on the lateral foot.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before blocking: light touch or cold, plus motor where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: after the full onset time, supplement rather than repeat, within the remaining allowance.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
-        "Local anesthetic systemic toxicity - linked rescue card",
+        "Local anesthetic systemic toxicity - see the linked rescue card",
         "Bleeding or hematoma",
         "Infection",
         "Nerve injury - usually transient, occasionally permanent",
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Motor block means no weight-bearing - a fall risk in older patients. Tell the patient and at handover.",
-        "Tell the patient when the block wears off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the injection site."
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neuro exam before and after, any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "The small saphenous vein is the reliable landmark, not the nerve: blocking around it reaches a nerve too small to chase."
@@ -9898,7 +9898,7 @@
         "Covers the dorsum of the foot except the first web space.",
         "Inject a subcutaneous band from the anterior tibial crest to the lateral malleolus, not a single wheal.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -9936,38 +9936,38 @@
         "A small hyperechoic structure popping through the bright fascial line."
       ],
       "confirmation": [
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before blocking: light touch or cold, plus motor where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: after the full onset time, supplement rather than repeat, within the remaining allowance.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
-        "Local anesthetic systemic toxicity - linked rescue card",
+        "Local anesthetic systemic toxicity - see the linked rescue card",
         "Bleeding or hematoma",
         "Infection",
         "Nerve injury - usually transient, occasionally permanent",
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Motor block means no weight-bearing - a fall risk in older patients. Tell the patient and at handover.",
-        "Tell the patient when the block wears off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the injection site."
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neuro exam before and after, any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Already widely branched by the ankle: a band covers it, a single wheal misses most of it."
@@ -10127,7 +10127,7 @@
         "Color Doppler and aspiration - avoid intravascular injection.",
         "Perivascular spread around the anterior tibial artery; don't chase the nerve.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -10165,38 +10165,38 @@
         "Pulsatile artery; the nerve is a small honeycomb dot beside it."
       ],
       "confirmation": [
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before blocking: light touch or cold, plus motor where the nerve has one, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: after the full onset time, supplement rather than repeat, within the remaining allowance.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
-        "Local anesthetic systemic toxicity - linked rescue card",
+        "Local anesthetic systemic toxicity - see the linked rescue card",
         "Bleeding or hematoma",
         "Infection",
         "Nerve injury - usually transient, occasionally permanent",
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Motor block means no weight-bearing - a fall risk in older patients. Tell the patient and at handover.",
-        "Tell the patient when the block wears off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
-        "Return precautions: numbness or weakness beyond the expected duration, new or escalating pain, or redness at the injection site."
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
+        "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
-        "Needle type and gauge, approach, in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental dosing.",
-        "Neuro exam before and after, any prior deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
+        "Needle type and gauge, approach, and whether ultrasound guidance was in-plane or out-of-plane.",
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "The nerve is tiny: perivascular spread reaches it, and hunting it only risks it."
@@ -10355,7 +10355,7 @@
         "Covers the forehead and anterior scalp.",
         "Landmark-guided, along the superior orbital rim.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -10366,7 +10366,7 @@
       "contraindications": [
         "Infection over the injection site",
         "Allergy to local anesthetic",
-        "Refusal, or inability to consent when the block is not time-critical",
+        "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
         "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
       ],
@@ -10397,14 +10397,14 @@
       ],
       "confirmation": [
         "Numbness of the forehead and anterior scalp back to the vertex.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before starting: light touch or cold, plus motor where relevant, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Partial block: wait out the onset time, then supplement rather than repeat - a continuous subcutaneous band along the whole eyebrow (field block) often completes coverage. Stay within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
@@ -10416,19 +10416,19 @@
       ],
       "aftercare": [
         "Warn about eyelid swelling if the volume was large.",
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
         "Needle and gauge, approach, and ultrasound in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental, not one push.",
-        "Neuro exam before and after; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Epinephrine reduces bleeding in forehead lacerations and prolongs the block.",
@@ -10594,7 +10594,7 @@
         "Intraoral (preferred) or extraoral approach.",
         "Do NOT enter the foramen: nerve injury or severe pressure necrosis. Injecting near it is sufficient.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -10605,7 +10605,7 @@
       "contraindications": [
         "Infection over the injection site",
         "Allergy to local anesthetic",
-        "Refusal, or inability to consent when the block is not time-critical",
+        "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
         "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
       ],
@@ -10641,14 +10641,14 @@
       ],
       "confirmation": [
         "Numbness of the upper lip, cheek, and side of the nose.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before starting: light touch or cold, plus motor where relevant, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: wait out the onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
@@ -10659,19 +10659,19 @@
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
         "Needle and gauge, approach (intraoral or extraoral), and ultrasound in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental, not one push.",
-        "Neuro exam before and after; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Intraoral is much less painful than going through facial skin.",
@@ -10832,7 +10832,7 @@
         "Intraoral approach preferred.",
         "Do NOT inject into the foramen - nerve injury.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -10842,7 +10842,7 @@
       "contraindications": [
         "Infection over the injection site",
         "Allergy to local anesthetic",
-        "Refusal, or inability to consent when the block is not time-critical",
+        "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
         "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
       ],
@@ -10875,14 +10875,14 @@
       ],
       "confirmation": [
         "Numbness of the ipsilateral lower lip and chin.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before starting: light touch or cold, plus motor where relevant, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
-        "Partial block: wait out the onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection",
@@ -10893,19 +10893,19 @@
         "Block failure"
       ],
       "aftercare": [
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
         "Needle and gauge, approach, and ultrasound in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental, not one push.",
-        "Neuro exam before and after; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Preferred for a complex lower lip laceration - faster and less painful than infiltration."
@@ -11063,7 +11063,7 @@
         "Profound anesthesia of all mandibular teeth to the midline, lower lip, and chin.",
         "First-line for lower jaw dental pain in the ED.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -11074,7 +11074,7 @@
       "contraindications": [
         "Infection over the injection site, including the retromolar/pterygomandibular space",
         "Allergy to local anesthetic",
-        "Refusal, or inability to consent when the block is not time-critical",
+        "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
         "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
       ],
@@ -11109,16 +11109,16 @@
       ],
       "confirmation": [
         "Profound numbness of the lower teeth, lower lip, and ipsilateral anterior 2/3 of the tongue (lingual nerve).",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before starting: light touch or cold, plus motor where relevant, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "No bone: too posterior - parotid injection risks facial nerve paralysis. Withdraw, redirect more laterally.",
         "Bone immediately: too anterior. Withdraw, redirect more medially.",
-        "Partial block: wait out the onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Transient facial nerve paralysis (parotid injection)",
@@ -11134,20 +11134,20 @@
       "aftercare": [
         "Warn against chewing the numb lip or tongue.",
         "Dental follow-up.",
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
         "Bone contact before injection.",
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
         "Needle and gauge, approach, and ultrasound in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental, not one push.",
-        "Neuro exam before and after; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Bupivacaine gives 12-24 hours of profound relief - enough to sleep and find a dentist the next day.",
@@ -11308,7 +11308,7 @@
         "Supraperiosteal infiltration: anesthetic diffuses through the porous maxilla (unlike the mandible) to the root.",
         "Anesthetizes individual upper teeth.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -11318,7 +11318,7 @@
       "contraindications": [
         "Infection or abscess at the injection site",
         "Allergy to local anesthetic",
-        "Refusal, or inability to consent when the block is not time-critical",
+        "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
         "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
       ],
@@ -11349,15 +11349,15 @@
       ],
       "confirmation": [
         "Numbness of the tooth and surrounding gingiva.",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before starting: light touch or cold, plus motor where relevant, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Fails over an infected tooth (altered local pH): use a regional block away from the infection - infraorbital or posterior superior alveolar.",
-        "Partial block: wait out the onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Intravascular injection (rare)",
@@ -11370,20 +11370,20 @@
       ],
       "aftercare": [
         "Dental follow-up.",
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
         "Tooth targeted.",
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
         "Needle and gauge, approach, and ultrasound in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental, not one push.",
-        "Neuro exam before and after; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Upper teeth rarely need a complex nerve block: infiltration above the root works 95% of the time."
@@ -11546,7 +11546,7 @@
         "Anesthetizes the auricle except the external auditory canal and concha.",
         "No epinephrine - cartilage ischemia risk.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
-        "Aspirate before each increment; inject in stages.",
+        "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
       ],
       "indications": [
@@ -11556,7 +11556,7 @@
       "contraindications": [
         "Infection over the injection site",
         "Allergy to local anesthetic",
-        "Refusal, or inability to consent when the block is not time-critical",
+        "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
         "Antithrombotic therapy: not an automatic prohibition for this superficial, compressible block. Judge on site compressibility, vascularity, and hematoma consequence; local policy applies, neuraxial hold intervals do not automatically."
       ],
@@ -11586,15 +11586,15 @@
       ],
       "confirmation": [
         "Complete numbness of the auricle (pinna).",
-        "Spread on the screen shows where the drug went, not whether the patient is blocked.",
-        "Test the territory before starting: light touch or cold, plus motor where relevant, against the other side.",
+        "Spread on the screen shows where the drug went.",
+        "Test the target territory before blocking: light touch or cold, and motor function where present, against the other side.",
         "Give the agent its onset time before judging: lidocaine 5-10 minutes, bupivacaine and ropivacaine 15-30."
       ],
       "troubleshooting": [
         "Concha still painful: vagal/facial innervation from deeper - a local wheal in the concha may be needed.",
-        "Partial block: wait out the onset time, then supplement rather than repeat, within the remaining allowance on the calculator.",
-        "Failed block: do not re-inject the same volume in the same place. Options: a different level, the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
-        "Pain on injection, paresthesia, or high resistance: stop and reposition. Never push harder."
+        "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
+        "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
+        "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
       ],
       "complications": [
         "Cartilage necrosis (with epinephrine; controversial, best avoided)",
@@ -11607,20 +11607,20 @@
       ],
       "aftercare": [
         "Routine wound care, or compression dressing for hematomas.",
-        "Protect the insensate part: pad, position, and warn about pressure and heat while the block lasts.",
-        "Tell the patient when the block wears off; oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through. Hand that over.",
+        "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
+        "Tell the patient when the block will wear off and to take oral analgesia before it does.",
+        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
         "No epinephrine used.",
-        "Side and level.",
-        "Agent, concentration, volume, total in milligrams; prior local anesthetic this encounter and the running total.",
+        "Side and level, named unambiguously.",
+        "Agent, concentration, volume, and the total in milligrams. Any local anesthetic already given this encounter, and the running total.",
         "Needle and gauge, approach, and ultrasound in-plane or out-of-plane.",
-        "Aspiration before each increment; incremental, not one push.",
-        "Neuro exam before and after; any pre-existing deficit recorded as pre-existing.",
-        "Bleeding-risk assessment and conclusion, including any antithrombotic.",
-        "Whether it worked; if not, what was done instead and how much of the ceiling it used."
+        "Aspiration before each increment; dose given incrementally, not as one push.",
+        "Neurological examination before and after the block, with any pre-existing deficit recorded as pre-existing.",
+        "Bleeding-risk assessment and its conclusion, including any antithrombotic the patient is taking.",
+        "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
         "Use a long needle: two punctures (inferior and superior) complete the ring."

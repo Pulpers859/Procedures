@@ -55,22 +55,22 @@ class SafetySpineTests(unittest.TestCase):
         self.blocks = regional()
         self.assertEqual(len(self.blocks), 28)
 
-    # Reviewed out of fascia_iliaca_block on 2026-08-06. The reviewer kept
-    # "spread on the screen shows where the drug went" and cut the contrast
-    # clause. Named here rather than dropping the guarantee: the other 27
-    # blocks are still held against the drift this was written for.
-    SPREAD_EXEMPT = {"fascia_iliaca_block"}
+    # The contrast clause ("..., not whether the patient is blocked") was
+    # reviewed out of fascia_iliaca_block on 2026-08-06, and on 2026-10-17 the
+    # owner asked for a tone pass that put every block's shared lines into
+    # that reviewed wording. The guarantee the clause carried - spread is not
+    # success, test the patient - now rests on the territory test below.
+    TERRITORY_TEST_EXEMPT = {"fascia_iliaca_block"}
 
     def test_every_block_states_that_spread_is_not_success(self):
         """Ultrasound confirms where the drug went. Twenty-five of these records
         had one or two confirmation lines and none of them tested the patient."""
-        for block in (b for b in self.blocks if b["id"] not in self.SPREAD_EXEMPT):
+        for block in self.blocks:
             with self.subTest(block["id"]):
-                self.assertIn(
-                    "spread on the screen shows where the drug went, "
-                    "not whether the patient is blocked",
-                    joined(block),
-                )
+                text = joined(block)
+                self.assertIn("spread on the screen shows where the drug went", text)
+                if block["id"] not in self.TERRITORY_TEST_EXEMPT:
+                    self.assertIn("target territory", text)  # a test of it, in confirmation or the pre-block exam step
 
     def test_every_block_carries_an_onset_time_before_calling_failure(self):
         """The guarantee is the times themselves, so pin those rather than the
