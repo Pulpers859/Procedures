@@ -11,49 +11,48 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "ETT (7.0-7.5 for most adults; 8.0 for large males) — confirm cuff inflates with 10 mL syringe",
-      "Malleable stylet — pre-set hockey-stick or gentle curve before handing to intubator",
-      "10 mL syringe for cuff inflation",
-      "Laryngoscope handle with Mac 3 and Mac 4 blades (confirm light before patient arrives)",
+      "ETT 7.0-7.5 for most adults, 8.0 for large males; test the cuff",
+      "Malleable stylet, pre-shaped: hockey stick or gentle curve",
+      "10 mL syringe for the cuff",
+      "Laryngoscope handle, Mac 3 and Mac 4 blades; check the light before the patient arrives",
       "Water-soluble or lidocaine lubricant for stylet tip and distal ETT",
       "Colorimetric CO2 detector",
-      "Bite block or size-appropriate oral airway adjunct",
-      "Tape or commercial tube holder (Thomas or Anchor Fast)"
+      "Bite block or sized oral airway",
+      "Tape or commercial tube holder"
     ],
     "outsideKit": [
-      "Video laryngoscope (GlideScope, C-MAC, or equivalent) - at bedside BEFORE paralytic is given",
-      "BVM with PEEP valve and O2 reservoir bag - confirm PEEP valve attached",
+      "Video laryngoscope at the bedside before the paralytic",
+      "BVM with PEEP valve and O2 reservoir",
       "Nasal cannula at 15 L/min for apneic oxygenation during laryngoscopy",
-      "Suction (Yankauer) - turned ON, tested, positioned at right side of patient's head",
-      "Waveform capnography device (continuous; not colorimetric alone)",
-      "Patent IV access confirmed with flush before any medications",
-      "RSI medications: induction agent + paralytic - drawn, labeled, dose verified aloud",
-      "Post-intubation sedation ready before paralytic given (propofol, ketamine, or fentanyl + versed infusion)",
-      "Ventilator set up: TV 6-8 mL/kg IBW, rate 14, FiO2 100%, PEEP 5",
-      "Cardiac monitor: continuous O2 sat (waveform), BP cycling every 2 min, rhythm strip"
+      "Yankauer suction on, tested, at the right side of the head",
+      "Continuous waveform capnography, not colorimetric alone",
+      "RSI drugs: induction agent and paralytic drawn, labeled, dose read aloud",
+      "Post-intubation sedation ready before the paralytic: propofol, ketamine, or fentanyl plus midazolam infusion",
+      "Ventilator set: TV 6-8 mL/kg IBW, rate 14, FiO2 100%, PEEP 5",
+      "Cardiac monitor"
     ],
     "commonlyForgotten": [
-      "Nasal cannula for apneic oxygenation - leave on under the BVM during laryngoscopy",
-      "PEEP valve on BVM - attach before preoxygenation",
+      "Nasal cannula left on under the BVM during laryngoscopy",
+      "PEEP valve on the BVM before preoxygenation",
       "Waveform capnography - colorimetric gives false positives in low-flow and cardiac arrest states",
-      "Suction ON before first bag-mask ventilation",
+      "Suction on before the first bag-mask breath",
       "Post-intubation sedation drawn and labeled - paralytic wears off in 10-15 min",
-      "Second ETT of different size"
+      "Second ETT, different size"
     ],
     "patientSetup": [
-      "Ramp position: elevate head until external auditory meatus aligns with sternal notch - critical in obese and pregnant patients; use blankets, ramp pillow, or scoop mattress",
-      "Head of bed at intubator's working height - stand, not crouch",
-      "IV access confirmed patent with flush before any medications administered",
-      "Monitoring: continuous O2 sat (waveform), waveform ETCO2, BP cycling every 2 min, cardiac telemetry",
-      "Assign roles before induction: one on BVM, one on drugs, one for cricoid if used - brief everyone aloud",
-      "Verbalize the primary and backup plan (primary airway, backup device, surgical rescue) before paralytic"
+      "Ramp until the external auditory meatus is level with the sternal notch, especially in obesity and pregnancy: blankets, ramp pillow or scoop",
+      "Bed at the intubator's standing working height",
+      "IV patent on flush before any medication",
+      "Monitoring: waveform SpO2, waveform ETCO2, BP every 2 min, cardiac telemetry",
+      "Roles assigned before induction: BVM, drugs, cricoid if used; brief aloud",
+      "Say the plan before the paralytic: primary airway, backup device, surgical rescue"
     ],
     "sterileSetup": [
       "Clean technique, clean gloves",
-      "Avoid contaminating distal 10 cm of ETT and cuff",
-      "Mayo stand in order: ETT + stylet assembled and shaped, syringe attached, lubricant applied; laryngoscope blade clicked in and light confirmed",
-      "Backup blade (different size or video) on mayo stand or immediately reachable",
-      "Suction Yankauer uncapped and positioned at right side of patient's head before induction"
+      "Keep the distal 10 cm of the ETT and the cuff uncontaminated",
+      "Mayo stand: ETT and stylet shaped, syringe on, lubricant applied; blade on, light checked",
+      "Backup blade (different size or video) on the Mayo stand or within reach",
+      "Yankauer uncapped at the right side of the head before induction"
     ],
     "backupEquipment": [
       "Bougie (Eschmann stylet) - in hand or on mayo stand; use at first difficult view, not after repeated failed attempts",
@@ -81,42 +80,41 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Scalpel (#20 or #10 blade)",
-      "Tracheal hook (cric hook) — to hold the inferior thyroid cartilage cephalad while tube passes",
-      "Curved clamp (Kelly or Rochester hemostat) — to blunt-dissect and dilate the membrane opening",
-      "6.0 cuffed ETT or 6.0 cuffed cric tube (Shiley or Portex)",
-      "10 mL syringe for cuff inflation",
-      "Suction Yankauer with suction tubing",
-      "Cloth tape or suture to secure tube"
+      "Scalpel, #20 or #10 blade",
+      "Tracheal (cric) hook - holds the inferior thyroid cartilage cephalad while the tube passes",
+      "Curved clamp (Kelly) to blunt-dissect and dilate the membrane opening",
+      "6.0 cuffed ETT or 6.0 cuffed cric tube",
+      "10 mL syringe, pre-charged with air on the field for cuff inflation",
+      "Yankauer with suction tubing",
+      "Cloth tape or suture to secure the tube"
     ],
     "outsideKit": [
-      "Suction ON at bedside",
-      "BVM with O2 source connected and ready for immediate ventilation",
-      "Waveform capnography to confirm tube position after placement",
-      "Headlamp or procedure light - not overhead room light alone",
-      "Second person to stabilize the larynx and maintain neutral cervical alignment in trauma",
-      "10 cc syringe pre-charged (for immediate cuff inflation) on the field"
+      "Suction on at the bedside",
+      "BVM on O2, ready to ventilate",
+      "Waveform capnography",
+      "Headlamp or procedure light, not overhead light alone",
+      "Second person to stabilize the larynx and hold neutral cervical alignment in trauma"
     ],
     "commonlyForgotten": [
       "Headlamp",
       "Suction before you cut",
-      "Cric hook to retract and hold the inferior thyroid cartilage cephalad before tube insertion",
-      "Confirm tube position with waveform capnography, not colorimetric - low-output states give false negatives",
+      "Cric hook in before the tube",
+      "Confirm with waveform capnography, not colorimetric - low-output states give false negatives",
       "Horizontal incision through the membrane after the vertical skin incision"
     ],
     "patientSetup": [
-      "Extend the neck: shoulder roll under shoulders; do NOT hyperextend in trauma — maintain inline cervical stabilization",
-      "Palpate landmarks before cutting: thyroid notch → descend midline → find soft space = cricothyroid membrane",
-      "Stabilize the larynx: non-dominant thumb and middle finger on thyroid cartilage; index finger on membrane",
-      "Operator at right side of patient for right-handed operator",
-      "Mark membrane with skin marker in semi-elective settings; in emergency, use finger stabilization",
-      "Remove neck jewelry and loosen collar or cervical collar before prep"
+      "Shoulder roll to extend the neck; no hyperextension in trauma - inline cervical stabilization",
+      "Landmarks before cutting: thyroid notch, down the midline to the soft space - the cricothyroid membrane",
+      "Larynx stabilized: non-dominant thumb and middle finger on the thyroid cartilage, index finger on the membrane",
+      "Right-handed operator on the patient's right",
+      "Semi-elective: mark the membrane with a skin marker; emergency: finger stabilization",
+      "Remove neck jewelry; loosen the collar or cervical collar before prep"
     ],
     "sterileSetup": [
-      "Betadine or chlorhexidine prep over anterior neck if time permits - in CICO, clean gloves and proceed immediately",
+      "Betadine or chlorhexidine over the anterior neck if time permits; in CICO, clean gloves and proceed immediately",
       "Sterile drape if time permits",
-      "Mayo stand: scalpel, cric hook, clamp, tube + syringe, suction, gauze",
-      "Suction immediately adjacent to the working field"
+      "Mayo stand: scalpel, cric hook, clamp, tube and syringe, suction, gauze",
+      "Suction next to the working field"
     ],
     "backupEquipment": [
       "Needle cricothyrotomy (14g angiocath): temporizing bridge for maximum 30-45 min with jet ventilation — do not delay surgical cric if jet ventilation is unavailable",
@@ -141,50 +139,50 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Triple-lumen CVC (15-16 cm for IJ/subclavian; 20 cm for femoral) — Arrow, Cook, or equivalent",
-      "Introducer needle (18g, included in kit)",
-      "Guidewire (J-tip, 0.035\") — keep track of depth mark at skin at all times",
+      "Triple-lumen CVC: 15-16 cm IJ or subclavian, 20 cm femoral",
+      "Introducer needle, 18g",
+      "Guidewire, J-tip 0.035\"; track the depth mark at the skin throughout",
       "Vessel dilator",
-      "1% lidocaine in 5 mL syringe with 25g and 22g needles",
+      "1% lidocaine, 5 mL syringe, 25g and 22g needles",
       "10 mL syringe for aspiration and flushing",
-      "Sterile 4x4 gauze packs",
+      "Sterile 4x4 gauze",
       "Large sterile drapes and fenestrated drape",
-      "Chlorhexidine prep applicator sticks (×2 minimum)",
-      "Suture (3-0 silk on straight needle) or StatLock securement device",
-      "Heparin-lock caps (×3, one per lumen)",
-      "Transparent occlusive dressing (Tegaderm or Biopatch + Tegaderm)"
+      "Chlorhexidine applicators ×2 minimum",
+      "3-0 silk on a straight needle, or StatLock",
+      "Heparin-lock caps ×3, one per lumen",
+      "Transparent occlusive dressing, with or without Biopatch"
     ],
     "outsideKit": [
-      "Ultrasound machine with high-frequency linear probe (10-15 MHz)",
-      "Sterile ultrasound probe cover and sterile gel (not in the kit)",
-      "Sterile gown - part of max barrier precautions",
-      "Extra chlorhexidine prep sticks (one kit stick is not enough)",
-      "Cardiac monitor: continuous rhythm strip during wire passage (ectopy = wire in RV, pull back)",
-      "10 mL NS flushes x3 (one per lumen) to prime all lumens before suturing",
-      "Chest X-ray ordered before using line for medications - confirm tip in SVC and no pneumothorax",
-      "Blood culture bottles if drawing cultures at time of placement"
+      "Ultrasound, linear probe 10-15 MHz",
+      "Sterile probe cover and sterile gel",
+      "Sterile gown",
+      "Extra chlorhexidine applicators - one kit stick is not enough",
+      "Cardiac monitor during wire passage: ectopy means wire in the RV - pull back",
+      "10 mL saline flushes ×3, one per lumen",
+      "Chest X-ray before first use: tip in the SVC, no pneumothorax",
+      "Blood culture bottles if drawing cultures at placement"
     ],
     "commonlyForgotten": [
-      "Sterile probe cover for real-time guidance - sterile gel is separate from non-sterile gel",
-      "Mark wire depth at skin before dilating",
-      "Confirm wire in the vein on ultrasound before the dilator passes",
-      "Prime ALL three lumens with NS flush before the dressing goes on",
-      "Chest X-ray before first medication use - confirm tip position and no pneumothorax"
+      "Sterile probe cover and sterile gel - non-sterile gel does not substitute",
+      "Mark the wire depth at the skin before dilating",
+      "Wire in the vein on ultrasound before the dilator passes",
+      "All three lumens primed with saline before suturing and dressing",
+      "Chest X-ray before the first medication"
     ],
     "patientSetup": [
-      "IJ approach: Trendelenburg 15-20 degrees, head turned contralateral to insertion site, roll under ipsilateral shoulder to open the neck",
-      "Subclavian: roll under scapulae (not mid-back), arm tucked at side, slight Trendelenburg",
+      "IJ: Trendelenburg 15-20 degrees, head turned away, roll under the ipsilateral shoulder",
+      "Subclavian: roll under the scapulae (not mid-back), arm tucked at the side, slight Trendelenburg",
       "Femoral: leg extended and externally rotated, table flat",
-      "Time-out before draping: confirm patient ID, site, side, allergies (especially chlorhexidine), procedure",
-      "Full max barrier precautions: cap, mask with eye protection, sterile gown, sterile gloves",
-      "Non-sterile assistant positioned for ultrasound machine, medications, specimen tubes, and sharps disposal"
+      "Time-out before draping: patient ID, site, side, allergies (especially chlorhexidine), procedure",
+      "Maximal barrier precautions: cap, mask with eye protection, sterile gown, sterile gloves",
+      "Non-sterile assistant for ultrasound, medications, specimen tubes, sharps"
     ],
     "sterileSetup": [
-      "Chlorhexidine prep in back-and-forth scrub motion for 30 seconds; allow FULL 2 minutes to dry",
-      "Betadine alternative if chlorhexidine allergy; allow 2 min to dry",
-      "Large sterile drape covering patient head to toe with fenestrated hole over site",
+      "Chlorhexidine back-and-forth scrub for 30 seconds; full 2 minutes to dry",
+      "Betadine if chlorhexidine allergy; 2 minutes to dry",
+      "Sterile drape head to toe, fenestrated over the site",
       "Mayo stand in order: lidocaine syringe, introducer needle, guidewire, dilator, catheter, caps",
-      "Sterile ultrasound probe cover applied before skin puncture - do not sonicate without cover"
+      "Sterile probe cover on before skin puncture; no scanning without it"
     ],
     "backupEquipment": [
       "Introducer sheath (Cordis): if 8.5 Fr large-bore access needed for resuscitation, emergent RHC, or transvenous pacer passage",
@@ -211,45 +209,45 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Chest tube: 28-32 Fr for hemothorax; 20-24 Fr for uncomplicated pneumothorax — select size before opening",
-      "Large curved clamp (Kelly or Rochester hemostat) ×2 — one for blunt dissection, one for tube passage",
-      "Scalpel (#10 blade, or #21 for large incision)",
-      "20 mL syringe + 25g and 22g needles for lidocaine infiltration",
-      "0-silk or 0-Prolene suture on large curved needle for tube anchoring",
-      "Chlorhexidine prep applicators",
+      "Chest tube: 28-32 Fr for hemothorax, 20-24 Fr for uncomplicated pneumothorax - choose before opening",
+      "Large curved Kelly clamps ×2: one to dissect, one to pass the tube",
+      "Scalpel, #10 blade, or #21 for a large incision",
+      "20 mL syringe, 25g and 22g needles for lidocaine",
+      "0 silk or 0 Prolene on a large curved needle for anchoring",
+      "Chlorhexidine applicators",
       "Large sterile drape",
-      "Petroleum gauze (Xeroform) for occlusive dressing around tube exit site",
-      "Silk tape (Elastoplast or cloth tape) for tube anchoring"
+      "Petroleum gauze (Xeroform) for the exit site",
+      "Silk or cloth tape for anchoring"
     ],
     "outsideKit": [
-      "Pleural drainage system (Atrium Oasis, Pleur-evac, or equivalent) - filled to water-seal line with sterile water BEFORE connecting",
-      "Sterile connector tubing from chest tube to drainage system",
-      "Wall suction connected to drainage system at -20 cmH2O",
-      "Adequate lidocaine: 1-2%, at least 20-30 mL for adult infiltration (most kits include only 10 mL)",
-      "Morphine or fentanyl IV for procedural analgesia",
-      "Chest X-ray ordered immediately post-procedure to confirm tube position",
-      "Pulse ox and cardiac monitor throughout procedure and recovery",
-      "Non-sterile assistant for tubing connection, drainage system, suction"
+      "Pleural drainage system (e.g. Pleur-evac), water seal filled with sterile water before connecting",
+      "Sterile connector tubing, chest tube to drainage system",
+      "Wall suction to the drainage system at -20 cmH2O",
+      "Lidocaine 1-2%, at least 20-30 mL for adult infiltration - most kits hold only 10 mL",
+      "IV morphine or fentanyl",
+      "Chest X-ray right after placement for tube position",
+      "Pulse oximetry and cardiac monitor through the procedure and recovery",
+      "Non-sterile assistant for tubing, drainage system, suction"
     ],
     "commonlyForgotten": [
-      "Pre-fill the drainage system with sterile water to the fill line BEFORE connecting",
-      "Petroleum gauze occlusive dressing around the tube exit site",
-      "Adequate analgesia before incision",
-      "Confirm suction is active and water-seal is oscillating after connection",
-      "Horizontal mattress anchor suture - tape alone is insufficient"
+      "Drainage system filled to the water-seal line before connecting",
+      "Petroleum gauze at the exit site",
+      "Adequate analgesia before the incision",
+      "After connecting: suction active, water seal oscillating",
+      "Horizontal mattress anchor suture - tape alone is not enough"
     ],
     "patientSetup": [
-      "Position: ipsilateral arm raised above head (hand behind head or draped overhead) to expose lateral chest wall",
-      "Target: safe triangle — bounded by lateral pectoralis border anteriorly, mid-axillary line posteriorly, and 4th–5th ICS superiorly",
-      "Mark insertion site with pen before prepping when possible",
-      "Elevate head of bed 30-45° for alert patients to reduce venous engorgement",
-      "Systemic analgesia before prep: IV opioid 5-10 min before procedure; local anesthesia at site with rib periosteum block"
+      "Ipsilateral arm above the head (hand behind the head or draped overhead)",
+      "Safe triangle: lateral pectoralis border anteriorly, mid-axillary line posteriorly, 4th-5th ICS superiorly",
+      "Mark the site before prep when possible",
+      "Alert patient: head of bed 30-45°",
+      "IV opioid 5-10 min before prep; local at the site with a rib periosteum block"
     ],
     "sterileSetup": [
-      "Chlorhexidine prep over large area: axilla to midline, 3 complete passes; allow 2 min to dry",
-      "Large sterile drape covering patient from neck to waist",
-      "Full sterile gown, gloves, mask, and eye protection",
-      "Mayo stand in order: lidocaine syringe, scalpel, clamp ×2, chest tube (clamped at distal end), suture, petroleum gauze"
+      "Chlorhexidine axilla to midline, 3 complete passes; 2 min to dry",
+      "Sterile drape, neck to waist",
+      "Sterile gown and gloves, mask, eye protection",
+      "Mayo stand in order: lidocaine syringe, scalpel, clamps ×2, chest tube (distal end clamped), suture, petroleum gauze"
     ],
     "backupEquipment": [
       "Pigtail catheter (14-16 Fr Seldinger kit): for uncomplicated pneumothorax or free-flowing effusion when large-bore tube is not indicated",
@@ -274,43 +272,43 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "20g arterial catheter-over-needle (2-inch preferred for obese or edematous wrists) — Arrow or Acra-Cut",
-      "Guidewire (0.018\" or 0.025\" Seldinger wire, included in most kits)",
-      "10 mL syringe for aspiration confirmation",
-      "Transparent occlusive dressing (Tegaderm)",
-      "StatLock or 3-0 suture for secure anchoring",
-      "Chlorhexidine prep applicator",
+      "20g arterial catheter-over-needle; 2-inch for obese or edematous wrists",
+      "Guidewire, 0.018\" or 0.025\"",
+      "10 mL syringe to confirm aspiration",
+      "Transparent occlusive dressing",
+      "StatLock or 3-0 suture",
+      "Chlorhexidine applicator",
       "Sterile mini-drape or sterile towel"
     ],
     "outsideKit": [
-      "Pressure transducer tubing kit (Edwards, Argon, or BD) - NOT included in arterial kit; order separately",
-      "Pressure bag: 500 mL NS, inflated to 300 mmHg, tubing fully primed with no air bubbles",
-      "Pressure transducer holder (pole mount or arm mount)",
-      "Wrist roll: rolled gauze or folded towel to dorsiflex wrist 45-60 degrees",
-      "Cloth tape to secure wrist in dorsiflexed position",
-      "Cardiac monitor with arterial waveform channel selected and scaled appropriately",
-      "Transducer zeroed to phlebostatic axis (4th ICS, mid-axillary line) BEFORE line is placed"
+      "Pressure transducer tubing kit - ordered separately",
+      "Pressure bag: 500 mL NS at 300 mmHg, tubing primed with no air bubbles",
+      "Transducer holder, pole or arm mount",
+      "Wrist roll: rolled gauze or folded towel",
+      "Cloth tape to hold the wrist dorsiflexed",
+      "Monitor with the arterial channel selected and scaled",
+      "Transducer zeroed at the phlebostatic axis (4th ICS, mid-axillary line) before the line goes in"
     ],
     "commonlyForgotten": [
-      "Wrist dorsiflexion setup BEFORE prepping - radial artery is 30-50% more superficial and palpable with wrist extension",
-      "Prime the pressure tubing and zero the transducer before the catheter is placed",
-      "Suture or StatLock the catheter - tape alone is insufficient",
-      "Confirm arterial waveform (pulsatile, systolic > diastolic, dicrotic notch visible) before applying dressing",
-      "Allen's test in elective cases: confirm ulnar collateral flow exists before radial occlusion in a patient who cannot tolerate hand ischemia"
+      "Wrist dorsiflexed before prep - the radial artery is 30-50% more superficial and palpable in extension",
+      "Tubing primed and transducer zeroed before the catheter goes in",
+      "Suture or StatLock - tape alone is not enough",
+      "Arterial waveform with a dicrotic notch before the dressing",
+      "Elective cases: Allen's test for ulnar collateral flow before radial occlusion if the patient cannot tolerate hand ischemia"
     ],
     "patientSetup": [
-      "Non-dominant wrist preferred in awake cooperative patients",
-      "Dorsiflex wrist 45-60° over wrist roll; tape index finger, middle finger, and ring finger back without occluding circulation",
-      "Palpate radial pulse 1-2 cm proximal to flexor wrist crease; mark with thumbnail",
-      "Position arm at or below heart level",
-      "For ultrasound guidance: linear probe (10-15 MHz) oriented transverse over radial artery"
+      "Awake, cooperative patient: non-dominant wrist preferred",
+      "Wrist dorsiflexed 45-60° over the roll; tape the index, middle and ring fingers back without occluding circulation",
+      "Radial pulse 1-2 cm proximal to the flexor wrist crease; mark with a thumbnail",
+      "Arm at or below heart level",
+      "Ultrasound: linear probe 10-15 MHz, transverse over the radial artery"
     ],
     "sterileSetup": [
-      "Chlorhexidine prep swab over wrist; allow to dry",
-      "Mini sterile drape over wrist (included in kit or use sterile towel)",
+      "Chlorhexidine over the wrist; let it dry",
+      "Sterile mini-drape or towel over the wrist",
       "Sterile gloves",
-      "Mayo stand: catheter assembled, syringe attached, dressing open and ready",
-      "Have pressure tubing primed, zeroed, and handed over sterile field before catheter is placed"
+      "Mayo stand: catheter assembled, syringe attached, dressing open",
+      "Primed, zeroed pressure tubing handed onto the field before the catheter goes in"
     ],
     "backupEquipment": [
       "Ultrasound-guided placement (linear probe with sterile cover): use when radial pulse is weak, absent, or after two failed palpation attempts",
@@ -336,45 +334,45 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Spinal needle: 22-25g Sprotte/Whitacre pencil-point with its introducer - the default for adults; lower post-LP headache, higher first-pass difficulty",
-      "Stylet (always inserted before needle advances — never removed until tip is intrathecal)",
-      "CSF collection tubes ×4 — label 1, 2, 3, 4 BEFORE starting the procedure",
-      "Three-way stopcock for opening pressure measurement",
-      "Manometer (confirm included — some kits omit it)",
+      "Spinal needle: 22-25g Sprotte/Whitacre pencil-point with its introducer - the default for adults; less post-LP headache, harder first pass",
+      "Stylet in while the needle advances; out only once the tip is intrathecal",
+      "CSF tubes ×4, labeled 1-4",
+      "Three-way stopcock for opening pressure",
+      "Manometer - some kits omit it",
       "Sterile drapes and fenestrated drape",
-      "Chlorhexidine prep applicators ×3 minimum",
-      "1% lidocaine, 10 mL syringe with 25g and 22g needles for skin and deep infiltration",
-      "Sterile gauze 4x4s and sterile bandage"
+      "Chlorhexidine applicators ×3 minimum",
+      "1% lidocaine, 10 mL syringe, 25g and 22g needles for skin and deep infiltration",
+      "Sterile 4x4s and bandage"
     ],
     "outsideKit": [
-      "Ultrasound (linear probe, 10-15 MHz) for interspinous space identification in obese, elderly, or scoliotic patients",
-      "Fluoroscopy guidance (IR) if bedside attempts fail",
-      "Pre-procedure analgesia (acetaminophen or ibuprofen, NOT opioid) 30-60 min before to reduce post-LP headache",
-      "Lab orders placed BEFORE starting: cell count (tubes 1 and 4), glucose, protein, Gram stain/culture; xanthochromia if SAH suspected",
-      "Extra CSF tubes if cytology, TB, fungal Ag, or unusual studies needed - these need 3-8 mL additional",
-      "Non-sterile assistant to maintain patient in flexed lateral decubitus and pass specimen tubes without contaminating field"
+      "Ultrasound, linear probe 10-15 MHz, to find the interspace in obese, elderly or scoliotic patients",
+      "Fluoroscopy (IR) if bedside attempts fail",
+      "Acetaminophen or ibuprofen, not an opioid, 30-60 min before to reduce post-LP headache",
+      "Labs ordered before starting: cell count (tubes 1 and 4), glucose, protein, Gram stain and culture; xanthochromia if SAH suspected",
+      "Extra tubes for cytology, TB, fungal antigen or unusual studies - 3-8 mL more",
+      "Non-sterile assistant to hold the patient flexed and pass tubes without touching the field"
     ],
     "commonlyForgotten": [
-      "Label all 4 tubes BEFORE opening the kit",
-      "Measure and document opening pressure BEFORE removing any CSF; document closing pressure",
-      "Replace stylet before withdrawing the needle",
-      "Send tube 4 for cell count in addition to tube 1: RBC count that decreases from tube 1 to tube 4 supports traumatic tap over true pleocytosis",
-      "Chlorhexidine must be fully dry before spinal needle is inserted - wet chlorhexidine is directly neurotoxic"
+      "All 4 tubes labeled before opening the kit",
+      "Opening pressure before removing any CSF; closing pressure too",
+      "Stylet back in before withdrawing the needle",
+      "Cell count on tube 4 as well as tube 1: RBCs falling from tube 1 to 4 favor a traumatic tap over true pleocytosis",
+      "Chlorhexidine fully dry before the spinal needle - wet chlorhexidine is neurotoxic"
     ],
     "patientSetup": [
-      "Lateral decubitus (fetal position): knees to chest, chin tucked, back arched toward operator; pillow between knees maintains spine horizontal",
-      "OR seated: patient leaning forward over pillow on bedside table, arms crossed and supported — better for obese patients to flex spine",
-      "Target L3–L4 or L4–L5 interspace: iliac crest level = approximately L4 spinous process",
-      "Palpate and mark the interspace with thumbnail indent before prepping",
-      "Operator seated for lateral approach; bring table to comfortable working height",
-      "Non-sterile assistant stabilizes patient in flexed position — patient movement during needle passage is the most common cause of blood contamination"
+      "Lateral decubitus: knees to chest, chin tucked, back arched toward the operator; pillow between the knees keeps the spine horizontal",
+      "Or seated, leaning forward over a pillow on the bedside table, arms crossed and supported - better spinal flexion in obese patients",
+      "L3-L4 or L4-L5; the iliac crests are at about the L4 spinous process",
+      "Mark the interspace with a thumbnail indent before prep",
+      "Lateral approach: operator seated, bed at working height",
+      "Assistant holds the patient flexed - movement during needle passage is the most common cause of a bloody tap"
     ],
     "sterileSetup": [
-      "Chlorhexidine prep in widening circular motion x3 passes; allow full 2 minutes to dry before spinal needle insertion",
-      "Sterile drapes with fenestrated hole over target interspace",
+      "Chlorhexidine in widening circles ×3; full 2 minutes to dry before the spinal needle",
+      "Sterile drapes, fenestrated over the interspace",
       "Sterile gloves and mask",
-      "Lay out in order: lidocaine syringe, exploring needle, spinal needle, stopcock + manometer, collection tubes",
-      "Bevel of spinal needle oriented parallel to dural fibers (bevel facing patient's flank in lateral position) to reduce headache"
+      "In order: lidocaine syringe, exploring needle, spinal needle, stopcock and manometer, tubes",
+      "Spinal needle bevel parallel to the dural fibers (facing the flank in lateral position) to reduce headache"
     ],
     "backupEquipment": [
       "Ultrasound-guided approach: use when bony landmarks are not palpable; mark interspace with probe before prepping",
@@ -400,45 +398,45 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Thoracentesis catheter-over-needle assembly (Unipleur, Arrow, or Thal-Quick) — 8-9 cm with side holes",
+      "Catheter-over-needle thoracentesis assembly, 8-9 cm, side holes",
       "Collection tubing with three-way stopcock",
-      "Large drainage bag (1000-1500 mL) or vacuum collection bottles ×2",
+      "Drainage bag (1000-1500 mL) or vacuum bottles ×2",
       "Sterile drapes and fenestrated drape",
-      "Chlorhexidine prep applicators ×3",
-      "1% lidocaine 10 mL syringe with 25g and 22g needles — infiltrate generously to parietal pleura",
-      "10 mL and 20 mL sterile syringes for aspiration",
+      "Chlorhexidine applicators ×3",
+      "1% lidocaine, 10 mL syringe, 25g and 22g needles - infiltrate generously to the parietal pleura",
+      "10 mL and 20 mL syringes for aspiration",
       "Sterile specimen cups ×3",
-      "Sterile 4x4 gauze packs and adhesive bandage"
+      "Sterile 4x4s and adhesive bandage"
     ],
     "outsideKit": [
-      "Ultrasound machine with low-frequency probe (3.5-5 MHz curvilinear) — mark effusion IMMEDIATELY before procedure; do NOT mark hours earlier with position changes",
-      "Sterile ultrasound probe cover for real-time guidance during needle insertion",
-      "Lab tubes for fluid analysis — order BEFORE starting: LDH, protein, glucose, cell count, Gram stain/culture, cytology",
+      "Ultrasound, curvilinear 3.5-5 MHz",
+      "Sterile probe cover for real-time needle guidance",
+      "Lab tubes, ordered before starting: LDH, protein, glucose, cell count, Gram stain and culture, cytology",
       "Heparinized syringe for pleural fluid pH if parapneumonic effusion suspected",
-      "Chest X-ray or bedside ultrasound immediately post-procedure to rule out pneumothorax",
-      "Pulse ox and cardiac monitor throughout procedure and 1 hour after",
-      "Non-sterile assistant to hold patient in seated position and pass specimen containers"
+      "Chest X-ray or ultrasound after the procedure for pneumothorax",
+      "Pulse oximetry and cardiac monitor during and for 1 hour after",
+      "Non-sterile assistant to hold the patient seated and pass specimen containers"
     ],
     "commonlyForgotten": [
-      "Re-mark the insertion site with ultrasound immediately before procedure",
-      "Volume limit: remove no more than 1000-1500 mL at one sitting - re-expansion pulmonary edema risk",
-      "Insert needle ABOVE the rib, not below - neurovascular bundle (artery, vein, nerve) runs along the inferior rib margin",
-      "Pleural fluid pH in suspected parapneumonic effusion - pH below 7.20 indicates the effusion requires tube drainage, not just sampling",
-      "Bevel facing down (away from lung parenchyma) during aspiration to reduce pneumothorax risk"
+      "Mark with ultrasound immediately before the procedure - not hours earlier, not before a position change",
+      "No more than 1000-1500 mL at one sitting - re-expansion pulmonary edema",
+      "Needle over the top of the rib - the neurovascular bundle runs along the inferior margin",
+      "pH in suspected parapneumonic effusion: below 7.20 needs tube drainage, not just sampling",
+      "Bevel down, away from the lung, during aspiration to reduce pneumothorax risk"
     ],
     "patientSetup": [
-      "Seated position: patient upright and leaning forward onto pillow on overbed table — opens posterior intercostal spaces",
-      "Arms crossed in front and supported to keep shoulder blades retracted",
-      "Target: posterior approach, 2 interspaces below the top of effusion on ultrasound, above 9th rib to avoid diaphragm",
-      "Mark site with skin marker immediately after ultrasound scan; indent skin with thumbnail as second reference",
-      "If patient cannot sit upright: lateral decubitus with effusion side dependent (fluid pools inferiorly)"
+      "Seated, leaning forward onto a pillow on the overbed table",
+      "Arms crossed and supported to keep the scapulae retracted",
+      "Posterior approach, 2 interspaces below the top of the effusion on ultrasound, above the 9th rib to avoid the diaphragm",
+      "Skin-mark right after scanning; thumbnail indent as a second reference",
+      "Cannot sit up: lateral decubitus, effusion side dependent"
     ],
     "sterileSetup": [
-      "Chlorhexidine prep ×3 passes over posterior chest; allow 2 minutes to dry",
-      "Large sterile drape, fenestrated over target site",
+      "Chlorhexidine ×3 passes over the posterior chest; 2 minutes to dry",
+      "Large sterile drape, fenestrated over the site",
       "Sterile gloves and mask",
       "Mayo stand in order: lidocaine syringe, exploring needle, thoracentesis catheter, collection tubing, drainage bag",
-      "Drainage collection bag gravity-dependent and below patient level before aspiration begins"
+      "Drainage bag below the patient before aspiration begins"
     ],
     "backupEquipment": [
       "Pigtail catheter (14-16 Fr Seldinger kit): for prolonged drainage over days, loculated effusion, or empyema not draining through needle",
@@ -464,44 +462,44 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Pericardiocentesis needle (18g spinal needle, 6-9 cm, or commercial pericardiocentesis kit)",
-      "Guidewire (0.035\" J-tip) and pigtail or straight drainage catheter (if Seldinger kit)",
-      "50-60 mL syringes ×2 for aspiration",
+      "Pericardiocentesis needle: 18g spinal, 6-9 cm, or commercial kit",
+      "Seldinger kit: 0.035\" J-tip guidewire, pigtail or straight drainage catheter",
+      "50-60 mL syringes ×2",
       "Three-way stopcock",
-      "Sterile drapes and chlorhexidine prep applicators",
-      "1-2% lidocaine, 10 mL syringe with 25g needle for skin infiltration",
-      "ECG alligator clip (V-lead monitor wire) to attach to needle hub for landmark guidance when echo unavailable"
+      "Sterile drapes and chlorhexidine applicators",
+      "1-2% lidocaine, 10 mL syringe, 25g needle",
+      "ECG alligator clip (V-lead wire) for the needle hub when echo is unavailable"
     ],
     "outsideKit": [
-      "Bedside echocardiography (phased-array or curvilinear probe, 2-5 MHz) - confirm effusion size and approach window",
-      "Sterile ultrasound probe cover for real-time echo guidance",
-      "12-lead ECG machine: V-lead alligator clip monitoring if echo is unavailable",
-      "Continuous cardiac monitor with rhythm strip throughout the procedure",
-      "Crash cart at bedside: defibrillator charged, epinephrine 1 mg and atropine 0.5 mg drawn",
-      "Cardiothoracic surgery on notice before starting: surgical pericardial window may be needed if drainage fails",
-      "Hemodynamic monitoring: continuous BP, pulse ox, waveform; IV access x2 running"
+      "Bedside echo, phased-array or curvilinear 2-5 MHz: effusion size and approach window",
+      "Sterile probe cover for real-time echo guidance",
+      "12-lead ECG machine for V-lead monitoring if echo is unavailable",
+      "Continuous cardiac monitor with rhythm strip throughout",
+      "Crash cart at the bedside: defibrillator charged, epinephrine 1 mg and atropine 0.5 mg drawn",
+      "Cardiothoracic surgery aware before starting - a surgical pericardial window may be needed if drainage fails",
+      "Continuous BP, pulse oximetry, waveform; two running IVs"
     ],
     "commonlyForgotten": [
-      "Echocardiographic guidance before needle insertion - echo confirms effusion location, size, and approach, and avoids RV free-wall puncture",
-      "Watch continuously for ST elevation or current-of-injury on V-lead monitoring - needle tip has entered the ventricle; pull back immediately",
-      "Do not remove more than 50-100 mL rapidly from chronic large effusions",
-      "Leave a drainage catheter in situ (if Seldinger kit used) for 24-48 hours - tamponade recurrence within hours is common in malignant and purulent effusions",
-      "Blood that does NOT clot = pericardial hemorrhage; blood that CLOTS = you are in a cardiac chamber"
+      "Echo before the needle: effusion location, size and approach; avoids RV free-wall puncture",
+      "Watch V-lead for ST elevation or current of injury - the tip has entered the ventricle; pull back immediately",
+      "Do not remove more than 50-100 mL rapidly from a chronic large effusion",
+      "Seldinger kit: leave the drain 24-48 hours - tamponade recurrence within hours is common in malignant and purulent effusions",
+      "Blood that does not clot: pericardial hemorrhage; blood that clots: needle in a cardiac chamber"
     ],
     "patientSetup": [
-      "Head of bed elevated 30-45 degrees - improves subxiphoid window",
-      "Confirm approach window on echo BEFORE prepping: subxiphoid vs. apical by largest effusion pocket with least lung interposition",
-      "Subxiphoid approach: needle aimed at 45 degrees toward left shoulder, just inferior to xiphoid process",
-      "Apical approach: 5th-6th ICS just lateral to left cardiac border, needle angled 30 degrees posteriorly and superiorly",
-      "Volume resuscitation: IV fluid bolus before drainage if hemodynamically compromised",
-      "Operator on patient's right for subxiphoid; on patient's left for apical approach"
+      "Head of bed 30-45 degrees",
+      "Choose the window on echo before prep: subxiphoid or apical, by the largest pocket with the least lung in the way",
+      "Subxiphoid: just below the xiphoid, needle at 45 degrees toward the left shoulder",
+      "Apical: 5th-6th ICS just lateral to the left cardiac border, angled 30 degrees posteriorly and superiorly",
+      "Hemodynamically compromised: IV fluid bolus before drainage",
+      "Operator on the patient's right for subxiphoid, left for apical"
     ],
     "sterileSetup": [
-      "Chlorhexidine prep over subxiphoid area or apical chest; allow 2 min to dry",
+      "Chlorhexidine over the subxiphoid or apical site; 2 min to dry",
       "Sterile drapes",
-      "Sterile gloves, gown, and mask",
-      "60 mL syringe attached to stopcock on needle hub before insertion",
-      "V-lead alligator clip attached to metal needle hub if using ECG monitoring method"
+      "Sterile gloves, gown and mask",
+      "60 mL syringe on the stopcock at the needle hub before insertion",
+      "Alligator clip on the metal needle hub if using ECG guidance"
     ],
     "backupEquipment": [
       "Cardiothoracic surgery for subxiphoid surgical pericardial window: failed bedside drainage, loculated effusion, trauma with hemopericardium",
