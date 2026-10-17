@@ -109,7 +109,14 @@ class SafetySpineTests(unittest.TestCase):
         """The fear is that a block hides it. What actually happens is that the
         presentation changes, and a team told only "blocks mask it" watches for
         the wrong thing."""
-        for block in self.blocks:
+        # Owner, 2026-10-17: the line comes off the face and trunk blocks, where
+        # no limb compartment is blocked. It stays on every limb block.
+        no_limb = {
+            "block_supraorbital", "block_infraorbital", "block_mental", "block_inferior_alveolar",
+            "block_superior_alveolar", "block_auricular", "block_superficial_cervical_plexus",
+            "block_serratus_anterior", "block_thoracic_esp", "block_tap", "block_pecs",
+        }
+        for block in (b for b in self.blocks if b["id"] not in no_limb):
             with self.subTest(block["id"]):
                 text = joined(block)
                 self.assertIn(
@@ -160,10 +167,14 @@ class SafetySpineTests(unittest.TestCase):
         """ASRA applies neuraxial-equivalent timing to deep blocks and asks a
         different question - compressibility, vascularity, consequence - of the
         rest. TAP had it exactly backwards and called itself a deep plane."""
-        deep = {"block_raptir", "block_transgluteal_sciatic"}
+        # Owner, 2026-10-17: interscalene and supraclavicular are deep blocks for
+        # antithrombotic timing too (the subclavian artery is not compressible).
+        deep = {"block_raptir", "block_transgluteal_sciatic", "block_interscalene", "block_supraclavicular"}
         # Reviewed out of fascia_iliaca_block on 2026-08-06: the antithrombotic
         # judgement was reduced to "anticoagulation/coagulopathy (relative)".
-        antithrombotic_exempt = {"fascia_iliaca_block"}
+        # Owner, 2026-10-17: the femoral block keeps one line, the same relative
+        # line ("therapeutic anticoagulation or significant coagulopathy: relative").
+        antithrombotic_exempt = {"fascia_iliaca_block", "block_femoral_nerve"}
         for block in (b for b in self.blocks if b["id"] not in antithrombotic_exempt):
             with self.subTest(block["id"]):
                 text = joined(block)

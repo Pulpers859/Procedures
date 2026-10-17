@@ -5574,7 +5574,7 @@
         "Patient refusal, inability to cooperate, or inability to consent where the block is not time-critical",
         "Local anesthetic allergy",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy.",
+        "Antithrombotic therapy: deep block - ASRA applies neuraxial-equivalent timing. Use the drug-specific interval from local policy.",
         "Contralateral recurrent laryngeal nerve palsy - a second palsy obstructs the airway."
       ],
       "anatomy": [
@@ -5827,7 +5827,7 @@
         "Covers the arm from the distal humerus: elbow, forearm, wrist, and hand.",
         "Target: brachial plexus trunks/divisions ('bunch of grapes') lateral and superficial to the subclavian artery.",
         "Pneumothorax risk: the pleura is just deep to the artery. Keep the tip in view.",
-        "Keep the first rib in view as the backstop between needle and pleura. Do not deliberately bounce the needle off it.",
+        "Keep the first rib in view as the backstop between needle and pleura.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -5843,7 +5843,7 @@
         "Patient refusal, inability to cooperate, or inability to consent where the block is not time-critical",
         "Local anesthetic allergy",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy: deep block - ASRA applies neuraxial-equivalent timing. Use the drug-specific interval from local policy."
       ],
       "anatomy": [
         "The subclavian artery rests on the first rib.",
@@ -7113,7 +7113,6 @@
         "Monitor for 30 minutes, watching for dyspnea (phrenic involvement).",
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
@@ -7355,7 +7354,6 @@
         "Assess for pneumothorax if symptomatic.",
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
@@ -7600,7 +7598,6 @@
         "Monitor for LAST for 30-60 minutes.",
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
@@ -7842,7 +7839,6 @@
         "Monitor for LAST for 30-60 minutes.",
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
@@ -8083,7 +8079,6 @@
         "Monitor for LAST for 30-60 minutes.",
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return precautions: numbness or weakness lasting longer than expected, new or escalating pain, or redness at the injection site."
       ],
       "documentation": [
@@ -8275,8 +8270,7 @@
         "Prior femoral vascular surgery or graft at the injection site",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Therapeutic anticoagulation or significant coagulopathy: relative - weigh risk/benefit and local policy.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Therapeutic anticoagulation or significant coagulopathy: relative - weigh risk/benefit and local policy."
       ],
       "anatomy": [
         "The femoral nerve lies lateral to the femoral artery in the femoral triangle, just distal to the inguinal ligament, under the fascia iliaca."
@@ -9915,7 +9909,7 @@
       "shiftMode": [
         "Target: superficial peroneal nerve on the anterolateral distal leg.",
         "Covers the dorsum of the foot except the first web space.",
-        "Inject a subcutaneous band from the anterior tibial crest to the lateral malleolus, not a single wheal.",
+        "Single ultrasound-guided injection around the nerve where it emerges through the crural fascia.",
         "Calculate the max dose (mg and mL) before drawing up - say it out loud.",
         "Aspirate before each increment and inject in stages.",
         "Decide the backup plan before you start."
@@ -9989,7 +9983,7 @@
         "Whether the block worked; if not, what was done instead and how much of the ceiling it used."
       ],
       "seniorPearls": [
-        "Already widely branched at the ankle: a single wheal misses most of it, so inject the band."
+        "Find the nerve where it emerges through the crural fascia and inject there; it is already branching by the ankle."
       ],
       "references": [
         "ACEP Sonoguide. Superficial Peroneal Nerve Block. https://www.acep.org/sonoguide/nerve-blocks/superficial-peroneal-nb",
@@ -10440,7 +10434,6 @@
         "Warn about eyelid swelling if the volume was large.",
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
@@ -10685,7 +10678,6 @@
       "aftercare": [
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
@@ -10919,7 +10911,6 @@
       "aftercare": [
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
@@ -11161,7 +11152,6 @@
         "Dental follow-up.",
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
@@ -11397,7 +11387,6 @@
         "Dental follow-up.",
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
@@ -11634,7 +11623,6 @@
         "Routine wound care, or compression dressing for hematomas.",
         "Protect the insensate part: pad it, position it, and warn the patient about pressure and heat while the block lasts.",
         "Tell the patient when the block will wear off and to take oral analgesia before it does.",
-        "Compartment syndrome still shows through a working block: rising analgesic requirement, or pain breaking through.",
         "Return if numbness or weakness outlasts expectation, pain is new or escalating, or the site reddens."
       ],
       "documentation": [
