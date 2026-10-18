@@ -166,7 +166,7 @@ Allowed `kind` values:
 - `Setup`
 - `Distribution` (nerve blocks: expected sensory distribution on a skeleton and a body; listed first)
 
-A `Distribution` asset carries a `legend`: one entry per nerve, `{"tone": "teal", "nerve": "Femoral nerve", "label": "front of the thigh, ..."}`. Tones are a fixed palette (`teal`, `violet`, `amber`, `rose`, `blue`) shared with the plate's tint; the app shows each as a coloured bullet under the image, the nerve semibold and underlined in its tone, then the territory.
+A `Distribution` asset carries a `legend`: one entry per nerve, `{"tone": "teal", "nerve": "Femoral nerve", "label": "front of the thigh, ..."}`. Tones are a fixed palette (`teal`, `violet`, `amber`, `rose`, `blue`) shared with the plate's tint; the app shows each as a coloured bullet under the image, the nerve semibold and underlined in its tone, then the territory. Its `subtitle` is left empty (owner, 2026-10-17): the legend says what the plate shows, and the app hides an empty subtitle.
 
 If `assetName` is null, the app renders a premium placeholder. When final artwork is available, add the bundled image file and set `assetName`.
 

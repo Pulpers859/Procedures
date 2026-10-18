@@ -108,9 +108,9 @@
     ],
     "immediateMoves": [
       "Stop. Control the wire/catheter; do not dilate while position is uncertain.",
-      "If stable enough, confirm with ultrasound, pressure transduction, blood gas, or waveform.",
-      "Small finder/needle puncture only: remove and hold firm pressure.",
-      "Dilator or large catheter in the artery: leave it in place and call vascular/surgery immediately.",
+      "If stable enough, transduce it; color, pulsatility and a blood gas do not settle it.",
+      "Needle only, not dilated: remove, hold firm pressure 5-10 min, longer if anticoagulated; neck site - watch the airway.",
+      "Dilator or catheter in the artery, or any device in the subclavian or axillary: leave it in place, cap or transduce, call vascular/IR now.",
       "Document the event, site, exam, and consultation."
     ],
     "reassess": [
@@ -156,6 +156,7 @@
     ],
     "immediateMoves": [
       "Stop the procedure.",
+      "Wire end still visible: clamp it with a hemostat and withdraw; do not let go.",
       "Do not advance the catheter or dilator blindly.",
       "Not immediately retrievable: image to localize the wire.",
       "Call IR/vascular per local resources.",
@@ -202,6 +203,7 @@
     "immediateMoves": [
       "Check the generator is on, rate appropriate, output high, connections secure.",
       "Increase mA until capture, then set a safety margin above threshold.",
+      "No capture at maximum output: reposition - deflate, withdraw a few centimeters, reinflate, refloat.",
       "Advance or withdraw the catheter slowly while watching the ECG and pulse/BP.",
       "Confirm the course with ultrasound, fluoro, or CXR if available.",
       "Continue transcutaneous pacing while troubleshooting.",
@@ -248,7 +250,7 @@
       "Stop sedative dosing; call for airway help.",
       "Reposition the airway, jaw thrust, suction; oral/nasal airway as needed.",
       "BVM with PEEP if ventilation is inadequate.",
-      "Reversal only when appropriate to the agent and context, never instead of ventilation: opioid - naloxone 0.04-0.4 mg IV, titrate every 2-3 minutes; benzodiazepine - flumazenil 0.2 mg IV over 15 seconds, only in benzodiazepine-naive patients (seizure risk).",
+      "Reversal only when appropriate to the agent and context, never instead of ventilation: opioid - naloxone 0.04-0.4 mg IV, titrate every 2-3 minutes; benzodiazepine - flumazenil 0.2 mg IV over 15 seconds, repeat to 1 mg; not with chronic benzodiazepine use, seizure disorder, or a proconvulsant co-ingestion such as a TCA (seizure risk).",
       "Prepare for intubation if oxygenation or ventilation cannot be maintained."
     ],
     "reassess": [
@@ -324,7 +326,7 @@
       "Call for 20% lipid emulsion (Intralipid) now.",
       "Seizure or loss of consciousness: secure the airway early, high-flow O2, prepare to intubate.",
       "Cardiac arrest: ACLS with lipid emulsion started at the same time; epinephrine sparingly, \u22641 mcg/kg doses.",
-      "Lipid emulsion 20%: 1.5 mL/kg IV bolus over 1 minute, then 0.25 mL/kg/min infusion; may repeat the bolus in refractory arrest (max cumulative dose ~12 mL/kg).",
+      "Lipid emulsion 20%: >70 kg, 100 mL over 2-3 min then 200-250 mL over 15-20 min; <70 kg, 1.5 mL/kg over 2-3 min then 0.25 mL/kg/min (ideal body weight). Still unstable: repeat the bolus once or twice, double the infusion. Continue at least 10 min after circulatory stability; max ~12 mL/kg.",
       "Seizure: benzodiazepine, midazolam 1-2 mg IV or 0.05 mg/kg, repeatable."
     ],
     "reassess": [
@@ -334,7 +336,7 @@
       "SpO2 and ETCO2 continuously if intubated"
     ],
     "avoid": [
-      "Do not give vasopressin in LAST cardiac arrest (ASRA guideline).",
+      "No vasopressin; no calcium-channel blockers, beta-blockers or local anesthetics (lidocaine, procainamide) for dysrhythmias (ASRA).",
       "Do not use propofol for seizures or in place of lipid emulsion: it is a myocardial depressant and its lipid is too dilute.",
       "Do not assume resolution is complete: CNS toxicity may outlast cardiac toxicity; observe \u22654-6 hours.",
       "No high-dose epinephrine: \u22641 mcg/kg doses."
@@ -382,7 +384,7 @@
     ],
     "immediateMoves": [
       "Assess vital signs, SpO2, bilateral breath sounds, JVD, tracheal position.",
-      "Ultrasound: absent lung sliding on the line side confirms pneumothorax.",
+      "Ultrasound: absent lung sliding on the line side suggests pneumothorax; a lung point confirms it.",
       "Tension physiology (hypotension + absent breath sounds + JVD or tracheal deviation): needle decompression now, without waiting for imaging.",
       "Large or symptomatic without tension: chest tube or pigtail catheter.",
       "Small and asymptomatic: supplemental O2, serial imaging, close monitoring in a monitored setting."
@@ -435,11 +437,12 @@
       "Exclude a kinked, clamped, or obstructed circuit before calling it malposition.",
       "Subcutaneous tube (no drainage, crepitus along the tube): remove and replace.",
       "Tube in the major or minor fissure: may drain slowly; replace or add a second tube if drainage is inadequate.",
-      "Tube through the diaphragm into the abdomen: stop drainage now; do not pull it without surgical consultation, and remove it only with a surgeon present and a vascular injury plan (intra-abdominal hemorrhage risk)."
+      "Tube through the diaphragm into the abdomen: stop drainage now; do not pull it without surgical consultation, and remove it only with a surgeon present and a vascular injury plan (intra-abdominal hemorrhage risk).",
+      "Place a new tube in the safe triangle for the original indication."
     ],
     "reassess": [
       "Drainage output and character every 1-2 hours after repositioning",
-      "Air leak assessment: water seal fluctuation with respiration",
+      "Air leak: bubbling in the water seal; tidaling with respiration shows a patent tube in the pleural space",
       "Repeat CXR after repositioning or replacement",
       "Hemodynamics and oxygenation"
     ],
@@ -482,9 +485,11 @@
     "immediateMoves": [
       "Stop all airway stimulation: suctioning, airway manipulation, and the precipitating procedure.",
       "100% O2 by tight-fitting BVM mask, with jaw thrust and chin lift.",
-      "Larson's point (firm bilateral pressure at the condylar notch behind the ramus) may help break spasm without an airway device.",
+      "Larson's point: firm bilateral pressure in the laryngospasm notch (behind the ramus, in front of the mastoid) with jaw thrust.",
       "CPAP with the BVM, 10-20 cmH2O.",
       "Not breaking within 30-60 seconds: succinylcholine 0.1-0.2 mg/kg IV (subparalyzing dose); prepare for possible intubation.",
+      "No IV: succinylcholine 4 mg/kg IM (max 150 mg) - full paralyzing dose, slow onset; bag and prepare to intubate. IO: the IV dose.",
+      "Child with bradycardia: oxygenate; atropine 0.02 mg/kg IV, IO or IM (max 0.5 mg).",
       "Complete obstruction and impending arrest: succinylcholine 1-2 mg/kg IV and intubate. Surgical airway ready."
     ],
     "reassess": [
@@ -495,7 +500,6 @@
     ],
     "avoid": [
       "Do not force a laryngoscope or airway device through a closed glottis.",
-      "Do not use jaw thrust without a BVM mask seal.",
       "Do not delay succinylcholine if BVM ventilation is failing.",
       "Do not sedate with ketamine without suction at hand; secretions can precipitate laryngospasm."
     ],
@@ -538,7 +542,7 @@
       "100% oxygen.",
       "Central lumen already in place with a central tip: aspirate from it.",
       "Support the circulation: IV fluid bolus, and norepinephrine 0.05-0.1 mcg/kg/min titrated to MAP or push-dose epinephrine 5-20 mcg IV every 2-5 minutes.",
-      "Arrested: CPR; compressions can also break up a large air lock.",
+      "Arrested: CPR supine; compressions can also break up a large air lock.",
       "Call for help; consider hyperbaric referral for suspected cerebral arterial gas embolism."
     ],
     "reassess": [
@@ -697,7 +701,7 @@
     "immediateMoves": [
       "Stop. Do not dilate or railroad a catheter until position is proven.",
       "Aspirate color does not confirm position; in hemopericardium everything is blood.",
-      "Agitated saline: inject a few milliliters. Bubbles in the pericardial space confirm position; bubbles in the right ventricle mean the tip is in the heart.",
+      "Agitated saline: inject a few milliliters. Bubbles in the pericardial space confirm position; bubbles in a cardiac chamber mean the tip is in the heart.",
       "Saline contrast unavailable or equivocal: see the needle, wire, or catheter in the pericardial space on real-time ultrasound, or transduce the hub - a ventricular pressure waveform means the tip is in the ventricle.",
       "Brisk clotting in the syringe supports intracardiac blood (pericardial blood is usually defibrinated); a supporting sign, never the confirmation.",
       "Intracardiac: withdraw the needle, watch, and re-scan for a new or enlarging effusion. A needle hole usually seals.",

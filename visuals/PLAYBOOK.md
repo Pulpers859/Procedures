@@ -382,7 +382,8 @@ bolted on. The model is `ficb_distribution/`.
 - **Words that moved the search-ranking probes** when they were in a
   distribution caption or subtitle: "block", "nerve", "arm", plus the older
   list. The legend is not searched, so the nerve names go there. Keep captions
-  to what is left unshaded and why.
+  to what is left unshaded and why. Leave the subtitle empty (owner,
+  2026-10-17: "Where to expect numbness..." was cut as useless).
 
 ## 7. Send, approve, ship
 

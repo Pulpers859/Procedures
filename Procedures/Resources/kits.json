@@ -34,9 +34,9 @@
     "commonlyForgotten": [
       "Nasal cannula left on under the BVM during laryngoscopy",
       "PEEP valve on the BVM before preoxygenation",
-      "Waveform capnography - colorimetric gives false positives in low-flow and cardiac arrest states",
+      "Waveform capnography - colorimetric can read falsely negative in low-flow and cardiac arrest states",
       "Suction on before the first bag-mask breath",
-      "Post-intubation sedation drawn and labeled - paralytic wears off in 10-15 min",
+      "Post-intubation sedation drawn and labeled - the induction agent wears off in minutes; rocuronium paralysis lasts 45 min or more",
       "Second ETT, different size"
     ],
     "patientSetup": [
@@ -80,8 +80,9 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Scalpel, #20 or #10 blade",
-      "Tracheal (cric) hook - holds the inferior thyroid cartilage cephalad while the tube passes",
+      "Scalpel, #10 blade",
+      "Bougie",
+      "Tracheal hook if available",
       "Curved clamp (Kelly) to blunt-dissect and dilate the membrane opening",
       "6.0 cuffed ETT or 6.0 cuffed cric tube",
       "10 mL syringe, pre-charged with air on the field for cuff inflation",
@@ -98,12 +99,12 @@
     "commonlyForgotten": [
       "Headlamp",
       "Suction before you cut",
-      "Cric hook in before the tube",
+      "Bougie through the membrane before the tube",
       "Confirm with waveform capnography, not colorimetric - low-output states give false negatives",
-      "Horizontal incision through the membrane after the vertical skin incision"
+      "Impalpable membrane: vertical skin incision first, then a horizontal stab through the membrane"
     ],
     "patientSetup": [
-      "Shoulder roll to extend the neck; no hyperextension in trauma - inline cervical stabilization",
+      "Shoulder roll to extend the neck; trauma: no roll, neutral with inline stabilization",
       "Landmarks before cutting: thyroid notch, down the midline to the soft space - the cricothyroid membrane",
       "Larynx stabilized: non-dominant thumb and middle finger on the thyroid cartilage, index finger on the membrane",
       "Right-handed operator on the patient's right",
@@ -113,7 +114,7 @@
     "sterileSetup": [
       "Betadine or chlorhexidine over the anterior neck if time permits; in CICO, clean gloves and proceed immediately",
       "Sterile drape if time permits",
-      "Mayo stand: scalpel, cric hook, clamp, tube and syringe, suction, gauze",
+      "Mayo stand: scalpel, bougie, tube and syringe, hook and clamp if used, suction, gauze",
       "Suction next to the working field"
     ],
     "backupEquipment": [
@@ -159,7 +160,7 @@
       "Extra chlorhexidine applicators - one kit stick is not enough",
       "Cardiac monitor during wire passage: ectopy means wire in the RV - pull back",
       "10 mL saline flushes ×3, one per lumen",
-      "Chest X-ray before first use: tip in the SVC, no pneumothorax",
+      "IJ or subclavian: chest X-ray before first use - tip at the cavoatrial junction, no pneumothorax",
       "Blood culture bottles if drawing cultures at placement"
     ],
     "commonlyForgotten": [
@@ -167,10 +168,10 @@
       "Mark the wire depth at the skin before dilating",
       "Wire in the vein on ultrasound before the dilator passes",
       "All three lumens primed with saline before suturing and dressing",
-      "Chest X-ray before the first medication"
+      "IJ or subclavian: chest X-ray before the first medication"
     ],
     "patientSetup": [
-      "IJ: Trendelenburg 15-20 degrees, head turned away, roll under the ipsilateral shoulder",
+      "IJ: Trendelenburg 15-20 degrees, head slightly turned away (avoid over-rotation), roll under the ipsilateral shoulder",
       "Subclavian: roll under the scapulae (not mid-back), arm tucked at the side, slight Trendelenburg",
       "Femoral: leg extended and externally rotated, table flat",
       "Time-out before draping: patient ID, site, side, allergies (especially chlorhexidine), procedure",
@@ -178,7 +179,7 @@
       "Non-sterile assistant for ultrasound, medications, specimen tubes, sharps"
     ],
     "sterileSetup": [
-      "Chlorhexidine back-and-forth scrub for 30 seconds; full 2 minutes to dry",
+      "Chlorhexidine back-and-forth scrub, 30 seconds (2 minutes at the groin); full 2 minutes to dry",
       "Betadine if chlorhexidine allergy; 2 minutes to dry",
       "Sterile drape head to toe, fenestrated over the site",
       "Mayo stand in order: lidocaine syringe, introducer needle, guidewire, dilator, catheter, caps",
@@ -209,7 +210,7 @@
     "reviewerStatus": "Needs Clinical Review",
     "contentSource": "ai-draft",
     "inKit": [
-      "Chest tube: 28-32 Fr for hemothorax, 20-24 Fr for uncomplicated pneumothorax - choose before opening",
+      "Chest tube sized to indication: 28-32 Fr, or 20-24 Fr or larger if ventilated with a significant leak - choose before opening",
       "Large curved Kelly clamps ×2: one to dissect, one to pass the tube",
       "Scalpel, #10 blade, or #21 for a large incision",
       "20 mL syringe, 25g and 22g needles for lidocaine",
@@ -238,7 +239,7 @@
     ],
     "patientSetup": [
       "Ipsilateral arm above the head (hand behind the head or draped overhead)",
-      "Safe triangle: lateral pectoralis border anteriorly, mid-axillary line posteriorly, 4th-5th ICS superiorly",
+      "Safe triangle: lateral border of pectoralis major, anterior border of latissimus dorsi, nipple line (5th ICS) inferiorly, apex below the axilla",
       "Mark the site before prep when possible",
       "Alert patient: head of bed 30-45°",
       "IV opioid 5-10 min before prep; local at the site with a rib periosteum block"
@@ -251,7 +252,7 @@
     ],
     "backupEquipment": [
       "Pigtail catheter (14-16 Fr Seldinger kit): for uncomplicated pneumothorax or free-flowing effusion when large-bore tube is not indicated",
-      "Needle decompression (14g angiocath, 2nd ICS MCL): for tension pneumothorax with hemodynamic compromise — do not wait for chest tube in arrest",
+      "Needle decompression (14g or larger, at least 8 cm; 4th or 5th ICS anterior axillary line, alternate 2nd ICS midclavicular): tension pneumothorax with hemodynamic compromise - do not wait for the chest tube in arrest",
       "CT surgery or thoracic consult: initial hemothorax >1500 mL OR ongoing >200 mL/hr"
     ],
     "references": [
@@ -285,12 +286,12 @@
       "Pressure bag: 500 mL NS at 300 mmHg, tubing primed with no air bubbles",
       "Transducer holder, pole or arm mount",
       "Wrist roll: rolled gauze or folded towel",
-      "Cloth tape to hold the wrist dorsiflexed",
+      "Cloth tape to hold the wrist extended",
       "Monitor with the arterial channel selected and scaled",
       "Transducer zeroed at the phlebostatic axis (4th ICS, mid-axillary line) before the line goes in"
     ],
     "commonlyForgotten": [
-      "Wrist dorsiflexed before prep - the radial artery is 30-50% more superficial and palpable in extension",
+      "Wrist extended 20-30° before prep",
       "Tubing primed and transducer zeroed before the catheter goes in",
       "Suture or StatLock - tape alone is not enough",
       "Arterial waveform with a dicrotic notch before the dressing",
@@ -298,7 +299,7 @@
     ],
     "patientSetup": [
       "Awake, cooperative patient: non-dominant wrist preferred",
-      "Wrist dorsiflexed 45-60° over the roll; tape the index, middle and ring fingers back without occluding circulation",
+      "Wrist extended 20-30° over the roll; tape the index, middle and ring fingers back without occluding circulation",
       "Radial pulse 1-2 cm proximal to the flexor wrist crease; mark with a thumbnail",
       "Arm at or below heart level",
       "Ultrasound: linear probe 10-15 MHz, transverse over the radial artery"
@@ -347,14 +348,13 @@
     "outsideKit": [
       "Ultrasound, linear probe 10-15 MHz, to find the interspace in obese, elderly or scoliotic patients",
       "Fluoroscopy (IR) if bedside attempts fail",
-      "Acetaminophen or ibuprofen, not an opioid, 30-60 min before to reduce post-LP headache",
       "Labs ordered before starting: cell count (tubes 1 and 4), glucose, protein, Gram stain and culture; xanthochromia if SAH suspected",
       "Extra tubes for cytology, TB, fungal antigen or unusual studies - 3-8 mL more",
       "Non-sterile assistant to hold the patient flexed and pass tubes without touching the field"
     ],
     "commonlyForgotten": [
       "All 4 tubes labeled before opening the kit",
-      "Opening pressure before removing any CSF; closing pressure too",
+      "Opening pressure in lateral decubitus, legs relaxed, before removing any CSF; closing pressure too",
       "Stylet back in before withdrawing the needle",
       "Cell count on tube 4 as well as tube 1: RBCs falling from tube 1 to 4 favor a traumatic tap over true pleocytosis",
       "Chlorhexidine fully dry before the spinal needle - wet chlorhexidine is neurotoxic"
@@ -365,14 +365,14 @@
       "L3-L4 or L4-L5; the iliac crests are at about the L4 spinous process",
       "Mark the interspace with a thumbnail indent before prep",
       "Lateral approach: operator seated, bed at working height",
-      "Assistant holds the patient flexed - movement during needle passage is the most common cause of a bloody tap"
+      "Assistant holds the patient flexed - movement during needle passage risks a bloody tap"
     ],
     "sterileSetup": [
       "Chlorhexidine in widening circles ×3; full 2 minutes to dry before the spinal needle",
       "Sterile drapes, fenestrated over the interspace",
       "Sterile gloves and mask",
       "In order: lidocaine syringe, exploring needle, spinal needle, stopcock and manometer, tubes",
-      "Spinal needle bevel parallel to the dural fibers (facing the flank in lateral position) to reduce headache"
+      "Cutting needle only: bevel parallel to the dural fibers (facing the flank in lateral position)"
     ],
     "backupEquipment": [
       "Ultrasound-guided approach: use when bony landmarks are not palpable; mark interspace with probe before prepping",
@@ -400,7 +400,7 @@
     "inKit": [
       "Catheter-over-needle thoracentesis assembly, 8-9 cm, side holes",
       "Collection tubing with three-way stopcock",
-      "Drainage bag (1000-1500 mL) or vacuum bottles ×2",
+      "Drainage bag (1000-1500 mL) for gravity drainage, or syringe and stopcock",
       "Sterile drapes and fenestrated drape",
       "Chlorhexidine applicators ×3",
       "1% lidocaine, 10 mL syringe, 25g and 22g needles - infiltrate generously to the parietal pleura",
@@ -463,7 +463,7 @@
     "contentSource": "ai-draft",
     "inKit": [
       "Pericardiocentesis needle: 18g spinal, 6-9 cm, or commercial kit",
-      "Seldinger kit: 0.035\" J-tip guidewire, pigtail or straight drainage catheter",
+      "Seldinger kit: 0.035\" J-tip guidewire, dilator, pigtail or straight drainage catheter",
       "50-60 mL syringes ×2",
       "Three-way stopcock",
       "Sterile drapes and chlorhexidine applicators",
@@ -475,21 +475,21 @@
       "Sterile probe cover for real-time echo guidance",
       "12-lead ECG machine for V-lead monitoring if echo is unavailable",
       "Continuous cardiac monitor with rhythm strip throughout",
-      "Crash cart at the bedside: defibrillator charged, epinephrine 1 mg and atropine 0.5 mg drawn",
+      "Crash cart at the bedside: defibrillator charged, epinephrine 1 mg and atropine 1 mg drawn",
       "Cardiothoracic surgery aware before starting - a surgical pericardial window may be needed if drainage fails",
       "Continuous BP, pulse oximetry, waveform; two running IVs"
     ],
     "commonlyForgotten": [
       "Echo before the needle: effusion location, size and approach; avoids RV free-wall puncture",
-      "Watch V-lead for ST elevation or current of injury - the tip has entered the ventricle; pull back immediately",
-      "Do not remove more than 50-100 mL rapidly from a chronic large effusion",
+      "Watch the V-lead for ST elevation (current of injury) - the tip is on the myocardium; pull back",
+      "Stage the drainage: under about 500 mL at first, then at intervals - pericardial decompression syndrome",
       "Seldinger kit: leave the drain 24-48 hours - tamponade recurrence within hours is common in malignant and purulent effusions",
-      "Blood that does not clot: pericardial hemorrhage; blood that clots: needle in a cardiac chamber"
+      "Brisk clotting supports intracardiac blood but does not confirm it; confirm with agitated saline, the needle seen in the space, or a transduced waveform"
     ],
     "patientSetup": [
       "Head of bed 30-45 degrees",
       "Choose the window on echo before prep: subxiphoid or apical, by the largest pocket with the least lung in the way",
-      "Subxiphoid: just below the xiphoid, needle at 45 degrees toward the left shoulder",
+      "Subxiphoid: 1 cm below the costal margin just left of the xiphoid, 30-45 degrees, toward the left shoulder",
       "Apical: 5th-6th ICS just lateral to the left cardiac border, angled 30 degrees posteriorly and superiorly",
       "Hemodynamically compromised: IV fluid bolus before drainage",
       "Operator on the patient's right for subxiphoid, left for apical"

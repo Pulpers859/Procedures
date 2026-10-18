@@ -186,7 +186,12 @@ class SafetySpineTests(unittest.TestCase):
                 if block["id"] in deep:
                     self.assertIn("neuraxial-equivalent timing", text)
                 else:
-                    self.assertIn("site compressibility, vascularity", text)
+                    # Owner, 2026-10-17: the superficial-block judgement line
+                    # (compressibility, vascularity, consequence) is cut to
+                    # "Antithrombotic therapy (relative)" as unnecessary text.
+                    # What still has to hold: it is relative, not neuraxial timing.
+                    self.assertIn("antithrombotic therapy (relative)", text)
+                    self.assertNotIn("neuraxial-equivalent timing", text)
                     # The retired wording argued the point instead of stating it.
                     self.assertNotIn("do not transpose a neuraxial interval", text)
 
@@ -450,8 +455,10 @@ class OverclaimTests(unittest.TestCase):
 
     def test_tap_is_classified_as_a_superficial_block(self):
         text = joined(self.records["block_tap"])
-        self.assertIn("not an automatic prohibition", text)
-        self.assertIn("superficial, compressible block", text)  # reworded in the owner-requested tone pass, 2026-10-17
+        # Owner, 2026-10-17: the line is now just "Antithrombotic therapy
+        # (relative)"; relative rather than neuraxial timing is what remains.
+        self.assertIn("antithrombotic therapy (relative)", text)
+        self.assertNotIn("neuraxial-equivalent timing", text)
         self.assertNotIn("deep fascial plane", text)
 
     def test_supraorbital_states_one_volume(self):

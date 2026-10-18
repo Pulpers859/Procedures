@@ -124,10 +124,13 @@ struct VisualAssetCard: View {
                     Text(asset.title)
                         .font(.subheadline.weight(.semibold))
                 }
-                Text(asset.subtitle)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                // Empty on Distribution plates, where the legend does the job.
+                if !asset.subtitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    Text(asset.subtitle)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
             .padding(.horizontal, 16)
 

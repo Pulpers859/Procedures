@@ -9,8 +9,8 @@ import SwiftUI
 /// pathway routing — buried in third place. With everything emphasised nothing
 /// was, and the screen read as a list of lists rather than a home.
 ///
-/// The structure now has three deliberate weight tiers: one rescue signpost,
-/// the pathway grid, and a quiet strip of recents. The library itself lives in
+/// The structure now has three deliberate weight tiers: the pathway grid, one
+/// rescue signpost under it, and a quiet strip of recents. The library itself lives in
 /// the Procedures tab, where a high-risk filter replaces the old dump.
 struct GuideHomeView: View {
     @EnvironmentObject private var repository: ProcedureRepository
@@ -75,11 +75,13 @@ struct GuideHomeView: View {
     private var browseHome: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 28) {
-                rescueHero
-
                 libraryHealthNotice
 
                 pathwaySection
+
+                // Below the pathways, above recents (owner, 2026-10-17). The
+                // Rescue tab is still the crash path; this is its signpost.
+                rescueHero
 
                 if !recentProcedures.isEmpty {
                     recentSection
@@ -140,8 +142,8 @@ struct GuideHomeView: View {
     /// that a failed library was fine.
     ///
     /// The rescue hero stays the loud element — it is the crash path, and it
-    /// may still work when the library does not. These sit under it, in the
-    /// warning tone rather than red.
+    /// may still work when the library does not. These sit at the top of the
+    /// screen, in the warning tone rather than red.
     @ViewBuilder
     private var libraryHealthNotice: some View {
         let notices: [(String, String)] = [

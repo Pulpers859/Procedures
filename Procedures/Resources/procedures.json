@@ -463,7 +463,7 @@
         "Infection over the injection site, or over the path where an alternate approach is available",
         "Major vascular compromise - do not delay urgent surgical evaluation",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Digital nerves run along the medial and lateral aspects of the digit with their vessels.",
@@ -559,7 +559,7 @@
         "id": "digital_nerve_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "digital_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "One finger is shown; the pattern is the same for any finger.",
@@ -1406,7 +1406,7 @@
       ],
       "ultrasound": [
         "In-plane when skill and window allow.",
-        "Tip in pericardium or chamber uncertain: inject a few milliliters of agitated saline. Bubbles in the pericardial space confirm position; bubbles in the right ventricle mean you are inside the heart - do not dilate.",
+        "Tip in pericardium or chamber uncertain: inject a few milliliters of agitated saline. Bubbles in the pericardial space confirm position; bubbles in a cardiac chamber mean you are inside the heart - do not dilate.",
         "Re-scan after drainage: residual fluid and cardiac filling."
       ],
       "confirmation": [
@@ -2351,7 +2351,7 @@
         "For therapeutic drainage: connect the collection system before advancing the catheter, to keep air out.",
         "Drain to until symptoms improve. Then stop and clamp.",
         "Stop if the patient begins to repetitively cough, have chest tightness, or worsening dyspnea - preceding re-expansion pulmonary edema.\n\nGeneral ceiling is 1.5 L in one session.",
-        "Once finished, confirm check lung sliding on ultrasound. \n\nOnly check CXR if \u2014 symptomatic, air was aspirated, sliding is absent/uncertain, or the patient is ventilated or can't report symptoms."
+        "Once finished, check lung sliding on ultrasound.\n\nOnly check CXR if \u2014 symptomatic, air was aspirated, sliding is absent/uncertain, or the patient is ventilated or can't report symptoms."
       ],
       "indications": [
         "Evaluation of a new, undiagnosed pleural effusion",
@@ -2418,7 +2418,7 @@
       "troubleshooting": [
         "No fluid on aspiration: Pocket may have shifted, use ultrasound.",
         "Air return: withdraw immediately, needle may be in lung parenchyma, assess for pneumothorax.",
-        "Bloody return: Hemorrhagic effusion vs. hemothorax vs. vessel injury \u2014 non-clotting blood suggests = pleural. Rapidly clotting blood = vascular.",
+        "Bloody return: Hemorrhagic effusion vs. hemothorax vs. vessel injury \u2014 non-clotting blood suggests pleural; rapidly clotting blood suggests vascular.",
         "Repetitive cough, chest tightness, or worsening dyspnea during drainage: stop and clamp. General ceiling is 1.5 L in one session.",
         "Loculated pocket: scan multiple windows, consult interventional radiology or thoracics if no pocket."
       ],
@@ -4150,7 +4150,7 @@
         "id": "ficb_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness after a right-sided block.",
+        "subtitle": "",
         "assetName": "ficb_distribution",
         "systemImage": "figure.stand",
         "caption": "The upper medial thigh (obturator) is left unshaded: spread to it is inconsistent.",
@@ -5684,7 +5684,7 @@
         "id": "interscalene_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "interscalene_distribution",
         "systemImage": "figure.stand",
         "caption": "The hand and the ulnar border are not reliably covered, so they are left unshaded.",
@@ -5951,7 +5951,7 @@
         "id": "supraclavicular_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "supraclavicular_distribution",
         "systemImage": "figure.stand",
         "caption": "The cape of the shoulder, the shoulder joint and the inner side above the elbow are left unshaded.",
@@ -6210,7 +6210,7 @@
         "id": "raptir_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "raptir_distribution",
         "systemImage": "figure.stand",
         "caption": "The cape of the shoulder, the shoulder joint and the inner side above the elbow are left unshaded.",
@@ -6362,7 +6362,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Proximal forearm: the radial nerve runs deep to brachioradialis, giving off articular branches.",
@@ -6445,7 +6445,7 @@
         "id": "radial_nerve_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "radial_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "The palm is left unshaded.",
@@ -6594,7 +6594,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "In the mid-forearm, the median nerve lies between the flexor digitorum superficialis (FDS) and flexor digitorum profundus (FDP)."
@@ -6675,7 +6675,7 @@
         "id": "median_nerve_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "median_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "The ulnar third of the palm is left unshaded.",
@@ -6825,7 +6825,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "In the forearm the ulnar nerve lies just medial to the ulnar artery, deep to flexor carpi ulnaris (FCU), in the same echogenic fascial plane."
@@ -6906,7 +6906,7 @@
         "id": "ulnar_nerve_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "ulnar_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "The radial two thirds of the hand are left unshaded.",
@@ -7056,7 +7056,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "The plexus wraps around the posterior border of the SCM at about its midpoint.",
@@ -7144,7 +7144,7 @@
         "id": "sc_plexus_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "sc_plexus_distribution",
         "systemImage": "figure.stand",
         "caption": "The face above the jaw line is left unshaded.",
@@ -7296,7 +7296,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Latissimus dorsi is the most superficial lateral chest wall muscle; serratus anterior lies deep to it, on the ribs.",
@@ -7387,7 +7387,7 @@
         "id": "serratus_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "serratus_distribution",
         "systemImage": "figure.stand",
         "caption": "The shading follows the lateral chest wall; the abdomen below the ribs is left unshaded.",
@@ -7545,7 +7545,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Injectate deep to erector spinae spreads cranio-caudally and into the paravertebral space."
@@ -7631,7 +7631,7 @@
         "id": "esp_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "esp_distribution",
         "systemImage": "figure.stand",
         "caption": "The spread varies between patients: the lower border is graded, and the shoulder blade and upper limb are left unshaded.",
@@ -7782,7 +7782,7 @@
       "contraindications": [
         "Infection at the injection site",
         "Allergy to local anesthetic",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy.",
+        "Antithrombotic therapy (relative)",
         "Bilateral block without a recalculated combined maximum dose",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking."
@@ -7872,7 +7872,7 @@
         "id": "tap_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "tap_distribution",
         "systemImage": "figure.stand",
         "caption": "The upper abdomen, the flank and the groin are left unshaded.",
@@ -8027,7 +8027,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "The pectoral branch of the thoracoacromial artery runs between pectoralis major and minor (PECS I).",
@@ -8111,7 +8111,7 @@
         "id": "pecs_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "pecs_distribution",
         "systemImage": "figure.stand",
         "caption": "PECS I alone reaches the pectoral muscles but not the skin; the shading shows the PECS II spread.",
@@ -8355,7 +8355,7 @@
         "id": "femoral_nerve_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "femoral_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "The lateral thigh is left unshaded: the lateral femoral cutaneous branch is not reliably reached.",
@@ -8506,7 +8506,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Articular branches of the femoral, obturator, and accessory obturator nerves supply the anterior hip capsule.",
@@ -8591,7 +8591,7 @@
         "id": "peng_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "peng_distribution",
         "systemImage": "figure.stand",
         "caption": "No skin is shaded: the target is the hip capsule, not the cutaneous branches of the thigh.",
@@ -8742,7 +8742,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "The saphenous nerve runs with the superficial femoral artery in the adductor canal, deep to sartorius."
@@ -8826,7 +8826,7 @@
         "id": "saphenous_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "saphenous_distribution",
         "systemImage": "figure.stand",
         "caption": "The thigh is left unshaded: its branches leave the femoral trunk above the adductor canal.",
@@ -8980,7 +8980,7 @@
         "Injury at risk of compartment syndrome (e.g., tibial fracture): the block can mask ischemic pain - discuss with the surgical team first",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "In the popliteal fossa the sciatic nerve bifurcates into the tibial (medial) and common peroneal (lateral) nerves, roughly 6 cm above the popliteal crease.",
@@ -9069,7 +9069,7 @@
         "id": "popliteal_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "popliteal_distribution",
         "systemImage": "figure.stand",
         "caption": "The thigh, the hip and the medial strip of the leg are left unshaded.",
@@ -9304,7 +9304,7 @@
         "id": "transgluteal_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "transgluteal_distribution",
         "systemImage": "figure.stand",
         "caption": "The medial strip of the leg is left unshaded: it belongs to the saphenous branch, which the sciatic trunk does not supply.",
@@ -9461,7 +9461,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Posterior to the medial malleolus: Tom, Dick, AND Very Nervous Harry (Tibialis posterior, flexor Digitorum longus, Artery, Vein, Nerve, flexor Hallucis longus)."
@@ -9542,7 +9542,7 @@
         "id": "tibial_nerve_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "tibial_nerve_distribution",
         "systemImage": "figure.stand",
         "caption": "The dorsum of the foot and the lateral border are left unshaded.",
@@ -9691,7 +9691,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "The sural nerve travels with the small saphenous vein posterior to the lateral malleolus."
@@ -9773,7 +9773,7 @@
         "id": "sural_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "sural_distribution",
         "systemImage": "figure.stand",
         "caption": "The dorsum and most of the sole are left unshaded.",
@@ -9922,7 +9922,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Pierces the deep fascia in the distal third of the lateral leg to become superficial."
@@ -10001,7 +10001,7 @@
         "id": "superficial_peroneal_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "superficial_peroneal_distribution",
         "systemImage": "figure.stand",
         "caption": "The first web space and the lateral border are left unshaded: they belong to other branches.",
@@ -10151,7 +10151,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "The deep peroneal nerve runs with the anterior tibial artery (dorsalis pedis) between the extensor hallucis longus and extensor digitorum longus tendons."
@@ -10230,7 +10230,7 @@
         "id": "deep_peroneal_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "deep_peroneal_distribution",
         "systemImage": "figure.stand",
         "caption": "The rest of the dorsum and the sole are left unshaded.",
@@ -10381,7 +10381,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Supraorbital notch/foramen: superior orbital rim, usually in line with the pupil in neutral gaze.",
@@ -10465,7 +10465,7 @@
         "id": "supraorbital_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "supraorbital_distribution",
         "systemImage": "figure.stand",
         "caption": "The temple and the lower face are left unshaded.",
@@ -10622,7 +10622,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Infraorbital foramen: on the maxilla about 1 cm below the inferior orbital rim, directly below the pupil.",
@@ -10709,7 +10709,7 @@
         "id": "infraorbital_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "infraorbital_distribution",
         "systemImage": "figure.stand",
         "caption": "The molars and the lateral cheek are left unshaded.",
@@ -10860,7 +10860,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Mental foramen: anterior mandible, usually below the first or second mandibular premolar.",
@@ -10940,7 +10940,7 @@
         "id": "mental_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "mental_distribution",
         "systemImage": "figure.stand",
         "caption": "No teeth or bone are shaded.",
@@ -11091,7 +11091,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "The nerve enters the mandibular foramen on the medial ramus.",
@@ -11185,7 +11185,7 @@
         "id": "inferior_alveolar_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "inferior_alveolar_distribution",
         "systemImage": "figure.stand",
         "caption": "The teeth sit inside the mouth, so only the skeleton shows them; the tongue is not shown.",
@@ -11335,7 +11335,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Maxillary tooth roots sit just above the mucobuccal fold."
@@ -11417,7 +11417,7 @@
         "id": "superior_alveolar_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "superior_alveolar_distribution",
         "systemImage": "figure.stand",
         "caption": "Any maxillary tooth can be the target; the pattern repeats along the arch. No skin is shaded.",
@@ -11572,7 +11572,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "Several nerves reach the ear from different directions.",
@@ -11653,7 +11653,7 @@
         "id": "auricular_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "auricular_distribution",
         "systemImage": "figure.stand",
         "caption": "Nothing beyond the ring of skin around the ear is shaded.",
@@ -11789,7 +11789,7 @@
         "id": "greater_occipital_distribution",
         "kind": "Distribution",
         "title": "Expected distribution",
-        "subtitle": "Where to expect numbness on the right side.",
+        "subtitle": "",
         "assetName": "greater_occipital_distribution",
         "systemImage": "figure.stand",
         "caption": "The area behind the ear is left unshaded: it belongs to the lesser occipital branch.",
@@ -11940,7 +11940,7 @@
         "Allergy to local anesthetic",
         "Patient refusal, or inability to consent where the block is not time-critical",
         "Pre-existing neurological deficit in the target territory - document before blocking.",
-        "Antithrombotic therapy: not an automatic prohibition for a superficial, compressible block. Judge on site compressibility, vascularity, and the consequence of a hematoma there; a neuraxial hold interval does not automatically apply. Follow local policy."
+        "Antithrombotic therapy (relative)"
       ],
       "anatomy": [
         "The greater occipital nerve is the posterior ramus of C2. It ascends between obliquus capitis inferior and semispinalis capitis and reaches the scalp at the superior nuchal line.",

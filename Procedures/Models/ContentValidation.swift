@@ -161,8 +161,10 @@ enum ContentValidator {
         // flag their absence or pending artwork as content issues.
         // A title is optional (owner decision 2026-09-29: a card whose image
         // describes the step needs no heading), so the subtitle is what every
-        // card must carry.
-        for asset in procedure.visualAssets ?? [] {
+        // card must carry. A Distribution plate is the exception (owner
+        // decision 2026-10-17): its legend says what the plate shows, and the
+        // "where to expect numbness" line under it said nothing more.
+        for asset in procedure.visualAssets ?? [] where asset.kind != .distribution {
             if asset.subtitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 add(.warning, "visual asset \(asset.id) is missing a subtitle.")
             }

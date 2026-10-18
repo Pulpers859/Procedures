@@ -348,8 +348,11 @@ def validate_procedures(data):
         for visual in item.get("visualAssets", []):
             # "title" is deliberately absent: optional since 2026-09-29 by
             # owner decision, because a card whose image describes the step
-            # needs no heading. The subtitle still has to be there.
-            for field in ["id", "kind", "subtitle"]:
+            # needs no heading. The subtitle still has to be there, except on a
+            # Distribution plate (owner decision 2026-10-17): its legend says
+            # what the plate shows, and the subtitle only repeated it.
+            required = ["id", "kind"] + ([] if visual.get("kind") == "Distribution" else ["subtitle"])
+            for field in required:
                 if not visual.get(field):
                     issues.append(("WARNING", title, f"visual asset missing {field}"))
             # A caption captions an image. With no artwork the card already
