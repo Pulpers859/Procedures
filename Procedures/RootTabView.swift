@@ -151,6 +151,9 @@ struct RootTabView: View {
             editStore.pruneMissingProcedures(validProcedureIDs: procedureIDs)
             editStore.retireLandedEdits()
         }
+        if let rescueCardIDs, let kitIDs {
+            editStore.retireLandedCardEdits(validRescueIDs: rescueCardIDs, validKitIDs: kitIDs)
+        }
     }
 
     private func reindexSpotlight() {
@@ -226,6 +229,10 @@ private struct AutomaticRecoverySnapshots: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onChange(of: editStore.editsByProcedureID) { _, _ in
+                onEditsChanged()
+                snapshot()
+            }
+            .onChange(of: editStore.cardEdits) { _, _ in
                 onEditsChanged()
                 snapshot()
             }

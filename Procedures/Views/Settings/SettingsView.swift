@@ -138,7 +138,7 @@ struct SettingsView: View {
                     // the only kind this screen could not clear. The store had
                     // a resetEverything() with no call sites; the sole removal
                     // path was per-procedure, inside Review Mode.
-                    if editStore.editedProcedureCount > 0 {
+                    if editStore.editedItemCount > 0 {
                         Button(role: .destructive) { confirmation = .clearEdits } label: {
                             Label("Discard All Content Edits", systemImage: "arrow.uturn.backward")
                         }

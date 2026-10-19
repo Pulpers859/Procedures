@@ -27,6 +27,9 @@ struct ClinicalRecoveryPackage: Codable, Hashable {
     /// same app container as the images and would be lost with it. Optional so
     /// packages written before images were backed up still decode.
     var importedVisuals: [String: Data]? = nil
+    /// Rescue card and kit edits, keyed "rescue:<id>" / "kit:<id>". Optional
+    /// so packages written before cards were editable still decode.
+    var cardEdits: [String: CardFieldEdits]? = nil
 }
 
 struct ClinicalRecoverySnapshot: Identifiable, Hashable {
@@ -215,6 +218,14 @@ final class ClinicalRecoveryStore: ObservableObject {
             let safeEdits = allowedEdits.filter { !preview.conflicts.contains($0.key) && !preview.staleProcedureIDs.contains($0.key) }
             editStore.restoreRecoveryEdits(safeEdits, replacingConflicts: false)
         }
+        if let cardEdits = preview.package.cardEdits {
+            let known = cardEdits.compactMapValues { edit -> CardFieldEdits? in
+                var sanitized = edit
+                sanitized.fields = edit.fields.filter { CardField(rawValue: $0.key) != nil }
+                return sanitized.isEmpty ? nil : sanitized
+            }
+            editStore.restoreRecoveryCardEdits(known, replacingConflicts: replacingConflicts)
+        }
         userData.restoreRecoverySnapshot(preview.package.userData, replacingConflicts: replacingConflicts)
         for (assetID, data) in preview.package.importedVisuals ?? [:] {
             let exists = ImportedVisualStore.storedData(for: assetID, in: importedVisualsDirectory) != nil
@@ -254,7 +265,8 @@ final class ClinicalRecoveryStore: ObservableObject {
             exportedAt: displayDate(),
             appVersion: AppConstants.appVersionDescription,
             edits: editStore.editsByProcedureID,
-            userData: userData.recoverySnapshot()
+            userData: userData.recoverySnapshot(),
+            cardEdits: editStore.cardEdits.isEmpty ? nil : editStore.cardEdits
         )
     }
 
@@ -291,7 +303,8 @@ final class ClinicalRecoveryStore: ObservableObject {
             exportedAt: "",
             appVersion: package.appVersion,
             edits: package.edits,
-            userData: package.userData
+            userData: package.userData,
+            cardEdits: package.cardEdits
         )
         return try encodedData(for: copy)
     }

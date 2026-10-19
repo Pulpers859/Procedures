@@ -217,18 +217,23 @@ struct KitDetailView: View {
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
     @State private var showingResetConfirmation = false
 
+    /// The merged kit, so a local edit shows here the moment it is saved.
+    private var currentKit: Kit {
+        repository.kits.first(where: { $0.id == kit.id }) ?? kit
+    }
+
     private var relatedProcedures: [Procedure] {
-        kit.relatedProcedureIDs.compactMap { repository.procedure(withID: $0) }
+        currentKit.relatedProcedureIDs.compactMap { repository.procedure(withID: $0) }
     }
 
     private var checkedCount: Int {
-        kit.allChecklistItems.filter { userData.isKitItemChecked($0, forKitID: kit.id) }.count
+        currentKit.allChecklistItems.filter { userData.isKitItemChecked($0, forKitID: currentKit.id) }.count
     }
 
-    private var totalChecklistItems: Int { kit.allChecklistItems.count }
+    private var totalChecklistItems: Int { currentKit.allChecklistItems.count }
 
     private var requiresSessionDecision: Bool {
-        userData.requiresKitSessionDecision(forKitID: kit.id)
+        userData.requiresKitSessionDecision(forKitID: currentKit.id)
     }
 
     var body: some View {
@@ -240,53 +245,53 @@ struct KitDetailView: View {
                     savedChecklistDecisionCard
                 }
 
-                if !kit.patientSetup.isEmpty {
-                    CriticalWarningCard(title: "Patient & Room Setup First", items: kit.patientSetup)
+                if !currentKit.patientSetup.isEmpty {
+                    CriticalWarningCard(title: "Patient & Room Setup First", items: currentKit.patientSetup)
                 }
 
-                if !requiresSessionDecision, !kit.inKit.isEmpty {
+                if !requiresSessionDecision, !currentKit.inKit.isEmpty {
                     SectionCard(title: "In the Kit", systemImage: "shippingbox.fill") {
                         VStack(alignment: .leading, spacing: 2) {
-                            ForEach(kit.inKit, id: \.self) { item in
+                            ForEach(currentKit.inKit, id: \.self) { item in
                                 ChecklistRow(
                                     text: item,
-                                    isChecked: userData.isKitItemChecked(item, forKitID: kit.id)
+                                    isChecked: userData.isKitItemChecked(item, forKitID: currentKit.id)
                                 ) {
-                                    userData.toggleKitItem(item, forKitID: kit.id)
+                                    userData.toggleKitItem(item, forKitID: currentKit.id)
                                 }
                             }
                         }
                     }
                 }
 
-                if !requiresSessionDecision, !kit.outsideKit.isEmpty {
+                if !requiresSessionDecision, !currentKit.outsideKit.isEmpty {
                     SectionCard(title: "Pull Separately", systemImage: "arrow.up.right.square") {
                         VStack(alignment: .leading, spacing: 2) {
-                            ForEach(kit.outsideKit, id: \.self) { item in
+                            ForEach(currentKit.outsideKit, id: \.self) { item in
                                 ChecklistRow(
                                     text: item,
-                                    isChecked: userData.isKitItemChecked(item, forKitID: kit.id)
+                                    isChecked: userData.isKitItemChecked(item, forKitID: currentKit.id)
                                 ) {
-                                    userData.toggleKitItem(item, forKitID: kit.id)
+                                    userData.toggleKitItem(item, forKitID: currentKit.id)
                                 }
                             }
                         }
                     }
                 }
 
-                if !kit.commonlyForgotten.isEmpty {
+                if !currentKit.commonlyForgotten.isEmpty {
                     commonlyForgottenCard
                 }
 
-                if !kit.sterileSetup.isEmpty {
+                if !currentKit.sterileSetup.isEmpty {
                     SectionCard(title: "Sterile Field Setup", systemImage: "square.dashed") {
-                        BulletListView(items: kit.sterileSetup)
+                        BulletListView(items: currentKit.sterileSetup)
                     }
                 }
 
-                if !kit.backupEquipment.isEmpty {
+                if !currentKit.backupEquipment.isEmpty {
                     SectionCard(title: "Backup Equipment", systemImage: "lifepreserver") {
-                        BulletListView(items: kit.backupEquipment)
+                        BulletListView(items: currentKit.backupEquipment)
                     }
                 }
 
@@ -295,24 +300,24 @@ struct KitDetailView: View {
                 if reviewModeEnabled {
                     SectionCard(title: "Review", systemImage: "checkmark.shield") {
                         LocalReviewPanel(
-                            sourceStatus: kit.reviewer,
-                            sourceOrigin: kit.source,
-                            sourceLastReviewed: kit.lastReviewed,
-                            sourceVersion: kit.version,
-                            localReviewRecord: userData.localReviewRecord(for: kit),
-                            materialState: userData.reviewContentState(for: kit),
-                            markReviewed: { userData.markReviewed(kit) },
-                            markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: kit) },
-                            deferReview: { userData.setReviewDisposition(.deferred, for: kit) },
-                            clearReview: { userData.clearReview(for: kit) }
+                            sourceStatus: currentKit.reviewer,
+                            sourceOrigin: currentKit.source,
+                            sourceLastReviewed: currentKit.lastReviewed,
+                            sourceVersion: currentKit.version,
+                            localReviewRecord: userData.localReviewRecord(for: currentKit),
+                            materialState: userData.reviewContentState(for: currentKit),
+                            markReviewed: { userData.markReviewed(currentKit) },
+                            markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: currentKit) },
+                            deferReview: { userData.setReviewDisposition(.deferred, for: currentKit) },
+                            clearReview: { userData.clearReview(for: currentKit) }
                         )
                     }
                 }
 
-                if !kit.references.isEmpty {
+                if !currentKit.references.isEmpty {
                     DisclosureSectionCard(title: "References", systemImage: "books.vertical") {
                         VStack(alignment: .leading, spacing: 6) {
-                            ForEach(Array(kit.references.enumerated()), id: \.offset) { _, ref in
+                            ForEach(Array(currentKit.references.enumerated()), id: \.offset) { _, ref in
                                 Text(ref)
                                     .font(.footnote)
                                     .foregroundStyle(.secondary)
@@ -337,6 +342,16 @@ struct KitDetailView: View {
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            if reviewModeEnabled {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        CardEditorView(kind: .kit, id: kit.id, title: currentKit.title)
+                    } label: {
+                        Image(systemName: "square.and.pencil")
+                    }
+                    .accessibilityLabel("Edit this kit's content")
+                }
+            }
             if checkedCount > 0, !requiresSessionDecision {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Reset") {
@@ -347,11 +362,11 @@ struct KitDetailView: View {
         }
         .alert("Reset all kit checklist items?", isPresented: $showingResetConfirmation) {
             Button("Reset Checklist", role: .destructive) {
-                userData.resetKit(withID: kit.id)
+                userData.resetKit(withID: currentKit.id)
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("This clears the current room-setup checks for this kit.")
+            Text("This clears the current room-setup checks for this currentKit.")
         }
     }
 
@@ -362,23 +377,23 @@ struct KitDetailView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 14) {
-                Image(systemName: kit.category.systemImageName)
+                Image(systemName: currentKit.category.systemImageName)
                     .font(.title2.weight(.semibold))
-                    .foregroundStyle(kitTint(for: kit.category))
+                    .foregroundStyle(kitTint(for: currentKit.category))
                     .frame(width: 50, height: 50)
-                    .background(kitTint(for: kit.category).opacity(0.14), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    .background(kitTint(for: currentKit.category).opacity(0.14), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(kit.category.rawValue.uppercased())
+                    Text(currentKit.category.rawValue.uppercased())
                         .font(.caption.weight(.heavy))
-                        .foregroundStyle(kitTint(for: kit.category))
-                    Text(kit.title)
+                        .foregroundStyle(kitTint(for: currentKit.category))
+                    Text(currentKit.title)
                         .font(.title2.weight(.bold))
                 }
                 Spacer()
             }
 
-            Text(kit.subtitle)
+            Text(currentKit.subtitle)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
@@ -386,13 +401,13 @@ struct KitDetailView: View {
             // state, so a kit signed off on this device looked identical to one
             // nobody had ever opened.
             ReviewStateChip(
-                state: userData.reviewState(for: kit),
-                source: kit.source,
+                state: userData.reviewState(for: currentKit),
+                source: currentKit.source,
                 alignment: .leading
             )
 
-            if !kit.tags.isEmpty {
-                FlowTagView(tags: Array(kit.tags.prefix(6)))
+            if !currentKit.tags.isEmpty {
+                FlowTagView(tags: Array(currentKit.tags.prefix(6)))
             }
 
             if totalChecklistItems > 0 {
@@ -433,7 +448,7 @@ struct KitDetailView: View {
                 }
             }
             ProgressView(value: progress)
-                .tint(isComplete ? .green : kitTint(for: kit.category))
+                .tint(isComplete ? .green : kitTint(for: currentKit.category))
         }
         .padding(.top, 2)
         .accessibilityElement(children: .combine)
@@ -449,7 +464,7 @@ struct KitDetailView: View {
                     .font(.headline)
                 Spacer()
             }
-            BulletListView(items: kit.commonlyForgotten)
+            BulletListView(items: currentKit.commonlyForgotten)
         }
         .padding(AppLayout.cardPadding)
         .background(.yellow.opacity(0.10), in: RoundedRectangle(cornerRadius: AppLayout.cardRadius, style: .continuous))
@@ -475,13 +490,13 @@ struct KitDetailView: View {
     @ViewBuilder
     private var savedChecklistButtons: some View {
         Button("Resume Saved") {
-            userData.resumeKitSession(withID: kit.id)
+            userData.resumeKitSession(withID: currentKit.id)
         }
         .buttonStyle(.borderedProminent)
         .frame(minHeight: AppLayout.controlMinHeight)
 
         Button("Start New", role: .destructive) {
-            userData.resetKit(withID: kit.id)
+            userData.resetKit(withID: currentKit.id)
         }
         .buttonStyle(.bordered)
         .frame(minHeight: AppLayout.controlMinHeight)

@@ -13,10 +13,10 @@ struct ComplicationRescueCard: Identifiable, Codable, Hashable {
     let title: String
     let acuity: Acuity
     let relatedProcedureIDs: [String]
-    let trigger: [String]
-    let immediateMoves: [String]
-    let reassess: [String]
-    let avoid: [String]
+    var trigger: [String]
+    var immediateMoves: [String]
+    var reassess: [String]
+    var avoid: [String]
     let tags: [String]
     let lastReviewed: String
     let version: String

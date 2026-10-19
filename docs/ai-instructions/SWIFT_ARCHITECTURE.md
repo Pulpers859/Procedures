@@ -39,7 +39,9 @@ Important bundled content files:
   corrections live in `ProcedureEditStore` as section overrides in Documents and
   are merged onto a value copy at load. Every section can be reverted to what
   shipped, and `scripts/apply_local_edits.py` moves an export back into
-  `procedures.json` as a reviewable diff.
+  `procedures.json` as a reviewable diff. Rescue card and kit lists work the same way
+  (`cardEdits` in the same store, `card_edits.json`, edited from the card's
+  pencil button in Review Mode) and leave in the same export.
 - Do not treat local review records as bundled clinical approval; they are personal device state.
 - Keep Review Center/editor workflow separate from the default bedside clinical flow.
 - Keep rescue cards editable through `rescue_cards.json`.

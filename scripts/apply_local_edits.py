@@ -4,7 +4,9 @@
 The app cannot write to its own bundle, so corrections a clinician makes at the
 bedside are stored as local overrides and exported as JSON. This merges that
 export into `Procedures/Resources/procedures.json` so the change lands as a
-reviewable git diff rather than a wholesale file replacement.
+reviewable git diff rather than a wholesale file replacement. Rescue card and
+kit edits in the same export (its `cardEdits` key) go into
+`rescue_cards.json` and `kits.json`.
 
 Usage:
     python3 scripts/apply_local_edits.py path/to/procedure-edits-2026-07-27.json
@@ -18,6 +20,7 @@ will catch that.
 import argparse
 import copy
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -28,6 +31,8 @@ import search_model
 
 ROOT = Path(__file__).resolve().parents[1]
 PROCEDURES = ROOT / "Procedures" / "Resources" / "procedures.json"
+RESCUE_CARDS = ROOT / "Procedures" / "Resources" / "rescue_cards.json"
+KITS = ROOT / "Procedures" / "Resources" / "kits.json"
 EXPORT_SCHEMA = "procedures.local-edits.v1"
 
 # Mirror of EditableSection in Procedures/Data/ProcedureEditStore.swift. A key
@@ -39,6 +44,87 @@ VALID_SECTIONS = {
 }
 
 
+# Mirror of CardField in Procedures/Data/ProcedureEditStore.swift.
+CARD_FIELDS = {
+    "rescue": {"trigger", "immediateMoves", "avoid", "reassess"},
+    "kit": {"inKit", "outsideKit", "commonlyForgotten", "patientSetup", "sterileSetup", "backupEquipment"},
+}
+
+
+def load_card_edits(path: Path):
+    """The export's `cardEdits` mapping ("rescue:<id>" / "kit:<id>"), or {}."""
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if isinstance(payload, dict) and isinstance(payload.get("cardEdits"), dict):
+        return payload["cardEdits"]
+    return {}
+
+
+def write_kits_preserving_layout(raw: str, kits: list, touched) -> str:
+    """kits.json is hand laid out (short lists inline, raw UTF-8). Rewrite only
+    the touched lists so the diff shows the edit and nothing else."""
+    by_id = {kit["id"]: kit for kit in kits}
+    decoder = json.JSONDecoder()
+    for kit_id, field in sorted(touched):
+        start = raw.index(f'"id": "{kit_id}"')
+        nxt = raw.find('"id": "', start + 10)
+        match = re.compile(r'\n(\s*)"' + re.escape(field) + r'": ').search(raw, start)
+        if not match or (nxt != -1 and match.start() > nxt):
+            raise SystemExit(f"error: could not find {kit_id}.{field} in kits.json")
+        indent = match.group(1)
+        _, end = decoder.raw_decode(raw, match.end())
+        items = ",\n".join(indent + "  " + json.dumps(x, ensure_ascii=False) for x in by_id[kit_id][field])
+        raw = raw[:match.end()] + f"[\n{items}\n{indent}]" + raw[end:]
+    if json.loads(raw) != kits:
+        raise SystemExit("error: kits.json rewrite did not round-trip; nothing written")
+    return raw
+
+
+def apply_card_edits(card_edits, dry_run: bool):
+    """Applies rescue card and kit edits. Returns the lines to report."""
+    if not card_edits:
+        return [], []
+    rescue = json.loads(RESCUE_CARDS.read_text(encoding="utf-8"))
+    kits_raw = KITS.read_text(encoding="utf-8")
+    kits = json.loads(kits_raw)
+    records = {"rescue": {c["id"]: c for c in rescue}, "kit": {k["id"]: k for k in kits}}
+    applied, skipped, touched_kits = [], [], set()
+    for key, entry in sorted(card_edits.items()):
+        kind, _, card_id = key.partition(":")
+        if kind not in CARD_FIELDS:
+            skipped.append(f"{key}: unknown card kind, refused")
+            continue
+        record = records[kind].get(card_id)
+        if record is None:
+            skipped.append(f"{key}: no such card")
+            continue
+        fields = entry.get("fields") if isinstance(entry, dict) else None
+        if not isinstance(fields, dict) or not fields:
+            skipped.append(f"{key}: no field edits")
+            continue
+        changed = []
+        for field, lines in sorted(fields.items()):
+            if field not in CARD_FIELDS[kind]:
+                skipped.append(f"{key}.{field}: unknown field, refused")
+                continue
+            if not isinstance(lines, list) or any(not isinstance(line, str) for line in lines):
+                skipped.append(f"{key}.{field}: not a list of strings, refused")
+                continue
+            if record.get(field) == lines:
+                continue
+            record[field] = lines
+            changed.append(field)
+            if kind == "kit":
+                touched_kits.add((card_id, field))
+        if changed:
+            applied.append(f"{key}: {', '.join(changed)}")
+    if applied and not dry_run:
+        if any(line.startswith("rescue:") for line in applied):
+            atomic_write_text(RESCUE_CARDS, json.dumps(rescue, indent=2, ensure_ascii=True) + "\n")
+        if touched_kits:
+            atomic_write_text(KITS, write_kits_preserving_layout(kits_raw, kits, touched_kits))
+    return applied, skipped
+
+
 def load_export(path: Path):
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
@@ -46,11 +132,11 @@ def load_export(path: Path):
         sys.exit(f"error: could not read export {path}: {exc}")
 
     # Accept both the wrapped export and a bare id -> edits mapping.
-    if isinstance(payload, dict) and "edits" in payload:
+    if isinstance(payload, dict) and ("edits" in payload or "cardEdits" in payload):
         schema = payload.get("schema")
         if schema != EXPORT_SCHEMA:
             sys.exit(f"error: unsupported export schema {schema!r}; expected {EXPORT_SCHEMA!r}")
-        return payload["edits"]
+        return payload.get("edits") or {}
     if isinstance(payload, dict):
         return payload
     sys.exit("error: export must be a JSON object")
@@ -195,9 +281,11 @@ def main(argv=None) -> int:
                     f"{procedure_id}: {', '.join(material) if material else 'no material section'}"
                 )
 
-    for line in applied:
+    card_applied, card_skipped = apply_card_edits(load_card_edits(args.export), args.dry_run)
+
+    for line in applied + card_applied:
         print(f"apply  {line}")
-    for line in skipped:
+    for line in skipped + card_skipped:
         print(f"skip   {line}")
     if blind:
         print("\nBLIND MERGE: these edits were written against content the repo has since changed.")
@@ -206,8 +294,15 @@ def main(argv=None) -> int:
         for line in blind:
             print(f"  {line}")
 
+    if card_applied:
+        print(
+            f"\n{'Dry run: ' if args.dry_run else ''}{len(card_applied)} rescue card(s)/kit(s)"
+            f" {'would change' if args.dry_run else 'updated'}."
+        )
+
     if not applied:
-        print("\nNothing to apply.")
+        if not card_applied:
+            print("\nNothing to apply.")
         return 0
 
     # Before the write, so --dry-run shows the retrieval cost too.

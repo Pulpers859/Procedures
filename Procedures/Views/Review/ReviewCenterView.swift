@@ -155,14 +155,19 @@ struct ReviewCenterView: View {
     /// repo. Without this the edits would live and die on one device.
     @ViewBuilder
     private var myEditsSection: some View {
-        if editStore.editedProcedureCount > 0 {
+        if editStore.editedItemCount > 0 {
             Section {
-                scopeRow(
-                    icon: "square.and.pencil",
-                    title: "Procedures edited locally",
-                    count: editStore.editedProcedureCount,
-                    scope: .locallyEdited
-                )
+                if editStore.editedProcedureCount > 0 {
+                    scopeRow(
+                        icon: "square.and.pencil",
+                        title: "Procedures edited locally",
+                        count: editStore.editedProcedureCount,
+                        scope: .locallyEdited
+                    )
+                }
+                if editStore.editedCardCount > 0 {
+                    LabeledContent("Rescue cards and kits edited", value: "\(editStore.editedCardCount)")
+                }
                 if let exportURL {
                     ShareLink(item: exportURL) {
                         Label("Export Edits", systemImage: "square.and.arrow.up")
@@ -211,7 +216,7 @@ struct ReviewCenterView: View {
     }
 
     private func refreshExport() {
-        exportURL = editStore.editedProcedureCount > 0 ? editStore.writeExportFile() : nil
+        exportURL = editStore.editedItemCount > 0 ? editStore.writeExportFile() : nil
         // Sign-offs the shipped content already carries are left out: the repo
         // promoted them, and re-sending them asks it to do that again. The
         // records stay on the device, which is what shows the item as reviewed

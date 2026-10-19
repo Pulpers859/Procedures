@@ -177,8 +177,13 @@ struct RescueCardDetailView: View {
     @AppStorage(SettingsStorageKey.hideGovernanceCopy) private var hideGovernanceCopy = true
     @AppStorage(SettingsStorageKey.reviewModeEnabled) private var reviewModeEnabled = false
 
+    /// The merged card, so a local edit shows here the moment it is saved.
+    private var current: ComplicationRescueCard {
+        repository.rescueCards.first(where: { $0.id == card.id }) ?? card
+    }
+
     private var relatedProcedures: [Procedure] {
-        card.relatedProcedureIDs.compactMap { repository.procedure(withID: $0) }
+        current.relatedProcedureIDs.compactMap { repository.procedure(withID: $0) }
     }
 
     var body: some View {
@@ -189,24 +194,24 @@ struct RescueCardDetailView: View {
                 // else on screen - unlike the procedure and kit detail
                 // screens, this one never rendered the title in the body at
                 // all. This is that copy.
-                Text(card.title)
+                Text(current.title)
                     .font(.title2.weight(.bold))
                     .fixedSize(horizontal: false, vertical: true)
 
-                CriticalWarningCard(title: "Act Now", items: card.immediateMoves, ordered: true)
+                CriticalWarningCard(title: "Act Now", items: current.immediateMoves, ordered: true)
 
                 statusStrip
 
                 SectionCard(title: "Recognize", systemImage: "waveform.path.ecg") {
-                    BulletListView(items: card.trigger)
+                    BulletListView(items: current.trigger)
                 }
 
                 SectionCard(title: "Reassess", systemImage: "waveform.path.ecg") {
-                    BulletListView(items: card.reassess)
+                    BulletListView(items: current.reassess)
                 }
 
                 SectionCard(title: "Avoid", systemImage: "hand.raised") {
-                    BulletListView(items: card.avoid)
+                    BulletListView(items: current.avoid)
                 }
 
                 RelatedProceduresCard(procedures: relatedProcedures)
@@ -214,24 +219,24 @@ struct RescueCardDetailView: View {
                 if reviewModeEnabled {
                     SectionCard(title: "Review", systemImage: "checkmark.shield") {
                         LocalReviewPanel(
-                            sourceStatus: card.reviewer,
-                            sourceOrigin: card.source,
-                            sourceLastReviewed: card.lastReviewed,
-                            sourceVersion: card.version,
-                            localReviewRecord: userData.localReviewRecord(for: card),
-                            materialState: userData.reviewContentState(for: card),
-                            markReviewed: { userData.markReviewed(card) },
-                            markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: card) },
-                            deferReview: { userData.setReviewDisposition(.deferred, for: card) },
-                            clearReview: { userData.clearReview(for: card) }
+                            sourceStatus: current.reviewer,
+                            sourceOrigin: current.source,
+                            sourceLastReviewed: current.lastReviewed,
+                            sourceVersion: current.version,
+                            localReviewRecord: userData.localReviewRecord(for: current),
+                            materialState: userData.reviewContentState(for: current),
+                            markReviewed: { userData.markReviewed(current) },
+                            markNeedsEdits: { userData.setReviewDisposition(.needsEdits, for: current) },
+                            deferReview: { userData.setReviewDisposition(.deferred, for: current) },
+                            clearReview: { userData.clearReview(for: current) }
                         )
                     }
                 }
 
-                if !card.references.isEmpty {
+                if !current.references.isEmpty {
                     DisclosureSectionCard(title: "References", systemImage: "books.vertical") {
                         VStack(alignment: .leading, spacing: 6) {
-                            ForEach(Array(card.references.enumerated()), id: \.offset) { _, reference in
+                            ForEach(Array(current.references.enumerated()), id: \.offset) { _, reference in
                                 Text(reference)
                                     .font(.footnote)
                                     .foregroundStyle(.secondary)
@@ -253,6 +258,18 @@ struct RescueCardDetailView: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            if reviewModeEnabled {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        CardEditorView(kind: .rescue, id: card.id, title: current.title)
+                    } label: {
+                        Image(systemName: "square.and.pencil")
+                    }
+                    .accessibilityLabel("Edit this rescue card's content")
+                }
+            }
+        }
     }
 
     private var showGovernanceCopy: Bool {
@@ -261,10 +278,10 @@ struct RescueCardDetailView: View {
 
     private var statusStrip: some View {
         HStack(spacing: 10) {
-            AcuityBadge(acuity: card.acuity)
+            AcuityBadge(acuity: current.acuity)
             ReviewStateChip(
-                state: userData.reviewState(for: card),
-                source: card.source,
+                state: userData.reviewState(for: current),
+                source: current.source,
                 alignment: .leading
             )
             Spacer(minLength: 0)

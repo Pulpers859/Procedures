@@ -236,6 +236,8 @@ final class ProcedureRepository: ObservableObject {
     /// merged text.
     func reapplyEdits() {
         loadProcedures()
+        loadRescueCards()
+        loadKits()
         revalidate()
     }
 
@@ -315,7 +317,8 @@ final class ProcedureRepository: ObservableObject {
             // while the App Intent told Siri and Action-button users the list
             // was "Crash-acuity problems first". The sort key already existed
             // and was only ever applied to the search path.
-            rescueCards = load.cards.sorted { lhs, rhs in
+            let merged = editStore?.applyCardEdits(toRescueCards: load.cards) ?? load.cards
+            rescueCards = merged.sorted { lhs, rhs in
                 if lhs.acuity.sortOrder != rhs.acuity.sortOrder {
                     return lhs.acuity.sortOrder < rhs.acuity.sortOrder
                 }
@@ -340,7 +343,7 @@ final class ProcedureRepository: ObservableObject {
     func loadKits() {
         do {
             let load = try KitStore.loadFromBundle()
-            kits = load.kits
+            kits = editStore?.applyCardEdits(toKits: load.kits) ?? load.kits
             if load.kits.isEmpty {
                 kitLoadError = "kits.json was read but no kits could be decoded. Confirm the structure matches the current schema."
                 kitLoadWarning = nil

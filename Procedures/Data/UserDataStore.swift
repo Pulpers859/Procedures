@@ -453,6 +453,23 @@ final class UserDataStore: ObservableObject {
         saveLocallyReviewedContent()
     }
 
+    /// Card version of `rebaselineReviewAfterLocalEdit`: a correction to a
+    /// rescue card or kit you signed off must not flag your own sign-off.
+    func rebaselineReviewAfterLocalCardEdit(
+        kind: CardKind, id: String, newFingerprint: String, version: String, previousFingerprint: String?
+    ) {
+        let key = reviewKey(kind: kind.rawValue, id: id)
+        guard var record = locallyReviewedContent[key],
+              record.materialFingerprint != newFingerprint,
+              let previousFingerprint,
+              record.materialFingerprint == previousFingerprint else { return }
+        record.materialFingerprint = newFingerprint
+        record.fingerprintVersion = ContentFingerprint.version
+        record.contentVersion = version
+        locallyReviewedContent[key] = record
+        saveLocallyReviewedContent()
+    }
+
     // MARK: - Review content state
 
     /// Whether the clinically material content changed since it was reviewed.

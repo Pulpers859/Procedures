@@ -169,3 +169,66 @@ class ApplyLocalEditsTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ApplyCardEditsTests(unittest.TestCase):
+    """Rescue card and kit edits ride in the same export under `cardEdits`
+    (added 2026-10-19, when cards became editable in the app)."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self._originals = (MODULE.PROCEDURES, MODULE.RESCUE_CARDS, MODULE.KITS)
+        for name in ("procedures", "rescue_cards", "kits"):
+            shutil.copy(ROOT / "Procedures" / "Resources" / f"{name}.json", self.tmp / f"{name}.json")
+        MODULE.PROCEDURES = self.tmp / "procedures.json"
+        MODULE.RESCUE_CARDS = self.tmp / "rescue_cards.json"
+        MODULE.KITS = self.tmp / "kits.json"
+
+    def tearDown(self):
+        MODULE.PROCEDURES, MODULE.RESCUE_CARDS, MODULE.KITS = self._originals
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _run(self, card_edits, *flags):
+        path = self.tmp / "edits.json"
+        path.write_text(json.dumps({
+            "schema": MODULE.EXPORT_SCHEMA, "exportedAt": "2026-10-19",
+            "edits": {}, "cardEdits": card_edits,
+        }), encoding="utf-8")
+        with contextlib.redirect_stdout(io.StringIO()):
+            MODULE.main([str(path), *flags])
+
+    def test_rescue_edit_lands_and_nothing_else_moves(self):
+        before = json.loads(MODULE.RESCUE_CARDS.read_text(encoding="utf-8"))
+        card_id = before[0]["id"]
+        self._run({f"rescue:{card_id}": {"editedAt": "2026-10-19", "fields": {"avoid": ["One line"]}}})
+        after = json.loads(MODULE.RESCUE_CARDS.read_text(encoding="utf-8"))
+        self.assertEqual(after[0]["avoid"], ["One line"])
+        after[0]["avoid"] = before[0]["avoid"]
+        self.assertEqual(after, before)
+
+    def test_kit_edit_rewrites_only_that_list(self):
+        raw_before = MODULE.KITS.read_text(encoding="utf-8")
+        kit_id = json.loads(raw_before)[0]["id"]
+        self._run({f"kit:{kit_id}": {"editedAt": "2026-10-19", "fields": {"inKit": ["Bougie", "Scalpel, #10 blade"]}}})
+        raw_after = MODULE.KITS.read_text(encoding="utf-8")
+        self.assertEqual(json.loads(raw_after)[0]["inKit"], ["Bougie", "Scalpel, #10 blade"])
+        before_lines, after_lines = raw_before.splitlines(), raw_after.splitlines()
+        removed = [line for line in before_lines if line not in after_lines]
+        self.assertTrue(all(line.startswith("      ") for line in removed), removed)
+
+    def test_unknown_kind_field_and_card_are_refused(self):
+        rescue_before = MODULE.RESCUE_CARDS.read_bytes()
+        kits_before = MODULE.KITS.read_bytes()
+        self._run({
+            "procedure:x": {"fields": {"avoid": ["x"]}},
+            "rescue:no_such_card": {"fields": {"avoid": ["x"]}},
+            "kit:" + json.loads(kits_before)[0]["id"]: {"fields": {"references": ["x"]}},
+        })
+        self.assertEqual(MODULE.RESCUE_CARDS.read_bytes(), rescue_before)
+        self.assertEqual(MODULE.KITS.read_bytes(), kits_before)
+
+    def test_dry_run_writes_nothing(self):
+        before = MODULE.RESCUE_CARDS.read_bytes()
+        card_id = json.loads(before)[0]["id"]
+        self._run({f"rescue:{card_id}": {"fields": {"avoid": ["Changed"]}}}, "--dry-run")
+        self.assertEqual(MODULE.RESCUE_CARDS.read_bytes(), before)

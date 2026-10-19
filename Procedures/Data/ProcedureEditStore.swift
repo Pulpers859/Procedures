@@ -80,6 +80,101 @@ enum EditableSection: String, Codable, CaseIterable, Identifiable {
     }
 }
 
+/// Which kind of card a card edit belongs to.
+enum CardKind: String, Codable {
+    case rescue, kit
+}
+
+/// A list on a rescue card or kit that a clinician can rewrite in the app.
+/// Mirrors `CARD_FIELDS` in scripts/apply_local_edits.py.
+enum CardField: String, Codable, CaseIterable, Identifiable {
+    // Rescue cards
+    case trigger, immediateMoves, avoid, reassess
+    // Kits
+    case inKit, outsideKit, commonlyForgotten, patientSetup, sterileSetup, backupEquipment
+
+    var id: String { rawValue }
+
+    static func fields(for kind: CardKind) -> [CardField] {
+        switch kind {
+        case .rescue: return [.immediateMoves, .trigger, .avoid, .reassess]
+        case .kit: return [.inKit, .outsideKit, .commonlyForgotten, .patientSetup, .sterileSetup, .backupEquipment]
+        }
+    }
+
+    var displayName: String {
+        switch self {
+        case .trigger: return "Recognize"
+        case .immediateMoves: return "Immediate Moves"
+        case .avoid: return "Avoid"
+        case .reassess: return "Reassess"
+        case .inKit: return "In the Kit"
+        case .outsideKit: return "Outside the Kit"
+        case .commonlyForgotten: return "Commonly Forgotten"
+        case .patientSetup: return "Patient Setup"
+        case .sterileSetup: return "Sterile Setup"
+        case .backupEquipment: return "Backup Equipment"
+        }
+    }
+
+    /// Every editable field except backup equipment feeds the card's review
+    /// fingerprint, so a change there is clinically material.
+    var isClinicallyMaterial: Bool { self != .backupEquipment }
+
+    func lines(in card: ComplicationRescueCard) -> [String] {
+        switch self {
+        case .trigger: return card.trigger
+        case .immediateMoves: return card.immediateMoves
+        case .avoid: return card.avoid
+        case .reassess: return card.reassess
+        default: return []
+        }
+    }
+
+    func apply(_ lines: [String], to card: inout ComplicationRescueCard) {
+        switch self {
+        case .trigger: card.trigger = lines
+        case .immediateMoves: card.immediateMoves = lines
+        case .avoid: card.avoid = lines
+        case .reassess: card.reassess = lines
+        default: break
+        }
+    }
+
+    func lines(in kit: Kit) -> [String] {
+        switch self {
+        case .inKit: return kit.inKit
+        case .outsideKit: return kit.outsideKit
+        case .commonlyForgotten: return kit.commonlyForgotten
+        case .patientSetup: return kit.patientSetup
+        case .sterileSetup: return kit.sterileSetup
+        case .backupEquipment: return kit.backupEquipment
+        default: return []
+        }
+    }
+
+    func apply(_ lines: [String], to kit: inout Kit) {
+        switch self {
+        case .inKit: kit.inKit = lines
+        case .outsideKit: kit.outsideKit = lines
+        case .commonlyForgotten: kit.commonlyForgotten = lines
+        case .patientSetup: kit.patientSetup = lines
+        case .sterileSetup: kit.sterileSetup = lines
+        case .backupEquipment: kit.backupEquipment = lines
+        default: break
+        }
+    }
+}
+
+/// One rescue card's or kit's locally authored overrides.
+struct CardFieldEdits: Codable, Hashable {
+    /// `CardField.rawValue` -> replacement lines. Only edited fields appear.
+    var fields: [String: [String]] = [:]
+    var editedAt: String = ""
+
+    var isEmpty: Bool { fields.isEmpty }
+}
+
 /// One procedure's locally authored overrides.
 struct ProcedureSectionEdits: Codable, Hashable {
     /// `EditableSection.rawValue` -> replacement lines. Only edited sections
@@ -106,8 +201,17 @@ struct ProcedureSectionEdits: Codable, Hashable {
 final class ProcedureEditStore: ObservableObject {
     @Published private(set) var editsByProcedureID: [String: ProcedureSectionEdits] = [:]
     @Published private(set) var hasUnreadableEdits = false
+    /// Local corrections to rescue cards and kits, keyed by `cardKey(_:_:)`
+    /// ("rescue:<id>" or "kit:<id>"). Stored in their own file so a damaged
+    /// procedure store can never take card edits with it, or the reverse.
+    @Published private(set) var cardEdits: [String: CardFieldEdits] = [:]
 
     private let fileURL: URL?
+    private let cardFileURL: URL?
+    /// Shipped card text, captured before any override is applied. Same
+    /// reason as `bundledSections`: the repository publishes merged cards.
+    private var bundledRescueCards: [String: ComplicationRescueCard] = [:]
+    private var bundledKits: [String: Kit] = [:]
 
     /// Bundled section text, captured before any override is applied.
     ///
@@ -122,7 +226,9 @@ final class ProcedureEditStore: ObservableObject {
     init(directory: URL? = nil) {
         let base = directory ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         fileURL = base?.appendingPathComponent("procedure_edits.json")
+        cardFileURL = base?.appendingPathComponent("card_edits.json")
         load()
+        loadCardEdits()
     }
 
     // MARK: - Reading
@@ -200,6 +306,8 @@ final class ProcedureEditStore: ObservableObject {
     func resetEverything() {
         editsByProcedureID = [:]
         save()
+        cardEdits = [:]
+        saveCardEdits()
     }
 
     private func commit(_ edits: ProcedureSectionEdits, for procedureID: String) {
@@ -321,6 +429,172 @@ final class ProcedureEditStore: ObservableObject {
         hasUnreadableEdits = false
     }
 
+    // MARK: - Rescue card and kit edits
+
+    static func cardKey(_ kind: CardKind, _ id: String) -> String {
+        "\(kind.rawValue):\(id)"
+    }
+
+    var editedCardCount: Int {
+        cardEdits.values.filter { !$0.isEmpty }.count
+    }
+
+    /// Procedures plus cards with local edits: what an export would carry.
+    var editedItemCount: Int {
+        editedProcedureCount + editedCardCount
+    }
+
+    func hasCardEdits(_ kind: CardKind, id: String) -> Bool {
+        !(cardEdits[Self.cardKey(kind, id)]?.isEmpty ?? true)
+    }
+
+    func isCardFieldEdited(_ field: CardField, kind: CardKind, id: String) -> Bool {
+        cardEdits[Self.cardKey(kind, id)]?.fields[field.rawValue] != nil
+    }
+
+    /// The text that shipped, ignoring any override.
+    func bundledCardLines(_ field: CardField, kind: CardKind, id: String) -> [String] {
+        switch kind {
+        case .rescue: return bundledRescueCards[id].map { field.lines(in: $0) } ?? []
+        case .kit: return bundledKits[id].map { field.lines(in: $0) } ?? []
+        }
+    }
+
+    /// Current text: the local override when one exists, otherwise what shipped.
+    func cardLines(_ field: CardField, kind: CardKind, id: String) -> [String] {
+        cardEdits[Self.cardKey(kind, id)]?.fields[field.rawValue]
+            ?? bundledCardLines(field, kind: kind, id: id)
+    }
+
+    func setCardLines(_ lines: [String], field: CardField, kind: CardKind, id: String) {
+        let cleaned = lines
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+        let key = Self.cardKey(kind, id)
+        var edits = cardEdits[key] ?? CardFieldEdits()
+        if cleaned == bundledCardLines(field, kind: kind, id: id) {
+            edits.fields.removeValue(forKey: field.rawValue)
+        } else {
+            edits.fields[field.rawValue] = cleaned
+        }
+        edits.editedAt = ContentFreshness.todayString()
+        commitCard(edits, forKey: key)
+    }
+
+    func resetCardField(_ field: CardField, kind: CardKind, id: String) {
+        let key = Self.cardKey(kind, id)
+        guard var edits = cardEdits[key] else { return }
+        edits.fields.removeValue(forKey: field.rawValue)
+        commitCard(edits, forKey: key)
+    }
+
+    func resetAllCardEdits(_ kind: CardKind, id: String) {
+        cardEdits.removeValue(forKey: Self.cardKey(kind, id))
+        saveCardEdits()
+    }
+
+    private func commitCard(_ edits: CardFieldEdits, forKey key: String) {
+        if edits.isEmpty {
+            cardEdits.removeValue(forKey: key)
+        } else {
+            cardEdits[key] = edits
+        }
+        saveCardEdits()
+    }
+
+    /// Overlays local edits onto bundled rescue cards. Records what shipped
+    /// first. Unknown ids and field keys are ignored.
+    func applyCardEdits(toRescueCards cards: [ComplicationRescueCard]) -> [ComplicationRescueCard] {
+        for card in cards { bundledRescueCards[card.id] = card }
+        guard !cardEdits.isEmpty else { return cards }
+        return cards.map { card in
+            guard let edits = cardEdits[Self.cardKey(.rescue, card.id)] else { return card }
+            var updated = card
+            for (key, lines) in edits.fields {
+                CardField(rawValue: key)?.apply(lines, to: &updated)
+            }
+            return updated
+        }
+    }
+
+    func applyCardEdits(toKits kits: [Kit]) -> [Kit] {
+        for kit in kits { bundledKits[kit.id] = kit }
+        guard !cardEdits.isEmpty else { return kits }
+        return kits.map { kit in
+            guard let edits = cardEdits[Self.cardKey(.kit, kit.id)] else { return kit }
+            var updated = kit
+            for (key, lines) in edits.fields {
+                CardField(rawValue: key)?.apply(lines, to: &updated)
+            }
+            return updated
+        }
+    }
+
+    /// Drops card overrides the bundle has caught up with, and overrides for
+    /// cards that no longer ship. Same contract as `retireLandedEdits()`:
+    /// call only after a complete load, and only identical text retires.
+    func retireLandedCardEdits(validRescueIDs: Set<String>, validKitIDs: Set<String>) {
+        guard !cardEdits.isEmpty else { return }
+        var changed = false
+        for (key, edits) in cardEdits {
+            let parts = key.split(separator: ":", maxSplits: 1).map(String.init)
+            guard parts.count == 2, let kind = CardKind(rawValue: parts[0]) else { continue }
+            let id = parts[1]
+            let exists = kind == .rescue ? validRescueIDs.contains(id) : validKitIDs.contains(id)
+            if !exists {
+                cardEdits.removeValue(forKey: key)
+                changed = true
+                continue
+            }
+            var remaining = edits
+            for (fieldKey, lines) in edits.fields {
+                guard let field = CardField(rawValue: fieldKey) else { continue }
+                if bundledCardLines(field, kind: kind, id: id) == lines {
+                    remaining.fields.removeValue(forKey: fieldKey)
+                }
+            }
+            guard remaining.fields.count != edits.fields.count else { continue }
+            changed = true
+            if remaining.isEmpty {
+                cardEdits.removeValue(forKey: key)
+            } else {
+                cardEdits[key] = remaining
+            }
+        }
+        if changed { saveCardEdits() }
+    }
+
+    func restoreRecoveryCardEdits(_ restored: [String: CardFieldEdits], replacingConflicts: Bool) {
+        for (key, edit) in restored where replacingConflicts || cardEdits[key] == nil {
+            cardEdits[key] = edit
+        }
+        saveCardEdits()
+    }
+
+    private func loadCardEdits() {
+        guard let cardFileURL, let data = try? Data(contentsOf: cardFileURL) else { return }
+        if let decoded = try? JSONDecoder().decode([String: CardFieldEdits].self, from: data) {
+            cardEdits = decoded
+        } else {
+            let unreadableURL = cardFileURL.appendingPathExtension("unreadable")
+            if !FileManager.default.fileExists(atPath: unreadableURL.path) {
+                try? data.write(to: unreadableURL, options: .atomic)
+            }
+            hasUnreadableEdits = true
+        }
+    }
+
+    private func saveCardEdits() {
+        guard let cardFileURL else { return }
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+            try encoder.encode(cardEdits).write(to: cardFileURL, options: .atomic)
+        } catch {
+            print("Failed to save card edits: \(error)")
+        }
+    }
+
     // MARK: - Export
 
     /// Serializes every local edit for transfer back into the repo. Paired with
@@ -330,7 +604,8 @@ final class ProcedureEditStore: ObservableObject {
         let payload = ExportPayload(
             schema: Self.exportSchema,
             exportedAt: ContentFreshness.todayString(),
-            edits: editsByProcedureID
+            edits: editsByProcedureID,
+            cardEdits: cardEdits.isEmpty ? nil : cardEdits
         )
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
@@ -358,6 +633,9 @@ final class ProcedureEditStore: ObservableObject {
         let schema: String
         let exportedAt: String
         let edits: [String: ProcedureSectionEdits]
+        /// Rescue card and kit edits, keyed "rescue:<id>" / "kit:<id>".
+        /// Optional so an export with none matches the old format exactly.
+        let cardEdits: [String: CardFieldEdits]?
     }
 
     // MARK: - Persistence

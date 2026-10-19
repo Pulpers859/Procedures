@@ -16,12 +16,12 @@ struct Kit: Identifiable, Codable, Hashable {
     /// reads as an AI draft, never as trusted human work.
     let contentSource: ContentSource?
 
-    let inKit: [String]
-    let outsideKit: [String]
-    let commonlyForgotten: [String]
-    let patientSetup: [String]
-    let sterileSetup: [String]
-    let backupEquipment: [String]
+    var inKit: [String]
+    var outsideKit: [String]
+    var commonlyForgotten: [String]
+    var patientSetup: [String]
+    var sterileSetup: [String]
+    var backupEquipment: [String]
     let references: [String]
 
     var reviewer: ReviewerStatus { reviewerStatus ?? .unreviewedDefault }
