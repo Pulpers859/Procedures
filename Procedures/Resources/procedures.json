@@ -33,7 +33,7 @@
         "Call for help early \u2014 assign roles: airway, meds, monitor, suction, backup airway, post-intubation sedation.",
         "Preoxygenate aggressively; consider nasal cannula, NRB, NIV, or BVM with PEEP.",
         "Have suction immediately reachable before the first attempt.",
-        "Choose first-pass and backup plans before pushing meds \u2014 video/direct laryngoscopy, boujee, supraglottic, cricothyrotomy.",
+        "Choose first-pass and backup plans before pushing meds: video/direct laryngoscopy, bougie, supraglottic, cricothyrotomy.",
         "Name plan and action before performing so team is aware.",
         "Maximum 3+1 attempts: three, plus one final attempt by a more experienced colleague only. Change something material each attempt.",
         "Physiology kills before anatomy: optimize hypotension, hypoxemia, severe acidosis, RV failure, and hyperkalemia when possible.",
@@ -333,18 +333,18 @@
         "Guidewire removed intact and confirmed aloud",
         "Catheter secured with sterile dressing",
         "Appropriate imaging/confirmation obtained based on site",
-        "Tip at the SVC/right atrial junction on chest x-ray, at or just above the carina",
+        "Tip at the SVC/right atrial junction on chest x-ray",
         "A normal chest x-ray does not exclude arterial placement; transduce the catheter if there is any doubt",
         "No immediate evidence of arterial placement, pneumothorax, hematoma, or malposition"
       ],
       "troubleshooting": [
         "Wire will not pass: stop, do not force; check needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
-        "Arterial puncture with the needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid hematoma can obstruct late.",
-        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
+        "Arterial puncture with a needle, wire or 18 G catheter, not dilated: withdraw and hold firm pressure 5-10 minutes where compressible, longer if anticoagulated. After a neck puncture, watch the airway for several hours. A carotid hematoma can obstruct late. Subclavian or axillary: cannot be compressed, so watch for hemothorax.",
+        "Dilator or larger catheter in an artery, any site including subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Resistance with dilator: stop; confirm wire path and vessel location before proceeding.",
         "No blood return from one port: check clamp/cap, flush gently, reposition; do not force against resistance.",
-        "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism - occlude the hub, left lateral decubitus head-down, 100% oxygen, and aspirate from a central lumen if one is in place.",
+        "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism. Occlude the hub, left lateral decubitus head-down (focal deficit or seizure: flat supine instead), 100% oxygen, and aspirate from a central lumen if one is in place.",
         "Unstable after line: consider pneumothorax, bleeding, arrhythmia, air embolism, or unrelated shock progression."
       ],
       "complications": [
@@ -829,7 +829,7 @@
       "shiftMode": [
         "Confirm side and indication before incision.",
         "Simple pneumothorax or uncomplicated effusion: use the pigtail catheter card.",
-        "Size: 28-32 Fr for significant hemothorax, unstable trauma, or large air leak; 20-24 Fr or larger if ventilated with a significant leak.",
+        "Size: 28-32 Fr for significant hemothorax, unstable trauma, or a large air leak, ventilated or not.",
         "Suction/water seal set up before the tube goes in.",
         "Safe triangle when possible; over the rib, not under.",
         "Finger sweep before advancing the tube.",
@@ -858,7 +858,7 @@
       ],
       "equipment": [
         "Chest tube tray",
-        "Large-bore tube sized to indication: 28-32 Fr, or 20-24 Fr or larger if ventilated with a significant leak",
+        "Large-bore tube sized to indication: 28-32 Fr for significant hemothorax, unstable trauma, or a large air leak, ventilated or not",
         "Sterile prep/drape/gown/gloves",
         "Lidocaine 1%",
         "Scalpel",
@@ -886,7 +886,7 @@
         "Finger sweep: confirm intrapleural entry, check adhesions.",
         "Advance tube with clamp/finger guidance.",
         "Connect to drainage; suction or water seal as indicated.",
-        "Drain to symptoms; general ceiling 1.5 L per session. Stop and clamp, not merely slow, for repetitive cough, chest tightness or pain, or worsening breathlessness - these precede re-expansion pulmonary edema.",
+        "Effusion: drain to symptoms, general ceiling 1.5 L per session. Stop and clamp for repetitive cough, chest tightness or pain, or worsening breathlessness, which precede re-expansion pulmonary edema. Slowing is not enough. If the drain is bubbling at that point, do not clamp it. Take it off suction and leave it on water seal. Hemothorax: no ceiling and no clamp. Call surgery or trauma at 1,500 mL out, 200 mL/h for 3 hours, or instability with ongoing output.",
         "Suture, dress, image, reassess."
       ],
       "ultrasound": [
@@ -1078,7 +1078,7 @@
         "Advance catheter over wire; remove wire, holding catheter position.",
         "Confirm pigtail formed and side holes intrathoracic.",
         "Connect to drainage system; secure/dress.",
-        "Drain to symptoms; general ceiling 1.5 L per session. Stop and clamp, not merely slow, for repetitive cough, chest tightness or pain, or worsening breathlessness - these precede re-expansion pulmonary edema.",
+        "Effusion: drain to symptoms, general ceiling 1.5 L per session. Stop and clamp for repetitive cough, chest tightness or pain, or worsening breathlessness, which precede re-expansion pulmonary edema. Slowing is not enough. If the drain is bubbling at that point, do not clamp it. Take it off suction and leave it on water seal. Hemothorax: no ceiling and no clamp. Call surgery or trauma at 1,500 mL out, 200 mL/h for 3 hours, or instability with ongoing output.",
         "Image and reassess."
       ],
       "ultrasound": [
@@ -1565,7 +1565,7 @@
         "Keep transcutaneous pacing and pressors running while placing, if unstable.",
         "Know the generator before you need it \u2014 rate, output in mA, sensitivity, battery, and which cable mates it to this catheter.",
         "Electrical capture is not enough \u2014 confirm mechanical capture with pulse/BP/arterial waveform.",
-        "Spikes with no capture at maximum output means malposition, not a generator problem \u2014 reposition rather than increasing output.",
+        "Spikes with no capture at maximum output: malposition until proven otherwise, not a generator problem. Reposition rather than increasing output.",
         "Secure catheter and generator carefully; dislodgement is common.",
         "Do not remove backup pads or pressors until capture is reliable and the catheter is secured."
       ],
@@ -1628,7 +1628,7 @@
         "Chest x-ray for catheter position, depth, and complications"
       ],
       "troubleshooting": [
-        "No capture at maximum output: position, not power. Deflate, withdraw a few centimeters, reinflate, and refloat. Keep transcutaneous pacing and pressors going while you do.",
+        "No capture at maximum output: position first, not power. Deflate, withdraw a few centimeters, reinflate, and refloat. Keep transcutaneous pacing and pressors going while you do.",
         "Intermittent capture: secure, reposition, increase output margin.",
         "Threshold rising over hours: the catheter is migrating or the tip is becoming inflamed. Recheck position and securement, and hand that number over to the next team.",
         "Ventricular ectopy: withdraw/reposition if irritating myocardium.",
@@ -1668,7 +1668,7 @@
         "Write the threshold down.",
         "Keep pads on until the whole setup is stable and secured.",
         "Every movement can lose capture; check after transport.",
-        "Spikes without capture at maximum output are a malposition, not a generator problem."
+        "Spikes without capture at maximum output are a malposition until proven otherwise, not a generator problem."
       ],
       "references": [
         "American Heart Association. Part 9: Adult Advanced Life Support, 2025 CPR and ECC Guidelines. 2025. https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support",
@@ -2349,7 +2349,7 @@
         "Puncture over the superior margin of the lower rib.",
         "Anesthetize down to the pleural surface.",
         "For therapeutic drainage: connect the collection system before advancing the catheter, to keep air out.",
-        "Drain to until symptoms improve. Then stop and clamp.",
+        "Drain to symptoms, then stop and clamp.",
         "Stop if the patient begins to repetitively cough, have chest tightness, or worsening dyspnea - preceding re-expansion pulmonary edema.\n\nGeneral ceiling is 1.5 L in one session.",
         "Once finished, check lung sliding on ultrasound.\n\nOnly check CXR if \u2014 symptomatic, air was aspirated, sliding is absent/uncertain, or the patient is ventilated or can't report symptoms."
       ],
@@ -2992,7 +2992,7 @@
         "Cannulate under ultrasound, tracking the needle tip.",
         "Confirm the wire is venous before dilating: inside the vein, not the artery, on short axis; tracking centrally on long axis. Wire not clearly seen: transduce or use a manometer before dilating.",
         "Blood color and non-pulsatile flow do not confirm venous placement.",
-        "Any doubt remaining: pass a small dilator or 18 G catheter over the wire and transduce that before committing the 8.5 Fr dilator. Peri-arrest there is no waveform - use ultrasound.",
+        "Any doubt remaining: pass an 18 G catheter over the wire and transduce that before committing the 8.5 Fr dilator. Peri-arrest there is no waveform, so use ultrasound.",
         "Nick through the dermis into subcutaneous tissue, blade flat against the wire, cutting away from it. An 8.5 Fr sheath needs a real nick.",
         "Advance dilator and sheath over the wire as a unit, with gentle rotation; do not force.",
         "Remove dilator and wire together, holding the sheath; confirm the wire is out intact.",
@@ -3016,11 +3016,11 @@
       "troubleshooting": [
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Sheath tip peels back or kinks: nick too small - withdraw, enlarge the nick, re-advance over a controlled wire.",
-        "Arterial puncture, needle only (18 G or smaller, not dilated): withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. Neck puncture: watch the airway for several hours - a carotid hematoma can obstruct late.",
-        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it; do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
+        "Arterial puncture with a needle, wire or 18 G catheter, not dilated: withdraw and hold firm pressure 5-10 minutes where compressible, longer if anticoagulated. After a neck puncture, watch the airway for several hours. A carotid hematoma can obstruct late. Subclavian or axillary: cannot be compressed, so watch for hemothorax.",
+        "Dilator or larger catheter in an artery, any site including subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and call vascular surgery and interventional radiology now. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
         "Brisk bleeding around the sheath: pressure, assess coagulopathy, confirm intraluminal placement.",
-        "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism - occlude the hub, left lateral decubitus head-down, 100% oxygen, and aspirate from a central lumen if one is in place.",
+        "Sudden hypoxia, hypotension, or cardiovascular collapse around an open hub: suspect air embolism. Occlude the hub, left lateral decubitus head-down (focal deficit or seizure: flat supine instead), 100% oxygen, and aspirate from a central lumen if one is in place.",
         "Unstable after placement: pneumothorax, bleeding, arrhythmia, air embolism, or progressing shock."
       ],
       "complications": [
@@ -3179,8 +3179,8 @@
       "troubleshooting": [
         "Wire will not pass: stop, do not force; recheck needle position and angle, aspirate, use ultrasound, or repuncture.",
         "Catheter will not advance despite dilation: the tract is under-developed or the wire has kinked; re-dilate over a controlled wire and recheck.",
-        "Arterial puncture with the needle only: withdraw and hold firm pressure 5-10 minutes, longer if anticoagulated. After a neck puncture watch the airway for several hours - a carotid hematoma can obstruct late.",
-        "Dilator or catheter in an artery, or any device in the subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and immediately call vascular surgery and interventional radiology. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
+        "Arterial puncture with a needle, wire or 18 G catheter, not dilated: withdraw and hold firm pressure 5-10 minutes where compressible, longer if anticoagulated. After a neck puncture, watch the airway for several hours. A carotid hematoma can obstruct late. Subclavian or axillary: cannot be compressed, so watch for hemothorax.",
+        "Dilator or larger catheter in an artery, any site including subclavian or axillary: leave it in place. Do not remove it and do not compress. Cap or transduce it so it neither bleeds nor entrains air, secure it against dislodgement, and immediately call vascular surgery and interventional radiology. Keep the patient flat and still. Removal with external pressure at a non-compressible site risks stroke, hemothorax, and uncontrolled bleeding.",
         "Unsure whether you are in the artery or the vein: transduce it. Color, non-pulsatile flow, and a blood gas do not answer it.",
         "Poor flow from one lumen after placement: reposition the patient, confirm depth and tip position, and avoid forcing against resistance.",
         "Unstable after placement: consider pneumothorax, bleeding, arrhythmia, air embolism, or progression of underlying illness."
@@ -3428,7 +3428,7 @@
         "The goal is to release the inferior crus of the lateral canthal tendon.",
         "Anesthetize and clamp the lateral canthus to reduce bleeding, then cut horizontally to the orbital rim.",
         "Strum for the inferior crus and cut it; the lower lid should swing free and the globe should soften.",
-        "Reassess intraocular pressure and proptosis; if still tense, release the superior crus as well.",
+        "Reassess intraocular pressure and proptosis. Still tense: complete the inferior release before considering the superior crus.",
         "Do not let lack of an ophthalmologist delay the release in a clear orbital compartment syndrome."
       ],
       "indications": [
@@ -3445,7 +3445,7 @@
         "The lateral canthal tendon anchors the eyelids to the orbital rim and has a superior and an inferior crus.",
         "Cantholysis of the inferior crus releases the lower lid and decompresses the orbit",
         "The orbital septum and retrobulbar space hold the hemorrhage that raises pressure on the optic nerve and its blood supply.",
-        "The lacrimal apparatus sits medially; the lateral approach avoids it. Aim toward the lateral orbital rim, away from the globe."
+        "The lacrimal drainage system sits medially. The lacrimal gland and artery lie superolaterally, at risk from a superior release. Aim toward the lateral orbital rim, away from the globe."
       ],
       "equipment": [
         "Local anesthetic with epinephrine: 1-2 mL of 1% lidocaine with epinephrine, a small syringe, and a 25-27G needle",
@@ -4091,7 +4091,7 @@
       "troubleshooting": [
         "Fluid spreading in muscle, not under the fascia: reposition the tip to the correct plane before continuing.",
         "Blood on aspiration: withdraw and reposition; never inject against a positive aspirate.",
-        "Early LAST signs (perioral numbness, tinnitus, agitation, dysrhythmia): stop injection and begin lipid-emulsion rescue.",
+        "Early LAST signs (perioral numbness, tinnitus, agitation): stop injecting and reassess. Seizure, dysrhythmia or cardiovascular instability: lipid-emulsion rescue per the LAST card.",
         "Partial block: wait out the full onset time, then supplement rather than repeat. Check the remaining allowance on the calculator before drawing up more.",
         "Failed block: do not re-inject the same volume in the same place. Options are a different level, a block of the overlapping nerve, infiltration within the remaining ceiling, or systemic analgesia.",
         "Pain on injection, paresthesia, or high resistance: stop injecting and reposition. Never push harder."
@@ -4375,7 +4375,7 @@
         "Pericardium opened and tamponade relieved if present",
         "Cardiac or great-vessel bleeding controlled",
         "Aorta clamped under direct vision with the esophagus identified, clamp time recorded, and central perfusion improved",
-        "Return of organized cardiac activity or perfusing rhythm as the resuscitation endpoint",
+        "Return of organized cardiac activity or a perfusing rhythm",
         "Patient moving to definitive operative care without delay"
       ],
       "troubleshooting": [

@@ -259,7 +259,12 @@ class TransvenousPacemakerTests(unittest.TestCase):
 
     def test_no_capture_is_named_as_a_position_problem(self):
         """Climbing the output is the intuitive move and the wrong one."""
-        self.assertIn("position, not power", self.text)
+        # Narrowed 2026-10-18 (owner-approved review, F43): "position, not
+        # power" became "position first, not power" and "malposition until
+        # proven otherwise", because a raised threshold (hyperkalemia,
+        # acidosis, class I drugs) also stops capture. Position still leads.
+        self.assertIn("position first, not power", self.text)
+        self.assertIn("malposition until proven otherwise", self.text)
 
     def test_the_balloon_rules_are_present(self):
         """Air only, inflated past the introducer, and never forced."""

@@ -14,7 +14,7 @@
       "Auto-PEEP/dynamic hyperinflation plausible: disconnect briefly.",
       "Reduce excessive PEEP or tidal volume while maintaining oxygenation.",
       "Suspected preload dependence: crystalloid bolus 500-1000 mL IV.",
-      "Push-dose epinephrine 5-20 mcg IV every 2-5 minutes: 1 mL of 0.1 mg/mL (cardiac) epinephrine into 9 mL saline = 10 mcg/mL; give 0.5-2 mL per dose.",
+      "Push-dose epinephrine 5-20 mcg IV every 2-5 minutes. Mix 1 mL of 0.1 mg/mL (cardiac) epinephrine into 9 mL saline for 10 mcg/mL. Give 0.5-2 mL per dose.",
       "Start norepinephrine early, 0.05-0.1 mcg/kg/min, titrated to MAP.",
       "Consider tension pneumothorax, mainstem intubation, hemorrhage, sepsis, or peri-intubation arrest physiology."
     ],
@@ -26,7 +26,7 @@
     ],
     "avoid": [
       "Do not assume the tube is the only problem.",
-      "Do not omit analgesia and sedation once paralysis wears off."
+      "Keep analgesia and sedation going while the patient is paralyzed. Lower the dose if the pressure is low."
     ],
     "tags": [
       "RSI",
@@ -41,7 +41,7 @@
     "references": [
       "Heffner AC, et al. Incidence and factors associated with cardiac arrest complicating emergency airway management. Resuscitation. 2013;84(11):1500-1504. https://doi.org/10.1016/j.resuscitation.2013.07.022",
       "Russotto V, et al. Intubation Practices and Adverse Peri-intubation Events in Critically Ill Patients (INTUBE). JAMA. 2021;325(12):1164-1172. https://doi.org/10.1001/jama.2021.1727",
-      "Society of Critical Care Medicine. Guidelines for the Management of Critically Ill Adults with Airway Management. Crit Care Med. 2023. https://doi.org/10.1097/CCM.0000000000005819",
+      "Acquisto NM, et al. Society of Critical Care Medicine Clinical Practice Guidelines for Rapid Sequence Intubation in the Critically Ill Adult Patient. Crit Care Med. 2023;51(10):1411-1430. https://doi.org/10.1097/CCM.0000000000006000",
       "Verify local institutional policy and the equipment stocked where you work."
     ],
     "reviewerStatus": "Needs Clinical Review",
@@ -59,11 +59,11 @@
       "Failed attempts, falling oxygen saturation, poor view, inability to ventilate, or airway contamination."
     ],
     "immediateMoves": [
-      "Call the failed-airway plan out loud; assign roles.",
+      "Call the failed-airway plan out loud and assign roles.",
       "Reoxygenate: two-hand BVM, oral/nasal airway, PEEP valve, suction.",
-      "Change something before the next attempt: operator, blade, position, device, bougie, or approach.",
-      "Supraglottic airway if BVM or intubation is failing and time allows.",
-      "Cannot oxygenate: front-of-neck access."
+      "Change something before the next attempt: operator, blade, position, device, bougie, or approach. Maximum three attempts plus one by a more experienced operator, then declare failed intubation.",
+      "Failed intubation or failing BVM: second-generation supraglottic airway now, up to three attempts.",
+      "Cannot oxygenate by facemask or SGA: ensure full neuromuscular block, then front-of-neck access."
     ],
     "reassess": [
       "SpO2 trend",
@@ -87,7 +87,7 @@
     "lastReviewed": "2026-06-14",
     "version": "0.2.0",
     "references": [
-      "Difficult Airway Society. Guidelines for the management of unanticipated difficult intubation in adults. 2025. https://doi.org/10.1016/j.bja.2025.02.001",
+      "Ahmad I, et al. Difficult Airway Society 2025 guidelines for management of unanticipated difficult tracheal intubation in adults. Br J Anaesth. 2026;136(1):283-307. https://doi.org/10.1016/j.bja.2025.10.006",
       "Difficult Airway Society. DAS airway algorithms. https://das.uk.com/guidelines/das_intubation_guidelines",
       "Verify local institutional policy and the equipment stocked where you work."
     ],
@@ -101,16 +101,17 @@
     "relatedProcedureIDs": [
       "central_venous_catheter",
       "introducer_sheath_cordis",
-      "dialysis_catheter_vascath"
+      "dialysis_catheter_vascath",
+      "transvenous_pacemaker"
     ],
     "trigger": [
       "Bright pulsatile blood, arterial waveform, high-pressure tubing, or ultrasound concern during access."
     ],
     "immediateMoves": [
-      "Stop. Control the wire/catheter; do not dilate while position is uncertain.",
-      "If stable enough, transduce it; color, pulsatility and a blood gas do not settle it.",
-      "Needle only, not dilated: remove, hold firm pressure 5-10 min, longer if anticoagulated; neck site - watch the airway.",
-      "Dilator or catheter in the artery, or any device in the subclavian or axillary: leave it in place, cap or transduce, call vascular/IR now.",
+      "Stop. Control the wire or catheter. Do not dilate while position is uncertain.",
+      "If stable enough, transduce it. Color, pulsatility and a blood gas do not settle it.",
+      "Needle, wire or 18 G catheter, not dilated, any site: remove it. Compress 5-10 min where compressible, longer if anticoagulated. Neck site: watch the airway. Subclavian or axillary: cannot be compressed, so watch for hemothorax.",
+      "Dilator or larger catheter in an artery, any site including subclavian or axillary: leave it in place, cap or transduce, call vascular/IR now.",
       "Document the event, site, exam, and consultation."
     ],
     "reassess": [
@@ -120,7 +121,7 @@
       "Neurovascular status"
     ],
     "avoid": [
-      "Do not pull a large-bore arterial catheter and hold pressure without backup."
+      "Do not pull a dilator or larger catheter out of an artery and hold pressure. It stays in until vascular or IR remove it."
     ],
     "tags": [
       "CVC",
@@ -149,14 +150,15 @@
     "relatedProcedureIDs": [
       "central_venous_catheter",
       "introducer_sheath_cordis",
-      "dialysis_catheter_vascath"
+      "dialysis_catheter_vascath",
+      "transvenous_pacemaker"
     ],
     "trigger": [
       "Wire no longer visible or control of the proximal wire is lost."
     ],
     "immediateMoves": [
       "Stop the procedure.",
-      "Wire end still visible: clamp it with a hemostat and withdraw; do not let go.",
+      "Wire end still visible: clamp it with a hemostat, keep hold, and withdraw. Resists withdrawal: hold it and image. Do not force it.",
       "Do not advance the catheter or dilator blindly.",
       "Not immediately retrievable: image to localize the wire.",
       "Call IR/vascular per local resources.",
@@ -202,12 +204,15 @@
     ],
     "immediateMoves": [
       "Check the generator is on, rate appropriate, output high, connections secure.",
+      "Generator on and connected, but no spikes or pauses: oversensing. Reduce sensitivity (raise the mV setting). Still inhibited, or no time: asynchronous (VOO).",
       "Increase mA until capture, then set a safety margin above threshold.",
-      "No capture at maximum output: reposition - deflate, withdraw a few centimeters, reinflate, refloat.",
-      "Advance or withdraw the catheter slowly while watching the ECG and pulse/BP.",
+      "No capture at maximum output: reposition. Deflate, withdraw a few centimeters, reinflate, refloat.",
+      "Position confirmed, still no capture: hyperkalemia, acidosis, hypoxia or a class I drug is raising the threshold. Treat it (calcium for hyperkalemia).",
+      "Hiccups or diaphragmatic pacing, new chest pain, or hypotension after a good capture: suspect perforation. Do not advance. Echo for an effusion.",
+      "Advance or withdraw the catheter slowly while watching the ECG and pulse/BP. Deflate the balloon before any withdrawal.",
       "Confirm the course with ultrasound, fluoro, or CXR if available.",
       "Continue transcutaneous pacing while troubleshooting.",
-      "Hypotensive: push-dose epinephrine 5-20 mcg IV every 2-5 minutes (1 mL of 0.1 mg/mL cardiac epinephrine into 9 mL saline = 10 mcg/mL; 0.5-2 mL per dose) or norepinephrine 0.05-0.1 mcg/kg/min titrated to MAP."
+      "Hypotensive: epinephrine infusion 2-10 mcg/min or dopamine 5-20 mcg/kg/min. Bridge with push-dose epinephrine 5-20 mcg IV every 2-5 minutes. Mix 1 mL of 0.1 mg/mL (cardiac) epinephrine into 9 mL saline for 10 mcg/mL. Give 0.5-2 mL per dose."
     ],
     "reassess": [
       "Electrical capture",
@@ -241,16 +246,19 @@
     "title": "Procedural sedation apnea",
     "acuity": "Crash",
     "relatedProcedureIDs": [
-      "procedural_sedation"
+      "procedural_sedation",
+      "synchronized_cardioversion",
+      "shoulder_reduction",
+      "peritonsillar_abscess_drainage"
     ],
     "trigger": [
       "Hypoventilation, apnea, desaturation, loss of airway tone, or rising ETCO2 during sedation."
     ],
     "immediateMoves": [
-      "Stop sedative dosing; call for airway help.",
-      "Reposition the airway, jaw thrust, suction; oral/nasal airway as needed.",
+      "Stop sedative dosing and call for airway help.",
+      "Reposition the airway, jaw thrust, suction. Oral or nasal airway as needed.",
       "BVM with PEEP if ventilation is inadequate.",
-      "Reversal only when appropriate to the agent and context, never instead of ventilation: opioid - naloxone 0.04-0.4 mg IV, titrate every 2-3 minutes; benzodiazepine - flumazenil 0.2 mg IV over 15 seconds, repeat to 1 mg; not with chronic benzodiazepine use, seizure disorder, or a proconvulsant co-ingestion such as a TCA (seizure risk).",
+      "Reverse only when appropriate to the agent and context, and never instead of ventilating. Opioid: naloxone 0.04-0.4 mg IV, titrated every 2-3 minutes. Benzodiazepine: flumazenil 0.2 mg IV over 15 seconds, repeated to 1 mg. No flumazenil with chronic benzodiazepine use, seizure disorder, or a proconvulsant co-ingestion such as a TCA (seizure risk).",
       "Prepare for intubation if oxygenation or ventilation cannot be maintained."
     ],
     "reassess": [
@@ -314,31 +322,37 @@
       "block_mental",
       "block_inferior_alveolar",
       "block_superior_alveolar",
-      "block_auricular"
+      "block_auricular",
+      "block_greater_occipital",
+      "thoracostomy_chest_tube",
+      "pigtail_catheter",
+      "laceration_repair",
+      "anterior_nasal_packing",
+      "shoulder_reduction"
     ],
     "trigger": [
       "Early warning - stop injecting and reassess: perioral numbness or tingling (lips, mouth, tongue), ringing in the ears or tinnitus, metallic taste, light-headedness, blurred or double vision, drowsiness, agitation or confusion.",
       "Established toxicity: seizure, altered mental status, dysrhythmia, or cardiac arrest. May occur immediately or up to 60 minutes after injection.",
-      "Under sedation or general anesthesia the prodrome may be absent or unobservable; a dysrhythmia or sudden hypotension can be the first sign. Absence of early symptoms does not exclude LAST."
+      "Under sedation or general anesthesia the prodrome may be absent or unobservable. A dysrhythmia or sudden hypotension can be the first sign. Absence of early symptoms does not exclude LAST."
     ],
     "immediateMoves": [
       "Stop injecting local anesthetic.",
       "Call for 20% lipid emulsion (Intralipid) now.",
       "Seizure or loss of consciousness: secure the airway early, high-flow O2, prepare to intubate.",
-      "Cardiac arrest: ACLS with lipid emulsion started at the same time; epinephrine sparingly, \u22641 mcg/kg doses.",
-      "Lipid emulsion 20%: >70 kg, 100 mL over 2-3 min then 200-250 mL over 15-20 min; <70 kg, 1.5 mL/kg over 2-3 min then 0.25 mL/kg/min (ideal body weight). Still unstable: repeat the bolus once or twice, double the infusion. Continue at least 10 min after circulatory stability; max ~12 mL/kg.",
+      "Cardiac arrest: ACLS with lipid emulsion started at the same time. Epinephrine sparingly, in \u22641 mcg/kg doses. Alert ECMO or cardiopulmonary bypass early. Prolonged CPR is justified.",
+      "Lipid emulsion 20%. >70 kg: 100 mL over 2-3 min, then 200-250 mL over 15-20 min. <70 kg: 1.5 mL/kg over 2-3 min, then 0.25 mL/kg/min (ideal body weight). Still unstable: repeat the bolus once or twice and double the infusion. Continue at least 10 min after circulatory stability. Max ~12 mL/kg.",
       "Seizure: benzodiazepine, midazolam 1-2 mg IV or 0.05 mg/kg, repeatable."
     ],
     "reassess": [
       "Rhythm and BP every 1-2 minutes until stable",
       "Mental status and seizure recurrence",
-      "Response to lipid emulsion; the endpoint is cardiac recovery",
+      "Response to lipid emulsion. The endpoint is cardiac recovery",
       "SpO2 and ETCO2 continuously if intubated"
     ],
     "avoid": [
-      "No vasopressin; no calcium-channel blockers, beta-blockers or local anesthetics (lidocaine, procainamide) for dysrhythmias (ASRA).",
+      "No vasopressin. No calcium-channel blockers, beta-blockers or local anesthetics (lidocaine, procainamide) for dysrhythmias (ASRA).",
       "Do not use propofol for seizures or in place of lipid emulsion: it is a myocardial depressant and its lipid is too dilute.",
-      "Do not assume resolution is complete: CNS toxicity may outlast cardiac toxicity; observe \u22654-6 hours.",
+      "Do not assume resolution is complete. Cardiovascular toxicity can recur. Observe \u22654-6 hours after a cardiovascular event, \u22652 hours after a CNS-only event.",
       "No high-dose epinephrine: \u22641 mcg/kg doses."
     ],
     "tags": [
@@ -377,17 +391,19 @@
       "needle_decompression",
       "thoracostomy_chest_tube",
       "introducer_sheath_cordis",
-      "dialysis_catheter_vascath"
+      "dialysis_catheter_vascath",
+      "transvenous_pacemaker"
     ],
     "trigger": [
       "Respiratory distress, hypoxia, or decreased breath sounds after IJ, subclavian, or axillary central venous catheter placement."
     ],
     "immediateMoves": [
       "Assess vital signs, SpO2, bilateral breath sounds, JVD, tracheal position.",
-      "Ultrasound: absent lung sliding on the line side suggests pneumothorax; a lung point confirms it.",
-      "Tension physiology (hypotension + absent breath sounds + JVD or tracheal deviation): needle decompression now, without waiting for imaging.",
+      "Ultrasound: absent lung sliding on the line side suggests pneumothorax. A lung point confirms it.",
+      "Tension physiology (hypotension with absent breath sounds or lung sliding on the line side): needle decompression now, without waiting for imaging. JVD and tracheal deviation are often absent.",
       "Large or symptomatic without tension: chest tube or pigtail catheter.",
-      "Small and asymptomatic: supplemental O2, serial imaging, close monitoring in a monitored setting."
+      "Small and asymptomatic, not on positive-pressure ventilation: supplemental O2, serial imaging, close monitoring in a monitored setting.",
+      "On positive-pressure ventilation: chest tube regardless of size."
     ],
     "reassess": [
       "Vital signs and SpO2 every 15 minutes",
@@ -436,18 +452,19 @@
       "CXR now: tube position, residual pneumothorax or effusion, relation to the diaphragm.",
       "Exclude a kinked, clamped, or obstructed circuit before calling it malposition.",
       "Subcutaneous tube (no drainage, crepitus along the tube): remove and replace.",
-      "Tube in the major or minor fissure: may drain slowly; replace or add a second tube if drainage is inadequate.",
-      "Tube through the diaphragm into the abdomen: stop drainage now; do not pull it without surgical consultation, and remove it only with a surgeon present and a vascular injury plan (intra-abdominal hemorrhage risk).",
+      "Tube in the major or minor fissure: may drain slowly. Replace it or add a second tube if drainage is inadequate.",
+      "Tube through the diaphragm into the abdomen: stop drainage now. Do not pull it without surgical consultation. Remove it only with a surgeon present and a vascular injury plan (intra-abdominal hemorrhage risk).",
+      "Tube in the heart, a great vessel or the mediastinum: leave it in, clamp it, cardiothoracic surgery now.",
       "Place a new tube in the safe triangle for the original indication."
     ],
     "reassess": [
       "Drainage output and character every 1-2 hours after repositioning",
-      "Air leak: bubbling in the water seal; tidaling with respiration shows a patent tube in the pleural space",
+      "Air leak: bubbling in the water seal. Tidaling with respiration shows a patent tube in the pleural space",
       "Repeat CXR after repositioning or replacement",
       "Hemodynamics and oxygenation"
     ],
     "avoid": [
-      "Do not advance a chest tube after placement; it carries a non-sterile segment into the pleural space.",
+      "Do not advance a chest tube after placement. It carries a non-sterile segment into the pleural space.",
       "Do not clamp for a suspected large bronchopleural fistula without expert guidance (tension pneumothorax risk)."
     ],
     "tags": [
@@ -463,7 +480,7 @@
     "lastReviewed": "2026-06-15",
     "version": "0.1.0",
     "references": [
-      "Bosman A, et al. Malpositions of thoracic drains: a retrospective analysis. Eur J Cardiothorac Surg. 2010. https://pubmed.ncbi.nlm.nih.gov/22349999/",
+      "Kwiatt M, et al. Thoracostomy tubes: a comprehensive review of complications and related topics. Int J Crit Illn Inj Sci. 2014;4(2):143-155. https://doi.org/10.4103/2229-5151.134182",
       "Roberts ME, et al. British Thoracic Society Guideline for pleural disease. Thorax. 2023;78(Suppl 3):s1-s42. https://doi.org/10.1136/thorax-2022-219784",
       "Verify local institutional policy and the equipment stocked where you work."
     ],
@@ -476,7 +493,10 @@
     "acuity": "Crash",
     "relatedProcedureIDs": [
       "procedural_sedation",
-      "endotracheal_intubation"
+      "endotracheal_intubation",
+      "synchronized_cardioversion",
+      "shoulder_reduction",
+      "peritonsillar_abscess_drainage"
     ],
     "trigger": [
       "Sudden partial or complete glottic closure during or after sedation, airway manipulation, or extubation.",
@@ -487,21 +507,21 @@
       "100% O2 by tight-fitting BVM mask, with jaw thrust and chin lift.",
       "Larson's point: firm bilateral pressure in the laryngospasm notch (behind the ramus, in front of the mastoid) with jaw thrust.",
       "CPAP with the BVM, 10-20 cmH2O.",
-      "Not breaking within 30-60 seconds: succinylcholine 0.1-0.2 mg/kg IV (subparalyzing dose); prepare for possible intubation.",
-      "No IV: succinylcholine 4 mg/kg IM (max 150 mg) - full paralyzing dose, slow onset; bag and prepare to intubate. IO: the IV dose.",
-      "Child with bradycardia: oxygenate; atropine 0.02 mg/kg IV, IO or IM (max 0.5 mg).",
+      "Not breaking within 30-60 seconds: succinylcholine 0.1-0.2 mg/kg IV (subparalyzing dose). Prepare for possible intubation.",
+      "No IV: succinylcholine 4 mg/kg IM (max 150 mg). That is a full paralyzing dose with slow onset, so bag and prepare to intubate. IO: the IV dose.",
+      "Child with bradycardia: oxygenate and give atropine 0.02 mg/kg IV, IO or IM (max 0.5 mg).",
       "Complete obstruction and impending arrest: succinylcholine 1-2 mg/kg IV and intubate. Surgical airway ready."
     ],
     "reassess": [
       "SpO2 and ETCO2 continuously",
-      "Chest rise with each positive-pressure breath; none means complete closure",
+      "Chest rise with each positive-pressure breath. None means complete closure",
       "Resolution of stridor",
       "Heart rate: bradycardia signals impending cardiac arrest"
     ],
     "avoid": [
       "Do not force a laryngoscope or airway device through a closed glottis.",
       "Do not delay succinylcholine if BVM ventilation is failing.",
-      "Do not sedate with ketamine without suction at hand; secretions can precipitate laryngospasm."
+      "Do not sedate with ketamine without suction at hand. Secretions can precipitate laryngospasm."
     ],
     "tags": [
       "laryngospasm",
@@ -531,19 +551,20 @@
     "relatedProcedureIDs": [
       "central_venous_catheter",
       "introducer_sheath_cordis",
-      "dialysis_catheter_vascath"
+      "dialysis_catheter_vascath",
+      "transvenous_pacemaker"
     ],
     "trigger": [
       "Sudden hypoxia, hypotension, chest pain, altered consciousness, or cardiovascular collapse around an open hub - at insertion, while a line is disconnected, or at removal."
     ],
     "immediateMoves": [
       "Occlude the hub or open lumen now: clamp, cap, or cover the site.",
-      "Left lateral decubitus, head down.",
+      "Left lateral decubitus, head down. Focal deficit or seizure (arterial gas): flat supine instead.",
       "100% oxygen.",
       "Central lumen already in place with a central tip: aspirate from it.",
       "Support the circulation: IV fluid bolus, and norepinephrine 0.05-0.1 mcg/kg/min titrated to MAP or push-dose epinephrine 5-20 mcg IV every 2-5 minutes.",
-      "Arrested: CPR supine; compressions can also break up a large air lock.",
-      "Call for help; consider hyperbaric referral for suspected cerebral arterial gas embolism."
+      "Arrested: CPR supine. Compressions can also break up a large air lock.",
+      "Call for help. Consider hyperbaric referral for suspected cerebral arterial gas embolism."
     ],
     "reassess": [
       "SpO2 and end-tidal CO2 (a sudden ETCO2 fall fits a large embolism)",
@@ -588,26 +609,26 @@
       "thoracostomy_chest_tube"
     ],
     "trigger": [
-      "Repetitive cough, chest tightness or pain, or worsening breathlessness during or shortly after pleural drainage; usually after a large or rapid volume, but it can follow a small one."
+      "Repetitive cough, chest tightness or pain, or worsening breathlessness during or shortly after pleural drainage. Usually after a large or rapid volume, but it can follow a small one."
     ],
     "immediateMoves": [
-      "Stop draining and clamp the drain; slowing it is not enough.",
-      "Sit the patient up; high-flow oxygen titrated to saturation.",
-      "Do not resume drainage this session. If more must come off later, drain slowly and stop at the first symptom.",
-      "Escalate early: CPAP or non-invasive ventilation for hypoxia that does not correct; intubation with lung-protective settings if it progresses.",
+      "Stop draining and clamp the drain. Slowing it is not enough. Bubbling drain (air leak) or hemothorax: do not clamp. Take it off suction, water seal only. Hemothorax output still counts toward the surgical triggers.",
+      "Sit the patient up. High-flow oxygen titrated to saturation.",
+      "Clamped drain: do not reopen it this session. If more fluid must come off later, drain slowly and stop at the first symptom.",
+      "Escalate early: CPAP or non-invasive ventilation for hypoxia that does not correct. Intubation with lung-protective settings if it progresses.",
       "Support the circulation with fluids and, if needed, norepinephrine 0.05-0.1 mcg/kg/min titrated to MAP.",
-      "Chest x-ray: unilateral edema on the drained side; exclude pneumothorax as the cause."
+      "Chest x-ray: unilateral edema on the drained side. Exclude pneumothorax as the cause."
     ],
     "reassess": [
       "SpO2 and work of breathing every 5 minutes until stable",
-      "Drain clamped and staying clamped",
-      "Blood pressure; hypotension is common",
+      "Drain clamped and staying clamped, or on water seal if bubbling or a hemothorax",
+      "Blood pressure. Hypotension is common",
       "Total volume removed this session"
     ],
     "avoid": [
-      "Do not give diuretics reflexively: this is permeability edema, not volume overload, and they may worsen hypovolemia.",
+      "Do not give diuretics reflexively. This is permeability edema rather than volume overload, and they may worsen hypovolemia.",
       "Do not attribute new hypoxia after drainage to the effusion without excluding pneumothorax.",
-      "Do not use vacuum bottles or wall suction for therapeutic aspiration; suction increases this risk."
+      "Do not use vacuum bottles or wall suction for therapeutic aspiration. Suction increases this risk."
     ],
     "tags": [
       "re-expansion",
@@ -650,7 +671,7 @@
       "Cut the remaining inferior crus with blunt-tipped scissors aimed at the orbital rim, inferiorly and slightly posteriorly, away from the globe. The lid should then swing freely and the globe soften.",
       "Reassess: orbital tension, intraocular pressure, proptosis, vision or at least light perception, and the pupil.",
       "Release the superior crus only if, after a complete inferior release, all three persist: orbit tense, pressure raised, vision or pupil not improved. It adds lacrimal artery and gland risk.",
-      "Call ophthalmology emergently; continue medical measures to lower intraocular pressure under their guidance. Do not wait for either to finish the release."
+      "Call ophthalmology emergently. Continue medical measures to lower intraocular pressure under their guidance. Do not wait for either to finish the release."
     ],
     "reassess": [
       "Whether the lower lid swings freely away from the globe",
@@ -660,8 +681,8 @@
       "Time from symptom onset to decompression"
     ],
     "avoid": [
-      "Do not stop at the skin incision; without the cantholysis the orbital pressure is unchanged.",
-      "Do not go to the superior crus to make up for an incomplete inferior release; an incomplete inferior release is far commoner than a genuine need to go superior.",
+      "Do not stop at the skin incision. Without the cantholysis the orbital pressure is unchanged.",
+      "Do not go to the superior crus to make up for an incomplete inferior release, which is far commoner than a genuine need to go superior.",
       "Do not cut toward the globe, and do not substitute sharp or iris scissors for blunt-tipped ones in a swollen, bloody field.",
       "Suspected globe rupture: stop manipulating the orbit and get emergent ophthalmology."
     ],
@@ -700,17 +721,18 @@
     ],
     "immediateMoves": [
       "Stop. Do not dilate or railroad a catheter until position is proven.",
-      "Aspirate color does not confirm position; in hemopericardium everything is blood.",
-      "Agitated saline: inject a few milliliters. Bubbles in the pericardial space confirm position; bubbles in a cardiac chamber mean the tip is in the heart.",
-      "Saline contrast unavailable or equivocal: see the needle, wire, or catheter in the pericardial space on real-time ultrasound, or transduce the hub - a ventricular pressure waveform means the tip is in the ventricle.",
-      "Brisk clotting in the syringe supports intracardiac blood (pericardial blood is usually defibrinated); a supporting sign, never the confirmation.",
+      "Aspirate color does not confirm position. In hemopericardium everything is blood.",
+      "Agitated saline: inject a few milliliters. Bubbles in the pericardial space confirm position. Bubbles in a cardiac chamber mean the tip is in the heart.",
+      "Saline contrast unavailable or equivocal: see the needle, wire, or catheter in the pericardial space on real-time ultrasound, or transduce the hub. A ventricular pressure waveform means the tip is in the ventricle.",
+      "Brisk clotting in the syringe supports intracardiac blood but never confirms it. Pericardial blood is usually defibrinated.",
       "Intracardiac: withdraw the needle, watch, and re-scan for a new or enlarging effusion. A needle hole usually seals.",
+      "Dilator or catheter already in a chamber: leave it in, cap it, activate cardiothoracic surgery and blood now.",
       "Then re-plan rather than repeat: largest pocket, shortest safe path, depth read off the screen, advance under real-time visualization.",
       "Activate cardiothoracic surgery and blood if the effusion enlarges or the patient deteriorates."
     ],
     "reassess": [
       "Where the bubbles went on agitated saline",
-      "Wire, then catheter, seen inside the pericardial space before anything is dilated",
+      "Wire seen inside the pericardial space before dilating, and the catheter seen there after placement",
       "Rhythm and blood pressure - new ectopy suggests the tip is against or in myocardium",
       "Repeat ultrasound for a new or enlarging effusion after any withdrawal",
       "Residual effusion and whether tamponade physiology has resolved"
@@ -757,24 +779,25 @@
       "Work the recoverable technical failures below, in order, before reaching the endpoint.",
       "Exposure: the commonest failure is a small incision. Extend it from the sternal edge to the table, and across the sternum to a clamshell for right-sided injury or wider access.",
       "Confirm the pericardium is open. A tamponaded pericardium is tense and hard to pinch up: grasp, incise longitudinally anterior to the phrenic nerve, evacuate clot.",
-      "Find the cardiac wound: posterior surface and great vessels, lifting the heart carefully. Finger pressure first, then a Foley balloon, staples, or sutures; do not tie a suture around a coronary artery.",
+      "Find the cardiac wound: posterior surface and great vessels, lifting the heart carefully. Finger pressure first, then a Foley balloon, staples, or sutures. Do not tie a suture around a coronary artery.",
+      "Lung hilum bleeding, or air in the coronaries: clamp or twist the hilum. Aspirate air from the left ventricular apex and aortic root.",
       "Two-handed internal cardiac massage throughout, with blood products running.",
-      "Internal defibrillation only for a shockable rhythm, at internal-paddle energy - commonly about 10-20 J, confirmed against the paddle and defibrillator instructions.",
+      "Internal defibrillation only for a shockable rhythm, at internal-paddle energy, commonly about 10-20 J. Confirm it against the paddle and defibrillator instructions.",
       "Clamp on and nothing changed: question the clamp. It is probably on the esophagus (check by feel against the orogastric tube), or the bleeding is above it.",
-      "In a clamshell, expect brisk bleeding from the divided internal mammary arteries when circulation returns; check the sternal edges first and ligate."
+      "In a clamshell, expect brisk bleeding from the divided internal mammary arteries when circulation returns. Check the sternal edges first and ligate."
     ],
     "reassess": [
-      "Organized cardiac activity and a perfusing rhythm (the endpoint)",
+      "Organized cardiac activity and a perfusing rhythm",
       "Incision truly runs from the sternum to the table",
       "Pericardium open and decompressed, not only incised over a tense sac",
-      "Aortic clamp position under direct vision and by feel against the orogastric tube; clamp time said out loud every five minutes",
+      "Aortic clamp position under direct vision and by feel against the orogastric tube. Clamp time said out loud every five minutes",
       "Sternal edges for internal mammary bleeding once circulation returns",
       "Blood product delivery, and whether the theater and surgeon are still a real destination"
     ],
     "avoid": [
       "Do not keep massaging through an inadequate incision.",
       "Do not accept 'pericardium opened' without evacuated clot and a decompressed sac.",
-      "Do not leave a clamp not identified under direct vision and by feel against the orogastric tube.",
+      "Do not leave a clamp on that has not been identified under direct vision and by feel against the orogastric tube.",
       "Do not carry on past the endpoint: no organized cardiac activity after tamponade release, hemorrhage control, and an aortic clamp."
     ],
     "tags": [

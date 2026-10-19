@@ -636,10 +636,15 @@ class VascularAccessRescueTests(unittest.TestCase):
         Identity across the three records was retired on 2026-08-06 for the
         same reason as the rescue above: the reviewer's vascath wording drops
         the gauge parenthetical, and the other two were not theirs to change."""
-        branches = self._matching("troubleshooting", "needle only")
+        # Narrowed 2026-10-18 (owner-approved review, F8): the branch now reads
+        # "needle, wire or 18 G catheter, not dilated: withdraw; firm pressure
+        # ... where compressible", and names the non-compressible sites.
+        branches = self._matching("troubleshooting", "needle, wire or 18 G catheter, not dilated")
         self.assertTrue(branches)
         for branch in branches:
-            self.assertIn("hold firm pressure", branch)
+            self.assertIn("withdraw", branch)
+            self.assertIn("firm pressure", branch)
+            self.assertIn("cannot be compressed", branch)
 
     def test_every_record_says_to_transduce_when_unsure(self):
         # Deliberately not "transduce it": the leave-in-place rescue says that
@@ -831,7 +836,10 @@ class PleuralProcedureTests(unittest.TestCase):
                 line
                 for name in ("steps", "troubleshooting", "shiftMode")
                 for line in self.records[pid]["sections"].get(name) or []
-                if "Drain to symptoms" in line
+                # 2026-10-18 (owner-approved review, F72/F98): the rule now
+                # opens "Effusion: drain to symptoms" and adds the bubbling-drain
+                # and hemothorax exceptions; matched case-insensitively.
+                if "drain to symptoms" in line.lower()
             ]
             self.assertTrue(lines, pid)
             found.extend(lines)
